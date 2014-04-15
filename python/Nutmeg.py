@@ -100,9 +100,13 @@ class Nutmeg:
         # We're going by the interesting assumption that a file path cannot be
         # used to define a QML layout...
         qml = ""
-        if os.path.exists(figureDef):
-            with open(figureDef, 'r') as F:
-                qml = F.read().encode('UTF-8')
+
+        if figureDef.endswith('.qml') or os.path.exists(figureDef):
+            if os.path.exists(figureDef):
+                with open(figureDef, 'r') as F:
+                    qml = F.read().encode('UTF-8')
+            else:
+                raise(QMLException("File, %s, does not exist." % figureDef))
         else:
             qml = figureDef
 
@@ -300,7 +304,7 @@ def _testParams():
     print "Sending GUI..."
     success = fig.setGui('gui1.qml')
 
-    N = 100
+    N = 200
     data = np.random.standard_normal((3,N*10))
     data2 = np.random.standard_normal((3,N))
 
@@ -312,6 +316,9 @@ def _testParams():
     fig.set('ax[:].red', {'x': np.arange(N, dtype=float)})
     fig.set('ax[:].blue', Updater(['sigma'], update=update))
     fig.set('ax[:].red', Updater(['sigma'], update=update2))
+    # for i in range(100):
+    #     fig.set('ax[:].red', update2({'sigma': i*0.05}))
+    #     time.sleep(0.025)
     print("Data set")
 
 

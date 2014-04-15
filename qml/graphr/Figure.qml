@@ -8,8 +8,6 @@ FigureBase {
 
     handle: "fig"
 
-    onAppChanged: console.log("Figure appChanged", app)
-
     property int tabIndex: -1
     property var guiItem: null
 }

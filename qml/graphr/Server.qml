@@ -38,7 +38,8 @@ ServerBase {
         // Figure handles must be unique, overwrite existing handles
         var oldFigure = controller.get(handle)
         if (oldFigure) {
-            oldFigure.guiItem.destroy()
+            if (oldFigure.guiItem)
+                oldFigure.guiItem.destroy()
             tabView.removeTab(oldFigure.tabIndex)
             oldFigure.destroy()
         }
@@ -49,6 +50,9 @@ ServerBase {
             fig = Qt.createQmlObject(qml, par, "Figures")
         } catch (e) {
             // Offset for the added lines...
+            console.log("Error creating:\n\"")
+            console.log(qml)
+            console.log("\n\"")
             e.qmlErrors[0].lineNumber -= 3
             return [2, e]
         }
@@ -58,7 +62,8 @@ ServerBase {
             fig.handle = handle
         tabView.addFigure(fig)
         fig.controller = controller
-        fig.app = rootApp
+        console.log("Installing to figure:", rootApp)
+        fig.installEventFilterApp(rootApp)
         return [0, fig.handle, "Figure created successfully."]
     }
 
@@ -73,7 +78,7 @@ ServerBase {
             server.parameterUpdated(figureHandle, parameter)
 
         var obj = controller.get(handle)
-//        console.log(obj)
+        console.log("SendData:", obj)
         for (var prop in data)
             setProperties(obj, prop, data[prop])
 
@@ -120,13 +125,14 @@ ServerBase {
     function setProperties(obj, prop, data) {
         /* Takes an obj or array of objects and sets its/their properties according to prop + data */
 //        console.log("Setting Properties", obj, prop, data.length)
+        if (!obj) return
         if (Util.isArray(obj)) {
             for (var i=0; i<obj.length; ++i) {
                 var d = Util.isArray(data) && Util.isArray(data[i]) ? data[i] : data
                 setProperties(obj[i], prop, d)
             }
         } else {
-//            console.log("Assign to real prop:", obj.map(prop), data.length)
+//            console.log("Assign to real prop:", obj.map(prop), data)
             obj[obj.map(prop)] = data
         }
     }

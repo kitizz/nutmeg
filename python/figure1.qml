@@ -15,6 +15,10 @@ Figure {
                     handle: "red"
                     lineColor: "#FF7777"; lineStyle: "-"; lineWidth: 4
                 }
+                LinePlot {
+                    handle: "green"
+                    lineColor: "#77FF77"; lineStyle: ":"; lineWidth: 4
+                }
             }
         }
     }

@@ -85,7 +85,7 @@ void Server::processRequest(const QList<QByteArray> &request)
 {
     static quint64 counter = 0;
     counter++;
-//    qDebug() << "Replier::requestReceived> " << counter;
+//    qDebug() << "Replier::requestReceived> " << counter << request;
 
     QJsonDocument doc = QJsonDocument::fromJson(request[0]);
     emit requestReceived(doc.toVariant());

@@ -6,6 +6,7 @@
 #include "axisbase.h"
 #include "controller.h"
 #include "nutmegobject.h"
+#include "mouseevent.h"
 
 class AxisBase;
 class Controller;
@@ -15,7 +16,9 @@ class FigureBase : public QQuickItem, public NutmegObject
     Q_PROPERTY(QString handle READ handle WRITE setHandle NOTIFY handleChanged)
     Q_PROPERTY(QVariantMap axes READ axes NOTIFY axesChanged)
     Q_PROPERTY(Controller* controller READ controller WRITE setController NOTIFY controllerChanged)
-    Q_PROPERTY(QObject* app READ app WRITE setApp NOTIFY appChanged)
+    Q_PROPERTY(int mouseButtons READ mouseButtons NOTIFY mouseButtonsChanged)
+    Q_PROPERTY(QPointF mouse READ mouse NOTIFY mouseChanged)
+    Q_PROPERTY(QPointF mouseUnit READ mouseUnit NOTIFY mouseUnitChanged)
 public:
     explicit FigureBase(QQuickItem *parent = 0);
     ~FigureBase();
@@ -33,17 +36,30 @@ public:
 
     Q_INVOKABLE QString map(QString prop);
 
-    QObject* app() const;
-    void setApp(QObject* arg);
+    Q_INVOKABLE void installEventFilterApp(QObject *app);
+    bool eventFilter(QObject *watched, QEvent *event);
+
+    QPointF mouse() const;
+    void setMouse(QPointF arg);
+
+    QPointF mouseUnit() const;
+    void setMouseUnit(QPointF arg);
+
+    int mouseButtons() const;
+    void setMouseButtons(int arg);
 
 signals:
+    void mouseMoved(MouseEvent* mouse);
+    void mousePressed(MouseEvent* mouse);
+    void mouseReleased(MouseEvent* mouse);
     void axesChanged(QVariantMap arg);
     void handleChanged(QString arg);
     void addedAxis(AxisBase* axis);
-
     void controllerChanged(Controller* arg);
+    void mouseChanged(QPointF arg);
+    void mouseUnitChanged(QPointF arg);
 
-    void appChanged(QObject* arg);
+    void mouseButtonsChanged(int arg);
 
 public slots:
     void deregisterAxis(AxisBase *axis);
@@ -59,7 +75,9 @@ private:
 
     QString m_handle;
     Controller* m_controller;
-    QObject* m_app;
+    QPointF m_mouse;
+    QPointF m_mouseUnit;
+    int m_mouseButtons;
 };
 
 #endif // FIGURE_H

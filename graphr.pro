@@ -3,6 +3,11 @@ folder_01.source = qml/graphr
 folder_01.target = qml
 DEPLOYMENTFOLDERS = folder_01
 
+# C++11 !!
+#QMAKE_CXXFLAGS += -std=c++11
+QMAKE_CXXFLAGS = -mmacosx-version-min=10.7 -std=gnu0x -stdlib=libc+
+CONFIG +=c++11
+
 # Additional import path used to resolve QML modules in Creator's code model
 QML_IMPORT_PATH =
 
@@ -22,7 +27,15 @@ SOURCES += main.cpp \
     controller.cpp \
     lineplotcanvas.cpp \
     plotcanvas.cpp \
-    nutmegobject.cpp
+    nutmegobject.cpp \
+    mouseevent.cpp \
+    QKDTree/QKDTree/QKDTree.cpp \
+    QKDTree/QKDTree/QKDTreeDistanceMetric.cpp \
+    QKDTree/QKDTree/QKDTreeNode.cpp \
+    QKDTree/QVectorND/QVectorND.cpp \
+    axiscanvas2d.cpp \
+    locators.cpp \
+    linespec.cpp
 
 # Installation path
 # target.path =
@@ -42,7 +55,17 @@ HEADERS += \
     controller.h \
     lineplotcanvas.h \
     plotcanvas.h \
-    nutmegobject.h
+    nutmegobject.h \
+    mouseevent.h \
+    QKDTree/QKDTree/QKDTree.h \
+    QKDTree/QKDTree/QKDTree_global.h \
+    QKDTree/QKDTree/QKDTreeDistanceMetric.h \
+    QKDTree/QKDTree/QKDTreeNode.h \
+    QKDTree/QVectorND/QVectorND.h \
+    QKDTree/QVectorND/QVectorND_global.h \
+    axiscanvas2d.h \
+    locators.h \
+    linespec.h
 
 LIBS += -lzmq
 

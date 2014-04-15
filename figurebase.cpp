@@ -17,7 +17,8 @@ FigureBase::FigureBase(QQuickItem *parent)
 
 FigureBase::~FigureBase()
 {
-    m_controller->deregisterFigure(this);
+    if (m_controller)
+        m_controller->deregisterFigure(this);
     m_destroying = true;
 }
 
@@ -110,16 +111,83 @@ QString FigureBase::map(QString prop)
     return NutmegObject::map(prop);
 }
 
-QObject *FigureBase::app() const
+void FigureBase::installEventFilterApp(QObject *app)
 {
-    return m_app;
+    if (!app) return;
+    app->installEventFilter(this);
 }
 
-void FigureBase::setApp(QObject *arg)
+bool FigureBase::eventFilter(QObject *watched, QEvent *event)
 {
-    if (m_app == arg) return;
-    m_app = arg;
-    emit appChanged(arg);
+//    if (event->type() == QEvent::MouseMove) {
+//        // Record the mouse info
+//        MouseEvent *mouseEvent = new MouseEvent(event);
+//        m_mouse = mapFromScene(QPointF(mouseEvent->x(), mouseEvent->y()));
+//        emit mouseChanged(m_mouse);
+//        emit mouseMoved(mouseEvent);
+
+//    } else if (event->type() == QEvent::MouseButtonPress) {
+//        MouseEvent *mouseEvent = new MouseEvent(event);
+//        // Dragging is for the left-button only
+//        if (mouseEvent->button() == Qt::LeftButton) {
+//            setMouseStart(m_mouse); // Plain and simple..
+//            setMouseDelta(QPointF());
+//        }
+
+//        m_mouseButtons = mouseEvent->buttons();
+//        emit mouseButtonsChanged(m_mouseButtons);
+//        emit mousePressed(mouseEvent);
+
+//    } else if (event->type() == QEvent::MouseButtonRelease) {
+//        MouseEvent *mouseEvent = new MouseEvent(event);
+//        m_mouseButtons = mouseEvent->buttons();
+//        emit mouseButtonsChanged(m_mouseButtons);
+//        emit mouseReleased(mouseEvent);
+
+//        // Clicking is for the left-button only
+//        if (mouseEvent->button() == Qt::LeftButton) {
+//            QPointF frameDelta = m_mouseFrame - spaceToFrame(m_mouseStart);
+//            if (frameDelta.manhattanLength() < 3)
+//                emit mouseClicked(mouseEvent);
+//        }
+//    }
+    return QQuickItem::eventFilter(watched, event);
+}
+
+QPointF FigureBase::mouse() const
+{
+    return m_mouse;
+}
+
+void FigureBase::setMouse(QPointF arg)
+{
+    if (m_mouse == arg) return;
+    m_mouse = arg;
+    emit mouseChanged(arg);
+}
+
+QPointF FigureBase::mouseUnit() const
+{
+    return m_mouseUnit;
+}
+
+void FigureBase::setMouseUnit(QPointF arg)
+{
+    if (m_mouseUnit == arg) return;
+    m_mouseUnit = arg;
+    emit mouseUnitChanged(arg);
+}
+
+int FigureBase::mouseButtons() const
+{
+    return m_mouseButtons;
+}
+
+void FigureBase::setMouseButtons(int arg)
+{
+    if (m_mouseButtons == arg) return;
+    m_mouseButtons = arg;
+    emit mouseButtonsChanged(arg);
 }
 
 void FigureBase::updateAxes()
