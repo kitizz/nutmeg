@@ -1,0 +1,12 @@
+#ifndef QVECTORND_GLOBAL_H
+#define QVECTORND_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(QVECTORND_LIBRARY)
+#  define QVECTORNDSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define QVECTORNDSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // QVECTORND_GLOBAL_H
