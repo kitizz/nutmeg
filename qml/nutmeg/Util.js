@@ -53,3 +53,7 @@ function max(lst) {
     }
     return bestM
 }
+
+function copyRect(r) {
+    return Qt.rect(r.x, r.y, r.width, r.height)
+}

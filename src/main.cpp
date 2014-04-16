@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QtQuick2ApplicationViewer viewer;
-    viewer.setMainQmlFile(QStringLiteral("qml/graphr/main.qml"));
+    viewer.setMainQmlFile(QStringLiteral("qml/nutmeg/main.qml"));
     viewer.showExpanded();
     viewer.setWidth(700);
     viewer.setHeight(450);

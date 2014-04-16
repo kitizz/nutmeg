@@ -15,7 +15,7 @@ Rectangle {
 
     FileIO {
         id: testFile
-        source: "qml/graphr/TestFigure.qml"
+        source: "qml/nutmeg/TestFigure.qml"
         onError: console.log(msg)
     }
 
