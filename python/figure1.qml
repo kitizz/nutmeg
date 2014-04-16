@@ -9,15 +9,15 @@ Figure {
                 // LinePlot {}
                 LinePlot {
                     handle: "blue"
-                    lineColor: "#7777FF"; lineStyle: "-"; lineWidth: 4
+                    line { color: "#7777FF"; style: "-"; width: 4 }
                 }
                 LinePlot {
                     handle: "red"
-                    lineColor: "#FF7777"; lineStyle: "-"; lineWidth: 4
+                    line { color: "#FF7777"; style: "-"; width: 4 }
                 }
                 LinePlot {
                     handle: "green"
-                    lineColor: "#77FF77"; lineStyle: ":"; lineWidth: 4
+                    line { color: "#77FF77"; style: ":"; width: 4 }
                 }
             }
         }

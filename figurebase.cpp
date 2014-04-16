@@ -10,6 +10,7 @@ FigureBase::FigureBase(QQuickItem *parent)
 {
     m_axes = QMultiMap<QString,AxisBase*>();
     m_axesVar = QVariantMap();
+    m_axisList = QVariantList();
 
     QMap<QString,QString> props;
     registerProperties(props);
@@ -63,6 +64,11 @@ void FigureBase::registerAxis(AxisBase *axis)
 
     m_axes.insert(key, axis);
     updateAxes();
+}
+
+QVariantList FigureBase::getAxisList()
+{
+    return m_axisList;
 }
 
 void FigureBase::deregisterAxis(AxisBase *axis)
@@ -193,12 +199,16 @@ void FigureBase::setMouseButtons(int arg)
 void FigureBase::updateAxes()
 {
     QVariantMap newMap; // Map of QVariantList
+    QVariantList newList;
     foreach (const QString &key, m_axes.keys()) {
         QVariantList list;
-        foreach (QObject *ax, m_axes.values(key))
+        foreach (QObject *ax, m_axes.values(key)) {
             list.prepend(QVariant::fromValue(ax));
+            newList.prepend(QVariant::fromValue(ax));
+        }
         newMap.insert(key, list);
     }
     m_axesVar = newMap;
+    m_axisList = newList;
     emit axesChanged(m_axesVar);
 }

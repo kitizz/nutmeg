@@ -3,14 +3,16 @@ import Graphr 1.0
 import QtQuick.Layouts 1.0
 
 import "Vector.js" as Vector
+import "Util.js" as Util
 
 AxisBase {
-    id: axis
+    id: axisItem
     handle: "ax"
     width: parent.width
     height: parent.height
 
     default property alias plotArea: plotFrame.children
+    property rect plotRect: Qt.rect(plotFrame.x, plotFrame.y, plotFrame.width, plotFrame.height)
 
     property real widthFraction: -1
     property real heightFraction: -1
@@ -23,8 +25,18 @@ AxisBase {
     property var xNumbers: []
     property var yNumbers: []
 
+    onWidthChanged: updateTickNumbers(0)
+    onHeightChanged: updateTickNumbers(1)
     yAxis.onMajorTicksChanged: updateTickNumbers(0)
     xAxis.onMajorTicksChanged: updateTickNumbers(1)
+    onLimitsChanged: {
+        updateTickNumbers(0)
+        updateTickNumbers(1)
+    }
+    Component.onCompleted: {
+        updateTickNumbers(0)
+        updateTickNumbers(1)
+    }
 
     margin { top: 10; right: 10; bottom: 50; left: 50 }
     children: [
@@ -32,18 +44,29 @@ AxisBase {
             id: plotFrame
             anchors.fill: parent
             anchors {
-                leftMargin: axis.margin.left; rightMargin: axis.margin.right
-                topMargin: axis.margin.top; bottomMargin: axis.margin.bottom
+                leftMargin: axisItem.margin.left; rightMargin: axisItem.margin.right
+                topMargin: axisItem.margin.top; bottomMargin: axisItem.margin.bottom
             }
             color: "white"
             border { color: "#AAAAAA"; width: 1 }
+
+            Text {
+                id: xAxisOffset
+                x: plotFrame.width + axisItem.margin.right - implicitWidth
+                y: plotFrame.height + implicitHeight
+            }
+            Text {
+                id: yAxisOffset
+                x: 0
+                y: -implicitHeight
+            }
         },
 
         AxisCanvas2D {
             id: axisCanvas
             x: 0; y: 0
-            axis: axis
-            plotRect: Qt.rect(plotFrame.x, plotFrame.y, plotFrame.width, plotFrame.height)
+            axis: axisItem
+            plotRect: axisItem.plotRect
             width: parent.width*scaling
             height: parent.height*scaling
             transform: Scale {
@@ -128,7 +151,8 @@ AxisBase {
     //      Functions
     // ------------------
     function updateTickNumbers(axis) {
-        var ticks, numbers
+//        console.log("Updating tickNumbers:", axis)
+        var ticks, numbers, i
         if (axis == 0) {
             ticks = xAxis.majorTicks
             numbers = xNumbers
@@ -136,22 +160,56 @@ AxisBase {
             ticks = yAxis.majorTicks
             numbers = yNumbers
         } else {
-            return;
+            return false;
         }
+        if (!numbers) return false
 
-        var diff = ticks.length - numbers.length
+        var N = numbers.length
+
+        var diff = ticks.length - N
         if (diff > 0) {
-            for (var i=0; i<diff; ++i)
-                numbers.push(numberCmp.createObject(plotFrame, {'axis': 0}))
-        } else if (ticks.length < numbers.length) {
-            for (var i=0; i<-diff; ++i)
+            for (i=0; i<diff; ++i)
+                numbers.push(numberCmp.createObject(plotFrame, {'axis': axis}))
+        } else if (ticks.length < N) {
+            for (i=0; i<-diff; ++i)
                 numbers.pop().destroy()
         }
 
-        // Update .value for all.
-        for (var i=0; i<numbers.length; ++i) {
-            numbers[i].value = ticks[i]
+        N = numbers.length
+
+        // Define the display precision
+        var mean = Util.mean(ticks)
+        var std = Util.std(ticks)
+        var ratio = Math.abs(std/mean)
+        var offset = 0
+        var offsetPrec = 0
+        var offsetText = ""
+        if (ratio < 0.01) {
+            offset = axisItem.offsetFromStd(Util.min(ticks), std)
+            offsetPrec = Math.abs( Math.floor(axisItem.log_10(ratio)))
+            console.log("Offset Prec:", offsetPrec)
+            offsetText = axisItem.formatReal(offset, offsetPrec) + "+"
         }
+
+        // Update .value for all.
+        for (i=0; i<N; ++i) {
+            // TODO: Error: TypeError: Cannot set property 'value' of undefined
+            numbers[i].value = ticks[i]
+            numbers[i].offset = offset
+        }
+
+        // The following statements ensure that this function is run.
+        // It appears that the engine optimizes functions out if they
+        // have not obvious external effect...
+        if (axis == 0) {
+            xNumbers = numbers
+            xAxisOffset.text = offsetText
+        } else if (axis == 1) {
+            yNumbers = numbers
+            yAxisOffset.text = offsetText
+        }
+
+        return true
     }
 
     function clearPlotTips() {
@@ -169,7 +227,8 @@ AxisBase {
         Text {
             property int axis: -1
             property real value: 0
-            text: value.toString()
+            property real offset: 0
+            text: axisItem.formatReal(value - offset, 3)
             x: axis != 0 ? -implicitWidth - 5:
                            plotFrame.width*(value - minX)/(maxX - minX) - implicitWidth/2
             y: axis != 1 ? plotFrame.height + 5:

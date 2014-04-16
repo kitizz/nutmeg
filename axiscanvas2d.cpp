@@ -16,7 +16,7 @@ AxisCanvas2D::AxisCanvas2D(QQuickItem *parent)
 
 void AxisCanvas2D::paint(QPainter *painter)
 {
-//    qDebug() << "Drawing text in axisCanvas" << m_scaling;
+    qDebug() << "Drawing text in axisCanvas" << m_scaling;
     QRectF lim = m_axis->limits();
 
     qreal majorSize = 5, minorSize = 2;

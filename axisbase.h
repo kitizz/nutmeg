@@ -38,12 +38,15 @@ class AxisBase : public QQuickPaintedItem, public NutmegObject
     Q_PROPERTY(QRectF dataLimits READ dataLimits NOTIFY dataLimitsChanged)
 
     Q_PROPERTY(AxisMargins* margin READ margin)
-
     Q_PROPERTY(QList<qreal> yLimitRounding READ yLimitRounding WRITE setYLimitRounding NOTIFY yLimitRoundingChanged)
 
 public:
     explicit AxisBase(QQuickItem *parent = 0);
     ~AxisBase();
+
+    Q_INVOKABLE qreal log_10(qreal v);
+    Q_INVOKABLE QString formatReal(qreal num, int precision=3);
+    Q_INVOKABLE qreal offsetFromStd(qreal val, qreal std);
 
     void paint(QPainter *painter);
 
@@ -58,11 +61,14 @@ public:
     qreal maxY() const;
     void setMaxY(qreal arg);
 
+    Q_INVOKABLE void offset(qreal x, qreal y);
+
     QString handle() const;
     void setHandle(QString arg);
 
     QVariantMap plots(); // For QML
     QList<PlotBase*> getPlotsByHandle(QString handle); // For C++
+    Q_INVOKABLE QVariantList getPlotList();
 
     // NutmegObject interface
     Q_INVOKABLE QString map(QString prop);
@@ -101,7 +107,6 @@ public slots:
     void setFigure(FigureBase* arg);
 
 protected slots:
-    QVariantList getPlotList();
     void updateFigure();
     void updateXAxis();
     void updateYAxis();

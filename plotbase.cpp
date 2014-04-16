@@ -9,12 +9,12 @@
 
 PlotBase::PlotBase(QQuickItem *parent)
     : QQuickItem(parent)
-    , m_axis(0)
     , m_settingData(false)
     , m_handle(QString())
     , m_xDataSet(false)
     , m_xData(QList<qreal>())
     , m_yData(QList<qreal>())
+    , m_axis(0)
     , m_tree(0)
     , m_treeDirty(false)
     , m_dataLimits(QRectF())

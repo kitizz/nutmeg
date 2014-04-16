@@ -35,7 +35,8 @@ SOURCES += main.cpp \
     QKDTree/QVectorND/QVectorND.cpp \
     axiscanvas2d.cpp \
     locators.cpp \
-    linespec.cpp
+    linespec.cpp \
+    fileio.cpp
 
 # Installation path
 # target.path =
@@ -65,7 +66,8 @@ HEADERS += \
     QKDTree/QVectorND/QVectorND_global.h \
     axiscanvas2d.h \
     locators.h \
-    linespec.h
+    linespec.h \
+    fileio.h
 
 LIBS += -lzmq
 

@@ -15,26 +15,41 @@ function isObject(obj) {
     return typeof obj === 'object'
 }
 
-function getTestFigure() {
-    return 'Figure {
-    id: figure
-    Axis {
-        handle: "ax"
-//        xAxis.majorTicks: [0,2,5,10,20]
-//        xAxis.onMajorTicksChanged: console.log("Major X:", xAxis.majorTicks, yAxis.majorTicks)
-//        yAxis.onMajorTicksChanged: console.log("Major Y:", yAxis.majorTicks)
-        LinePlot {
-            handle: "blue"
-            line { color: "#7777FF"; style: "-"; width: 4 }
-        }
-        LinePlot {
-            handle: "red"
-            line { color: "#FF7777"; style: "--"; width: 4 }
-        }
-        LinePlot {
-            handle: "green"
-            line { color: "#77FF77"; style: ":"; width: 4 }
+function mean(lst) {
+    var m = 0
+    for (var i=0; i<lst.length; ++i) {
+        m += lst[i]
+    }
+    return m/lst.length
+}
+
+function std(lst) {
+    var m = mean(lst)
+    var v = 0
+    for (var i=0; i<lst.length; ++i) {
+        v += Math.pow(lst[i]-m, 2)
+    }
+    return Math.sqrt(v/lst.length)
+}
+
+function min(lst) {
+    var bestM = lst[0], bestI = 0
+    for (var i=1; i<lst.length; ++i) {
+        if (lst[i] < bestM) {
+            bestM = lst[i]
+            bestI = i
         }
     }
-}'
+    return bestM
+}
+
+function max(lst) {
+    var bestM = lst[0], bestI = 0
+    for (var i=1; i<lst.length; ++i) {
+        if (lst[i] > bestM) {
+            bestM = lst[i]
+            bestI = i
+        }
+    }
+    return bestM
 }

@@ -12,6 +12,8 @@
 #include "server.h"
 #include "controller.h"
 
+#include "fileio.h"
+
 int main(int argc, char *argv[])
 {
     qmlRegisterType<FigureBase>("Graphr", 1,0, "FigureBase");
@@ -32,11 +34,15 @@ int main(int argc, char *argv[])
     qmlRegisterType<Server>("Graphr", 1,0, "ServerBase");
     qmlRegisterType<Controller>("Graphr", 1,0, "ControllerBase");
 
+    qmlRegisterType<FileIO>("FileIO", 1,0, "FileIO");
+
     QGuiApplication app(argc, argv);
 
     QtQuick2ApplicationViewer viewer;
     viewer.setMainQmlFile(QStringLiteral("qml/graphr/main.qml"));
     viewer.showExpanded();
+    viewer.setWidth(700);
+    viewer.setHeight(450);
 
     QQuickItem* server = viewer.rootObject()->findChild<QQuickItem*>("server");
     qDebug() << "Writing rootApp" << server;

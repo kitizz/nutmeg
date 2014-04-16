@@ -4,6 +4,8 @@ import QtQuick.Controls.Styles 1.0
 import Graphr 1.0
 import "Util.js" as Util
 import "Layouts" as Layouts
+import FileIO 1.0
+
 //import "Controls"
 
 Rectangle {
@@ -11,14 +13,21 @@ Rectangle {
     width: 360
     height: 360
 
+    FileIO {
+        id: testFile
+        source: "qml/graphr/TestFigure.qml"
+        onError: console.log(msg)
+    }
+
     Component.onCompleted: {
         var plotTest = true
         if (plotTest) {
-            var qml = Util.getTestFigure()
+            var qml = testFile.read()
             server.createFigure([0, "testFigure", qml])
-            server.sendData([0, "testFigure.ax", {"minY": 0, "maxY": 8}])
+//            server.sendData([0, "testFigure.ax", {"minY": 0, "maxY": 8}])
             server.sendData([0, "testFigure.ax.blue", {"y": [0,1,2,3,2,1,3,5,2,10]}])
-            server.sendData([0, "testFigure.ax.red", {"y": [4,8,13,0,0.5,3,4,5]}])
+            server.sendData([0, "testFigure.ax.red", {"y": [4,8,13,0.1,0.5,3,4,5]}])
+//            server.sendData([0, "testFigure.ax.blue", {"y": [3,1]}])
         }
     }
 

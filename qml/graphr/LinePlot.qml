@@ -20,6 +20,7 @@ LinePlotBase {
         if (infos.length == 0) {
             info = pointInfo.createObject(axis, {"index": index})
             axis.dataLimitsChanged.connect(info.updatePos)
+            axis.limitsChanged.connect(info.updatePos)
             linePlot.widthChanged.connect(info.updatePos)
             linePlot.heightChanged.connect(info.updatePos)
             infos.push(info)
@@ -52,10 +53,12 @@ LinePlotBase {
         id: pointInfo
         Item {
             id: info
-            visible: indexValid
+            visible: indexValid && pointVisible
             property point pos: indexValid ? Qt.point(xData[index], yData[index]) : Qt.point(0,0)
             property int index: -1
             property bool indexValid: index >= 0 && index < xData.length
+            property bool pointVisible: pos.x >= axis.minX && pos.x <= axis.maxX &&
+                                        pos.y >= axis.minY && pos.y <= axis.maxY
 
             onPosChanged: updatePos()
 

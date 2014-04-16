@@ -18,6 +18,7 @@ AxisBase::AxisBase(QQuickItem *parent)
     , m_yAxis(new AxisSpec(parent))
     , m_yLimitRounding(QList<qreal>())
     , m_margin(new AxisMargins())
+    , m_settingLimits(false)
 {
     m_yLimitRounding << 0 << 1 << 1.5 << 2 << 2.5 << 3 << 4 << 5 << 10;
     m_limits = QRectF();
@@ -69,6 +70,38 @@ AxisBase::~AxisBase()
     m_destroying = true;
 }
 
+qreal AxisBase::log_10(qreal v)
+{
+    return log10(v);
+}
+
+QString AxisBase::formatReal(qreal num, int precision)
+{
+    QString str;
+    qreal abNum = qAbs(num);
+
+    if (abNum < qPow(10, -15)) {
+        str = "0";
+
+    } else if (abNum > qPow(10, precision) || abNum < qPow(10, -precision)) {
+        int exp = (int)qFloor(log10( abNum ));
+        qreal base = num * qPow(10, -exp);
+        str.sprintf("%.*ge%d", precision, base, exp);
+
+    } else {
+        str.sprintf("%.*g", precision, num);
+    }
+
+    return str;
+}
+
+qreal AxisBase::offsetFromStd(qreal val, qreal std)
+{
+    int precStd = (int)qFloor(log10( qAbs(std) ));
+//    int precMn = (int)qFloor(log10( qAbs(mean) ));
+    return qRound(val*qPow(10, -precStd))*qPow(10, precStd);
+}
+
 void AxisBase::paint(QPainter *painter)
 {
 
@@ -88,6 +121,7 @@ qreal AxisBase::minX() const
 
 void AxisBase::setMinX(qreal arg)
 {
+//    arg = qMax(arg, m_dataLimits.left() - m_dataLimits.width()/2);
     if (m_minX == arg) return;
     m_minX = arg;
     emit minXChanged(arg);
@@ -102,6 +136,7 @@ qreal AxisBase::maxX() const
 
 void AxisBase::setMaxX(qreal arg)
 {
+//    arg = qMin(arg, m_dataLimits.right() + m_dataLimits.width()/2);
     if (m_maxX == arg) return;
     m_maxX = arg;
     emit maxXChanged(arg);
@@ -133,6 +168,11 @@ void AxisBase::setMaxY(qreal arg)
     if (m_maxY == arg) return;
     m_maxY = arg;
     emit maxYChanged(arg);
+}
+
+void AxisBase::offset(qreal x, qreal y)
+{
+    // TODO: Implement AxisBase::offset
 }
 
 QString AxisBase::handle() const

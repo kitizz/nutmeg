@@ -27,6 +27,7 @@ public:
 
     QVariantMap axes() const; // Use this for QML
     QList<AxisBase*> getAxesByHandle(const QString &handle) const; // Use this for c++
+    Q_INVOKABLE QVariantList getAxisList();
 
     QString handle() const;
     void setHandle(QString arg);
@@ -47,6 +48,7 @@ public:
 
     int mouseButtons() const;
     void setMouseButtons(int arg);
+
 
 signals:
     void mouseMoved(MouseEvent* mouse);
@@ -70,6 +72,7 @@ protected slots:
 
 private:
     QVariantMap m_axesVar;
+    QVariantList m_axisList;
     QMultiMap<QString,AxisBase*> m_axes;
     bool m_destroying;
 
