@@ -29,14 +29,8 @@ AxisBase {
     onHeightChanged: updateTickNumbers(1)
     yAxis.onMajorTicksChanged: updateTickNumbers(0)
     xAxis.onMajorTicksChanged: updateTickNumbers(1)
-    onLimitsChanged: {
-        updateTickNumbers(0)
-        updateTickNumbers(1)
-    }
-    Component.onCompleted: {
-        updateTickNumbers(0)
-        updateTickNumbers(1)
-    }
+    onLimitsChanged: updateTicks()
+    Component.onCompleted: updateTicks()
 
     margin { top: 10; right: 10; bottom: 50; left: 50 }
     children: [
@@ -150,6 +144,11 @@ AxisBase {
     // ------------------
     //      Functions
     // ------------------
+    function updateTicks() {
+        updateTickNumbers(0)
+        updateTickNumbers(1)
+    }
+
     function updateTickNumbers(axis) {
 //        console.log("Updating tickNumbers:", axis)
         var ticks, numbers, i

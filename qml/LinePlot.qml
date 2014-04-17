@@ -13,6 +13,13 @@ LinePlotBase {
     signal updateTip(point mouse)
     signal clearTips()
 
+    onAxisChanged: {
+        if (!axis) return
+
+        xDataChanged.connect(axis.updateTicks)
+        yDataChanged.connect(axis.updateTicks)
+    }
+
     onUpdateTip: {
         var index = nearestDataTo(itemToData(mouse))
 
