@@ -1,7 +1,8 @@
 # Add more folders to ship with the application, here
-folder_01.source = qml/nutmeg
-folder_01.target = qml
-DEPLOYMENTFOLDERS = folder_01
+#folder_01.source = qml/nutmeg
+#folder_01.target = qml
+#DEPLOYMENTFOLDERS = folder_01
+TEMPLATE = app
 
 # C++11 !!
 #QMAKE_CXXFLAGS += -std=c++11
@@ -10,6 +11,8 @@ CONFIG +=c++11
 
 # Additional import path used to resolve QML modules in Creator's code model
 QML_IMPORT_PATH =
+
+QT += qml quick widgets core gui quickwidgets
 
 DEFINES += \
     NZMQT_LIB
@@ -35,11 +38,12 @@ SOURCES += src/main.cpp \
     src/axiscanvas2d.cpp \
     src/locators.cpp \
     src/linespec.cpp \
-    src/fileio.cpp
+    src/fileio.cpp \
+    mainwindow.cpp
 
 # Please do not modify the following two lines. Required for deployment.
-include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
-qtcAddDeployment()
+#include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
+#qtcAddDeployment()
 
 HEADERS += \
     nzmqt/nzmqt.hpp \
@@ -63,7 +67,8 @@ HEADERS += \
     src/axiscanvas2d.h \
     src/locators.h \
     src/linespec.h \
-    src/fileio.h
+    src/fileio.h \
+    mainwindow.h
 
 LIBS += -lzmq
 
@@ -74,7 +79,11 @@ INCLUDEPATH += \
 QMAKE_LIBDIR += \
     /usr/local/lib # Location of zmq library
 
-OTHER_FILES += \
-    qml/graphr/Column.qml
+RESOURCES += qml.qrc
+
+# Default rules for deployment.
+include(deployment.pri)
+
+FORMS +=
 
 

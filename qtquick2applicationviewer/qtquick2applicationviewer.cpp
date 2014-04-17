@@ -13,6 +13,9 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDir>
 #include <QtQml/QQmlEngine>
+#include <QDebug>
+#include <QAction>
+#include <QMenu>
 
 class QtQuick2ApplicationViewerPrivate
 {
@@ -53,6 +56,7 @@ QtQuick2ApplicationViewer::QtQuick2ApplicationViewer(QWindow *parent)
     : QQuickView(parent)
     , d(new QtQuick2ApplicationViewerPrivate())
 {
+    createSystemTray();
     connect(engine(), SIGNAL(quit()), SLOT(close()));
     setResizeMode(QQuickView::SizeRootObjectToView);
 }
@@ -84,4 +88,58 @@ void QtQuick2ApplicationViewer::showExpanded()
 #else
     show();
 #endif
+}
+
+bool QtQuick2ApplicationViewer::event(QEvent *event)
+{
+    if (event->type() == QEvent::Close) {
+        qDebug() << "Attempt close";
+        onExit();
+//        hide();
+    }
+    return QQuickView::event(event);
+}
+
+void QtQuick2ApplicationViewer::iconActivated(QSystemTrayIcon::ActivationReason reason)
+{
+    if (reason && reason != QSystemTrayIcon::DoubleClick)
+        return;
+    onShowHide();
+}
+
+void QtQuick2ApplicationViewer::onShowHide()
+{
+    if (isVisible()) {
+        hide();
+    } else {
+        showExpanded();
+        raise();
+    }
+
+}
+
+void QtQuick2ApplicationViewer::onExit()
+{
+    m_trayIcon->hide();
+    qApp->quit();
+}
+
+void QtQuick2ApplicationViewer::createSystemTray()
+{
+    m_trayIcon = new QSystemTrayIcon(QIcon("qrc:/icon.png"), this);
+
+    connect(m_trayIcon, &QSystemTrayIcon::activated, this, &QtQuick2ApplicationViewer::iconActivated);
+
+//    QAction *quitAction = new QAction( "Exit", m_trayIcon);
+//    connect( quitAction, &QAction::triggered, this, &QtQuick2ApplicationViewer::onExit);
+
+//    QAction *hideAction = new QAction( "Show/Hide", m_trayIcon );
+//    connect( hideAction, &QAction::triggered, this, &QtQuick2ApplicationViewer::onShowHide);
+
+//    QMenu *trayIconMenu = new QMenu(parent());
+//    trayIconMenu->addAction(hideAction);
+//    trayIconMenu->addAction(quitAction);
+
+//    m_trayIcon->setContextMenu(trayIconMenu);
+    m_trayIcon->show();
 }

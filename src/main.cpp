@@ -1,6 +1,7 @@
-#include <QtGui/QGuiApplication>
+#include <QApplication>
+#include <QQuickView>
 #include <QQmlProperty>
-#include "qtquick2applicationviewer.h"
+#include "mainwindow.h"
 
 #include "lineplot.h"
 #include "lineplotcanvas.h"
@@ -36,15 +37,14 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<FileIO>("FileIO", 1,0, "FileIO");
 
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
-    QtQuick2ApplicationViewer viewer;
-    viewer.setMainQmlFile(QStringLiteral("qml/nutmeg/main.qml"));
-    viewer.showExpanded();
-    viewer.setWidth(700);
-    viewer.setHeight(450);
+    MainWindow *w = new MainWindow(QUrl("qrc:/qml/main.qml"));
+    w->show();
 
-    QQuickItem* server = viewer.rootObject()->findChild<QQuickItem*>("server");
+    QQuickView *view = w->view;
+
+    QQuickItem* server = view->rootObject()->findChild<QQuickItem*>("server");
     qDebug() << "Writing rootApp" << server;
     QQmlProperty::write(server, "rootApp", QVariant::fromValue(&app));
 

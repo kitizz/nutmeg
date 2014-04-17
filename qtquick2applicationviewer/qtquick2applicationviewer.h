@@ -12,6 +12,7 @@
 #define QTQUICK2APPLICATIONVIEWER_H
 
 #include <QtQuick/QQuickView>
+#include <QSystemTrayIcon>
 
 class QtQuick2ApplicationViewer : public QQuickView
 {
@@ -26,8 +27,20 @@ public:
 
     void showExpanded();
 
+protected:
+    virtual bool event(QEvent *event);
+
+protected slots:
+    void iconActivated(QSystemTrayIcon::ActivationReason reason);
+    void onShowHide();
+    void onExit();
+
 private:
     class QtQuick2ApplicationViewerPrivate *d;
+
+    void createSystemTray();
+    QSystemTrayIcon *m_trayIcon;
+
 };
 
 #endif // QTQUICK2APPLICATIONVIEWER_H

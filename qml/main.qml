@@ -1,4 +1,4 @@
-import QtQuick 2.1
+import QtQuick 2.2
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import Graphr 1.0
@@ -10,7 +10,7 @@ import FileIO 1.0
 
 Rectangle {
     id: root
-    width: 360
+    width: 600
     height: 360
 
     FileIO {
@@ -54,6 +54,7 @@ Rectangle {
         function addFigure(figure) {
             addTab(figure.handle, tabDelegate)
             figure.tabIndex = count - 1
+            tabView.currentIndex = figure.tabIndex
             figure.visible = Qt.binding(function() { return figure.tabIndex == tabView.currentIndex })
         }
 
