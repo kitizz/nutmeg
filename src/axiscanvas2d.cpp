@@ -16,8 +16,8 @@ AxisCanvas2D::AxisCanvas2D(QQuickItem *parent)
 
 void AxisCanvas2D::paint(QPainter *painter)
 {
-    qDebug() << "Drawing text in axisCanvas" << m_scaling;
     QRectF lim = m_axis->limits();
+    qDebug() << "Drawing text in axisCanvas";
 
     qreal majorSize = 5, minorSize = 2;
     QVector<QPointF> lines;
@@ -34,6 +34,7 @@ void AxisCanvas2D::paint(QPainter *painter)
         lines << m_scaling*QPointF(m_plotRect.left(), y);
         lines << m_scaling*QPointF(m_plotRect.left() - majorSize, y);
     }
+    qDebug() << "Lines:" << lines;
 
     QPen pen;
     pen.setColor(Qt::black);

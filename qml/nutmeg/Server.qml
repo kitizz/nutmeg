@@ -7,18 +7,15 @@ ServerBase {
     objectName: "server"
 
     property var rootApp: null
-    onRootAppChanged: console.log("Server, appChanged", rootApp)
+//    onRootAppChanged: console.log("Server, appChanged", rootApp)
     property var figureContainer: null
     property var tabView: null
     property var controller: null
     property var userArea: null
 
     onRequestReceived: {
-//        console.log("Req:", request)
-//        var req = JSON.parse(request)
         var req = request
         var command = server[req[0]]
-        console.log("Command:", req[0])
         if (typeof command !== "function") {
             console.log("Command, " + req[0] + ", is not a valid command.")
             sendReply(JSON.stringify([1, "Unrecognised command"]))
@@ -50,10 +47,9 @@ ServerBase {
             fig = Qt.createQmlObject(qml, par, "Figures")
         } catch (e) {
             // Offset for the added lines...
-            console.log("Error creating:\n\"")
-            console.log(qml)
-            console.log("\n\"")
             e.qmlErrors[0].lineNumber -= 3
+            err = e.qmlErrors[0]
+            console.warn("At line", err.lineNumber + ", col", err.columnNumber + ":", err.message, "\n")
             return [2, e]
         }
 
@@ -62,14 +58,13 @@ ServerBase {
             fig.handle = handle
         tabView.addFigure(fig)
         fig.controller = controller
-        console.log("Installing to figure:", rootApp)
         fig.installEventFilterApp(rootApp)
         return [0, fig.handle, "Figure created successfully."]
     }
 
     function sendData(req) {
         var handle = req[1],
-            data = nutmeg2json(req[2])
+            data = req[2]
 
         var parameter = req[3]
         var match = handle.match(/&(.*?)\./)
@@ -116,15 +111,12 @@ ServerBase {
             parameters[p] = control.value
         }
 
-//        console.log("Create GUI. Parameters:", parameters)
-
         return [0, "GUI created successfully.", parameters]
 
     }
 
     function setProperties(obj, prop, data) {
         /* Takes an obj or array of objects and sets its/their properties according to prop + data */
-//        console.log("Setting Properties", obj, prop, data.length)
         if (!obj) return
         if (Util.isArray(obj)) {
             for (var i=0; i<obj.length; ++i) {
@@ -132,28 +124,24 @@ ServerBase {
                 setProperties(obj[i], prop, d)
             }
         } else {
-//            console.log("Assign to real prop:", obj.map(prop), data)
             obj[obj.map(prop)] = data
         }
     }
 
-    function nutmeg2json(data) {
-        if (Util.isArray(data)) {
-            for (var i=0; i<data.length; ++i) {
-                data[i] = nutmeg2json(data[i])
-            }
-            return data
+//    function nutmeg2json(data) {
+//        if (Util.isArray(data)) {
+//            for (var i=0; i<data.length; ++i) {
+//                data[i] = nutmeg2json(data[i])
+//            }
+//            return data
 
-        } else if (Util.isObject(data)) {
-            if (data.list)
-                return nutmeg2json(data.list)
-            var before = Util.dir(data)
-            for (var p in data)
-                data[p] = nutmeg2json(data[p])
-            return data
+//        } else if (Util.isObject(data)) {
+//            for (var p in data)
+//                data[p] = nutmeg2json(data[p])
+//            return data
 
-        } else {
-            return data
-        }
-    }
+//        } else {
+//            return data
+//        }
+//    }
 }

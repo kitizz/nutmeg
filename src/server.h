@@ -18,6 +18,7 @@ class Server : public QQuickItem
     Q_PROPERTY(QString address READ address WRITE setAddress NOTIFY addressChanged)
     Q_PROPERTY(QString updateAddress READ updateAddress WRITE setUpdateAddress NOTIFY updateAddressChanged)
     Q_PROPERTY(bool running READ running NOTIFY runningChanged)
+    Q_PROPERTY(int port READ port WRITE setPort NOTIFY portChanged)
 
 public:
     explicit Server(QQuickItem* parent = 0);
@@ -33,6 +34,9 @@ public:
     QString updateAddress() const;
     void setUpdateAddress(QString arg);
 
+    int port() const;
+    void setPort(int arg);
+
 signals:
 //    void requestReceived(const QString &request);
     void requestReceived(QVariant request);
@@ -47,6 +51,8 @@ signals:
     void runningChanged(bool arg);
 
     void updateAddressChanged(QString arg);
+
+    void portChanged(int arg);
 
 public slots:
     void processRequest(const QList<QByteArray>& request);
@@ -90,6 +96,8 @@ private:
 //    static ZMQContext* m_context;
 
     QString m_updateAddress;
+    QString m_currentAddress;
+    int m_port;
 };
 
 #endif // SERVER_H

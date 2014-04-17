@@ -7,32 +7,24 @@ import Parallel
 import threading
 
 
-def toQmlObject(value, toplevel=False):
+def toQmlObject(value):
     '''
-    Unfortunately, we need to apply this little bit of a hack in order to get
-    multidimensional arrays over to QML. QML flattens [[1,2],[4,5]] for some
-    reason. Hopefully this will change...
-    :param topLevel: Should be true if this is the first dimension of a list
+    Recursively convert any numpy.ndarrays into lists in preparation for
+    JSONification.
     '''
     if isinstance(value, np.ndarray):
         # We specify ndarray, because 'tolist' should be faster that iterating
-        if value.dtype != 'O' and len(value.shape) == 1:
-            if toplevel:
-                return value.tolist()
-            else:
-                return {'list': value.tolist()}
+        if value.dtype != 'O':
+            return value.tolist()
         else:
-            return {'list': [toQmlObject(subValue) for subValue in value]}
+            return [toQmlObject(subValue) for subValue in value]
 
     elif isinstance(value, list):
-        if toplevel:
-            return toQmlObject(np.array(value), True)
-        else:
-            return {'list': [toQmlObject(subValue) for subValue in value]}
+        return [toQmlObject(subValue) for subValue in value]
 
     elif isinstance(value, dict):
         for p in value:
-            value[p] = toQmlObject(value[p], True)
+            value[p] = toQmlObject(value[p])
         return value
 
     else:
@@ -52,7 +44,7 @@ class QMLException(Exception):
 
 class Nutmeg:
 
-    def __init__(self, address="tcp://localhost", port=1234, updatePort=2468):
+    def __init__(self, address="tcp://localhost", port=43686, updatePort=2468):
         self.address = address + ":" + str(port)
         self.updateAddress = address + ":" + str(updatePort)
         # Create the socket and connect to it.

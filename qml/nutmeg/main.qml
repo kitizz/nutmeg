@@ -33,7 +33,6 @@ Rectangle {
 
     Server {
         id: server
-        address: "tcp://127.0.0.1:1234"
         updateAddress: "tcp://127.0.0.1:2468"
         Component.onCompleted: start()
 

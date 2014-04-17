@@ -17,12 +17,13 @@ Server::Server(QQuickItem *parent)
     , m_socket(0)
     , m_updateSocket(0)
     , m_updateMap(QMap<QString, QVariant>())
-    , m_address(QString())
+    , m_address(QString("tcp://127.0.0.1"))
     , m_updateAddress(QString())
     , m_updatesToSend(QList<QString>())
     , m_updatesToReceive(QList<QString>())
     , m_updateReady(false)
     , m_running(false)
+    , m_port(43686) // gemt'N <-> N'tmeg
 {
     ZMQContext *context = createDefaultContext(this);
     context->start();
@@ -72,6 +73,20 @@ void Server::setUpdateAddress(QString arg)
     if (m_updateAddress == arg) return;
     m_updateAddress = arg;
     emit updateAddressChanged(arg);
+}
+
+int Server::port() const
+{
+    return m_port;
+}
+
+void Server::setPort(int arg)
+{
+    if (m_port == arg) return;
+    m_port = arg;
+    emit portChanged(arg);
+    stop();
+    start();
 }
 
 void Server::setRunning(bool arg)
@@ -155,7 +170,7 @@ void Server::start()
 void Server::stop()
 {
     try {
-        m_socket->unbindFrom(m_address);
+        m_socket->unbindFrom(m_currentAddress);
     }
     catch (const nzmqt::ZMQException& ex) {
         qWarning() << Q_FUNC_INFO << "Exception:" << ex.what();
@@ -172,7 +187,8 @@ void Server::sleep(unsigned long msecs)
 
 void Server::startServer()
 {
-    m_socket->bindTo(m_address);
+    m_currentAddress = m_address + ":" + QString::number(m_port);
+    m_socket->bindTo(m_currentAddress);
     m_updateSocket->bindTo(m_updateAddress);
 }
 
