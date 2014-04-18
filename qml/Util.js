@@ -15,6 +15,10 @@ function isObject(obj) {
     return typeof obj === 'object'
 }
 
+function sign(x) {
+    return typeof x === 'number' ? x ? x < 0 ? -1 : 1 : x === x ? 0 : NaN : NaN;
+}
+
 function mean(lst) {
     var m = 0
     for (var i=0; i<lst.length; ++i) {

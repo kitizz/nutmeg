@@ -39,7 +39,7 @@ AxisBase::AxisBase(QQuickItem *parent)
     connect(this, &QQuickItem::widthChanged, this, &AxisBase::updateXAxis);
     connect(m_margin, &AxisMargins::leftChanged, this, &AxisBase::updateXAxis);
     connect(m_margin, &AxisMargins::rightChanged, this, &AxisBase::updateXAxis);
-    connect(this, &QQuickItem::widthChanged, this, &AxisBase::updateXAxis);
+//    connect(this, &QQuickItem::widthChanged, this, &AxisBase::updateXAxis);
     connect(this, &AxisBase::minXChanged, [=](qreal val){ m_xAxis->setMin(val); });
     connect(this, &AxisBase::maxXChanged, [=](qreal val){ m_xAxis->setMax(val); });
     m_xAxis->setObjectName("XAxis");
@@ -124,7 +124,11 @@ void AxisBase::setMinX(qreal arg)
 //    arg = qMax(arg, m_dataLimits.left() - m_dataLimits.width()/2);
     if (m_minX == arg) return;
     m_minX = arg;
-    emit minXChanged(arg);
+    if (arg == -Inf)
+        emit minXChanged(m_dataLimits.left());
+    else
+        emit minXChanged(arg);
+
 }
 
 qreal AxisBase::maxX() const
@@ -139,7 +143,10 @@ void AxisBase::setMaxX(qreal arg)
 //    arg = qMin(arg, m_dataLimits.right() + m_dataLimits.width()/2);
     if (m_maxX == arg) return;
     m_maxX = arg;
-    emit maxXChanged(arg);
+    if (arg == Inf)
+        emit maxXChanged(m_dataLimits.right());
+    else
+        emit maxXChanged(arg);
 }
 
 qreal AxisBase::minY() const
@@ -153,7 +160,10 @@ void AxisBase::setMinY(qreal arg)
 {
     if (m_minY == arg) return;
     m_minY = arg;
-    emit minYChanged(arg);
+    if (arg == -Inf)
+        emit minYChanged(m_dataLimits.top());
+    else
+        emit minYChanged(arg);
 }
 
 qreal AxisBase::maxY() const
@@ -167,7 +177,10 @@ void AxisBase::setMaxY(qreal arg)
 {
     if (m_maxY == arg) return;
     m_maxY = arg;
-    emit maxYChanged(arg);
+    if (arg == Inf)
+        emit maxYChanged(m_dataLimits.bottom());
+    else
+        emit maxYChanged(arg);
 }
 
 void AxisBase::offset(qreal x, qreal y)
@@ -344,9 +357,9 @@ void AxisBase::updateDataLimits()
     if (m_maxX == Inf)
         emit maxXChanged(maxX);
     if (m_minY == -Inf)
-        emit minYChanged(minY);
+        emit minYChanged(newMinY);
     if (m_maxY == Inf)
-        emit maxYChanged(maxY);
+        emit maxYChanged(newMaxY);
 }
 
 qreal AxisBase::sign(qreal a)
@@ -393,6 +406,17 @@ void AxisBase::setLimits(QRectF arg)
 
     emit limitsChanged(arg);
     m_settingLimits = false;
+}
+
+void AxisBase::resetLimits()
+{
+    m_settingLimits = true;
+    setMinX(-Inf);
+    setMinY(-Inf);
+    setMaxX(Inf);
+    setMaxY(Inf);
+    m_settingLimits = false;
+    updateLimits();
 }
 
 QRectF AxisBase::dataLimits() const
@@ -526,6 +550,7 @@ AxisSpec::AxisSpec(QObject *parent)
     , m_max(1)
 {
     setMajorTicks(QVariant::fromValue(new AutoLocator(50)));
+    m_ownMajorTicks = true;
 }
 
 //AxisSpec::AxisSpec(QString sizeProperty, QObject *parent)

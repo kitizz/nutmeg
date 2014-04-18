@@ -10,8 +10,8 @@ import FileIO 1.0
 
 Rectangle {
     id: root
-    width: 600
-    height: 360
+//    width: 600
+//    height: 360
 
     FileIO {
         id: testFile

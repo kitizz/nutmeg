@@ -29,7 +29,7 @@ class AxisBase : public QQuickPaintedItem, public NutmegObject
     Q_PROPERTY(FigureBase* figure READ figure WRITE setFigure NOTIFY figureChanged)
     Q_PROPERTY(QVariantMap plots READ plots NOTIFY plotsChanged)
 
-    Q_PROPERTY(QRectF limits READ limits WRITE setLimits NOTIFY limitsChanged)
+    Q_PROPERTY(QRectF limits READ limits WRITE setLimits NOTIFY limitsChanged RESET resetLimits)
 
     Q_PROPERTY(qreal minX READ minX WRITE setMinX NOTIFY minXChanged)
     Q_PROPERTY(qreal maxX READ maxX WRITE setMaxX NOTIFY maxXChanged)
@@ -37,7 +37,7 @@ class AxisBase : public QQuickPaintedItem, public NutmegObject
     Q_PROPERTY(qreal maxY READ maxY WRITE setMaxY NOTIFY maxYChanged)
     Q_PROPERTY(QRectF dataLimits READ dataLimits NOTIFY dataLimitsChanged)
 
-    Q_PROPERTY(AxisMargins* margin READ margin)
+    Q_PROPERTY(AxisMargins* margin READ margin NOTIFY marginChanged)
     Q_PROPERTY(QList<qreal> yLimitRounding READ yLimitRounding WRITE setYLimitRounding NOTIFY yLimitRoundingChanged)
 
 public:
@@ -75,6 +75,7 @@ public:
 
     QRectF limits() const;
     void setLimits(QRectF arg);
+    void resetLimits();
 
     QRectF dataLimits() const;
     QList<qreal> yLimitRounding() const;
@@ -99,6 +100,7 @@ signals:
     void limitsChanged(QRectF arg);
     void dataLimitsChanged(QRectF arg);
 
+    void marginChanged(AxisMargins* margin);
     void yLimitRoundingChanged(QList<qreal> arg);
 
 public slots:

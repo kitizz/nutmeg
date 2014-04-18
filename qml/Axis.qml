@@ -27,8 +27,8 @@ AxisBase {
 
     onWidthChanged: updateTickNumbers(0)
     onHeightChanged: updateTickNumbers(1)
-    yAxis.onMajorTicksChanged: updateTickNumbers(0)
-    xAxis.onMajorTicksChanged: updateTickNumbers(1)
+    xAxis.onMajorTicksChanged: updateTickNumbers(0)
+    yAxis.onMajorTicksChanged: updateTickNumbers(1)
     onLimitsChanged: updateTicks()
     Component.onCompleted: updateTicks()
 
@@ -79,6 +79,28 @@ AxisBase {
             property int pointIndex: -1
             property real maxDistance: Infinity
 
+            Timer {
+                id: tipTimer
+                repeat: false
+                interval: 300
+                property point pos
+
+                onTriggered: {
+                    mouseArea.updatePoint(pos)
+                    console.log("Pressed:", pos)
+
+                    if (mouseArea.closestPlot) {
+                        var local = Vector.point(mapToItem(mouseArea.closestPlot, pos.x, pos.y))
+                        mouseArea.closestPlot.updateTip(local)
+                    }
+                }
+            }
+
+            onDoubleClicked: {
+                tipTimer.stop()
+                axisItem.limits = undefined
+            }
+
             onPressed: {
                 if (mouse.buttons & Qt.RightButton) {
                     console.log("Right Pressed")
@@ -86,14 +108,8 @@ AxisBase {
                     return
                 }
 
-                var pos = Vector.point(mouse)
-                updatePoint(pos)
-                console.log("Pressed:", mouse.x, mouse.y, pos)
-
-                if (closestPlot) {
-                    var local = Vector.point(mapToItem(closestPlot, mouse.x, mouse.y))
-                    closestPlot.updateTip(local)
-                }
+                tipTimer.pos = Vector.point(mouse)
+                tipTimer.start()
             }
 
             onPositionChanged: {
@@ -162,6 +178,7 @@ AxisBase {
             return false;
         }
         if (!numbers) return false
+//        console.log("Ticks", axis, ticks)
 
         var N = numbers.length
 
@@ -224,9 +241,11 @@ AxisBase {
     Component {
         id: numberCmp
         Text {
+            id: textItem
             property int axis: -1
             property real value: 0
             property real offset: 0
+
             text: axisItem.formatReal(value - offset, 3)
             x: axis != 0 ? -implicitWidth - 5:
                            plotFrame.width*(value - minX)/(maxX - minX) - implicitWidth/2

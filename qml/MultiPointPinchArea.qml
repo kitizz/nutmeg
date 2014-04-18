@@ -1,6 +1,7 @@
 import QtQuick 2.1
 
 import "Vector.js" as Vector
+import "Util.js" as Util
 
 MultiPointTouchArea {
     id: area
@@ -41,6 +42,10 @@ MultiPointTouchArea {
         }
     }
 
+    property vector2d totalP: Qt.vector2d(0,0)
+    property real totalDt: 0
+//    property int maxHistory: 4
+
     onUpdated: {
         // A lot of time being spent in here...
         if (!areaEnabled)
@@ -52,6 +57,11 @@ MultiPointTouchArea {
             pinch.previousCenter.y = pinch.center.y
             pinch.center.x = (p1.x + p2.x)/2
             pinch.center.y = (p1.y + p2.y)/2
+
+            pinch.lastTime = pinch.time
+            pinch.time = new Date().getTime()
+
+            velTimer.restart()
 
             if (!pinch.active) {
                 if (Math.abs(pinch.scale - 1) > minZoomDelta) {
@@ -72,13 +82,15 @@ MultiPointTouchArea {
                         pinchStarted(mode.pan)
                 }
             } else {
-                pinch.lastTime = pinch.time
-                pinch.time = new Date().getTime()
-
                 var dt = (pinch.time - pinch.lastTime)
+                totalDt += dt
+                var dp = pinch.center.minus(pinch.previousCenter)
+                totalP = totalP.plus(dp)
 
-                pinch.velocity = pinch.center.minus(pinch.previousCenter).times(1/dt)
+                pinch.velocity = totalP.times(1/totalDt)
 
+                totalDt = dt
+                totalP = dp
                 pinchUpdated() // Emit the signal
             }
         }
@@ -115,6 +127,17 @@ MultiPointTouchArea {
 //        console.log("Internal pinch finished")
         pinch.active = false
         pinch.pinchMode = mode.none
+    }
+
+    Timer {
+        id: velTimer
+        repeat: false
+        interval: 50
+        onTriggered: {
+            totalDt = 0
+            totalP = Qt.vector2d(0,0)
+            pinch.velocity = Qt.vector2d(0,0)
+        }
     }
 
     Item {

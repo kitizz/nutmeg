@@ -39,7 +39,8 @@ FigureBase {
         property real zoomSensitivity: 1.0
 
         onPressed: {
-            if (!(mouse.modifiers & (Qt.ControlModifier | Qt.ShiftModifier)) || dragActive) {
+            if ((!(mouse.modifiers & (Qt.ControlModifier | Qt.ShiftModifier))
+                 && mouse.button == Qt.MiddleButton) || dragActive) {
                 mouse.accepted = false
                 return
             }
@@ -112,8 +113,9 @@ FigureBase {
         property real scaleLimit: 0.1
         property real startWidth
         property real startHeight
-        property real minVel: 1.0/1000 // Pxl/ms
-        property real minInitVel: 50.0/1000 // Pxl/ms
+        property real minVel: 1/1000 // pxl/ms
+        property real minInitVel: 100.0/1000 // pxl/ms
+        property real maxVel: 1000.0/1000 // pxl/ms
         property real damping: 5
 
         property var currentAxis: null
@@ -167,8 +169,15 @@ FigureBase {
 
         onPinchFinished: {
             mrTimer.lastT = new Date().getTime()
+
             mrTimer.velX = pinch.velocity.x
-            mrTimer.velY = pinch.velocity.y
+            if (Math.abs(pinch.velocity.x) > maxVel)
+                mrTimer.velX = Util.sign(pinch.velocity.x)*maxVel
+
+            mrTimer.velY =pinch.velocity.y
+            if (Math.abs(pinch.velocity.y) > maxVel)
+                mrTimer.velY = Util.sign(pinch.velocity.y)*maxVel
+
             mrTimer.startTimer()
         }
 
@@ -185,10 +194,13 @@ FigureBase {
 
                 var vx = velX*dt
                 var vy = velY*dt
-//                console.log("Vel:", velX, velY, dt, touchArea.damping*dt*0.001)
 
                 velX -= velX*touchArea.damping*dt*0.001
                 velY -= velY*touchArea.damping*dt*0.001
+
+                var currentAxis = touchArea.currentAxis
+                var newLimits = Qt.rect(currentAxis.limits.x, currentAxis.limits.y,
+                                        currentAxis.limits.width, currentAxis.limits.height)
 
                 // Use "city block" instead of "euclidean" - slightly faster and simpler
                 var vMax = Math.max(Math.abs(velX), Math.abs(velY));
@@ -196,24 +208,26 @@ FigureBase {
                     stopTimer() // Velocity is too tiny, stop updating
                 }
 
-                var currentAxis = touchArea.currentAxis
                 var xScale = (currentAxis.maxX - currentAxis.minX) / currentAxis.plotRect.width
                 var yScale = (currentAxis.maxY - currentAxis.minY) / currentAxis.plotRect.height
+
+
                 var sens = touchArea.panSensitivity
                 vx *= xScale*sens
                 vy *= yScale*sens
 
-                currentAxis.minX -= vx
-                currentAxis.maxX -= vx
-                currentAxis.minY += vy
-                currentAxis.maxY += vy
+                newLimits.x -= vx
+                newLimits.y += vy
+
+                currentAxis.limits = newLimits
 
                 lastT = ct
             }
 
             function startTimer() {
                 // Use "city block" instead of "euclidean" - slightly faster and simpler
-                var vMax = Math.max(Math.abs(velX), Math.abs(velY));
+                var lim = touchArea.currentAxis.limits
+                var vMax = Math.max(Math.abs(velX)*lim.width, Math.abs(velY)*lim.height);
                 if (vMax > touchArea.minInitVel)
                     start()
                 else

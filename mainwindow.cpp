@@ -31,6 +31,7 @@ MainWindow::MainWindow(QUrl qmlSource, QWidget *parent)
     layout->addWidget(container);
 
     createSystemTray();
+    this->resize(700, 500);
 }
 
 bool MainWindow::event(QEvent *event)
