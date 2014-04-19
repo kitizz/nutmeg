@@ -44,9 +44,11 @@ int main(int argc, char *argv[])
 
     QQuickView *view = w->view;
 
-    QQuickItem* server = view->rootObject()->findChild<QQuickItem*>("server");
-    qDebug() << "Writing rootApp" << server;
-    QQmlProperty::write(server, "rootApp", QVariant::fromValue(&app));
+    Server* server = view->rootObject()->findChild<Server*>("server");
+    if (server) {
+        server->setMainWindow(w);
+        server->start();
+    }
 
     return app.exec();
 }

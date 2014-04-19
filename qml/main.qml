@@ -15,8 +15,8 @@ Rectangle {
 
     FileIO {
         id: testFile
-        source: "qml/nutmeg/TestFigure.qml"
-        onError: console.log(msg)
+        source: ":/qml/TestFigure.qml"
+        onError: console.log("FileIO Error:", msg)
     }
 
     Component.onCompleted: {
@@ -33,8 +33,6 @@ Rectangle {
 
     Server {
         id: server
-        updateAddress: "tcp://127.0.0.1:2468"
-        Component.onCompleted: start()
 
         figureContainer: figureContainer
         tabView: tabView

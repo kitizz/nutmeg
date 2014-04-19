@@ -19,7 +19,7 @@ QString FileIO::read()
     }
 
 
-    QFile file(adjustPath(mSource));
+    QFile file(mSource);
     QString fileContent;
     if ( file.open(QIODevice::ReadOnly) ) {
         QString line;

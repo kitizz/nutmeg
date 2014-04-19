@@ -45,6 +45,7 @@ class QMLException(Exception):
 class Nutmeg:
 
     def __init__(self, address="tcp://localhost", port=43686, updatePort=2468):
+        self.host = address
         self.address = address + ":" + str(port)
         self.updateAddress = address + ":" + str(updatePort)
         # Create the socket and connect to it.
@@ -55,7 +56,7 @@ class Nutmeg:
 
         self.figures = {}
 
-        self._waitForUpdates()
+        # self._waitForUpdates()
 
     @threaded
     def _waitForUpdates(self):
@@ -112,17 +113,40 @@ class Nutmeg:
             return None
 
         else:
-            fig = Figure(self, reply[1])  # Should contain the figure's handle
+            fig = Figure(self, handle=reply[1],
+                         address=self.host, port=reply[2])
             self.figures[reply[1]] = fig
             return fig
 
 
 class Figure():
-    def __init__(self, nutmeg, handle):
+    def __init__(self, nutmeg, handle, address, port):
         self.nutmeg = nutmeg
         self.handle = handle
         self.parameters = {}
         self.updates = {}
+        self.updateAddress = address + ":" + str(port)
+
+        self._waitForUpdates()
+
+    @threaded
+    def _waitForUpdates(self):
+        self.updateSocket = self.nutmeg.context.socket(zmq.REQ)
+        print("Connecting to socket at: %s" % self.updateAddress)
+        self.updateSocket.connect(self.updateAddress)
+        print("Connected")
+
+        while True:
+            self.updateSocket.send(b"ready")
+
+            msg = self.updateSocket.recv_json()
+            command = msg[0]
+
+            if command == 'updateParam':
+                figureHandle, parameter, value = msg[1:4]
+                self.updateParameter(parameter, value)
+            elif command == 'ping':
+                pass
 
     def setGui(self, guiDef):
         # We're going by the interesting assumption that a file path cannot be
@@ -169,7 +193,7 @@ class Figure():
 
         # We use a set so updates aren't initialised multiple times
         for update in updatesToCall:
-            update.parametersChanged(self.parameters)
+            update.parametersChanged(self.parameters, param)
 
     def set(self, handle, properties, param=""):
         '''
@@ -251,7 +275,7 @@ class Updater():
             # print("Processing in parallel")
             # Start the update in a separate process.
             result = Parallel.sub_process(func, params)
-            # print ("Received result...")
+            # print("Received result...")
             self.figure.set(self.handle, result, param)
 
     def initializeParameters(self, params):
@@ -296,7 +320,7 @@ def _testParams():
     print "Sending GUI..."
     success = fig.setGui('gui1.qml')
 
-    N = 200
+    N = 100
     data = np.random.standard_normal((3,N*10))
     data2 = np.random.standard_normal((3,N))
 

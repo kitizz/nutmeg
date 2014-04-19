@@ -6,7 +6,7 @@ ServerBase {
     id: server
     objectName: "server"
 
-    property var rootApp: null
+//    property var rootApp: null
 //    onRootAppChanged: console.log("Server, appChanged", rootApp)
     property var figureContainer: null
     property var tabView: null
@@ -48,7 +48,7 @@ ServerBase {
         } catch (e) {
             // Offset for the added lines...
             e.qmlErrors[0].lineNumber -= 3
-            err = e.qmlErrors[0]
+            var err = e.qmlErrors[0]
             console.warn("At line", err.lineNumber + ", col", err.columnNumber + ":", err.message, "\n")
             return [2, e]
         }
@@ -58,22 +58,26 @@ ServerBase {
             fig.handle = handle
         tabView.addFigure(fig)
         fig.controller = controller
-        fig.installEventFilterApp(rootApp)
-        return [0, fig.handle, "Figure created successfully."]
+        var port = getPortForFigure(handle)
+        console.log("Figure's port:", port)
+//        fig.installEventFilterApp(rootApp)
+        return [0, fig.handle, port, "Figure created successfully."]
     }
 
     function sendData(req) {
         var handle = req[1],
             data = req[2]
 
+//        console.log("SendData", handle)
         var parameter = req[3]
-        var match = handle.match(/&(.*?)\./)
+        var match = handle.match(/(.*?)\./)
         var figureHandle = match ? match[1] : ""
+//        console.log("SendData", match, figureHandle, parameter)
         if (figureHandle && parameter)
             server.parameterUpdated(figureHandle, parameter)
 
         var obj = controller.get(handle)
-        console.log("SendData:", obj)
+//        console.log("SendData:", obj)
         for (var prop in data)
             setProperties(obj, prop, data[prop])
 
@@ -127,21 +131,4 @@ ServerBase {
             obj[obj.map(prop)] = data
         }
     }
-
-//    function nutmeg2json(data) {
-//        if (Util.isArray(data)) {
-//            for (var i=0; i<data.length; ++i) {
-//                data[i] = nutmeg2json(data[i])
-//            }
-//            return data
-
-//        } else if (Util.isObject(data)) {
-//            for (var p in data)
-//                data[p] = nutmeg2json(data[p])
-//            return data
-
-//        } else {
-//            return data
-//        }
-//    }
 }

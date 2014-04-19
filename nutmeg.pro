@@ -39,7 +39,8 @@ SOURCES += src/main.cpp \
     src/locators.cpp \
     src/linespec.cpp \
     src/fileio.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    src/pushsocket.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 #include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
@@ -68,7 +69,8 @@ HEADERS += \
     src/locators.h \
     src/linespec.h \
     src/fileio.h \
-    mainwindow.h
+    mainwindow.h \
+    src/pushsocket.h
 
 LIBS += -lzmq
 

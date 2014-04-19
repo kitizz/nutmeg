@@ -15,28 +15,20 @@
 Server::Server(QQuickItem *parent)
     : QQuickItem(parent)
     , m_socket(0)
-    , m_updateSocket(0)
-    , m_updateMap(QMap<QString, QVariant>())
-    , m_address(QString("tcp://127.0.0.1"))
-    , m_updateAddress(QString())
-    , m_updatesToSend(QList<QString>())
-    , m_updatesToReceive(QList<QString>())
+    , m_socketUpdateMap(QMap<QString, PushSocket*>())
     , m_updateReady(false)
+    , m_latestUpdatePort(43687)
+    , m_address(QString("tcp://127.0.0.1"))
     , m_running(false)
     , m_port(43686) // gemt'N <-> N'tmeg
 {
-    ZMQContext *context = createDefaultContext(this);
-    context->start();
+    m_context = createDefaultContext(this);
+    m_context->start();
 
-    m_socket = context->createSocket(ZMQSocket::TYP_REP, this);
+    m_socket = m_context->createSocket(ZMQSocket::TYP_REP, this);
     m_socket->setObjectName("Replier.Socket.socket(REP)");
     connect(m_socket,   SIGNAL(messageReceived(const QList<QByteArray>&)),
                         SLOT(processRequest(const QList<QByteArray>&)));
-
-    m_updateSocket = context->createSocket(ZMQSocket::TYP_REP, this);
-    m_updateSocket->setObjectName("Replier.Socket.socket(REP)");
-    connect(m_updateSocket,   SIGNAL(messageReceived(const QList<QByteArray>&)),
-                        SLOT(updateRequest(const QList<QByteArray>&)));
 }
 
 
@@ -63,18 +55,6 @@ bool Server::running() const
     return m_running;
 }
 
-QString Server::updateAddress() const
-{
-    return m_updateAddress;
-}
-
-void Server::setUpdateAddress(QString arg)
-{
-    if (m_updateAddress == arg) return;
-    m_updateAddress = arg;
-    emit updateAddressChanged(arg);
-}
-
 int Server::port() const
 {
     return m_port;
@@ -85,8 +65,22 @@ void Server::setPort(int arg)
     if (m_port == arg) return;
     m_port = arg;
     emit portChanged(arg);
-    stop();
-    start();
+    if (m_running) {
+        stop();
+        start();
+    }
+}
+
+MainWindow *Server::mainWindow() const
+{
+    return m_mainWindow;
+}
+
+void Server::setMainWindow(MainWindow *arg)
+{
+    if (m_mainWindow == arg) return;
+    m_mainWindow = arg;
+    emit mainWindowChanged(arg);
 }
 
 void Server::setRunning(bool arg)
@@ -107,19 +101,6 @@ void Server::processRequest(const QList<QByteArray> &request)
 
 }
 
-void Server::updateRequest(const QList<QByteArray> &request)
-{
-    static quint64 updateCounter = 0;
-    updateCounter++;
-
-    QString command(request[0]);
-
-    if (command == "ready") {
-        if (!sendPendingUpdate())
-            m_updateReady = true;
-    }
-}
-
 void Server::sendReply(QVariant reply)
 {
     QList<QByteArray> byteReply;
@@ -131,39 +112,47 @@ void Server::sendReply(QVariant reply)
 
 void Server::parameterChanged(QString figureHandle, QString parameter, QVariant update)
 {
-    if (m_updateReady) {
-        m_updateReady = false;
-        sendUpdate(update);
-    } else {
-        QString key = figureHandle + "." + parameter;
-        if (!m_updateMap.contains(key)) {
-            // updateMap and updatesToSend should stay synced
-            m_updatesToSend.append(key);
-        }
-        m_updateMap.insert(key, update);
+    QList<QByteArray> msg;
+    msg << update.toString().toLocal8Bit();
+
+    PushSocket *socket = m_socketUpdateMap.value(figureHandle, 0);
+    if (socket) {
+        QString tag = figureHandle + "." + parameter;
+        socket->sendMessage(tag, msg);
     }
 }
 
 void Server::parameterUpdated(QString figureHandle, QString parameter)
 {
-    QString key = figureHandle + "." + parameter;
-    if (m_updatesToReceive.contains(key)) {
-        m_updatesToReceive.removeOne(key);
-        if (m_updateReady)
-            sendPendingUpdate();
-    }
+    qDebug() << Q_FUNC_INFO << figureHandle << parameter;
+    if (!m_socketUpdateMap.contains(figureHandle)) return;
+
+    PushSocket *socket = m_socketUpdateMap[figureHandle];
+    QString tag = figureHandle + "." + parameter;
+    socket->replyReceived(tag);
 }
 
 void Server::start()
 {
-    try {
-        startServer();
-        setRunning(true);
-    }
-    catch (const nzmqt::ZMQException& ex) {
-        qWarning() << Q_FUNC_INFO << "Exception:" << ex.what();
-        emit failure(ex.what());
-        emit finished();
+    int findingPort = 50;
+    while (findingPort) {
+        try {
+            startServer();
+            setRunning(true);
+            findingPort = 0;
+            qDebug() << "Connected to port" << m_port;
+        }
+        catch (const nzmqt::ZMQException& ex) {
+            if (ex.num() == 48) {
+                findingPort--;
+                setPort(m_port + 1);
+            } else {
+                qWarning() << Q_FUNC_INFO << "Exception:" << ex.num() << ex.what();
+                findingPort = 0;
+                emit failure(ex.what());
+                emit finished();
+            }
+        }
     }
 }
 
@@ -180,6 +169,29 @@ void Server::stop()
     emit finished();
 }
 
+int Server::getPortForFigure(const QString &figureHandle)
+{
+    PushSocket *socket;
+    if (m_socketUpdateMap.contains(figureHandle)) {
+        socket = m_socketUpdateMap[figureHandle];
+
+    } else {
+        socket = new PushSocket(m_context, m_latestUpdatePort + 1);
+        connect(socket, &PushSocket::close,
+                [=](){
+            m_socketUpdateMap.remove(figureHandle);
+            delete socket;
+        });
+        // Add it to the map
+        m_socketUpdateMap.insert(figureHandle, socket);
+    }
+
+    socket->unbind(); // Ensures that client is informed of closure.
+    m_latestUpdatePort = socket->bind();
+
+    return socket->port();
+}
+
 void Server::sleep(unsigned long msecs)
 {
     ThreadTools::msleep(msecs);
@@ -189,34 +201,7 @@ void Server::startServer()
 {
     m_currentAddress = m_address + ":" + QString::number(m_port);
     m_socket->bindTo(m_currentAddress);
-    m_updateSocket->bindTo(m_updateAddress);
-}
-
-void Server::sendUpdate(QVariant update)
-{
-    QList<QByteArray> byteReply;
-    byteReply << update.toString().toLocal8Bit();
-    m_updateSocket->sendMessage(byteReply);
-
-    emit updateSent(byteReply);
-}
-
-bool Server::sendPendingUpdate()
-{
-    if (!m_updateReady) return false;
-    if (m_updatesToSend.length() == 0) return false;
-
-    m_updateReady = false;
-    for (int i=0; i<m_updatesToSend.length(); ++i) {
-        QString key = m_updatesToSend[i];
-        if (m_updatesToReceive.contains(key))
-            continue;
-        sendUpdate(m_updateMap[key]);
-        m_updateMap.remove(key);
-        m_updatesToReceive.append(m_updatesToSend.takeAt(i));
-        return true;
-    }
-    return false;
+//    m_updateSocket->bindTo(m_updateAddress);
 }
 
 QString Server::adjustPath(const QString &path)
