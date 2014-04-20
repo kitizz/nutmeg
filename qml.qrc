@@ -1,10 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>qml/Controls/Slider.qml</file>
-        <file>qml/Layouts/Column.qml</file>
-        <file>qml/Layouts/Grid.qml</file>
-        <file>qml/Layouts/Repeater.qml</file>
-        <file>qml/Layouts/Row.qml</file>
+        <file>images/icon.png</file>
         <file>qml/Axis.qml</file>
         <file>qml/Container.qml</file>
         <file>qml/Controller.qml</file>
@@ -17,7 +13,12 @@
         <file>qml/TestFigure.qml</file>
         <file>qml/Util.js</file>
         <file>qml/Vector.js</file>
-
-        <file>images/icon.png</file>
+        <file>qml/Settings.qml</file>
+        <file>qml/Controls/Slider.qml</file>
+        <file>qml/Layouts/Column.qml</file>
+        <file>qml/Layouts/Grid.qml</file>
+        <file>qml/Layouts/Repeater.qml</file>
+        <file>qml/Layouts/Row.qml</file>
+        <file>qml/Group.qml</file>
     </qresource>
 </RCC>

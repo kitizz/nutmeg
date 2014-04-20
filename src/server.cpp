@@ -141,6 +141,9 @@ void Server::start()
             setRunning(true);
             findingPort = 0;
             qDebug() << "Connected to port" << m_port;
+            if (m_mainWindow) {
+                m_mainWindow->notify("Server Started", "Port set to " + QString::number(m_port));
+            }
         }
         catch (const nzmqt::ZMQException& ex) {
             if (ex.num() == 48) {

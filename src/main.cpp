@@ -1,7 +1,9 @@
 #include <QApplication>
 #include <QQuickView>
 #include <QQmlProperty>
+#include <QQmlContext>
 #include "mainwindow.h"
+#include "qmlwindow.h"
 
 #include "lineplot.h"
 #include "lineplotcanvas.h"
@@ -12,11 +14,13 @@
 #include "figurebase.h"
 #include "server.h"
 #include "controller.h"
+#include "settings.h"
 
 #include "fileio.h"
 
 int main(int argc, char *argv[])
 {
+    qmlRegisterUncreatableType<QmlWindow>("Graphr", 1,0, "QmlWindow", "Cannot create QmlWindow");
     qmlRegisterType<FigureBase>("Graphr", 1,0, "FigureBase");
 
     qmlRegisterType<AxisBase>("Graphr", 1,0, "AxisBase");
@@ -40,15 +44,22 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     MainWindow *w = new MainWindow(QUrl("qrc:/qml/main.qml"));
-    w->show();
+    QmlWindow *settingsWindow = new QmlWindow(QUrl("qrc:/qml/Settings.qml"), true);
+    settingsWindow->resize(300, 150);
+    w->setSettingsWindow(settingsWindow);
 
-    QQuickView *view = w->view;
+    Settings *settings = new Settings();
+    qDebug() << "Setting settings in main";
 
-    Server* server = view->rootObject()->findChild<Server*>("server");
+    w->view()->rootObject()->setProperty("settings", QVariant::fromValue(settings));
+    settingsWindow->view()->rootObject()->setProperty("settings", QVariant::fromValue(settings));
+
+    Server* server = w->view()->rootObject()->findChild<Server*>("server");
     if (server) {
-        server->setMainWindow(w);
+        w->setServer(server);
         server->start();
     }
 
+    w->show();
     return app.exec();
 }

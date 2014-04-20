@@ -12,6 +12,8 @@ Rectangle {
     id: root
 //    width: 600
 //    height: 360
+    property var settings: null
+    onSettingsChanged: console.log("Settings changed:", settings)
 
     FileIO {
         id: testFile
@@ -33,7 +35,7 @@ Rectangle {
 
     Server {
         id: server
-
+        port: settings ? settings.port : 43686
         figureContainer: figureContainer
         tabView: tabView
         controller: controller

@@ -1,76 +1,63 @@
 #include "mainwindow.h"
-#include <QHBoxLayout>
-#include <QQuickView>
-#include <QQmlEngine>
 #include <QDebug>
 
+#include <QQmlEngine>
 #include <QMenu>
 #include <QAction>
 #include <QSystemTrayIcon>
 #include <QTimer>
 
 MainWindow::MainWindow(QUrl qmlSource, QWidget *parent)
-    : QWidget(parent)
-    , view(new QQuickView())
-    , m_lastSize(QSize())
-    , m_exiting(false)
+    : QmlWindow(qmlSource, true, parent)
+    , m_server(0)
+    , m_settingsWindow(0)
 {
-    QHBoxLayout *layout = new QHBoxLayout(this);
-    layout->setContentsMargins(0,0,0,0);
-
-    view->connect(view->engine(), &QQmlEngine::quit, view, &QWindow::close);
-
-    QWidget *container = QWidget::createWindowContainer(view);
-    container->setMinimumSize(300, 300);
-    container->setMaximumSize(60000, 60000);
-    container->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    container->setFocusPolicy(Qt::StrongFocus);
-    view->setSource(qmlSource);
-    view->setResizeMode(QQuickView::SizeRootObjectToView);
-
-    layout->addWidget(container);
-
     createSystemTray();
     this->resize(700, 500);
 }
 
-bool MainWindow::event(QEvent *event)
+Server *MainWindow::server() const
 {
-    if (event->type() == QEvent::Close && !m_exiting) {
-        qDebug() << "Event exit";
-        onShowHide();
-        event->setAccepted(false);
-        return false;
-    }
-    return QWidget::event(event);
+    return m_server;
+}
+
+void MainWindow::setServer(Server *arg)
+{
+    if (m_server == arg) return;
+    m_server = arg;
+    if (m_server)
+        m_server->setMainWindow(this);
+    emit serverChanged(arg);
+}
+
+QmlWindow *MainWindow::settingsWindow() const
+{
+    return m_settingsWindow;
+}
+
+void MainWindow::setSettingsWindow(QmlWindow *arg)
+{
+    if (m_settingsWindow == arg) return;
+    m_settingsWindow = arg;
+    emit settingsWindowChanged(arg);
+}
+
+void MainWindow::notify(const QString &title, const QString &msg)
+{
+    m_trayIcon->showMessage(title, msg);
 }
 
 void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason)
 {
     if (reason && reason != QSystemTrayIcon::DoubleClick)
         return;
-    onShowHide();
+    showHide();
 }
 
-void MainWindow::onShowHide()
+void MainWindow::showSettings()
 {
-    if (isVisible()) {
-        m_lastSize = this->size();
-        hide();
-    } else {
-        show();
-        this->resize(m_lastSize);
-        raise();
-    }
-
-}
-
-void MainWindow::onExit()
-{
-    m_exiting = true;
-    m_trayIcon->hide();
-    delete view;
-    this->close();
+    if (m_settingsWindow)
+        m_settingsWindow->show();
 }
 
 void MainWindow::createSystemTray()
@@ -80,12 +67,22 @@ void MainWindow::createSystemTray()
     connect(m_trayIcon, &QSystemTrayIcon::activated, this, &MainWindow::iconActivated);
 
     QAction *quitAction = new QAction( "Exit", m_trayIcon);
-    connect( quitAction, &QAction::triggered, this, &MainWindow::onExit);
+    connect( quitAction, &QAction::triggered, [=](){
+        if (m_settingsWindow)
+            m_settingsWindow->exit();
+        m_trayIcon->hide();
+        this->exit();
+    });
 
     QAction *hideAction = new QAction( "Show/Hide", m_trayIcon );
-    connect( hideAction, &QAction::triggered, this, &MainWindow::onShowHide);
+    connect( hideAction, &QAction::triggered, this, &QmlWindow::showHide);
+
+    QAction *settingsAction = new QAction( "Settings...", m_trayIcon );
+    connect( settingsAction, &QAction::triggered, this, &MainWindow::showSettings);
 
     QMenu *trayIconMenu = new QMenu(this);
+    trayIconMenu->addAction(settingsAction);
+    trayIconMenu->addSeparator();
     trayIconMenu->addAction(hideAction);
     trayIconMenu->addAction(quitAction);
 

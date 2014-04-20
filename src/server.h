@@ -14,6 +14,7 @@
 
 using namespace nzmqt;
 
+class MainWindow;
 class Server : public QQuickItem
 {
     Q_OBJECT

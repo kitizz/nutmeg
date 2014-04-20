@@ -40,7 +40,9 @@ SOURCES += src/main.cpp \
     src/linespec.cpp \
     src/fileio.cpp \
     mainwindow.cpp \
-    src/pushsocket.cpp
+    src/pushsocket.cpp \
+    qmlwindow.cpp \
+    src/settings.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 #include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
@@ -70,7 +72,9 @@ HEADERS += \
     src/linespec.h \
     src/fileio.h \
     mainwindow.h \
-    src/pushsocket.h
+    src/pushsocket.h \
+    qmlwindow.h \
+    src/settings.h
 
 LIBS += -lzmq
 
@@ -87,5 +91,7 @@ RESOURCES += qml.qrc
 include(deployment.pri)
 
 FORMS +=
+
+OTHER_FILES +=
 
 
