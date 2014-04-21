@@ -42,6 +42,18 @@ void MainWindow::setSettingsWindow(QmlWindow *arg)
     emit settingsWindowChanged(arg);
 }
 
+QmlWindow *MainWindow::aboutWindow() const
+{
+    return m_aboutWindow;
+}
+
+void MainWindow::setAboutWindow(QmlWindow *arg)
+{
+    if (m_aboutWindow == arg) return;
+    m_aboutWindow = arg;
+    emit aboutWindowChanged(arg);
+}
+
 void MainWindow::notify(const QString &title, const QString &msg)
 {
     m_trayIcon->showMessage(title, msg);
@@ -60,6 +72,12 @@ void MainWindow::showSettings()
         m_settingsWindow->show();
 }
 
+void MainWindow::showAbout()
+{
+    if (m_aboutWindow)
+        m_aboutWindow->show();
+}
+
 void MainWindow::createSystemTray()
 {
     m_trayIcon = new QSystemTrayIcon(QIcon(":/images/icon.png"), this);
@@ -70,6 +88,8 @@ void MainWindow::createSystemTray()
     connect( quitAction, &QAction::triggered, [=](){
         if (m_settingsWindow)
             m_settingsWindow->exit();
+        if (m_aboutWindow)
+            m_aboutWindow->exit();
         m_trayIcon->hide();
         this->exit();
     });
@@ -77,11 +97,15 @@ void MainWindow::createSystemTray()
     QAction *hideAction = new QAction( "Show/Hide", m_trayIcon );
     connect( hideAction, &QAction::triggered, this, &QmlWindow::showHide);
 
+    QAction *aboutAction = new QAction( "About...", m_trayIcon );
+    connect( aboutAction, &QAction::triggered, this, &MainWindow::showAbout);
+
     QAction *settingsAction = new QAction( "Settings...", m_trayIcon );
     connect( settingsAction, &QAction::triggered, this, &MainWindow::showSettings);
 
     QMenu *trayIconMenu = new QMenu(this);
     trayIconMenu->addAction(settingsAction);
+    trayIconMenu->addAction(aboutAction);
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(hideAction);
     trayIconMenu->addAction(quitAction);

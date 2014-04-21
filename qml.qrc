@@ -20,5 +20,9 @@
         <file>qml/Layouts/Repeater.qml</file>
         <file>qml/Layouts/Row.qml</file>
         <file>qml/Group.qml</file>
+        <file>qml/About.qml</file>
+    </qresource>
+    <qresource prefix="/licenses">
+        <file alias="LICENSE_nzmqt">nzmqt/LICENSE_nzmqt.md</file>
     </qresource>
 </RCC>

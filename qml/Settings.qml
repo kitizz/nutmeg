@@ -21,14 +21,14 @@ Item {
                 Layout.fillHeight: true
                 title: "Server"
 
-                Row {
+                RowLayout {
                     spacing: 5
                     Label {
                         text: "Port:"
                     }
 
                     TextField {
-                        width: 150
+                        Layout.maximumWidth: 120
                         height: implicitHeight
                         text: settings ? settings.port : 0
                         inputMethodHints: Qt.ImhDigitsOnly
@@ -45,6 +45,11 @@ Item {
                             else
                                 text = settings.port
                         }
+                    }
+
+                    Label {
+                        text: "(40000 - 65535)"
+                        color: "#AAAAAA"
                     }
                 }
             }

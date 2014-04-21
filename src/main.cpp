@@ -48,9 +48,12 @@ int main(int argc, char *argv[])
     settingsWindow->resize(300, 150);
     w->setSettingsWindow(settingsWindow);
 
-    Settings *settings = new Settings();
-    qDebug() << "Setting settings in main";
+    QmlWindow *aboutWindow = new QmlWindow(QUrl("qrc:/qml/About.qml"), true);
+    aboutWindow->resize(500, 400);
+    w->setAboutWindow(aboutWindow);
 
+    // Settings is the common object between the different windows.
+    Settings *settings = new Settings();
     w->view()->rootObject()->setProperty("settings", QVariant::fromValue(settings));
     settingsWindow->view()->rootObject()->setProperty("settings", QVariant::fromValue(settings));
 
