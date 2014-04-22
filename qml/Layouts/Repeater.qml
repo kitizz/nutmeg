@@ -1,5 +1,10 @@
 import QtQuick 2.0
 
+/*!
+    \ingroup layouts
+    Layouts.Repeater is a helper item used for quickly generating multiple instances
+    of an Axis. The parent of Axis with be the parant of Layouts.Repeater.
+*/
 Item {
     objectName: "repeater"
 

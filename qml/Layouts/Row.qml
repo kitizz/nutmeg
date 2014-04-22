@@ -1,6 +1,11 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.0
 
+/*!
+    \ingroup layouts
+    Layouts.Row is used for laying out multiple Axis items in a row.
+    (This is currently not fully implemented)
+*/
 RowLayout {
     objectName: "row"
 

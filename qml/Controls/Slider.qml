@@ -1,6 +1,10 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.0
 
+/*!
+    \ingroup controls
+    Slider is a typical sliding control.
+*/
 Item {
     id: sliderRoot
     property alias handle: label.text

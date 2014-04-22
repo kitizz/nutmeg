@@ -92,6 +92,7 @@ include(deployment.pri)
 
 FORMS +=
 
-OTHER_FILES +=
+OTHER_FILES += \
+    nutmeg.qdocconf
 
 

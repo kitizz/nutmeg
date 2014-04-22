@@ -5,6 +5,11 @@ import QtQuick.Layouts 1.0
 import "Vector.js" as Vector
 import "Util.js" as Util
 
+/*!
+    \ingroup figures
+    One Axis should be placed for each visual plot the user wishes to show.
+    Figure should be an ancestor of Axis.
+*/
 AxisBase {
     id: axisItem
     handle: "ax"

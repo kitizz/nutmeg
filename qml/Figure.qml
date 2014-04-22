@@ -3,6 +3,11 @@ import Graphr 1.0
 import "Util.js" as Util
 //import "Vector.js" as Vector
 
+/*!
+    \ingroup figures
+    Figure should be the base item of every Nutmeg figure layout.
+    Figures should be be nested in Figures.
+*/
 FigureBase {
     objectName: "figure"
     width: parent.width

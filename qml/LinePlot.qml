@@ -2,6 +2,11 @@ import QtQuick 2.0
 import QtQml 2.1
 import Graphr 1.0
 
+/*!
+    \ingroup figures
+    LinePlot is used for drawing 2D X-Y data plots.
+    Axis should be a direct parent. An Axis can contain many Plot choldren.
+*/
 LinePlotBase {
     id: linePlot
     width: parent.width

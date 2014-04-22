@@ -2,6 +2,10 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.0
 import "../Util.js" as Util
 
+/*!
+    \ingroup layouts
+    Layouts.Column is used for laying out multiple Axis items in a column.
+*/
 ColumnLayout {
     id: col
     objectName: "column"
