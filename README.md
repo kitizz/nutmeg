@@ -62,7 +62,7 @@ Result:
 The Architecture
 ----------------
 
-The Nutmeg core is a stand alone executable, and other programs can draw figures by sending the appropriate data wrapped up in JSON via sockets. The socket interface is built on the wonderful [ZMQ](http://zeromq.org/) enabling Nutmeg to support multiple platforms and languages.
+The Nutmeg core is a stand alone executable, and other programs can draw figures by sending the appropriate data, wrapped up in JSON, via sockets. The socket interface is built on the wonderful [ZMQ](http://zeromq.org/) enabling Nutmeg to support multiple platforms and languages.
 
 The end user could in fact plot using the interface as it is, but a language-side API can simplify the process greatly. Therefore typically a user should become familiar with two interfaces: the QML-style Figure layout, and a language specific Nutmeg library for sending the Figure layout and updating its data.
 
@@ -95,4 +95,4 @@ Goals
 Non-Goals
 ---------
 - Replace Matplotlib, GNU Plot, Matlab's plotting
-- Output to PDF, etc (*for now*... with enough popularity, this will probable change)
+- Output to PDF, etc (*for now*... with enough popularity, this will probably change)
