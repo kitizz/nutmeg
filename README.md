@@ -4,12 +4,12 @@ Nutmeg
 Nutmeg is multiplatform, multilingual plotting tool. Primarily, it aims to be light, fast, and responsive, and has been designed to be the go to tool for visualizing and playing with data in the experimental phase of a project.
 
 Notable Features:
-- Plotting can be asynchronous to program
+- Plotting can be asynchronous with user's program
     + Can visualize the updating of data as your program runs
-    + This is also fast
+    + Fast
 - Responsive panning and zooming of data using mouse or multitouch trackpad
 - Lay out figure axes and plots using a more intuitive declarative style (QML)
-    + This also makes figure templates easy
+    + Makes figure templates easy
 - Lay out GUI controls that update parameters, which update the data
 
 Nutmeg in Action
@@ -49,7 +49,7 @@ x = [ 0.01*n for n in range(100) ]
 y1 = [ sin(10*pi*t) for t in x ]
 y2 = [ 10*pi*cos(10*pi*t) for t in x ]
 
-fig = nut.figure("myFigure", figure.qml")
+fig = nut.figure("myFigure", "figure.qml")
 
 fig.set("axis1.data", {'x': x, 'y': y1})
 fig.set("axis2.data", {'x': x, 'y': y2})
