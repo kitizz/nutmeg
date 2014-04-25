@@ -1,7 +1,7 @@
 Nutmeg
 ======
 
-Nutmeg is multiplatform, multilingual plotting tool. Primarily, it aims to be light, fast, and responsive, and has been designed to be your go to tool when you wish to visualize and play with your data in the experimental phase of a project.
+Nutmeg is multiplatform, multilingual plotting tool. Primarily, it aims to be light, fast, and responsive, and has been designed to be the go to tool for visualizing and playing with data in the experimental phase of a project.
 
 Notable Features:
 - Plotting can be asynchronous to program
@@ -84,7 +84,15 @@ Need to try that yet. Let me know!
 
 Goals
 -----
-
+- The GUI must be fast and responsive
+- The GUI must never get in the way of the user or make them feel claustrophobic
+- View precise information about the displayed data (data points)
+- Fast, smooth data updating
+- Work on multiple platforms and multiple languages
+    + Nutmeg core should even run on mobile OSes (Android and iOS)
+    + Nutmeg clients should run on desktop (Mac, Linux, Windows)
 
 Non-Goals
 ---------
+- Replace Matplotlib, GNU Plot, Matlab's plotting
+- Output to PDF, etc (*for now*... with enough popularity, this will probable change)
