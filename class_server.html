@@ -78,7 +78,7 @@ $(document).ready(function(){initNavTree('class_server.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,12 +107,12 @@ Inheritance diagram for Server:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a866cfc9f1d8e073ce877309b80df12ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server.html#a866cfc9f1d8e073ce877309b80df12ae">createFigure</a> (req)</td></tr>
-<tr class="separator:a866cfc9f1d8e073ce877309b80df12ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9b4c0348d32c763a9cf037d302a8d41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server.html#ae9b4c0348d32c763a9cf037d302a8d41">createGui</a> (list req)</td></tr>
-<tr class="separator:ae9b4c0348d32c763a9cf037d302a8d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ce36a536b5d1b7e9c88b0c19e6ac52c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server.html#a4ce36a536b5d1b7e9c88b0c19e6ac52c">sendData</a> (List req)</td></tr>
-<tr class="separator:a4ce36a536b5d1b7e9c88b0c19e6ac52c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e90ddfa4b7cb46f66f9933862a550c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server.html#a6e90ddfa4b7cb46f66f9933862a550c5">createFigure</a> (dictionary args)</td></tr>
+<tr class="separator:a6e90ddfa4b7cb46f66f9933862a550c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5673c8b679b197e3064af0a55a7be60b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server.html#a5673c8b679b197e3064af0a55a7be60b">createGui</a> (dictionary args)</td></tr>
+<tr class="separator:a5673c8b679b197e3064af0a55a7be60b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09123be74220c99e47c220f79daa85a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server.html#a09123be74220c99e47c220f79daa85a1">sendData</a> (args)</td></tr>
+<tr class="separator:a09123be74220c99e47c220f79daa85a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a391fdf2e0f3e1c0b4fd6d38d66492f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a391fdf2e0f3e1c0b4fd6d38d66492f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setProperties</b> (obj, prop, data)</td></tr>
 <tr class="separator:a9a391fdf2e0f3e1c0b4fd6d38d66492f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,72 +135,73 @@ var&#160;</td><td class="memItemRight" valign="bottom"><b>userArea</b></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_server.html">Server</a> handles requests from Nutmeg clients. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a866cfc9f1d8e073ce877309b80df12ae"></a>
+<a class="anchor" id="a6e90ddfa4b7cb46f66f9933862a550c5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Server::createFigure </td>
           <td>(</td>
-          <td class="paramtype">req&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">dictionary&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Handles the initial request message. Selects the appropriate server command to execute based on the first argument in the message <code>["command", ...]</code> </p>
+<p>Handles the initial request message. Selects the appropriate server command to execute based on the first argument in the message <code>["command", request={"arg1": val1, "arg2": val2, ...}]</code> </p>
 <dl class="section return"><dt>Returns</dt><dd>Success: <code>command(request)</code> <br/>
-Unrecognized command: <code>[1, msg]</code></dd></dl>
-<p>Create a figure based on the parameters provided in <em>request</em>.</p>
+Unrecognized command: <code>[1, {"message": m}]</code></dd></dl>
+<p>Create a figure based on the parameters provided in <em>args</em>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Request,:</td><td>["createFigure", figureHandle, qmlString] </td></tr>
-    <tr><td class="paramname">qmlString</td><td>QML string declaring the layout of the figure. See more in (). </td></tr>
+    <tr><td class="paramname">args,:</td><td>{"figureHandle": f, "qml": qmlString} </td></tr>
+    <tr><td class="paramname">figureHandle,:</td><td>(String) The unique handle for the figure being created. </td></tr>
+    <tr><td class="paramname">qml,:</td><td>(String) QML string declaring the layout of the figure. See more in (). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Success: <code>[0, figureHandle, parameterUpdatePort, msg]</code> <br/>
+<dl class="section return"><dt>Returns</dt><dd>Success: <code>[0, {"figureHandle": f, "port": parameterUpdatePort, "message": m}]</code> <br/>
 QML Failure: <code>[2, {"lineNumber": l, "columnNumber": c, "message": m}]</code> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ae9b4c0348d32c763a9cf037d302a8d41"></a>
+<a class="anchor" id="a5673c8b679b197e3064af0a55a7be60b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Server::createGui </td>
           <td>(</td>
-          <td class="paramtype">list&#160;</td>
-          <td class="paramname"><em>req</em></td><td>)</td>
+          <td class="paramtype">dictionary&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Layout parameter controls based on the parameters provided in <code>req</code>.</p>
+<p>Layout parameter controls based on the parameters provided in <code>args</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">req</td><td>Request: ["createGui", figureHandle, qmlString] </td></tr>
-    <tr><td class="paramname">figureHandle</td><td>The unique identifier of the new figure </td></tr>
-    <tr><td class="paramname">qmlString</td><td>should describe the layout of the controls used for adjusting parameter values related to <code>figureHandle</code>. </td></tr>
+    <tr><td class="paramname">args,:</td><td>A dictionary of args. {"figureHandle": f, "qml": qml] </td></tr>
+    <tr><td class="paramname">figureHandle,:</td><td>(String) The unique identifier of the new figure </td></tr>
+    <tr><td class="paramname">qml,:</td><td>(String) Should describe the layout of the controls used for adjusting parameter values related to <code>figureHandle</code>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Success: <code>[0, msg, parameters]</code> <br/>
-Bad <code>figureHandle:</code> <code>[3, msg]</code> <br/>
+<dl class="section return"><dt>Returns</dt><dd>Success: <code>[0, {"message": m, "parameters": p}]</code> <br/>
+Bad <code>figureHandle:</code> <code>[3, {"message": m}]</code> <br/>
 QML Failure: <code>[4, {"lineNumber": l, "columnNumber": c, "message": m}]</code> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a4ce36a536b5d1b7e9c88b0c19e6ac52c"></a>
+<a class="anchor" id="a09123be74220c99e47c220f79daa85a1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Server::sendData </td>
           <td>(</td>
-          <td class="paramtype">List&#160;</td>
-          <td class="paramname"><em>req</em></td><td>)</td>
+          <td class="paramtype">args&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -220,7 +221,7 @@ QML Failure: <code>[4, {"lineNumber": l, "columnNumber": c, "message": m}]</code
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Success: <code>[0, msg]</code> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Success: <code>[0, {"message": m}]</code> </dd></dl>
 
 </div>
 </div>
@@ -233,7 +234,7 @@ QML Failure: <code>[4, {"lineNumber": l, "columnNumber": c, "message": m}]</code
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_server.html">Server</a></li>
-    <li class="footer">Generated on Wed Apr 23 2014 00:08:27 for Nutmeg by
+    <li class="footer">Generated on Sat Apr 26 2014 23:15:40 for Nutmeg by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

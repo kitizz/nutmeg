@@ -1,6 +1,7 @@
 var NAVTREE =
 [
   [ "Nutmeg", "index.html", [
+    [ "Nutmeg Documentation Home", "index.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],

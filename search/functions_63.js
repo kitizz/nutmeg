@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['createfigure',['createFigure',['../class_server.html#a866cfc9f1d8e073ce877309b80df12ae',1,'Server']]],
-  ['creategui',['createGui',['../class_server.html#ae9b4c0348d32c763a9cf037d302a8d41',1,'Server']]]
+  ['createfigure',['createFigure',['../class_server.html#a6e90ddfa4b7cb46f66f9933862a550c5',1,'Server']]],
+  ['creategui',['createGui',['../class_server.html#a5673c8b679b197e3064af0a55a7be60b',1,'Server']]]
 ];
