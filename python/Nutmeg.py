@@ -44,50 +44,38 @@ class QMLException(Exception):
 
 class Nutmeg:
 
-    def __init__(self, address="tcp://localhost", port=43686, updatePort=2468):
+    def __init__(self, address="tcp://localhost", port=43686, timeout=3000):
+        '''
+        :param timeout: Timeout in ms
+        '''
         self.host = address
+        self.port = port
         self.address = address + ":" + str(port)
-        self.updateAddress = address + ":" + str(updatePort)
         # Create the socket and connect to it.
         self.context = zmq.Context()
         self.socket = self.context.socket(zmq.REQ)
+        self.socket.setsockopt(zmq.LINGER, 0)
         self.socket.connect(self.address)
+        # Set up a poller for timeouts
+        self.poller = zmq.Poller()
+        self.poller.register(self.socket, zmq.POLLIN)
+        self.timeout = timeout
+
         self.socketLock = threading.Lock()
 
         self.figures = {}
 
-        # self._waitForUpdates()
-
-    @threaded
-    def _waitForUpdates(self):
-        self.updateSocket = self.context.socket(zmq.REQ)
-        self.updateSocket.connect(self.updateAddress)
-
-        while True:
-            self.updateSocket.send(b"ready")
-
-            msg = self.updateSocket.recv_json()
-            command, figureHandle, parameter, value = msg
-
-            if command == 'updateParam':
-                fig = self.figures[figureHandle]
-                fig.updateParameter(parameter, value)
-
     def setValues(self, handle, properties, param=""):
         properties = toQmlObject(properties)
-        # print properties
 
+        msg = {"handle": handle, "data": properties, "parameter":param }
         self.socketLock.acquire()
-
-        # encoder.FLOAT_REPR = lambda o: format(o, '.2g')
-        msg = ["sendData", handle, properties, param]
-        # msg = simplejson.dumps(pretty_floats(msg))
-        self.socket.send_json(msg)
-
-        reply = self.socket.recv_json()
+        self.send_json(["sendData", msg])
+        reply = self.recv_json()
         self.socketLock.release()
+
         if reply[0] != 0:  # Error
-            print(reply)
+            print(reply[1])
 
     def figure(self, handle, figureDef):
         # We're going by the interesting assumption that a file path cannot be
@@ -103,20 +91,38 @@ class Nutmeg:
         else:
             qml = figureDef
 
-        self.socket.send_json(["createFigure", handle, qml])
-        reply = self.socket.recv_json()
+        self.socketLock.acquire()
+        self.send_json(["createFigure", {"figureHandle": handle, "qml": qml}])
+        reply = self.recv_json()
+        self.socketLock.release()
+
         if reply[0] != 0:  # Error
-            err = reply[1]['qmlErrors'][0]
+            err = reply[1]
             msg = "At line %d, col %d: %s" % \
                 (err['lineNumber'], err['columnNumber'], err['message'])
             raise(QMLException(msg))
             return None
 
         else:
-            fig = Figure(self, handle=reply[1],
-                         address=self.host, port=reply[2])
-            self.figures[reply[1]] = fig
+            msg = reply[1]
+            h = msg["figureHandle"]
+            fig = Figure(self, handle=h,
+                         address=self.host, port=msg["port"])
+            self.figures[h] = fig
             return fig
+
+    def send_json(self, msg):
+        self.socket.send_json(msg)
+
+    def recv_json(self, timeout=None):
+        if timeout is None:
+            timeout = self.timeout
+
+        if self.poller.poll(self.timeout):
+            return self.socket.recv_json()
+        else:
+            raise IOError("Timeout sending figure to Nutmeg. Check that %s and \
+%d are the correct host and port." % (self.host, self.port))
 
 
 class Figure():
@@ -159,14 +165,16 @@ class Figure():
             qml = guiDef
 
         nutmeg = self.nutmeg
+        
         # Note that this method of multithreading sockets is frowned upon in the PyZMQ docs
         nutmeg.socketLock.acquire()
-        nutmeg.socket.send_json(["createGui", self.handle, qml])
+        nutmeg.send_json(["createGui", {"figureHandle": self.handle, "qml": qml}])
         # print("JSON sent...")
-        reply = nutmeg.socket.recv_json()
+        reply = nutmeg.recv_json()
         nutmeg.socketLock.release()
+
         if reply[0] != 0:  # Error
-            err = reply[1]['qmlErrors'][0]
+            err = reply[1]
             msg = "At line %d, col %d: %s" % \
                 (err['lineNumber'], err['columnNumber'], err['message'])
             raise(QMLException(msg))
@@ -174,7 +182,8 @@ class Figure():
         else:
             # Reply should contain a mapping of the parameters and their values
             # Init any updates that suit the new params.
-            self.parameters = reply[2]
+            msg = reply[1]
+            self.parameters = msg["parameters"]
             updatesToCall = set()
             for p in self.updates:
                 if p in self.parameters:

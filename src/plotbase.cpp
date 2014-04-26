@@ -129,6 +129,7 @@ int PlotBase::nearestDataTo(const QPointF &dataLocation)
         return -1;
 
     QKDTreeNode node;
+    qDebug() << "Tree size:" << m_tree->size();
     bool success = m_tree->nearestNode(dataLocation, &node);
 
     if (success) {
@@ -338,6 +339,9 @@ void PlotBase::updateTree()
     }
 
     foreach (int i, *inds) {
+        // Check for NaN
+        if (m_xData[i] != m_xData[i]) continue;
+        if (m_yData[i] != m_yData[i]) continue;
         m_tree->add(QPointF(m_xData[i], m_yData[i]), i);
     }
 

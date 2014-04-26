@@ -5,8 +5,18 @@
 TEMPLATE = app
 
 # C++11 !!
-#QMAKE_CXXFLAGS += -std=c++11
-QMAKE_CXXFLAGS = -mmacosx-version-min=10.7 -std=gnu0x -stdlib=libc+
+win32 {
+    QMAKE_CXXFLAGS += -std=c++11
+}
+
+unix:!macx {
+    QMAKE_CXXFLAGS += -std=c++11
+}
+
+macx {
+    QMAKE_CXXFLAGS = -mmacosx-version-min=10.7 -std=gnu0x -stdlib=libc+
+}
+
 CONFIG +=c++11
 
 # Additional import path used to resolve QML modules in Creator's code model
@@ -78,12 +88,15 @@ HEADERS += \
 
 LIBS += -lzmq
 
-INCLUDEPATH += \
-    /usr/local/include \ # Location of zmq include
-    nzmqt/
+INCLUDEPATH += nzmqt
 
-QMAKE_LIBDIR += \
-    /usr/local/lib # Location of zmq library
+# Location of zmq include
+unix:INCLUDEPATH += /usr/local/include
+win32:INCLUDEPATH += "C:\zmq3.2.4\include"
+
+# Location of zmq library
+unix:QMAKE_LIBDIR += /usr/local/lib
+win32:QMAKE_LIBDIR += "C:\zmq3.2.4\lib"
 
 RESOURCES += qml.qrc
 

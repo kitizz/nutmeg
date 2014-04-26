@@ -25,10 +25,10 @@ Rectangle {
         var plotTest = true
         if (plotTest) {
             var qml = testFile.read()
-            server.createFigure([0, "testFigure", qml])
+            server.createFigure( {"figureHandle": "testFigure", "qml": qml} )
 //            server.sendData([0, "testFigure.ax", {"minY": 0, "maxY": 8}])
-            server.sendData([0, "testFigure.ax.blue", {"y": [0,1,2,3,2,1,3,5,2,10]}])
-            server.sendData([0, "testFigure.ax.red", {"y": [4,8,13,0.1,0.5,3,4,5]}])
+            server.sendData( {"handle": "testFigure.ax.blue", "data": {"y": [0,1,2,3,2,1,3,5,2,10]}} )
+            server.sendData( {"handle": "testFigure.ax.red", "data": {"y": [4,8,13,0.1,0.5,3,4,5]}} )
 //            server.sendData([0, "testFigure.ax.blue", {"y": [3,1]}])
         }
     }
@@ -61,11 +61,6 @@ Rectangle {
         Component {
             id: tabDelegate
             Item {
-                Rectangle {
-                    width: 50; height: 50
-                    opacity: 0.5
-                    color: "red"
-                }
             }
         }
 

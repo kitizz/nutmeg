@@ -1,0 +1,16 @@
+/*!
+\defgroup clientApi Nutmeg Client API
+This module explains the API for clients connecting to the Nutmeg server.
+
+\defgroup figures Figure API
+This module explains how to layout a Nutmeg figure using QML.
+
+\defgroup layouts Layouts
+\ingroup figures
+Layouts are specifically used to layout multiple Axis objects in a figure.
+
+\defgroup controls Controls API
+This module explains how to layout the GUI controls for a Figure using QML.
+
+Controls are used to modify parameters associated with the Figure.
+*/

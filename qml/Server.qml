@@ -10,8 +10,6 @@ ServerBase {
     id: server
     objectName: "server"
 
-//    property var rootApp: null
-//    onRootAppChanged: console.log("Server, appChanged", rootApp)
     property var figureContainer: null
     property var tabView: null
     property var controller: null
@@ -19,39 +17,40 @@ ServerBase {
 
     /*!
       Handles the initial request message. Selects the appropriate server command
-      to execute based on the first argument in the message `["command", ...]`
+      to execute based on the first argument in the message `["command", request={"arg1": val1, "arg2": val2, ...}]`
       \return Success: `command(request)` \n
-      Unrecognized command: `[1, msg]`
+      Unrecognized command: `[1, {"message": m}]`
     */
     onRequestReceived: {
-        var req = request
-        var command = server[req[0]]
+        var command = server[request[0]]
         if (typeof command !== "function") {
-            console.log("Command, " + req[0] + ", is not a valid command.")
-            sendReply(JSON.stringify([1, "Unrecognized command"]))
+            console.log("Command, " + request[0] + ", is not a valid command.")
+            sendReply(JSON.stringify([1, {"message": "Unrecognized command"}]))
             return
         }
 
-        var result = command(req)
+        var result = command(request[1])
+
         sendReply(JSON.stringify(result))
     }
 
     /*!
-        Create a figure based on the parameters provided in \a request.
+        Create a figure based on the parameters provided in \a args.
 
-        \param type:list Request: ["createFigure", figureHandle, qmlString]
-        \param qmlString QML string declaring the layout of the figure. See more in ().
-        \return Success: `[0, figureHandle, parameterUpdatePort, msg]` \n
+        \param type:dictionary args: {"figureHandle": f, "qml": qmlString}
+        \param figureHandle: (String) The unique handle for the figure being created.
+        \param qml: (String) QML string declaring the layout of the figure. See more in ().
+        \return Success: `[0, {"figureHandle": f, "port": parameterUpdatePort, "message": m}]` \n
         QML Failure: `[2, {"lineNumber": l, "columnNumber": c, "message": m}]`
     */
-    function createFigure(req) {
-        var handle = req[1],
-            qml = req[2]
+    function createFigure(args) {
+        var figureHandle = args.figureHandle,
+            qml = args.qml
 
         qml = "import QtQuick 2.1\nimport Graphr 1.0\nimport \"Layouts\" as Layouts\n" + qml
 
         // Figure handles must be unique, overwrite existing handles
-        var oldFigure = controller.get(handle)
+        var oldFigure = controller.get(figureHandle)
         if (oldFigure) {
             if (oldFigure.guiItem)
                 oldFigure.guiItem.destroy()
@@ -68,38 +67,41 @@ ServerBase {
             e.qmlErrors[0].lineNumber -= 3
             var err = e.qmlErrors[0]
             console.warn("At line", err.lineNumber + ", col", err.columnNumber + ":", err.message, "\n")
-            return [2, e]
+            return [2, err]
         }
 
         // Update the figure handle if one was provided
-        if (handle.length > 0)
-            fig.handle = handle
+        if (figureHandle.length > 0)
+            fig.handle = figureHandle
         tabView.addFigure(fig)
         fig.controller = controller
-        var port = getPortForFigure(handle)
+        var port = getPortForFigure(figureHandle)
         console.log("Figure's port:", port)
 //        fig.installEventFilterApp(rootApp)
-        return [0, fig.handle, port, "Figure created successfully."]
+        return [0, {"figureHandle": fig.handle, "port": port, "message": "Figure created successfully."}]
     }
 
     /*!
-        Layout parameter controls based on the parameters provided in \p req.
+        Layout parameter controls based on the parameters provided in \p args.
 
-        \param type:list req Request: ["createGui", figureHandle, qmlString]
-        \param type:string figureHandle The unique identifier of the new figure
-        \param type:string qmlString should describe the layout of the controls used for
+        \param type:dictionary args: A dictionary of args. {"figureHandle": f, "qml": qml]
+        \param figureHandle: (String) The unique identifier of the new figure
+        \param qml: (String) Should describe the layout of the controls used for
         adjusting parameter values related to \p figureHandle.
-        \return Success: `[0, msg, parameters]` \n
-        Bad \p figureHandle: `[3, msg]` \n
+        \return Success: `[0, {"message": m, "parameters": p}]` \n
+        Bad \p figureHandle: `[3, {"message": m}]` \n
         QML Failure: `[4, {"lineNumber": l, "columnNumber": c, "message": m}]`
     */
-    function createGui(req) {
-        var handle = req[1],
-            qml = req[2]
+    function createGui(args) {
+        var figureHandle = args.figureHandle,
+            qml = args.qml
 
-        var figure = controller.get(handle)
+        var reply = {}
+
+        var figure = controller.get(figureHandle)
         if (!figure || figure.objectName !== "figure") {
-            return [3, "Unable to find figure, " + handle + ". GUI requires a valid figure to attach to."]
+            reply.message = "Unable to find figure, " + handle + ". GUI requires a valid figure to attach to."
+            return [3, reply]
         }
 
         qml = "import QtQuick 2.1\nimport Graphr 1.0\nimport \"Controls\"\n" + qml
@@ -110,13 +112,13 @@ ServerBase {
         } catch (e) {
             // Offset for the added lines...
             e.qmlErrors[0].lineNumber -= 3
-            return [4, e]
+            return [4, e.qmlErrors[0]]
         }
 
         figure.guiItem = gui
         gui.visible = Qt.binding(function() { return figure.visible })
         gui.server = server
-        gui.figureHandle = handle
+        gui.figureHandle = figureHandle
 
         var parameters = ({})
         for (var p in gui.parameters) {
@@ -124,7 +126,9 @@ ServerBase {
             parameters[p] = control.value
         }
 
-        return [0, "GUI created successfully.", parameters]
+        reply.message = "GUI created successfully."
+        reply.parameters = parameters
+        return [0, reply]
 
     }
 
@@ -148,14 +152,14 @@ ServerBase {
         data for a 2D plot (e.g. `{"x": [0,1,2], "y": [2,4,1]}`)
         \param type:string parameter Optional argument which informs the server which changing
         parameter that this update is in response to. See Socket Architecture for details
-        \return Success: `[0, msg]`
+        \return Success: `[0, {"message": m}]`
     */
-    function sendData(req) {
-        var handle = req[1],
-            data = req[2]
+    function sendData(args) {
+        var handle = args.handle,
+            data = args.data,
+            parameter = args.parameter
 
 //        console.log("SendData", handle)
-        var parameter = req[3]
         var match = handle.match(/(.*?)\./)
         var figureHandle = match ? match[1] : ""
 //        console.log("SendData", match, figureHandle, parameter)
@@ -167,7 +171,7 @@ ServerBase {
         for (var prop in data)
             setProperties(obj, prop, data[prop])
 
-        return [0, "Data updated successfully."]
+        return [0, {"message": "Data updated successfully."}]
     }
 
     function setProperties(obj, prop, data) {

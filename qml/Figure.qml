@@ -81,7 +81,7 @@ FigureBase {
                 var sx = Math.pow(10, delta.x*0.005*zoomSensitivity)
                 var sy = Math.pow(10, delta.y*0.005*zoomSensitivity)
                 console.log("Scale", sx, sy)
-                var dw = sx*startLimits.width
+                var dw = (1/sx)*startLimits.width
                 var dh = sy*startLimits.height
 
                 var tx = (startMouse.x - currentAxis.plotRect.x)/currentAxis.plotRect.width

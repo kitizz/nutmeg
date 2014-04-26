@@ -1,16 +1,15 @@
 /*!
-\defgroup clientApi Nutmeg Client API
-This module explains the API for clients connecting to the Nutmeg server.
+\mainpage Nutmeg Documentation Home
 
-\defgroup figures Figure API
-This module explains how to layout a Nutmeg figure using QML.
+Welcome to the documentation of Nutmeg's core. The Nutmeg core is a stand alone executable, figures are created by sending the appropriate data, wrapped up in JSON, via sockets. The socket interface is built on the wonderful ZMQ enabling Nutmeg to support multiple platforms and languages.
 
-\defgroup layouts Layouts
-\ingroup figures
-Layouts are specifically used to layout multiple Axis objects in a figure.
+The end user could in fact plot using the socket interface as it is, but a language-side API can simplify the process greatly.
 
-\defgroup controls Controls API
-This module explains how to layout the GUI controls for a Figure using QML.
+There are three distinct parts to this documentation:
+- \ref figures "The QML API for laying out Figures"
+- \ref controls "The QML API for parameter controls"
+- \ref clientApi "The client to server socket API"
 
-Controls are used to modify parameters associated with the Figure.
+The typical end user will only really be interested in the QML APIs and the APIs specific to the Nutmeg client being used (which should abstract away the socket API). Please check out the page [here](#) for an up to date list of the Nutmeg libraries available.
+
 */
