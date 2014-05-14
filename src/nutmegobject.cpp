@@ -12,5 +12,7 @@ void NutmegObject::registerProperties(QMap<QString, QString> mapping)
 }
 
 QString NutmegObject::map(QString prop) {
+    qDebug() << "NutmegObject.map" << prop << m_mapping.keys();
+    qDebug() << "mapping[prop]" << m_mapping[prop] << m_mapping.contains(prop);
     return m_mapping[prop];
 }

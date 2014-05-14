@@ -7,11 +7,16 @@
 #include <QSystemTrayIcon>
 #include <QTimer>
 
+#ifdef Q_OS_MACX
+    void qt_mac_set_dock_menu(QMenu *menu);
+#endif
+
 MainWindow::MainWindow(QUrl qmlSource, QWidget *parent)
     : QmlWindow(qmlSource, true, parent)
     , m_server(0)
     , m_settingsWindow(0)
 {
+    setWindowIcon(QIcon(":/images/icon.png"));
     createSystemTray();
     this->resize(700, 500);
 }
@@ -80,7 +85,10 @@ void MainWindow::showAbout()
 
 void MainWindow::createSystemTray()
 {
-    m_trayIcon = new QSystemTrayIcon(QIcon(":/images/icon.png"), this);
+    // TODO: Find a way to make the icon not pixelated on high-dpi diplays.
+    QIcon icon;
+    icon.addFile(":/images/logo.icns");
+    m_trayIcon = new QSystemTrayIcon(icon, this);
 
     connect(m_trayIcon, &QSystemTrayIcon::activated, this, &MainWindow::iconActivated);
 
@@ -109,6 +117,15 @@ void MainWindow::createSystemTray()
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(hideAction);
     trayIconMenu->addAction(quitAction);
+
+    // This makes it easier to access menu actions if the system tray icon gets
+    // lost behind a long task bar...
+#ifdef Q_OS_MACX
+    QMenu *dockMenu = new QMenu(this);
+    dockMenu->addAction(settingsAction);
+    dockMenu->addAction(aboutAction);
+    qt_mac_set_dock_menu(dockMenu);
+#endif
 
     m_trayIcon->setContextMenu(trayIconMenu);
     m_trayIcon->show();

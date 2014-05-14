@@ -2,8 +2,8 @@
 #include <QQuickView>
 #include <QQmlProperty>
 #include <QQmlContext>
-#include "mainwindow.h"
-#include "qmlwindow.h"
+#include "../mainwindow.h"
+#include "../qmlwindow.h"
 
 #include "lineplot.h"
 #include "lineplotcanvas.h"
@@ -44,6 +44,8 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     MainWindow *w = new MainWindow(QUrl("qrc:/qml/main.qml"));
+    w->connect(&app, &QApplication::aboutToQuit, w, &QmlWindow::exit);
+
     QmlWindow *settingsWindow = new QmlWindow(QUrl("qrc:/qml/Settings.qml"), true);
     settingsWindow->resize(300, 150);
     w->setSettingsWindow(settingsWindow);

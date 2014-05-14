@@ -1,8 +1,8 @@
 #ifndef SERVER_H
 #define SERVER_H
 
-#include <nzmqt/nzmqt.hpp>
-#include "mainwindow.h"
+#include "../nzmqt/nzmqt.hpp"
+#include "../mainwindow.h"
 #include "pushsocket.h"
 
 #include <QQuickItem>

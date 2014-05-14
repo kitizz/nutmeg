@@ -19,17 +19,24 @@ macx {
 
 CONFIG +=c++11
 
+# Icon setup
+macx:ICON = images/logo.icns
+
 # Additional import path used to resolve QML modules in Creator's code model
 QML_IMPORT_PATH =
 
 QT += qml quick widgets core gui quickwidgets
 
-DEFINES += \
-    NZMQT_LIB
+#DEFINES += NZMQT_LIB
+DEFINES += QKDTREE_LIBRARY
+DEFINES += QVECTORND_LIBRARY
+DEFINES += _WINSOCKAPI_
+DEFINES += NOMINMAX
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += src/main.cpp \
     nzmqt/nzmqt.cpp \
+    nzmqt/zmq.hpp \
     QKDTree/QKDTree/QKDTree.cpp \
     QKDTree/QKDTree/QKDTreeDistanceMetric.cpp \
     QKDTree/QKDTree/QKDTreeNode.cpp \
@@ -86,9 +93,9 @@ HEADERS += \
     qmlwindow.h \
     src/settings.h
 
-LIBS += -lzmq
-
-INCLUDEPATH += nzmqt
+unix:LIBS += -lzmq
+win32:CONFIG(release, debug|release): LIBS += -L"C:\zmq3.2.4\lib" -llibzmq
+else:win32:CONFIG(debug, debug|release): LIBS += -L"C:\zmq3.2.4\lib" -llibzmq_d
 
 # Location of zmq include
 unix:INCLUDEPATH += /usr/local/include

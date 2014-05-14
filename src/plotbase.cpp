@@ -5,7 +5,7 @@
 
 #include <algorithm>
 
-#include "QKDTree/QVectorND/QVectorND.h"
+#include "../QKDTree/QVectorND/QVectorND.h"
 
 PlotBase::PlotBase(QQuickItem *parent)
     : QQuickItem(parent)

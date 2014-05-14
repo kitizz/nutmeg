@@ -159,7 +159,7 @@ ServerBase {
             data = args.data,
             parameter = args.parameter
 
-//        console.log("SendData", handle)
+        console.log("SendData", handle, Util.dir(data))
         var match = handle.match(/(.*?)\./)
         var figureHandle = match ? match[1] : ""
 //        console.log("SendData", match, figureHandle, parameter)
@@ -168,8 +168,12 @@ ServerBase {
 
         var obj = controller.get(handle)
 //        console.log("SendData:", obj)
-        for (var prop in data)
-            setProperties(obj, prop, data[prop])
+        for (var prop in data) {
+            console.log("Setting", prop, "in", obj)
+            var result = setProperties(obj, prop, data[prop])
+            if (!result)
+                return [5, {"message": "Property, " + prop + ", of " + handle + " cannot be set."}]
+        }
 
         return [0, {"message": "Data updated successfully."}]
     }
@@ -180,10 +184,17 @@ ServerBase {
         if (Util.isArray(obj)) {
             for (var i=0; i<obj.length; ++i) {
                 var d = Util.isArray(data) && Util.isArray(data[i]) ? data[i] : data
-                setProperties(obj[i], prop, d)
+                var result = setProperties(obj[i], prop, d)
+                if (!result) return false
             }
+            return true
         } else {
-            obj[obj.map(prop)] = data
+            // Check if the property is valid
+            var propName = obj.map(prop)
+            if (!propName) return false
+
+            obj[propName] = data
+            return true
         }
     }
 }

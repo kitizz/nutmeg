@@ -2,7 +2,7 @@
 #define PUSHSOCKET_H
 
 #include <QObject>
-#include <nzmqt/nzmqt.hpp>
+#include "../nzmqt/nzmqt.hpp"
 #include <stdexcept>
 #include <QMap>
 #include <QTimer>

@@ -27,9 +27,9 @@
 #ifndef NZMQT_H
 #define NZMQT_H
 
-#include "nzmqt/global.hpp"
+#include "global.hpp"
 
-#include <zmq.hpp>
+#include "zmq.hpp"
 
 #include <QByteArray>
 #include <QFlag>
@@ -507,7 +507,7 @@ namespace nzmqt
 }
 
 #if !defined(NZMQT_LIB)
- #include "nzmqt/impl.hpp"
+ #include "impl.hpp"
 #endif
 
 #endif // NZMQT_H

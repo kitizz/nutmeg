@@ -21,6 +21,8 @@
         <file>qml/Layouts/Row.qml</file>
         <file>qml/Group.qml</file>
         <file>qml/About.qml</file>
+        <file>images/icon.svg</file>
+        <file>images/logo.icns</file>
     </qresource>
     <qresource prefix="/licenses">
         <file alias="LICENSE_nzmqt">nzmqt/LICENSE_nzmqt.md</file>

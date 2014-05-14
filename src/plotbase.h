@@ -7,7 +7,7 @@
 #include "axisbase.h"
 #include "nutmegobject.h"
 
-#include "QKDTree/QKDTree/QKDTree.h"
+#include "../QKDTree/QKDTree/QKDTree.h"
 
 class AxisBase;
 class PlotBase : public QQuickItem, public NutmegObject

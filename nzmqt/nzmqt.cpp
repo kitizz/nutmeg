@@ -25,6 +25,6 @@
 // or implied, of Johann Duscher.
 
 #if defined(NZMQT_LIB)
- #include "nzmqt/nzmqt.hpp"
- #include "nzmqt/impl.hpp"
+ #include "nzmqt.hpp"
+ #include "impl.hpp"
 #endif

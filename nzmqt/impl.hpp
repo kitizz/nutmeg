@@ -27,7 +27,7 @@
 #ifndef NZMQT_IMPL_HPP
 #define NZMQT_IMPL_HPP
 
-#include "nzmqt/nzmqt.hpp"
+#include "nzmqt.hpp"
 
 #include <QDebug>
 #include <QMutexLocker>
