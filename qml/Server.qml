@@ -152,7 +152,8 @@ ServerBase {
         data for a 2D plot (e.g. `{"x": [0,1,2], "y": [2,4,1]}`)
         \param type:string parameter Optional argument which informs the server which changing
         parameter that this update is in response to. See Socket Architecture for details
-        \return Success: `[0, {"message": m}]`
+        \return Success: `[0, {"message": m}]` \n
+        Bad Property: `[5, {"message": m}]`
     */
     function sendData(args) {
         var handle = args.handle,
