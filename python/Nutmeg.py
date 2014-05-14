@@ -2,9 +2,35 @@ import zmq
 import numpy as np
 
 import os
+import sys
 
 import Parallel
 import threading
+
+import signal
+
+
+_nutmegCore = None
+_original_sigint = None
+
+
+def init(address="tcp://localhost", port=43686, timeout=3000):
+    global _nutmegCore
+
+    if _nutmegCore is not None:
+        print("Nutmeg client already initialized.")
+        return
+    _nutmegCore = Nutmeg(address, port, timeout)
+
+
+def initialized():
+    return _nutmegCore is not None
+
+
+def figure(handle, figureDef):
+    if _nutmegCore is None:
+        raise(NutmegException("The Nutmeg client needs to be initialized (Nutmeg.init(...)."))
+    return _nutmegCore.figure(handle, figureDef)
 
 
 def toQmlObject(value):
@@ -31,15 +57,21 @@ def toQmlObject(value):
         return value
 
 
-# Threaded decorator
-def threaded(fn):
-    def wrapper(*args, **kwargs):
-        threading.Thread(target=fn, args=args, kwargs=kwargs).start()
-    return wrapper
-
-
 class QMLException(Exception):
     pass
+
+
+class NutmegException(Exception):
+    pass
+
+
+# Threaded decorator
+def _threaded(fn):
+    def wrapper(*args, **kwargs):
+        thread = threading.Thread(target=fn, args=args, kwargs=kwargs)
+        thread.qudaemon = True
+        thread.start()
+    return wrapper
 
 
 class Nutmeg:
@@ -51,11 +83,13 @@ class Nutmeg:
         self.host = address
         self.port = port
         self.address = address + ":" + str(port)
+
         # Create the socket and connect to it.
         self.context = zmq.Context()
         self.socket = self.context.socket(zmq.REQ)
         self.socket.setsockopt(zmq.LINGER, 0)
         self.socket.connect(self.address)
+
         # Set up a poller for timeouts
         self.poller = zmq.Poller()
         self.poller.register(self.socket, zmq.POLLIN)
@@ -65,8 +99,18 @@ class Nutmeg:
 
         self.figures = {}
 
+        # Overwrite the signal interupt
+        global _original_sigint
+        _original_sigint = signal.getsignal(signal.SIGINT)
+        signal.signal(signal.SIGINT, exit_gracefully)
+
     def setValues(self, handle, properties, param=""):
         properties = toQmlObject(properties)
+
+        if not isinstance(properties, dict):
+            handleExpanded = handle.split('.')
+            properties = {handleExpanded[-1]: properties}
+            handle = '.'.join( handleExpanded[:-1] )
 
         msg = {"handle": handle, "data": properties, "parameter":param }
         self.socketLock.acquire()
@@ -75,7 +119,7 @@ class Nutmeg:
         self.socketLock.release()
 
         if reply[0] != 0:  # Error
-            print(reply[1])
+            raise(NutmegException(reply[1]['message']))
 
     def figure(self, handle, figureDef):
         # We're going by the interesting assumption that a file path cannot be
@@ -135,7 +179,7 @@ class Figure():
 
         self._waitForUpdates()
 
-    @threaded
+    @_threaded
     def _waitForUpdates(self):
         self.updateSocket = self.nutmeg.context.socket(zmq.REQ)
         print("Connecting to socket at: %s" % self.updateAddress)
@@ -164,8 +208,8 @@ class Figure():
         else:
             qml = guiDef
 
-        nutmeg = self.nutmeg
-        
+        nutmeg = self.nutmeg  # Helps code readability
+
         # Note that this method of multithreading sockets is frowned upon in the PyZMQ docs
         nutmeg.socketLock.acquire()
         nutmeg.send_json(["createGui", {"figureHandle": self.handle, "qml": qml}])
@@ -193,6 +237,10 @@ class Figure():
             for update in updatesToCall:
                 update.initializeParameters(self.parameters)
 
+            # Now that we have a GUI, we need to wait for updates.
+            if len(self.parameters) > 0:
+                self._waitForUpdates()
+
             return True
 
     def updateParameter(self, param, value):
@@ -211,8 +259,8 @@ class Figure():
 
         For example: figure.set('ax[1].data', {'x': range(10), 'y': someData})
         
-        :param handle: A string to the object of interest
-        :param properties: A dictionary mapping properties to values
+        :param handle: A string to the object or property of interest
+        :param properties: A dictionary mapping properties to values or just the property values themselves. If `properties` is not a dictionary, Nutmeg will assume that `handle` points directly to a property.
         '''
         fullHandle = self.handle + "." + handle
 
@@ -265,7 +313,7 @@ class Updater():
         self.updateEvent = threading.Event()
         self._processAndSend()
 
-    @threaded
+    @_threaded
     def _processAndSend(self):
         ''' Wait until an update needs to be called. Call it in a separate
         process (because GIL), send back the result, and wait for another. '''
@@ -316,44 +364,19 @@ class Updater():
             self.updateEvent.set()
 
 
-from scipy import ndimage
-import time
-def applyBlur(dataIn, sigma):
-    return ndimage.gaussian_filter1d(dataIn, sigma, axis=1)
+def exit_gracefully(signum, frame):
+    # stackoverflow.com/a/18115530/1512137
+    # restore the original signal handler as otherwise evil things will happen
+    # in raw_input when CTRL+C is pressed, and our signal handler is not re-entrant
+    signal.signal(signal.SIGINT, _original_sigint)
 
+    try:
+        if raw_input("\nReally quit? (y/n)> ").lower().startswith('y'):
+            sys.exit(1)
 
-def _testParams():
-    nm = Nutmeg()
-    fig = nm.figure('fig', 'figure1.qml')
+    except KeyboardInterrupt:
+        print("Ok ok, quitting")
+        sys.exit(1)
 
-    print "Sending GUI..."
-    success = fig.setGui('gui1.qml')
-
-    N = 100
-    data = np.random.standard_normal((3,N*10))
-    data2 = np.random.standard_normal((3,N))
-
-    update = lambda params: { 'y': applyBlur(data, params['sigma']) }
-
-    update2 = lambda params: { 'y': applyBlur(data2, params['sigma']) }
-
-    fig.set('ax[:].blue', {'x': np.arange(N*10,dtype=float)/10})
-    fig.set('ax[:].red', {'x': np.arange(N, dtype=float)})
-    fig.set('ax[:].blue', Updater(['sigma'], update=update))
-    fig.set('ax[:].red', Updater(['sigma'], update=update2))
-    # for i in range(100):
-    #     fig.set('ax[:].red', update2({'sigma': i*0.05}))
-    #     time.sleep(0.025)
-    print("Data set")
-
-
-def _testBasic():
-    nm = Nutmeg()
-    fig = nm.figure('fig', 'figure1.qml')
-    nm.set(fig+'.ax[1].data', {'x': range(10), 'y': np.random.standard_normal(10)})
-
-
-if __name__ == '__main__':
-    _testParams()
-    # _testFloats()
-    # print toQmlObject({'xdata': {0:[1,2,3], 1:[[4],5,6], 2:np.eye(3)}, 'ydata': range(4)})
+    # restore the exit gracefully handler here    
+    signal.signal(signal.SIGINT, exit_gracefully)
