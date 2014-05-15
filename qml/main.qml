@@ -26,10 +26,9 @@ Rectangle {
         if (plotTest) {
             var qml = testFile.read()
             server.createFigure( {"figureHandle": "testFigure", "qml": qml} )
-            server.createFigure( {"figureHandle": "testFigure2", "qml": qml} )
 //            server.sendData([0, "testFigure.ax", {"minY": 0, "maxY": 8}])
-//            server.sendData( {"handle": "testFigure.ax.blue", "data": {"y": [0,1,2,3,2,1,3,5,2,10]}} )
-//            server.sendData( {"handle": "testFigure.ax.red", "data": {"y": [4,8,13,0.1,0.5,3,4,5]}} )
+            server.sendData( {"handle": "testFigure.ax.blue", "data": {"y": [0,1,2,3,2,1,3,5,2,10]}} )
+            server.sendData( {"handle": "testFigure.ax.red", "data": {"y": [4,8,13,0.1,0.5,3,4,5]}} )
 //            server.sendData([0, "testFigure.ax.blue", {"y": [3,1]}])
         }
     }
@@ -113,7 +112,6 @@ Rectangle {
                         rightMargin: 0.15*parent.height
                     }
                     onClicked: {
-                        console.log("Index:", index, "FigureIndex:", tab.figure.tabIndex)
                         tabView.closeFigure(tab.figure)
                     }
                 }
@@ -132,31 +130,6 @@ Rectangle {
         objectName: "container"
         anchors.fill: tabView
         anchors.topMargin: 30
-
-//        Figure {
-//            id: figure
-//            Layouts.Column {
-//                spacing: 0
-//                Layouts.Repeater {
-//                    count: 3
-//                    Axis {
-//                        handle: "ax"
-//                        // LinePlot {}
-//                        xAxis.majorTicks: [0,2,5,10]
-//                        xAxis.onMajorTicksChanged: console.log("Major X:", xAxis.majorTicks)
-//                        yAxis.onMajorTicksChanged: console.log("Major Y:", yAxis.majorTicks)
-//                        LinePlot {
-//                            handle: "blue"
-//                            line { color: "#7777FF"; style: "-"; width: 4 }
-//                        }
-//                        LinePlot {
-//                            handle: "red"
-//                            line { color: "#FF7777"; style: "--"; width: 4 }
-//                        }
-//                    }
-//                }
-//            }
-//        }
     }
 
     Item {
