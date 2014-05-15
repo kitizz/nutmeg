@@ -54,8 +54,7 @@ ServerBase {
         if (oldFigure) {
             if (oldFigure.guiItem)
                 oldFigure.guiItem.destroy()
-            tabView.removeTab(oldFigure.tabIndex)
-            oldFigure.destroy()
+            tabView.closeFigure(oldFigure)
         }
 
         var par = figureContainer ? figureContainer : server
