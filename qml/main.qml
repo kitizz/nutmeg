@@ -54,18 +54,25 @@ Rectangle {
         property var figures: []
 
         function closeFigure(figure) {
+            console.log("Figures before destroy", figures)
             var figureIndex = figure.tabIndex
+            var listInd = figures.indexOf(figure)
+            figures.splice(listInd, 1)
             figure.destroy()
             removeTab(figureIndex)
+            console.log("Figures after destroy", figures)
         }
 
         function addFigure(figure) {
+            console.log("Figures before push", figures)
             figures.push(figure)
+            console.log("Figures after push", figures)
             addTab(figure.handle, tabDelegate)
 
             tabView.currentIndex = count - 1
             figure.tabIndex = count - 1
             figure.visible = Qt.binding(function() { return figure.tabIndex == tabView.currentIndex })
+            return true
         }
 
         Component {
