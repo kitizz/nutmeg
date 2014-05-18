@@ -111,7 +111,13 @@ FigureBase {
     MultiPointPinchArea {
         id: touchArea
         z: 10
-        anchors.fill: parent
+        // By stretching the area beyond the bounds of the parent (and
+        // therefore the window) the touch points are better received. It's a
+        // weird side effect of how Qml multitouch works
+        anchors.centerIn: parent
+        width: parent.width*1.5
+        height: parent.height*1.5
+
         mouseEnabled: false
         areaEnabled: !mouseArea.dragActive
         property real panSensitivity: 3.0
@@ -148,7 +154,8 @@ FigureBase {
             var newLimits = Qt.rect(currentAxis.limits.x - dx, currentAxis.limits.y + dy,
                                     currentAxis.limits.width, currentAxis.limits.height)
 
-            var pinchCenter = mapToItem(currentAxis, touchArea.p1.x, touchArea.p1.y)
+//            var pinchCenter = mapToItem(currentAxis, touchArea.p1.x, touchArea.p1.y)
+            var pinchCenter = mapToItem(currentAxis, touchArea.width/2, touchArea.height/2)
 
             // If there is ZOOMING happening
             if (pinch.pinchMode == mode.pinchPan || pinch.pinchMode == mode.pinchXpan) {
