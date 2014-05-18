@@ -267,7 +267,10 @@ class Figure():
         if isinstance(properties, Updater):
             self.registerUpdate(properties, handle)
         else:
-            return self.nutmeg.setValues(fullHandle, properties, param)
+            try:
+                return self.nutmeg.setValues(fullHandle, properties, param)
+            except(IOError):
+                print("Unable to send data to Nutmeg core...")
 
     def getParameterValues(self):
         '''

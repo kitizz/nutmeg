@@ -16,14 +16,17 @@ void LinePlotCanvas::paint(QPainter *painter)
     if (!monAxis || xData.length() != yData.length())
         return; // Funky data
 
-//    qDebug() << "Plotting:" << plot->handle() << monAxis->dataLimits();
-    QRectF dataLim = monAxis->dataLimits();
+    // When the plot is zoomed closer, drawing the line as a single poly
+    // gets slower. Therefore, here, the lines are "cut" but the view frame
+    // and so that excess segment aren't drawn.
+
     // Need to frame the data based on the limits
+    QRectF dataLim = monAxis->dataLimits();
     qreal minX = monAxis->minX();
     qreal minY = monAxis->minY();
     qreal maxX = monAxis->maxX();
     qreal maxY = monAxis->maxY();
-//    qDebug() << "Init limits:" << "(" << minX << maxX << minY << maxY << ")";
+
     if (minX == -Inf) minX = dataLim.left();
     if (minY == -Inf) minY = dataLim.top();
     if (maxX == Inf) maxX = dataLim.right();
@@ -32,36 +35,53 @@ void LinePlotCanvas::paint(QPainter *painter)
     qreal scaleX = width()/(maxX - minX);
     qreal scaleY = height()/(maxY - minY);
 
-//    qDebug() << "Size, scale:" << "(" << minX << maxX << minY << maxY << ")" << scaleX << scaleY;
     QPolygonF line;
+    // Get the segments into screen coords
     for (int i=0; i<yData.length(); ++i) {
-        // Get it into workspace coords
         qreal px = xData[i];
         qreal py = yData[i];
         line << QPointF(scaleX*(px - minX), scaleY*(py - minY));
     }
 
-    QRectF b = QRectF(0, 0, width(), height());
-    QVector<QLineF> lines;
+    QRectF b = QRectF(0, 0, width(), height()); // Slice the lines with the view rect
+
+    QList<QPolygonF> lines;
+    QPointF latestPoint;
+    QPolygonF latestPoly;
+    bool starting = true;
+
     for (int i=0; i<line.size() - 1; ++i) {
         QPointF p1 = line[i], p2 = line[i+1];
         QLineF l = rectSlice(p1, p2, b);
-        if (!l.isNull())
-            lines << l;
-    }
+        qDebug() << "Line, seg" << i << l;
+        if (l.isNull()) continue;
 
-//    qDebug() << "Defined poly:" << line.size();
+        // Check if the line has been broken, or is starting
+        if (l.p1() != latestPoint || starting) {
+            // Throw the current poly in and start a new one
+            starting = false;
+            lines << latestPoly;
+            latestPoly = QPolygonF();
+            latestPoly << l.p1();
+        }
+        latestPoly << l.p2();
+        latestPoint = l.p2();
+    }
+    // Need the final whole section
+    lines << latestPoly;
 
     painter->setRenderHint(QPainter::Antialiasing);
 
+    // Get the style right
     QPen pen = QPen();
     pen.setColor( plot->line()->color() );
     pen.setStyle( LineSpec::styleMap[plot->line()->style()] );
     pen.setWidthF( plot->line()->width() );
-
     painter->setPen(pen);
-    painter->drawLines(lines);
-//    qDebug() << "Done Plotting:" << plot->handle();
+
+    foreach (QPolygonF poly, lines) {
+        painter->drawPolyline(poly);
+    }
 }
 
 /*!
