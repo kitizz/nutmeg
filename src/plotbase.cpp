@@ -294,7 +294,7 @@ void PlotBase::updateData()
     if ((xLen > 0 && xLen != yLen) || m_settingData)
         return; // Don't update until the data is good
 
-    qDebug() << "Updating data for" << handle();
+//    qDebug() << "Updating data for" << handle();
     qreal minX = Inf, maxX = -Inf, minY = Inf, maxY = -Inf;
     for (int i=0; i<yLen; ++i) {
         qreal px = m_xData[i];
@@ -305,7 +305,7 @@ void PlotBase::updateData()
         maxY = qMax(maxY, py);
     }
 
-    qDebug() << "Datalimits:" << minX << maxX << minY << maxY;
+//    qDebug() << "Datalimits:" << minX << maxX << minY << maxY;
 
     m_dataLimits.setLeft(minX);
     m_dataLimits.setTop(minY);

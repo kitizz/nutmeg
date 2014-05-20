@@ -43,13 +43,14 @@ From Python, data can be plotted like so:
 import nutmeg
 from numpy import sin, cos, pi
 
-nut = nutmeg.Nutmeg()
+# Assuming the core is on port 43686 (default)
+Nutmeg.init()
 
 x = [ 0.01*n for n in range(100) ]
 y1 = [ sin(10*pi*t) for t in x ]
 y2 = [ 10*pi*cos(10*pi*t) for t in x ]
 
-fig = nut.figure("myFigure", "figure.qml")
+fig = Nutmeg.figure("myFigure", "figure.qml")
 
 fig.set("axis1.data", {'x': x, 'y': y1})
 fig.set("axis2.data", {'x': x, 'y': y2})

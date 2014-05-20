@@ -159,7 +159,7 @@ ServerBase {
             data = args.data,
             parameter = args.parameter
 
-        console.log("SendData", handle, Util.dir(data))
+//        console.log("SendData", handle, Util.dir(data))
         var match = handle.match(/(.*?)\./)
         var figureHandle = match ? match[1] : ""
 //        console.log("SendData", match, figureHandle, parameter)
@@ -169,7 +169,7 @@ ServerBase {
         var obj = controller.get(handle)
 //        console.log("SendData:", obj)
         for (var prop in data) {
-            console.log("Setting", prop, "in", obj)
+//            console.log("Setting", prop, "in", obj)
             var result = setProperties(obj, prop, data[prop])
             if (!result)
                 return [5, {"message": "Property, " + prop + ", of " + handle + " cannot be set."}]

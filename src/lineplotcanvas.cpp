@@ -53,7 +53,6 @@ void LinePlotCanvas::paint(QPainter *painter)
     for (int i=0; i<line.size() - 1; ++i) {
         QPointF p1 = line[i], p2 = line[i+1];
         QLineF l = rectSlice(p1, p2, b);
-        qDebug() << "Line, seg" << i << l;
         if (l.isNull()) continue;
 
         // Check if the line has been broken, or is starting
