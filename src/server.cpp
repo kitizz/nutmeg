@@ -94,7 +94,7 @@ void Server::processRequest(const QList<QByteArray> &request)
 {
     static quint64 counter = 0;
     counter++;
-//    qDebug() << "Replier::requestReceived> " << counter << request;
+    qDebug() << "Replier::requestReceived> " << counter;
 
     QJsonDocument doc = QJsonDocument::fromJson(request[0]);
     emit requestReceived(doc.toVariant());
@@ -106,6 +106,7 @@ void Server::sendReply(QVariant reply)
     QList<QByteArray> byteReply;
     byteReply << reply.toString().toLocal8Bit();
     m_socket->sendMessage(byteReply);
+    qDebug() << "Replier::replySent ";
 
     emit replySent(byteReply);
 }

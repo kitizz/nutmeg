@@ -184,6 +184,7 @@ ServerBase {
         if (Util.isArray(obj)) {
             for (var i=0; i<obj.length; ++i) {
                 var d = Util.isArray(data) && Util.isArray(data[i]) ? data[i] : data
+//                if (obj[i])
                 var result = setProperties(obj[i], prop, d)
                 if (!result) return false
             }

@@ -165,7 +165,7 @@ class Nutmeg:
         if self.poller.poll(self.timeout):
             return self.socket.recv_json()
         else:
-            raise IOError("Timeout sending figure to Nutmeg. Check that %s and \
+            raise IOError("Timeout receiving response from Nutmeg. Check that %s and \
 %d are the correct host and port." % (self.host, self.port))
 
 
@@ -269,8 +269,9 @@ class Figure():
         else:
             try:
                 return self.nutmeg.setValues(fullHandle, properties, param)
-            except(IOError):
-                print("Unable to send data to Nutmeg core...")
+            except IOError as e:
+                print("IOError in Nutmeg core...")
+                print(e)
 
     def getParameterValues(self):
         '''

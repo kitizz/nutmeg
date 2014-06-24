@@ -74,12 +74,25 @@ void LinePlotCanvas::paint(QPainter *painter)
     // Get the style right
     QPen pen = QPen();
     pen.setColor( plot->line()->color() );
-    pen.setStyle( LineSpec::styleMap[plot->line()->style()] );
+
+    QString style = plot->line()->style();
+    if (style == ".") {
+        pen.setStyle(Qt::SolidLine);
+    } else {
+        pen.setStyle( LineSpec::styleMap[style] );
+    }
+
     pen.setWidthF( plot->line()->width() );
     painter->setPen(pen);
 
     foreach (QPolygonF poly, lines) {
-        painter->drawPolyline(poly);
+        if (style == ".") {
+            foreach (QPointF p, poly) {
+                painter->drawEllipse(p, pen.widthF(), pen.widthF());
+            }
+        } else {
+            painter->drawPolyline(poly);
+        }
     }
 }
 

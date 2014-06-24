@@ -45,7 +45,6 @@ ControllerBase {
         // May cause bugs if axis ever gets 'length' property
         if (Util.isArray(axes)) {
             var datas = []
-            console.log(axes)
             for (var i=0; i<axes.length; ++i) {
                 datas.push(getDataFromAxis(axes[i], dataHandle))
             }

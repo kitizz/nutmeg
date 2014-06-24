@@ -43,8 +43,16 @@ def _testBasic():
     fig.set('ax[1].red.y', np.random.standard_normal(10))
 
 
+def _testDelta():
+    Nutmeg.init()
+    fig = Nutmeg.figure('fig', 'figure1.qml')
+    fig.set('ax[1].red.y', np.random.standard_normal(10))
+    fig.set('ax[1].red.y[5]', -10)
+
+
 if __name__ == '__main__':
     # _testParams()
-    _testBasic()
+    # _testBasic()
+    _testDelta()
     # _testFloats()
     # print toQmlObject({'xdata': {0:[1,2,3], 1:[[4],5,6], 2:np.eye(3)}, 'ydata': range(4)})

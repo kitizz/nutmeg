@@ -9,6 +9,7 @@ import "Util.js" as Util
     Figures should be be nested in Figures.
 */
 FigureBase {
+    id: figureBase
     objectName: "figure"
     width: parent.width
     height: parent.height
@@ -136,7 +137,8 @@ FigureBase {
         }
 
         onPinchStarted: {
-            currentAxis = axisAtPoint(touchArea.p1)
+            var p = mapToItem(figureBase, touchArea.p1.x, touchArea.p1.y)
+            currentAxis = axisAtPoint(p)
 
             startWidth = currentAxis.maxX - currentAxis.minX
             startHeight = currentAxis.maxY - currentAxis.minY
@@ -155,7 +157,8 @@ FigureBase {
                                     currentAxis.limits.width, currentAxis.limits.height)
 
 //            var pinchCenter = mapToItem(currentAxis, touchArea.p1.x, touchArea.p1.y)
-            var pinchCenter = mapToItem(currentAxis, touchArea.width/2, touchArea.height/2)
+//            var pinchCenter = mapToItem(currentAxis, touchArea.width/2, touchArea.height/2)
+            var pinchCenter = Qt.point(currentAxis.plotRect.width/2, currentAxis.plotRect.height/2)
 
             // If there is ZOOMING happening
             if (pinch.pinchMode == mode.pinchPan || pinch.pinchMode == mode.pinchXpan) {
