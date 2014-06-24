@@ -38,9 +38,19 @@ def _testBasic():
     print "Init"
     Nutmeg.init()
     print "Sending Figure"
-    fig = Nutmeg.figure('fig', 'figure1.qml')
+    fig = Nutmeg.figure('fig', "figure1.qml")
     print "Sending Data"
     fig.set('ax[1].red.y', np.random.standard_normal(10))
+
+
+def _testImages():
+    import cv2
+    Nutmeg.init()
+    fig = Nutmeg.figure('fig', "figureIm.qml")
+
+    im = open("img.jpg")
+    imData = im.read()
+    fig.set('ax.im.binary', imData)
 
 
 def _testDelta():
@@ -53,6 +63,7 @@ def _testDelta():
 if __name__ == '__main__':
     # _testParams()
     # _testBasic()
-    _testDelta()
+    # _testDelta()
+    _testImages()
     # _testFloats()
     # print toQmlObject({'xdata': {0:[1,2,3], 1:[[4],5,6], 2:np.eye(3)}, 'ydata': range(4)})

@@ -17,8 +17,8 @@ void LinePlotCanvas::paint(QPainter *painter)
         return; // Funky data
 
     // When the plot is zoomed closer, drawing the line as a single poly
-    // gets slower. Therefore, here, the lines are "cut" but the view frame
-    // and so that excess segment aren't drawn.
+    // gets slower. Therefore, here, the lines are "cut" by the view frame
+    // so that excess segment aren't drawn.
 
     // Need to frame the data based on the limits
     QRectF dataLim = monAxis->dataLimits();

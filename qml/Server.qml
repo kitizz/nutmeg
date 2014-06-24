@@ -21,7 +21,8 @@ ServerBase {
       \return Success: `command(request)` \n
       Unrecognized command: `[1, {"message": m}]`
     */
-    onRequestReceived: {
+    onJsonReceived: {
+        // Msg: {"handle": h, "data": {props: values}, "parameter": param}
         var command = server[request[0]]
         if (typeof command !== "function") {
             console.log("Command, " + request[0] + ", is not a valid command.")
@@ -30,6 +31,17 @@ ServerBase {
         }
 
         var result = command(request[1])
+
+        sendReply(JSON.stringify(result))
+    }
+
+    onBinaryReceived: { // (msg, data)
+        // msg: {"handle": h, "property": prop, "parameter": param}
+        // Duck punch the msg and pass it to sendData
+        // We do it this way because JSON isn't so happy with converting binary data
+        msg.data = {}
+        msg.data[msg.property] = data
+        var result = sendData(msg)
 
         sendReply(JSON.stringify(result))
     }
@@ -159,7 +171,7 @@ ServerBase {
             data = args.data,
             parameter = args.parameter
 
-//        console.log("SendData", handle, Util.dir(data))
+        //  Match: (foo.bar.)extra
         var match = handle.match(/(.*?)\./)
         var figureHandle = match ? match[1] : ""
 //        console.log("SendData", match, figureHandle, parameter)

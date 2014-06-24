@@ -57,6 +57,11 @@ def toQmlObject(value):
         return value
 
 
+textchars = ''.join(map(chr, [7,8,9,10,12,13,27] + range(0x20, 0x100)))
+def isBinary(data):
+    return bool(data.translate(None, textchars))
+
+
 class QMLException(Exception):
     pass
 
@@ -112,14 +117,36 @@ class Nutmeg:
             properties = {handleExpanded[-1]: properties}
             handle = '.'.join( handleExpanded[:-1] )
 
-        msg = {"handle": handle, "data": properties, "parameter":param }
-        self.socketLock.acquire()
-        self.send_json(["sendData", msg])
-        reply = self.recv_json()
-        self.socketLock.release()
+        binaryProps = {}
+        for key in properties:
+            if isBinary(properties[key]):
+                binaryProps[key] = properties[key]
+        # Pop them out afterwards
+        for key in binaryProps:
+            properties.pop(key)
 
-        if reply[0] != 0:  # Error
-            raise(NutmegException(reply[1]['message']))
+        if len(properties) > 0:
+            msg = {"handle": handle, "data": properties, "parameter": param }
+            self.socketLock.acquire()
+            self.send_json(["sendData", msg])
+            reply = self.recv_json()
+            self.socketLock.release()
+            # Error
+            if reply[0] != 0:
+                raise(NutmegException(reply[1]['message']))
+
+        if len(binaryProps) > 0:
+            for key in binaryProps:
+                msg = {"handle": handle, "property": key, "parameter": param }
+                self.socketLock.acquire()
+                self.send_binary(msg, binaryProps[key])
+                reply = self.recv_json()
+                self.socketLock.release()
+                # Error
+                if reply[0] != 0:
+                    raise(NutmegException(reply[1]['message']))
+
+        
 
     def figure(self, handle, figureDef):
         # We're going by the interesting assumption that a file path cannot be
@@ -156,7 +183,13 @@ class Nutmeg:
             return fig
 
     def send_json(self, msg):
+        self.socket.send_string("json", flags=zmq.SNDMORE)
         self.socket.send_json(msg)
+
+    def send_binary(self, msg, data):
+        self.socket.send_string("binary", flags=zmq.SNDMORE)
+        self.socket.send_json(msg, flags=zmq.SNDMORE)
+        self.socket.send(data)
 
     def recv_json(self, timeout=None):
         if timeout is None:

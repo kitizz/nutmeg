@@ -29,6 +29,8 @@ AxisBase {
     // The numbers to display on the axes
     property var xNumbers: []
     property var yNumbers: []
+    property int xPrecision: 3
+    property int yPrecision: 3
 
     onWidthChanged: updateTickNumbers(0)
     onHeightChanged: updateTickNumbers(1)
@@ -37,7 +39,7 @@ AxisBase {
     onLimitsChanged: updateTicks()
     Component.onCompleted: updateTicks()
 
-    margin { top: 10; right: 10; bottom: 50; left: 50 }
+    margin { top: 25; right: 25; bottom: 50; left: 50 }
     children: [
         Rectangle {
             id: plotFrame
@@ -48,17 +50,6 @@ AxisBase {
             }
             color: "white"
             border { color: "#AAAAAA"; width: 1 }
-
-            Text {
-                id: xAxisOffset
-                x: plotFrame.width + axisItem.margin.right - implicitWidth
-                y: plotFrame.height + implicitHeight
-            }
-            Text {
-                id: yAxisOffset
-                x: 0
-                y: -implicitHeight
-            }
         },
 
         AxisCanvas2D {
@@ -72,6 +63,22 @@ AxisBase {
                 xScale: 1/axisCanvas.scaling
                 yScale: 1/axisCanvas.scaling
             }
+        },
+
+        Text {
+            id: xAxisOffset
+            property string scale: ""
+            property string offset: ""
+            text: scale + offset
+            anchors { right: parent.right; bottom: parent.bottom; margins: 5 }
+        },
+
+        Text {
+            id: yAxisOffset
+            property string scale: ""
+            property string offset: ""
+            text: scale + offset
+            anchors { left: parent.left; top: parent.top; margins: 5 }
         },
 
         MouseArea {
@@ -165,6 +172,11 @@ AxisBase {
     // ------------------
     //      Functions
     // ------------------
+    function precisionOf(n) {
+        if (n==0) return 0
+        return Math.abs( Math.floor(axisItem.log_10(Math.abs(n))))
+    }
+
     function updateTicks() {
         updateTickNumbers(0)
         updateTickNumbers(1)
@@ -172,13 +184,17 @@ AxisBase {
 
     function updateTickNumbers(axis) {
 //        console.log("Updating tickNumbers:", axis)
-        var ticks, numbers, i
+        var ticks, numbers, precision, i
         if (axis == 0) {
             ticks = xAxis.majorTicks
             numbers = xNumbers
+            precision = xPrecision
+
         } else if (axis == 1) {
             ticks = yAxis.majorTicks
             numbers = yNumbers
+            precision = yPrecision
+
         } else {
             return false;
         }
@@ -207,16 +223,40 @@ AxisBase {
         var offsetText = ""
         if (ratio < 0.01) {
             offset = axisItem.offsetFromStd(Util.min(ticks), std)
-            offsetPrec = Math.abs( Math.floor(axisItem.log_10(ratio)))
+            offsetPrec = precisionOf(ratio)
             console.log("Offset Prec:", offsetPrec)
-            offsetText = axisItem.formatReal(offset, offsetPrec) + "+"
+            var sign = offset >= 0 ? "+ " : "- "
+            offsetText = sign + axisItem.formatReal(Math.abs(offset), offsetPrec, precision)
         }
 
         // Update .value for all.
+//        var n = ticks[0] == 0 ? 1 : 0
+//        var minPrec = precisionOf(ticks[n] - offset)
+        var deltaPrec = precisionOf((ticks[N-1] - ticks[0])/5)
+        var minPrec = precisionOf(Math.min(Math.abs(ticks[0]), Math.abs(ticks[N-1])))
+        var maxPrec = Math.max(deltaPrec, minPrec)
+
+        var forceNoExp = maxPrec < precision
+
+        // Work out whether the entire axis should be scaled
+        var axisScale = 1
+        var scaleText = ""
+        if (!forceNoExp && deltaPrec >= precision) {
+            var prec = Math.floor(axisItem.log_10(Math.abs(ticks[N-1] - ticks[0])))
+            axisScale = Math.pow(10, prec)
+            scaleText = "1e" + prec + " "
+        }
+
         for (i=0; i<N; ++i) {
             // TODO: Error: TypeError: Cannot set property 'value' of undefined
             numbers[i].value = ticks[i]
             numbers[i].offset = offset
+            numbers[i].scale = axisScale
+            if (forceNoExp)
+                numbers[i].precision = precision + 1
+            else
+                numbers[i].precision = precision
+
         }
 
         // The following statements ensure that this function is run.
@@ -224,10 +264,13 @@ AxisBase {
         // have not obvious external effect...
         if (axis == 0) {
             xNumbers = numbers
-            xAxisOffset.text = offsetText
+            xAxisOffset.scale = scaleText
+            xAxisOffset.offset = offsetText
+            console.log("X ScaleText:", scaleText)
         } else if (axis == 1) {
             yNumbers = numbers
-            yAxisOffset.text = offsetText
+            yAxisOffset.scale = scaleText
+            yAxisOffset.offset = offsetText
         }
 
         return true
@@ -250,8 +293,10 @@ AxisBase {
             property int axis: -1
             property real value: 0
             property real offset: 0
+            property real scale: 1
+            property int precision
 
-            text: axisItem.formatReal(value - offset, 3)
+            text: axisItem.formatReal((value - offset)/scale, precision)
             x: axis != 0 ? -implicitWidth - 5:
                            plotFrame.width*(value - minX)/(maxX - minX) - implicitWidth/2
             y: axis != 1 ? plotFrame.height + 5:

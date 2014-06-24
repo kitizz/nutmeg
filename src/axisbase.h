@@ -45,7 +45,7 @@ public:
     ~AxisBase();
 
     Q_INVOKABLE qreal log_10(qreal v);
-    Q_INVOKABLE QString formatReal(qreal num, int precision=3);
+    Q_INVOKABLE QString formatReal(qreal num, int precision=3, int maxMag=-1);
     Q_INVOKABLE qreal offsetFromStd(qreal val, qreal std);
 
     void paint(QPainter *painter);

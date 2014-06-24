@@ -75,15 +75,25 @@ qreal AxisBase::log_10(qreal v)
     return log10(v);
 }
 
-QString AxisBase::formatReal(qreal num, int precision)
+/*!
+ * \fn AxisBase::formatReal
+ * Given \a num, and \a precision, return a string representation of the number
+ * where exponentials are used if the magnitude of the number is > 10^precision
+ * or < 10^-precision.
+ * The \a forceNoExp parameter forces the format to be in plain decimal.
+ */
+QString AxisBase::formatReal(qreal num, int precision, int maxMag)
 {
     QString str;
     qreal abNum = qAbs(num);
 
+    if (maxMag < 0)
+        maxMag = precision;
+
     if (abNum < qPow(10, -15)) {
         str = "0";
 
-    } else if (abNum > qPow(10, precision) || abNum < qPow(10, -precision)) {
+    } else if (abNum > qPow(10, maxMag) || abNum < qPow(10, -maxMag)) {
         int exp = (int)qFloor(log10( abNum ));
         qreal base = num * qPow(10, -exp);
         str.sprintf("%.*ge%d", precision, base, exp);
@@ -303,10 +313,10 @@ void AxisBase::updateDataLimits()
 
     bool validLimits = false;
     foreach (PlotBase* plot, m_plots.values()) {
-        if (plot->yData().length() == 0) continue;
+        QRectF rect = plot->dataLimits();
+        if (rect.isEmpty()) continue;
         validLimits = true;
 
-        QRectF rect = plot->dataLimits();
         if (rect.left() < minX) minX = rect.left();
         if (rect.right() > maxX) maxX = rect.right();
         if (rect.top() < minY) minY = rect.top();
