@@ -13,12 +13,23 @@ void ImageCanvas::paint(QPainter *painter)
 
     AxisBase *monAxis = plot->axis();
 
+    // Transform the plot coords to view coords
+    qreal scaleX = 1, scaleY = 1;
+    qreal scaleOffsetX = 0, scaleOffsetY = 0;
+    if (monAxis->xAxis()->inverted()) {
+        scaleX = -1;
+        scaleOffsetX = width();
+    }
+    if (monAxis->yAxis()->inverted()) {
+        scaleY = -1;
+        scaleOffsetY = height();
+    }
+    painter->translate(scaleOffsetX, scaleOffsetY);
+    painter->scale(scaleX, scaleY);
+
+    qDebug() << "Image Limits:" << monAxis->limits();
+
     // Is this copying the whole pixmap?
     QPixmap pix = plot->pixmap();
-
-    QRectF target = this->boundingRect();
-    qreal top = target.top();
-    target.setTop(target.bottom());
-    target.setBottom(top);
-    painter->drawPixmap(target, pix, monAxis->limits());
+    painter->drawPixmap(this->boundingRect(), pix, monAxis->limits());
 }

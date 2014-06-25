@@ -199,7 +199,6 @@ AxisBase {
             return false;
         }
         if (!numbers) return false
-//        console.log("Ticks", axis, ticks)
 
         var N = numbers.length
 
@@ -225,8 +224,7 @@ AxisBase {
             offset = axisItem.offsetFromStd(Util.min(ticks), std)
             offsetPrec = precisionOf(ratio)
             var sign = offset >= 0 ? "+ " : "- "
-            offsetText = sign + axisItem.formatReal(Math.abs(offset), offsetPrec, precision)
-            console.log("Offset Prec:", offsetPrec, offsetText)
+            offsetText = sign + axisItem.formatReal(Math.abs(offset), offsetPrec, -15, precision)
         }
 
         // Update .value for all.
@@ -245,7 +243,6 @@ AxisBase {
             var prec = Math.floor(axisItem.log_10(Math.abs(ticks[N-1] - ticks[0])))
             axisScale = Math.pow(10, prec)
             scaleText = "1e" + prec + " "
-            console.log("Scale prec:", prec, scaleText)
         }
 
         for (i=0; i<N; ++i) {
@@ -294,9 +291,9 @@ AxisBase {
             property real value: 0
             property real offset: 0
             property real scale: 1
-            property int precision
+            property int precision: 3
 
-            text: axisItem.formatReal((value - offset)/scale, precision)
+            text: axisItem.formatReal((value - offset)/scale, precision, -3)
             x: {
                 if (axis == 0) { // X axis
                     var newX = (value - minX)/(maxX - minX)

@@ -85,9 +85,17 @@ FigureBase {
             } else if (mode == 1) { // Zoom
                 var sx = Math.pow(10, delta.x*0.005*zoomSensitivity)
                 var sy = Math.pow(10, delta.y*0.005*zoomSensitivity)
+
                 console.log("Scale", sx, sy)
                 var dw = (1/sx)*startLimits.width
                 var dh = sy*startLimits.height
+
+                if (currentAxis.aspectRatio > 0) {
+                    if (sx > currentAxis.aspectRatio*sy)
+                        dh = limits.height
+                    else
+                        dw = limits.width
+                }
 
                 var tx = (startMouse.x - currentAxis.plotRect.x)/currentAxis.plotRect.width
                 var ty = 1 - (startMouse.y - currentAxis.plotRect.y)/currentAxis.plotRect.height

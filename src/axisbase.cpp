@@ -1,4 +1,5 @@
 #include "axisbase.h"
+#include "util.h"
 #include <math.h>
 #include <QtCore/qmath.h>
 
@@ -11,6 +12,10 @@ AxisBase::AxisBase(QQuickItem *parent)
     , m_maxX(Inf)
     , m_minY(-Inf)
     , m_maxY(Inf)
+    , m_minXFloat(true)
+    , m_maxXFloat(true)
+    , m_minYFloat(true)
+    , m_maxYFloat(true)
     , m_plotsVar(QVariantMap())
     , m_destroying(false)
     , m_grid(new AxisGrid(parent))
@@ -19,6 +24,8 @@ AxisBase::AxisBase(QQuickItem *parent)
     , m_yLimitRounding(QList<qreal>())
     , m_margin(new AxisMargins())
     , m_settingLimits(false)
+    , m_aspectRatio(0)
+    , m_fitPlots(false)
 {
     // Set initial axis label roundings
     m_yLimitRounding << 0 << 1 << 1.5 << 2 << 2.5 << 3 << 4 << 5 << 10;
@@ -66,6 +73,8 @@ AxisBase::AxisBase(QQuickItem *parent)
     connect(this, &AxisBase::maxXChanged, this, &AxisBase::updateLimits);
     connect(this, &AxisBase::maxYChanged, this, &AxisBase::updateLimits);
     connect(this, &AxisBase::dataLimitsChanged, this, &AxisBase::updateLimits);
+    connect(this, &QQuickItem::widthChanged, this, &AxisBase::updateLimits);
+    connect(this, &QQuickItem::heightChanged, this, &AxisBase::updateLimits);
 
     // Connections for axis updates
     connect(m_xAxis, &AxisSpec::ticksChanged, this, &AxisBase::xAxisChanged);
@@ -89,7 +98,7 @@ qreal AxisBase::log_10(qreal v)
  * or < 10^-precision.
  * The \a forceNoExp parameter forces the format to be in plain decimal.
  */
-QString AxisBase::formatReal(qreal num, int precision, int maxMag)
+QString AxisBase::formatReal(qreal num, int precision, int minMag, int maxMag)
 {
     QString str;
     qreal abNum = qAbs(num);
@@ -97,7 +106,7 @@ QString AxisBase::formatReal(qreal num, int precision, int maxMag)
     if (maxMag < 0)
         maxMag = precision;
 
-    if (abNum < qPow(10, -15)) {
+    if (abNum < qPow(10, minMag)) {
         str = "0";
 
     } else if (abNum > qPow(10, maxMag) || abNum < qPow(10, -maxMag)) {
@@ -130,73 +139,63 @@ FigureBase *AxisBase::figure() const
 
 qreal AxisBase::minX() const
 {
-    if (m_minX == -Inf)
-        return m_dataLimits.left();
     return m_minX;
 }
 
-void AxisBase::setMinX(qreal arg)
+void AxisBase::setMinX(qreal arg, bool fix)
 {
-//    arg = qMax(arg, m_dataLimits.left() - m_dataLimits.width()/2);
+    if (arg == -Inf) arg = m_dataLimits.left();
+    if (fix && m_minXFloat) m_minXFloat = false;
     if (m_minX == arg) return;
+
     m_minX = arg;
-    if (arg == -Inf)
-        emit minXChanged(m_dataLimits.left());
-    else
-        emit minXChanged(arg);
+    emit minXChanged(arg);
 
 }
 
 qreal AxisBase::maxX() const
 {
-    if (m_maxX == Inf)
-        return m_dataLimits.right();
     return m_maxX;
 }
 
-void AxisBase::setMaxX(qreal arg)
+void AxisBase::setMaxX(qreal arg, bool fix)
 {
-//    arg = qMin(arg, m_dataLimits.right() + m_dataLimits.width()/2);
+    if (arg == Inf) arg = m_dataLimits.right();
+    if (fix && m_maxXFloat) m_maxXFloat = false;
     if (m_maxX == arg) return;
+
     m_maxX = arg;
-    if (arg == Inf)
-        emit maxXChanged(m_dataLimits.right());
-    else
-        emit maxXChanged(arg);
+    emit maxXChanged(arg);
 }
 
 qreal AxisBase::minY() const
 {
-    if (m_minY == -Inf)
-        return m_dataLimits.top();
     return m_minY;
 }
 
-void AxisBase::setMinY(qreal arg)
+void AxisBase::setMinY(qreal arg, bool fix)
 {
+    if (arg == -Inf) arg = m_dataLimits.top();
+    if (fix && m_minYFloat) m_minYFloat = false;
     if (m_minY == arg) return;
+
     m_minY = arg;
-    if (arg == -Inf)
-        emit minYChanged(m_dataLimits.top());
-    else
-        emit minYChanged(arg);
+    emit minYChanged(arg);
 }
 
 qreal AxisBase::maxY() const
 {
-    if (m_maxY == Inf)
-        return m_dataLimits.bottom();
     return m_maxY;
 }
 
-void AxisBase::setMaxY(qreal arg)
+void AxisBase::setMaxY(qreal arg, bool fix)
 {
+    if (arg == Inf) arg = m_dataLimits.bottom();
+    if (fix && m_maxYFloat) m_maxYFloat = false;
     if (m_maxY == arg) return;
+
     m_maxY = arg;
-    if (arg == Inf)
-        emit maxYChanged(m_dataLimits.bottom());
-    else
-        emit maxYChanged(arg);
+    emit maxYChanged(arg);
 }
 
 void AxisBase::offset(qreal x, qreal y)
@@ -308,9 +307,9 @@ void AxisBase::updateLimits()
     newLimits.setRight(maxX());
     newLimits.setBottom(maxY());
 
-    if (newLimits == m_limits) return;
-    m_limits = newLimits;
-    emit limitsChanged(m_limits);
+    maintainAspectRatio(&newLimits);
+
+    setLimits(newLimits, false);
 }
 
 void AxisBase::updateDataLimits()
@@ -331,51 +330,115 @@ void AxisBase::updateDataLimits()
 
     if (!validLimits) return;
 
-    // We want to round the automated limits to contextually whole numbers like 93 -> 100
-    // TODO: Should the following block go in a separate function? roundBorders(min, max, roundings[])
-    qreal maxMag = qMax(qAbs(minY), qAbs(maxY));
-    // TODO: Using the <math.h> log10 may need a macro for handling different qreals on ARM platforms...
-    qreal scale = qPow(10, qFloor(log10(maxMag)));
-    qreal scaledMin = minY/scale, scaledMax = maxY/scale;
+    if (!m_fitPlots) {
+        // We want to round the automated limits to contextually whole numbers like 93 -> 100
+        // TODO: Should the following block go in a separate function? roundBorders(min, max, roundings[])
+        qreal maxMag = qMax(qAbs(minY), qAbs(maxY));
+        // TODO: Using the <math.h> log10 may need a macro for handling different qreals on ARM platforms...
+        qreal scale = qPow(10, qFloor(log10(maxMag)));
+        qreal scaledMin = minY/scale, scaledMax = maxY/scale;
 
-    qreal newMinY = -1, newMaxY = -1;
-    qreal deltaMin = 100, deltaMax = 100; // We know that 1 <= maxMag < 10
-    foreach (qreal lim, m_yLimitRounding) {
-        qreal dMin = scaledMin - sign(scaledMin)*lim; // Rounding down
-        qreal dMax = sign(scaledMax)*lim - scaledMax; // Rounding up
+        minY = -1, maxY = -1;
+        qreal deltaMin = 100, deltaMax = 100; // We know that 1 <= maxMag < 10
+        foreach (qreal lim, m_yLimitRounding) {
+            qreal dMin = scaledMin - sign(scaledMin)*lim; // Rounding down
+            qreal dMax = sign(scaledMax)*lim - scaledMax; // Rounding up
 
-        if (dMin >= 0 && dMin < deltaMin) {
-            deltaMin = dMin;
-            newMinY = sign(scaledMin)*lim;
+            if (dMin >= 0 && dMin < deltaMin) {
+                deltaMin = dMin;
+                minY = sign(scaledMin)*lim;
+            }
+            if (dMax >= 0 && dMax < deltaMax) {
+                deltaMax = dMax;
+                maxY = sign(scaledMax)*lim;
+            }
         }
-        if (dMax >= 0 && dMax < deltaMax) {
-            deltaMax = dMax;
-            newMaxY = sign(scaledMax)*lim;
-        }
+
+        minY *= scale;
+        maxY *= scale;
     }
 
-    newMinY *= scale;
-    newMaxY *= scale;
-
+    // Finalise the data limits
     QRectF rect;
     rect.setLeft(minX);
     rect.setRight(maxX);
-    rect.setTop(newMinY);
-    rect.setBottom(newMaxY);
+    rect.setTop(minY);
+    rect.setBottom(maxY);
     if (m_dataLimits != rect) {
         m_dataLimits = rect;
         emit dataLimitsChanged(m_dataLimits);
     }
-
     // Update signals for undefined mins and maxs
-    if (m_minX == -Inf)
-        emit minXChanged(minX);
-    if (m_maxX == Inf)
-        emit maxXChanged(maxX);
-    if (m_minY == -Inf)
-        emit minYChanged(newMinY);
-    if (m_maxY == Inf)
-        emit maxYChanged(newMaxY);
+    m_settingLimits = true;
+    if (m_minXFloat)
+        setMinX(minX, false);
+    if (m_maxXFloat)
+        setMaxX(maxX, false);
+    if (m_minYFloat)
+        setMinY(minY, false);
+    if (m_maxYFloat)
+        setMaxY(maxY, false);
+    m_settingLimits = false;
+    updateLimits();
+}
+
+void AxisBase::maintainAspectRatio(QRectF *lim)
+{
+    if (m_aspectRatio <= 0) return;
+    // Allow for machine precision errors...
+    qreal eps = lim->width() * qPow(10, -10);
+    QSizeF size = QSizeF(width(), height());
+
+    Util::AnchorSide anchor;
+    QPointF center = QPointF(0.5, 0.5);
+    if (floatingLimits()) {
+        // Refer back to the actual data limits
+        if (m_minXFloat) lim->setLeft(m_dataLimits.left());
+        if (m_maxXFloat) lim->setRight(m_dataLimits.right());
+        if (m_minYFloat) lim->setTop(m_dataLimits.top());
+        if (m_maxYFloat) lim->setBottom(m_dataLimits.bottom());
+
+        if (!m_minXFloat && !m_maxXFloat) {
+            anchor = Util::AnchorWidth;
+            if (!m_minYFloat) center.setY(0);
+            else if (!m_maxYFloat) center.setY(1);
+            else center.setY(0.5);
+
+        } else if (!m_minYFloat && !m_maxYFloat) {
+            anchor = Util::AnchorHeight;
+            if (!m_minXFloat) center.setX(0);
+            else if (!m_maxXFloat) center.setX(1);
+            else center.setX(0.5);
+
+        } else {
+            anchor = Util::AnchorFit;
+        }
+
+    } else {
+        qreal dx = qAbs(lim->width() - limits().width());
+        qreal dy = qAbs(lim->height() - limits().height());
+        if (dx < eps && dy < eps) {
+            anchor = Util::AnchorFit; // Or return
+        } else if (dx < eps) {
+            // Height Changed, make sure height is good
+            anchor = Util::AnchorHeight;
+        } else if (dy < eps) {
+            // Width changed, make sure width good
+            anchor = Util::AnchorWidth;
+        } else if (dx > dy) {
+            anchor = Util::AnchorWidth;
+        } else {
+            anchor = Util::AnchorHeight;
+        }
+    }
+    qDebug() << "Maintain aspect" << *lim << size << m_aspectRatio << anchor << center;
+    Util::resizeRelativeRatio(lim, size, m_aspectRatio, anchor, center);
+    qDebug() << "result" << *lim;
+}
+
+bool AxisBase::floatingLimits()
+{
+    return m_minXFloat || m_maxXFloat || m_minYFloat || m_maxYFloat;
 }
 
 qreal AxisBase::sign(qreal a)
@@ -409,16 +472,20 @@ QRectF AxisBase::limits() const
     return m_limits;
 }
 
-void AxisBase::setLimits(QRectF arg)
+void AxisBase::setLimits(QRectF arg, bool fix)
 {
     if (m_limits == arg || m_settingLimits) return;
     m_settingLimits = true;
+    if (fix)
+        m_minXFloat = m_maxXFloat = m_minYFloat = m_maxYFloat = false;
+
+    maintainAspectRatio(&arg);
     m_limits = arg;
 
-    setMinX(m_limits.left());
-    setMaxX(m_limits.right());
-    setMinY(m_limits.top());
-    setMaxY(m_limits.bottom());
+    setMinX(m_limits.left(), fix);
+    setMaxX(m_limits.right(), fix);
+    setMinY(m_limits.top(), fix);
+    setMaxY(m_limits.bottom(), fix);
 
     emit limitsChanged(arg);
     m_settingLimits = false;
@@ -473,6 +540,42 @@ AxisSpec *AxisBase::yAxis() const
 AxisMargins *AxisBase::margin() const
 {
     return m_margin;
+}
+
+/*!
+ * \property AxisBase::aspectRatio
+ * If \a aspectRatio is larger than 0, the axis will enforce this ratio at all
+ * times. Note: aspectRatio = x/y
+ */
+qreal AxisBase::aspectRatio() const
+{
+    return m_aspectRatio;
+}
+
+void AxisBase::setAspectRatio(qreal arg)
+{
+    if (m_aspectRatio == arg) return;
+    m_aspectRatio = arg;
+    emit aspectRatioChanged(arg);
+}
+
+/*!
+ * \property AxisBase::fitPlots
+ * If true, the automatic axis limits will fit the plots in the axis as
+ * tightly as possible. If false, the axis will round the y-axis up to whole
+ * numbers (dependent on the scale of the axis).
+ * E.g. 894 -> 900, 8894 -> 9000
+ */
+bool AxisBase::fitPlots() const
+{
+    return m_fitPlots;
+}
+
+void AxisBase::setFitPlots(bool arg)
+{
+    if (m_fitPlots == arg) return;
+    m_fitPlots = arg;
+    emit fitPlotsChanged(arg);
 }
 
 AxisGrid *AxisBase::grid() const

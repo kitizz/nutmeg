@@ -1,5 +1,6 @@
 #include "lineplotcanvas.h"
 #include "lineplot.h"
+#include "util.h"
 
 LinePlotCanvas::LinePlotCanvas(QQuickItem *parent) :
     PlotCanvas(parent)
@@ -24,15 +25,11 @@ void LinePlotCanvas::paint(QPainter *painter)
     qreal maxX = monAxis->maxX();
     qreal maxY = monAxis->maxY();
 
-    // If some view limits are undefined, set them to data limits
-    if (minX == -Inf) minX = dataLim.left();
-    if (minY == -Inf) minY = dataLim.top();
-    if (maxX == Inf) maxX = dataLim.right();
-    if (maxY == Inf) maxY = dataLim.bottom();
+    QRectF lim = QRectF(minX, minY, maxX - minX, maxY - minY);
 
     // Transform the plot coords to view coords
-    qreal scaleX = width()/(maxX - minX);
-    qreal scaleY = height()/(maxY - minY);
+    qreal scaleX = width()/(lim.width());
+    qreal scaleY = height()/(lim.height());
     qreal scaleOffsetX = 0;
     qreal scaleOffsetY = 0;
     if (monAxis->xAxis()->inverted()) {
@@ -45,23 +42,16 @@ void LinePlotCanvas::paint(QPainter *painter)
     }
     painter->translate(scaleOffsetX, scaleOffsetY);
     painter->scale(scaleX, scaleY);
-    painter->translate(-minX, -minY);
-
+    painter->translate(-lim.x(), -lim.y());
 
     QPolygonF line;
     // Get the segments into screen coords
-    for (int i=0; i<yData.length(); ++i) {
-//        qreal px = xData[i];
-//        qreal py = yData[i];
-//        line << QPointF(width() + scaleX*(px - minX), scaleY*(py - minY));
+    for (int i=0; i<yData.length(); ++i)
         line << QPointF(xData[i], yData[i]);
-    }
 
     // When the plot is zoomed closer, drawing the line as a single poly
     // gets slower - weird and annoying. Therefore, here, the lines are "cut"
     // by the view frame so that excess segment aren't drawn.
-    QRectF b = QRectF(minX, minY, maxX - minX, maxY - minY); // Slice the lines with the view rect
-
     QList<QPolygonF> lines;
     QPointF latestPoint;
     QPolygonF latestPoly;
@@ -69,7 +59,7 @@ void LinePlotCanvas::paint(QPainter *painter)
 
     for (int i=0; i<line.size() - 1; ++i) {
         QPointF p1 = line[i], p2 = line[i+1];
-        QLineF l = rectSlice(p1, p2, b);
+        QLineF l = rectSlice(p1, p2, lim);
         if (l.isNull()) continue;
 
         // Check if the line has been broken, or is starting

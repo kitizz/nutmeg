@@ -40,12 +40,15 @@ class AxisBase : public QQuickPaintedItem, public NutmegObject
     Q_PROPERTY(AxisMargins* margin READ margin NOTIFY marginChanged)
     Q_PROPERTY(QList<qreal> yLimitRounding READ yLimitRounding WRITE setYLimitRounding NOTIFY yLimitRoundingChanged)
 
+    Q_PROPERTY(qreal aspectRatio READ aspectRatio WRITE setAspectRatio NOTIFY aspectRatioChanged)
+    Q_PROPERTY(bool fitPlots READ fitPlots WRITE setFitPlots NOTIFY fitPlotsChanged)
+
 public:
     explicit AxisBase(QQuickItem *parent = 0);
     ~AxisBase();
 
     Q_INVOKABLE qreal log_10(qreal v);
-    Q_INVOKABLE QString formatReal(qreal num, int precision=3, int maxMag=-1);
+    Q_INVOKABLE QString formatReal(qreal num, int precision=3, int minMag=-11, int maxMag=-1);
     Q_INVOKABLE qreal offsetFromStd(qreal val, qreal std);
 
     void paint(QPainter *painter);
@@ -53,13 +56,13 @@ public:
     FigureBase* figure() const;
 
     qreal minX() const;
-    void setMinX(qreal arg);
+    void setMinX(qreal arg, bool fix=true);
     qreal maxX() const;
-    void setMaxX(qreal arg);
+    void setMaxX(qreal arg, bool fix=true);
     qreal minY() const;
-    void setMinY(qreal arg);
+    void setMinY(qreal arg, bool fix=true);
     qreal maxY() const;
-    void setMaxY(qreal arg);
+    void setMaxY(qreal arg, bool fix=true);
 
     Q_INVOKABLE void offset(qreal x, qreal y);
 
@@ -74,7 +77,7 @@ public:
     Q_INVOKABLE QString map(QString prop);
 
     QRectF limits() const;
-    void setLimits(QRectF arg);
+    void setLimits(QRectF arg, bool fix=true);
     void resetLimits();
 
     QRectF dataLimits() const;
@@ -86,6 +89,12 @@ public:
     AxisSpec* yAxis() const;
 
     AxisMargins* margin() const;
+    qreal aspectRatio() const;
+    void setAspectRatio(qreal arg);
+
+    bool fitPlots() const;
+    void setFitPlots(bool arg);
+
 signals:
     void figureChanged(FigureBase* arg);
     void registerWithFigure(AxisBase* axis);
@@ -106,6 +115,10 @@ signals:
     void xAxisChanged(AxisSpec* arg);
     void yAxisChanged(AxisSpec* arg);
 
+    void aspectRatioChanged(qreal arg);
+
+    void fitPlotsChanged(bool arg);
+
 public slots:
     void registerPlot(PlotBase *axis);
     void deregisterPlot(PlotBase *axis);
@@ -120,7 +133,8 @@ protected slots:
     void updateDataLimits();
 
 private:
-
+    void maintainAspectRatio(QRectF *lim);
+    bool floatingLimits();
     FigureBase* m_figure;
     QMultiMap<QString, PlotBase*> m_plots;
     QVariantMap m_plotsVar;
@@ -135,6 +149,10 @@ private:
     qreal m_maxX;
     qreal m_minY;
     qreal m_maxY;
+    bool m_minXFloat;
+    bool m_maxXFloat;
+    bool m_minYFloat;
+    bool m_maxYFloat;
 
     bool m_destroying;
     bool m_settingLimits;
@@ -145,6 +163,8 @@ private:
     // TODO: This really should go into a Util library....
     static qreal sign(qreal a);
     AxisMargins* m_margin;
+    qreal m_aspectRatio;
+    bool m_fitPlots;
 };
 
 class AxisGrid : public QObject
