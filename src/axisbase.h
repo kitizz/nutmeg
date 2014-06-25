@@ -22,8 +22,8 @@ class AxisBase : public QQuickPaintedItem, public NutmegObject
 {
     Q_OBJECT
     Q_PROPERTY(AxisGrid* grid READ grid)
-    Q_PROPERTY(AxisSpec* xAxis READ xAxis)
-    Q_PROPERTY(AxisSpec* yAxis READ yAxis)
+    Q_PROPERTY(AxisSpec* xAxis READ xAxis NOTIFY xAxisChanged)
+    Q_PROPERTY(AxisSpec* yAxis READ yAxis NOTIFY yAxisChanged)
     Q_PROPERTY(QString handle READ handle WRITE setHandle NOTIFY handleChanged)
 
     Q_PROPERTY(FigureBase* figure READ figure WRITE setFigure NOTIFY figureChanged)
@@ -102,6 +102,9 @@ signals:
 
     void marginChanged(AxisMargins* margin);
     void yLimitRoundingChanged(QList<qreal> arg);
+
+    void xAxisChanged(AxisSpec* arg);
+    void yAxisChanged(AxisSpec* arg);
 
 public slots:
     void registerPlot(PlotBase *axis);
@@ -182,6 +185,7 @@ class AxisSpec : public QObject
     Q_PROPERTY(QVariant minorTicks READ minorTicks WRITE setMinorTicks NOTIFY minorTicksChanged)
     Q_PROPERTY(LineSpec* majorLine READ majorLine)
     Q_PROPERTY(LineSpec* minorLine READ minorLine)
+    Q_PROPERTY(bool inverted READ inverted WRITE setInverted NOTIFY invertedChanged)
 
 public:
     explicit AxisSpec(QObject *parent=0);
@@ -200,6 +204,9 @@ public:
     qreal min() const;
     qreal max() const;
 
+    bool inverted() const;
+    void setInverted(bool arg);
+
 signals:
     void majorTicksChanged(QList<qreal> arg);
     void minorTicksChanged(QList<qreal> arg);
@@ -207,6 +214,10 @@ signals:
     void pixelSizeChanged(qreal arg);
     void minChanged(qreal arg);
     void maxChanged(qreal arg);
+
+    void invertedChanged(bool arg);
+
+    void ticksChanged(AxisSpec* arg);
 
 protected slots:
     void updateMajor();
@@ -230,6 +241,7 @@ private:
     qreal m_max;
 
     friend class AxisBase;
+    bool m_inverted;
 };
 
 class AxisMargins : public QObject

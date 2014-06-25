@@ -20,13 +20,16 @@ AxisBase::AxisBase(QQuickItem *parent)
     , m_margin(new AxisMargins())
     , m_settingLimits(false)
 {
+    // Set initial axis label roundings
     m_yLimitRounding << 0 << 1 << 1.5 << 2 << 2.5 << 3 << 4 << 5 << 10;
+    // Initialise the limits to inf. This defaults the limits to the data.
     m_limits = QRectF();
     m_limits.setTop(-Inf);
     m_limits.setLeft(-Inf);
     m_limits.setBottom(Inf);
     m_limits.setRight(Inf);
 
+    // Register properties available through the API
     QMap<QString,QString> props;
     props.insert("minX", "minX");
     props.insert("maxX", "maxX");
@@ -35,11 +38,10 @@ AxisBase::AxisBase(QQuickItem *parent)
     registerProperties(props);
     connect(this, &QQuickItem::parentChanged, this, &AxisBase::updateFigure);
 
-    // Connections for axis lengths
+    // Connections for X axis lengths
     connect(this, &QQuickItem::widthChanged, this, &AxisBase::updateXAxis);
     connect(m_margin, &AxisMargins::leftChanged, this, &AxisBase::updateXAxis);
     connect(m_margin, &AxisMargins::rightChanged, this, &AxisBase::updateXAxis);
-//    connect(this, &QQuickItem::widthChanged, this, &AxisBase::updateXAxis);
     connect(this, &AxisBase::minXChanged, [=](qreal val){ m_xAxis->setMin(val); });
     connect(this, &AxisBase::maxXChanged, [=](qreal val){ m_xAxis->setMax(val); });
     m_xAxis->setObjectName("XAxis");
@@ -47,6 +49,7 @@ AxisBase::AxisBase(QQuickItem *parent)
     m_xAxis->setMax(maxX());
     m_xAxis->setPixelSize(width());
 
+    // Connections for Y axis lengths
     connect(this, &QQuickItem::heightChanged, this, &AxisBase::updateYAxis);
     connect(m_margin, &AxisMargins::topChanged, this, &AxisBase::updateYAxis);
     connect(m_margin, &AxisMargins::bottomChanged, this, &AxisBase::updateYAxis);
@@ -63,6 +66,10 @@ AxisBase::AxisBase(QQuickItem *parent)
     connect(this, &AxisBase::maxXChanged, this, &AxisBase::updateLimits);
     connect(this, &AxisBase::maxYChanged, this, &AxisBase::updateLimits);
     connect(this, &AxisBase::dataLimitsChanged, this, &AxisBase::updateLimits);
+
+    // Connections for axis updates
+    connect(m_xAxis, &AxisSpec::ticksChanged, this, &AxisBase::xAxisChanged);
+    connect(m_yAxis, &AxisSpec::ticksChanged, this, &AxisBase::yAxisChanged);
 }
 
 AxisBase::~AxisBase()
@@ -108,13 +115,12 @@ QString AxisBase::formatReal(qreal num, int precision, int maxMag)
 qreal AxisBase::offsetFromStd(qreal val, qreal std)
 {
     int precStd = (int)qFloor(log10( qAbs(std) ));
-//    int precMn = (int)qFloor(log10( qAbs(mean) ));
-    return qRound(val*qPow(10, -precStd))*qPow(10, precStd);
+    return qRound64(val*qPow(10, -precStd))*qPow(10, precStd);
 }
 
 void AxisBase::paint(QPainter *painter)
 {
-
+    Q_UNUSED(painter)
 }
 
 FigureBase *AxisBase::figure() const
@@ -247,7 +253,7 @@ void AxisBase::updateFigure()
     if (sender && this != sender)
         sender->disconnect(this);
 
-    // Work up the tree until the next Axis item is found.
+    // Work up the tree until the next Figure item is found.
     QQuickItem *newParent = parentItem();
     if (!newParent) return; // Either being deleted or instantiated
     FigureBase *figure;
@@ -558,9 +564,14 @@ AxisSpec::AxisSpec(QObject *parent)
     , m_pixelSize(1)
     , m_min(0)
     , m_max(1)
+    , m_inverted(false)
 {
     setMajorTicks(QVariant::fromValue(new AutoLocator(50)));
     m_ownMajorTicks = true;
+
+    connect(this, &AxisSpec::majorTicksChanged, [=]() { emit ticksChanged(this); });
+    connect(this, &AxisSpec::minorTicksChanged, [=]() { emit ticksChanged(this); });
+    connect(this, &AxisSpec::invertedChanged, [=]() { emit ticksChanged(this); });
 }
 
 //AxisSpec::AxisSpec(QString sizeProperty, QObject *parent)
@@ -742,6 +753,18 @@ void AxisSpec::setMin(qreal arg)
 qreal AxisSpec::max() const
 {
     return m_max;
+}
+
+bool AxisSpec::inverted() const
+{
+    return m_inverted;
+}
+
+void AxisSpec::setInverted(bool arg)
+{
+    if (m_inverted == arg) return;
+    m_inverted = arg;
+    emit invertedChanged(arg);
 }
 
 void AxisSpec::setMax(qreal arg)

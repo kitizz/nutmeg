@@ -224,9 +224,9 @@ AxisBase {
         if (ratio < 0.01) {
             offset = axisItem.offsetFromStd(Util.min(ticks), std)
             offsetPrec = precisionOf(ratio)
-            console.log("Offset Prec:", offsetPrec)
             var sign = offset >= 0 ? "+ " : "- "
             offsetText = sign + axisItem.formatReal(Math.abs(offset), offsetPrec, precision)
+            console.log("Offset Prec:", offsetPrec, offsetText)
         }
 
         // Update .value for all.
@@ -245,6 +245,7 @@ AxisBase {
             var prec = Math.floor(axisItem.log_10(Math.abs(ticks[N-1] - ticks[0])))
             axisScale = Math.pow(10, prec)
             scaleText = "1e" + prec + " "
+            console.log("Scale prec:", prec, scaleText)
         }
 
         for (i=0; i<N; ++i) {
@@ -266,7 +267,6 @@ AxisBase {
             xNumbers = numbers
             xAxisOffset.scale = scaleText
             xAxisOffset.offset = offsetText
-            console.log("X ScaleText:", scaleText)
         } else if (axis == 1) {
             yNumbers = numbers
             yAxisOffset.scale = scaleText
@@ -297,10 +297,26 @@ AxisBase {
             property int precision
 
             text: axisItem.formatReal((value - offset)/scale, precision)
-            x: axis != 0 ? -implicitWidth - 5:
-                           plotFrame.width*(value - minX)/(maxX - minX) - implicitWidth/2
-            y: axis != 1 ? plotFrame.height + 5:
-                           plotFrame.height*(1 - (value - minY)/(maxY - minY)) - implicitHeight/2
+            x: {
+                if (axis == 0) { // X axis
+                    var newX = (value - minX)/(maxX - minX)
+                    if (xAxis.inverted) newX = 1 - newX
+                    return plotFrame.width*newX - implicitWidth/2
+
+                } else { // Y axis
+                    return -implicitWidth - 5
+                }
+            }
+            y: {
+                if (axis == 0) { // X axis
+                    return plotFrame.height + 5
+
+                } else { // Y axis
+                    var newY = (value - minY)/(maxY - minY)
+                    if (!yAxis.inverted) newY = 1 - newY
+                    return plotFrame.height*newY - implicitHeight/2
+                }
+            }
         }
     }
 }

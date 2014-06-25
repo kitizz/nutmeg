@@ -22,14 +22,20 @@ void AxisCanvas2D::paint(QPainter *painter)
     QVector<QPointF> lines;
 
     foreach (QVariant tick, m_axis->xAxis()->majorTicks()) {
-        qreal x = m_plotRect.left() + m_plotRect.width() * (tick.toReal() - lim.left()) / lim.width();
+        qreal xNorm = (tick.toReal() - lim.left()) / lim.width();
+        if (m_axis->xAxis()->inverted())
+            xNorm = 1 - xNorm;
+        qreal x = m_plotRect.left() + m_plotRect.width()*xNorm;
         lines << m_scaling*QPointF(x, m_plotRect.bottom());
         lines << m_scaling*QPointF(x, m_plotRect.bottom() + majorSize);
     }
 
 //    lines.clear();
     foreach (QVariant tick, m_axis->yAxis()->majorTicks()) {
-        qreal y = m_plotRect.bottom() - m_plotRect.height() * (tick.toReal() - lim.top()) / lim.height();
+        qreal yNorm = (tick.toReal() - lim.top()) / lim.height();
+        if (m_axis->yAxis()->inverted())
+            yNorm = 1 - yNorm;
+        qreal y = m_plotRect.bottom() - m_plotRect.height()*yNorm;
         lines << m_scaling*QPointF(m_plotRect.left(), y);
         lines << m_scaling*QPointF(m_plotRect.left() - majorSize, y);
     }

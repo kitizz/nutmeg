@@ -16,5 +16,9 @@ void ImageCanvas::paint(QPainter *painter)
     // Is this copying the whole pixmap?
     QPixmap pix = plot->pixmap();
 
-    painter->drawPixmap(this->boundingRect(), pix, monAxis->limits());
+    QRectF target = this->boundingRect();
+    qreal top = target.top();
+    target.setTop(target.bottom());
+    target.setBottom(top);
+    painter->drawPixmap(target, pix, monAxis->limits());
 }

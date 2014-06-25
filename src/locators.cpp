@@ -144,11 +144,9 @@ void AutoLocator::updateLocator()
 
     // Round the start value up to the next valid value
     QList<qreal> newLocs;
-    newLocs << qCeil(start()/bestMult)*bestMult;
-    while (newLocs.last() <= end())
+    newLocs << ceil(start()/bestMult)*bestMult;
+    while (newLocs.last() + bestMult <= end())
         newLocs << newLocs.last() + bestMult;
-    // The last one is larger than the end value.
-    newLocs.removeLast();
 
     // If only one value remains, set it to the start and end values
     if (newLocs.length() < 2) {

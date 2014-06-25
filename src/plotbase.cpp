@@ -134,12 +134,16 @@ void PlotBase::setAxis(AxisBase *arg)
     m_axis = arg;
 
     if (m_axis) {
-        connect(m_axis, SIGNAL(minXChanged(qreal)), this, SLOT(triggerUpdate()));
-        connect(m_axis, SIGNAL(minYChanged(qreal)), this, SLOT(triggerUpdate()));
-        connect(m_axis, SIGNAL(maxXChanged(qreal)), this, SLOT(triggerUpdate()));
-        connect(m_axis, SIGNAL(maxYChanged(qreal)), this, SLOT(triggerUpdate()));
-        connect(m_axis, SIGNAL(dataLimitsChanged(QRectF)), this, SLOT(triggerUpdate()));
+        connect(m_axis, &AxisBase::minXChanged, this, &PlotBase::triggerUpdate);
+        connect(m_axis, &AxisBase::minYChanged, this, &PlotBase::triggerUpdate);
+        connect(m_axis, &AxisBase::maxXChanged, this, &PlotBase::triggerUpdate);
+        connect(m_axis, &AxisBase::maxYChanged, this, &PlotBase::triggerUpdate);
+        connect(m_axis, &AxisBase::dataLimitsChanged, this, &PlotBase::triggerUpdate);
+        connect(m_axis, &AxisBase::xAxisChanged, this, &PlotBase::triggerUpdate);
+        connect(m_axis, &AxisBase::yAxisChanged, this, &PlotBase::triggerUpdate);
+
         m_axis->registerPlot(this);
+
     } else {
         qWarning() << Q_FUNC_INFO << "Plot is not a descendant of any Axis. It may not behave as expected.";
     }
