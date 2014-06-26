@@ -91,14 +91,13 @@ FigureBase {
                 var dh = sy*startLimits.height
 
                 if (currentAxis.aspectRatio > 0) {
-                    if (sx > currentAxis.aspectRatio*sy)
-                        dh = limits.height
-                    else
-                        dw = limits.width
+                    dw = limits.width
                 }
 
                 var tx = (startMouse.x - currentAxis.plotRect.x)/currentAxis.plotRect.width
                 var ty = 1 - (startMouse.y - currentAxis.plotRect.y)/currentAxis.plotRect.height
+                if (currentAxis.xAxis.inverted) tx = 1 - tx
+                if (currentAxis.yAxis.inverted) ty = 1 - ty
 
                 limits.x = startLimits.x - (dw - startLimits.width)*tx
                 limits.width = dw
