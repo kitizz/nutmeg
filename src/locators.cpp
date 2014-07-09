@@ -147,14 +147,28 @@ void AutoLocator::updateLocator()
     newLocs << qCeil(start()/bestMult)*bestMult;
     while (newLocs.last() <= end())
         newLocs << newLocs.last() + bestMult;
+<<<<<<< Updated upstream
     // The last one is larger than the end value.
     newLocs.removeLast();
+=======
+    qDebug() << "Best Density:" << bestMult*scale;
+    qDebug() << "Locs:" << newLocs;
 
-    // If only one value remains, set it to the start and end values
-    if (newLocs.length() < 2) {
-        newLocs.clear();
-        newLocs << start() << end();
+    // If less than 2 values remain, add the start and end values
+    if (newLocs.length() == 1) {
+        // Add a start or end tick if it isn't too close to the existing value
+        qreal dStart = qAbs(newLocs[0] - start()), dEnd = qAbs(newLocs[0] - end());
+        if (dStart > dEnd && dStart*scale > m_density/2)
+            newLocs.prepend(start());
+        else if (dEnd >= dStart && dEnd*scale > m_density/2)
+            newLocs.append(end());
+        else
+            newLocs.clear();
     }
+>>>>>>> Stashed changes
+
+    if (newLocs.length() == 0)
+        newLocs << start() << end();
 
     setLocations(newLocs);
 }
