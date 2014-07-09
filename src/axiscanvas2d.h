@@ -34,6 +34,9 @@ public slots:
     void triggerUpdate();
 
 private:
+    void drawXTicks(QList<qreal> major, QPainter *painter);
+    void drawYTicks(QList<qreal> major, QPainter *painter);
+    void drawGrid(QList<qreal> xMajor, QList<qreal> yMajor, QPainter *painter);
     AxisBase* m_axis;
 
     QRectF m_plotRect;

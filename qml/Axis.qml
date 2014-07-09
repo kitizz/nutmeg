@@ -16,7 +16,7 @@ AxisBase {
     width: parent.width
     height: parent.height
 
-    default property alias plotArea: plotFrame.children
+    default property alias plotArea: plots.children
     property rect plotRect: Qt.rect(plotFrame.x, plotFrame.y, plotFrame.width, plotFrame.height)
 
     property real widthFraction: -1
@@ -43,6 +43,7 @@ AxisBase {
     children: [
         Rectangle {
             id: plotFrame
+            z: -2
             anchors.fill: parent
             anchors {
                 leftMargin: axisItem.margin.left; rightMargin: axisItem.margin.right
@@ -54,7 +55,7 @@ AxisBase {
 
         AxisCanvas2D {
             id: axisCanvas
-            x: 0; y: 0
+            x: 0; y: 0; z: -1
             axis: axisItem
             plotRect: axisItem.plotRect
             width: parent.width*scaling
@@ -63,6 +64,11 @@ AxisBase {
                 xScale: 1/axisCanvas.scaling
                 yScale: 1/axisCanvas.scaling
             }
+        },
+
+        Item {
+            id: plots
+            anchors.fill: plotFrame
         },
 
         Text {

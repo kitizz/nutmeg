@@ -59,6 +59,7 @@ def toQmlObject(value):
 
 textchars = ''.join(map(chr, [7,8,9,10,12,13,27] + range(0x20, 0x100)))
 def isBinary(data):
+    if type(data) is not str: return False
     return bool(data.translate(None, textchars))
 
 

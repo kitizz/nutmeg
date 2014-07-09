@@ -167,26 +167,26 @@ private:
     bool m_fitPlots;
 };
 
-class AxisGrid : public QObject
+class AxisGrid : public QObject, public NutmegObject
 {
     Q_OBJECT
     Q_ENUMS(GridAxes)
-    Q_PROPERTY(GridAxes axis READ axis WRITE setAxis NOTIFY axisChanged)
+    Q_PROPERTY(GridAxes axes READ axes WRITE setAxes NOTIFY axesChanged)
     Q_PROPERTY(LineSpec* majorLine READ majorLine)
     Q_PROPERTY(LineSpec* minorLine READ minorLine)
 
 public:
     explicit AxisGrid(QObject* parent=0);
-    enum GridAxes { None=0, XandY=1, X=2, Y=3 };
+    enum GridAxes { None=0, XY=3, X=1, Y=2 };
 
-    GridAxes axis() const;
-    void setAxis(GridAxes arg);
+    GridAxes axes() const;
+    void setAxes(GridAxes arg);
 
     LineSpec* majorLine() const;
     LineSpec* minorLine() const;
 
 signals:
-    void axisChanged(GridAxes arg);
+    void axesChanged(GridAxes arg);
 
 private:
     GridAxes m_axis;
@@ -195,21 +195,26 @@ private:
     LineSpec* m_minorLine;
 };
 
-class AxisSpec : public QObject
+class AxisSpec : public QObject, public NutmegObject
 {
     Q_OBJECT
 //    Q_PROPERTY(qreal pixelSize READ pixelSize NOTIFY pixelSizeChanged)
 //    Q_PROPERTY(qreal min READ min NOTIFY minChanged)
 //    Q_PROPERTY(qreal max READ max NOTIFY maxChanged)
+    Q_ENUMS(TickDirection)
     Q_PROPERTY(QVariant majorTicks READ majorTicks WRITE setMajorTicks NOTIFY majorTicksChanged)
     Q_PROPERTY(QVariant minorTicks READ minorTicks WRITE setMinorTicks NOTIFY minorTicksChanged)
+    Q_PROPERTY(qreal majorTickSize READ majorTickSize WRITE setMajorTickSize NOTIFY majorTickSizeChanged)
+    Q_PROPERTY(qreal minorTickSize READ minorTickSize WRITE setMinorTickSize NOTIFY minorTickSizeChanged)
     Q_PROPERTY(LineSpec* majorLine READ majorLine)
     Q_PROPERTY(LineSpec* minorLine READ minorLine)
+    Q_PROPERTY(TickDirection tickDir READ tickDir WRITE setTickDir NOTIFY tickDirChanged)
     Q_PROPERTY(bool inverted READ inverted WRITE setInverted NOTIFY invertedChanged)
 
 public:
     explicit AxisSpec(QObject *parent=0);
 //    explicit AxisSpec(QString sizeProperty, QObject *parent);
+    enum TickDirection { Off=0, In=1, Out=2, InOut=3 };
 
     QVariantList majorTicks() const;
     void setMajorTicks(QVariant arg);
@@ -227,6 +232,15 @@ public:
     bool inverted() const;
     void setInverted(bool arg);
 
+    TickDirection tickDir() const;
+    void setTickDir(TickDirection arg);
+
+    qreal majorTickSize() const;
+    void setMajorTickSize(qreal arg);
+
+    qreal minorTickSize() const;
+    void setMinorTickSize(qreal arg);
+
 signals:
     void majorTicksChanged(QList<qreal> arg);
     void minorTicksChanged(QList<qreal> arg);
@@ -238,6 +252,12 @@ signals:
     void invertedChanged(bool arg);
 
     void ticksChanged(AxisSpec* arg);
+
+    void tickDirChanged(TickDirection arg);
+
+    void majorTickSizeChanged(qreal arg);
+
+    void minorTickSizeChanged(qreal arg);
 
 protected slots:
     void updateMajor();
@@ -262,6 +282,9 @@ private:
 
     friend class AxisBase;
     bool m_inverted;
+    TickDirection m_tickDir;
+    qreal m_majorTickSize;
+    qreal m_minorTickSize;
 };
 
 class AxisMargins : public QObject

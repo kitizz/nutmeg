@@ -42,6 +42,9 @@ AxisBase::AxisBase(QQuickItem *parent)
     props.insert("maxX", "maxX");
     props.insert("minY", "minY");
     props.insert("maxY", "maxY");
+    props.insert("xAxis", "xAxis");
+    props.insert("yAxis", "yAxis");
+    props.insert("grid", "grid");
     registerProperties(props);
     connect(this, &QQuickItem::parentChanged, this, &AxisBase::updateFigure);
 
@@ -613,25 +616,38 @@ AxisGrid::AxisGrid(QObject *parent)
     , m_minorLine(new LineSpec("", parent))
 {
     m_majorLine->setColor(Qt::lightGray);
+
+    QMap<QString, QString> props;
+    props.insert("axes", "axes");
+    props.insert("majorLine", "majorLine");
+    props.insert("minorLine", "minorLine");
+    registerProperties(props);
 }
 
-AxisGrid::GridAxes AxisGrid::axis() const
+/*!
+ * \property AxisGrid::axes
+ * Set which axes for which the grid is enabled. Can take the following values:
+ * "None", "X", "Y", "XY"
+ * By default, this value is "None"
+ */
+AxisGrid::GridAxes AxisGrid::axes() const
 {
     return m_axis;
 }
 
-void AxisGrid::setAxis(AxisGrid::GridAxes arg)
+void AxisGrid::setAxes(AxisGrid::GridAxes arg)
 {
     if (m_axis == arg) return;
     m_axis = arg;
-    emit axisChanged(arg);
+    emit axesChanged(arg);
 }
 
 /*!
- * \brief Grid::majorLine
+ * \property Grid::majorLine
  * The default spec for grid lines for all axes. If an individual axis specifies its own
  * spec for the grid lines, this is ignored.
- * \return A grouped property that specifies the style of line used for drawing major grid lines.
+ * This is a \l LineSpec grouped property.
+ * \sa LineSpec
  */
 LineSpec *AxisGrid::majorLine() const
 {
@@ -639,10 +655,11 @@ LineSpec *AxisGrid::majorLine() const
 }
 
 /*!
- * \brief Grid::minorLine
+ * \property Grid::minorLine
  * The default spec for minor grid lines for all axes. If an individual axis specifies its own
- * spec, this is ignored.
- * \return A grouped property that specifies the style of line used for drawing minor grid lines.
+ * spec for the grid lines, this is ignored.
+ * This is a \l LineSpec grouped property.
+ * \sa LineSpec
  */
 LineSpec *AxisGrid::minorLine() const
 {
@@ -662,50 +679,86 @@ AxisSpec::AxisSpec(QObject *parent)
     , m_minorTicksVar(QVariant())
     , m_ownMajorTicks(false)
     , m_ownMinorTicks(false)
-    , m_majorLine(new LineSpec("", parent))
+    , m_majorLine(0)
     , m_minorLine(new LineSpec("", parent))
     , m_pixelSize(1)
     , m_min(0)
     , m_max(1)
     , m_inverted(false)
+    , m_tickDir(In)
+    , m_majorTickSize(5)
+    , m_minorTickSize(2)
 {
+    LineSpec *line = new LineSpec(parent);
+    line->setColor("black");
+    line->setWidth(2);
+    m_majorLine = line;
+
     setMajorTicks(QVariant::fromValue(new AutoLocator(50)));
     m_ownMajorTicks = true;
 
     connect(this, &AxisSpec::majorTicksChanged, [=]() { emit ticksChanged(this); });
     connect(this, &AxisSpec::minorTicksChanged, [=]() { emit ticksChanged(this); });
     connect(this, &AxisSpec::invertedChanged, [=]() { emit ticksChanged(this); });
+
+    QMap<QString, QString> props;
+    props.insert("majorTicks", "majorTicks");
+    props.insert("minorTicks", "minorTicks");
+    props.insert("majorTickSize", "majorTickSize");
+    props.insert("minorTickSize", "minorTickSize");
+    props.insert("majorLine", "majorLine");
+    props.insert("minorLine", "minorLine");
+    props.insert("tickDir", "tickDir");
+    props.insert("inverted", "inverted");
+    registerProperties(props);
 }
 
-//AxisSpec::AxisSpec(QString sizeProperty, QObject *parent)
-//    : AxisSpec(parent)
-//{
-//    // Thanks to: http://stackoverflow.com/questions/2799412/how-to-use-qmetamethod-with-qobjectconnect
-//    // If the parent changes, bad things will happen...
-//    const QMetaObject *parentMeta = parent->metaObject();
-//    QMetaProperty prop = parentMeta->property(parentMeta->indexOfProperty(sizeProperty));
-//    if (prop.hasNotifySignal()) {
-//        QMetaMethod signal = prop.notifySignal();
-//        connect(parent, signal, [=](){ setSize(parent->property(sizeProperty)) });
-//    }
-//}
 
+/*!
+ * \property AxisSpec::majorTicks
+ * \a majorTicks can be set any locator available.
+ * By default, the majorTicks locator is an \l AutoLocator with density
+ * set to 50 (pixels/tick).
+ *
+ * This property will also automatically create locators based on primitive
+ * inputs. For example:
+ * \code{.qml}
+ * ...
+ * majorTicks: 5
+ * ...
+ * \endcode
+ * will create a \l SpacedLocator at intervals of 5,
+ *
+ * \code{.qml}
+ * ...
+ * majorTicks: [0, 5, 10, 20]
+ * ...
+ * \endcode
+ * will create a \l HardLocator at the locations provided in the list.
+ *
+ * \code{.qml}
+ * ...
+ * majorTicks: null
+ * ...
+ * \endcode
+ * will set the Locator back to the default AutoLocator.
+ *
+ * Reading this property will return the list of locations at that time (not
+ * the Locator object, itself!)
+ *
+ * \sa AutoLocator, HardLocator, SpacedLocator
+ */
 QVariantList AxisSpec::majorTicks() const
 {
     QVariantList lst;
     if (m_majorTicks) {
-        foreach (qreal val, m_majorTicks->locations()) {
+        foreach (qreal val, m_majorTicks->locations())
             lst << val;
-        }
     }
 
     return lst;
 }
 
-/*!
- * \brief AxisSpec::setMajorTicks
- * \param arg
- */
 void AxisSpec::setMajorTicks(QVariant arg)
 {
     /* TODO: Allow the ticks to be set in the following ways:
@@ -747,10 +800,13 @@ void AxisSpec::setMajorTicks(QVariant arg)
         m_majorTicks = arg.value<Locator*>();
         m_ownMajorTicks = false;
 
+    } else if (arg.isNull()){
+        qDebug() << "Set major ticks to default";
+        m_majorTicks = new AutoLocator(50);
+        m_ownMajorTicks = true;
     } else {
-        qDebug() << "Set major to null";
-        m_majorTicks = 0;
-        m_ownMajorTicks = false;
+        qWarning() << "Warning: Axis.majorTick Locator provided is invalid.";
+        return;
     }
 
     if (m_majorTicks) {
@@ -868,6 +924,57 @@ void AxisSpec::setInverted(bool arg)
     if (m_inverted == arg) return;
     m_inverted = arg;
     emit invertedChanged(arg);
+}
+
+/*!
+ * \property AxisSpec::tickDir
+ * Enum with the values: "Off", "In", "Out", "InOut"
+ * This sets the directions of the ticks along this axis.
+ */
+AxisSpec::TickDirection AxisSpec::tickDir() const
+{
+    return m_tickDir;
+}
+
+void AxisSpec::setTickDir(AxisSpec::TickDirection arg)
+{
+    if (m_tickDir == arg) return;
+    m_tickDir = arg;
+    emit tickDirChanged(arg);
+}
+
+/*!
+ * \property AxisSpec::majorTickSize
+ * The length of the major ticks when they are drawn.
+ * Default: 5
+ */
+qreal AxisSpec::majorTickSize() const
+{
+    return m_majorTickSize;
+}
+
+void AxisSpec::setMajorTickSize(qreal arg)
+{
+    if (m_majorTickSize == arg) return;
+    m_majorTickSize = arg;
+    emit majorTickSizeChanged(arg);
+}
+
+/*!
+ * \property AxisSpec::minorTickSize
+ * The length of the minor ticks when they are drawn.
+ * Default: 2
+ */
+qreal AxisSpec::minorTickSize() const
+{
+    return m_minorTickSize;
+}
+
+void AxisSpec::setMinorTickSize(qreal arg)
+{
+    if (m_minorTickSize == arg) return;
+    m_minorTickSize = arg;
+    emit minorTickSizeChanged(arg);
 }
 
 void AxisSpec::setMax(qreal arg)

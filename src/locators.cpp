@@ -148,8 +148,8 @@ void AutoLocator::updateLocator()
     while (newLocs.last() + bestMult <= end())
         newLocs << newLocs.last() + bestMult;
 
-    qDebug() << "Best Density:" << bestMult*scale;
-    qDebug() << "Locs:" << newLocs;
+//    qDebug() << "Best Density:" << bestMult*scale;
+//    qDebug() << "Locs:" << newLocs;
 
     // If less than 2 values remain, add the start and end values
     if (newLocs.length() == 1) {

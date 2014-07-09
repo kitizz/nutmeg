@@ -203,6 +203,7 @@ ServerBase {
             return true
         } else {
             // Check if the property is valid
+            console.log("Setting property", prop, "for", obj)
             var propName = obj.map(prop)
             if (!propName) return false
 
