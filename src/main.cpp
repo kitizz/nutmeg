@@ -6,7 +6,9 @@
 #include "../qmlwindow.h"
 
 #include "lineplot.h"
+#include "imageplot.h"
 #include "lineplotcanvas.h"
+#include "imagecanvas.h"
 #include "axisbase.h"
 #include "locators.h"
 #include "linespec.h"
@@ -32,9 +34,11 @@ int main(int argc, char *argv[])
     qmlRegisterType<HardLocator>("Graphr", 1,0, "HardLocator");
     qmlRegisterType<SpacedLocator>("Graphr", 1,0, "SpacedLocator");
 
+    qmlRegisterType<LineSpec>("Graphr", 1,0, "LineSpec");
     qmlRegisterType<LinePlot>("Graphr", 1,0, "LinePlotBase");
     qmlRegisterType<LinePlotCanvas>("Graphr", 1,0, "LinePlotCanvas");
-    qmlRegisterType<LineSpec>("Graphr", 1,0, "LineSpec");
+    qmlRegisterType<ImagePlot>("Graphr", 1,0, "ImagePlotBase");
+    qmlRegisterType<ImageCanvas>("Graphr", 1,0, "ImageCanvas");
 
     qmlRegisterType<Server>("Graphr", 1,0, "ServerBase");
     qmlRegisterType<Controller>("Graphr", 1,0, "ControllerBase");

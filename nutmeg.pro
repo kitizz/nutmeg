@@ -59,7 +59,11 @@ SOURCES += src/main.cpp \
     mainwindow.cpp \
     src/pushsocket.cpp \
     qmlwindow.cpp \
-    src/settings.cpp
+    src/settings.cpp \
+    src/xyplot.cpp \
+    src/util.cpp \
+    src/imagecanvas.cpp \
+    src/imageplot.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 #include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
@@ -91,7 +95,11 @@ HEADERS += \
     mainwindow.h \
     src/pushsocket.h \
     qmlwindow.h \
-    src/settings.h
+    src/settings.h \
+    src/xyplot.h \
+    src/util.h \
+    src/imagecanvas.h \
+    src/imageplot.h
 
 unix:LIBS += -lzmq
 win32:CONFIG(release, debug|release): LIBS += -L"C:\zmq3.2.4\lib" -llibzmq

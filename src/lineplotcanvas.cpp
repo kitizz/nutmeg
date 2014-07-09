@@ -1,5 +1,6 @@
 #include "lineplotcanvas.h"
 #include "lineplot.h"
+#include "util.h"
 
 LinePlotCanvas::LinePlotCanvas(QQuickItem *parent) :
     PlotCanvas(parent)
@@ -16,35 +17,41 @@ void LinePlotCanvas::paint(QPainter *painter)
     if (!monAxis || xData.length() != yData.length())
         return; // Funky data
 
-    // When the plot is zoomed closer, drawing the line as a single poly
-    // gets slower. Therefore, here, the lines are "cut" but the view frame
-    // and so that excess segment aren't drawn.
-
-    // Need to frame the data based on the limits
+    // Data limits:
     QRectF dataLim = monAxis->dataLimits();
+    // View limits:
     qreal minX = monAxis->minX();
     qreal minY = monAxis->minY();
     qreal maxX = monAxis->maxX();
     qreal maxY = monAxis->maxY();
 
-    if (minX == -Inf) minX = dataLim.left();
-    if (minY == -Inf) minY = dataLim.top();
-    if (maxX == Inf) maxX = dataLim.right();
-    if (maxY == Inf) maxY = dataLim.bottom();
+    QRectF lim = QRectF(minX, minY, maxX - minX, maxY - minY);
 
-    qreal scaleX = width()/(maxX - minX);
-    qreal scaleY = height()/(maxY - minY);
+    // Transform the plot coords to view coords
+    qreal scaleX = width()/(lim.width());
+    qreal scaleY = height()/(lim.height());
+    qreal scaleOffsetX = 0;
+    qreal scaleOffsetY = 0;
+    if (monAxis->xAxis()->inverted()) {
+        scaleX *= -1;
+        scaleOffsetX = width();
+    }
+    if (monAxis->yAxis()->inverted()) {
+        scaleY *= -1;
+        scaleOffsetY = height();
+    }
+    painter->translate(scaleOffsetX, scaleOffsetY);
+    painter->scale(scaleX, scaleY);
+    painter->translate(-lim.x(), -lim.y());
 
     QPolygonF line;
     // Get the segments into screen coords
-    for (int i=0; i<yData.length(); ++i) {
-        qreal px = xData[i];
-        qreal py = yData[i];
-        line << QPointF(scaleX*(px - minX), scaleY*(py - minY));
-    }
+    for (int i=0; i<yData.length(); ++i)
+        line << QPointF(xData[i], yData[i]);
 
-    QRectF b = QRectF(0, 0, width(), height()); // Slice the lines with the view rect
-
+    // When the plot is zoomed closer, drawing the line as a single poly
+    // gets slower - weird and annoying. Therefore, here, the lines are "cut"
+    // by the view frame so that excess segment aren't drawn.
     QList<QPolygonF> lines;
     QPointF latestPoint;
     QPolygonF latestPoly;
@@ -52,7 +59,7 @@ void LinePlotCanvas::paint(QPainter *painter)
 
     for (int i=0; i<line.size() - 1; ++i) {
         QPointF p1 = line[i], p2 = line[i+1];
-        QLineF l = rectSlice(p1, p2, b);
+        QLineF l = rectSlice(p1, p2, lim);
         if (l.isNull()) continue;
 
         // Check if the line has been broken, or is starting
@@ -73,6 +80,7 @@ void LinePlotCanvas::paint(QPainter *painter)
 
     // Get the style right
     QPen pen = QPen();
+    pen.setCosmetic(true);
     pen.setColor( plot->line()->color() );
 
     QString style = plot->line()->style();

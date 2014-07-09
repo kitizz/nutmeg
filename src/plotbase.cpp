@@ -9,14 +9,9 @@
 
 PlotBase::PlotBase(QQuickItem *parent)
     : QQuickItem(parent)
-    , m_settingData(false)
-    , m_handle(QString())
-    , m_xDataSet(false)
-    , m_xData(QList<qreal>())
-    , m_yData(QList<qreal>())
     , m_axis(0)
-    , m_tree(0)
-    , m_treeDirty(false)
+    , m_handle(QString())
+    , m_canvas(0)
     , m_dataLimits(QRectF())
 {
     connect(this, &QQuickItem::parentChanged, this, &PlotBase::updateAxis);
@@ -122,21 +117,9 @@ QList<QPointF> PlotBase::dataToItemList(QList<QPointF> points)
     return newPoints;
 }
 
-int PlotBase::nearestDataTo(const QPointF &dataLocation)
+QRectF PlotBase::dataLimits() const
 {
-    updateTree();
-    if (!m_tree)
-        return -1;
-
-    QKDTreeNode node;
-    qDebug() << "Tree size:" << m_tree->size();
-    bool success = m_tree->nearestNode(dataLocation, &node);
-
-    if (success) {
-        return node.value().toInt();
-    } else {
-        return -1;
-    }
+    return m_dataLimits;
 }
 
 void PlotBase::setAxis(AxisBase *arg)
@@ -151,12 +134,16 @@ void PlotBase::setAxis(AxisBase *arg)
     m_axis = arg;
 
     if (m_axis) {
-        connect(m_axis, SIGNAL(minXChanged(qreal)), this, SLOT(triggerUpdate()));
-        connect(m_axis, SIGNAL(minYChanged(qreal)), this, SLOT(triggerUpdate()));
-        connect(m_axis, SIGNAL(maxXChanged(qreal)), this, SLOT(triggerUpdate()));
-        connect(m_axis, SIGNAL(maxYChanged(qreal)), this, SLOT(triggerUpdate()));
-        connect(m_axis, SIGNAL(dataLimitsChanged(QRectF)), this, SLOT(triggerUpdate()));
+        connect(m_axis, &AxisBase::minXChanged, this, &PlotBase::triggerUpdate);
+        connect(m_axis, &AxisBase::minYChanged, this, &PlotBase::triggerUpdate);
+        connect(m_axis, &AxisBase::maxXChanged, this, &PlotBase::triggerUpdate);
+        connect(m_axis, &AxisBase::maxYChanged, this, &PlotBase::triggerUpdate);
+        connect(m_axis, &AxisBase::dataLimitsChanged, this, &PlotBase::triggerUpdate);
+        connect(m_axis, &AxisBase::xAxisChanged, this, &PlotBase::triggerUpdate);
+        connect(m_axis, &AxisBase::yAxisChanged, this, &PlotBase::triggerUpdate);
+
         m_axis->registerPlot(this);
+
     } else {
         qWarning() << Q_FUNC_INFO << "Plot is not a descendant of any Axis. It may not behave as expected.";
     }
@@ -184,222 +171,10 @@ void PlotBase::updateAxis()
     setAxis(axis);
 }
 
-QList<qreal> PlotBase::xData() const
+void PlotBase::setDataLimits(QRectF arg)
 {
-    return m_xData;
-}
-
-void PlotBase::setXData(QList<qreal> arg)
-{
-    if (m_xData == arg) return;
-    m_xData = arg;
-    m_xDataSet = m_xData.length() > 0;
-    m_treeDirty = true;
-    emit xDataChanged(arg);
-    updateData();
-}
-
-QList<qreal> PlotBase::yData() const
-{
-    return m_yData;
-}
-
-void PlotBase::setYData(QList<qreal> arg)
-{
-    if (m_yData == arg) return;
-    m_yData = arg;
-    m_treeDirty = true;
-    emit yDataChanged(arg);
-    updateX();
-    updateData();
-}
-
-/*!
- * \brief PlotBase::dataLocationAt
- * \param index Index of data point
- * \return The location of the data point in data coordinates
- */
-QPointF PlotBase::dataLocationAt(int index)
-{
-    if (index < 0 || index >= m_yData.length())
-        return QPointF(Inf, Inf);
-    return QPointF(m_xData[index], m_yData[index]);
-}
-
-/*!
- * \brief PlotBase::frameLocationAt
- * \param index Index of data point
- * \return The location of the data point in item coordinates
- */
-QPointF PlotBase::frameLocationAt(int index)
-{
-    return dataToItem(dataLocationAt(index));
-}
-
-void PlotBase::setData(QList<qreal> xVals, QList<qreal> yVals)
-{
-    m_settingData = true;
-    m_xData = xVals;
-    m_xDataSet = xVals.length() > 0;
-    m_yData = yVals;
-    m_treeDirty = true;
-    emit xDataChanged(xVals);
-    emit yDataChanged(yVals);
-    m_settingData = false;
-
-    updateData();
-}
-
-QRectF PlotBase::dataLimits() const
-{
-    return m_dataLimits;
-}
-
-void PlotBase::updateX()
-{
-    if (m_xDataSet) return;
-    int N = m_xData.length();
-    int M = m_yData.length();
-
-    // Nothing to update
-    if (M == N) return;
-    // Clear the list, save time.
-    if (M == 0) {
-        m_xData.clear();
-    }
-    // Add to xData
-    if (M > N) {
-        for (int i=N; i < M; ++i)
-            m_xData.append(i);
-    }
-    // Remove xData
-    if (M < N) {
-        if (N - M <= M) {
-            // Quicker to pop off the end
-            for (int i=0; i < N-M; ++i)
-                m_xData.removeLast();
-        } else {
-            // Quicker to copy the first M elements over
-            m_xData = m_xData.mid(0, M);
-        }
-    }
-
-    m_treeDirty = true;
-    emit xDataChanged(m_xData);
-}
-
-void PlotBase::updateData()
-{
-    int xLen = m_xData.length(), yLen = m_yData.length();
-    if ((xLen > 0 && xLen != yLen) || m_settingData)
-        return; // Don't update until the data is good
-
-//    qDebug() << "Updating data for" << handle();
-    qreal minX = Inf, maxX = -Inf, minY = Inf, maxY = -Inf;
-    for (int i=0; i<yLen; ++i) {
-        qreal px = m_xData[i];
-        qreal py = m_yData[i];
-        minX = qMin(minX, px);
-        maxX = qMax(maxX, px);
-        minY = qMin(minY, py);
-        maxY = qMax(maxY, py);
-    }
-
-//    qDebug() << "Datalimits:" << minX << maxX << minY << maxY;
-
-    m_dataLimits.setLeft(minX);
-    m_dataLimits.setTop(minY);
-    m_dataLimits.setRight(maxX);
-    m_dataLimits.setBottom(maxY);
-    emit dataLimitsChanged(m_dataLimits);
-
+    if (m_dataLimits == arg) return;
+    m_dataLimits = arg;
+    emit dataLimitsChanged(arg);
     triggerUpdate();
-}
-
-void PlotBase::updateTree()
-{
-    if (!m_treeDirty) return;
-
-    // Start from scratch
-    if (m_tree)
-        delete m_tree;
-    m_tree = new QKDTree(2);
-
-    m_treeDirty = false;
-
-    int N = m_yData.length();
-    if (N == 0) return;
-    QList<int> *inds = 0;
-    if (!m_xDataSet || dataIncreasing(m_xData)) {
-        // Check if the x values are always increasing
-        inds = medianArray(N);
-    } else {
-        // Throwing in random indices is as good a method as any other...
-        inds = randomArray(N);
-    }
-
-    foreach (int i, *inds) {
-        // Check for NaN
-        if (m_xData[i] != m_xData[i]) continue;
-        if (m_yData[i] != m_yData[i]) continue;
-        m_tree->add(QPointF(m_xData[i], m_yData[i]), i);
-    }
-
-    delete inds; // Clean up
-}
-
-int PlotBase::randInt(int low, int high) {
-    // From: http://goo.gl/KdHeUg
-    return qrand() % ((high + 1) - low) + low;
-}
-
-QList<int>* PlotBase::randomArray(int N)
-{
-    // http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-    QList<int> *lst = new QList<int>();
-    lst->reserve(N);
-
-    for (int i=0; i<N; ++i)
-        (*lst)[i] = i;
-
-    for (int i=0; i<N; ++i) {
-        int n = randInt(i, N-1);
-        lst->swap(i, n);
-    }
-
-    return lst;
-}
-
-QList<int>* PlotBase::medianArray(int N, int s, QList<int>* lst)
-{
-    if (!lst) {
-        lst = new QList<int>();
-        lst->reserve(N);
-    }
-
-    if (N - s <= 2) {
-        lst->append(s);
-        if (N - s == 2)
-            lst->append(s + 1);
-        return lst;
-    }
-
-    int i = (s + N - 1)/2;
-    lst->append(i);
-
-    medianArray(i, s, lst);
-    medianArray(N, i + 1, lst);
-
-    return lst;
-}
-
-bool PlotBase::dataIncreasing(QList<qreal> data)
-{
-    // Return true if each data point is >= to the previous.
-    // TODO: If this is a performance hit, consider allowing approximation (check each 10th element or something).
-    for (int i=0; i<data.length() - 1; ++i) {
-        if (data[i+1] < data[i])
-            return false;
-    }
-    return true;
 }

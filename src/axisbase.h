@@ -22,8 +22,8 @@ class AxisBase : public QQuickPaintedItem, public NutmegObject
 {
     Q_OBJECT
     Q_PROPERTY(AxisGrid* grid READ grid)
-    Q_PROPERTY(AxisSpec* xAxis READ xAxis)
-    Q_PROPERTY(AxisSpec* yAxis READ yAxis)
+    Q_PROPERTY(AxisSpec* xAxis READ xAxis NOTIFY xAxisChanged)
+    Q_PROPERTY(AxisSpec* yAxis READ yAxis NOTIFY yAxisChanged)
     Q_PROPERTY(QString handle READ handle WRITE setHandle NOTIFY handleChanged)
 
     Q_PROPERTY(FigureBase* figure READ figure WRITE setFigure NOTIFY figureChanged)
@@ -40,12 +40,15 @@ class AxisBase : public QQuickPaintedItem, public NutmegObject
     Q_PROPERTY(AxisMargins* margin READ margin NOTIFY marginChanged)
     Q_PROPERTY(QList<qreal> yLimitRounding READ yLimitRounding WRITE setYLimitRounding NOTIFY yLimitRoundingChanged)
 
+    Q_PROPERTY(qreal aspectRatio READ aspectRatio WRITE setAspectRatio NOTIFY aspectRatioChanged)
+    Q_PROPERTY(bool fitPlots READ fitPlots WRITE setFitPlots NOTIFY fitPlotsChanged)
+
 public:
     explicit AxisBase(QQuickItem *parent = 0);
     ~AxisBase();
 
     Q_INVOKABLE qreal log_10(qreal v);
-    Q_INVOKABLE QString formatReal(qreal num, int precision=3);
+    Q_INVOKABLE QString formatReal(qreal num, int precision=3, int minMag=-11, int maxMag=-1);
     Q_INVOKABLE qreal offsetFromStd(qreal val, qreal std);
 
     void paint(QPainter *painter);
@@ -53,13 +56,13 @@ public:
     FigureBase* figure() const;
 
     qreal minX() const;
-    void setMinX(qreal arg);
+    void setMinX(qreal arg, bool fix=true);
     qreal maxX() const;
-    void setMaxX(qreal arg);
+    void setMaxX(qreal arg, bool fix=true);
     qreal minY() const;
-    void setMinY(qreal arg);
+    void setMinY(qreal arg, bool fix=true);
     qreal maxY() const;
-    void setMaxY(qreal arg);
+    void setMaxY(qreal arg, bool fix=true);
 
     Q_INVOKABLE void offset(qreal x, qreal y);
 
@@ -74,7 +77,7 @@ public:
     Q_INVOKABLE QString map(QString prop);
 
     QRectF limits() const;
-    void setLimits(QRectF arg);
+    void setLimits(QRectF arg, bool fix=true);
     void resetLimits();
 
     QRectF dataLimits() const;
@@ -86,6 +89,12 @@ public:
     AxisSpec* yAxis() const;
 
     AxisMargins* margin() const;
+    qreal aspectRatio() const;
+    void setAspectRatio(qreal arg);
+
+    bool fitPlots() const;
+    void setFitPlots(bool arg);
+
 signals:
     void figureChanged(FigureBase* arg);
     void registerWithFigure(AxisBase* axis);
@@ -103,6 +112,13 @@ signals:
     void marginChanged(AxisMargins* margin);
     void yLimitRoundingChanged(QList<qreal> arg);
 
+    void xAxisChanged(AxisSpec* arg);
+    void yAxisChanged(AxisSpec* arg);
+
+    void aspectRatioChanged(qreal arg);
+
+    void fitPlotsChanged(bool arg);
+
 public slots:
     void registerPlot(PlotBase *axis);
     void deregisterPlot(PlotBase *axis);
@@ -117,7 +133,8 @@ protected slots:
     void updateDataLimits();
 
 private:
-
+    void maintainAspectRatio(QRectF *lim);
+    bool floatingLimits();
     FigureBase* m_figure;
     QMultiMap<QString, PlotBase*> m_plots;
     QVariantMap m_plotsVar;
@@ -132,6 +149,10 @@ private:
     qreal m_maxX;
     qreal m_minY;
     qreal m_maxY;
+    bool m_minXFloat;
+    bool m_maxXFloat;
+    bool m_minYFloat;
+    bool m_maxYFloat;
 
     bool m_destroying;
     bool m_settingLimits;
@@ -142,6 +163,8 @@ private:
     // TODO: This really should go into a Util library....
     static qreal sign(qreal a);
     AxisMargins* m_margin;
+    qreal m_aspectRatio;
+    bool m_fitPlots;
 };
 
 class AxisGrid : public QObject
@@ -182,6 +205,7 @@ class AxisSpec : public QObject
     Q_PROPERTY(QVariant minorTicks READ minorTicks WRITE setMinorTicks NOTIFY minorTicksChanged)
     Q_PROPERTY(LineSpec* majorLine READ majorLine)
     Q_PROPERTY(LineSpec* minorLine READ minorLine)
+    Q_PROPERTY(bool inverted READ inverted WRITE setInverted NOTIFY invertedChanged)
 
 public:
     explicit AxisSpec(QObject *parent=0);
@@ -200,6 +224,9 @@ public:
     qreal min() const;
     qreal max() const;
 
+    bool inverted() const;
+    void setInverted(bool arg);
+
 signals:
     void majorTicksChanged(QList<qreal> arg);
     void minorTicksChanged(QList<qreal> arg);
@@ -207,6 +234,10 @@ signals:
     void pixelSizeChanged(qreal arg);
     void minChanged(qreal arg);
     void maxChanged(qreal arg);
+
+    void invertedChanged(bool arg);
+
+    void ticksChanged(AxisSpec* arg);
 
 protected slots:
     void updateMajor();
@@ -230,6 +261,7 @@ private:
     qreal m_max;
 
     friend class AxisBase;
+    bool m_inverted;
 };
 
 class AxisMargins : public QObject

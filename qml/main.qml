@@ -27,8 +27,12 @@ Rectangle {
             var qml = testFile.read()
             server.createFigure( {"figureHandle": "testFigure", "qml": qml} )
 //            server.sendData([0, "testFigure.ax", {"minY": 0, "maxY": 8}])
-            server.sendData( {"handle": "testFigure.ax.blue", "data": {"y": [0,1,2,3,2,1,3,5,2,10]}} )
-            server.sendData( {"handle": "testFigure.ax.red", "data": {"y": [4,8,13,0.1,0.5,3,4,5]}} )
+            server.sendData( {"handle": "testFigure.ax.blue", "data": {
+                                    "x": [0, 100, 200, 300, 400, 500, 700, 800, 1000, 1200],
+                                    "y": [0,1,2,3,2,1,3,5,2,10]
+            }} )
+//            server.sendData( {"handle": "testFigure.ax.blue", "data": {"y": [0,1,2,3,2,1,3,5,2,10]}} )
+//            server.sendData( {"handle": "testFigure.ax.red", "data": {"y": [4,8,13,0.1,0.5,3,4,5]}} )
 //            server.sendData([0, "testFigure.ax.blue", {"y": [3,1]}])
         }
     }

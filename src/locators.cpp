@@ -144,13 +144,10 @@ void AutoLocator::updateLocator()
 
     // Round the start value up to the next valid value
     QList<qreal> newLocs;
-    newLocs << qCeil(start()/bestMult)*bestMult;
-    while (newLocs.last() <= end())
+    newLocs << ceil(start()/bestMult)*bestMult;
+    while (newLocs.last() + bestMult <= end())
         newLocs << newLocs.last() + bestMult;
-<<<<<<< Updated upstream
-    // The last one is larger than the end value.
-    newLocs.removeLast();
-=======
+
     qDebug() << "Best Density:" << bestMult*scale;
     qDebug() << "Locs:" << newLocs;
 
@@ -165,7 +162,6 @@ void AutoLocator::updateLocator()
         else
             newLocs.clear();
     }
->>>>>>> Stashed changes
 
     if (newLocs.length() == 0)
         newLocs << start() << end();

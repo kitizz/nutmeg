@@ -68,6 +68,9 @@ FigureBase {
             if (!dragActive) return
             delta.x = mouse.x - startMouse.x
             delta.y = mouse.y - startMouse.y
+            // Invert the axes if necessary
+            if (currentAxis.xAxis.inverted) delta.x *= -1
+            if (currentAxis.yAxis.inverted) delta.y *= -1
 
             var limits = Util.copyRect(currentAxis.limits)
 
@@ -75,18 +78,26 @@ FigureBase {
             var xScale = (currentAxis.maxX - currentAxis.minX) / currentAxis.plotRect.width
             var yScale = (currentAxis.maxY - currentAxis.minY) / currentAxis.plotRect.height
 
-            if (mode == 0) {
+            if (mode == 0) { // Pan
                 limits.x = startLimits.x - xScale*delta.x
                 limits.y = startLimits.y + yScale*delta.y
-            } else if (mode == 1) {
+
+            } else if (mode == 1) { // Zoom
                 var sx = Math.pow(10, delta.x*0.005*zoomSensitivity)
                 var sy = Math.pow(10, delta.y*0.005*zoomSensitivity)
+
                 console.log("Scale", sx, sy)
                 var dw = (1/sx)*startLimits.width
                 var dh = sy*startLimits.height
 
+                if (currentAxis.aspectRatio > 0) {
+                    dw = limits.width
+                }
+
                 var tx = (startMouse.x - currentAxis.plotRect.x)/currentAxis.plotRect.width
                 var ty = 1 - (startMouse.y - currentAxis.plotRect.y)/currentAxis.plotRect.height
+                if (currentAxis.xAxis.inverted) tx = 1 - tx
+                if (currentAxis.yAxis.inverted) ty = 1 - ty
 
                 limits.x = startLimits.x - (dw - startLimits.width)*tx
                 limits.width = dw
@@ -147,6 +158,9 @@ FigureBase {
         onPinchUpdated: {
             var dx = pinch.center.x - pinch.previousCenter.x
             var dy = pinch.center.y - pinch.previousCenter.y
+            // Invert if necessary
+            if (currentAxis.xAxis.inverted) dx *= -1
+            if (currentAxis.yAxis.inverted) dy *= -1
 
             var xScale = (currentAxis.maxX - currentAxis.minX) / currentAxis.plotRect.width
             var yScale = (currentAxis.maxY - currentAxis.minY) / currentAxis.plotRect.height

@@ -45,7 +45,8 @@ public:
 
 signals:
 //    void requestReceived(const QString &request);
-    void requestReceived(QVariant request);
+    void jsonReceived(QVariant request);
+    void binaryReceived(QVariant msg, QVariant data);
     void replySent(const QList<QByteArray>& reply);
     void updateSent(const QList<QByteArray>& update);
     void failure(const QString& tag);

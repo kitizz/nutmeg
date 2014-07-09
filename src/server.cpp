@@ -96,8 +96,21 @@ void Server::processRequest(const QList<QByteArray> &request)
     counter++;
     qDebug() << "Replier::requestReceived> " << counter;
 
-    QJsonDocument doc = QJsonDocument::fromJson(request[0]);
-    emit requestReceived(doc.toVariant());
+    QString msgType = QString(request[0]);
+    QJsonDocument doc = QJsonDocument::fromJson(request[1]);
+    if (msgType == "json") {
+        // [msgType, msg]
+        // Msg: {"handle": h, "data": {props: values}, "parameter": param}
+        emit jsonReceived(doc.toVariant());
+
+    } else if (msgType == "binary") {
+        // [msgType, msg, binaryData]
+        // Msg: {"handle": h, "property": prop, "parameter": param}
+        emit binaryReceived(doc.toVariant(), QVariant(request[2]));
+
+    } else {
+        // Unknown message type
+    }
 
 }
 
