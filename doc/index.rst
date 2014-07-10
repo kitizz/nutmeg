@@ -21,6 +21,11 @@ Example
 -------
 .. doxygenclass:: Axis
     :project: Nutmeg
+    :outline:
+    :members:
+
+.. doxygenclass:: Axis
+    :project: Nutmeg
     :members:
 
 
