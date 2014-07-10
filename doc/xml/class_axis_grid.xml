@@ -151,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="201" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="675" bodyend="688"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="201" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="676" bodyend="689"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_grid_1afcbc32f606551e753ef1123405dc49d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Q_INVOKABLE QString</type>
@@ -168,7 +168,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="205" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="690" bodyend="693"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="205" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="691" bodyend="694"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_grid_1a02167e4e9efb141dbc63357956e79575" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>GridAxes</type>
@@ -198,7 +198,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="208" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="706" bodyend="711"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="208" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="707" bodyend="712"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_grid_1ae91ae9a8a53dfaf7c2a761b6e76abd8e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_line_spec" kindref="compound">LineSpec</ref> *</type>

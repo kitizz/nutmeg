@@ -136,7 +136,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="365" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="1165" bodyend="1172"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="365" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="1166" bodyend="1173"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_margins_1a155f0fa5524b427cd64ff53fcfd90b59" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>qreal</type>
@@ -166,7 +166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="367" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="1179" bodyend="1184"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="367" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="1180" bodyend="1185"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_margins_1a1e5eb3deaaa54346aa093238bed6d1ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>qreal</type>
@@ -196,7 +196,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="370" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="1191" bodyend="1196"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="370" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="1192" bodyend="1197"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_margins_1ae03e24592e5f3f05f91f542d63c33d33" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>qreal</type>
@@ -226,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="373" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="1203" bodyend="1208"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="373" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="1204" bodyend="1209"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_margins_1acdbb7f8eb34102596f751cc1f1d1d8c9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>qreal</type>
@@ -256,7 +256,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="376" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="1215" bodyend="1220"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="376" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="1216" bodyend="1221"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="signal">

@@ -6,6 +6,24 @@
 Welcome to Nutmeg's documentation!
 ==================================
 
+Nutmeg is multiplatform, multilingual plotting tool. Primarily, it aims to be light, fast, and responsive, and has been designed to be the go to tool for visualizing and playing with data in the experimental phase of a project.
+
+Notable Features:
+- Plotting can be asynchronous with user's program
+    + Can visualize the updating of data as your program runs
+    + Fast
+- Responsive panning and zooming of data using mouse or multitouch trackpad
+- Lay out figure axes and plots using a more intuitive declarative style (QML)
+    + Makes figure templates easy
+- Lay out GUI controls that update parameters, which update the data
+
+Core Concept
+------------
+With Nutmeg, figures are laid out using QML (see :ref:`nutmeg-action`). These can be used as templates, making it easy to reuse figure styles.
+
+The actual plot data, titles, labels, and other things unique to the figure can be set from your code. This paradigm is more similar to those of Matlab and Matplotlib.
+
+
 Contents
 --------
 
@@ -13,15 +31,11 @@ Contents
     :maxdepth: 2
     :glob:
 
-    qmlFigures
-    qmlGui
-    clientSocketApi
-
-Example
--------
-.. doxygenclass:: Axis
-    :project: Nutmeg
-    :members:
+    getting_started
+    qml_figures
+    qml_gui
+    client_socket_api
+    about
 
 
 Indices and tables

@@ -519,8 +519,9 @@ QRectF AxisBase::dataLimits() const
     return m_dataLimits;
 }
 
-/*!
- * \brief AxisBase::yLimitRounding A list of numbers between 1 and 10. It
+/*! \internal
+ * \property AxisBase::yLimitRounding
+ * A list of numbers between 1 and 10. It
  * defines the rounding used when auto-scaling the axes to fit the data. These
  * values are adapted for differing magnitudes of data. For example, the value
  * 1.5 will account for magnitudes like 0.15, 1.5, 15, 150, 1500, etc.

@@ -277,7 +277,7 @@
 <codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QRectF<sp/>dataLimits<sp/>READ<sp/>dataLimits<sp/>NOTIFY<sp/>dataLimitsChanged)</highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight></codeline>
 <codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<ref refid="class_axis_margins" kindref="compound">AxisMargins</ref>*<sp/>margin<sp/>READ<sp/>margin<sp/>NOTIFY<sp/>marginChanged)</highlight></codeline>
-<codeline lineno="45" refid="class_axis_base_1a0b551b36bb868e2b3a68dc6b609af1b0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QList&lt;qreal&gt;<sp/>yLimitRounding<sp/>READ<sp/>yLimitRounding<sp/>WRITE<sp/>setYLimitRounding<sp/>NOTIFY<sp/>yLimitRoundingChanged)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QList&lt;qreal&gt;<sp/>yLimitRounding<sp/>READ<sp/>yLimitRounding<sp/>WRITE<sp/>setYLimitRounding<sp/>NOTIFY<sp/>yLimitRoundingChanged)</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
 <codeline lineno="47" refid="class_axis_base_1a4b364434db9e5a8494ebf2a83598c59f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(qreal<sp/>aspectRatio<sp/>READ<sp/>aspectRatio<sp/>WRITE<sp/>setAspectRatio<sp/>NOTIFY<sp/>aspectRatioChanged)</highlight></codeline>
 <codeline lineno="48" refid="class_axis_base_1a85f81172c605b213915eae32b3747a63" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>fitPlots<sp/>READ<sp/>fitPlots<sp/>WRITE<sp/>setFitPlots<sp/>NOTIFY<sp/>fitPlotsChanged)</highlight></codeline>
