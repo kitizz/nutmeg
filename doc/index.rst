@@ -9,13 +9,14 @@ Welcome to Nutmeg's documentation!
 Nutmeg is multiplatform, multilingual plotting tool. Primarily, it aims to be light, fast, and responsive, and has been designed to be the go to tool for visualizing and playing with data in the experimental phase of a project.
 
 Notable Features:
-- Plotting can be asynchronous with user's program
-    + Can visualize the updating of data as your program runs
-    + Fast
-- Responsive panning and zooming of data using mouse or multitouch trackpad
-- Lay out figure axes and plots using a more intuitive declarative style (QML)
-    + Makes figure templates easy
-- Lay out GUI controls that update parameters, which update the data
+
+* Plotting can be asynchronous with user's program
+    * Can visualize the updating of data as your program runs
+    * Fast
+* Responsive panning and zooming of data using mouse or multitouch trackpad
+* Lay out figure axes and plots using a more intuitive declarative style (QML)
+    * Makes figure templates easy
+* Lay out GUI controls that update parameters, which update the data
 
 Core Concept
 ------------
