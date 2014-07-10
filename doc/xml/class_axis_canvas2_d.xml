@@ -1,0 +1,409 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
+  <compounddef id="class_axis_canvas2_d" kind="class" prot="public">
+    <compoundname>AxisCanvas2D</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickPaintedItem</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_axis_canvas2_d_1a252bab33d4603251e3a795e32e33784b" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+        <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref></type>
+        <definition>AxisBase * AxisCanvas2D::axis</definition>
+        <argsstring></argsstring>
+        <name>axis</name>
+        <read>axis</read>
+        <write>setAxis</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="162" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_axis_canvas2_d_1aa200bf9d712bbfe42ac1f16b250760c5" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+        <type>QRectF</type>
+        <definition>QRectF AxisCanvas2D::plotRect</definition>
+        <argsstring></argsstring>
+        <name>plotRect</name>
+        <read>plotRect</read>
+        <write>setPlotRect</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="162" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_axis_canvas2_d_1ad704435782277419c03a3ca0ca6b6d0b" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+        <type>qreal</type>
+        <definition>qreal AxisCanvas2D::scaling</definition>
+        <argsstring></argsstring>
+        <name>scaling</name>
+        <read>scaling</read>
+        <write>setScaling</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="162" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_axis_canvas2_d_1a367f6ee92336e4018175b38c3b395eca" prot="private" static="no" mutable="no">
+        <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref> *</type>
+        <definition>AxisBase* AxisCanvas2D::m_axis</definition>
+        <argsstring></argsstring>
+        <name>m_axis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="40" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_axis_canvas2_d_1a7994abf87cee64aa5da22920530cfbe3" prot="private" static="no" mutable="no">
+        <type>QRectF</type>
+        <definition>QRectF AxisCanvas2D::m_plotRect</definition>
+        <argsstring></argsstring>
+        <name>m_plotRect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="42" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_axis_canvas2_d_1a6d0048cbb4c5de01ee070560962ad659" prot="private" static="no" mutable="no">
+        <type>qreal</type>
+        <definition>qreal AxisCanvas2D::m_scaling</definition>
+        <argsstring></argsstring>
+        <name>m_scaling</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="43" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_axis_canvas2_d_1a4b30b608eda0ba6c5c86da386e2eb59e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AxisCanvas2D::AxisCanvas2D</definition>
+        <argsstring>(QQuickItem *parent=0)</argsstring>
+        <name>AxisCanvas2D</name>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="15" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.cpp" bodystart="7" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_axis_canvas2_d_1a159935f56aa857d1c0a25c28bcb0137e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AxisCanvas2D::paint</definition>
+        <argsstring>(QPainter *painter)</argsstring>
+        <name>paint</name>
+        <param>
+          <type>QPainter *</type>
+          <declname>painter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="17" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.cpp" bodystart="17" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="class_axis_canvas2_d_1a174089f1a80a67b70e09123b9d120f5e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref> *</type>
+        <definition>AxisBase* AxisCanvas2D::axis</definition>
+        <argsstring>() const </argsstring>
+        <name>axis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="19" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_axis_canvas2_d_1a1b95c4d4e2432af723e81fd73c5d6e6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AxisCanvas2D::setAxis</definition>
+        <argsstring>(AxisBase *arg)</argsstring>
+        <name>setAxis</name>
+        <param>
+          <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref> *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="20" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.cpp" bodystart="49" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="class_axis_canvas2_d_1ab4933a9ef15fd33e9144e77c8a796d4d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QRectF</type>
+        <definition>QRectF AxisCanvas2D::plotRect</definition>
+        <argsstring>() const </argsstring>
+        <name>plotRect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="22" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_axis_canvas2_d_1ab1652db900d7ba7e33009a7d011df06b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AxisCanvas2D::setPlotRect</definition>
+        <argsstring>(QRectF arg)</argsstring>
+        <name>setPlotRect</name>
+        <param>
+          <type>QRectF</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="23" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.cpp" bodystart="76" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="class_axis_canvas2_d_1aed9c63951dcf43825d4a8b679cf66236" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal AxisCanvas2D::scaling</definition>
+        <argsstring>() const </argsstring>
+        <name>scaling</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="25" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_axis_canvas2_d_1a307591bd2623f64c3cee6d46a83a0661" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AxisCanvas2D::setScaling</definition>
+        <argsstring>(qreal arg)</argsstring>
+        <name>setScaling</name>
+        <param>
+          <type>qreal</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="26" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.cpp" bodystart="89" bodyend="94"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_axis_canvas2_d_1af5f7daa803bb727728c2edf6b20b9a5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AxisCanvas2D::axisChanged</definition>
+        <argsstring>(AxisBase *arg)</argsstring>
+        <name>axisChanged</name>
+        <param>
+          <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref> *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="29" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_axis_canvas2_d_1a79ed059612fe64bdc563c73a4ed7502a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AxisCanvas2D::plotRectChanged</definition>
+        <argsstring>(QRectF arg)</argsstring>
+        <name>plotRectChanged</name>
+        <param>
+          <type>QRectF</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="30" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_axis_canvas2_d_1ad2ace1fb53e64af7f6cf4ede29fd8bb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AxisCanvas2D::scalingChanged</definition>
+        <argsstring>(qreal arg)</argsstring>
+        <name>scalingChanged</name>
+        <param>
+          <type>qreal</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="31" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="class_axis_canvas2_d_1ad198b3e074c165859551d6fdbf18c21f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AxisCanvas2D::triggerUpdate</definition>
+        <argsstring>()</argsstring>
+        <name>triggerUpdate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="34" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.cpp" bodystart="96" bodyend="99"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_axis_canvas2_d_1a26a87e27e723a9a423feb43398e454e0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AxisCanvas2D::drawXTicks</definition>
+        <argsstring>(QList&lt; qreal &gt; major, QPainter *painter)</argsstring>
+        <name>drawXTicks</name>
+        <param>
+          <type>QList&lt; qreal &gt;</type>
+          <declname>major</declname>
+        </param>
+        <param>
+          <type>QPainter *</type>
+          <declname>painter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="37" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.cpp" bodystart="101" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="class_axis_canvas2_d_1aba40873a4c5c279c0fa14ca6e7217984" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AxisCanvas2D::drawYTicks</definition>
+        <argsstring>(QList&lt; qreal &gt; major, QPainter *painter)</argsstring>
+        <name>drawYTicks</name>
+        <param>
+          <type>QList&lt; qreal &gt;</type>
+          <declname>major</declname>
+        </param>
+        <param>
+          <type>QPainter *</type>
+          <declname>painter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="38" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.cpp" bodystart="131" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="class_axis_canvas2_d_1ab10f181d6bf46e0d8cdd693719809014" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AxisCanvas2D::drawGrid</definition>
+        <argsstring>(QList&lt; qreal &gt; xMajor, QList&lt; qreal &gt; yMajor, QPainter *painter)</argsstring>
+        <name>drawGrid</name>
+        <param>
+          <type>QList&lt; qreal &gt;</type>
+          <declname>xMajor</declname>
+        </param>
+        <param>
+          <type>QList&lt; qreal &gt;</type>
+          <declname>yMajor</declname>
+        </param>
+        <param>
+          <type>QPainter *</type>
+          <declname>painter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="39" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.cpp" bodystart="162" bodyend="186"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="22">
+        <label>QQuickPaintedItem</label>
+      </node>
+      <node id="21">
+        <label>AxisCanvas2D</label>
+        <link refid="class_axis_canvas2_d"/>
+        <childnode refid="22" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="24">
+        <label>QQuickPaintedItem</label>
+      </node>
+      <node id="23">
+        <label>AxisCanvas2D</label>
+        <link refid="class_axis_canvas2_d"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" line="8" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h" bodystart="7" bodyend="44"/>
+    <listofallmembers>
+      <member refid="class_axis_canvas2_d_1a252bab33d4603251e3a795e32e33784b" prot="public" virt="non-virtual"><scope>AxisCanvas2D</scope><name>axis</name></member>
+      <member refid="class_axis_canvas2_d_1a174089f1a80a67b70e09123b9d120f5e" prot="public" virt="non-virtual"><scope>AxisCanvas2D</scope><name>axis</name></member>
+      <member refid="class_axis_canvas2_d_1a4b30b608eda0ba6c5c86da386e2eb59e" prot="public" virt="non-virtual"><scope>AxisCanvas2D</scope><name>AxisCanvas2D</name></member>
+      <member refid="class_axis_canvas2_d_1af5f7daa803bb727728c2edf6b20b9a5a" prot="public" virt="non-virtual"><scope>AxisCanvas2D</scope><name>axisChanged</name></member>
+      <member refid="class_axis_canvas2_d_1ab10f181d6bf46e0d8cdd693719809014" prot="private" virt="non-virtual"><scope>AxisCanvas2D</scope><name>drawGrid</name></member>
+      <member refid="class_axis_canvas2_d_1a26a87e27e723a9a423feb43398e454e0" prot="private" virt="non-virtual"><scope>AxisCanvas2D</scope><name>drawXTicks</name></member>
+      <member refid="class_axis_canvas2_d_1aba40873a4c5c279c0fa14ca6e7217984" prot="private" virt="non-virtual"><scope>AxisCanvas2D</scope><name>drawYTicks</name></member>
+      <member refid="class_axis_canvas2_d_1a367f6ee92336e4018175b38c3b395eca" prot="private" virt="non-virtual"><scope>AxisCanvas2D</scope><name>m_axis</name></member>
+      <member refid="class_axis_canvas2_d_1a7994abf87cee64aa5da22920530cfbe3" prot="private" virt="non-virtual"><scope>AxisCanvas2D</scope><name>m_plotRect</name></member>
+      <member refid="class_axis_canvas2_d_1a6d0048cbb4c5de01ee070560962ad659" prot="private" virt="non-virtual"><scope>AxisCanvas2D</scope><name>m_scaling</name></member>
+      <member refid="class_axis_canvas2_d_1a159935f56aa857d1c0a25c28bcb0137e" prot="public" virt="non-virtual"><scope>AxisCanvas2D</scope><name>paint</name></member>
+      <member refid="class_axis_canvas2_d_1aa200bf9d712bbfe42ac1f16b250760c5" prot="public" virt="non-virtual"><scope>AxisCanvas2D</scope><name>plotRect</name></member>
+      <member refid="class_axis_canvas2_d_1ab4933a9ef15fd33e9144e77c8a796d4d" prot="public" virt="non-virtual"><scope>AxisCanvas2D</scope><name>plotRect</name></member>
+      <member refid="class_axis_canvas2_d_1a79ed059612fe64bdc563c73a4ed7502a" prot="public" virt="non-virtual"><scope>AxisCanvas2D</scope><name>plotRectChanged</name></member>
+      <member refid="class_axis_canvas2_d_1ad704435782277419c03a3ca0ca6b6d0b" prot="public" virt="non-virtual"><scope>AxisCanvas2D</scope><name>scaling</name></member>
+      <member refid="class_axis_canvas2_d_1aed9c63951dcf43825d4a8b679cf66236" prot="public" virt="non-virtual"><scope>AxisCanvas2D</scope><name>scaling</name></member>
+      <member refid="class_axis_canvas2_d_1ad2ace1fb53e64af7f6cf4ede29fd8bb8" prot="public" virt="non-virtual"><scope>AxisCanvas2D</scope><name>scalingChanged</name></member>
+      <member refid="class_axis_canvas2_d_1a1b95c4d4e2432af723e81fd73c5d6e6d" prot="public" virt="non-virtual"><scope>AxisCanvas2D</scope><name>setAxis</name></member>
+      <member refid="class_axis_canvas2_d_1ab1652db900d7ba7e33009a7d011df06b" prot="public" virt="non-virtual"><scope>AxisCanvas2D</scope><name>setPlotRect</name></member>
+      <member refid="class_axis_canvas2_d_1a307591bd2623f64c3cee6d46a83a0661" prot="public" virt="non-virtual"><scope>AxisCanvas2D</scope><name>setScaling</name></member>
+      <member refid="class_axis_canvas2_d_1ad198b3e074c165859551d6fdbf18c21f" prot="public" virt="non-virtual"><scope>AxisCanvas2D</scope><name>triggerUpdate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

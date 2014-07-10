@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
+  <compounddef id="class_row" kind="class" prot="public">
+    <compoundname>Row</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">RowLayout</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_row_1a806c7e8e0d05be4c4f68b7f72a24f53f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Row::updateLayout</definition>
+        <argsstring>()</argsstring>
+        <name>updateLayout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Row.qml" line="9" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Layouts.Row is used for laying out multiple <ref refid="class_axis" kindref="compound">Axis</ref> items in a row. (This is currently not fully implemented) </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="165">
+        <label>RowLayout</label>
+      </node>
+      <node id="164">
+        <label>Row</label>
+        <link refid="class_row"/>
+        <childnode refid="165" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="167">
+        <label>RowLayout</label>
+      </node>
+      <node id="166">
+        <label>Row</label>
+        <link refid="class_row"/>
+        <childnode refid="167" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Row.qml" line="6" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Row.qml" bodystart="6" bodyend="10"/>
+    <listofallmembers>
+      <member refid="class_row_1a806c7e8e0d05be4c4f68b7f72a24f53f" prot="public" virt="non-virtual"><scope>Row</scope><name>updateLayout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

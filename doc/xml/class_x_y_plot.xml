@@ -1,0 +1,887 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
+  <compounddef id="class_x_y_plot" kind="class" prot="public">
+    <compoundname>XYPlot</compoundname>
+    <basecompoundref refid="class_plot_base" prot="public" virt="non-virtual">PlotBase</basecompoundref>
+    <derivedcompoundref refid="class_line_plot" prot="public" virt="non-virtual">LinePlot</derivedcompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_x_y_plot_1ae87aee8543f8752ea3a6789967d40569" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+        <type>QList&lt; qreal &gt;</type>
+        <definition>QList&lt; qreal &gt; XYPlot::xData</definition>
+        <argsstring></argsstring>
+        <name>xData</name>
+        <read>xData</read>
+        <write>setXData</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="189" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_x_y_plot_1ad57f9e441f9ebcabbf8cb868397a6c4e" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+        <type>QList&lt; qreal &gt;</type>
+        <definition>QList&lt; qreal &gt; XYPlot::yData</definition>
+        <argsstring></argsstring>
+        <name>yData</name>
+        <read>yData</read>
+        <write>setYData</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="189" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_plot_base_1a9350ab567ab278b0053c16aa7677de05" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+        <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref></type>
+        <definition>AxisBase * PlotBase::axis</definition>
+        <argsstring></argsstring>
+        <name>axis</name>
+        <read>axis</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="174" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_plot_base_1ae6509625f4d59bbc5c9b70eddf99e6f6" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+        <type>QString</type>
+        <definition>QString PlotBase::handle</definition>
+        <argsstring></argsstring>
+        <name>handle</name>
+        <read>handle</read>
+        <write>setHandle</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="174" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_plot_base_1acae98c1590c80fcac92e684fd186448c" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+        <type>QQuickPaintedItem</type>
+        <definition>QQuickPaintedItem * PlotBase::canvas</definition>
+        <argsstring></argsstring>
+        <name>canvas</name>
+        <read>canvas</read>
+        <write>setCanvas</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="174" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_plot_base_1aab1a0c62e87ccac9c48edaecf4639f3a" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+        <type>QRectF</type>
+        <definition>QRectF PlotBase::dataLimits</definition>
+        <argsstring></argsstring>
+        <name>dataLimits</name>
+        <read>dataLimits</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="174" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_x_y_plot_1a324a9aa17e8b3a1c6cdd7b24c38fc7eb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool XYPlot::m_settingData</definition>
+        <argsstring></argsstring>
+        <name>m_settingData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="40" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_x_y_plot_1ac154331f0b8969a961a222fa0b43e6f0" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool XYPlot::m_xDataSet</definition>
+        <argsstring></argsstring>
+        <name>m_xDataSet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="41" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_x_y_plot_1a4ba1859164200fe9bc5abc6ba29a0874" prot="private" static="no" mutable="no">
+        <type>QList&lt; qreal &gt;</type>
+        <definition>QList&lt;qreal&gt; XYPlot::m_xData</definition>
+        <argsstring></argsstring>
+        <name>m_xData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="42" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_x_y_plot_1a4534c78194d3807efc493820cce4cdba" prot="private" static="no" mutable="no">
+        <type>QList&lt; qreal &gt;</type>
+        <definition>QList&lt;qreal&gt; XYPlot::m_yData</definition>
+        <argsstring></argsstring>
+        <name>m_yData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="43" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_x_y_plot_1aa3175daac4f6d21b13e835ab8ddff14d" prot="private" static="no" mutable="no">
+        <type>QKDTree *</type>
+        <definition>QKDTree* XYPlot::m_tree</definition>
+        <argsstring></argsstring>
+        <name>m_tree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="44" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_x_y_plot_1a6f45000c22a5d6b2d0ae223577ce2ba2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool XYPlot::m_treeDirty</definition>
+        <argsstring></argsstring>
+        <name>m_treeDirty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="45" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_x_y_plot_1a475bd6d91bd2be878d23f061417077c0" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>XYPlot::XYPlot</definition>
+        <argsstring>(QQuickItem *parent=0)</argsstring>
+        <name>XYPlot</name>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="13" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.cpp" bodystart="5" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_x_y_plot_1acf61214103f358a099a674f1584af4d4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; qreal &gt;</type>
+        <definition>QList&lt;qreal&gt; XYPlot::xData</definition>
+        <argsstring>() const </argsstring>
+        <name>xData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="15" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_x_y_plot_1a252fc3800b0cf22ca993d02dc2d80e8c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; qreal &gt;</type>
+        <definition>QList&lt;qreal&gt; XYPlot::yData</definition>
+        <argsstring>() const </argsstring>
+        <name>yData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="16" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_x_y_plot_1a3d6b7fb567dfc78fca6e094a03582b84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void XYPlot::setXData</definition>
+        <argsstring>(QList&lt; qreal &gt; arg)</argsstring>
+        <name>setXData</name>
+        <param>
+          <type>QList&lt; qreal &gt;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="17" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.cpp" bodystart="39" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_x_y_plot_1a41cb441755deefb0865c71bcc17318bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void XYPlot::setYData</definition>
+        <argsstring>(QList&lt; qreal &gt; arg)</argsstring>
+        <name>setYData</name>
+        <param>
+          <type>QList&lt; qreal &gt;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="18" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.cpp" bodystart="54" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="class_x_y_plot_1a17dc5b25ad47ea23b1dc7f034477be99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QPointF</type>
+        <definition>QPointF XYPlot::dataLocationAt</definition>
+        <argsstring>(int index)</argsstring>
+        <name>dataLocationAt</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_x_y_plot_1a17dc5b25ad47ea23b1dc7f034477be99" kindref="member">XYPlot::dataLocationAt</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of data point </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The location of the data point in data coordinates </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="20" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.cpp" bodystart="69" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_x_y_plot_1a16881f2774c27b547077d61f5c969500" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QPointF</type>
+        <definition>QPointF XYPlot::frameLocationAt</definition>
+        <argsstring>(int index)</argsstring>
+        <name>frameLocationAt</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_x_y_plot_1a16881f2774c27b547077d61f5c969500" kindref="member">XYPlot::frameLocationAt</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of data point </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The location of the data point in item coordinates </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="21" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.cpp" bodystart="81" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_x_y_plot_1a37084d023830a27e2056d67f51c73bdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int XYPlot::nearestDataTo</definition>
+        <argsstring>(const QPointF &amp;dataLocation)</argsstring>
+        <name>nearestDataTo</name>
+        <param>
+          <type>const QPointF &amp;</type>
+          <declname>dataLocation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="23" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.cpp" bodystart="16" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_base_1a02d38ef7f43e225cb647225f070ff0ea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref> *</type>
+        <definition>AxisBase* PlotBase::axis</definition>
+        <argsstring>() const </argsstring>
+        <name>axis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_base_1a411817d4198d723197a8ae44bb0e156e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString PlotBase::handle</definition>
+        <argsstring>() const </argsstring>
+        <name>handle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="26" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_base_1a8eaea656fe8942311c780ec0a0a8773f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QQuickPaintedItem *</type>
+        <definition>QQuickPaintedItem* PlotBase::canvas</definition>
+        <argsstring>() const </argsstring>
+        <name>canvas</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="29" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_base_1abc15b84aa475e6e08e26327273ab6db7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QRectF</type>
+        <definition>QRectF PlotBase::dataLimits</definition>
+        <argsstring>() const </argsstring>
+        <name>dataLimits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="40" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_base_1ae3a27ae0464f1b7fc5c752d1abbb8f30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotBase::setHandle</definition>
+        <argsstring>(QString arg)</argsstring>
+        <name>setHandle</name>
+        <param>
+          <type>QString</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="27" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.cpp" bodystart="30" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_base_1ab093aadf9d1758ad92a537aa53b93d82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotBase::setCanvas</definition>
+        <argsstring>(QQuickPaintedItem *arg)</argsstring>
+        <name>setCanvas</name>
+        <param>
+          <type>QQuickPaintedItem *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="30" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.cpp" bodystart="42" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_base_1a39cf13055247014146e7deaabe27a1ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString PlotBase::map</definition>
+        <argsstring>(QString prop)</argsstring>
+        <name>map</name>
+        <param>
+          <type>QString</type>
+          <declname>prop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="32" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.cpp" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_nutmeg_object_1a72d4f689412bee204378edc690945111" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString NutmegObject::map</definition>
+        <argsstring>(const QString &amp;prop)</argsstring>
+        <name>map</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="13" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.cpp" bodystart="14" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_base_1a58aacfcfe9da747fd9d4027fa7d89f03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QPointF</type>
+        <definition>QPointF PlotBase::itemToData</definition>
+        <argsstring>(QPointF point)</argsstring>
+        <name>itemToData</name>
+        <param>
+          <type>QPointF</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="34" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.cpp" bodystart="54" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_base_1a04f3df55849bd3998c4700404129c8fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QPointF</type>
+        <definition>QPointF PlotBase::dataToItem</definition>
+        <argsstring>(QPointF point)</argsstring>
+        <name>dataToItem</name>
+        <param>
+          <type>QPointF</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="35" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.cpp" bodystart="86" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_base_1a8ff4c19098fbf4c5ce6be38582a84f91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QList&lt; QPointF &gt;</type>
+        <definition>QList&lt; QPointF &gt; PlotBase::itemToDataList</definition>
+        <argsstring>(QList&lt; QPointF &gt; points)</argsstring>
+        <name>itemToDataList</name>
+        <param>
+          <type>QList&lt; QPointF &gt;</type>
+          <declname>points</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="37" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.cpp" bodystart="68" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_base_1a02fe0caecd71d548468f0db284384dc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QList&lt; QPointF &gt;</type>
+        <definition>QList&lt; QPointF &gt; PlotBase::dataToItemList</definition>
+        <argsstring>(QList&lt; QPointF &gt; points)</argsstring>
+        <name>dataToItemList</name>
+        <param>
+          <type>QList&lt; QPointF &gt;</type>
+          <declname>points</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="38" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.cpp" bodystart="102" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="class_nutmeg_object_1a43005ef3b06e5d2a5e5324c38905c3ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void NutmegObject::registerProperties</definition>
+        <argsstring>(QMap&lt; QString, QString &gt; mapping)</argsstring>
+        <name>registerProperties</name>
+        <param>
+          <type>QMap&lt; QString, QString &gt;</type>
+          <declname>mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="12" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.cpp" bodystart="7" bodyend="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_x_y_plot_1aab3e29ac33a13420f66ca425ede56519" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void XYPlot::xDataChanged</definition>
+        <argsstring>(QList&lt; qreal &gt; arg)</argsstring>
+        <name>xDataChanged</name>
+        <param>
+          <type>QList&lt; qreal &gt;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="26" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_x_y_plot_1a0f9225b391d93748a81e2d5bfae56cb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void XYPlot::yDataChanged</definition>
+        <argsstring>(QList&lt; qreal &gt; arg)</argsstring>
+        <name>yDataChanged</name>
+        <param>
+          <type>QList&lt; qreal &gt;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="27" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_plot_base_1a2e67e4be9d01f75b1d926994c735e5d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotBase::axisChanged</definition>
+        <argsstring>(AxisBase *arg)</argsstring>
+        <name>axisChanged</name>
+        <param>
+          <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref> *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="43" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_plot_base_1a063043374a4e49001f17c5101bc6c3a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotBase::handleChanged</definition>
+        <argsstring>(QString arg)</argsstring>
+        <name>handleChanged</name>
+        <param>
+          <type>QString</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="44" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_plot_base_1ace4a61191a0c663972b93c125613571d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotBase::canvasChanged</definition>
+        <argsstring>(QQuickPaintedItem *arg)</argsstring>
+        <name>canvasChanged</name>
+        <param>
+          <type>QQuickPaintedItem *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="45" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_plot_base_1accbaa208f09e92823295fcb0cfdda827" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotBase::dataLimitsChanged</definition>
+        <argsstring>(QRectF arg)</argsstring>
+        <name>dataLimitsChanged</name>
+        <param>
+          <type>QRectF</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="46" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="class_x_y_plot_1a7e34e9e7e6e9ca419aadce9d53c817bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void XYPlot::setData</definition>
+        <argsstring>(QList&lt; qreal &gt; xVals, QList&lt; qreal &gt; yVals)</argsstring>
+        <name>setData</name>
+        <param>
+          <type>QList&lt; qreal &gt;</type>
+          <declname>xVals</declname>
+        </param>
+        <param>
+          <type>QList&lt; qreal &gt;</type>
+          <declname>yVals</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="30" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.cpp" bodystart="86" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_plot_base_1aa9c610e096202c83a38323945e9b0dd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotBase::triggerUpdate</definition>
+        <argsstring>()</argsstring>
+        <name>triggerUpdate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="49" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.cpp" bodystart="153" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_plot_base_1ace0e95bae435c8bc8b8b786e36761eec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotBase::updateAxis</definition>
+        <argsstring>()</argsstring>
+        <name>updateAxis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="50" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.cpp" bodystart="160" bodyend="172"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-slot">
+      <memberdef kind="slot" id="class_x_y_plot_1ae3f28c6f429f06c605ef663bfa784ebf" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void XYPlot::updateX</definition>
+        <argsstring>()</argsstring>
+        <name>updateX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="33" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.cpp" bodystart="100" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_x_y_plot_1a9e4201b008d671e159d4f463fd596deb" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void XYPlot::updateDataLimits</definition>
+        <argsstring>()</argsstring>
+        <name>updateDataLimits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="34" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.cpp" bodystart="133" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_x_y_plot_1a307a94a3ffd445f8bb340b98d8c9eb23" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void XYPlot::updateTree</definition>
+        <argsstring>()</argsstring>
+        <name>updateTree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="35" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.cpp" bodystart="157" bodyend="187"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_x_y_plot_1af2db93b39504922de3748f90a9d38dbd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool XYPlot::dataIncreasing</definition>
+        <argsstring>(QList&lt; qreal &gt; data)</argsstring>
+        <name>dataIncreasing</name>
+        <param>
+          <type>QList&lt; qreal &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="38" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.cpp" bodystart="189" bodyend="198"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_plot_base_1adaec03743c762036ff19ed202ce87750" prot="protected" static="no" mutable="no">
+        <type>QRectF</type>
+        <definition>QRectF PlotBase::m_dataLimits</definition>
+        <argsstring></argsstring>
+        <name>m_dataLimits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="57" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_plot_base_1a05a5e595c4abe541f3816d0ead09ebbb" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotBase::setDataLimits</definition>
+        <argsstring>(QRectF arg)</argsstring>
+        <name>setDataLimits</name>
+        <param>
+          <type>QRectF</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="56" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.cpp" bodystart="174" bodyend="180"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="194">
+        <label>XYPlot</label>
+        <link refid="class_x_y_plot"/>
+        <childnode refid="195" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="195">
+        <label>PlotBase</label>
+        <link refid="class_plot_base"/>
+        <childnode refid="196" relation="public-inheritance">
+        </childnode>
+        <childnode refid="197" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="196">
+        <label>QQuickItem</label>
+      </node>
+      <node id="198">
+        <label>LinePlot</label>
+        <link refid="class_line_plot"/>
+        <childnode refid="194" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="197">
+        <label>NutmegObject</label>
+        <link refid="class_nutmeg_object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="199">
+        <label>XYPlot</label>
+        <link refid="class_x_y_plot"/>
+        <childnode refid="200" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="200">
+        <label>PlotBase</label>
+        <link refid="class_plot_base"/>
+        <childnode refid="201" relation="public-inheritance">
+        </childnode>
+        <childnode refid="202" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="201">
+        <label>QQuickItem</label>
+      </node>
+      <node id="202">
+        <label>NutmegObject</label>
+        <link refid="class_nutmeg_object"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" line="7" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/xyplot.h" bodystart="6" bodyend="47"/>
+    <listofallmembers>
+      <member refid="class_plot_base_1a9350ab567ab278b0053c16aa7677de05" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>axis</name></member>
+      <member refid="class_plot_base_1a02d38ef7f43e225cb647225f070ff0ea" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>axis</name></member>
+      <member refid="class_plot_base_1a2e67e4be9d01f75b1d926994c735e5d9" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>axisChanged</name></member>
+      <member refid="class_plot_base_1acae98c1590c80fcac92e684fd186448c" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>canvas</name></member>
+      <member refid="class_plot_base_1a8eaea656fe8942311c780ec0a0a8773f" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>canvas</name></member>
+      <member refid="class_plot_base_1ace4a61191a0c663972b93c125613571d" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>canvasChanged</name></member>
+      <member refid="class_x_y_plot_1af2db93b39504922de3748f90a9d38dbd" prot="private" virt="non-virtual"><scope>XYPlot</scope><name>dataIncreasing</name></member>
+      <member refid="class_plot_base_1aab1a0c62e87ccac9c48edaecf4639f3a" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>dataLimits</name></member>
+      <member refid="class_plot_base_1abc15b84aa475e6e08e26327273ab6db7" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>dataLimits</name></member>
+      <member refid="class_plot_base_1accbaa208f09e92823295fcb0cfdda827" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>dataLimitsChanged</name></member>
+      <member refid="class_x_y_plot_1a17dc5b25ad47ea23b1dc7f034477be99" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>dataLocationAt</name></member>
+      <member refid="class_plot_base_1a04f3df55849bd3998c4700404129c8fa" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>dataToItem</name></member>
+      <member refid="class_plot_base_1a02fe0caecd71d548468f0db284384dc6" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>dataToItemList</name></member>
+      <member refid="class_x_y_plot_1a16881f2774c27b547077d61f5c969500" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>frameLocationAt</name></member>
+      <member refid="class_plot_base_1ae6509625f4d59bbc5c9b70eddf99e6f6" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>handle</name></member>
+      <member refid="class_plot_base_1a411817d4198d723197a8ae44bb0e156e" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>handle</name></member>
+      <member refid="class_plot_base_1a063043374a4e49001f17c5101bc6c3a4" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>handleChanged</name></member>
+      <member refid="class_plot_base_1a58aacfcfe9da747fd9d4027fa7d89f03" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>itemToData</name></member>
+      <member refid="class_plot_base_1a8ff4c19098fbf4c5ce6be38582a84f91" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>itemToDataList</name></member>
+      <member refid="class_plot_base_1adaec03743c762036ff19ed202ce87750" prot="protected" virt="non-virtual"><scope>XYPlot</scope><name>m_dataLimits</name></member>
+      <member refid="class_x_y_plot_1a324a9aa17e8b3a1c6cdd7b24c38fc7eb" prot="private" virt="non-virtual"><scope>XYPlot</scope><name>m_settingData</name></member>
+      <member refid="class_x_y_plot_1aa3175daac4f6d21b13e835ab8ddff14d" prot="private" virt="non-virtual"><scope>XYPlot</scope><name>m_tree</name></member>
+      <member refid="class_x_y_plot_1a6f45000c22a5d6b2d0ae223577ce2ba2" prot="private" virt="non-virtual"><scope>XYPlot</scope><name>m_treeDirty</name></member>
+      <member refid="class_x_y_plot_1a4ba1859164200fe9bc5abc6ba29a0874" prot="private" virt="non-virtual"><scope>XYPlot</scope><name>m_xData</name></member>
+      <member refid="class_x_y_plot_1ac154331f0b8969a961a222fa0b43e6f0" prot="private" virt="non-virtual"><scope>XYPlot</scope><name>m_xDataSet</name></member>
+      <member refid="class_x_y_plot_1a4534c78194d3807efc493820cce4cdba" prot="private" virt="non-virtual"><scope>XYPlot</scope><name>m_yData</name></member>
+      <member refid="class_plot_base_1a39cf13055247014146e7deaabe27a1ca" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>map</name></member>
+      <member refid="class_nutmeg_object_1a72d4f689412bee204378edc690945111" prot="public" virt="non-virtual" ambiguityscope="NutmegObject::"><scope>XYPlot</scope><name>map</name></member>
+      <member refid="class_x_y_plot_1a37084d023830a27e2056d67f51c73bdc" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>nearestDataTo</name></member>
+      <member refid="class_plot_base_1a0d858a18acc588875837a0bb5c64d462" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>PlotBase</name></member>
+      <member refid="class_nutmeg_object_1a43005ef3b06e5d2a5e5324c38905c3ed" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>registerProperties</name></member>
+      <member refid="class_plot_base_1ab093aadf9d1758ad92a537aa53b93d82" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>setCanvas</name></member>
+      <member refid="class_x_y_plot_1a7e34e9e7e6e9ca419aadce9d53c817bd" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>setData</name></member>
+      <member refid="class_plot_base_1a05a5e595c4abe541f3816d0ead09ebbb" prot="protected" virt="non-virtual"><scope>XYPlot</scope><name>setDataLimits</name></member>
+      <member refid="class_plot_base_1ae3a27ae0464f1b7fc5c752d1abbb8f30" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>setHandle</name></member>
+      <member refid="class_x_y_plot_1a3d6b7fb567dfc78fca6e094a03582b84" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>setXData</name></member>
+      <member refid="class_x_y_plot_1a41cb441755deefb0865c71bcc17318bb" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>setYData</name></member>
+      <member refid="class_plot_base_1aa9c610e096202c83a38323945e9b0dd8" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>triggerUpdate</name></member>
+      <member refid="class_plot_base_1ace0e95bae435c8bc8b8b786e36761eec" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>updateAxis</name></member>
+      <member refid="class_x_y_plot_1a9e4201b008d671e159d4f463fd596deb" prot="protected" virt="virtual"><scope>XYPlot</scope><name>updateDataLimits</name></member>
+      <member refid="class_x_y_plot_1a307a94a3ffd445f8bb340b98d8c9eb23" prot="protected" virt="non-virtual"><scope>XYPlot</scope><name>updateTree</name></member>
+      <member refid="class_x_y_plot_1ae3f28c6f429f06c605ef663bfa784ebf" prot="protected" virt="non-virtual"><scope>XYPlot</scope><name>updateX</name></member>
+      <member refid="class_x_y_plot_1ae87aee8543f8752ea3a6789967d40569" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>xData</name></member>
+      <member refid="class_x_y_plot_1acf61214103f358a099a674f1584af4d4" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>xData</name></member>
+      <member refid="class_x_y_plot_1aab3e29ac33a13420f66ca425ede56519" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>xDataChanged</name></member>
+      <member refid="class_x_y_plot_1a475bd6d91bd2be878d23f061417077c0" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>XYPlot</name></member>
+      <member refid="class_x_y_plot_1ad57f9e441f9ebcabbf8cb868397a6c4e" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>yData</name></member>
+      <member refid="class_x_y_plot_1a252fc3800b0cf22ca993d02dc2d80e8c" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>yData</name></member>
+      <member refid="class_x_y_plot_1a0f9225b391d93748a81e2d5bfae56cb4" prot="public" virt="non-virtual"><scope>XYPlot</scope><name>yDataChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

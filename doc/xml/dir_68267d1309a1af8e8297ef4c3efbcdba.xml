@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>src</compoundname>
+    <innerfile refid="axisbase_8cpp">axisbase.cpp</innerfile>
+    <innerfile refid="axisbase_8h">axisbase.h</innerfile>
+    <innerfile refid="axiscanvas2d_8cpp">axiscanvas2d.cpp</innerfile>
+    <innerfile refid="axiscanvas2d_8h">axiscanvas2d.h</innerfile>
+    <innerfile refid="controller_8cpp">controller.cpp</innerfile>
+    <innerfile refid="controller_8h">controller.h</innerfile>
+    <innerfile refid="figurebase_8cpp">figurebase.cpp</innerfile>
+    <innerfile refid="figurebase_8h">figurebase.h</innerfile>
+    <innerfile refid="fileio_8cpp">fileio.cpp</innerfile>
+    <innerfile refid="fileio_8h">fileio.h</innerfile>
+    <innerfile refid="imagecanvas_8cpp">imagecanvas.cpp</innerfile>
+    <innerfile refid="imagecanvas_8h">imagecanvas.h</innerfile>
+    <innerfile refid="imageplot_8cpp">imageplot.cpp</innerfile>
+    <innerfile refid="imageplot_8h">imageplot.h</innerfile>
+    <innerfile refid="lineplot_8cpp">lineplot.cpp</innerfile>
+    <innerfile refid="lineplot_8h">lineplot.h</innerfile>
+    <innerfile refid="lineplotcanvas_8cpp">lineplotcanvas.cpp</innerfile>
+    <innerfile refid="lineplotcanvas_8h">lineplotcanvas.h</innerfile>
+    <innerfile refid="linespec_8cpp">linespec.cpp</innerfile>
+    <innerfile refid="linespec_8h">linespec.h</innerfile>
+    <innerfile refid="locators_8cpp">locators.cpp</innerfile>
+    <innerfile refid="locators_8h">locators.h</innerfile>
+    <innerfile refid="main_8cpp">main.cpp</innerfile>
+    <innerfile refid="mouseevent_8cpp">mouseevent.cpp</innerfile>
+    <innerfile refid="mouseevent_8h">mouseevent.h</innerfile>
+    <innerfile refid="nutmegobject_8cpp">nutmegobject.cpp</innerfile>
+    <innerfile refid="nutmegobject_8h">nutmegobject.h</innerfile>
+    <innerfile refid="plotbase_8cpp">plotbase.cpp</innerfile>
+    <innerfile refid="plotbase_8h">plotbase.h</innerfile>
+    <innerfile refid="plotcanvas_8cpp">plotcanvas.cpp</innerfile>
+    <innerfile refid="plotcanvas_8h">plotcanvas.h</innerfile>
+    <innerfile refid="plotdata_8cpp">plotdata.cpp</innerfile>
+    <innerfile refid="plotdata_8h">plotdata.h</innerfile>
+    <innerfile refid="pushsocket_8cpp">pushsocket.cpp</innerfile>
+    <innerfile refid="pushsocket_8h">pushsocket.h</innerfile>
+    <innerfile refid="server_8cpp">server.cpp</innerfile>
+    <innerfile refid="server_8h">server.h</innerfile>
+    <innerfile refid="settings_8cpp">settings.cpp</innerfile>
+    <innerfile refid="settings_8h">settings.h</innerfile>
+    <innerfile refid="util_8cpp">util.cpp</innerfile>
+    <innerfile refid="util_8h">util.h</innerfile>
+    <innerfile refid="xyplot_8cpp">xyplot.cpp</innerfile>
+    <innerfile refid="xyplot_8h">xyplot.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
+  <compounddef id="class_line_plot_canvas" kind="class" prot="public">
+    <compoundname>LinePlotCanvas</compoundname>
+    <basecompoundref refid="class_plot_canvas" prot="public" virt="non-virtual">PlotCanvas</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_line_plot_canvas_1af6a27b22f034ca2218aabacf63bfccc0" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LinePlotCanvas::LinePlotCanvas</definition>
+        <argsstring>(QQuickItem *parent=0)</argsstring>
+        <name>LinePlotCanvas</name>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/lineplotcanvas.h" line="11" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/lineplotcanvas.cpp" bodystart="5" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_line_plot_canvas_1a6f5dedb1e5201e0252f5623b9a5416d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinePlotCanvas::paint</definition>
+        <argsstring>(QPainter *painter)</argsstring>
+        <name>paint</name>
+        <param>
+          <type>QPainter *</type>
+          <declname>painter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/lineplotcanvas.h" line="13" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/lineplotcanvas.cpp" bodystart="10" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_line_plot_canvas_1a6e01a04061e72f02973b6f7139e7cf34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QLineF</type>
+        <definition>QLineF LinePlotCanvas::rectSlice</definition>
+        <argsstring>(QPointF p1, QPointF p2, QRectF r)</argsstring>
+        <name>rectSlice</name>
+        <param>
+          <type>QPointF</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>QPointF</type>
+          <declname>p2</declname>
+        </param>
+        <param>
+          <type>QRectF</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_line_plot_canvas_1a6e01a04061e72f02973b6f7139e7cf34" kindref="member">LinePlotCanvas::rectSlice</ref> Slice 2 points to a line contained by the rect, r. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>p2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/lineplotcanvas.h" line="15" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/lineplotcanvas.cpp" bodystart="115" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="class_line_plot_canvas_1a2584a44f6e2d79085d25159f53705a3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal LinePlotCanvas::pointOnLine</definition>
+        <argsstring>(QPointF point, QPointF l1, QPointF l2)</argsstring>
+        <name>pointOnLine</name>
+        <param>
+          <type>QPointF</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>QPointF</type>
+          <declname>l1</declname>
+        </param>
+        <param>
+          <type>QPointF</type>
+          <declname>l2</declname>
+        </param>
+        <briefdescription>
+<para>UtilEda::pointOnLine. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>l1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Defines the start of the line </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>l2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Defines the end of the line </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Return 0 if the point is on the infinite line described by l1 and l2. Return +ve if the point is &quot;right&quot; of the line - travelling from start to end. Return -ve if the point is &quot;left&quot; of the line - travelling from start to end. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/lineplotcanvas.h" line="16" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/lineplotcanvas.cpp" bodystart="170" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_canvas_1ae3a8051f8eaf1252fb95dc934d063e60" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal PlotCanvas::scaling</definition>
+        <argsstring>() const </argsstring>
+        <name>scaling</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_canvas_1a36a88be39b585a3c026e2fe7b0fd274c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotCanvas::setScaling</definition>
+        <argsstring>(qreal arg)</argsstring>
+        <name>setScaling</name>
+        <param>
+          <type>qreal</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.h" line="15" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.cpp" bodystart="18" bodyend="23"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_plot_canvas_1af7f571213ddd7244b7644de27d5ed6ae" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+        <type>qreal</type>
+        <definition>qreal PlotCanvas::scaling</definition>
+        <argsstring></argsstring>
+        <name>scaling</name>
+        <read>scaling</read>
+        <write>setScaling</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.h" line="18" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_plot_canvas_1ac5e9c730f9245b027b8aba0ce123fe33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotCanvas::scalingChanged</definition>
+        <argsstring>(qreal arg)</argsstring>
+        <name>scalingChanged</name>
+        <param>
+          <type>qreal</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.h" line="18" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="104">
+        <label>LinePlotCanvas</label>
+        <link refid="class_line_plot_canvas"/>
+        <childnode refid="105" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="106">
+        <label>QQuickPaintedItem</label>
+      </node>
+      <node id="105">
+        <label>PlotCanvas</label>
+        <link refid="class_plot_canvas"/>
+        <childnode refid="106" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="107">
+        <label>LinePlotCanvas</label>
+        <link refid="class_line_plot_canvas"/>
+        <childnode refid="108" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="109">
+        <label>QQuickPaintedItem</label>
+      </node>
+      <node id="108">
+        <label>PlotCanvas</label>
+        <link refid="class_plot_canvas"/>
+        <childnode refid="109" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/lineplotcanvas.h" line="8" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/lineplotcanvas.h" bodystart="7" bodyend="21"/>
+    <listofallmembers>
+      <member refid="class_line_plot_canvas_1af6a27b22f034ca2218aabacf63bfccc0" prot="public" virt="non-virtual"><scope>LinePlotCanvas</scope><name>LinePlotCanvas</name></member>
+      <member refid="class_line_plot_canvas_1a6f5dedb1e5201e0252f5623b9a5416d0" prot="public" virt="non-virtual"><scope>LinePlotCanvas</scope><name>paint</name></member>
+      <member refid="class_plot_canvas_1a5829e592e74fd22669779b88e1b6b439" prot="public" virt="non-virtual"><scope>LinePlotCanvas</scope><name>PlotCanvas</name></member>
+      <member refid="class_line_plot_canvas_1a2584a44f6e2d79085d25159f53705a3d" prot="public" virt="non-virtual"><scope>LinePlotCanvas</scope><name>pointOnLine</name></member>
+      <member refid="class_line_plot_canvas_1a6e01a04061e72f02973b6f7139e7cf34" prot="public" virt="non-virtual"><scope>LinePlotCanvas</scope><name>rectSlice</name></member>
+      <member refid="class_plot_canvas_1af7f571213ddd7244b7644de27d5ed6ae" prot="public" virt="non-virtual"><scope>LinePlotCanvas</scope><name>scaling</name></member>
+      <member refid="class_plot_canvas_1ae3a8051f8eaf1252fb95dc934d063e60" prot="public" virt="non-virtual"><scope>LinePlotCanvas</scope><name>scaling</name></member>
+      <member refid="class_plot_canvas_1ac5e9c730f9245b027b8aba0ce123fe33" prot="public" virt="non-virtual"><scope>LinePlotCanvas</scope><name>scalingChanged</name></member>
+      <member refid="class_plot_canvas_1a36a88be39b585a3c026e2fe7b0fd274c" prot="public" virt="non-virtual"><scope>LinePlotCanvas</scope><name>setScaling</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
