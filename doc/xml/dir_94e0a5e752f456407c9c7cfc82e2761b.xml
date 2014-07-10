@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
+  <compounddef id="dir_94e0a5e752f456407c9c7cfc82e2761b" kind="dir">
+    <compoundname>qml/Controls</compoundname>
+    <innerfile refid="_slider_8qml">Slider.qml</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/kitham/projects/qt/nutmeg/qml/Controls/"/>
+  </compounddef>
+</doxygen>

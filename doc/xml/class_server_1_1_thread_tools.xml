@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
+  <compounddef id="class_server_1_1_thread_tools" kind="class" prot="private">
+    <compoundname>Server::ThreadTools</compoundname>
+    <basecompoundref prot="private" virt="non-virtual">QThread</basecompoundref>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_server_1_1_thread_tools_1afbf1995cdb2e940ce308ff7ada5e8edf" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Server::ThreadTools::ThreadTools</definition>
+        <argsstring>()</argsstring>
+        <name>ThreadTools</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/server.h" line="90" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/server.h" bodystart="90" bodyend="90"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="189">
+        <label>QThread</label>
+      </node>
+      <node id="188">
+        <label>Server::ThreadTools</label>
+        <childnode refid="189" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="191">
+        <label>QThread</label>
+      </node>
+      <node id="190">
+        <label>Server::ThreadTools</label>
+        <childnode refid="191" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/server.h" line="85" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/server.h" bodystart="84" bodyend="91"/>
+    <listofallmembers>
+      <member refid="class_server_1_1_thread_tools_1afbf1995cdb2e940ce308ff7ada5e8edf" prot="private" virt="non-virtual"><scope>Server::ThreadTools</scope><name>ThreadTools</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

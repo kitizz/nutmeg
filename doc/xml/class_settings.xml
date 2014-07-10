@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
+  <compounddef id="class_settings" kind="class" prot="public">
+    <compoundname>Settings</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_settings_1a00918fb4e2667a771b7b356ba5dd7cfd" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+        <type>int</type>
+        <definition>int Settings::port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <read>port</read>
+        <write>setPort</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/settings.h" line="14" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/settings.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_settings_1a3b82be6f538f9295d6a225a4b1fb89f0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Settings::m_port</definition>
+        <argsstring></argsstring>
+        <name>m_port</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/settings.h" line="23" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/settings.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_settings_1af88ba9c76af5ca1795aeda2b9937215e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Settings::Settings</definition>
+        <argsstring>(QObject *parent=0)</argsstring>
+        <name>Settings</name>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/settings.h" line="12" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/settings.cpp" bodystart="3" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="class_settings_1a10a806a71d2e991b8fa87a55bdb52e1f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Settings::port</definition>
+        <argsstring>() const </argsstring>
+        <name>port</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/settings.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_settings_1ab0e1da0363a85464955949c181d58379" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Settings::setPort</definition>
+        <argsstring>(int arg)</argsstring>
+        <name>setPort</name>
+        <param>
+          <type>int</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/settings.h" line="15" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/settings.cpp" bodystart="14" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_settings_1af5369af260d6126e33a1a79602728bef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Settings::portChanged</definition>
+        <argsstring>(int arg)</argsstring>
+        <name>portChanged</name>
+        <param>
+          <type>int</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/settings.h" line="18" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="174">
+        <label>Settings</label>
+        <link refid="class_settings"/>
+        <childnode refid="175" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="175">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="176">
+        <label>Settings</label>
+        <link refid="class_settings"/>
+        <childnode refid="177" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="177">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/settings.h" line="7" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/settings.h" bodystart="6" bodyend="24"/>
+    <listofallmembers>
+      <member refid="class_settings_1a3b82be6f538f9295d6a225a4b1fb89f0" prot="private" virt="non-virtual"><scope>Settings</scope><name>m_port</name></member>
+      <member refid="class_settings_1a00918fb4e2667a771b7b356ba5dd7cfd" prot="public" virt="non-virtual"><scope>Settings</scope><name>port</name></member>
+      <member refid="class_settings_1a10a806a71d2e991b8fa87a55bdb52e1f" prot="public" virt="non-virtual"><scope>Settings</scope><name>port</name></member>
+      <member refid="class_settings_1af5369af260d6126e33a1a79602728bef" prot="public" virt="non-virtual"><scope>Settings</scope><name>portChanged</name></member>
+      <member refid="class_settings_1ab0e1da0363a85464955949c181d58379" prot="public" virt="non-virtual"><scope>Settings</scope><name>setPort</name></member>
+      <member refid="class_settings_1af88ba9c76af5ca1795aeda2b9937215e" prot="public" virt="non-virtual"><scope>Settings</scope><name>Settings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

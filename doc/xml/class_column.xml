@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
+  <compounddef id="class_column" kind="class" prot="public">
+    <compoundname>Column</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ColumnLayout</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_column_1ad1d7348965b749e154ab1a346b5e630d" prot="public" static="no" readable="no" writable="no" gettable="no" settable="no">
+        <type>int</type>
+        <definition>int Column::rows</definition>
+        <argsstring></argsstring>
+        <name>rows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Column.qml" line="18" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Column.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_column_1a69862bb0386d288c9331a00bbff4b4b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Column::updateLayout</definition>
+        <argsstring>()</argsstring>
+        <name>updateLayout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Column.qml" line="10" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Layouts.Column is used for laying out multiple <ref refid="class_axis" kindref="compound">Axis</ref> items in a column. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="41">
+        <label>Column</label>
+        <link refid="class_column"/>
+        <childnode refid="42" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>ColumnLayout</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="43">
+        <label>Column</label>
+        <link refid="class_column"/>
+        <childnode refid="44" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>ColumnLayout</label>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Column.qml" line="5" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Column.qml" bodystart="5" bodyend="11"/>
+    <listofallmembers>
+      <member refid="class_column_1ad1d7348965b749e154ab1a346b5e630d" prot="public" virt="non-virtual"><scope>Column</scope><name>rows</name></member>
+      <member refid="class_column_1a69862bb0386d288c9331a00bbff4b4b1" prot="public" virt="non-virtual"><scope>Column</scope><name>updateLayout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

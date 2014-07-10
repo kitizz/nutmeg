@@ -1,0 +1,560 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
+  <compounddef id="main_8cpp" kind="file">
+    <compoundname>main.cpp</compoundname>
+    <includes local="no">QApplication</includes>
+    <includes local="no">QQuickView</includes>
+    <includes local="no">QQmlProperty</includes>
+    <includes local="no">QQmlContext</includes>
+    <includes local="yes">../mainwindow.h</includes>
+    <includes local="yes">/Users/kitham/projects/qt/nutmeg/qmlwindow.h</includes>
+    <includes local="no">QWidget</includes>
+    <includes local="no">QSystemTrayIcon</includes>
+    <includes local="yes">/Users/kitham/projects/qt/nutmeg/src/server.h</includes>
+    <includes local="yes">/Users/kitham/projects/qt/nutmeg/nzmqt/global.hpp</includes>
+    <includes local="no">QtCore/qglobal.h</includes>
+    <includes local="yes">/Users/kitham/projects/qt/nutmeg/nzmqt/zmq.hpp</includes>
+    <includes local="no">zmq.h</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="no">cassert</includes>
+    <includes local="no">cstring</includes>
+    <includes local="no">string</includes>
+    <includes local="no">exception</includes>
+    <includes local="no">QByteArray</includes>
+    <includes local="no">QFlag</includes>
+    <includes local="no">QList</includes>
+    <includes local="no">QMetaType</includes>
+    <includes local="no">QMutex</includes>
+    <includes local="no">QObject</includes>
+    <includes local="no">QRunnable</includes>
+    <includes local="no">QVector</includes>
+    <includes local="yes">/Users/kitham/projects/qt/nutmeg/nzmqt/impl.hpp</includes>
+    <includes local="yes">/Users/kitham/projects/qt/nutmeg/nzmqt/nzmqt.hpp</includes>
+    <includes local="no">QDebug</includes>
+    <includes local="no">QMutexLocker</includes>
+    <includes local="no">QSocketNotifier</includes>
+    <includes local="no">QTimer</includes>
+    <includes local="yes">../qmlwindow.h</includes>
+    <includes refid="lineplot_8h" local="yes">lineplot.h</includes>
+    <includes refid="imageplot_8h" local="yes">imageplot.h</includes>
+    <includes refid="lineplotcanvas_8h" local="yes">lineplotcanvas.h</includes>
+    <includes refid="imagecanvas_8h" local="yes">imagecanvas.h</includes>
+    <includes refid="axisbase_8h" local="yes">axisbase.h</includes>
+    <includes refid="locators_8h" local="yes">locators.h</includes>
+    <includes refid="linespec_8h" local="yes">linespec.h</includes>
+    <includes refid="axiscanvas2d_8h" local="yes">axiscanvas2d.h</includes>
+    <includes refid="figurebase_8h" local="yes">figurebase.h</includes>
+    <includes refid="controller_8h" local="yes">controller.h</includes>
+    <includes refid="settings_8h" local="yes">settings.h</includes>
+    <includes refid="fileio_8h" local="yes">fileio.h</includes>
+    <incdepgraph>
+      <node id="506">
+        <label>QMap</label>
+      </node>
+      <node id="521">
+        <label>axiscanvas2d.h</label>
+        <link refid="axiscanvas2d_8h_source"/>
+        <childnode refid="501" relation="include">
+        </childnode>
+        <childnode refid="500" relation="include">
+        </childnode>
+      </node>
+      <node id="513">
+        <label>limits</label>
+      </node>
+      <node id="472">
+        <label>zmq.h</label>
+      </node>
+      <node id="483">
+        <label>QObject</label>
+      </node>
+      <node id="500">
+        <label>axisbase.h</label>
+        <link refid="axisbase_8h_source"/>
+        <childnode refid="501" relation="include">
+        </childnode>
+        <childnode refid="502" relation="include">
+        </childnode>
+        <childnode refid="503" relation="include">
+        </childnode>
+        <childnode refid="510" relation="include">
+        </childnode>
+        <childnode refid="512" relation="include">
+        </childnode>
+        <childnode refid="495" relation="include">
+        </childnode>
+        <childnode refid="505" relation="include">
+        </childnode>
+        <childnode refid="513" relation="include">
+        </childnode>
+      </node>
+      <node id="495">
+        <label>plotbase.h</label>
+        <link refid="plotbase_8h_source"/>
+        <childnode refid="496" relation="include">
+        </childnode>
+        <childnode refid="497" relation="include">
+        </childnode>
+        <childnode refid="498" relation="include">
+        </childnode>
+        <childnode refid="500" relation="include">
+        </childnode>
+        <childnode refid="505" relation="include">
+        </childnode>
+        <childnode refid="514" relation="include">
+        </childnode>
+      </node>
+      <node id="514">
+        <label>../QKDTree/QKDTree/QKDTree.h</label>
+      </node>
+      <node id="463">
+        <label>QQmlContext</label>
+      </node>
+      <node id="505">
+        <label>nutmegobject.h</label>
+        <link refid="nutmegobject_8h_source"/>
+        <childnode refid="506" relation="include">
+        </childnode>
+        <childnode refid="507" relation="include">
+        </childnode>
+        <childnode refid="508" relation="include">
+        </childnode>
+        <childnode refid="483" relation="include">
+        </childnode>
+      </node>
+      <node id="480">
+        <label>QList</label>
+      </node>
+      <node id="516">
+        <label>imageplot.h</label>
+        <link refid="imageplot_8h_source"/>
+        <childnode refid="495" relation="include">
+        </childnode>
+        <childnode refid="517" relation="include">
+        </childnode>
+      </node>
+      <node id="512">
+        <label>locators.h</label>
+        <link refid="locators_8h_source"/>
+        <childnode refid="483" relation="include">
+        </childnode>
+      </node>
+      <node id="509">
+        <label>mouseevent.h</label>
+        <link refid="mouseevent_8h_source"/>
+        <childnode refid="483" relation="include">
+        </childnode>
+      </node>
+      <node id="503">
+        <label>figurebase.h</label>
+        <link refid="figurebase_8h_source"/>
+        <childnode refid="496" relation="include">
+        </childnode>
+        <childnode refid="502" relation="include">
+        </childnode>
+        <childnode refid="500" relation="include">
+        </childnode>
+        <childnode refid="504" relation="include">
+        </childnode>
+        <childnode refid="505" relation="include">
+        </childnode>
+        <childnode refid="509" relation="include">
+        </childnode>
+      </node>
+      <node id="474">
+        <label>cassert</label>
+      </node>
+      <node id="487">
+        <label>/Users/kitham/projects/qt/nutmeg/nzmqt/nzmqt.hpp</label>
+      </node>
+      <node id="481">
+        <label>QMetaType</label>
+      </node>
+      <node id="459">
+        <label>src/main.cpp</label>
+        <link refid="main.cpp"/>
+        <childnode refid="460" relation="include">
+        </childnode>
+        <childnode refid="461" relation="include">
+        </childnode>
+        <childnode refid="462" relation="include">
+        </childnode>
+        <childnode refid="463" relation="include">
+        </childnode>
+        <childnode refid="464" relation="include">
+        </childnode>
+        <childnode refid="465" relation="include">
+        </childnode>
+        <childnode refid="466" relation="include">
+        </childnode>
+        <childnode refid="467" relation="include">
+        </childnode>
+        <childnode refid="468" relation="include">
+        </childnode>
+        <childnode refid="469" relation="include">
+        </childnode>
+        <childnode refid="470" relation="include">
+        </childnode>
+        <childnode refid="471" relation="include">
+        </childnode>
+        <childnode refid="472" relation="include">
+        </childnode>
+        <childnode refid="473" relation="include">
+        </childnode>
+        <childnode refid="474" relation="include">
+        </childnode>
+        <childnode refid="475" relation="include">
+        </childnode>
+        <childnode refid="476" relation="include">
+        </childnode>
+        <childnode refid="477" relation="include">
+        </childnode>
+        <childnode refid="478" relation="include">
+        </childnode>
+        <childnode refid="479" relation="include">
+        </childnode>
+        <childnode refid="480" relation="include">
+        </childnode>
+        <childnode refid="481" relation="include">
+        </childnode>
+        <childnode refid="482" relation="include">
+        </childnode>
+        <childnode refid="483" relation="include">
+        </childnode>
+        <childnode refid="484" relation="include">
+        </childnode>
+        <childnode refid="485" relation="include">
+        </childnode>
+        <childnode refid="486" relation="include">
+        </childnode>
+        <childnode refid="487" relation="include">
+        </childnode>
+        <childnode refid="488" relation="include">
+        </childnode>
+        <childnode refid="489" relation="include">
+        </childnode>
+        <childnode refid="490" relation="include">
+        </childnode>
+        <childnode refid="491" relation="include">
+        </childnode>
+        <childnode refid="492" relation="include">
+        </childnode>
+        <childnode refid="493" relation="include">
+        </childnode>
+        <childnode refid="516" relation="include">
+        </childnode>
+        <childnode refid="518" relation="include">
+        </childnode>
+        <childnode refid="520" relation="include">
+        </childnode>
+        <childnode refid="500" relation="include">
+        </childnode>
+        <childnode refid="512" relation="include">
+        </childnode>
+        <childnode refid="510" relation="include">
+        </childnode>
+        <childnode refid="521" relation="include">
+        </childnode>
+        <childnode refid="503" relation="include">
+        </childnode>
+        <childnode refid="504" relation="include">
+        </childnode>
+        <childnode refid="522" relation="include">
+        </childnode>
+        <childnode refid="523" relation="include">
+        </childnode>
+      </node>
+      <node id="479">
+        <label>QFlag</label>
+      </node>
+      <node id="476">
+        <label>string</label>
+      </node>
+      <node id="469">
+        <label>/Users/kitham/projects/qt/nutmeg/nzmqt/global.hpp</label>
+      </node>
+      <node id="467">
+        <label>QSystemTrayIcon</label>
+      </node>
+      <node id="522">
+        <label>settings.h</label>
+        <link refid="settings_8h_source"/>
+        <childnode refid="483" relation="include">
+        </childnode>
+      </node>
+      <node id="477">
+        <label>exception</label>
+      </node>
+      <node id="490">
+        <label>QSocketNotifier</label>
+      </node>
+      <node id="501">
+        <label>QQuickPaintedItem</label>
+      </node>
+      <node id="478">
+        <label>QByteArray</label>
+      </node>
+      <node id="482">
+        <label>QMutex</label>
+      </node>
+      <node id="470">
+        <label>QtCore/qglobal.h</label>
+      </node>
+      <node id="497">
+        <label>QPainter</label>
+      </node>
+      <node id="510">
+        <label>linespec.h</label>
+        <link refid="linespec_8h_source"/>
+        <childnode refid="483" relation="include">
+        </childnode>
+        <childnode refid="511" relation="include">
+        </childnode>
+        <childnode refid="506" relation="include">
+        </childnode>
+      </node>
+      <node id="460">
+        <label>QApplication</label>
+      </node>
+      <node id="486">
+        <label>/Users/kitham/projects/qt/nutmeg/nzmqt/impl.hpp</label>
+      </node>
+      <node id="488">
+        <label>QDebug</label>
+      </node>
+      <node id="491">
+        <label>QTimer</label>
+      </node>
+      <node id="492">
+        <label>../qmlwindow.h</label>
+      </node>
+      <node id="466">
+        <label>QWidget</label>
+      </node>
+      <node id="520">
+        <label>imagecanvas.h</label>
+        <link refid="imagecanvas_8h_source"/>
+        <childnode refid="501" relation="include">
+        </childnode>
+        <childnode refid="519" relation="include">
+        </childnode>
+      </node>
+      <node id="507">
+        <label>QString</label>
+      </node>
+      <node id="511">
+        <label>QColor</label>
+      </node>
+      <node id="493">
+        <label>lineplot.h</label>
+        <link refid="lineplot_8h_source"/>
+        <childnode refid="494" relation="include">
+        </childnode>
+        <childnode refid="500" relation="include">
+        </childnode>
+        <childnode refid="510" relation="include">
+        </childnode>
+        <childnode refid="515" relation="include">
+        </childnode>
+        <childnode refid="506" relation="include">
+        </childnode>
+      </node>
+      <node id="494">
+        <label>xyplot.h</label>
+        <link refid="xyplot_8h_source"/>
+        <childnode refid="495" relation="include">
+        </childnode>
+      </node>
+      <node id="523">
+        <label>fileio.h</label>
+        <link refid="fileio_8h_source"/>
+        <childnode refid="483" relation="include">
+        </childnode>
+      </node>
+      <node id="471">
+        <label>/Users/kitham/projects/qt/nutmeg/nzmqt/zmq.hpp</label>
+      </node>
+      <node id="465">
+        <label>/Users/kitham/projects/qt/nutmeg/qmlwindow.h</label>
+      </node>
+      <node id="517">
+        <label>QPixmap</label>
+      </node>
+      <node id="484">
+        <label>QRunnable</label>
+      </node>
+      <node id="518">
+        <label>lineplotcanvas.h</label>
+        <link refid="lineplotcanvas_8h_source"/>
+        <childnode refid="501" relation="include">
+        </childnode>
+        <childnode refid="519" relation="include">
+        </childnode>
+      </node>
+      <node id="519">
+        <label>plotcanvas.h</label>
+        <link refid="plotcanvas_8h_source"/>
+        <childnode refid="501" relation="include">
+        </childnode>
+      </node>
+      <node id="496">
+        <label>QQuickItem</label>
+      </node>
+      <node id="498">
+        <label>plotdata.h</label>
+        <link refid="plotdata_8h_source"/>
+        <childnode refid="499" relation="include">
+        </childnode>
+      </node>
+      <node id="489">
+        <label>QMutexLocker</label>
+      </node>
+      <node id="464">
+        <label>../mainwindow.h</label>
+      </node>
+      <node id="468">
+        <label>/Users/kitham/projects/qt/nutmeg/src/server.h</label>
+      </node>
+      <node id="508">
+        <label>QVariant</label>
+      </node>
+      <node id="473">
+        <label>algorithm</label>
+      </node>
+      <node id="475">
+        <label>cstring</label>
+      </node>
+      <node id="504">
+        <label>controller.h</label>
+        <link refid="controller_8h_source"/>
+        <childnode refid="496" relation="include">
+        </childnode>
+        <childnode refid="503" relation="include">
+        </childnode>
+      </node>
+      <node id="499">
+        <label>QAbstractTableModel</label>
+      </node>
+      <node id="462">
+        <label>QQmlProperty</label>
+      </node>
+      <node id="515">
+        <label>QPolygonF</label>
+      </node>
+      <node id="485">
+        <label>QVector</label>
+      </node>
+      <node id="502">
+        <label>QMultiMap</label>
+      </node>
+      <node id="461">
+        <label>QQuickView</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char *argv[])</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/main.cpp" line="23" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/main.cpp" bodystart="23" bodyend="74"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;QApplication&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QQuickView&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QQmlProperty&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QQmlContext&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../mainwindow.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../qmlwindow.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lineplot.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;imageplot.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lineplotcanvas.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;imagecanvas.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;axisbase.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;locators.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;linespec.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;axiscanvas2d.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;figurebase.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;server.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;controller.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;settings.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;fileio.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*argv[])</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;QmlWindow&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;QmlWindow&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Cannot<sp/>create<sp/>QmlWindow&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;FigureBase&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;FigureBase&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;AxisBase&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;AxisBase&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;AxisCanvas2D&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;AxisCanvas2D&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;AxisSpec&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;AxisSpec&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;AxisGrid&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;AxisGrid&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;AxisMargins&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;AxisMargins&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;AutoLocator&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;AutoLocator&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;HardLocator&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;HardLocator&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;SpacedLocator&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;SpacedLocator&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;LineSpec&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;LineSpec&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;LinePlot&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;LinePlotBase&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;LinePlotCanvas&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;LinePlotCanvas&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;ImagePlot&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;ImagePlotBase&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;ImageCanvas&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;ImageCanvas&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;Server&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;ServerBase&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;Controller&gt;(</highlight><highlight class="stringliteral">&quot;Graphr&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;ControllerBase&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterType&lt;FileIO&gt;(</highlight><highlight class="stringliteral">&quot;FileIO&quot;</highlight><highlight class="normal">,<sp/>1,0,<sp/></highlight><highlight class="stringliteral">&quot;FileIO&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>QApplication<sp/>app(argc,<sp/>argv);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>MainWindow<sp/>*w<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MainWindow(QUrl(</highlight><highlight class="stringliteral">&quot;qrc:/qml/main.qml&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>w-&gt;connect(&amp;app,<sp/>&amp;QApplication::aboutToQuit,<sp/>w,<sp/>&amp;QmlWindow::exit);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>QmlWindow<sp/>*settingsWindow<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QmlWindow(QUrl(</highlight><highlight class="stringliteral">&quot;qrc:/qml/Settings.qml&quot;</highlight><highlight class="normal">),<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>settingsWindow-&gt;resize(300,<sp/>150);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>w-&gt;setSettingsWindow(settingsWindow);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>QmlWindow<sp/>*aboutWindow<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QmlWindow(QUrl(</highlight><highlight class="stringliteral">&quot;qrc:/qml/About.qml&quot;</highlight><highlight class="normal">),<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>aboutWindow-&gt;resize(500,<sp/>400);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>w-&gt;setAboutWindow(aboutWindow);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Settings<sp/>is<sp/>the<sp/>common<sp/>object<sp/>between<sp/>the<sp/>different<sp/>windows.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_settings" kindref="compound">Settings</ref><sp/>*settings<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_settings" kindref="compound">Settings</ref>();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>w-&gt;view()-&gt;rootObject()-&gt;setProperty(</highlight><highlight class="stringliteral">&quot;settings&quot;</highlight><highlight class="normal">,<sp/>QVariant::fromValue(settings));</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>settingsWindow-&gt;view()-&gt;rootObject()-&gt;setProperty(</highlight><highlight class="stringliteral">&quot;settings&quot;</highlight><highlight class="normal">,<sp/>QVariant::fromValue(settings));</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_server" kindref="compound">Server</ref>*<sp/>server<sp/>=<sp/>w-&gt;view()-&gt;rootObject()-&gt;findChild&lt;<ref refid="class_server" kindref="compound">Server</ref>*&gt;(</highlight><highlight class="stringliteral">&quot;server&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(server)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>w-&gt;setServer(server);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>server-&gt;start();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>w-&gt;show();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>app.exec();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/main.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
+  <compounddef id="class_mouse_event" kind="class" prot="public">
+    <compoundname>MouseEvent</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_mouse_event_1acbc5bdaa7ca57ff160d0bdf6dc94253e" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+        <type>qreal</type>
+        <definition>qreal MouseEvent::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <read>x</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="51" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_mouse_event_1a20f9386cb0f1a6a4513911bd1c296d93" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+        <type>qreal</type>
+        <definition>qreal MouseEvent::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <read>y</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="51" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_mouse_event_1a3b8e724a916508b95ef5c4f36e8424d4" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+        <type>int</type>
+        <definition>int MouseEvent::button</definition>
+        <argsstring></argsstring>
+        <name>button</name>
+        <read>button</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="51" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_mouse_event_1ab532b20d925e742593a746061779820f" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+        <type>int</type>
+        <definition>int MouseEvent::buttons</definition>
+        <argsstring></argsstring>
+        <name>buttons</name>
+        <read>buttons</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="51" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_mouse_event_1a8e6c4b0e3c1d759dec9e660aa94a8783" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+        <type>int</type>
+        <definition>int MouseEvent::modifiers</definition>
+        <argsstring></argsstring>
+        <name>modifiers</name>
+        <read>modifiers</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="51" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_mouse_event_1a80c1ebccab965b0de93c6d8a5a4f7e73" prot="private" static="no" mutable="no">
+        <type>qreal</type>
+        <definition>qreal MouseEvent::m_x</definition>
+        <argsstring></argsstring>
+        <name>m_x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="30" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_event_1a9682ffd7d11dde6933e796428c325746" prot="private" static="no" mutable="no">
+        <type>qreal</type>
+        <definition>qreal MouseEvent::m_y</definition>
+        <argsstring></argsstring>
+        <name>m_y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="31" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_event_1a1088ac1bb6add30aad2816d3addad8b7" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MouseEvent::m_button</definition>
+        <argsstring></argsstring>
+        <name>m_button</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="32" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_event_1ad4948c8d28df4414c94964d78c276ec2" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MouseEvent::m_buttons</definition>
+        <argsstring></argsstring>
+        <name>m_buttons</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="33" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_mouse_event_1a28f4f945fa2766695c5a2cfa3e6b0464" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MouseEvent::m_modifiers</definition>
+        <argsstring></argsstring>
+        <name>m_modifiers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="34" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_mouse_event_1a5f62f65dcffdfc80a1917f8c8dd24fe3" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MouseEvent::MouseEvent</definition>
+        <argsstring>(QObject *parent=0)</argsstring>
+        <name>MouseEvent</name>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="16" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.cpp" bodystart="22" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_event_1abaca25057ecb6baed84bb26a54f8173a" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MouseEvent::MouseEvent</definition>
+        <argsstring>(QEvent *event)</argsstring>
+        <name>MouseEvent</name>
+        <param>
+          <type>QEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="17" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.cpp" bodystart="12" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_event_1af7e9d00477c4d29cf92b538625efcd5e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MouseEvent::MouseEvent</definition>
+        <argsstring>(qreal x, qreal y, Qt::MouseButton button, Qt::MouseButtons buttons, Qt::KeyboardModifiers keymod)</argsstring>
+        <name>MouseEvent</name>
+        <param>
+          <type>qreal</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>qreal</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>Qt::MouseButton</type>
+          <declname>button</declname>
+        </param>
+        <param>
+          <type>Qt::MouseButtons</type>
+          <declname>buttons</declname>
+        </param>
+        <param>
+          <type>Qt::KeyboardModifiers</type>
+          <declname>keymod</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="18" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.cpp" bodystart="4" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_event_1a0737c05bcfd38a1c4223ed9ad33f2d2d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int MouseEvent::button</definition>
+        <argsstring>() const </argsstring>
+        <name>button</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="20" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_event_1ac573319a949dae80cb71a86855fda4b9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int MouseEvent::buttons</definition>
+        <argsstring>() const </argsstring>
+        <name>buttons</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="21" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_event_1a8a2df82b9076d6924b3ee0e851e5eb6a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int MouseEvent::modifiers</definition>
+        <argsstring>() const </argsstring>
+        <name>modifiers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="22" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_event_1acbbed170a4567884c772c55c5590af76" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal MouseEvent::x</definition>
+        <argsstring>() const </argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_mouse_event_1ae89a5db68b212ff9d63d3b0cfc732476" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal MouseEvent::y</definition>
+        <argsstring>() const </argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="25" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="122">
+        <label>QObject</label>
+      </node>
+      <node id="121">
+        <label>MouseEvent</label>
+        <link refid="class_mouse_event"/>
+        <childnode refid="122" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="124">
+        <label>QObject</label>
+      </node>
+      <node id="123">
+        <label>MouseEvent</label>
+        <link refid="class_mouse_event"/>
+        <childnode refid="124" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="7" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" bodystart="6" bodyend="36"/>
+    <listofallmembers>
+      <member refid="class_mouse_event_1a3b8e724a916508b95ef5c4f36e8424d4" prot="public" virt="non-virtual"><scope>MouseEvent</scope><name>button</name></member>
+      <member refid="class_mouse_event_1a0737c05bcfd38a1c4223ed9ad33f2d2d" prot="public" virt="non-virtual"><scope>MouseEvent</scope><name>button</name></member>
+      <member refid="class_mouse_event_1ab532b20d925e742593a746061779820f" prot="public" virt="non-virtual"><scope>MouseEvent</scope><name>buttons</name></member>
+      <member refid="class_mouse_event_1ac573319a949dae80cb71a86855fda4b9" prot="public" virt="non-virtual"><scope>MouseEvent</scope><name>buttons</name></member>
+      <member refid="class_mouse_event_1a1088ac1bb6add30aad2816d3addad8b7" prot="private" virt="non-virtual"><scope>MouseEvent</scope><name>m_button</name></member>
+      <member refid="class_mouse_event_1ad4948c8d28df4414c94964d78c276ec2" prot="private" virt="non-virtual"><scope>MouseEvent</scope><name>m_buttons</name></member>
+      <member refid="class_mouse_event_1a28f4f945fa2766695c5a2cfa3e6b0464" prot="private" virt="non-virtual"><scope>MouseEvent</scope><name>m_modifiers</name></member>
+      <member refid="class_mouse_event_1a80c1ebccab965b0de93c6d8a5a4f7e73" prot="private" virt="non-virtual"><scope>MouseEvent</scope><name>m_x</name></member>
+      <member refid="class_mouse_event_1a9682ffd7d11dde6933e796428c325746" prot="private" virt="non-virtual"><scope>MouseEvent</scope><name>m_y</name></member>
+      <member refid="class_mouse_event_1a8e6c4b0e3c1d759dec9e660aa94a8783" prot="public" virt="non-virtual"><scope>MouseEvent</scope><name>modifiers</name></member>
+      <member refid="class_mouse_event_1a8a2df82b9076d6924b3ee0e851e5eb6a" prot="public" virt="non-virtual"><scope>MouseEvent</scope><name>modifiers</name></member>
+      <member refid="class_mouse_event_1a5f62f65dcffdfc80a1917f8c8dd24fe3" prot="public" virt="non-virtual"><scope>MouseEvent</scope><name>MouseEvent</name></member>
+      <member refid="class_mouse_event_1abaca25057ecb6baed84bb26a54f8173a" prot="public" virt="non-virtual"><scope>MouseEvent</scope><name>MouseEvent</name></member>
+      <member refid="class_mouse_event_1af7e9d00477c4d29cf92b538625efcd5e" prot="public" virt="non-virtual"><scope>MouseEvent</scope><name>MouseEvent</name></member>
+      <member refid="class_mouse_event_1acbc5bdaa7ca57ff160d0bdf6dc94253e" prot="public" virt="non-virtual"><scope>MouseEvent</scope><name>x</name></member>
+      <member refid="class_mouse_event_1acbbed170a4567884c772c55c5590af76" prot="public" virt="non-virtual"><scope>MouseEvent</scope><name>x</name></member>
+      <member refid="class_mouse_event_1a20f9386cb0f1a6a4513911bd1c296d93" prot="public" virt="non-virtual"><scope>MouseEvent</scope><name>y</name></member>
+      <member refid="class_mouse_event_1ae89a5db68b212ff9d63d3b0cfc732476" prot="public" virt="non-virtual"><scope>MouseEvent</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
