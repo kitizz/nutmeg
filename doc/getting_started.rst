@@ -27,6 +27,7 @@ This should provide an executable which is the Nutmeg core.
 Need to try that yet. Let me know!
 
 .. _nutmeg-action:
+
 Nutmeg in Action
 ----------------
 
