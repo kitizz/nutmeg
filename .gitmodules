@@ -1,6 +1,0 @@
-[submodule "doc/breathe"]
-	path = doc/breathe
-	url = https://github.com/michaeljones/breathe.git
-[submodule "docMod"]
-	path = docMod
-	url = git@github.com:kitizz/nutmeg.git
