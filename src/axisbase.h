@@ -29,6 +29,10 @@ class AxisBase : public QQuickPaintedItem, public NutmegObject
     Q_PROPERTY(FigureBase* figure READ figure WRITE setFigure NOTIFY figureChanged)
     Q_PROPERTY(QVariantMap plots READ plots NOTIFY plotsChanged)
 
+    Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
+    Q_PROPERTY(QFont titleFont READ titleFont WRITE setTitleFont NOTIFY titleFontChanged)
+    Q_PROPERTY(QColor titleColor READ titleColor WRITE setTitleColor NOTIFY titleColorChanged)
+
     Q_PROPERTY(QRectF limits READ limits WRITE setLimits NOTIFY limitsChanged RESET resetLimits)
 
     Q_PROPERTY(qreal minX READ minX WRITE setMinX NOTIFY minXChanged)
@@ -74,7 +78,7 @@ public:
     Q_INVOKABLE QVariantList getPlotList();
 
     // NutmegObject interface
-    Q_INVOKABLE QString map(QString prop);
+    Q_INVOKABLE QString map(const QString &prop);
 
     QRectF limits() const;
     void setLimits(QRectF arg, bool fix=true);
@@ -94,6 +98,15 @@ public:
 
     bool fitPlots() const;
     void setFitPlots(bool arg);
+
+    QString title() const;
+    void setTitle(QString arg);
+
+    QFont titleFont() const;
+    void setTitleFont(QFont arg);
+
+    QColor titleColor() const;
+    void setTitleColor(QColor arg);
 
 signals:
     void figureChanged(FigureBase* arg);
@@ -118,6 +131,12 @@ signals:
     void aspectRatioChanged(qreal arg);
 
     void fitPlotsChanged(bool arg);
+
+    void titleChanged(QString arg);
+
+    void titleFontChanged(QFont arg);
+
+    void titleColorChanged(QColor arg);
 
 public slots:
     void registerPlot(PlotBase *axis);
@@ -165,6 +184,9 @@ private:
     AxisMargins* m_margin;
     qreal m_aspectRatio;
     bool m_fitPlots;
+    QString m_title;
+    QFont m_titleFont;
+    QColor m_titleColor;
 };
 
 class AxisGrid : public QObject, public NutmegObject
@@ -178,6 +200,9 @@ class AxisGrid : public QObject, public NutmegObject
 public:
     explicit AxisGrid(QObject* parent=0);
     enum GridAxes { None=0, XY=3, X=1, Y=2 };
+
+    // Interface to NutmegObject
+    Q_INVOKABLE QString map(QString prop);
 
     GridAxes axes() const;
     void setAxes(GridAxes arg);
@@ -209,12 +234,23 @@ class AxisSpec : public QObject, public NutmegObject
     Q_PROPERTY(LineSpec* majorLine READ majorLine)
     Q_PROPERTY(LineSpec* minorLine READ minorLine)
     Q_PROPERTY(TickDirection tickDir READ tickDir WRITE setTickDir NOTIFY tickDirChanged)
+
+    Q_PROPERTY(QColor tickTextColor READ tickTextColor WRITE setTickTextColor NOTIFY tickTextColorChanged)
+    Q_PROPERTY(QFont tickFont READ tickFont WRITE setTickFont NOTIFY tickFontChanged)
+
+    Q_PROPERTY(QString label READ label WRITE setLabel NOTIFY labelChanged)
+    Q_PROPERTY(QColor labelColor READ labelColor WRITE setLabelColor NOTIFY labelColorChanged)
+    Q_PROPERTY(QFont labelFont READ labelFont WRITE setLabelFont NOTIFY labelFontChanged)
+
     Q_PROPERTY(bool inverted READ inverted WRITE setInverted NOTIFY invertedChanged)
 
 public:
     explicit AxisSpec(QObject *parent=0);
 //    explicit AxisSpec(QString sizeProperty, QObject *parent);
     enum TickDirection { Off=0, In=1, Out=2, InOut=3 };
+
+    // NutmegObject interface
+    Q_INVOKABLE QString map(QString prop);
 
     QVariantList majorTicks() const;
     void setMajorTicks(QVariant arg);
@@ -241,6 +277,21 @@ public:
     qreal minorTickSize() const;
     void setMinorTickSize(qreal arg);
 
+    QColor tickTextColor() const;
+    void setTickTextColor(QColor arg);
+
+    QFont tickFont() const;
+    void setTickFont(QFont arg);
+
+    QString label() const;
+    void setLabel(QString arg);
+
+    QColor labelColor() const;
+    void setLabelColor(QColor arg);
+
+    QFont labelFont() const;
+    void setLabelFont(QFont arg);
+
 signals:
     void majorTicksChanged(QList<qreal> arg);
     void minorTicksChanged(QList<qreal> arg);
@@ -258,6 +309,16 @@ signals:
     void majorTickSizeChanged(qreal arg);
 
     void minorTickSizeChanged(qreal arg);
+
+    void tickTextColorChanged(QColor arg);
+
+    void tickFontChanged(QFont arg);
+
+    void labelChanged(QString arg);
+
+    void labelColorChanged(QColor arg);
+
+    void labelFontChanged(QFont arg);
 
 protected slots:
     void updateMajor();
@@ -285,6 +346,11 @@ private:
     TickDirection m_tickDir;
     qreal m_majorTickSize;
     qreal m_minorTickSize;
+    QColor m_tickTextColor;
+    QFont m_tickFont;
+    QString m_label;
+    QColor m_labelColor;
+    QFont m_labelFont;
 };
 
 class AxisMargins : public QObject

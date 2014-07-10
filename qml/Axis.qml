@@ -22,10 +22,47 @@ AxisBase {
     property real widthFraction: -1
     property real heightFraction: -1
 
-    // Settings open to the user
+    // ------------------------------
+    //      Config open to the user
+    // ------------------------------
+    /*! \property type:color backgroundColor
+    Set the color of the background.
+    \qmlOnly
+    */
     property alias backgroundColor: plotFrame.color
+    /*! \property type:border border
+    Set the border of the axis plotting frame.
+    \qmlOnly
+    */
     property alias border: plotFrame.border
 
+    // -------- Layout stuff  -------- //
+    /*! \property xLabelMargin
+    Set the clearance between the xLabel and the tick numbers. Default: 5
+    \qmlOnly
+    */
+    property real xLabelMargin: 5
+    /*! \property yLabelMargin
+    Set the clearance between the yLabel and the tick numbers. Default: 5
+    \qmlOnly
+    */
+    property real yLabelMargin: 5
+    /*! \property tickNumbersMargin
+    Set the clearance between the tick numbers and the axis. Default: 4
+    \qmlOnly
+    */
+    property real tickNumbersMargin: 4
+    /*! \property titleMargin
+    Set clearance between the title and the axis below. Default: 5
+    \qmlOnly
+    */
+    property real titleMargin: 5
+
+    //----------------------
+    //      Internal
+    //----------------------
+    property real xNumbersMargin: 0
+    property real yNumbersMargin: 0
     // The numbers to display on the axes
     property var xNumbers: []
     property var yNumbers: []
@@ -39,15 +76,68 @@ AxisBase {
     onLimitsChanged: updateTicks()
     Component.onCompleted: updateTicks()
 
-    margin { top: 25; right: 25; bottom: 50; left: 50 }
+    margin {
+        top: 5; right: 25;
+        bottom: 5;
+        left: 5
+    }
+
     children: [
+        Text {
+            id: titleText
+            text: axisItem.title
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                top: parent.top; topMargin: margin.top
+            }
+            font: axisItem.titleFont
+            color: axisItem.titleColor
+        },
+
+        Text {
+            id: xLabelText
+            height: (text == "") ? 0 : implicitHeight
+            text: xAxis.label
+            font: xAxis.labelFont
+            color: xAxis.labelColor
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                bottom: parent.bottom
+                bottomMargin: margin.bottom
+            }
+        },
+
+        Item {
+            id: yLabelContainer
+            width: yLabelText.height
+            height: width
+            Text {
+                id: yLabelText
+                height: (text == "") ? 0 : implicitHeight
+                rotation: -90
+                text: yAxis.label
+                font: yAxis.labelFont
+                color: yAxis.labelColor
+                anchors.centerIn: parent
+            }
+
+            anchors {
+                verticalCenter: parent.verticalCenter
+                left: parent.left
+                leftMargin: margin.left
+            }
+        },
+
         Rectangle {
             id: plotFrame
             z: -2
-            anchors.fill: parent
             anchors {
-                leftMargin: axisItem.margin.left; rightMargin: axisItem.margin.right
-                topMargin: axisItem.margin.top; bottomMargin: axisItem.margin.bottom
+                leftMargin: yLabelMargin + yNumbersMargin + tickNumbersMargin
+                rightMargin: axisItem.margin.right
+                topMargin: titleMargin;
+                bottomMargin: xLabelMargin + xNumbersMargin + tickNumbersMargin
+                top: titleText.bottom; bottom: xLabelText.top
+                left: yLabelContainer.right; right: parent.right
             }
             color: "white"
             border { color: "#AAAAAA"; width: 1 }
@@ -251,6 +341,7 @@ AxisBase {
             scaleText = "1e" + prec + " "
         }
 
+        var maxSize = 0
         for (i=0; i<N; ++i) {
             // TODO: Error: TypeError: Cannot set property 'value' of undefined
             numbers[i].value = ticks[i]
@@ -261,6 +352,9 @@ AxisBase {
             else
                 numbers[i].precision = precision
 
+            var size = (axis == 0) ? numbers[i].implicitHeight : numbers[i].implicitWidth
+            if (size > maxSize)
+                maxSize = size;
         }
 
         // The following statements ensure that this function is run.
@@ -268,10 +362,12 @@ AxisBase {
         // have not obvious external effect...
         if (axis == 0) {
             xNumbers = numbers
+            xNumbersMargin = maxSize
             xAxisOffset.scale = scaleText
             xAxisOffset.offset = offsetText
         } else if (axis == 1) {
             yNumbers = numbers
+            yNumbersMargin = maxSize
             yAxisOffset.scale = scaleText
             yAxisOffset.offset = offsetText
         }
@@ -300,6 +396,8 @@ AxisBase {
             property int precision: 3
 
             text: axisItem.formatReal((value - offset)/scale, precision, -3)
+            font: axis == 0 ? xAxis.tickFont : yAxis.tickFont
+            color: axis == 0 ? xAxis.tickTextColor : yAxis.tickTextColor
             x: {
                 if (axis == 0) { // X axis
                     var newX = (value - minX)/(maxX - minX)
@@ -312,7 +410,7 @@ AxisBase {
             }
             y: {
                 if (axis == 0) { // X axis
-                    return plotFrame.height + 5
+                    return plotFrame.height + tickNumbersMargin
 
                 } else { // Y axis
                     var newY = (value - minY)/(maxY - minY)

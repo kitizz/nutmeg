@@ -66,11 +66,21 @@ def _testGrid():
     fig.set('ax[1].red.y', np.random.standard_normal(10))
 
 
+def _testFonts():
+    Nutmeg.init()
+    fig = Nutmeg.figure('fig', 'figureFont.qml')
+    fig.set('ax[1].red.y', np.random.standard_normal(10))
+    # fig.set('ax[1].title', "Axis2")
+    for i in range(3):
+        fig.set('ax[' + str(i) + '].title', "Axis" + str(i+1))
+
+
 if __name__ == '__main__':
     # _testParams()
     # _testBasic()
     # _testDelta()
     # _testImages()
-    _testGrid()
+    # _testGrid()
+    _testFonts()
     # _testFloats()
     # print toQmlObject({'xdata': {0:[1,2,3], 1:[[4],5,6], 2:np.eye(3)}, 'ydata': range(4)})

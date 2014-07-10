@@ -3,6 +3,8 @@
 #include <math.h>
 #include <QtCore/qmath.h>
 
+#define Font QFont
+
 AxisBase::AxisBase(QQuickItem *parent)
     : QQuickPaintedItem(parent)
     , m_figure(0)
@@ -26,6 +28,9 @@ AxisBase::AxisBase(QQuickItem *parent)
     , m_settingLimits(false)
     , m_aspectRatio(0)
     , m_fitPlots(false)
+    , m_title("")
+    , m_titleFont(QFont())
+    , m_titleColor(QColor("black"))
 {
     // Set initial axis label roundings
     m_yLimitRounding << 0 << 1 << 1.5 << 2 << 2.5 << 3 << 4 << 5 << 10;
@@ -36,6 +41,9 @@ AxisBase::AxisBase(QQuickItem *parent)
     m_limits.setBottom(Inf);
     m_limits.setRight(Inf);
 
+    // Initialise fonts
+    m_titleFont.setBold(true);
+
     // Register properties available through the API
     QMap<QString,QString> props;
     props.insert("minX", "minX");
@@ -45,6 +53,7 @@ AxisBase::AxisBase(QQuickItem *parent)
     props.insert("xAxis", "xAxis");
     props.insert("yAxis", "yAxis");
     props.insert("grid", "grid");
+    props.insert("title", "title");
     registerProperties(props);
     connect(this, &QQuickItem::parentChanged, this, &AxisBase::updateFigure);
 
@@ -94,7 +103,7 @@ qreal AxisBase::log_10(qreal v)
     return log10(v);
 }
 
-/*!
+/*! \internal
  * \fn AxisBase::formatReal
  * Given \a num, and \a precision, return a string representation of the number
  * where exponentials are used if the magnitude of the number is > 10^precision
@@ -465,7 +474,7 @@ QList<PlotBase*> AxisBase::getPlotsByHandle(QString handle)
     return result;
 }
 
-QString AxisBase::map(QString prop)
+QString AxisBase::map(const QString &prop)
 {
     return NutmegObject::map(prop);
 }
@@ -581,6 +590,60 @@ void AxisBase::setFitPlots(bool arg)
     emit fitPlotsChanged(arg);
 }
 
+/*!
+ * \property AxisBase::title
+ * Set the title of this axis.
+ */
+QString AxisBase::title() const
+{
+    return m_title;
+}
+
+void AxisBase::setTitle(QString arg)
+{
+    if (m_title == arg) return;
+    m_title = arg;
+    emit titleChanged(arg);
+}
+
+/*!
+ * \property AxisBase::titleFont
+ * Define the Font to be used for the title.
+ * Can be used as a group property:
+ * \code{.qml}
+ * titleFont { bold: true, family: "Arial", pointSize: 16 }
+ * \endcode
+ * See QML's documentation for details on its basic Font type:
+ * http://qt-project.org/doc/qt-5/qml-font.html
+ */
+Font AxisBase::titleFont() const
+{
+    return m_titleFont;
+}
+
+void AxisBase::setTitleFont(Font arg)
+{
+    if (m_titleFont == arg) return;
+    m_titleFont = arg;
+    emit titleFontChanged(arg);
+}
+
+/*!
+ * \property AxisBase::titleColor
+ * The color of the title text.
+ */
+QColor AxisBase::titleColor() const
+{
+    return m_titleColor;
+}
+
+void AxisBase::setTitleColor(QColor arg)
+{
+    if (m_titleColor == arg) return;
+    m_titleColor = arg;
+    emit titleColorChanged(arg);
+}
+
 AxisGrid *AxisBase::grid() const
 {
     return m_grid;
@@ -622,6 +685,11 @@ AxisGrid::AxisGrid(QObject *parent)
     props.insert("majorLine", "majorLine");
     props.insert("minorLine", "minorLine");
     registerProperties(props);
+}
+
+QString AxisGrid::map(QString prop)
+{
+    return NutmegObject::map(prop);
 }
 
 /*!
@@ -688,6 +756,8 @@ AxisSpec::AxisSpec(QObject *parent)
     , m_tickDir(In)
     , m_majorTickSize(5)
     , m_minorTickSize(2)
+    , m_tickTextColor(QColor("black"))
+    , m_tickFont(QFont())
 {
     LineSpec *line = new LineSpec(parent);
     line->setColor("black");
@@ -710,7 +780,13 @@ AxisSpec::AxisSpec(QObject *parent)
     props.insert("minorLine", "minorLine");
     props.insert("tickDir", "tickDir");
     props.insert("inverted", "inverted");
+    props.insert("label", "label");
     registerProperties(props);
+}
+
+QString AxisSpec::map(QString prop)
+{
+    return NutmegObject::map(prop);
 }
 
 
@@ -975,6 +1051,86 @@ void AxisSpec::setMinorTickSize(qreal arg)
     if (m_minorTickSize == arg) return;
     m_minorTickSize = arg;
     emit minorTickSizeChanged(arg);
+}
+
+/*!
+ * \property AxisSpec::tickTextColor
+ * The color of the tick numbers.
+ */
+QColor AxisSpec::tickTextColor() const
+{
+    return m_tickTextColor;
+}
+
+void AxisSpec::setTickTextColor(QColor arg)
+{
+    if (m_tickTextColor == arg) return;
+    m_tickTextColor = arg;
+    emit tickTextColorChanged(arg);
+}
+
+/*!
+ * \property AxisSpec::tickFont
+ * The font used for the tick numbers
+ */
+QFont AxisSpec::tickFont() const
+{
+    return m_tickFont;
+}
+
+void AxisSpec::setTickFont(QFont arg)
+{
+    if (m_tickFont == arg) return;
+    m_tickFont = arg;
+    emit tickFontChanged(arg);
+}
+
+/*!
+ * \property AxisSpec::label
+ * The label for this axis.
+ */
+QString AxisSpec::label() const
+{
+    return m_label;
+}
+
+void AxisSpec::setLabel(QString arg)
+{
+    if (m_label == arg) return;
+    m_label = arg;
+    emit labelChanged(arg);
+}
+
+/*!
+ * \property AxisSpec::labelColor
+ * The color of label for this axis.
+ */
+QColor AxisSpec::labelColor() const
+{
+    return m_labelColor;
+}
+
+void AxisSpec::setLabelColor(QColor arg)
+{
+    if (m_labelColor == arg) return;
+    m_labelColor = arg;
+    emit labelColorChanged(arg);
+}
+
+/*!
+ * \property AxisSpec::labelFont
+ * The font of the label for this axis.
+ */
+QFont AxisSpec::labelFont() const
+{
+    return m_labelFont;
+}
+
+void AxisSpec::setLabelFont(QFont arg)
+{
+    if (m_labelFont == arg) return;
+    m_labelFont = arg;
+    emit labelFontChanged(arg);
 }
 
 void AxisSpec::setMax(qreal arg)

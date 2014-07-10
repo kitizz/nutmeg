@@ -179,10 +179,18 @@ ServerBase {
             server.parameterUpdated(figureHandle, parameter)
 
         var obj = controller.get(handle)
-//        console.log("SendData:", obj)
+        if (!obj)
+            return [6, {"message": "Object, " + handle + ", does not exist."}]
+
         for (var prop in data) {
-//            console.log("Setting", prop, "in", obj)
-            var result = setProperties(obj, prop, data[prop])
+            console.log("Setting", prop, "in", obj)
+            var props = prop.split(".")
+            var realHandle = [handle].concat(props.slice(0, -1)).join(".")
+            console.log("Real Handle:", realHandle)
+            var realObj = controller.get(realHandle)
+            var realProp = props[props.length - 1]
+
+            var result = setProperties(realObj, realProp, data[prop])
             if (!result)
                 return [5, {"message": "Property, " + prop + ", of " + handle + " cannot be set."}]
         }
@@ -208,6 +216,7 @@ ServerBase {
             if (!propName) return false
 
             obj[propName] = data
+            console.log("Done")
             return true
         }
     }

@@ -19,6 +19,10 @@ Locator::Locator(QObject *parent)
     connect(this, &Locator::pixelSizeChanged, this, &Locator::updateLocator);
 }
 
+/*! \internal
+ * \property Locator::locations
+ * The current locations of the locator.
+ */
 QList<qreal> Locator::locations() const
 {
     return m_locations;
@@ -31,6 +35,11 @@ void Locator::setLocations(QList<qreal> arg)
     emit locationsChanged(arg);
 }
 
+/*! \internal
+ * \property Locator::start
+ * The minimum value of the locator. By default this is the attached axis' min
+ * value.
+ */
 qreal Locator::start() const
 {
     return m_start;
@@ -43,6 +52,11 @@ void Locator::setStart(qreal arg)
     emit startChanged(arg);
 }
 
+/*! \internal
+ * \property Locator::end
+ * The maximum value of the locator. By default this is the attached axis' max
+ * value.
+ */
 qreal Locator::end() const
 {
     return m_end;
@@ -55,6 +69,11 @@ void Locator::setEnd(qreal arg)
     emit endChanged(arg);
 }
 
+/*! \internal
+ * \property Locator::pixelSize
+ * The number of pixels covered by this locator. By default this is the
+ * attached axis' length.
+ */
 qreal Locator::pixelSize() const
 {
     return m_pixelSize;
@@ -67,6 +86,10 @@ void Locator::setPixelSize(qreal arg)
     emit pixelSizeChanged(arg);
 }
 
+/*! \internal
+ * \property Locator::multiples
+ * The multiples by which the Locator increases.
+ */
 QList<qreal> Locator::multiples() const
 {
     return m_multiples;
@@ -98,8 +121,8 @@ AutoLocator::AutoLocator(qreal density, QObject *parent)
 }
 
 /*!
- * \brief AutoLocator::density
- * \return The preferred density of the locator in pixels/tick. By default this is 50.
+ * \property AutoLocator::density
+ * The preferred density of the locator in pixels/tick. Default: 50
  */
 qreal AutoLocator::density() const
 {
@@ -214,6 +237,10 @@ void HardLocator::updateLocator()
     setLocations(newLocs);
 }
 
+/*!
+ * \property HardLocator::hardLocations
+ * The exact locations at which to show ticks. This is not dynamic at all.
+ */
 QList<qreal> HardLocator::hardLocations() const
 {
     return m_hardLocations;
@@ -254,6 +281,10 @@ void SpacedLocator::updateLocator()
     setLocations(newLocs);
 }
 
+/*!
+ * \property SpacedLocator::spacing
+ * Manually specify the spacing for ticks. This is anchored to zero.
+ */
 qreal SpacedLocator::spacing() const
 {
     return m_spacing;
