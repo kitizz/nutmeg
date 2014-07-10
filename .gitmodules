@@ -1,6 +1,3 @@
-[submodule "doc"]
-	path = doc
-	url = git@github.com:kitizz/nutmeg.git
 [submodule "breathe"]
 	path = breathe
 	url = https://github.com/michaeljones/breathe.git
