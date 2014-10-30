@@ -554,24 +554,25 @@ void AxisBase::setLimits(QRectF arg, bool fix)
     maintainAspectRatio(&arg);
     m_limits = arg;
 
-    QTime timer; timer.start();
+    // TODO: Remove...
+//    QTime timer; timer.start();
 
     setMinX(m_limits.left(), fix, false);
     setMaxX(m_limits.right(), fix, false);
 
-    int t1 = timer.elapsed();
+//    int t1 = timer.elapsed();
     m_xAxis->setLimits(m_minX, m_maxX);
 
-    int t2 = timer.elapsed();
+//    int t2 = timer.elapsed();
     setMinY(m_limits.top(), fix, false);
     setMaxY(m_limits.bottom(), fix, false);
-    int t3 = timer.elapsed();
+//    int t3 = timer.elapsed();
     m_yAxis->setLimits(m_minY, m_maxY);
-    int t4 = timer.elapsed();
+//    int t4 = timer.elapsed();
 
 
     emit limitsChanged(arg);
-    qDebug() << "SetLimits Timing:" << t1 << "," << t2-t1 << "," << t3-t2 << "," << t4-t3;
+//    qDebug() << "SetLimits Timing:" << t1 << "," << t2-t1 << "," << t3-t2 << "," << t4-t3;
     m_settingLimits = false;
 }
 
@@ -1141,13 +1142,10 @@ void AxisSpec::setLimits(qreal min, qreal max)
     bool updateMax = m_max != max;
     if (!updateMin && !updateMax) return;
 
-    QTime timer; timer.start();
     m_min = min;
     m_max = max;
     if (m_majorTicks)
         m_majorTicks->setLimits(m_min, m_max);
-
-    qDebug() << "AxisSpec::SetLimits:" << timer.elapsed();
 
     if (updateMin)
         emit minChanged(min);

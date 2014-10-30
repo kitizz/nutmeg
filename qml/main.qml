@@ -90,10 +90,6 @@ Rectangle {
         }
     }
 
-    Figure {
-
-    }
-
     Server {
         id: server
         port: settings ? settings.port : 43686

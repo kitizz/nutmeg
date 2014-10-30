@@ -130,7 +130,7 @@ FigureBase {
         width: parent.width*1.5
         height: parent.height*1.5
 
-//        mouseEnabled: false
+        mouseEnabled: false
         areaEnabled: !mouseArea.dragActive
         property real panSensitivity: 3.0
         property real scaleLimit: 0.1
@@ -155,8 +155,9 @@ FigureBase {
             startHeight = currentAxis.maxY - currentAxis.minY
         }
 
+//        property var lastTimeUpdate: new Date().getTime()
         onPinchUpdated: {
-            var timeStart = new Date().getTime()
+//            var timeStart = new Date().getTime()
             var dx = pinch.center.x - pinch.previousCenter.x
             var dy = pinch.center.y - pinch.previousCenter.y
             // Invert if necessary
@@ -194,13 +195,15 @@ FigureBase {
                 newLimits.y -= (dh - h)*t
                 newLimits.height = dh
             }
-            var timeCalc = new Date().getTime()
+//            var timeCalc = new Date().getTime()
             currentAxis.limits = newLimits
-            var timeLimits = new Date().getTime()
+//            var timeLimits = new Date().getTime()
             currentAxis.updateTickLocations()
-            var timeUpdate = new Date().getTime()
 
-            console.log("Calc Time:", timeCalc - timeStart, " Limits Time:", timeLimits - timeCalc, " Update Time:", timeUpdate - timeLimits, "\n")
+//            console.log("Since last update:", timeStart - lastTimeUpdate)
+//            lastTimeUpdate = new Date().getTime()
+
+//            console.log("Calc Time:", timeCalc - timeStart, " Limits Time:", timeLimits - timeCalc, " Update Time:", lastTimeUpdate - timeLimits, "\n")
         }
 
         onPinchFinished: {
@@ -210,7 +213,7 @@ FigureBase {
             if (Math.abs(pinch.velocity.x) > maxVel)
                 mrTimer.velX = Util.sign(pinch.velocity.x)*maxVel
 
-            mrTimer.velY =pinch.velocity.y
+            mrTimer.velY = pinch.velocity.y
             if (Math.abs(pinch.velocity.y) > maxVel)
                 mrTimer.velY = Util.sign(pinch.velocity.y)*maxVel
 

@@ -35,6 +35,7 @@ void Locator::setLocations(QList<qreal> arg)
 {
     if (m_locations == arg) return;
     m_locations = arg;
+    qDebug() << "Locations Ticks Changed!";
     emit locationsChanged(arg);
 }
 
@@ -89,9 +90,7 @@ void Locator::setLimits(qreal start, qreal end)
     if (updateEnd)
         emit endChanged(end);
 
-    QTime timer; timer.start();
     updateLocator();
-    qDebug() << "Locator::setLimits:" << timer.elapsed();
 }
 
 /*! \internal
@@ -215,12 +214,7 @@ void AutoLocator::updateLocator()
     if (newLocs.length() == 0)
         newLocs << start() << end();
 
-    int t1 = timer.elapsed();
-
     setLocations(newLocs);
-    int t2 = timer.elapsed();
-
-    qDebug() << "AutoLocator::updateLocator:" << t1 << t2-t1;
 }
 
 qreal AutoLocator::roundAt(qreal n, qreal f)

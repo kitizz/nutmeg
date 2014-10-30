@@ -335,16 +335,6 @@ AxisBase {
         }
 
         var N = numbers.length
-//        var diff = ticks.length - N
-//        if (diff > 0) {
-//            for (i=0; i<diff; ++i)
-//                numbers.push(numberCmp.createObject(plotFrame, {'axis': axis}))
-//        } else if (ticks.length < N) {
-//            for (i=0; i<-diff; ++i)
-//                numbers.pop().destroy()
-//        }
-
-//        N = numbers.length
 
         // Define the display precision
         var mean = Util.mean(ticks)
