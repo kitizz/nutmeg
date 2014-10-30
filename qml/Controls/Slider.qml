@@ -5,14 +5,15 @@ import QtQuick.Controls 1.0
     \ingroup controls
     Slider is a typical sliding control.
 */
-Item {
+ControlItem {
     id: sliderRoot
-    property alias handle: label.text
-    property alias value: slider.value
+
+    property alias label: label.text
     property alias slider: slider
     property int decimals: 2
 
-    property var gui: null
+    value: slider.value
+
     implicitHeight: col.implicitHeight
     implicitWidth: parent.width
 
@@ -60,23 +61,7 @@ Item {
         gui.parameterChanged(handle, value)
     }
 
-    function findGui() {
-        if (gui) return // Already found it...
-
-        var ancestor = parent
-        while (ancestor) {
-            if (ancestor.objectName == "GUI") {
-                gui = ancestor
-                gui.registerParameter(sliderRoot)
-                return
-            }
-            ancestor = ancestor.parent
-        }
-    }
-
     Component.onCompleted: {
         findGui()
     }
-
-    onParentChanged: findGui()
 }

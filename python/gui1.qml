@@ -11,5 +11,10 @@ GUI {
             }
 
         }
+
+        Button {
+            handle: "button"
+            text: "Test Button"
+        }
     }
 }

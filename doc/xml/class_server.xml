@@ -251,6 +251,27 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_server_1aa6f2d8c4e178c07e099d86e6c85e7dc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Server::processMessage</definition>
+        <argsstring>(command, arg)</argsstring>
+        <name>processMessage</name>
+        <param>
+          <type>command</type>
+        </param>
+        <param>
+          <type>arg</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handles the initial request message. Selects the appropriate server command to execute based on the first argument in the message <computeroutput>[&quot;command&quot;, request={&quot;arg1&quot;: val1, &quot;arg2&quot;: val2, ...}]</computeroutput> <simplesect kind="return"><para>Success: <computeroutput>command(request)</computeroutput> </para></simplesect>
+<simplesect kind="return"><para>Unrecognized command: <computeroutput>[1, {&quot;message&quot;: m}]</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="21" column="1"/>
+      </memberdef>
       <memberdef kind="function" id="class_server_1a6e90ddfa4b7cb46f66f9933862a550c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void Server::createFigure</definition>
@@ -263,9 +284,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Handles the initial request message. Selects the appropriate server command to execute based on the first argument in the message <computeroutput>[&quot;command&quot;, request={&quot;arg1&quot;: val1, &quot;arg2&quot;: val2, ...}]</computeroutput> <simplesect kind="return"><para>Success: <computeroutput>command(request)</computeroutput> <linebreak/>
-Unrecognized command: <computeroutput>[1, {&quot;message&quot;: m}]</computeroutput></para></simplesect>
-Create a figure based on the parameters provided in <emphasis>args</emphasis>.</para><para><parameterlist kind="param"><parameteritem>
+<para>Create a figure based on the parameters provided in <emphasis>args</emphasis>.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>args</parametername>
 </parameternamelist>
@@ -287,12 +306,12 @@ Create a figure based on the parameters provided in <emphasis>args</emphasis>.</
 <para>(String) QML string declaring the layout of the figure. See more in (). </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>Success: <computeroutput>[0, {&quot;figureHandle&quot;: f, &quot;port&quot;: parameterUpdatePort, &quot;message&quot;: m}]</computeroutput> <linebreak/>
-QML Failure: <computeroutput>[2, {&quot;lineNumber&quot;: l, &quot;columnNumber&quot;: c, &quot;message&quot;: m}]</computeroutput> </para></simplesect>
+<simplesect kind="return"><para>Success: <computeroutput>[0, {&quot;figureHandle&quot;: f, &quot;port&quot;: parameterUpdatePort, &quot;message&quot;: m}]</computeroutput> </para></simplesect>
+<simplesect kind="return"><para>QML Failure: <computeroutput>[2, {&quot;lineNumber&quot;: l, &quot;columnNumber&quot;: c, &quot;message&quot;: m}]</computeroutput> </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="30" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="31" column="1"/>
       </memberdef>
       <memberdef kind="function" id="class_server_1a5673c8b679b197e3064af0a55a7be60b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -329,12 +348,14 @@ QML Failure: <computeroutput>[2, {&quot;lineNumber&quot;: l, &quot;columnNumber&
 </parameteritem>
 </parameterlist>
 <simplesect kind="return"><para>Success: <computeroutput>[0, {&quot;message&quot;: m, &quot;parameters&quot;: p}]</computeroutput> <linebreak/>
-Bad <computeroutput>figureHandle:</computeroutput> <computeroutput>[3, {&quot;message&quot;: m}]</computeroutput> <linebreak/>
-QML Failure: <computeroutput>[4, {&quot;lineNumber&quot;: l, &quot;columnNumber&quot;: c, &quot;message&quot;: m}]</computeroutput> </para></simplesect>
+</para></simplesect>
+<simplesect kind="return"><para>Bad <computeroutput>figureHandle:</computeroutput> <computeroutput>[3, {&quot;message&quot;: m}]</computeroutput> <linebreak/>
+</para></simplesect>
+<simplesect kind="return"><para>QML Failure: <computeroutput>[4, {&quot;lineNumber&quot;: l, &quot;columnNumber&quot;: c, &quot;message&quot;: m}]</computeroutput> </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="42" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="43" column="1"/>
       </memberdef>
       <memberdef kind="function" id="class_server_1a09123be74220c99e47c220f79daa85a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -377,11 +398,12 @@ QML Failure: <computeroutput>[4, {&quot;lineNumber&quot;: l, &quot;columnNumber&
 </parameteritem>
 </parameterlist>
 <simplesect kind="return"><para>Success: <computeroutput>[0, {&quot;message&quot;: m}]</computeroutput> <linebreak/>
-Bad Property: <computeroutput>[5, {&quot;message&quot;: m}]</computeroutput> </para></simplesect>
+</para></simplesect>
+<simplesect kind="return"><para>Bad Property: <computeroutput>[5, {&quot;message&quot;: m}]</computeroutput> </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="66" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="67" column="1"/>
       </memberdef>
       <memberdef kind="function" id="class_server_1a9a391fdf2e0f3e1c0b4fd6d38d66492f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -403,7 +425,7 @@ Bad Property: <computeroutput>[5, {&quot;message&quot;: m}]</computeroutput> </p
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="68" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="69" column="1"/>
       </memberdef>
       <memberdef kind="function" id="class_server_1ae3a5ee41ee9d61e1953cb190a3e480cd" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -1028,7 +1050,7 @@ Bad Property: <computeroutput>[5, {&quot;message&quot;: m}]</computeroutput> </p
         <label>QQuickItem</label>
       </node>
     </collaborationgraph>
-    <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="5" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" bodystart="5" bodyend="69"/>
+    <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="5" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" bodystart="5" bodyend="70"/>
     <listofallmembers>
       <member refid="class_server_1a77ba2c107f89dedaea1b9adfc87720dc" prot="public" virt="non-virtual"><scope>Server</scope><name>address</name></member>
       <member refid="class_server_1a3e93dbe2e035f188e01fda709ca74273" prot="public" virt="non-virtual"><scope>Server</scope><name>address</name></member>
@@ -1062,6 +1084,7 @@ Bad Property: <computeroutput>[5, {&quot;message&quot;: m}]</computeroutput> </p
       <member refid="class_server_1a926c9dae229a62b6d33fdbb41dca6d82" prot="public" virt="non-virtual"><scope>Server</scope><name>port</name></member>
       <member refid="class_server_1a9d7e2ad0a48dba63f947bb2d86ddeeee" prot="public" virt="non-virtual"><scope>Server</scope><name>port</name></member>
       <member refid="class_server_1aec373c9983ba51b3aaed92fdecd9753a" prot="public" virt="non-virtual"><scope>Server</scope><name>portChanged</name></member>
+      <member refid="class_server_1aa6f2d8c4e178c07e099d86e6c85e7dc1" prot="public" virt="non-virtual"><scope>Server</scope><name>processMessage</name></member>
       <member refid="class_server_1a79900e5c36c6c86433cc98254cfb47c3" prot="public" virt="non-virtual"><scope>Server</scope><name>processRequest</name></member>
       <member refid="class_server_1a218f66493515ed5a49d9ffd3dd20365d" prot="public" virt="non-virtual"><scope>Server</scope><name>replySent</name></member>
       <member refid="class_server_1a4db32e1a16e0423cf619d7914fa9b8c2" prot="public" virt="non-virtual"><scope>Server</scope><name>running</name></member>

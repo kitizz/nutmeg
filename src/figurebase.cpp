@@ -1,6 +1,7 @@
 #include "figurebase.h"
 
 #include <QVariant>
+#include <QPrinter>
 
 FigureBase::FigureBase(QQuickItem *parent)
     : QQuickItem(parent)
@@ -66,6 +67,29 @@ void FigureBase::registerAxis(AxisBase *axis)
     updateAxes();
 }
 
+void FigureBase::savePdf(QString filepath)
+{
+    qDebug() << "Writing pdf:" << filepath;
+    QPrinter printer(QPrinter::HighResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setOutputFileName(filepath);
+
+    QPainter p;
+    p.begin(&printer);
+
+    QPen pen;
+    pen.setWidth(10);
+    pen.setColor(QColor(0,0,0));
+    p.setPen(pen);
+    p.drawLine(0,0, 100,500);
+
+    foreach (AxisBase *axis, m_axes) {
+        qDebug() << "Paint axis" << axis;
+        axis->print(&p);
+    }
+    p.end();
+}
+
 QVariantList FigureBase::getAxisList()
 {
     return m_axisList;
@@ -112,9 +136,9 @@ void FigureBase::setController(Controller *arg)
     emit controllerChanged(arg);
 }
 
-QString FigureBase::map(QString prop)
+QString FigureBase::mapProperty(const QString &prop)
 {
-    return NutmegObject::map(prop);
+    return NutmegObject::mapProperty(prop);
 }
 
 void FigureBase::installEventFilterApp(QObject *app)

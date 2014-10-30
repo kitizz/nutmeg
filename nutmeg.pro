@@ -25,7 +25,7 @@ macx:ICON = images/logo.icns
 # Additional import path used to resolve QML modules in Creator's code model
 QML_IMPORT_PATH =
 
-QT += qml quick widgets core gui quickwidgets
+QT += qml quick widgets core gui printsupport
 
 #DEFINES += NZMQT_LIB
 DEFINES += QKDTREE_LIBRARY
@@ -63,7 +63,8 @@ SOURCES += src/main.cpp \
     src/xyplot.cpp \
     src/util.cpp \
     src/imagecanvas.cpp \
-    src/imageplot.cpp
+    src/imageplot.cpp \
+    src/shapecanvas.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 #include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
@@ -99,7 +100,8 @@ HEADERS += \
     src/xyplot.h \
     src/util.h \
     src/imagecanvas.h \
-    src/imageplot.h
+    src/imageplot.h \
+    src/shapecanvas.h
 
 unix:LIBS += -lzmq
 win32:CONFIG(release, debug|release): LIBS += -L"C:\zmq3.2.4\lib" -llibzmq

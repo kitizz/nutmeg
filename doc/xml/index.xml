@@ -889,6 +889,7 @@
     <member refid="class_server_1ae756a18914377e2491c1b9107ade4af3" kind="variable"><name>m_currentAddress</name></member>
     <member refid="class_server_1a3918d0c26cb77c860bbfb3a1d571e4ed" kind="variable"><name>m_port</name></member>
     <member refid="class_server_1aea17391f0bc9f4ee036ee59316daaa51" kind="variable"><name>m_mainWindow</name></member>
+    <member refid="class_server_1aa6f2d8c4e178c07e099d86e6c85e7dc1" kind="function"><name>processMessage</name></member>
     <member refid="class_server_1a6e90ddfa4b7cb46f66f9933862a550c5" kind="function"><name>createFigure</name></member>
     <member refid="class_server_1a5673c8b679b197e3064af0a55a7be60b" kind="function"><name>createGui</name></member>
     <member refid="class_server_1a09123be74220c99e47c220f79daa85a1" kind="function"><name>sendData</name></member>

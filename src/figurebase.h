@@ -3,6 +3,7 @@
 
 #include <QQuickItem>
 #include <QMultiMap>
+#include <QFileDialog>
 #include "axisbase.h"
 #include "controller.h"
 #include "nutmegobject.h"
@@ -35,7 +36,7 @@ public:
     Controller* controller() const;
     void setController(Controller* arg);
 
-    Q_INVOKABLE QString map(QString prop);
+    Q_INVOKABLE QString mapProperty(const QString &prop);
 
     Q_INVOKABLE void installEventFilterApp(QObject *app);
     bool eventFilter(QObject *watched, QEvent *event);
@@ -66,6 +67,7 @@ signals:
 public slots:
     void deregisterAxis(AxisBase *axis);
     void registerAxis(AxisBase *axis);
+    void savePdf(QString filepath);
 
 protected slots:
     void updateAxes();

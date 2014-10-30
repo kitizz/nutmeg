@@ -8,7 +8,20 @@ Figure {
 
         ImagePlot {
             handle: "im"
-            // imageScale: 1.0
+        }
+
+        LinePlot {
+            id: plot
+            handle: "data"
+            line { width: 6 }
+        }
+
+        LinePlot {
+            id: plot2
+            handle: "data2"
+            line.width: plot.line.width
+            xData: [0, 1000]
+            yData: [0, 100]
         }
     }
 }

@@ -3,6 +3,9 @@
 #include <QtCore/qmath.h>
 #include <QDebug>
 
+// TODO: Remove
+#include <QTime>
+
 Locator::Locator(QObject *parent)
     : QObject(parent)
     , m_locations(QList<qreal>())
@@ -14,8 +17,8 @@ Locator::Locator(QObject *parent)
     // This default covers other magnitudes like 0.1, 0.5, 10, 20, 500, etc...
     m_multiples << 1 << 2 << 5;
     // Connect start, end, pixelSize with updateScale...
-    connect(this, &Locator::startChanged, this, &Locator::updateLocator);
-    connect(this, &Locator::endChanged, this, &Locator::updateLocator);
+//    connect(this, &Locator::startChanged, this, &Locator::updateLocator);
+//    connect(this, &Locator::endChanged, this, &Locator::updateLocator);
     connect(this, &Locator::pixelSizeChanged, this, &Locator::updateLocator);
 }
 
@@ -50,6 +53,7 @@ void Locator::setStart(qreal arg)
     if (m_start == arg) return;
     m_start = arg;
     emit startChanged(arg);
+    updateLocator();
 }
 
 /*! \internal
@@ -67,6 +71,27 @@ void Locator::setEnd(qreal arg)
     if (m_end == arg) return;
     m_end = arg;
     emit endChanged(arg);
+    updateLocator();
+}
+
+void Locator::setLimits(qreal start, qreal end)
+{
+    bool updateStart = m_start != start;
+    bool updateEnd = m_end != end;
+
+    if (!updateStart && !updateEnd) return;
+
+    m_start = start;
+    m_end = end;
+
+    if (updateStart)
+        emit startChanged(start);
+    if (updateEnd)
+        emit endChanged(end);
+
+    QTime timer; timer.start();
+    updateLocator();
+    qDebug() << "Locator::setLimits:" << timer.elapsed();
 }
 
 /*! \internal
@@ -148,6 +173,7 @@ void AutoLocator::updateLocator()
      * e = density*(1 - 10^(-a))
      * We want to minimise `e`
      */
+    QTime timer; timer.start();
     // We can find `a` using (1)
     qreal scale = pixelSize()/(end() - start());
     if (scale <= 0) setLocations(QList<qreal>());
@@ -189,7 +215,12 @@ void AutoLocator::updateLocator()
     if (newLocs.length() == 0)
         newLocs << start() << end();
 
+    int t1 = timer.elapsed();
+
     setLocations(newLocs);
+    int t2 = timer.elapsed();
+
+    qDebug() << "AutoLocator::updateLocator:" << t1 << t2-t1;
 }
 
 qreal AutoLocator::roundAt(qreal n, qreal f)

@@ -3,12 +3,15 @@
 #include <math.h>
 #include <QtCore/qmath.h>
 
+// TODO: Remove
+#include <QTime>
+
 #define Font QFont
 
 AxisBase::AxisBase(QQuickItem *parent)
     : QQuickPaintedItem(parent)
     , m_figure(0)
-    , m_handle(QString())
+    , m_handle(QString("axis"))
     , m_plots(QMultiMap<QString,PlotBase*>())
     , m_minX(-Inf)
     , m_maxX(Inf)
@@ -61,8 +64,8 @@ AxisBase::AxisBase(QQuickItem *parent)
     connect(this, &QQuickItem::widthChanged, this, &AxisBase::updateXAxis);
     connect(m_margin, &AxisMargins::leftChanged, this, &AxisBase::updateXAxis);
     connect(m_margin, &AxisMargins::rightChanged, this, &AxisBase::updateXAxis);
-    connect(this, &AxisBase::minXChanged, [=](qreal val){ m_xAxis->setMin(val); });
-    connect(this, &AxisBase::maxXChanged, [=](qreal val){ m_xAxis->setMax(val); });
+//    connect(this, &AxisBase::minXChanged, [=](qreal val){ m_xAxis->setMin(val); });
+//    connect(this, &AxisBase::maxXChanged, [=](qreal val){ m_xAxis->setMax(val); });
     m_xAxis->setObjectName("XAxis");
     m_xAxis->setMin(minX());
     m_xAxis->setMax(maxX());
@@ -72,8 +75,8 @@ AxisBase::AxisBase(QQuickItem *parent)
     connect(this, &QQuickItem::heightChanged, this, &AxisBase::updateYAxis);
     connect(m_margin, &AxisMargins::topChanged, this, &AxisBase::updateYAxis);
     connect(m_margin, &AxisMargins::bottomChanged, this, &AxisBase::updateYAxis);
-    connect(this, &AxisBase::minYChanged, [=](qreal val){ m_yAxis->setMin(val); });
-    connect(this, &AxisBase::maxYChanged, [=](qreal val){ m_yAxis->setMax(val); });
+//    connect(this, &AxisBase::minYChanged, [=](qreal val){ m_yAxis->setMin(val); });
+//    connect(this, &AxisBase::maxYChanged, [=](qreal val){ m_yAxis->setMax(val); });
     m_yAxis->setObjectName("YAxis");
     m_yAxis->setMin(minY());
     m_yAxis->setMax(maxY());
@@ -89,8 +92,8 @@ AxisBase::AxisBase(QQuickItem *parent)
     connect(this, &QQuickItem::heightChanged, this, &AxisBase::updateLimits);
 
     // Connections for axis updates
-    connect(m_xAxis, &AxisSpec::ticksChanged, this, &AxisBase::xAxisChanged);
-    connect(m_yAxis, &AxisSpec::ticksChanged, this, &AxisBase::yAxisChanged);
+//    connect(m_xAxis, &AxisSpec::ticksChanged, this, &AxisBase::xAxisChanged);
+//    connect(m_yAxis, &AxisSpec::ticksChanged, this, &AxisBase::yAxisChanged);
 }
 
 AxisBase::~AxisBase()
@@ -144,18 +147,37 @@ void AxisBase::paint(QPainter *painter)
     Q_UNUSED(painter)
 }
 
+void AxisBase::print(QPainter *painter)
+{
+    if (!m_canvas)
+        return;
+
+    m_canvas->paint(painter);
+
+    foreach (PlotBase* plot, m_plots) {
+        plot->print(painter);
+    }
+}
+
 FigureBase *AxisBase::figure() const
 {
     return m_figure;
 }
 
+/*!
+ * \property AxisBase::minX
+ * Set the minimim X data limit.
+ * \sa AxisBase::limits
+ */
 qreal AxisBase::minX() const
 {
     return m_minX;
 }
 
-void AxisBase::setMinX(qreal arg, bool fix)
+void AxisBase::setMinX(qreal arg, bool fix, bool updateAxis)
 {
+    // "fix" is used internally so that the bounds can be set while
+    // letting them continue to float...
     if (arg == -Inf) arg = m_dataLimits.left();
     if (fix && m_minXFloat) m_minXFloat = false;
     if (m_minX == arg) return;
@@ -163,14 +185,23 @@ void AxisBase::setMinX(qreal arg, bool fix)
     m_minX = arg;
     emit minXChanged(arg);
 
+    // "emitSig" gives control of emitting the changed signal to the caller.
+    // This removes the need for the above boilerplate code in "setLimits(...)"
+    if (!updateAxis) return;
+    m_xAxis->setMin(arg);
 }
 
+/*!
+ * \property AxisBase::maxX
+ * Set the maximum X data limit.
+ * \sa AxisBase::limits
+ */
 qreal AxisBase::maxX() const
 {
     return m_maxX;
 }
 
-void AxisBase::setMaxX(qreal arg, bool fix)
+void AxisBase::setMaxX(qreal arg, bool fix, bool updateAxis)
 {
     if (arg == Inf) arg = m_dataLimits.right();
     if (fix && m_maxXFloat) m_maxXFloat = false;
@@ -178,14 +209,22 @@ void AxisBase::setMaxX(qreal arg, bool fix)
 
     m_maxX = arg;
     emit maxXChanged(arg);
+
+    if (!updateAxis) return;
+    m_xAxis->setMax(arg);
 }
 
+/*!
+ * \property AxisBase::minY
+ * Set the minimim Y data limit.
+ * \sa AxisBase::limits
+ */
 qreal AxisBase::minY() const
 {
     return m_minY;
 }
 
-void AxisBase::setMinY(qreal arg, bool fix)
+void AxisBase::setMinY(qreal arg, bool fix, bool updateAxis)
 {
     if (arg == -Inf) arg = m_dataLimits.top();
     if (fix && m_minYFloat) m_minYFloat = false;
@@ -193,14 +232,22 @@ void AxisBase::setMinY(qreal arg, bool fix)
 
     m_minY = arg;
     emit minYChanged(arg);
+
+    if (!updateAxis) return;
+    m_yAxis->setMin(arg);
 }
 
+/*!
+ * \property AxisBase::maxY
+ * Set the maximum Y data limit.
+ * \sa AxisBase::limits
+ */
 qreal AxisBase::maxY() const
 {
     return m_maxY;
 }
 
-void AxisBase::setMaxY(qreal arg, bool fix)
+void AxisBase::setMaxY(qreal arg, bool fix, bool updateAxis)
 {
     if (arg == Inf) arg = m_dataLimits.bottom();
     if (fix && m_maxYFloat) m_maxYFloat = false;
@@ -208,6 +255,9 @@ void AxisBase::setMaxY(qreal arg, bool fix)
 
     m_maxY = arg;
     emit maxYChanged(arg);
+
+    if (!updateAxis) return;
+    m_xAxis->setMax(arg);
 }
 
 void AxisBase::offset(qreal x, qreal y)
@@ -215,6 +265,11 @@ void AxisBase::offset(qreal x, qreal y)
     // TODO: Implement AxisBase::offset
 }
 
+/*!
+ * \property AxisBase::handle
+ * The handle property provides Nutmeg a way of identifying this Axis.
+ * By default, this is "axis".
+ */
 QString AxisBase::handle() const
 {
     return m_handle;
@@ -474,11 +529,16 @@ QList<PlotBase*> AxisBase::getPlotsByHandle(QString handle)
     return result;
 }
 
-QString AxisBase::map(const QString &prop)
+QString AxisBase::mapProperty(const QString &prop)
 {
-    return NutmegObject::map(prop);
+    return NutmegObject::mapProperty(prop);
 }
 
+/*!
+ * \property AxisBase::limits
+ * Sets all the data limits of the Axis at once.
+ * \sa minX, maxX, minY, maxY
+ */
 QRectF AxisBase::limits() const
 {
     return m_limits;
@@ -494,12 +554,24 @@ void AxisBase::setLimits(QRectF arg, bool fix)
     maintainAspectRatio(&arg);
     m_limits = arg;
 
-    setMinX(m_limits.left(), fix);
-    setMaxX(m_limits.right(), fix);
-    setMinY(m_limits.top(), fix);
-    setMaxY(m_limits.bottom(), fix);
+    QTime timer; timer.start();
+
+    setMinX(m_limits.left(), fix, false);
+    setMaxX(m_limits.right(), fix, false);
+
+    int t1 = timer.elapsed();
+    m_xAxis->setLimits(m_minX, m_maxX);
+
+    int t2 = timer.elapsed();
+    setMinY(m_limits.top(), fix, false);
+    setMaxY(m_limits.bottom(), fix, false);
+    int t3 = timer.elapsed();
+    m_yAxis->setLimits(m_minY, m_maxY);
+    int t4 = timer.elapsed();
+
 
     emit limitsChanged(arg);
+    qDebug() << "SetLimits Timing:" << t1 << "," << t2-t1 << "," << t3-t2 << "," << t4-t3;
     m_settingLimits = false;
 }
 
@@ -539,12 +611,23 @@ void AxisBase::setYLimitRounding(QList<qreal> arg)
     emit yLimitRoundingChanged(arg);
 }
 
+/*!
+ * \property AxisBase::xAxis
+ * The x-axis AxisSpec object for this Axis. This provides access to the axis
+ * label, the major and minor ticks, etc.
+ * \sa AxisSpec
+ */
 AxisSpec *AxisBase::xAxis() const
 {
     return m_xAxis;
 }
 
-
+/*!
+ * \property AxisBase::yAxis
+ * The y-axis AxisSpec object for this Axis. This provides access to the axis
+ * label, the major and minor ticks, etc.
+ * \sa AxisSpec
+ */
 AxisSpec *AxisBase::yAxis() const
 {
     return m_yAxis;
@@ -645,6 +728,27 @@ void AxisBase::setTitleColor(QColor arg)
     emit titleColorChanged(arg);
 }
 
+QQuickPaintedItem *AxisBase::canvas() const
+{
+    return m_canvas;
+}
+
+void AxisBase::setCanvas(QQuickPaintedItem *arg)
+{
+    if (m_canvas == arg) return;
+    m_canvas = arg;
+    emit canvasChanged(arg);
+}
+
+/*!
+ * \property AxisBase::grid
+ * Read-only property provides access to specifying the Axis grid.
+ * E.g.
+ * \code
+ * grid.axis: "XY"
+ * \endcode
+ * \sa AxisGrid
+ */
 AxisGrid *AxisBase::grid() const
 {
     return m_grid;
@@ -688,9 +792,9 @@ AxisGrid::AxisGrid(QObject *parent)
     registerProperties(props);
 }
 
-QString AxisGrid::map(QString prop)
+QString AxisGrid::mapProperty(QString prop)
 {
-    return NutmegObject::map(prop);
+    return NutmegObject::mapProperty(prop);
 }
 
 /*!
@@ -785,9 +889,9 @@ AxisSpec::AxisSpec(QObject *parent)
     registerProperties(props);
 }
 
-QString AxisSpec::map(QString prop)
+QString AxisSpec::mapProperty(QString prop)
 {
-    return NutmegObject::map(prop);
+    return NutmegObject::mapProperty(prop);
 }
 
 
@@ -823,7 +927,7 @@ QString AxisSpec::map(QString prop)
  * Reading this property will return the list of locations at that time (not
  * the Locator object, itself!)
  *
- * \sa AutoLocator, HardLocator, SpacedLocator
+ * \sa AutoLocator, HardLocator, SpacedLocator, AxisSpec::minorTicks
  */
 QVariantList AxisSpec::majorTicks() const
 {
@@ -894,6 +998,13 @@ void AxisSpec::setMajorTicks(QVariant arg)
     emit majorTicksChanged(m_majorTicks->locations());
 }
 
+/*!
+ * \property AxisSpec::minorTicks
+ * Define how the minor ticks are laid out. See \l AxisSpec::majorTicks
+ * for more information.
+ *
+ * \sa AxisSpec::majorTicks
+ */
 QVariantList AxisSpec::minorTicks() const
 {
     QVariantList lst;
@@ -950,11 +1061,28 @@ void AxisSpec::setMinorTicks(QVariant arg)
     emit minorTicksChanged(m_minorTicks->locations());
 }
 
+/*!
+ * \property AxisSpec::majorLine
+ * Read-only LineSpec property provides access to the line style used for the
+ * ticks.
+ * E.g.
+ * \code
+ * majorLine.color: "red"
+ * majorLine.width: 2
+ * \endcode
+ * \sa LineSpec, minorLine
+ */
 LineSpec *AxisSpec::majorLine() const
 {
     return m_majorLine;
 }
 
+/*!
+ * \property AxisSpec::majorLine
+ * Read-only LineSpec property provides access to the line style used for the
+ * ticks.
+ * \sa LineSpec, majorLine
+ */
 LineSpec *AxisSpec::minorLine() const
 {
     return m_minorLine;
@@ -982,13 +1110,49 @@ void AxisSpec::setMin(qreal arg)
 {
     if (m_min == arg) return;
     m_min = arg;
+    QTime timer; timer.start();
     updateMajor();
+    int t1 = timer.elapsed();
     emit minChanged(arg);
+    int t2 = timer.elapsed();
+    qDebug() << "AxisSpec::setMin:" << t1 << "," << t2;
 }
 
 qreal AxisSpec::max() const
 {
     return m_max;
+}
+
+void AxisSpec::setMax(qreal arg)
+{
+    if (m_max == arg) return;
+    m_max = arg;
+    QTime timer; timer.start();
+    updateMajor();
+    int t1 = timer.elapsed();
+    emit maxChanged(arg);
+    int t2 = timer.elapsed();
+    qDebug() << "AxisSpec::setMax:" << t1 << "," << t2;
+}
+
+void AxisSpec::setLimits(qreal min, qreal max)
+{
+    bool updateMin = m_min != min;
+    bool updateMax = m_max != max;
+    if (!updateMin && !updateMax) return;
+
+    QTime timer; timer.start();
+    m_min = min;
+    m_max = max;
+    if (m_majorTicks)
+        m_majorTicks->setLimits(m_min, m_max);
+
+    qDebug() << "AxisSpec::SetLimits:" << timer.elapsed();
+
+    if (updateMin)
+        emit minChanged(min);
+    if (updateMax)
+        emit maxChanged(max);
 }
 
 bool AxisSpec::inverted() const
@@ -1134,20 +1298,11 @@ void AxisSpec::setLabelFont(QFont arg)
     emit labelFontChanged(arg);
 }
 
-void AxisSpec::setMax(qreal arg)
-{
-    if (m_max == arg) return;
-    m_max = arg;
-    updateMajor();
-    emit maxChanged(arg);
-}
-
 void AxisSpec::updateMajor()
 {
     if (!m_majorTicks) return;
     m_majorTicks->setPixelSize(m_pixelSize);
-    m_majorTicks->setStart(m_min);
-    m_majorTicks->setEnd(m_max);
+    m_majorTicks->setLimits(m_min, m_max);
 }
 
 void AxisSpec::updateMinor()

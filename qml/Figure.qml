@@ -130,7 +130,7 @@ FigureBase {
         width: parent.width*1.5
         height: parent.height*1.5
 
-        mouseEnabled: false
+//        mouseEnabled: false
         areaEnabled: !mouseArea.dragActive
         property real panSensitivity: 3.0
         property real scaleLimit: 0.1
@@ -156,6 +156,7 @@ FigureBase {
         }
 
         onPinchUpdated: {
+            var timeStart = new Date().getTime()
             var dx = pinch.center.x - pinch.previousCenter.x
             var dy = pinch.center.y - pinch.previousCenter.y
             // Invert if necessary
@@ -193,7 +194,13 @@ FigureBase {
                 newLimits.y -= (dh - h)*t
                 newLimits.height = dh
             }
+            var timeCalc = new Date().getTime()
             currentAxis.limits = newLimits
+            var timeLimits = new Date().getTime()
+            currentAxis.updateTickLocations()
+            var timeUpdate = new Date().getTime()
+
+            console.log("Calc Time:", timeCalc - timeStart, " Limits Time:", timeLimits - timeCalc, " Update Time:", timeUpdate - timeLimits, "\n")
         }
 
         onPinchFinished: {
@@ -249,6 +256,7 @@ FigureBase {
                 newLimits.y += vy
 
                 currentAxis.limits = newLimits
+                currentAxis.updateTickLocations()
 
                 lastT = ct
             }

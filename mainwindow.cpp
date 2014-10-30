@@ -2,6 +2,7 @@
 #include <QDebug>
 
 #include <QQmlEngine>
+#include <QQmlContext>
 #include <QMenu>
 #include <QAction>
 #include <QSystemTrayIcon>
@@ -11,13 +12,20 @@
     void qt_mac_set_dock_menu(QMenu *menu);
 #endif
 
+QFileDialog *MainWindow::m_dialog = 0;
+
 MainWindow::MainWindow(QUrl qmlSource, QWidget *parent)
-    : QmlWindow(qmlSource, true, parent)
+    : QmlWindow(qmlSource, true, parent, true)
     , m_server(0)
     , m_settingsWindow(0)
 {
+    view()->rootContext()->setContextProperty("window", this);
+
+    finalizeView();
+
     setWindowIcon(QIcon(":/images/icon.png"));
     createSystemTray();
+    createMenus();
     this->resize(700, 500);
 }
 
@@ -83,6 +91,37 @@ void MainWindow::showAbout()
         m_aboutWindow->show();
 }
 
+void MainWindow::saveFigure()
+{
+
+}
+
+void MainWindow::loadFigure()
+{
+
+}
+
+void MainWindow::savePdfDialog(QString filename)
+{
+    qDebug() << "SavePDFDialog...";
+
+    if (!m_dialog) {
+        // Create it
+        m_dialog = new QFileDialog(this);
+        m_dialog->setModal(true);
+        m_dialog->setFileMode(QFileDialog::AnyFile);
+//        m_dialog->setLabelText(QFileDialog::FileType, "pdf");
+        m_dialog->setAcceptMode(QFileDialog::AcceptSave);
+        m_dialog->setNameFilter(tr("PDF Files (*.pdf)"));
+        m_dialog->setDefaultSuffix("pdf");
+
+        connect(m_dialog, &QFileDialog::fileSelected,
+                this, &MainWindow::fileSelected);
+    }
+    m_dialog->selectFile(filename);
+    m_dialog->open();
+}
+
 void MainWindow::createSystemTray()
 {
     // TODO: Find a way to make the icon not pixelated on high-dpi diplays.
@@ -122,6 +161,8 @@ void MainWindow::createSystemTray()
     // lost behind a long task bar...
 #ifdef Q_OS_MACX
     QMenu *dockMenu = new QMenu(this);
+    dockMenu->addAction(hideAction);
+    dockMenu->addSeparator();
     dockMenu->addAction(settingsAction);
     dockMenu->addAction(aboutAction);
     qt_mac_set_dock_menu(dockMenu);
@@ -129,4 +170,16 @@ void MainWindow::createSystemTray()
 
     m_trayIcon->setContextMenu(trayIconMenu);
     m_trayIcon->show();
+}
+
+void MainWindow::createMenus()
+{
+    QObject *root = view()->rootObject();
+
+    QMenu *fileMenu = menuBar()->addMenu("Figure");
+
+    QAction *pdfAction = new QAction("Save PDF...", fileMenu);
+    connect( pdfAction, SIGNAL(triggered()), root, SIGNAL(savePdf()));
+
+    fileMenu->addAction(pdfAction);
 }

@@ -15,24 +15,9 @@ ServerBase {
     property var controller: null
     property var userArea: null
 
-    /*!
-      Handles the initial request message. Selects the appropriate server command
-      to execute based on the first argument in the message `["command", request={"arg1": val1, "arg2": val2, ...}]`
-      \return Success: `command(request)` \n
-      Unrecognized command: `[1, {"message": m}]`
-    */
     onJsonReceived: {
         // Msg: {"handle": h, "data": {props: values}, "parameter": param}
-        var command = server[request[0]]
-        if (typeof command !== "function") {
-            console.log("Command, " + request[0] + ", is not a valid command.")
-            sendReply(JSON.stringify([1, {"message": "Unrecognized command"}]))
-            return
-        }
-
-        var result = command(request[1])
-
-        sendReply(JSON.stringify(result))
+        processMessage(request)
     }
 
     onBinaryReceived: { // (msg, data)
@@ -47,13 +32,32 @@ ServerBase {
     }
 
     /*!
+      Handles the initial request message. Selects the appropriate server command
+      to execute based on the first argument in the message `["command", request={"arg1": val1, "arg2": val2, ...}]`
+      \return Success: `command(request)`
+      \return Unrecognized command: `[1, {"message": m}]`
+    */
+    function processMessage(request) {
+        var command = server[request[0]]
+        if (typeof command !== "function") {
+            console.log("Command, " + request[0] + ", is not a valid command.")
+            sendReply(JSON.stringify([1, {"message": "Unrecognized command"}]))
+            return
+        }
+
+        var result = command(request[1])
+
+        sendReply(JSON.stringify(result))
+    }
+
+    /*!
         Create a figure based on the parameters provided in \a args.
 
         \param type:dictionary args: {"figureHandle": f, "qml": qmlString}
         \param figureHandle: (String) The unique handle for the figure being created.
         \param qml: (String) QML string declaring the layout of the figure. See more in ().
-        \return Success: `[0, {"figureHandle": f, "port": parameterUpdatePort, "message": m}]` \n
-        QML Failure: `[2, {"lineNumber": l, "columnNumber": c, "message": m}]`
+        \return Success: `[0, {"figureHandle": f, "port": parameterUpdatePort, "message": m}]`
+        \return QML Failure: `[2, {"lineNumber": l, "columnNumber": c, "message": m}]`
     */
     function createFigure(args) {
         var figureHandle = args.figureHandle,
@@ -100,8 +104,8 @@ ServerBase {
         \param qml: (String) Should describe the layout of the controls used for
         adjusting parameter values related to \p figureHandle.
         \return Success: `[0, {"message": m, "parameters": p}]` \n
-        Bad \p figureHandle: `[3, {"message": m}]` \n
-        QML Failure: `[4, {"lineNumber": l, "columnNumber": c, "message": m}]`
+        \return Bad \p figureHandle: `[3, {"message": m}]` \n
+        \return QML Failure: `[4, {"lineNumber": l, "columnNumber": c, "message": m}]`
     */
     function createGui(args) {
         var figureHandle = args.figureHandle,
@@ -144,6 +148,40 @@ ServerBase {
     }
 
     /*!
+        Check whether the given full handle is valid.
+
+        \param type:string handle: Full handle to any Nutmeg object.
+        \return Valid: `[0, {"message": m}]`
+        \return Invalid: `[6, {"message": m}]`
+    */
+    function handleValid(args) {
+        var handle = args.handle
+
+        var obj = controller.get(handle)
+        if ((Util.isArray(obj) && obj.length > 0))
+            return [0, {"message": "Object, " + handle + ", is valid."}]
+        else
+            return [6, {"message": "Object, " + handle + ", is invalid."}]
+    }
+
+    /*!
+        Find and return the full handle of the child of \a parentHandle,
+        with the handle, \a childHandle.
+
+        \param type:string parentHandle: The full handle of a figure or axis.
+        \param type:string childHandle: The handle name of the child.
+
+        \return Success: `[0, {"message": m, "fullHandle": h}]` \n
+    */
+    function findChild(args) {
+        var parentHandle = args.parentHandle
+        var childHandle = args.childHandle
+
+        return [-1, {"message": "Method not implemented", "fullHandle": parentHandle + "." + childHandle}]
+
+    }
+
+    /*!
         Sets the data or properties of `plotHandle` according the values stored in `dataDict`.
         Multiple objects can be referenced using Python-style pretty indexing (see below).
 
@@ -164,7 +202,7 @@ ServerBase {
         \param type:string parameter Optional argument which informs the server which changing
         parameter that this update is in response to. See Socket Architecture for details
         \return Success: `[0, {"message": m}]` \n
-        Bad Property: `[5, {"message": m}]`
+        \return Bad Property: `[5, {"message": m}]`
     */
     function sendData(args) {
         var handle = args.handle,
@@ -212,7 +250,9 @@ ServerBase {
         } else {
             // Check if the property is valid
             console.log("Setting property", prop, "for", obj)
-            var propName = obj.map(prop)
+            if (typeof obj.mapProperty != 'function') return false
+
+            var propName = obj.mapProperty(prop)
             if (!propName) return false
 
             obj[propName] = data

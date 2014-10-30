@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" line="68" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" bodystart="10" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" line="69" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" bodystart="10" bodyend="-1"/>
       </memberdef>
       <memberdef kind="property" id="class_figure_1a795e2d4f604be5c0b9149ed2dda39a34" prot="public" static="no" readable="no" writable="no" gettable="no" settable="no">
         <type>var</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" line="68" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" bodystart="12" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" line="69" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" bodystart="12" bodyend="-1"/>
       </memberdef>
       <memberdef kind="property" id="class_figure_base_1aace8e3efd4c586ce21f95668d9bf54a3" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
         <type>QString</type>

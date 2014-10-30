@@ -30,6 +30,7 @@ AxisBase {
     \qmlOnly
     */
     property alias backgroundColor: plotFrame.color
+
     /*! \property type:border border
     Set the border of the axis plotting frame.
     \qmlOnly
@@ -42,16 +43,19 @@ AxisBase {
     \qmlOnly
     */
     property real xLabelMargin: 5
+
     /*! \property yLabelMargin
     Set the clearance between the yLabel and the tick numbers. Default: 5
     \qmlOnly
     */
     property real yLabelMargin: 5
+
     /*! \property tickNumbersMargin
     Set the clearance between the tick numbers and the axis. Default: 4
     \qmlOnly
     */
     property real tickNumbersMargin: 4
+
     /*! \property titleMargin
     Set clearance between the title and the axis below. Default: 5
     \qmlOnly
@@ -69,12 +73,20 @@ AxisBase {
     property int xPrecision: 3
     property int yPrecision: 3
 
-    onWidthChanged: updateTickNumbers(0)
-    onHeightChanged: updateTickNumbers(1)
+    onWidthChanged: {
+        updateTickNumbers(0)
+        updateTickLocations()
+    }
+    onHeightChanged: {
+        updateTickNumbers(1)
+        updateTickLocations()
+    }
     xAxis.onMajorTicksChanged: updateTickNumbers(0)
     yAxis.onMajorTicksChanged: updateTickNumbers(1)
-    onLimitsChanged: updateTicks()
+//    onLimitsChanged: updateTicks()
     Component.onCompleted: updateTicks()
+
+
 
     margin {
         top: 5; right: 25;
@@ -276,17 +288,20 @@ AxisBase {
     function updateTicks() {
         updateTickNumbers(0)
         updateTickNumbers(1)
+        updateTickLocations()
     }
 
     function updateTickNumbers(axis) {
 //        console.log("Updating tickNumbers:", axis)
+        var t1 = new Date().getTime()
+
         var ticks, numbers, precision, i
-        if (axis == 0) {
+        if (axis === 0) {
             ticks = xAxis.majorTicks
             numbers = xNumbers
             precision = xPrecision
 
-        } else if (axis == 1) {
+        } else if (axis === 1) {
             ticks = yAxis.majorTicks
             numbers = yNumbers
             precision = yPrecision
@@ -296,18 +311,40 @@ AxisBase {
         }
         if (!numbers) return false
 
-        var N = numbers.length
+        // Let's do some optimization: align the new set of ticks with the old set
+        // Note: Assumes ticks are in ascending order.
+        var newNumbers = []
+        var ind = 0
+        var kept = []
 
-        var diff = ticks.length - N
-        if (diff > 0) {
-            for (i=0; i<diff; ++i)
-                numbers.push(numberCmp.createObject(plotFrame, {'axis': axis}))
-        } else if (ticks.length < N) {
-            for (i=0; i<-diff; ++i)
-                numbers.pop().destroy()
+        for (i=0; i<ticks.length; ++i) {
+            while (ind < numbers.length && ticks[i] > numbers[ind].value) {
+                numbers.splice(ind, 1)[0].destroy()
+            }
+
+            if (ind >= numbers.length || ticks[i] < numbers[ind].value) {
+                numbers.splice(ind, 0, (numberCmp.createObject(plotFrame, {'axis': axis})))
+                ind++
+            } else if (ticks[i] === numbers[ind].value) {
+                kept.push(ticks[i])
+                ind++
+            }
+        }
+        while (numbers.length > ticks.length) {
+            numbers.pop().destroy()
         }
 
-        N = numbers.length
+        var N = numbers.length
+//        var diff = ticks.length - N
+//        if (diff > 0) {
+//            for (i=0; i<diff; ++i)
+//                numbers.push(numberCmp.createObject(plotFrame, {'axis': axis}))
+//        } else if (ticks.length < N) {
+//            for (i=0; i<-diff; ++i)
+//                numbers.pop().destroy()
+//        }
+
+//        N = numbers.length
 
         // Define the display precision
         var mean = Util.mean(ticks)
@@ -324,8 +361,6 @@ AxisBase {
         }
 
         // Update .value for all.
-//        var n = ticks[0] == 0 ? 1 : 0
-//        var minPrec = precisionOf(ticks[n] - offset)
         var deltaPrec = precisionOf((ticks[N-1] - ticks[0])/5)
         var minPrec = precisionOf(Math.min(Math.abs(ticks[0]), Math.abs(ticks[N-1])))
         var maxPrec = Math.max(deltaPrec, minPrec)
@@ -341,38 +376,57 @@ AxisBase {
             scaleText = "1e" + prec + " "
         }
 
+//        var t2 = new Date().getTime()
         var maxSize = 0
+        var num
         for (i=0; i<N; ++i) {
             // TODO: Error: TypeError: Cannot set property 'value' of undefined
-            numbers[i].value = ticks[i]
-            numbers[i].offset = offset
-            numbers[i].scale = axisScale
-            if (forceNoExp)
-                numbers[i].precision = precision + 1
-            else
-                numbers[i].precision = precision
+            num = numbers[i]
+            num.value = ticks[i]
+            num.offset = offset
+            num.scale = axisScale
+            num.precision = (forceNoExp) ? precision + 1 : precision
 
-            var size = (axis == 0) ? numbers[i].implicitHeight : numbers[i].implicitWidth
+            num.updateTheText()
+
+            var size = (axis === 0) ? num.implicitHeight : num.implicitWidth
+
             if (size > maxSize)
                 maxSize = size;
         }
+//        var t3 = new Date().getTime()
 
         // The following statements ensure that this function is run.
         // It appears that the engine optimizes functions out if they
         // have not obvious external effect...
-        if (axis == 0) {
-            xNumbers = numbers
+        if (axis === 0) {
+//            xNumbers = numbers
             xNumbersMargin = maxSize
             xAxisOffset.scale = scaleText
             xAxisOffset.offset = offsetText
-        } else if (axis == 1) {
-            yNumbers = numbers
+        } else if (axis === 1) {
+//            yNumbers = numbers
             yNumbersMargin = maxSize
             yAxisOffset.scale = scaleText
             yAxisOffset.offset = offsetText
         }
 
+//        var t4 = new Date().getTime()
+//        console.log("UpdateTicks:", t2-t1, t3-t2, t4-t3)
         return true
+    }
+
+    function updateTickLocations() {
+        var i
+        if (typeof xNumbers !== 'undefined') {
+            for (i=0; i<xNumbers.length; ++i)
+                xNumbers[i].update()
+        }
+
+        if (typeof yNumbers !== 'undefined') {
+            for (i=0; i<yNumbers.length; ++i)
+                yNumbers[i].update()
+        }
     }
 
     function clearPlotTips() {
@@ -395,28 +449,34 @@ AxisBase {
             property real scale: 1
             property int precision: 3
 
-            text: axisItem.formatReal((value - offset)/scale, precision, -3)
+//            text: axisItem.formatReal((value - offset)/scale, precision, -3)
             font: axis == 0 ? xAxis.tickFont : yAxis.tickFont
             color: axis == 0 ? xAxis.tickTextColor : yAxis.tickTextColor
-            x: {
-                if (axis == 0) { // X axis
-                    var newX = (value - minX)/(maxX - minX)
-                    if (xAxis.inverted) newX = 1 - newX
-                    return plotFrame.width*newX - implicitWidth/2
 
-                } else { // Y axis
-                    return -implicitWidth - 5
-                }
+            function updateTheText() {
+                text = axisItem.formatReal((value - offset)/scale, precision, -3)
             }
-            y: {
+
+            function update() {
+                // Update position
+                var newX, newY
                 if (axis == 0) { // X axis
-                    return plotFrame.height + tickNumbersMargin
+                    newX = (value - minX)/(maxX - minX)
+                    if (xAxis.inverted) newX = 1 - newX
+                    newX = plotFrame.width*newX - 0.5*implicitWidth
+
+                    newY = plotFrame.height + tickNumbersMargin
 
                 } else { // Y axis
-                    var newY = (value - minY)/(maxY - minY)
+                    newX = -implicitWidth - 5
+
+                    newY = (value - minY)/(maxY - minY)
                     if (!yAxis.inverted) newY = 1 - newY
-                    return plotFrame.height*newY - implicitHeight/2
+                    newY = plotFrame.height*newY - 0.5*implicitHeight
                 }
+
+                x = newX
+                y = newY
             }
         }
     }

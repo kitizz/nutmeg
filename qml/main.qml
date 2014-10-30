@@ -1,4 +1,5 @@
 import QtQuick 2.2
+//import QtQuick.Dialogs 1.2
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import Graphr 1.0
@@ -6,14 +7,49 @@ import "Util.js" as Util
 import "Layouts" as Layouts
 import FileIO 1.0
 
-//import "Controls"
 
 Rectangle {
     id: root
-//    width: 600
-//    height: 360
+
     property var settings: null
     onSettingsChanged: console.log("Settings changed:", settings)
+
+    // The actual app menu is built in C++ and triggers these signals from the C++ side
+    signal savePdf
+    signal selectedPdf(string file)
+
+    onSavePdf: {
+        var fig = tabView.currentFigure()
+        console.log("Save PDF")
+
+//        window.savePdfDialog(fig.handle)
+    }
+
+    onSelectedPdf: {
+        console.log("Pdf Selected:", file)
+        tabView.currentFigure().savePdf(file)
+    }
+
+    // TODO: Reenable FileDialog when it is possible to set the filename...
+//    FileDialog {
+//        id: pdfDialog
+//        visible: false
+
+//        title: "Please choose a destination"
+//        selectExisting: false
+//        selectMultiple: false
+
+////        nameFilters: [ "PDF file (*.pdf)"]
+////        selectedNameFilter: "PDF file (*.pdf)"
+
+//        onAccepted: {
+//            console.log("You chose: " + pdfDialog.fileUrl)
+//        }
+//        onRejected: {
+//            console.log("Canceled")
+//        }
+////        Component.onCompleted: visible = true
+//    }
 
     FileIO {
         id: testFile
@@ -22,6 +58,9 @@ Rectangle {
     }
 
     Component.onCompleted: {
+        // Connect file dialog signals
+//        window.fileSelected.connect(selectedPdf)
+
         var plotTest = true
         if (plotTest) {
             var qml = testFile.read()
@@ -42,13 +81,17 @@ Rectangle {
             }} )
 
             server.sendData( {"handle": "testFigure.ax.yAxis", "data": {
-                                    "label": "Y Label that's realllllly long"
+                                    "label": "Coolest Y Label Ever"
             }} )
             console.log("Result:", res[1].message)
 //            server.sendData( {"handle": "testFigure.ax.blue", "data": {"y": [0,1,2,3,2,1,3,5,2,10]}} )
 //            server.sendData( {"handle": "testFigure.ax.red", "data": {"y": [4,8,13,0.1,0.5,3,4,5]}} )
 //            server.sendData([0, "testFigure.ax.blue", {"y": [3,1]}])
         }
+    }
+
+    Figure {
+
     }
 
     Server {
@@ -91,6 +134,10 @@ Rectangle {
             figure.tabIndex = count - 1
             figure.visible = Qt.binding(function() { return figure.tabIndex == tabView.currentIndex })
             return true
+        }
+
+        function currentFigure() {
+            return figures[tabView.currentIndex]
         }
 
         Component {
@@ -149,6 +196,10 @@ Rectangle {
         }
 
     }
+
+//    Item {
+//        id: actions
+//    }
 
     Item {
         id: figureContainer

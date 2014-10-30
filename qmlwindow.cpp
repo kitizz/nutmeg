@@ -2,34 +2,46 @@
 
 #include <QHBoxLayout>
 #include <QQmlEngine>
+#include <QQmlContext>
 #include <QQuickItem>
 #include <QDebug>
 
-QmlWindow::QmlWindow(QUrl qmlSource, bool persistent, QWidget *parent)
+QmlWindow::QmlWindow(QUrl qmlSource, bool persistent, QWidget *parent, bool delayViewInit)
     : QWidget(parent)
     , m_view(0)
+    , m_source(qmlSource)
     , m_lastSize(QSize())
     , m_exiting(false)
     , m_persistent(persistent)
 {
-    QHBoxLayout *layout = new QHBoxLayout(this);
-    layout->setContentsMargins(0,0,0,0);
+    m_menuBar = new QMenuBar(0);
 
     m_view = new QQuickView();
     m_view->connect(m_view->engine(), &QQmlEngine::quit, m_view, &QWindow::close);
 
-//    QQmlApplicationEngine *engine = new QQmlApplicationEngine(qmlSource);
+    if (!delayViewInit)
+        finalizeView();
+}
 
+void QmlWindow::finalizeView()
+{
     QWidget *container = QWidget::createWindowContainer(m_view);
     container->setMinimumSize(100, 100);
     container->setMaximumSize(60000, 60000);
     container->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     container->setFocusPolicy(Qt::StrongFocus);
-    m_view->setSource(qmlSource);
-    m_view->setResizeMode(QQuickView::SizeRootObjectToView);
-    m_view->rootObject()->setProperty("window", QVariant::fromValue(this));
 
+    m_view->setSource(m_source);
+    m_view->setResizeMode(QQuickView::SizeRootObjectToView);
+
+    QHBoxLayout *layout = new QHBoxLayout(this);
+    layout->setContentsMargins(0,0,0,0);
     layout->addWidget(container);
+}
+
+QMenuBar *QmlWindow::menuBar()
+{
+    return m_menuBar;
 }
 
 bool QmlWindow::event(QEvent *event)
@@ -42,6 +54,7 @@ bool QmlWindow::event(QEvent *event)
     }
     return QWidget::event(event);
 }
+
 
 void QmlWindow::showHide()
 {

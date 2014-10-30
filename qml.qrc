@@ -25,6 +25,8 @@
         <file>images/logo.icns</file>
         <file>qml/CloseButton.qml</file>
         <file>qml/ImagePlot.qml</file>
+        <file>qml/Controls/Button.qml</file>
+        <file>qml/Controls/ControlItem.qml</file>
     </qresource>
     <qresource prefix="/licenses">
         <file alias="LICENSE_nzmqt">nzmqt/LICENSE_nzmqt.md</file>

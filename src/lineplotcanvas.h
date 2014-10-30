@@ -18,6 +18,9 @@ signals:
 
 public slots:
 
+private:
+    QPointF transformPoint(const QPointF &p, qreal tx, qreal ty, qreal sx, qreal sy, qreal limx, qreal limy);
+
 };
 
 #endif // LINEPLOTCANVAS_H

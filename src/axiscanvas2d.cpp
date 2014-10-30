@@ -51,6 +51,7 @@ void AxisCanvas2D::setAxis(AxisBase *arg)
     if (m_axis == arg) return;
 
     if (m_axis) {
+        m_axis->setCanvas(0);
         m_axis->disconnect(this);
         m_axis->xAxis()->disconnect(this);
         m_axis->yAxis()->disconnect(this);
@@ -59,6 +60,7 @@ void AxisCanvas2D::setAxis(AxisBase *arg)
     m_axis = arg;
 
     if (m_axis) {
+        m_axis->setCanvas(this);
         connect(m_axis, &AxisBase::limitsChanged, this, &AxisCanvas2D::triggerUpdate);
         connect(m_axis->xAxis(), &AxisSpec::majorTicksChanged, this, &AxisCanvas2D::triggerUpdate);
         connect(m_axis->xAxis(), &AxisSpec::minorTicksChanged, this, &AxisCanvas2D::triggerUpdate);

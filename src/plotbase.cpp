@@ -22,6 +22,13 @@ AxisBase *PlotBase::axis() const
     return m_axis;
 }
 
+void PlotBase::print(QPainter *painter)
+{
+    if (!m_canvas)
+        return;
+    m_canvas->paint(painter);
+}
+
 QString PlotBase::handle() const
 {
     return m_handle;
@@ -44,11 +51,6 @@ void PlotBase::setCanvas(QQuickPaintedItem *arg)
     if (m_canvas == arg) return;
     m_canvas = arg;
     emit canvasChanged(arg);
-}
-
-QString PlotBase::map(QString prop)
-{
-    return NutmegObject::map(prop);
 }
 
 QPointF PlotBase::itemToData(QPointF point)
@@ -122,6 +124,27 @@ QRectF PlotBase::dataLimits() const
     return m_dataLimits;
 }
 
+void PlotBase::registerProperties(QMap<QString, QString> mapping)
+{
+    NutmegObject::registerProperties(mapping);
+}
+
+void PlotBase::registerProperties(QVariantMap mapping)
+{
+    QMap<QString, QString> map;
+    foreach (QString tag, mapping.keys()) {
+        QString prop = mapping.value(tag).toString();
+        if (!prop.isEmpty())
+            map.insert(tag, prop);
+    }
+    registerProperties(map);
+}
+
+QString PlotBase::mapProperty(const QString &prop)
+{
+    return NutmegObject::mapProperty(prop);
+}
+
 void PlotBase::setAxis(AxisBase *arg)
 {
     if (m_axis == arg) return;
@@ -152,7 +175,7 @@ void PlotBase::setAxis(AxisBase *arg)
 
 void PlotBase::triggerUpdate()
 {
-    update();
+//    update();
     if (m_canvas)
         m_canvas->update();
 }

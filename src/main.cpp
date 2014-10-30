@@ -23,6 +23,7 @@
 int main(int argc, char *argv[])
 {
     qmlRegisterUncreatableType<QmlWindow>("Graphr", 1,0, "QmlWindow", "Cannot create QmlWindow");
+    qmlRegisterUncreatableType<MainWindow>("Graphr", 1,0, "MainWindow", "Cannot create MainWindow");
     qmlRegisterType<FigureBase>("Graphr", 1,0, "FigureBase");
 
     qmlRegisterType<AxisBase>("Graphr", 1,0, "AxisBase");

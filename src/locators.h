@@ -24,6 +24,8 @@ public:
     qreal end() const;
     void setEnd(qreal arg);
 
+    void setLimits(qreal start, qreal end);
+
     qreal pixelSize() const;
     void setPixelSize(qreal arg);
 

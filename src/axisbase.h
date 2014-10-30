@@ -28,6 +28,7 @@ class AxisBase : public QQuickPaintedItem, public NutmegObject
 
     Q_PROPERTY(FigureBase* figure READ figure WRITE setFigure NOTIFY figureChanged)
     Q_PROPERTY(QVariantMap plots READ plots NOTIFY plotsChanged)
+    Q_PROPERTY(QQuickPaintedItem* canvas READ canvas WRITE setCanvas NOTIFY canvasChanged)
 
     Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
     Q_PROPERTY(QFont titleFont READ titleFont WRITE setTitleFont NOTIFY titleFontChanged)
@@ -56,17 +57,18 @@ public:
     Q_INVOKABLE qreal offsetFromStd(qreal val, qreal std);
 
     void paint(QPainter *painter);
+    void print(QPainter *painter);
 
     FigureBase* figure() const;
 
     qreal minX() const;
-    void setMinX(qreal arg, bool fix=true);
+    void setMinX(qreal arg, bool fix=true, bool updateAxis=true);
     qreal maxX() const;
-    void setMaxX(qreal arg, bool fix=true);
+    void setMaxX(qreal arg, bool fix=true, bool updateAxis=true);
     qreal minY() const;
-    void setMinY(qreal arg, bool fix=true);
+    void setMinY(qreal arg, bool fix=true, bool updateAxis=true);
     qreal maxY() const;
-    void setMaxY(qreal arg, bool fix=true);
+    void setMaxY(qreal arg, bool fix=true, bool updateAxis=true);
 
     Q_INVOKABLE void offset(qreal x, qreal y);
 
@@ -78,7 +80,7 @@ public:
     Q_INVOKABLE QVariantList getPlotList();
 
     // NutmegObject interface
-    Q_INVOKABLE QString map(const QString &prop);
+    Q_INVOKABLE QString mapProperty(const QString &prop);
 
     QRectF limits() const;
     void setLimits(QRectF arg, bool fix=true);
@@ -107,6 +109,9 @@ public:
 
     QColor titleColor() const;
     void setTitleColor(QColor arg);
+
+    QQuickPaintedItem* canvas() const;
+    void setCanvas(QQuickPaintedItem* arg);
 
 signals:
     void figureChanged(FigureBase* arg);
@@ -137,6 +142,8 @@ signals:
     void titleFontChanged(QFont arg);
 
     void titleColorChanged(QColor arg);
+
+    void canvasChanged(QQuickPaintedItem* arg);
 
 public slots:
     void registerPlot(PlotBase *axis);
@@ -187,6 +194,7 @@ private:
     QString m_title;
     QFont m_titleFont;
     QColor m_titleColor;
+    QQuickPaintedItem* m_canvas;
 };
 
 class AxisGrid : public QObject, public NutmegObject
@@ -202,7 +210,7 @@ public:
     enum GridAxes { None=0, XY=3, X=1, Y=2 };
 
     // Interface to NutmegObject
-    Q_INVOKABLE QString map(QString prop);
+    Q_INVOKABLE QString mapProperty(QString prop);
 
     GridAxes axes() const;
     void setAxes(GridAxes arg);
@@ -250,7 +258,7 @@ public:
     enum TickDirection { Off=0, In=1, Out=2, InOut=3 };
 
     // NutmegObject interface
-    Q_INVOKABLE QString map(QString prop);
+    Q_INVOKABLE QString mapProperty(QString prop);
 
     QVariantList majorTicks() const;
     void setMajorTicks(QVariant arg);
@@ -328,6 +336,7 @@ private:
     void setPixelSize(qreal arg);
     void setMin(qreal arg);
     void setMax(qreal arg);
+    void setLimits(qreal min, qreal max);
 
     Locator* m_majorTicks;
     Locator* m_minorTicks;

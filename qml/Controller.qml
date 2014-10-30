@@ -5,7 +5,7 @@ import "Util.js" as Util
 
 ControllerBase {
 
-    property bool enableDebugging: false
+    property bool enableDebugging: true
     /// Fetch a plot component based on its location, relative to top
     /// Example: figure[0].ax[1].data
     function debug(s) {
@@ -32,6 +32,7 @@ ControllerBase {
             if (N == 2) return axes
 
             var plots = getDataFromAxis(axes, args[2])
+            debug("Plots found: " + plots)
             if (N == 3) return plots
 
             var nextObjs = plots
@@ -71,10 +72,15 @@ ControllerBase {
                 return axes[handle][index]
             }
         } else {
-            if (!axes[handle])
+            if (!axes[handle]) {
                 return null
-            else
-                return axes[handle]
+            } else {
+                var result = axes[handle]
+                if (result.length == 1)
+                    return result[0]
+                else
+                    return result
+            }
         }
     }
 
@@ -88,8 +94,9 @@ ControllerBase {
     function getDataFromAxis(axes, handle) {
 //        debug("PlotDataArg: " + handle)
 //        debug("Datas: " + Util.dir(axis.plots))
-        var plots = []
+
         if (Util.isArray(axes)) {
+            var plots = []
             for (var i=0; i<axes.length; ++i) {
                 var plot = axes[i].plots[handle]
                 if (!plot)
@@ -110,8 +117,11 @@ ControllerBase {
     function getFromObj(obj, handle) {
 //        debug("PlotDataArg: " + handle)
 //        debug("Datas: " + Util.dir(axis.plots))
-        var datas = []
+        if (!obj)
+            return null
+
         if (Util.isArray(obj)) {
+            var datas = []
             for (var i=0; i<obj.length; ++i) {
                 datas.push(getFromObj(obj[i], handle))
             }
@@ -119,7 +129,8 @@ ControllerBase {
             debug("Datas: " + datas)
             return datas
         } else {
-            var propName = obj.map(handle)
+            debug("Getting " + handle + " from " + obj)
+            var propName = obj.mapProperty(handle)
             if (!propName) return null
             return obj[propName]
         }

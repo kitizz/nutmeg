@@ -23,13 +23,13 @@ public:
     explicit PlotBase(QQuickItem *parent = 0);
     AxisBase* axis() const;
 
+    void print(QPainter *painter);
+
     QString handle() const;
     void setHandle(QString arg);
 
     QQuickPaintedItem* canvas() const;
     void setCanvas(QQuickPaintedItem* arg);
-
-    Q_INVOKABLE QString map(QString prop);
 
     Q_INVOKABLE QPointF itemToData(QPointF point);
     Q_INVOKABLE QPointF dataToItem(QPointF point);
@@ -38,6 +38,11 @@ public:
     Q_INVOKABLE QList<QPointF> dataToItemList(QList<QPointF> points);
 
     QRectF dataLimits() const;
+
+    // Nutmegobject API
+    Q_INVOKABLE void registerProperties(QMap<QString, QString> mapping);
+    Q_INVOKABLE void registerProperties(QVariantMap mapping);
+    Q_INVOKABLE QString mapProperty(const QString &prop);
 
 signals:
     void axisChanged(AxisBase* arg);

@@ -2,6 +2,9 @@
 #include "lineplot.h"
 #include "util.h"
 
+//TODO: Remove
+#include <QTime>
+
 LinePlotCanvas::LinePlotCanvas(QQuickItem *parent) :
     PlotCanvas(parent)
 {
@@ -17,8 +20,6 @@ void LinePlotCanvas::paint(QPainter *painter)
     if (!monAxis || xData.length() != yData.length())
         return; // Funky data
 
-    // Data limits:
-    QRectF dataLim = monAxis->dataLimits();
     // View limits:
     qreal minX = monAxis->minX();
     qreal minY = monAxis->minY();
@@ -30,19 +31,23 @@ void LinePlotCanvas::paint(QPainter *painter)
     // Transform the plot coords to view coords
     qreal scaleX = width()/(lim.width());
     qreal scaleY = height()/(lim.height());
-    qreal scaleOffsetX = 0;
-    qreal scaleOffsetY = 0;
+    qreal tx = 0;
+    qreal ty = 0;
     if (monAxis->xAxis()->inverted()) {
         scaleX *= -1;
-        scaleOffsetX = width();
+        tx = width();
     }
     if (monAxis->yAxis()->inverted()) {
         scaleY *= -1;
-        scaleOffsetY = height();
+        ty = height();
     }
-    painter->translate(scaleOffsetX, scaleOffsetY);
+    // TODO: Not this...
+    painter->translate(tx, ty);
     painter->scale(scaleX, scaleY);
     painter->translate(-lim.x(), -lim.y());
+
+    QTransform tran;
+    tran.translate(tx, ty).scale(scaleX, scaleY).translate(-lim.x(), -lim.y());
 
     QPolygonF line;
     // Get the segments into screen coords
@@ -56,6 +61,10 @@ void LinePlotCanvas::paint(QPainter *painter)
     QPointF latestPoint;
     QPolygonF latestPoly;
     bool starting = true;
+
+    // If there's only 1 point, the forloop will not run
+    if (line.size() == 1)
+        latestPoly << line[0];
 
     for (int i=0; i<line.size() - 1; ++i) {
         QPointF p1 = line[i], p2 = line[i+1];
@@ -94,14 +103,20 @@ void LinePlotCanvas::paint(QPainter *painter)
     painter->setPen(pen);
 
     foreach (QPolygonF poly, lines) {
+//        poly = tran.map(poly);
         if (style == ".") {
             foreach (QPointF p, poly) {
-                painter->drawEllipse(p, pen.widthF(), pen.widthF());
+                painter->drawEllipse(p, pen.widthF()/scaleX, pen.widthF()/scaleY);
             }
         } else {
             painter->drawPolyline(poly);
         }
     }
+}
+
+QPointF LinePlotCanvas::transformPoint(const QPointF &p, qreal tx, qreal ty, qreal sx, qreal sy, qreal limx, qreal limy)
+{
+    return QPointF((p.x() + tx)*sx - limx, (p.y() + ty)*sy - limy);
 }
 
 /*!

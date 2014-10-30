@@ -9,8 +9,8 @@
 class NutmegObject
 {
 public:
-    Q_INVOKABLE void registerProperties(QMap<QString, QString> mapping);
-    Q_INVOKABLE QString map(const QString &prop);
+    virtual void registerProperties(QMap<QString, QString> mapping);
+    virtual QString mapProperty(const QString &prop);
 
 private:
     QMap<QString, QString> m_mapping;

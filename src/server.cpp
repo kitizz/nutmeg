@@ -131,8 +131,11 @@ void Server::parameterChanged(QString figureHandle, QString parameter, QVariant 
 
     PushSocket *socket = m_socketUpdateMap.value(figureHandle, 0);
     if (socket) {
+        qDebug() << "socket for" << figureHandle;
         QString tag = figureHandle + "." + parameter;
         socket->sendMessage(tag, msg);
+    } else {
+        qDebug() << "No socket for" << figureHandle;
     }
 }
 

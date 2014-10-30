@@ -104,7 +104,7 @@ void PushSocket::sendMessage(const QString &tag, const QList<QByteArray> &msg)
         qWarning() << Q_FUNC_INFO << "Socket is not running.";
         return;
     }
-
+    qDebug() << Q_FUNC_INFO << "Tag:" << tag << "Msg:" << msg;
     if (!m_msgMap.contains(tag))
         m_msgQueue.append(tag);
     m_msgMap.insert(tag, msg);
@@ -113,14 +113,15 @@ void PushSocket::sendMessage(const QString &tag, const QList<QByteArray> &msg)
 
 void PushSocket::sendPendingMessages()
 {
+    qDebug() << "PushSocket ready:" << m_ready;
     if (!m_ready) return;
     if (m_msgQueue.length() == 0) return;
 
     for (int i=0; i<m_msgQueue.length(); ++i) {
         QString key = m_msgQueue[i];
-        // TODO: Hmmmm, how to deal with the fact that requests come back on the server's main socket...
-        if (m_msgToReceive.contains(key))
-            continue;
+//        // TO DO: Hmmmm, how to deal with the fact that requests come back on the server's main socket...
+//        if (m_msgToReceive.contains(key))
+//            continue;
         m_ready = false;
         m_socket->sendMessage(m_msgMap[key]);
         m_msgMap.remove(key);

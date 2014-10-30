@@ -74,6 +74,27 @@ def _testFonts():
     for i in range(3):
         fig.set('ax[' + str(i) + '].title', "Axis" + str(i+1))
 
+def _testValidateHandle():
+    Nutmeg.init()
+    fig = Nutmeg.figure('fig', 'figure_single.qml')
+    print(Nutmeg.isValidHandle('fig.ax.redPlot'))
+
+def _testButton():
+    Nutmeg.init()
+    fig = Nutmeg.figure('fig', 'figure_single.qml')
+    fig.setGui('gui1.qml')
+
+    print (fig.parameters)
+    time.sleep(0.1)
+    buttonParam = fig.parameter("button")
+
+    while True:
+        if buttonParam.changed:
+            changes = buttonParam.changed
+            print("Button: %d (clicked %d times)" % (changes, buttonParam.read()))
+            break
+        time.sleep(0.1)
+
 
 if __name__ == '__main__':
     # _testParams()
@@ -81,6 +102,8 @@ if __name__ == '__main__':
     # _testDelta()
     # _testImages()
     # _testGrid()
-    _testFonts()
+    # _testFonts()
+    # _testValidateHandle()
+    _testButton()
     # _testFloats()
     # print toQmlObject({'xdata': {0:[1,2,3], 1:[[4],5,6], 2:np.eye(3)}, 'ydata': range(4)})
