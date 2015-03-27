@@ -2,7 +2,7 @@ import QtQuick 2.2
 //import QtQuick.Dialogs 1.2
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
-import Graphr 1.0
+import Nutmeg 1.0
 import "Util.js" as Util
 import "Layouts" as Layouts
 import FileIO 1.0

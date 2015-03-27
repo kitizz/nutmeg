@@ -1,5 +1,5 @@
 import QtQuick 2.2
-import Graphr 1.0
+import Nutmeg 1.0
 import "Util.js" as Util
 //import "Vector.js" as Vector
 
@@ -50,8 +50,12 @@ FigureBase {
                 mouse.accepted = false
                 return
             }
-            dragActive = true
+
             currentAxis = axisAtPoint(mouse)
+            if (!currentAxis.navigationEnabled)
+                return
+
+            dragActive = true
 
             startMouse.x = mouse.x
             startMouse.y = mouse.y
@@ -65,7 +69,7 @@ FigureBase {
         }
 
         onPositionChanged: {
-            if (!dragActive) return
+            if (!dragActive || !currentAxis.navigationEnabled) return
             delta.x = mouse.x - startMouse.x
             delta.y = mouse.y - startMouse.y
             // Invert the axes if necessary
@@ -106,6 +110,7 @@ FigureBase {
             }
 
             currentAxis.limits = limits
+            currentAxis.updateTickLocations()
 
         }
 
@@ -142,6 +147,7 @@ FigureBase {
         property real damping: 5
 
         property var currentAxis: null
+        property var pinchCenter: Qt.point(0,0)
 
         onPressed: {
             mrTimer.stopTimer()
@@ -150,6 +156,13 @@ FigureBase {
         onPinchStarted: {
             var p = mapToItem(figureBase, touchArea.p1.x, touchArea.p1.y)
             currentAxis = axisAtPoint(p)
+            if (!currentAxis || !currentAxis.navigationEnabled)
+                return
+
+            var axisP = mapToItem(currentAxis, touchArea.p1.x, touchArea.p1.y)
+            axisP.x -= currentAxis.plotRect.x
+            axisP.y -= currentAxis.plotRect.y
+            pinchCenter = axisP
 
             startWidth = currentAxis.maxX - currentAxis.minX
             startHeight = currentAxis.maxY - currentAxis.minY
@@ -157,6 +170,8 @@ FigureBase {
 
 //        property var lastTimeUpdate: new Date().getTime()
         onPinchUpdated: {
+            if (!currentAxis || !currentAxis.navigationEnabled)
+                return
 //            var timeStart = new Date().getTime()
             var dx = pinch.center.x - pinch.previousCenter.x
             var dy = pinch.center.y - pinch.previousCenter.y
@@ -169,12 +184,17 @@ FigureBase {
             dx *= xScale*panSensitivity // TODO: Acceleration goes here
             dy *= yScale*panSensitivity
 
-            var newLimits = Qt.rect(currentAxis.limits.x - dx, currentAxis.limits.y + dy,
+            var newLimits = Qt.rect(currentAxis.limits.x, currentAxis.limits.y,
                                     currentAxis.limits.width, currentAxis.limits.height)
+
+            if (pinch.pinchMode == mode.pan) {
+                newLimits.x -= dx
+                newLimits.y += dy
+            }
 
 //            var pinchCenter = mapToItem(currentAxis, touchArea.p1.x, touchArea.p1.y)
 //            var pinchCenter = mapToItem(currentAxis, touchArea.width/2, touchArea.height/2)
-            var pinchCenter = Qt.point(currentAxis.plotRect.width/2, currentAxis.plotRect.height/2)
+//            var pinchCenter = Qt.point(currentAxis.plotRect.width/2, currentAxis.plotRect.height/2)
 
             // If there is ZOOMING happening
             if (pinch.pinchMode == mode.pinchPan || pinch.pinchMode == mode.pinchXpan) {
@@ -207,6 +227,10 @@ FigureBase {
         }
 
         onPinchFinished: {
+            if (!currentAxis || !currentAxis.navigationEnabled)
+                return
+            if (pinch.pinchMode != mode.pan)
+                return
             mrTimer.lastT = new Date().getTime()
 
             mrTimer.velX = pinch.velocity.x

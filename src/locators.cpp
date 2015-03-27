@@ -126,6 +126,33 @@ void Locator::setMultiples(QList<qreal> arg)
     emit multiplesChanged(arg);
 }
 
+QStringList Locator::locationLabels() const
+{
+    // Only return the labels if they're valid
+    if (m_locationLabels.length() != m_locations.length())
+        return QStringList();
+    else
+        return m_locationLabels;
+}
+
+void Locator::setLocationLabels(QStringList arg)
+{
+    if (m_locationLabels == arg) return;
+    m_locationLabels = arg;
+    emit locationLabelsChanged(arg);
+}
+
+void Locator::setLocationsAndLabels(QList<qreal> locs, QStringList labels) {
+    bool newLocs = locs != m_locations;
+    bool newLabels = labels != m_locationLabels;
+
+    m_locations = locs;
+    m_locationLabels = labels;
+
+    if (newLocs) emit locationsChanged(locs);
+    if (newLabels) emit locationLabelsChanged(labels);
+}
+
 
 //-------------------------------------------------------------------
 //          AutoLocator
@@ -313,4 +340,48 @@ void SpacedLocator::updateLocator()
 qreal SpacedLocator::spacing() const
 {
     return m_spacing;
+}
+
+
+LabelLocator::LabelLocator(QObject *parent)
+    : HardLocator(parent)
+    , m_labels(QStringList())
+{
+
+}
+
+LabelLocator::LabelLocator(QStringList labels, QList<qreal> hardLocs, QObject *parent)
+    : HardLocator(hardLocs, parent)
+    , m_labels(labels)
+{
+    updateLocator();
+}
+
+QStringList LabelLocator::labels() const
+{
+    return m_labels;
+}
+
+void LabelLocator::setLabels(QStringList arg)
+{
+    if (m_labels == arg) return;
+    m_labels = arg;
+    updateLocator();
+    emit labelsChanged(arg);
+}
+
+void LabelLocator::updateLocator()
+{
+    QList<qreal> newLocs;
+    QStringList newLabels;
+
+//    foreach (qreal val, hardLocations()) {
+    for (int i = 0; i < hardLocations().length(); ++i) {
+        qreal val = hardLocations()[i];
+        if (val >= start() && val <= end()) {
+            newLocs << val;
+            newLabels << labels()[i];
+        }
+    }
+    setLocationsAndLabels(newLocs, newLabels);
 }

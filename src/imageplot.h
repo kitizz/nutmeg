@@ -1,10 +1,10 @@
 #ifndef IMAGEPLOTBASE_H
 #define IMAGEPLOTBASE_H
 
-#include "plotbase.h"
+#include "plot2dbase.h"
 #include <QPixmap>
 
-class ImagePlot : public PlotBase
+class ImagePlot : public Plot2DBase
 {
     Q_OBJECT
     Q_PROPERTY(QByteArray binary READ binary WRITE setBinary NOTIFY binaryChanged)

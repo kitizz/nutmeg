@@ -3,6 +3,11 @@
 
 #include <QList>
 #include <QRectF>
+#include <QPolygonF>
+#include <QLineF>
+
+#include <limits>
+#define Inf std::numeric_limits<double>::infinity()
 
 class Util
 {
@@ -25,6 +30,9 @@ public:
 
     static void resizeRelativeRatio(QRectF *rect, QSizeF size, qreal aspectRatio,
                                     AnchorSide anchor=AnchorFit, QPointF center=QPoint());
+
+    static QList<QPolygonF> cullLine(QPolygonF poly, QRectF rect);
+    static QLineF rectSlice(QPointF p1, QPointF p2, QRectF r);
 };
 
 #endif // UTIL_H

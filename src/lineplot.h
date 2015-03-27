@@ -2,7 +2,7 @@
 #define LINEPLOT_H
 
 #include "xyplot.h"
-#include "axisbase.h"
+#include "axis2dbase.h"
 #include "linespec.h"
 #include <QPolygonF>
 #include <QMap>

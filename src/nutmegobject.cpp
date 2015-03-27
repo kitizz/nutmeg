@@ -6,14 +6,28 @@
 
 void NutmegObject::registerProperties(QMap<QString, QString> mapping)
 {
-    qDebug() << "RegisterProps" << mapping;
+//    qDebug() << "RegisterProps" << mapping;
     foreach (const QString key, mapping.keys()) {
-        m_mapping.insert(key, mapping[key]);
+        m_propMap.insert(key, mapping[key]);
     }
 }
 
 QString NutmegObject::mapProperty(const QString &prop) {
-    qDebug() << "NutmegObject.map" << prop << m_mapping.keys();
-    qDebug() << "mapping[prop]" << m_mapping[prop] << m_mapping.contains(prop);
-    return m_mapping[prop];
+//    qDebug() << "NutmegObject.map" << prop << m_propMap.keys();
+//    qDebug() << "mapping[prop]" << m_propMap[prop] << m_propMap.contains(prop);
+    return m_propMap[prop];
+}
+
+void NutmegObject::registerMethods(QMap<QString, QString> mapping)
+{
+    qDebug() << "RegisterMethods" << mapping;
+    foreach (const QString key, mapping.keys()) {
+        m_funcMap.insert(key, mapping[key]);
+    }
+}
+
+QString NutmegObject::mapMethod(const QString &prop) {
+//    qDebug() << "NutmegObject.methodMap" << prop << m_funcMap.keys();
+//    qDebug() << "mapping[prop]" << m_funcMap[prop] << m_funcMap.contains(prop);
+    return m_funcMap[prop];
 }

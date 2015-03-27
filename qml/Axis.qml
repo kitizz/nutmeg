@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import Graphr 1.0
+import Nutmeg 1.0
 import QtQuick.Layouts 1.0
 
 import "Vector.js" as Vector
@@ -17,7 +17,18 @@ AxisBase {
     height: parent.height
 
     default property alias plotArea: plots.children
-    property rect plotRect: Qt.rect(plotFrame.x, plotFrame.y, plotFrame.width, plotFrame.height)
+    plotRect: Qt.rect(plotFrame.x, plotFrame.y, plotFrame.width, plotFrame.height)
+    readonly property alias plotMargins: pltMarg
+
+    AxisMargins {
+        id: pltMarg
+        top: titleMargin + titleText.y + titleText.height
+        left: yLabelMargin + yNumbersMargin + tickNumbersMargin + yLabelContainer.x + yLabelContainer.width
+        bottom: xLabelMargin + xNumbersMargin + tickNumbersMargin + margin.bottom + xLabelText.height
+        right: axisItem.margin.right
+    }
+
+    onLimitsChanged: console.log("New Limits:", limits)
 
     property real widthFraction: -1
     property real heightFraction: -1
@@ -61,6 +72,12 @@ AxisBase {
     \qmlOnly
     */
     property real titleMargin: 5
+
+    /*! \property navigationEnabled
+    Set whether the user can navigate this axis, or if it is fixed.
+    \qmlOnly
+    */
+    property bool navigationEnabled: true
 
     //----------------------
     //      Internal
@@ -144,12 +161,17 @@ AxisBase {
             id: plotFrame
             z: -2
             anchors {
-                leftMargin: yLabelMargin + yNumbersMargin + tickNumbersMargin
-                rightMargin: axisItem.margin.right
-                topMargin: titleMargin;
-                bottomMargin: xLabelMargin + xNumbersMargin + tickNumbersMargin
-                top: titleText.bottom; bottom: xLabelText.top
-                left: yLabelContainer.right; right: parent.right
+                fill: parent
+                topMargin: plotMargins.top
+                leftMargin: plotMargins.left
+                bottomMargin: plotMargins.bottom
+                rightMargin: plotMargins.right
+//                leftMargin: yLabelMargin + yNumbersMargin + tickNumbersMargin
+//                rightMargin: axisItem.margin.right
+//                topMargin: titleMargin
+//                bottomMargin: xLabelMargin + xNumbersMargin + tickNumbersMargin
+//                top: titleText.bottom; bottom: xLabelText.top
+//                left: yLabelContainer.right; right: parent.right
             }
             color: "white"
             border { color: "#AAAAAA"; width: 1 }
@@ -228,8 +250,9 @@ AxisBase {
                     return
                 }
 
-                tipTimer.pos = Vector.point(mouse)
-                tipTimer.start()
+                // Disable this for now...
+//                tipTimer.pos = Vector.point(mouse)
+//                tipTimer.start()
             }
 
             onPositionChanged: {
@@ -295,14 +318,16 @@ AxisBase {
 //        console.log("Updating tickNumbers:", axis)
         var t1 = new Date().getTime()
 
-        var ticks, numbers, precision, i
+        var ticks, labels, numbers, precision, i
         if (axis === 0) {
             ticks = xAxis.majorTicks
+            labels = xAxis.majorTickLabels
             numbers = xNumbers
             precision = xPrecision
 
         } else if (axis === 1) {
             ticks = yAxis.majorTicks
+            labels = yAxis.majorTickLabels
             numbers = yNumbers
             precision = yPrecision
 
@@ -369,10 +394,12 @@ AxisBase {
 //        var t2 = new Date().getTime()
         var maxSize = 0
         var num
+        var useLabels = labels.length === ticks.length
         for (i=0; i<N; ++i) {
             // TODO: Error: TypeError: Cannot set property 'value' of undefined
             num = numbers[i]
             num.value = ticks[i]
+            num.label = useLabels ? labels[i] : ""
             num.offset = offset
             num.scale = axisScale
             num.precision = (forceNoExp) ? precision + 1 : precision
@@ -435,6 +462,7 @@ AxisBase {
             id: textItem
             property int axis: -1
             property real value: 0
+            property string label: ""
             property real offset: 0
             property real scale: 1
             property int precision: 3
@@ -444,7 +472,10 @@ AxisBase {
             color: axis == 0 ? xAxis.tickTextColor : yAxis.tickTextColor
 
             function updateTheText() {
-                text = axisItem.formatReal((value - offset)/scale, precision, -3)
+                if (label)
+                    text = label
+                else
+                    text = axisItem.formatReal((value - offset)/scale, precision, -3)
             }
 
             function update() {

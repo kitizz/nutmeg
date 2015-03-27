@@ -4,7 +4,7 @@
 #include <QQuickItem>
 #include <QMultiMap>
 #include <QFileDialog>
-#include "axisbase.h"
+#include "AxisBase.h"
 #include "controller.h"
 #include "nutmegobject.h"
 #include "mouseevent.h"

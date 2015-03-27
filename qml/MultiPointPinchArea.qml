@@ -24,8 +24,8 @@ MultiPointTouchArea {
 
     touchPoints: [
         TouchPoint { id: p1 },
-        TouchPoint { id: p2 },
-        TouchPoint { id: p3 }
+        TouchPoint { id: p2 }
+//        TouchPoint { id: p3 }
     ]
 
     onPressed: {
@@ -33,13 +33,15 @@ MultiPointTouchArea {
             return
         }
 
-        if (p1.pressed && p2.pressed && !p3.pressed) {
+        if (p1.pressed && p2.pressed){// && !p3.pressed) {
             pinch.startCenter.x = (p1.x + p2.x)/2
             pinch.startCenter.y = (p1.y + p2.y)/2
             pinch.startDx = Math.abs(p2.x - p1.x)
             pinch.startDy = Math.abs(p2.y - p1.y)
             pinch.startDistance = Vector.distance(p1, p2)
-        }
+        }/* else if (p3.pressed) {
+            pinchFinished()
+        }*/
     }
 
     property vector2d totalP: Qt.vector2d(0,0)
@@ -48,7 +50,7 @@ MultiPointTouchArea {
 
     onUpdated: {
         // A lot of time being spent in here...
-        if (!areaEnabled)
+        if (!areaEnabled )//|| p3.pressed)
             return
 
         if (p1.pressed && p2.pressed) {
@@ -185,13 +187,13 @@ MultiPointTouchArea {
         x: p2.x; y: p2.y; z: 100
     }
 
-    Rectangle {
-        width: 8; height: width
-        visible: debugEnabled
-        color: "green"
-        opacity: p3.pressed ? 1 : 0.1
-        x: p3.x; y: p3.y; z: 100
-    }
+//    Rectangle {
+//        width: 8; height: width
+//        visible: debugEnabled
+//        color: "green"
+//        opacity: p3.pressed ? 1 : 0.1
+//        x: p3.x; y: p3.y; z: 100
+//    }
 
     // Dynamic/Temporary variables (Changing these does not affect behaviour)
     property real lastT: 0

@@ -3,7 +3,7 @@
 #include "util.h"
 
 XYPlot::XYPlot(QQuickItem *parent)
-    : PlotBase(parent)
+    : Plot2DBase(parent)
     , m_settingData(false)
     , m_xDataSet(false)
     , m_xData(QList<qreal>())
@@ -133,7 +133,7 @@ void XYPlot::updateX()
 void XYPlot::updateDataLimits()
 {
     int xLen = m_xData.length(), yLen = m_yData.length();
-    if ((xLen > 0 && xLen != yLen) || m_settingData)
+    if (xLen == 0 || (xLen > 0 && xLen != yLen) || m_settingData)
         return; // Don't update until the data is good
 
     qreal minX = Inf, maxX = -Inf, minY = Inf, maxY = -Inf;

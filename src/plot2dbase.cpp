@@ -1,4 +1,4 @@
-#include "plotbase.h"
+#include "plot2dbase.h"
 #include "axisbase.h"
 #include <QPolygonF>
 #include <QPainter>
@@ -7,53 +7,53 @@
 
 #include "../QKDTree/QVectorND/QVectorND.h"
 
-PlotBase::PlotBase(QQuickItem *parent)
+Plot2DBase::Plot2DBase(QQuickItem *parent)
     : QQuickItem(parent)
     , m_axis(0)
     , m_handle(QString())
     , m_canvas(0)
     , m_dataLimits(QRectF())
 {
-    connect(this, &QQuickItem::parentChanged, this, &PlotBase::updateAxis);
+    connect(this, &QQuickItem::parentChanged, this, &Plot2DBase::updateAxis);
 }
 
-AxisBase *PlotBase::axis() const
+AxisBase *Plot2DBase::axis() const
 {
     return m_axis;
 }
 
-void PlotBase::print(QPainter *painter)
+void Plot2DBase::print(QPainter *painter)
 {
     if (!m_canvas)
         return;
     m_canvas->paint(painter);
 }
 
-QString PlotBase::handle() const
+QString Plot2DBase::handle() const
 {
     return m_handle;
 }
 
-void PlotBase::setHandle(QString arg)
+void Plot2DBase::setHandle(QString arg)
 {
     if (m_handle == arg) return;
     m_handle = arg;
     emit handleChanged(arg);
 }
 
-QQuickPaintedItem *PlotBase::canvas() const
+QQuickPaintedItem *Plot2DBase::canvas() const
 {
     return m_canvas;
 }
 
-void PlotBase::setCanvas(QQuickPaintedItem *arg)
+void Plot2DBase::setCanvas(QQuickPaintedItem *arg)
 {
     if (m_canvas == arg) return;
     m_canvas = arg;
     emit canvasChanged(arg);
 }
 
-QPointF PlotBase::itemToData(QPointF point)
+QPointF Plot2DBase::itemToData(QPointF point)
 {
     if (!m_axis) return point;
     qreal px = point.x(), py = height() - point.y();
@@ -67,7 +67,7 @@ QPointF PlotBase::itemToData(QPointF point)
     return QPointF(sx*px + lim.left(), sy*py + lim.top());
 }
 
-QList<QPointF> PlotBase::itemToDataList(QList<QPointF> points)
+QList<QPointF> Plot2DBase::itemToDataList(QList<QPointF> points)
 {
     // TODO: Research using Armadillo to do transformations...
     if (!m_axis) return points;
@@ -85,7 +85,7 @@ QList<QPointF> PlotBase::itemToDataList(QList<QPointF> points)
     return newPoints;
 }
 
-QPointF PlotBase::dataToItem(QPointF point)
+QPointF Plot2DBase::dataToItem(QPointF point)
 {
     if (!m_axis) return point;
     qreal x = point.x(), y = point.y();
@@ -101,7 +101,7 @@ QPointF PlotBase::dataToItem(QPointF point)
     return QPointF( (x - lim.left())*sx, height() - (y - lim.top())*sy );
 }
 
-QList<QPointF> PlotBase::dataToItemList(QList<QPointF> points)
+QList<QPointF> Plot2DBase::dataToItemList(QList<QPointF> points)
 {
     // TODO: Research using Armadillo to do transformations...
     if (!m_axis) return points;
@@ -119,17 +119,17 @@ QList<QPointF> PlotBase::dataToItemList(QList<QPointF> points)
     return newPoints;
 }
 
-QRectF PlotBase::dataLimits() const
+QRectF Plot2DBase::dataLimits() const
 {
     return m_dataLimits;
 }
 
-void PlotBase::registerProperties(QMap<QString, QString> mapping)
+void Plot2DBase::registerProperties(QMap<QString, QString> mapping)
 {
     NutmegObject::registerProperties(mapping);
 }
 
-void PlotBase::registerProperties(QVariantMap mapping)
+void Plot2DBase::registerProperties(QVariantMap mapping)
 {
     QMap<QString, QString> map;
     foreach (QString tag, mapping.keys()) {
@@ -140,12 +140,12 @@ void PlotBase::registerProperties(QVariantMap mapping)
     registerProperties(map);
 }
 
-QString PlotBase::mapProperty(const QString &prop)
+QString Plot2DBase::mapProperty(const QString &prop)
 {
     return NutmegObject::mapProperty(prop);
 }
 
-void PlotBase::setAxis(AxisBase *arg)
+void Plot2DBase::setAxis(AxisBase *arg)
 {
     if (m_axis == arg) return;
 
@@ -157,13 +157,13 @@ void PlotBase::setAxis(AxisBase *arg)
     m_axis = arg;
 
     if (m_axis) {
-        connect(m_axis, &AxisBase::minXChanged, this, &PlotBase::triggerUpdate);
-        connect(m_axis, &AxisBase::minYChanged, this, &PlotBase::triggerUpdate);
-        connect(m_axis, &AxisBase::maxXChanged, this, &PlotBase::triggerUpdate);
-        connect(m_axis, &AxisBase::maxYChanged, this, &PlotBase::triggerUpdate);
-        connect(m_axis, &AxisBase::dataLimitsChanged, this, &PlotBase::triggerUpdate);
-        connect(m_axis, &AxisBase::xAxisChanged, this, &PlotBase::triggerUpdate);
-        connect(m_axis, &AxisBase::yAxisChanged, this, &PlotBase::triggerUpdate);
+        connect(m_axis, &AxisBase::minXChanged, this, &Plot2DBase::triggerUpdate);
+        connect(m_axis, &AxisBase::minYChanged, this, &Plot2DBase::triggerUpdate);
+        connect(m_axis, &AxisBase::maxXChanged, this, &Plot2DBase::triggerUpdate);
+        connect(m_axis, &AxisBase::maxYChanged, this, &Plot2DBase::triggerUpdate);
+        connect(m_axis, &AxisBase::dataLimitsChanged, this, &Plot2DBase::triggerUpdate);
+        connect(m_axis, &AxisBase::xAxisChanged, this, &Plot2DBase::triggerUpdate);
+        connect(m_axis, &AxisBase::yAxisChanged, this, &Plot2DBase::triggerUpdate);
 
         m_axis->registerPlot(this);
 
@@ -173,14 +173,14 @@ void PlotBase::setAxis(AxisBase *arg)
     emit axisChanged(arg);
 }
 
-void PlotBase::triggerUpdate()
+void Plot2DBase::triggerUpdate()
 {
 //    update();
     if (m_canvas)
         m_canvas->update();
 }
 
-void PlotBase::updateAxis()
+void Plot2DBase::updateAxis()
 {
     // Work up the tree until the next Axis item is found.
     QObject *newParent = parent();
@@ -194,7 +194,7 @@ void PlotBase::updateAxis()
     setAxis(axis);
 }
 
-void PlotBase::setDataLimits(QRectF arg)
+void Plot2DBase::setDataLimits(QRectF arg)
 {
     if (m_dataLimits == arg) return;
     m_dataLimits = arg;

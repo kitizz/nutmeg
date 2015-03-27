@@ -1,0 +1,231 @@
+#ifndef AXIS_H
+#define AXIS_H
+
+#include <QQuickPaintedItem>
+#include <QMultiMap>
+
+#include "figurebase.h"
+#include "linespec.h"
+#include "locators.h"
+#include "plot2dbase.h"
+#include "nutmegobject.h"
+#include "axisspec.h"
+#include "axisbase.h"
+
+#include "util.h"
+
+class AxisGrid;
+class AxisMargins;
+class AxisSpec;
+class FigureBase;
+class Plot2DBase;
+class Axis2DBase : public AxisBase
+{
+    Q_OBJECT
+    Q_PROPERTY(AxisGrid* grid READ grid)
+    Q_PROPERTY(AxisSpec* xAxis READ xAxis NOTIFY xAxisChanged)
+    Q_PROPERTY(AxisSpec* yAxis READ yAxis NOTIFY yAxisChanged)
+
+    Q_PROPERTY(QVariantMap plots READ plots NOTIFY plotsChanged)
+    Q_PROPERTY(QQuickPaintedItem* canvas READ canvas WRITE setCanvas NOTIFY canvasChanged)    
+
+    Q_PROPERTY(QRectF limits READ limits WRITE setLimits NOTIFY limitsChanged RESET resetLimits)
+
+    Q_PROPERTY(qreal minX READ minX WRITE setMinX NOTIFY minXChanged)
+    Q_PROPERTY(qreal maxX READ maxX WRITE setMaxX NOTIFY maxXChanged)
+    Q_PROPERTY(qreal minY READ minY WRITE setMinY NOTIFY minYChanged)
+    Q_PROPERTY(qreal maxY READ maxY WRITE setMaxY NOTIFY maxYChanged)
+    Q_PROPERTY(QRectF dataLimits READ dataLimits NOTIFY dataLimitsChanged)
+    Q_PROPERTY(QRectF plotRect READ plotRect WRITE setPlotRect NOTIFY plotRectChanged RESET resetPlotRect)
+
+    Q_PROPERTY(AxisMargins* margin READ margin NOTIFY marginChanged)
+    Q_PROPERTY(QList<qreal> yLimitRounding READ yLimitRounding WRITE setYLimitRounding NOTIFY yLimitRoundingChanged)
+
+    Q_PROPERTY(qreal aspectRatio READ aspectRatio WRITE setAspectRatio NOTIFY aspectRatioChanged)
+    Q_PROPERTY(bool fitPlots READ fitPlots WRITE setFitPlots NOTIFY fitPlotsChanged)
+
+public:
+    explicit Axis2DBase(QQuickItem *parent = 0);
+    ~Axis2DBase();
+
+    Q_INVOKABLE qreal log_10(qreal v);
+    Q_INVOKABLE QString formatReal(qreal num, int precision=3, int minMag=-11, int maxMag=-1);
+    Q_INVOKABLE qreal offsetFromStd(qreal val, qreal std);
+
+    void print(QPainter *painter);
+
+    qreal minX() const;
+    void setMinX(qreal arg, bool fix=true, bool updateAxis=true);
+    qreal maxX() const;
+    void setMaxX(qreal arg, bool fix=true, bool updateAxis=true);
+    qreal minY() const;
+    void setMinY(qreal arg, bool fix=true, bool updateAxis=true);
+    qreal maxY() const;
+    void setMaxY(qreal arg, bool fix=true, bool updateAxis=true);
+
+    Q_INVOKABLE void offset(qreal x, qreal y);
+
+    QRectF limits() const;
+    void setLimits(QRectF arg, bool fix=true);
+    void resetLimits();
+
+    QRectF dataLimits() const;
+    QList<qreal> yLimitRounding() const;
+    void setYLimitRounding(QList<qreal> arg);
+
+    AxisGrid* grid() const;
+    AxisSpec* xAxis() const;
+    AxisSpec* yAxis() const;
+
+    AxisMargins* margin() const;
+    qreal aspectRatio() const;
+    void setAspectRatio(qreal arg);
+
+    bool fitPlots() const;
+    void setFitPlots(bool arg);
+
+    QQuickPaintedItem* canvas() const;
+    void setCanvas(QQuickPaintedItem* arg);
+
+    QRectF plotRect() const;
+    void setPlotRect(QRectF arg);
+    void resetPlotRect();
+
+signals:
+    void plotsChanged(QVariantMap arg);
+
+    void minXChanged(qreal arg);
+    void maxXChanged(qreal arg);
+    void minYChanged(qreal arg);
+    void maxYChanged(qreal arg);
+
+    void limitsChanged(QRectF arg);
+    void dataLimitsChanged(QRectF arg);
+
+    void marginChanged(AxisMargins* margin);
+    void yLimitRoundingChanged(QList<qreal> arg);
+
+    void xAxisChanged(AxisSpec* arg);
+    void yAxisChanged(AxisSpec* arg);
+
+    void aspectRatioChanged(qreal arg);
+
+    void fitPlotsChanged(bool arg);
+
+    void canvasChanged(QQuickPaintedItem* arg);
+    void plotRectChanged(QRectF arg);
+
+public slots:
+    void registerPlot(Plot2DBase *axis);
+    void deregisterPlot(Plot2DBase *axis);
+
+protected slots:
+    void updateXAxis();
+    void updateYAxis();
+    void updatePlots();
+    void updateLimits();
+    void updateDataLimits();
+
+private:
+    void maintainAspectRatio(QRectF *lim);
+    bool floatingLimits();
+    QMap<QString, Plot2DBase*> m_plots;
+    QVariantMap m_plotsVar;
+    QVariantList m_plotsList;
+
+    AxisGrid* m_grid;
+    AxisSpec* m_xAxis;
+    AxisSpec* m_yAxis;
+
+    qreal m_minX;
+    qreal m_maxX;
+    qreal m_minY;
+    qreal m_maxY;
+    bool m_minXFloat;
+    bool m_maxXFloat;
+    bool m_minYFloat;
+    bool m_maxYFloat;
+
+    bool m_destroying;
+    bool m_settingLimits;
+    QRectF m_limits;
+    QRectF m_dataLimits;
+    QList<qreal> m_yLimitRounding;
+
+    // TODO: This really should go into a Util library....
+    static qreal sign(qreal a);
+    AxisMargins* m_margin;
+    qreal m_aspectRatio;
+    bool m_fitPlots;
+    QQuickPaintedItem* m_canvas;
+    QRectF m_plotRect;
+    bool m_plotRectValid;
+};
+
+class AxisGrid : public QObject, public NutmegObject
+{
+    Q_OBJECT
+    Q_ENUMS(GridAxes)
+    Q_PROPERTY(GridAxes axes READ axes WRITE setAxes NOTIFY axesChanged)
+    Q_PROPERTY(LineSpec* majorLine READ majorLine)
+    Q_PROPERTY(LineSpec* minorLine READ minorLine)
+
+public:
+    explicit AxisGrid(QObject* parent=0);
+    enum GridAxes { None=0, XY=3, X=1, Y=2 };
+
+    // Interface to NutmegObject
+    Q_INVOKABLE QString mapProperty(const QString &prop);
+
+    GridAxes axes() const;
+    void setAxes(GridAxes arg);
+
+    LineSpec* majorLine() const;
+    LineSpec* minorLine() const;
+
+signals:
+    void axesChanged(GridAxes arg);
+
+private:
+    GridAxes m_axis;
+
+    LineSpec* m_majorLine;
+    LineSpec* m_minorLine;
+};
+
+class AxisMargins : public QObject
+{
+    Q_OBJECT
+    Q_PROPERTY(qreal left READ left WRITE setLeft NOTIFY leftChanged)
+    Q_PROPERTY(qreal right READ right WRITE setRight NOTIFY rightChanged)
+    Q_PROPERTY(qreal top READ top WRITE setTop NOTIFY topChanged)
+    Q_PROPERTY(qreal bottom READ bottom WRITE setBottom NOTIFY bottomChanged)
+
+public:
+    explicit AxisMargins(QObject *parent = 0);
+    qreal left() const;
+    void setLeft(qreal arg);
+
+    qreal right() const;
+    void setRight(qreal arg);
+
+    qreal top() const;
+    void setTop(qreal arg);
+
+    qreal bottom() const;
+    void setBottom(qreal arg);
+
+signals:
+    void leftChanged(qreal arg);
+    void rightChanged(qreal arg);
+    void topChanged(qreal arg);
+    void bottomChanged(qreal arg);
+
+private:
+    qreal m_left;
+    qreal m_right;
+    qreal m_top;
+    qreal m_bottom;
+};
+
+#endif // AXIS_H

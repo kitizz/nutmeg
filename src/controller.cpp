@@ -22,14 +22,14 @@ QList<FigureBase *> Controller::getFiguresByHandle(const QString &handle)
 {
     // TODO: This is O(n) complexity at the moment...
     // TODO: Abstract this pattern (also used in FigureBase and AxisBase)
-    QList<FigureBase*> *values;
+    QList<FigureBase*> values;
     if (handle.isEmpty())
-        *values = m_figures.values();
+        values = m_figures.values();
     else
-        *values = m_figures.values(handle);
+        values = m_figures.values(handle);
 
     QList<FigureBase*> result;
-    foreach (FigureBase* fig, *values)
+    foreach (FigureBase* fig, values)
         result.prepend(fig);
 
     return result;

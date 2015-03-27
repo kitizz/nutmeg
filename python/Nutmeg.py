@@ -25,7 +25,7 @@ def init(address="tcp://localhost", port=43686, timeout=3000):
 
 
 def initialized():
-    return _nutmegCore is not None
+    return _nutmegCore is not None and _nutmegCore.initialized
 
 
 def figure(handle, figureDef):
@@ -93,6 +93,7 @@ class Nutmeg:
         '''
         :param timeout: Timeout in ms
         '''
+        self.initialized = False
         self.host = address
         self.port = port
         self.address = address + ":" + str(port)
@@ -117,6 +118,8 @@ class Nutmeg:
         _original_sigint = signal.getsignal(signal.SIGINT)
         signal.signal(signal.SIGINT, exit_gracefully)
 
+        self.initialized = True
+
     def setValues(self, handle, *value, **properties):
         '''
         Set properties of handle. It will be assumed that handle is a property
@@ -126,7 +129,7 @@ class Nutmeg:
         :param *value: If handle refers to a property directly, the first
             element of this list will be used.
         :param **properties: Keyword args defining the property names and their
-            values. Will only be used in *value is empty.
+            values. Will only be used if *value is empty.
         :param param: Indicate if these new values are in response to a change
             in parameter, param.
         '''
@@ -354,11 +357,15 @@ class Figure(NutmegObject):
         '''
         fullHandle = self.handle + "." + handle
 
-        try:
-            return self.nutmeg.setValues(fullHandle, *value, **properties)
-        except IOError as e:
-            print("IOError in Nutmeg core...")
-            print(e)
+        for i in range(3):
+            try:
+                if i > 0:
+                    print("Retrying (%d/3)" % (i + 1))
+                return self.nutmeg.setValues(fullHandle, *value, **properties)
+            except IOError as e:
+                print("IOError in Nutmeg core...")
+                print(e)
+        raise e
 
     def getParameterValues(self):
         '''

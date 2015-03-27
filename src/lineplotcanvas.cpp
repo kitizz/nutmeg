@@ -15,7 +15,7 @@ void LinePlotCanvas::paint(QPainter *painter)
     LinePlot *plot = qobject_cast<LinePlot*>(parent());
     if (!plot) return;
 
-    AxisBase *monAxis = plot->axis();
+    Axis2DBase *monAxis = plot->axis();
     QList<qreal> xData = plot->xData(), yData = plot->yData();
     if (!monAxis || xData.length() != yData.length())
         return; // Funky data
@@ -37,14 +37,14 @@ void LinePlotCanvas::paint(QPainter *painter)
         scaleX *= -1;
         tx = width();
     }
-    if (monAxis->yAxis()->inverted()) {
+    if (!monAxis->yAxis()->inverted()) {
         scaleY *= -1;
         ty = height();
     }
-    // TODO: Not this...
-    painter->translate(tx, ty);
-    painter->scale(scaleX, scaleY);
-    painter->translate(-lim.x(), -lim.y());
+//    // TODO: Not this...
+//    painter->translate(tx, ty);
+//    painter->scale(scaleX, scaleY);
+//    painter->translate(-lim.x(), -lim.y());
 
     QTransform tran;
     tran.translate(tx, ty).scale(scaleX, scaleY).translate(-lim.x(), -lim.y());
@@ -103,10 +103,10 @@ void LinePlotCanvas::paint(QPainter *painter)
     painter->setPen(pen);
 
     foreach (QPolygonF poly, lines) {
-//        poly = tran.map(poly);
+        poly = tran.map(poly);
         if (style == ".") {
             foreach (QPointF p, poly) {
-                painter->drawEllipse(p, pen.widthF()/scaleX, pen.widthF()/scaleY);
+                painter->drawEllipse(p, pen.widthF()*0.5, pen.widthF()*0.5);
             }
         } else {
             painter->drawPolyline(poly);

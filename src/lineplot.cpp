@@ -3,9 +3,6 @@
 #include <QtGui/QGuiApplication>
 #include <QWindow>
 
-QMap<QString, QColor> LineSpec::colorMap = LineSpec::generateColorMap();
-QMap<QString, Qt::PenStyle> LineSpec::styleMap = LineSpec::generateStyleMap();
-
 LinePlot::LinePlot(QQuickItem *parent)
     : XYPlot(parent)
     , m_points(QList<QPointF>())
@@ -14,11 +11,7 @@ LinePlot::LinePlot(QQuickItem *parent)
     QMap<QString,QString> props;
     props.insert("x", "xData");
     props.insert("y", "yData");
-//    props.insert("lineColor", "lineColor");
-//    props.insert("lineStyle", "lineStyle");
-//    props.insert("lineSpec", "lineSpec");
-//    props.insert("markerColor", "markerColor");
-//    props.insert("markerStyle", "markerStyle");
+    props.insert("line", "line");
     registerProperties(props);
 
 }

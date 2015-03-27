@@ -7,11 +7,22 @@
 
 #include "lineplot.h"
 #include "imageplot.h"
+#include "canvasplot.h"
+
 #include "lineplotcanvas.h"
 #include "imagecanvas.h"
-#include "axisbase.h"
+#include "canvasplotcanvas.h"
+#include "pointcloud.h"
+
+#include "canvasline.h"
+#include "canvasrect.h"
+#include "canvastext.h"
+
+#include "axis2dbase.h"
+#include "axis3dbase.h"
 #include "locators.h"
 #include "linespec.h"
+#include "fillspec.h"
 #include "axiscanvas2d.h"
 #include "figurebase.h"
 #include "server.h"
@@ -22,27 +33,41 @@
 
 int main(int argc, char *argv[])
 {
-    qmlRegisterUncreatableType<QmlWindow>("Graphr", 1,0, "QmlWindow", "Cannot create QmlWindow");
-    qmlRegisterUncreatableType<MainWindow>("Graphr", 1,0, "MainWindow", "Cannot create MainWindow");
-    qmlRegisterType<FigureBase>("Graphr", 1,0, "FigureBase");
+    qmlRegisterUncreatableType<QmlWindow>("Nutmeg", 1,0, "QmlWindow", "Cannot create QmlWindow");
+    qmlRegisterUncreatableType<MainWindow>("Nutmeg", 1,0, "MainWindow", "Cannot create MainWindow");
+    qmlRegisterType<FigureBase>("Nutmeg", 1,0, "FigureBase");
 
-    qmlRegisterType<AxisBase>("Graphr", 1,0, "AxisBase");
-    qmlRegisterType<AxisCanvas2D>("Graphr", 1,0, "AxisCanvas2D");
-    qmlRegisterType<AxisSpec>("Graphr", 1,0, "AxisSpec");
-    qmlRegisterType<AxisGrid>("Graphr", 1,0, "AxisGrid");
-    qmlRegisterType<AxisMargins>("Graphr", 1,0, "AxisMargins");
-    qmlRegisterType<AutoLocator>("Graphr", 1,0, "AutoLocator");
-    qmlRegisterType<HardLocator>("Graphr", 1,0, "HardLocator");
-    qmlRegisterType<SpacedLocator>("Graphr", 1,0, "SpacedLocator");
+    qmlRegisterType<Axis2DBase>("Nutmeg", 1,0, "AxisBase");
+    qmlRegisterType<Axis3DBase>("Nutmeg", 1,0, "Axis3DBase");
+    qmlRegisterType<AxisCanvas2D>("Nutmeg", 1,0, "AxisCanvas2D");
+    qmlRegisterType<AxisSpec>("Nutmeg", 1,0, "AxisSpec");
+    qmlRegisterType<AxisGrid>("Nutmeg", 1,0, "AxisGrid");
+    qmlRegisterType<AxisMargins>("Nutmeg", 1,0, "AxisMargins");
+    qmlRegisterType<AutoLocator>("Nutmeg", 1,0, "AutoLocator");
+    qmlRegisterType<HardLocator>("Nutmeg", 1,0, "HardLocator");
+    qmlRegisterType<SpacedLocator>("Nutmeg", 1,0, "SpacedLocator");
 
-    qmlRegisterType<LineSpec>("Graphr", 1,0, "LineSpec");
-    qmlRegisterType<LinePlot>("Graphr", 1,0, "LinePlotBase");
-    qmlRegisterType<LinePlotCanvas>("Graphr", 1,0, "LinePlotCanvas");
-    qmlRegisterType<ImagePlot>("Graphr", 1,0, "ImagePlotBase");
-    qmlRegisterType<ImageCanvas>("Graphr", 1,0, "ImageCanvas");
+    // ---------- Plotting stuff ------------
+    qmlRegisterType<LineSpec>("Nutmeg", 1,0, "LineSpec");
+    qmlRegisterType<FillSpec>("Nutmeg", 1,0, "FillSpec");
 
-    qmlRegisterType<Server>("Graphr", 1,0, "ServerBase");
-    qmlRegisterType<Controller>("Graphr", 1,0, "ControllerBase");
+    qmlRegisterType<LinePlot>("Nutmeg", 1,0, "LinePlotBase");
+    qmlRegisterType<ImagePlot>("Nutmeg", 1,0, "ImagePlotBase");
+    qmlRegisterType<CanvasPlot>("Nutmeg", 1,0, "CanvasPlotBase");
+
+    qmlRegisterType<PointCloud>("Nutmeg", 1,0, "PointCloudBase");
+
+    qmlRegisterType<LinePlotCanvas>("Nutmeg", 1,0, "LinePlotCanvas");
+    qmlRegisterType<ImageCanvas>("Nutmeg", 1,0, "ImageCanvas");
+    qmlRegisterType<CanvasPlotCanvas>("Nutmeg", 1,0, "CanvasPlotCanvas");
+
+    qmlRegisterType<CanvasLine>("Nutmeg", 1,0, "CanvasLine");
+    qmlRegisterType<CanvasRect>("Nutmeg", 1,0, "CanvasRect");
+    qmlRegisterType<CanvasText>("Nutmeg", 1,0, "CanvasText");
+
+    // ----------- Infrastructure ------------
+    qmlRegisterType<Server>("Nutmeg", 1,0, "ServerBase");
+    qmlRegisterType<Controller>("Nutmeg", 1,0, "ControllerBase");
 
     qmlRegisterType<FileIO>("FileIO", 1,0, "FileIO");
 

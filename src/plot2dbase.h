@@ -4,24 +4,24 @@
 #include <QQuickItem>
 #include <QPainter>
 #include "plotdata.h"
-#include "axisbase.h"
+#include "axis2dbase.h"
 #include "nutmegobject.h"
 
 #include "../QKDTree/QKDTree/QKDTree.h"
 
-class AxisBase;
-class PlotBase : public QQuickItem, public NutmegObject
+class Axis2DBase;
+class Plot2DBase : public QQuickItem, public NutmegObject
 {
     Q_OBJECT
-    Q_PROPERTY(AxisBase* axis READ axis NOTIFY axisChanged)
+    Q_PROPERTY(Axis2DBase* axis READ axis NOTIFY axisChanged)
     Q_PROPERTY(QString handle READ handle WRITE setHandle NOTIFY handleChanged)
     Q_PROPERTY(QQuickPaintedItem* canvas READ canvas WRITE setCanvas NOTIFY canvasChanged)
 
     Q_PROPERTY(QRectF dataLimits READ dataLimits NOTIFY dataLimitsChanged)
 
 public:
-    explicit PlotBase(QQuickItem *parent = 0);
-    AxisBase* axis() const;
+    explicit Plot2DBase(QQuickItem *parent = 0);
+    Axis2DBase* axis() const;
 
     void print(QPainter *painter);
 
@@ -43,9 +43,12 @@ public:
     Q_INVOKABLE void registerProperties(QMap<QString, QString> mapping);
     Q_INVOKABLE void registerProperties(QVariantMap mapping);
     Q_INVOKABLE QString mapProperty(const QString &prop);
+//    Q_INVOKABLE void registerMethods(QMap<QString, QString> mapping);
+//    Q_INVOKABLE void registerMethods(QVariantMap mapping);
+//    Q_INVOKABLE QString mapMethod(const QString &prop);
 
 signals:
-    void axisChanged(AxisBase* arg);
+    void axisChanged(Axis2DBase* arg);
     void handleChanged(QString arg);
     void canvasChanged(QQuickPaintedItem* arg);
     void dataLimitsChanged(QRectF arg);
@@ -62,9 +65,9 @@ protected:
     QRectF m_dataLimits;
 
 private:
-    void setAxis(AxisBase* arg);
+    void setAxis(Axis2DBase* arg);
 
-    AxisBase* m_axis;
+    Axis2DBase* m_axis;
     QString m_handle;
     QQuickPaintedItem* m_canvas;
 };

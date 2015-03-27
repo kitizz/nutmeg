@@ -41,12 +41,12 @@ void AxisCanvas2D::paint(QPainter *painter)
 
 
 
-AxisBase *AxisCanvas2D::axis() const
+Axis2DBase *AxisCanvas2D::axis() const
 {
     return m_axis;
 }
 
-void AxisCanvas2D::setAxis(AxisBase *arg)
+void AxisCanvas2D::setAxis(Axis2DBase *arg)
 {
     if (m_axis == arg) return;
 
@@ -61,7 +61,7 @@ void AxisCanvas2D::setAxis(AxisBase *arg)
 
     if (m_axis) {
         m_axis->setCanvas(this);
-        connect(m_axis, &AxisBase::limitsChanged, this, &AxisCanvas2D::triggerUpdate);
+        connect(m_axis, &Axis2DBase::limitsChanged, this, &AxisCanvas2D::triggerUpdate);
         connect(m_axis->xAxis(), &AxisSpec::majorTicksChanged, this, &AxisCanvas2D::triggerUpdate);
         connect(m_axis->xAxis(), &AxisSpec::minorTicksChanged, this, &AxisCanvas2D::triggerUpdate);
         connect(m_axis->yAxis(), &AxisSpec::majorTicksChanged, this, &AxisCanvas2D::triggerUpdate);

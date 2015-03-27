@@ -1,9 +1,9 @@
 #ifndef XYPLOT_H
 #define XYPLOT_H
 
-#include "plotbase.h"
+#include "plot2dbase.h"
 
-class XYPlot : public PlotBase
+class XYPlot : public Plot2DBase
 {
     Q_OBJECT
     Q_PROPERTY(QList<qreal> xData READ xData WRITE setXData NOTIFY xDataChanged)
