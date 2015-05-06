@@ -35,6 +35,8 @@ AxisBase::AxisBase(QQuickItem *parent)
     , m_titleFont(QFont())
     , m_titleColor(QColor("black"))
 {
+    setMinX(-Inf); setMaxX(Inf);
+    setMinY(-Inf); setMaxY(Inf);
     // Set initial axis label roundings
     m_yLimitRounding << 0 << 1 << 1.5 << 2 << 2.5 << 3 << 4 << 5 << 10;
     // Initialise the limits to inf. This defaults the limits to the data.
@@ -178,6 +180,7 @@ void AxisBase::setMinX(qreal arg, bool fix, bool updateAxis)
 {
     // "fix" is used internally so that the bounds can be set while
     // letting them continue to float...
+    if (arg != arg) return;
     if (arg == -Inf) arg = m_dataLimits.left();
     if (fix && m_minXFloat) m_minXFloat = false;
     if (m_minX == arg) return;
@@ -203,6 +206,7 @@ qreal AxisBase::maxX() const
 
 void AxisBase::setMaxX(qreal arg, bool fix, bool updateAxis)
 {
+    if (arg != arg) return;
     if (arg == Inf) arg = m_dataLimits.right();
     if (fix && m_maxXFloat) m_maxXFloat = false;
     if (m_maxX == arg) return;
@@ -226,6 +230,7 @@ qreal AxisBase::minY() const
 
 void AxisBase::setMinY(qreal arg, bool fix, bool updateAxis)
 {
+    if (arg != arg) return;
     if (arg == -Inf) arg = m_dataLimits.top();
     if (fix && m_minYFloat) m_minYFloat = false;
     if (m_minY == arg) return;
@@ -249,6 +254,7 @@ qreal AxisBase::maxY() const
 
 void AxisBase::setMaxY(qreal arg, bool fix, bool updateAxis)
 {
+    if (arg != arg) return;
     if (arg == Inf) arg = m_dataLimits.bottom();
     if (fix && m_maxYFloat) m_maxYFloat = false;
     if (m_maxY == arg) return;
@@ -395,7 +401,10 @@ void AxisBase::updateDataLimits()
         if (rect.bottom() > maxY) maxY = rect.bottom();
     }
 
-    if (!validLimits) return;
+    if (!validLimits) {
+        m_dataLimits = QRectF(0,0,1,1);
+        return;
+    }
 
     if (!m_fitPlots) {
         // We want to round the automated limits to contextually whole numbers like 93 -> 100

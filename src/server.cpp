@@ -18,7 +18,7 @@ Server::Server(QQuickItem *parent)
     , m_socketUpdateMap(QMap<QString, PushSocket*>())
     , m_updateReady(false)
     , m_latestUpdatePort(43687)
-    , m_address(QString("tcp://127.0.0.1"))
+    , m_address(QString("tcp://0.0.0.0"))
     , m_running(false)
     , m_port(43686) // gemt'N <-> N'tmeg
 {
