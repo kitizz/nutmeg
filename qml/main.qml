@@ -1,8 +1,8 @@
-import QtQuick 2.2
+import QtQuick 2.4
 //import QtQuick.Dialogs 1.2
-import QtQuick.Controls 1.0
+import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.0
-import Graphr 1.0
+import Nutmeg 1.0
 import "Util.js" as Util
 import "Layouts" as Layouts
 import FileIO 1.0
@@ -51,6 +51,23 @@ Rectangle {
 ////        Component.onCompleted: visible = true
 //    }
 
+//    Figure {
+//        id: figure
+
+//        Axis3D {
+//            handle: "ax3d"
+
+//            width: parent.width
+//            anchors.right: parent.right
+
+//            PointCloud {
+//                handle: "pc"
+//            }
+//        }
+//    }
+
+//    TestFigure{}
+
     FileIO {
         id: testFile
         source: ":/qml/TestFigure.qml"
@@ -61,32 +78,30 @@ Rectangle {
         // Connect file dialog signals
 //        window.fileSelected.connect(selectedPdf)
 
-        var plotTest = true
+        var plotTest = false
         if (plotTest) {
             var qml = testFile.read()
-//            server.createFigure( {"figureHandle": "testFigure", "qml": qml} )
-////            server.sendData([0, "testFigure.ax", {"minY": 0, "maxY": 8}])
-//            server.sendData( {"handle": "testFigure.ax.blue", "data": {
-//                                    "x": [0, 100, 200, 300, 400, 500, 700, 800, 1000, 1200],
-//                                    "y": [0,1,2,3,2,1,3,5,2,10]
-//            }} )
 
-//            var res = server.sendData( {"handle": "testFigure.ax", "data": {
-//                                    "title": "Yeah.. Plot!!",
-//                                    "grid.axes": "XY"
-//            }} )
+            server.createFigure( {"figureHandle": "testFigure", "qml": qml} )
 
-//            server.sendData( {"handle": "testFigure.ax.xAxis", "data": {
-//                                    "label": "X Label"
-//            }} )
+            server.sendData( {"handle": "testFigure.ax.blue", "data": {
+                                    "x": [0, 100, 200, 300, 400, 500, 700, 800, 1000, 1200],
+                                    "y": [0,1,2,3,2,1,3,5,2,10]
+            }} )
 
-//            server.sendData( {"handle": "testFigure.ax.yAxis", "data": {
-//                                    "label": "Coolest Y Label Ever"
-//            }} )
-//            console.log("Result:", res[1].message)
-//            server.sendData( {"handle": "testFigure.ax.blue", "data": {"y": [0,1,2,3,2,1,3,5,2,10]}} )
-//            server.sendData( {"handle": "testFigure.ax.red", "data": {"y": [4,8,13,0.1,0.5,3,4,5]}} )
-//            server.sendData([0, "testFigure.ax.blue", {"y": [3,1]}])
+            var res = server.sendData( {"handle": "testFigure.ax", "data": {
+                                    "title": "Yeah.. Plot!!",
+                                    "grid.axes": "XY"
+            }} )
+
+            server.sendData( {"handle": "testFigure.ax.xAxis", "data": {
+                                    "label": "X Label"
+            }} )
+
+            server.sendData( {"handle": "testFigure.ax.yAxis", "data": {
+                                    "label": "Coolest Y Label Ever"
+            }} )
+            console.log("Result:", res[1].message)
         }
     }
 
@@ -124,7 +139,7 @@ Rectangle {
             console.log("Figures before push", figures)
             figures.push(figure)
             console.log("Figures after push", figures)
-            addTab(figure.handle, tabDelegate)
+            var newTab = addTab(figure.handle, tabDelegate)
 
             tabView.currentIndex = count - 1
             figure.tabIndex = count - 1
@@ -138,8 +153,7 @@ Rectangle {
 
         Component {
             id: tabDelegate
-            Item {
-            }
+            Item {}
         }
 
         style: TabViewStyle {

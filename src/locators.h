@@ -2,11 +2,13 @@
 #define LOCATORS_H
 
 #include <QObject>
+#include <QStringList>
 
 class Locator : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QList<qreal> locations READ locations WRITE setLocations NOTIFY locationsChanged)
+    Q_PROPERTY(QStringList locationLabels READ locationLabels WRITE setLocationLabels NOTIFY locationLabelsChanged)
     Q_PROPERTY(qreal start READ start WRITE setStart NOTIFY startChanged)
     Q_PROPERTY(qreal end READ end WRITE setEnd NOTIFY endChanged)
     Q_PROPERTY(qreal pixelSize READ pixelSize WRITE setPixelSize NOTIFY pixelSizeChanged)
@@ -32,12 +34,19 @@ public:
     QList<qreal> multiples() const;
     void setMultiples(QList<qreal> arg);
 
+    QStringList locationLabels() const;
+    void setLocationLabels(QStringList arg);
+
+    void setLocationsAndLabels(QList<qreal> locs, QStringList labels);
+
 signals:
     void locationsChanged(QList<qreal> arg);
     void startChanged(qreal arg);
     void endChanged(qreal arg);
     void pixelSizeChanged(qreal arg);
     void multiplesChanged(QList<qreal> arg);
+
+    void locationLabelsChanged(QStringList arg);
 
 protected slots:
 
@@ -51,6 +60,7 @@ private:
     qreal m_pixelSize;
     QList<qreal> m_multiples;
     qreal m_scale;
+    QStringList m_locationLabels;
 };
 
 class AutoLocator : public Locator
@@ -119,6 +129,29 @@ public slots:
 
 private:
     QList<qreal> m_hardLocations;
+};
+
+class LabelLocator : public HardLocator
+{
+    Q_OBJECT
+    Q_PROPERTY(QStringList labels READ labels WRITE setLabels NOTIFY labelsChanged)
+
+public:
+    explicit LabelLocator(QObject *parent = 0);
+    explicit LabelLocator(QStringList labels, QList<qreal> hardLocs, QObject *parent = 0);
+
+    QStringList labels() const;
+    void setLabels(QStringList arg);
+
+signals:
+
+    void labelsChanged(QStringList arg);
+
+public slots:
+    virtual void updateLocator();
+
+private:
+    QStringList m_labels;
 };
 
 #endif // LOCATORS_H

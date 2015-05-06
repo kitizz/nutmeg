@@ -17,7 +17,7 @@ macx {
     QMAKE_CXXFLAGS = -mmacosx-version-min=10.7 -std=gnu0x -stdlib=libc+
 }
 
-CONFIG +=c++11
+CONFIG += c++11
 
 # Icon setup
 macx:ICON = images/logo.icns
@@ -33,6 +33,10 @@ DEFINES += QVECTORND_LIBRARY
 DEFINES += _WINSOCKAPI_
 DEFINES += NOMINMAX
 
+# 3D Things...
+DEFINES += SUPPORT_3D
+QT += 3dcore 3drenderer 3dinput
+
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += src/main.cpp \
     nzmqt/nzmqt.cpp \
@@ -43,8 +47,6 @@ SOURCES += src/main.cpp \
     QKDTree/QVectorND/QVectorND.cpp \
     src/plotdata.cpp \
     src/server.cpp \
-    src/plotbase.cpp \
-    src/axisbase.cpp \
     src/figurebase.cpp \
     src/lineplot.cpp \
     src/controller.cpp \
@@ -64,7 +66,23 @@ SOURCES += src/main.cpp \
     src/util.cpp \
     src/imagecanvas.cpp \
     src/imageplot.cpp \
-    src/shapecanvas.cpp
+    src/shapecanvas.cpp \
+    src/canvasplot.cpp \
+    src/canvasshape.cpp \
+    src/canvasline.cpp \
+    src/fillspec.cpp \
+    src/canvasplotcanvas.cpp \
+    src/canvasrect.cpp \
+    src/canvastext.cpp \
+    src/plot3dbase.cpp \
+    src/axis3dbase.cpp \
+    src/axisspec.cpp \
+    src/pointcloud.cpp \
+    src/axis2dbase.cpp \
+    src/axisbase.cpp \
+    src/plot2dbase.cpp \
+    src/plotbase.cpp \
+    src/defaults.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 #include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
@@ -80,8 +98,6 @@ HEADERS += \
     QKDTree/QVectorND/QVectorND_global.h \
     src/plotdata.h \
     src/server.h \
-    src/plotbase.h \
-    src/axisbase.h \
     src/figurebase.h \
     src/lineplot.h \
     src/controller.h \
@@ -101,7 +117,23 @@ HEADERS += \
     src/util.h \
     src/imagecanvas.h \
     src/imageplot.h \
-    src/shapecanvas.h
+    src/shapecanvas.h \
+    src/canvasplot.h \
+    src/canvasshape.h \
+    src/canvasline.h \
+    src/fillspec.h \
+    src/canvasplotcanvas.h \
+    src/canvasrect.h \
+    src/canvastext.h \
+    src/plot3dbase.h \
+    src/axis3dbase.h \
+    src/axisspec.h \
+    src/pointcloud.h \
+    src/axis2dbase.h \
+    src/axisbase.h \
+    src/plot2dbase.h \
+    src/plotbase.h \
+    src/defaults.h
 
 unix:LIBS += -lzmq
 win32:CONFIG(release, debug|release): LIBS += -L"C:\zmq3.2.4\lib" -llibzmq
@@ -124,5 +156,8 @@ FORMS +=
 
 OTHER_FILES += \
     nutmeg.qdocconf
+
+DISTFILES += \
+    shaders/point.vert
 
 

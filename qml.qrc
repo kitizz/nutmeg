@@ -27,8 +27,17 @@
         <file>qml/ImagePlot.qml</file>
         <file>qml/Controls/Button.qml</file>
         <file>qml/Controls/ControlItem.qml</file>
+        <file>qml/CanvasPlot.qml</file>
+        <file>qml/PointCloud.qml</file>
+        <file>qml/Axis3D.qml</file>
+        <file>qml/Axis3DScene.qml</file>
+        <file>qml/Dot.qml</file>
+        <file>qml/PointEffect.qml</file>
+        <file>shaders/point.frag</file>
+        <file>shaders/point.vert</file>
     </qresource>
     <qresource prefix="/licenses">
         <file alias="LICENSE_nzmqt">nzmqt/LICENSE_nzmqt.md</file>
     </qresource>
+    <qresource prefix="/shaders"/>
 </RCC>

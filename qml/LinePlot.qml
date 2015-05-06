@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQml 2.1
-import Graphr 1.0
+import Nutmeg 1.0
 
 /*!
     \ingroup figures
@@ -13,7 +13,7 @@ LinePlotBase {
     height: parent.height
     handle: "data"
 
-    property var figure: axis.figure
+    property var figure: axis ? axis.figure : null
 
     signal updateTip(point mouse)
     signal clearTips()

@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import Graphr 1.0
+import Nutmeg 1.0
 import "Util.js" as Util
 
 /*!
@@ -63,7 +63,7 @@ ServerBase {
         var figureHandle = args.figureHandle,
             qml = args.qml
 
-        qml = "import QtQuick 2.1\nimport Graphr 1.0\nimport \"Layouts\" as Layouts\n" + qml
+        qml = "import QtQuick 2.1\nimport Nutmeg 1.0\nimport \"Layouts\" as Layouts\n" + qml
 
         // Figure handles must be unique, overwrite existing handles
         var oldFigure = controller.get(figureHandle)
@@ -119,7 +119,7 @@ ServerBase {
             return [3, reply]
         }
 
-        qml = "import QtQuick 2.1\nimport Graphr 1.0\nimport \"Controls\"\n" + qml
+        qml = "import QtQuick 2.1\nimport Nutmeg 1.0\nimport \"Controls\"\n" + qml
 
         var gui
         try {
@@ -221,10 +221,8 @@ ServerBase {
             return [6, {"message": "Object, " + handle + ", does not exist."}]
 
         for (var prop in data) {
-            console.log("Setting", prop, "in", obj)
             var props = prop.split(".")
             var realHandle = [handle].concat(props.slice(0, -1)).join(".")
-            console.log("Real Handle:", realHandle)
             var realObj = controller.get(realHandle)
             var realProp = props[props.length - 1]
 
@@ -238,6 +236,7 @@ ServerBase {
 
     function setProperties(obj, prop, data) {
         /* Takes an obj or array of objects and sets its/their properties according to prop + data */
+//        console.log("SetProperties", obj, prop, JSON.stringify(data))
         if (!obj) return
         if (Util.isArray(obj)) {
             for (var i=0; i<obj.length; ++i) {
@@ -253,6 +252,7 @@ ServerBase {
             if (typeof obj.mapProperty != 'function') return false
 
             var propName = obj.mapProperty(prop)
+            console.log("Propname from prop:", propName)
             if (!propName) return false
 
             obj[propName] = data

@@ -1,72 +1,58 @@
-#ifndef PLOT_H
-#define PLOT_H
+#ifndef PLOTBASE_H
+#define PLOTBASE_H
 
 #include <QQuickItem>
-#include <QPainter>
-#include "plotdata.h"
-#include "axisbase.h"
 #include "nutmegobject.h"
-
-#include "../QKDTree/QKDTree/QKDTree.h"
+#include "axisbase.h"
 
 class AxisBase;
 class PlotBase : public QQuickItem, public NutmegObject
 {
     Q_OBJECT
-    Q_PROPERTY(AxisBase* axis READ axis NOTIFY axisChanged)
     Q_PROPERTY(QString handle READ handle WRITE setHandle NOTIFY handleChanged)
-    Q_PROPERTY(QQuickPaintedItem* canvas READ canvas WRITE setCanvas NOTIFY canvasChanged)
-
-    Q_PROPERTY(QRectF dataLimits READ dataLimits NOTIFY dataLimitsChanged)
+    Q_PROPERTY(AxisBase* axis READ axis NOTIFY axisChanged)
 
 public:
     explicit PlotBase(QQuickItem *parent = 0);
-    AxisBase* axis() const;
-
-    void print(QPainter *painter);
 
     QString handle() const;
     void setHandle(QString arg);
 
-    QQuickPaintedItem* canvas() const;
-    void setCanvas(QQuickPaintedItem* arg);
-
-    Q_INVOKABLE QPointF itemToData(QPointF point);
-    Q_INVOKABLE QPointF dataToItem(QPointF point);
-
-    Q_INVOKABLE QList<QPointF> itemToDataList(QList<QPointF> points);
-    Q_INVOKABLE QList<QPointF> dataToItemList(QList<QPointF> points);
-
-    QRectF dataLimits() const;
-
-    // Nutmegobject API
-    Q_INVOKABLE void registerProperties(QMap<QString, QString> mapping);
-    Q_INVOKABLE void registerProperties(QVariantMap mapping);
-    Q_INVOKABLE QString mapProperty(const QString &prop);
+    AxisBase *axis() const;
 
 signals:
-    void axisChanged(AxisBase* arg);
     void handleChanged(QString arg);
-    void canvasChanged(QQuickPaintedItem* arg);
-    void dataLimitsChanged(QRectF arg);
+    void axisChanged(AxisBase* arg);
 
 public slots:
-    void triggerUpdate();
-    void updateAxis();
+    void findAxis();
+    virtual void print(QPainter *painter) { Q_UNUSED(painter); }
+
+    // Nutmeg object. TODO: Remove once Q_GADGET working properly...
+    virtual void registerProperties(QMap<QString, QString> mapping) {
+        NutmegObject::registerProperties(mapping);
+    }
+    virtual void registerProperties(QVariantMap mapping) {
+        NutmegObject::registerProperties(mapping);
+    }
+    virtual QString mapProperty(const QString &prop) {
+        return NutmegObject::mapProperty(prop);
+    }
+
+    virtual void registerMethods(QMap<QString, QString> mapping) {
+        NutmegObject::registerMethods(mapping);
+    }
+    virtual QString mapMethod(const QString &method) {
+        return NutmegObject::mapMethod(method);
+    }
 
 protected slots:
-    virtual void updateDataLimits() {}
-
-protected:
-    void setDataLimits(QRectF arg);
-    QRectF m_dataLimits;
+    virtual void updateAxis(AxisBase* oldAxis, AxisBase* newAxis) { Q_UNUSED(oldAxis); Q_UNUSED(newAxis); }
 
 private:
-    void setAxis(AxisBase* arg);
-
-    AxisBase* m_axis;
+    void setAxis(AxisBase *arg);
     QString m_handle;
-    QQuickPaintedItem* m_canvas;
+    AxisBase* m_axis;
 };
 
-#endif // PLOT_H
+#endif // PLOTBASE_H

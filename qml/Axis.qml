@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import Graphr 1.0
+import Nutmeg 1.0
 import QtQuick.Layouts 1.0
 
 import "Vector.js" as Vector
@@ -10,14 +10,26 @@ import "Util.js" as Util
     One Axis should be placed for each visual plot the user wishes to show.
     Figure should be an ancestor of Axis.
 */
-AxisBase {
+Axis2DBase {
     id: axisItem
     handle: "ax"
+    objectName: "axis2d"
     width: parent.width
     height: parent.height
 
     default property alias plotArea: plots.children
-    property rect plotRect: Qt.rect(plotFrame.x, plotFrame.y, plotFrame.width, plotFrame.height)
+//    plotRect: Qt.rect(plotFrame.x, plotFrame.y, plotFrame.width, plotFrame.height)
+//    readonly property alias plotMargins: pltMarg
+
+//    AxisMargins {
+//        id: pltMarg
+//        top: titleMargin
+//        left: yLabelMargin + yNumbersMargin + tickNumbersMargin
+//        bottom: xLabelMargin + xNumbersMargin + tickNumbersMargin + margin.bottom
+//        right: axisItem.margin.right
+//    }
+
+//    onLimitsChanged: console.log("New Limits:", limits)
 
     property real widthFraction: -1
     property real heightFraction: -1
@@ -42,25 +54,31 @@ AxisBase {
     Set the clearance between the xLabel and the tick numbers. Default: 5
     \qmlOnly
     */
-    property real xLabelMargin: 5
+//    property real xLabelMargin: 5
 
     /*! \property yLabelMargin
     Set the clearance between the yLabel and the tick numbers. Default: 5
     \qmlOnly
     */
-    property real yLabelMargin: 5
+//    property real yLabelMargin: 5
 
     /*! \property tickNumbersMargin
     Set the clearance between the tick numbers and the axis. Default: 4
     \qmlOnly
     */
-    property real tickNumbersMargin: 4
+//    property real tickNumbersMargin: 4
 
     /*! \property titleMargin
     Set clearance between the title and the axis below. Default: 5
     \qmlOnly
     */
-    property real titleMargin: 5
+//    property real titleMargin: 5
+
+    /*! \property navigationEnabled
+    Set whether the user can navigate this axis, or if it is fixed.
+    \qmlOnly
+    */
+    property bool navigationEnabled: true
 
     //----------------------
     //      Internal
@@ -70,8 +88,8 @@ AxisBase {
     // The numbers to display on the axes
     property var xNumbers: []
     property var yNumbers: []
-    property int xPrecision: 3
-    property int yPrecision: 3
+//    property int xPrecision: 3
+//    property int yPrecision: 3
 
     onWidthChanged: {
         updateTickNumbers(0)
@@ -95,62 +113,66 @@ AxisBase {
     }
 
     children: [
-        Text {
-            id: titleText
-            text: axisItem.title
-            anchors {
-                horizontalCenter: parent.horizontalCenter
-                top: parent.top; topMargin: margin.top
-            }
-            font: axisItem.titleFont
-            color: axisItem.titleColor
-        },
+//        Text {
+//            id: titleText
+//            text: axisItem.title
+//            anchors {
+//                horizontalCenter: parent.horizontalCenter
+//                top: parent.top; topMargin: margin.top
+//            }
+//            font: axisItem.titleFont
+//            color: axisItem.titleColor
+//        },
 
-        Text {
-            id: xLabelText
-            height: (text == "") ? 0 : implicitHeight
-            text: xAxis.label
-            font: xAxis.labelFont
-            color: xAxis.labelColor
-            anchors {
-                horizontalCenter: parent.horizontalCenter
-                bottom: parent.bottom
-                bottomMargin: margin.bottom
-            }
-        },
+//        Text {
+//            id: xLabelText
+//            height: (text == "") ? 0 : implicitHeight
+//            text: xAxis.label
+//            font: xAxis.labelFont
+//            color: xAxis.labelColor
+//            anchors {
+//                horizontalCenter: parent.horizontalCenter
+//                bottom: parent.bottom
+//                bottomMargin: margin.bottom
+//            }
+//        },
 
-        Item {
-            id: yLabelContainer
-            width: yLabelText.height
-            height: width
-            Text {
-                id: yLabelText
-                height: (text == "") ? 0 : implicitHeight
-                rotation: -90
-                text: yAxis.label
-                font: yAxis.labelFont
-                color: yAxis.labelColor
-                anchors.centerIn: parent
-            }
+//        Item {
+//            id: yLabelContainer
+//            width: yLabelText.height
+//            height: width
+//            Text {
+//                id: yLabelText
+//                height: (text == "") ? 0 : implicitHeight
+//                rotation: -90
+//                text: yAxis.label
+//                font: yAxis.labelFont
+//                color: yAxis.labelColor
+//                anchors.centerIn: parent
+//            }
 
-            anchors {
-                verticalCenter: parent.verticalCenter
-                left: parent.left
-                leftMargin: margin.left
-            }
-        },
+//            anchors {
+//                verticalCenter: parent.verticalCenter
+//                left: parent.left
+//                leftMargin: margin.left
+//            }
+//        },
 
         Rectangle {
             id: plotFrame
             z: -2
-            anchors {
-                leftMargin: yLabelMargin + yNumbersMargin + tickNumbersMargin
-                rightMargin: axisItem.margin.right
-                topMargin: titleMargin;
-                bottomMargin: xLabelMargin + xNumbersMargin + tickNumbersMargin
-                top: titleText.bottom; bottom: xLabelText.top
-                left: yLabelContainer.right; right: parent.right
-            }
+            x: plotRect.x
+            y: plotRect.y
+            width: plotRect.width
+            height: plotRect.height
+
+//            anchors {
+//                fill: parent
+//                topMargin: plotMargins.top
+//                leftMargin: plotMargins.left
+//                bottomMargin: plotMargins.bottom
+//                rightMargin: plotMargins.right
+//            }
             color: "white"
             border { color: "#AAAAAA"; width: 1 }
         },
@@ -159,7 +181,7 @@ AxisBase {
             id: axisCanvas
             x: 0; y: 0; z: -1
             axis: axisItem
-            plotRect: axisItem.plotRect
+//            plotRect: axisItem.plotRect
             width: parent.width*scaling
             height: parent.height*scaling
             transform: Scale {
@@ -173,21 +195,21 @@ AxisBase {
             anchors.fill: plotFrame
         },
 
-        Text {
-            id: xAxisOffset
-            property string scale: ""
-            property string offset: ""
-            text: scale + offset
-            anchors { right: parent.right; bottom: parent.bottom; margins: 5 }
-        },
+//        Text {
+//            id: xAxisOffset
+//            property string scale: ""
+//            property string offset: ""
+//            text: scale + offset
+//            anchors { right: parent.right; bottom: parent.bottom; margins: 5 }
+//        },
 
-        Text {
-            id: yAxisOffset
-            property string scale: ""
-            property string offset: ""
-            text: scale + offset
-            anchors { left: parent.left; top: parent.top; margins: 5 }
-        },
+//        Text {
+//            id: yAxisOffset
+//            property string scale: ""
+//            property string offset: ""
+//            text: scale + offset
+//            anchors { left: parent.left; top: parent.top; margins: 5 }
+//        },
 
         MouseArea {
             id: mouseArea
@@ -228,8 +250,9 @@ AxisBase {
                     return
                 }
 
-                tipTimer.pos = Vector.point(mouse)
-                tipTimer.start()
+                // Disable this for now...
+//                tipTimer.pos = Vector.point(mouse)
+//                tipTimer.start()
             }
 
             onPositionChanged: {
@@ -292,17 +315,20 @@ AxisBase {
     }
 
     function updateTickNumbers(axis) {
+        return
 //        console.log("Updating tickNumbers:", axis)
         var t1 = new Date().getTime()
 
-        var ticks, numbers, precision, i
+        var ticks, labels, numbers, precision, i
         if (axis === 0) {
             ticks = xAxis.majorTicks
+            labels = xAxis.majorTickLabels
             numbers = xNumbers
             precision = xPrecision
 
         } else if (axis === 1) {
             ticks = yAxis.majorTicks
+            labels = yAxis.majorTickLabels
             numbers = yNumbers
             precision = yPrecision
 
@@ -369,10 +395,12 @@ AxisBase {
 //        var t2 = new Date().getTime()
         var maxSize = 0
         var num
+        var useLabels = labels.length === ticks.length
         for (i=0; i<N; ++i) {
             // TODO: Error: TypeError: Cannot set property 'value' of undefined
             num = numbers[i]
             num.value = ticks[i]
+            num.label = useLabels ? labels[i] : ""
             num.offset = offset
             num.scale = axisScale
             num.precision = (forceNoExp) ? precision + 1 : precision
@@ -435,6 +463,7 @@ AxisBase {
             id: textItem
             property int axis: -1
             property real value: 0
+            property string label: ""
             property real offset: 0
             property real scale: 1
             property int precision: 3
@@ -444,7 +473,10 @@ AxisBase {
             color: axis == 0 ? xAxis.tickTextColor : yAxis.tickTextColor
 
             function updateTheText() {
-                text = axisItem.formatReal((value - offset)/scale, precision, -3)
+                if (label)
+                    text = label
+                else
+                    text = axisItem.formatReal((value - offset)/scale, precision, -3)
             }
 
             function update() {

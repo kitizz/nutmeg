@@ -11,7 +11,7 @@ void ImageCanvas::paint(QPainter *painter)
     ImagePlot *plot = qobject_cast<ImagePlot*>(parent());
     if (!plot) return;
 
-    AxisBase *monAxis = plot->axis();
+    Axis2DBase *monAxis = plot->axis2d();
 
     // Transform the plot coords to view coords
     qreal scaleX = 1, scaleY = 1;
@@ -20,8 +20,8 @@ void ImageCanvas::paint(QPainter *painter)
         scaleX = -1;
         scaleOffsetX = width();
     }
-    if (monAxis->yAxis()->inverted()) {
-        scaleY = -1;
+    if (!monAxis->yAxis()->inverted()) {
+        scaleY = 1;
         scaleOffsetY = height();
     }
     painter->translate(scaleOffsetX, scaleOffsetY);

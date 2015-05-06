@@ -17,10 +17,16 @@ public:
 signals:
     void scalingChanged(qreal arg);
 
+protected:
+    bool updateTriggered();
+    void resetTrigger();
+
 public slots:
+    void triggerUpdate();
 
 private:
     qreal m_scaling;
+    bool m_updateTriggered;
 };
 
 #endif // PLOTCANVAS_H

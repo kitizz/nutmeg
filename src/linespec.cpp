@@ -1,5 +1,8 @@
 #include "linespec.h"
 
+QMap<QString,QColor> LineSpec::colorMap = LineSpec::generateColorMap();
+QMap<QString, Qt::PenStyle> LineSpec::styleMap = LineSpec::generateStyleMap();
+
 LineSpec::LineSpec(QObject *parent)
     : QObject(parent)
 //    , m_spec(QString("-k"))

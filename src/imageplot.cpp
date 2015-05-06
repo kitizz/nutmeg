@@ -1,7 +1,7 @@
 #include "imageplot.h"
 
 ImagePlot::ImagePlot(QQuickItem *parent)
-    : PlotBase(parent)
+    : Plot2DBase(parent)
     , m_pixmap(QPixmap())
     , m_binary(QByteArray())
 {

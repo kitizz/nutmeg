@@ -2,6 +2,7 @@
 
 #include <QVariant>
 #include <QPrinter>
+#include <QPainter>
 
 FigureBase::FigureBase(QQuickItem *parent)
     : QQuickItem(parent)
@@ -21,6 +22,11 @@ FigureBase::~FigureBase()
 {
     if (m_controller)
         m_controller->deregisterFigure(this);
+    foreach (AxisBase* ax, m_axes.values()) {
+        deregisterAxis(ax);
+        delete ax;
+    }
+
     m_destroying = true;
 }
 
@@ -40,7 +46,7 @@ QVariantMap FigureBase::axes() const
  * @return A list of the axes with the requested handle if handle is not empty,
  *      else all the axes belonging to the figure.
  */
-QList<AxisBase*> FigureBase::getAxesByHandle(const QString &handle) const
+QList<AxisBase *> FigureBase::getAxesByHandle(const QString &handle) const
 {
     // TODO: This is O(n) complexity at the moment...
     QList<AxisBase*> values;
@@ -134,11 +140,6 @@ void FigureBase::setController(Controller *arg)
         m_controller->registerFigure(this);
 
     emit controllerChanged(arg);
-}
-
-QString FigureBase::mapProperty(const QString &prop)
-{
-    return NutmegObject::mapProperty(prop);
 }
 
 void FigureBase::installEventFilterApp(QObject *app)
