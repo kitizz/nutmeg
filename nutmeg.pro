@@ -33,9 +33,9 @@ DEFINES += QVECTORND_LIBRARY
 DEFINES += _WINSOCKAPI_
 DEFINES += NOMINMAX
 
-# 3D Things...
-DEFINES += SUPPORT_3D
-QT += 3dcore 3drenderer 3dinput
+# 3D Things. Must have Qt 5.5 or higher with Qt3D module.
+#DEFINES += SUPPORT_3D
+#QT += 3dcore 3drenderer 3dinput
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += src/main.cpp \
