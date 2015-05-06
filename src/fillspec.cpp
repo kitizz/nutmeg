@@ -36,8 +36,3 @@ void FillSpec::setAlpha(qreal arg)
     m_alpha = arg;
     emit alphaChanged(arg);
 }
-
-QString FillSpec::mapProperty(const QString &prop)
-{
-    return NutmegObject::mapProperty(prop);
-}

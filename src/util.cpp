@@ -1,5 +1,6 @@
 #include "util.h"
 #include <QtCore/qmath.h>
+#include <cmath>
 
 Util::Util()
 {
@@ -151,6 +152,11 @@ QLineF Util::rectSlice(QPointF p1, QPointF p2, QRectF r)
     QPointF q2(p1.x() + tMax*dx, p1.y() + tMax*dy);
 
     return QLineF(q1, q2);
+}
+
+int Util::precision(qreal value)
+{
+    return qFloor(log10(value));
 }
 
 QList<int>* Util::medianArray(int N, int s, QList<int>* lst)

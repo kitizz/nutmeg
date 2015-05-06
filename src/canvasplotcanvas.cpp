@@ -13,7 +13,7 @@ void CanvasPlotCanvas::paint(QPainter *painter)
     CanvasPlot *plot = qobject_cast<CanvasPlot*>(parent());
     if (!plot) return;
 
-    Axis2DBase *monAxis = plot->axis();
+    Axis2DBase *monAxis = plot->axis2d();
     if (!monAxis)
         return; // Funky data
 

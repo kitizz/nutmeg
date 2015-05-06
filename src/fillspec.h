@@ -20,8 +20,6 @@ public:
     qreal alpha() const;
     void setAlpha(qreal arg);
 
-    Q_INVOKABLE QString mapProperty(const QString &prop);
-
 signals:
     void colorChanged(QColor arg);
     void alphaChanged(qreal arg);

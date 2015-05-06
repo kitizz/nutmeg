@@ -1,7 +1,20 @@
 Figure {
     id: figure
+
+//    Axis3D {
+//        handle: "ax3d"
+
+//        width: parent.width
+//        anchors.right: parent.right
+
+//        PointCloud {
+//            handle: "pc"
+//        }
+//    }
+
     Axis {
         handle: "ax"
+//        width: parent.width/2
 //        xAxis.majorTicks: [0,2,5,10,20]
 //        xAxis.onMajorTicksChanged: console.log("Major X:", xAxis.majorTicks, yAxis.majorTicks)
 //        yAxis.onMajorTicksChanged: console.log("Major Y:", yAxis.majorTicks)

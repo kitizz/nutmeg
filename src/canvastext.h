@@ -15,7 +15,7 @@ class CanvasText : public CanvasShape
 public:
     explicit CanvasText(QQuickItem *parent = 0);
 
-    virtual void paint(QPainter *painter, const QTransform &tran, const QRectF &limits);
+    virtual void paint(QPainter *painter, const ::QTransform &tran, const QRectF &limits);
 
     QString text() const;
     void setText(QString arg);

@@ -12,12 +12,16 @@ LinePlotCanvas::LinePlotCanvas(QQuickItem *parent) :
 
 void LinePlotCanvas::paint(QPainter *painter)
 {
+    if (!updateTriggered())
+        return;
+    resetTrigger();
+
     LinePlot *plot = qobject_cast<LinePlot*>(parent());
     if (!plot) return;
 
-    Axis2DBase *monAxis = plot->axis();
+    Axis2DBase *monAxis = plot->axis2d();
     QList<qreal> xData = plot->xData(), yData = plot->yData();
-    if (!monAxis || xData.length() != yData.length())
+    if (!monAxis || xData.length() != yData.length() || xData.length() == 0)
         return; // Funky data
 
     // View limits:
@@ -41,10 +45,6 @@ void LinePlotCanvas::paint(QPainter *painter)
         scaleY *= -1;
         ty = height();
     }
-//    // TODO: Not this...
-//    painter->translate(tx, ty);
-//    painter->scale(scaleX, scaleY);
-//    painter->translate(-lim.x(), -lim.y());
 
     QTransform tran;
     tran.translate(tx, ty).scale(scaleX, scaleY).translate(-lim.x(), -lim.y());

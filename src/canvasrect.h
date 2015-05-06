@@ -2,7 +2,7 @@
 #define CANVASRECT_H
 
 #include "canvasshape.h"
-
+#include <QPainter>
 
 class CanvasRect : public CanvasShape
 {
@@ -12,7 +12,7 @@ class CanvasRect : public CanvasShape
 public:
     explicit CanvasRect(QQuickItem *parent = 0);
 
-    virtual void paint(QPainter *painter, const QTransform &tran, const QRectF &limits);
+    virtual void paint(QPainter *painter, const ::QTransform &tran, const QRectF &limits);
 
 //    QRectF rect() const;
 //    void setRect(QRectF arg);

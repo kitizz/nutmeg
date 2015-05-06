@@ -12,14 +12,12 @@
 #include "lineplotcanvas.h"
 #include "imagecanvas.h"
 #include "canvasplotcanvas.h"
-#include "pointcloud.h"
 
 #include "canvasline.h"
 #include "canvasrect.h"
 #include "canvastext.h"
 
 #include "axis2dbase.h"
-#include "axis3dbase.h"
 #include "locators.h"
 #include "linespec.h"
 #include "fillspec.h"
@@ -31,14 +29,22 @@
 
 #include "fileio.h"
 
+// 3D Stuff at the end
+#include "axis3dbase.h"
+#include "pointcloud.h"
+
 int main(int argc, char *argv[])
 {
     qmlRegisterUncreatableType<QmlWindow>("Nutmeg", 1,0, "QmlWindow", "Cannot create QmlWindow");
     qmlRegisterUncreatableType<MainWindow>("Nutmeg", 1,0, "MainWindow", "Cannot create MainWindow");
     qmlRegisterType<FigureBase>("Nutmeg", 1,0, "FigureBase");
 
-    qmlRegisterType<Axis2DBase>("Nutmeg", 1,0, "AxisBase");
+#ifdef SUPPORT_3D
     qmlRegisterType<Axis3DBase>("Nutmeg", 1,0, "Axis3DBase");
+    qmlRegisterType<PointCloud>("Nutmeg", 1,0, "PointCloudBase");
+#endif
+
+    qmlRegisterType<Axis2DBase>("Nutmeg", 1,0, "Axis2DBase");
     qmlRegisterType<AxisCanvas2D>("Nutmeg", 1,0, "AxisCanvas2D");
     qmlRegisterType<AxisSpec>("Nutmeg", 1,0, "AxisSpec");
     qmlRegisterType<AxisGrid>("Nutmeg", 1,0, "AxisGrid");
@@ -55,7 +61,6 @@ int main(int argc, char *argv[])
     qmlRegisterType<ImagePlot>("Nutmeg", 1,0, "ImagePlotBase");
     qmlRegisterType<CanvasPlot>("Nutmeg", 1,0, "CanvasPlotBase");
 
-    qmlRegisterType<PointCloud>("Nutmeg", 1,0, "PointCloudBase");
 
     qmlRegisterType<LinePlotCanvas>("Nutmeg", 1,0, "LinePlotCanvas");
     qmlRegisterType<ImageCanvas>("Nutmeg", 1,0, "ImageCanvas");

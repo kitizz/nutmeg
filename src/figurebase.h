@@ -4,7 +4,7 @@
 #include <QQuickItem>
 #include <QMultiMap>
 #include <QFileDialog>
-#include "AxisBase.h"
+#include "axisbase.h"
 #include "controller.h"
 #include "nutmegobject.h"
 #include "mouseevent.h"
@@ -36,8 +36,6 @@ public:
     Controller* controller() const;
     void setController(Controller* arg);
 
-    Q_INVOKABLE QString mapProperty(const QString &prop);
-
     Q_INVOKABLE void installEventFilterApp(QObject *app);
     bool eventFilter(QObject *watched, QEvent *event);
 
@@ -68,6 +66,24 @@ public slots:
     void deregisterAxis(AxisBase *axis);
     void registerAxis(AxisBase *axis);
     void savePdf(QString filepath);
+
+    // Nutmeg object. TODO: Remove once Q_GADGET working properly...
+    virtual void registerProperties(QMap<QString, QString> mapping) {
+        NutmegObject::registerProperties(mapping);
+    }
+    virtual void registerProperties(QVariantMap mapping) {
+        NutmegObject::registerProperties(mapping);
+    }
+    virtual QString mapProperty(const QString &prop) {
+        return NutmegObject::mapProperty(prop);
+    }
+
+    virtual void registerMethods(QMap<QString, QString> mapping) {
+        NutmegObject::registerMethods(mapping);
+    }
+    virtual QString mapMethod(const QString &method) {
+        return NutmegObject::mapMethod(method);
+    }
 
 protected slots:
     void updateAxes();

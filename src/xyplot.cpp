@@ -38,6 +38,7 @@ QList<qreal> XYPlot::xData() const
 
 void XYPlot::setXData(QList<qreal> arg)
 {
+    qDebug() << Q_FUNC_INFO << arg;
     if (m_xData == arg) return;
     m_xData = arg;
     m_xDataSet = m_xData.length() > 0;
@@ -132,6 +133,7 @@ void XYPlot::updateX()
 
 void XYPlot::updateDataLimits()
 {
+    qDebug() << "XYPlot Update DataLimits";
     int xLen = m_xData.length(), yLen = m_yData.length();
     if (xLen == 0 || (xLen > 0 && xLen != yLen) || m_settingData)
         return; // Don't update until the data is good

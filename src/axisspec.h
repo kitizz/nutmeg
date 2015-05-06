@@ -2,6 +2,7 @@
 #define AXISSPEC_H
 
 #include <QObject>
+#include <QFont>
 
 #include "nutmegobject.h"
 #include "linespec.h"
@@ -24,6 +25,8 @@ class AxisSpec : public QObject, public NutmegObject
     Q_PROPERTY(LineSpec* minorLine READ minorLine)
     Q_PROPERTY(TickDirection tickDir READ tickDir WRITE setTickDir NOTIFY tickDirChanged)
 
+    Q_PROPERTY(int tickPrecision READ tickPrecision WRITE setTickPrecision NOTIFY tickPrecisionChanged)
+
     Q_PROPERTY(QColor tickTextColor READ tickTextColor WRITE setTickTextColor NOTIFY tickTextColorChanged)
     Q_PROPERTY(QFont tickFont READ tickFont WRITE setTickFont NOTIFY tickFontChanged)
 
@@ -42,9 +45,11 @@ public:
     Q_INVOKABLE QString mapProperty(const QString &prop);
 
     QVariantList majorTicks() const;
+    QList<qreal> majorTicksReal() const;
     void setMajorTicks(QVariant arg);
 
     QVariantList minorTicks() const;
+    QList<qreal> minorTicksReal() const;
     void setMinorTicks(QVariant arg);
 
     QStringList majorTickLabels() const;
@@ -84,6 +89,11 @@ public:
     QFont labelFont() const;
     void setLabelFont(QFont arg);
 
+    int tickPrecision() const;
+    void setTickPrecision(int arg);
+
+public slots:
+
 signals:
     void majorTicksChanged(QList<qreal> arg);
     void minorTicksChanged(QList<qreal> arg);
@@ -110,6 +120,8 @@ signals:
     void majorTickLabelsChanged(QStringList arg);
     void minorTickLabelsChanged(QStringList arg);
 
+    void tickPrecisionChanged(int arg);
+
 protected slots:
     void updateMajor();
     void updateMinor();
@@ -133,10 +145,12 @@ private:
     qreal m_max;
 
     friend class AxisBase;
+    friend class Axis2DBase;
     bool m_inverted;
     TickDirection m_tickDir;
     qreal m_majorTickSize;
     qreal m_minorTickSize;
+    int m_tickPrecision;
     QColor m_tickTextColor;
     QFont m_tickFont;
     QString m_label;

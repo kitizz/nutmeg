@@ -8,12 +8,14 @@
 
 class NutmegObject
 {
+    Q_GADGET
 public:
-    virtual void registerProperties(QMap<QString, QString> mapping);
-    virtual QString mapProperty(const QString &prop);
+    Q_INVOKABLE virtual void registerProperties(QMap<QString, QString> mapping);
+    Q_INVOKABLE virtual void registerProperties(QVariantMap mapping);
+    Q_INVOKABLE virtual QString mapProperty(const QString &prop);
 
-    virtual void registerMethods(QMap<QString, QString> mapping);
-    virtual QString mapMethod(const QString &method);
+    Q_INVOKABLE virtual void registerMethods(QMap<QString, QString> mapping);
+    Q_INVOKABLE virtual QString mapMethod(const QString &method);
 
 private:
     QMap<QString, QString> m_propMap;

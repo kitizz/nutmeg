@@ -33,6 +33,8 @@ public:
 
     static QList<QPolygonF> cullLine(QPolygonF poly, QRectF rect);
     static QLineF rectSlice(QPointF p1, QPointF p2, QRectF r);
+
+    static int precision(qreal value);
 };
 
 #endif // UTIL_H

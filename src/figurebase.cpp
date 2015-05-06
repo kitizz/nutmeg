@@ -2,6 +2,7 @@
 
 #include <QVariant>
 #include <QPrinter>
+#include <QPainter>
 
 FigureBase::FigureBase(QQuickItem *parent)
     : QQuickItem(parent)
@@ -139,11 +140,6 @@ void FigureBase::setController(Controller *arg)
         m_controller->registerFigure(this);
 
     emit controllerChanged(arg);
-}
-
-QString FigureBase::mapProperty(const QString &prop)
-{
-    return NutmegObject::mapProperty(prop);
 }
 
 void FigureBase::installEventFilterApp(QObject *app)

@@ -13,7 +13,7 @@ LinePlotBase {
     height: parent.height
     handle: "data"
 
-    property var figure: axis.figure
+    property var figure: axis ? axis.figure : null
 
     signal updateTip(point mouse)
     signal clearTips()

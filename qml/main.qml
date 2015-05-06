@@ -1,6 +1,6 @@
-import QtQuick 2.2
+import QtQuick 2.4
 //import QtQuick.Dialogs 1.2
-import QtQuick.Controls 1.0
+import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.0
 import Nutmeg 1.0
 import "Util.js" as Util
@@ -51,6 +51,23 @@ Rectangle {
 ////        Component.onCompleted: visible = true
 //    }
 
+//    Figure {
+//        id: figure
+
+//        Axis3D {
+//            handle: "ax3d"
+
+//            width: parent.width
+//            anchors.right: parent.right
+
+//            PointCloud {
+//                handle: "pc"
+//            }
+//        }
+//    }
+
+//    TestFigure{}
+
     FileIO {
         id: testFile
         source: ":/qml/TestFigure.qml"
@@ -84,6 +101,13 @@ Rectangle {
                                     "label": "Coolest Y Label Ever"
             }} )
             console.log("Result:", res[1].message)
+
+//            server.sendData( {"handle": "testFigure.ax3d.pc", "data": {
+//                                    "x": [0, 0.5, 5, 10],
+//                                    "y": [0, 0, 2, -2],
+//                                    "z": [0, -1, 1, 0]
+//                                }} )
+
 //            server.sendData( {"handle": "testFigure.ax.blue", "data": {"y": [0,1,2,3,2,1,3,5,2,10]}} )
 //            server.sendData( {"handle": "testFigure.ax.red", "data": {"y": [4,8,13,0.1,0.5,3,4,5]}} )
 //            server.sendData([0, "testFigure.ax.blue", {"y": [3,1]}])
@@ -124,7 +148,7 @@ Rectangle {
             console.log("Figures before push", figures)
             figures.push(figure)
             console.log("Figures after push", figures)
-            addTab(figure.handle, tabDelegate)
+            var newTab = addTab(figure.handle, tabDelegate)
 
             tabView.currentIndex = count - 1
             figure.tabIndex = count - 1
@@ -138,8 +162,7 @@ Rectangle {
 
         Component {
             id: tabDelegate
-            Item {
-            }
+            Item {}
         }
 
         style: TabViewStyle {

@@ -1,6 +1,8 @@
 #include "axisspec.h"
 
 #include <QVariantMap>
+#include <QDebug>
+#include "defaults.h"
 
 // ------------------------------------------------------------------
 //          AxisSpec
@@ -23,8 +25,12 @@ AxisSpec::AxisSpec(QObject *parent)
     , m_tickDir(In)
     , m_majorTickSize(5)
     , m_minorTickSize(2)
+    , m_tickPrecision(3)
     , m_tickTextColor(QColor("black"))
-    , m_tickFont(QFont())
+    , m_tickFont(Defaults::defaultFont())
+    , m_label("")
+    , m_labelColor(QColor("black"))
+    , m_labelFont(Defaults::defaultFont())
 {
     LineSpec *line = new LineSpec(parent);
     line->setColor("black");
@@ -103,6 +109,11 @@ QVariantList AxisSpec::majorTicks() const
     }
 
     return lst;
+}
+
+QList<qreal> AxisSpec::majorTicksReal() const
+{
+    return m_majorTicks->locations();
 }
 
 void AxisSpec::setMajorTicks(QVariant arg)
@@ -200,6 +211,11 @@ QVariantList AxisSpec::minorTicks() const
     }
 
     return lst;
+}
+
+QList<qreal> AxisSpec::minorTicksReal() const
+{
+    return m_minorTicks->locations();
 }
 
 void AxisSpec::setMinorTicks(QVariant arg)
@@ -486,6 +502,24 @@ void AxisSpec::setLabelFont(QFont arg)
     if (m_labelFont == arg) return;
     m_labelFont = arg;
     emit labelFontChanged(arg);
+}
+
+/*!
+ * \property AxisSpec::tickPrecision
+ * The maximum precision of the tick labels when drawing the text labels.
+ */
+int AxisSpec::tickPrecision() const
+{
+    return m_tickPrecision;
+}
+
+void AxisSpec::setTickPrecision(int arg)
+{
+    if (m_tickPrecision == arg)
+        return;
+
+    m_tickPrecision = arg;
+    emit tickPrecisionChanged(arg);
 }
 
 void AxisSpec::updateMajor()

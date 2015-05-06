@@ -1,7 +1,8 @@
+#ifdef SUPPORT_3D
 #include "axis3dbase.h"
 
 Axis3DBase::Axis3DBase(QQuickItem *parent)
-    : QQuickItem(parent)
+    : AxisBase(parent)
     , m_xAxis(new AxisSpec(parent))
     , m_yAxis(new AxisSpec(parent))
     , m_zAxis(new AxisSpec(parent))
@@ -19,7 +20,7 @@ Axis3DBase::Axis3DBase(QQuickItem *parent)
     props.insert("zAxis", "zAxis");
     props.insert("title", "title");
     registerProperties(props);
-    connect(this, &QQuickItem::parentChanged, this, &Axis2DBase::updateFigure);
+    connect(this, &QQuickItem::parentChanged, this, &Axis3DBase::updateFigure);
 
     // Set up axes
     m_xAxis->setObjectName("XAxis");
@@ -33,11 +34,6 @@ Axis3DBase::Axis3DBase(QQuickItem *parent)
     m_zAxis->setObjectName("YAxis");
 //    m_zAxis->setMin(minY());
 //    m_zAxis->setMax(maxY());
-}
-
-QString Axis3DBase::mapProperty(const QString &prop)
-{
-    return NutmegObject::mapProperty(prop);
 }
 
 QString Axis3DBase::title() const
@@ -97,40 +93,4 @@ AxisSpec *Axis3DBase::zAxis() const
     return m_zAxis;
 }
 
-void Axis3DBase::registerPlot(Plot3DBase *plot)
-{
-    QString key = plot->handle();
-
-    if (m_plots.contains(key)) {
-        // TODO: Send a warning to client about this...
-        qWarning() << "Warning: Plot with this handle already exists in this Axis";
-        return; // Already in the list, move along now
-    }
-
-    m_plots.insert(key, plot);
-    connect(plot, &PlotBase::dataLimitsChanged, this, &Axis2DBase::updateDataLimits);
-    updatePlots();
-    updateDataLimits();
-}
-
-void Axis3DBase::deregisterPlot(Plot3DBase *plot)
-{
-
-}
-
-void Axis3DBase::registerProperties(QMap<QString, QString> mapping)
-{
-    NutmegObject::registerProperties(mapping);
-}
-
-void Axis3DBase::registerProperties(QVariantMap mapping)
-{
-    QMap<QString, QString> map;
-    foreach (QString tag, mapping.keys()) {
-        QString prop = mapping.value(tag).toString();
-        if (!prop.isEmpty())
-            map.insert(tag, prop);
-    }
-    registerProperties(map);
-}
-
+#endif

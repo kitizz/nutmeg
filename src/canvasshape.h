@@ -35,10 +35,6 @@ public:
     CanvasPlot* plot() const;
     Q_INVOKABLE void setPlot(CanvasPlot* arg);
 
-    Q_INVOKABLE void registerProperties(QMap<QString, QString> mapping);
-    Q_INVOKABLE void registerProperties(QVariantMap mapping);
-    Q_INVOKABLE QString mapProperty(const QString &prop);
-
 //    Q_INVOKABLE void registerMethods(QMap<QString, QString> mapping);
 //    Q_INVOKABLE QString mapMethod(const QString &method);
 
@@ -53,6 +49,24 @@ signals:
 public slots:
     void updateDataLimits();
     void findPlot();
+
+    // Nutmeg object. TODO: Remove once Q_GADGET working properly...
+    virtual void registerProperties(QMap<QString, QString> mapping) {
+        NutmegObject::registerProperties(mapping);
+    }
+    virtual void registerProperties(QVariantMap mapping) {
+        NutmegObject::registerProperties(mapping);
+    }
+    virtual QString mapProperty(const QString &prop) {
+        return NutmegObject::mapProperty(prop);
+    }
+
+    virtual void registerMethods(QMap<QString, QString> mapping) {
+        NutmegObject::registerMethods(mapping);
+    }
+    virtual QString mapMethod(const QString &method) {
+        return NutmegObject::mapMethod(method);
+    }
 
 private:
     LineSpec* m_lineSpec;

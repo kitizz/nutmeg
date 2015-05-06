@@ -172,7 +172,16 @@ FigureBase {
         onPinchUpdated: {
             if (!currentAxis || !currentAxis.navigationEnabled)
                 return
-//            var timeStart = new Date().getTime()
+
+            if (currentAxis.objectName == "axis2d") {
+                pinch2d()
+            }
+            if (currentAxis.objectName == "axis3d") {
+                pinch3d()
+            }
+        }
+
+        function pinch2d() {
             var dx = pinch.center.x - pinch.previousCenter.x
             var dy = pinch.center.y - pinch.previousCenter.y
             // Invert if necessary
@@ -191,10 +200,6 @@ FigureBase {
                 newLimits.x -= dx
                 newLimits.y += dy
             }
-
-//            var pinchCenter = mapToItem(currentAxis, touchArea.p1.x, touchArea.p1.y)
-//            var pinchCenter = mapToItem(currentAxis, touchArea.width/2, touchArea.height/2)
-//            var pinchCenter = Qt.point(currentAxis.plotRect.width/2, currentAxis.plotRect.height/2)
 
             // If there is ZOOMING happening
             if (pinch.pinchMode == mode.pinchPan || pinch.pinchMode == mode.pinchXpan) {
@@ -215,15 +220,23 @@ FigureBase {
                 newLimits.y -= (dh - h)*t
                 newLimits.height = dh
             }
-//            var timeCalc = new Date().getTime()
             currentAxis.limits = newLimits
-//            var timeLimits = new Date().getTime()
             currentAxis.updateTickLocations()
+        }
 
-//            console.log("Since last update:", timeStart - lastTimeUpdate)
-//            lastTimeUpdate = new Date().getTime()
-
-//            console.log("Calc Time:", timeCalc - timeStart, " Limits Time:", timeLimits - timeCalc, " Update Time:", lastTimeUpdate - timeLimits, "\n")
+        function pinch3d() {
+            var dx = pinch.center.x - pinch.previousCenter.x
+            var dy = pinch.center.y - pinch.previousCenter.y
+            if (pinch.pinchMode == mode.pan) {
+                // 400 px / 90 deg
+                var rate = (Math.PI*0.25)/50
+                currentAxis.azimuth -= dx*rate
+                currentAxis.altitude += dy*rate
+                if (currentAxis.altitude > Math.PI/2)
+                    currentAxis.altitude = Math.PI/2
+                else if (currentAxis.altitude < -Math.PI/2)
+                    currentAxis.altitude = -Math.PI/2
+            }
         }
 
         onPinchFinished: {

@@ -1,9 +1,9 @@
+#ifdef SUPPORT_3D
 #include "plot3dbase.h"
 
 Plot3DBase::Plot3DBase(QQuickItem *parent)
-    : QQuickItem(parent)
+    : PlotBase(parent)
     , m_axis(0)
-    , m_handle("")
     , m_matrix(new Qt3D::QMatrixTransform())  // Identity
     , m_transform(new Qt3D::QTransform())
 {
@@ -12,32 +12,9 @@ Plot3DBase::Plot3DBase(QQuickItem *parent)
     m_entity->addComponent(m_transform);
 }
 
-Axis3DBase *Plot3DBase::axis() const
+Axis3DBase *Plot3DBase::axis3d() const
 {
     return m_axis;
-}
-
-void Plot3DBase::setAxis(Axis3DBase *axis)
-{
-    if (m_axis == axis)
-        return;
-
-    m_axis = axis;
-    emit axisChanged(axis);
-}
-
-QString Plot3DBase::handle() const
-{
-    return m_handle;
-}
-
-void Plot3DBase::setHandle(QString handle)
-{
-    if (m_handle == handle)
-        return;
-
-    m_handle = handle;
-    emit handleChanged(handle);
 }
 
 QEntity *Plot3DBase::entity() const
@@ -59,16 +36,20 @@ void Plot3DBase::setTransform(QMatrix4x4 transform)
     emit transformChanged(transform);
 }
 
-void Plot3DBase::updateAxis()
+void Plot3DBase::updateAxis(AxisBase *oldAxis, AxisBase *newAxis)
 {
-    // Work up the tree until the next Axis item is found.
-    QObject *newParent = parent();
-    Axis3DBase *axis;
-    while (newParent) {
-        axis = qobject_cast<Axis3DBase*>(newParent);
-        if (axis) break;
-        newParent = newParent->parent();
+    if (oldAxis) {
+        oldAxis->disconnect(this);
+        oldAxis->deregisterPlot(this);
     }
 
-    setAxis(axis);
+    m_axis = qobject_cast<Axis3DBase*>(newAxis);
+    if (m_axis) {
+        m_axis->registerPlot(this);
+
+    } else {
+        qWarning() << Q_FUNC_INFO << "Plot is not a descendant of any Axis. It may not behave as expected.";
+    }
 }
+
+#endif

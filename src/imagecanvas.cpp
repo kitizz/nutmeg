@@ -11,7 +11,7 @@ void ImageCanvas::paint(QPainter *painter)
     ImagePlot *plot = qobject_cast<ImagePlot*>(parent());
     if (!plot) return;
 
-    Axis2DBase *monAxis = plot->axis();
+    Axis2DBase *monAxis = plot->axis2d();
 
     // Transform the plot coords to view coords
     qreal scaleX = 1, scaleY = 1;

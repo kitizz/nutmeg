@@ -1,5 +1,5 @@
-#ifndef AXIS_H
-#define AXIS_H
+#ifndef AXIS2DBASE_H
+#define AXIS2DBASE_H
 
 #include <QQuickPaintedItem>
 #include <QMultiMap>
@@ -26,7 +26,6 @@ class Axis2DBase : public AxisBase
     Q_PROPERTY(AxisSpec* xAxis READ xAxis NOTIFY xAxisChanged)
     Q_PROPERTY(AxisSpec* yAxis READ yAxis NOTIFY yAxisChanged)
 
-    Q_PROPERTY(QVariantMap plots READ plots NOTIFY plotsChanged)
     Q_PROPERTY(QQuickPaintedItem* canvas READ canvas WRITE setCanvas NOTIFY canvasChanged)    
 
     Q_PROPERTY(QRectF limits READ limits WRITE setLimits NOTIFY limitsChanged RESET resetLimits)
@@ -36,7 +35,6 @@ class Axis2DBase : public AxisBase
     Q_PROPERTY(qreal minY READ minY WRITE setMinY NOTIFY minYChanged)
     Q_PROPERTY(qreal maxY READ maxY WRITE setMaxY NOTIFY maxYChanged)
     Q_PROPERTY(QRectF dataLimits READ dataLimits NOTIFY dataLimitsChanged)
-    Q_PROPERTY(QRectF plotRect READ plotRect WRITE setPlotRect NOTIFY plotRectChanged RESET resetPlotRect)
 
     Q_PROPERTY(AxisMargins* margin READ margin NOTIFY marginChanged)
     Q_PROPERTY(QList<qreal> yLimitRounding READ yLimitRounding WRITE setYLimitRounding NOTIFY yLimitRoundingChanged)
@@ -46,13 +44,10 @@ class Axis2DBase : public AxisBase
 
 public:
     explicit Axis2DBase(QQuickItem *parent = 0);
-    ~Axis2DBase();
 
     Q_INVOKABLE qreal log_10(qreal v);
     Q_INVOKABLE QString formatReal(qreal num, int precision=3, int minMag=-11, int maxMag=-1);
     Q_INVOKABLE qreal offsetFromStd(qreal val, qreal std);
-
-    void print(QPainter *painter);
 
     qreal minX() const;
     void setMinX(qreal arg, bool fix=true, bool updateAxis=true);
@@ -87,13 +82,7 @@ public:
     QQuickPaintedItem* canvas() const;
     void setCanvas(QQuickPaintedItem* arg);
 
-    QRectF plotRect() const;
-    void setPlotRect(QRectF arg);
-    void resetPlotRect();
-
 signals:
-    void plotsChanged(QVariantMap arg);
-
     void minXChanged(qreal arg);
     void maxXChanged(qreal arg);
     void minYChanged(qreal arg);
@@ -113,25 +102,19 @@ signals:
     void fitPlotsChanged(bool arg);
 
     void canvasChanged(QQuickPaintedItem* arg);
-    void plotRectChanged(QRectF arg);
 
 public slots:
-    void registerPlot(Plot2DBase *axis);
-    void deregisterPlot(Plot2DBase *axis);
+    virtual void print(QPainter *painter);
 
 protected slots:
     void updateXAxis();
     void updateYAxis();
-    void updatePlots();
     void updateLimits();
     void updateDataLimits();
 
 private:
     void maintainAspectRatio(QRectF *lim);
     bool floatingLimits();
-    QMap<QString, Plot2DBase*> m_plots;
-    QVariantMap m_plotsVar;
-    QVariantList m_plotsList;
 
     AxisGrid* m_grid;
     AxisSpec* m_xAxis;
@@ -146,7 +129,6 @@ private:
     bool m_minYFloat;
     bool m_maxYFloat;
 
-    bool m_destroying;
     bool m_settingLimits;
     QRectF m_limits;
     QRectF m_dataLimits;
@@ -158,8 +140,6 @@ private:
     qreal m_aspectRatio;
     bool m_fitPlots;
     QQuickPaintedItem* m_canvas;
-    QRectF m_plotRect;
-    bool m_plotRectValid;
 };
 
 class AxisGrid : public QObject, public NutmegObject
@@ -228,4 +208,4 @@ private:
     qreal m_bottom;
 };
 
-#endif // AXIS_H
+#endif // AXIS2DBASE_H

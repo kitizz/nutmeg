@@ -15,6 +15,10 @@ function isObject(obj) {
     return typeof obj === 'object'
 }
 
+function isDefined(obj) {
+    return typeof obj !== 'undefined'
+}
+
 function sign(x) {
     return typeof x === 'number' ? x ? x < 0 ? -1 : 1 : x === x ? 0 : NaN : NaN;
 }
@@ -60,4 +64,9 @@ function max(lst) {
 
 function copyRect(r) {
     return Qt.rect(r.x, r.y, r.width, r.height)
+}
+
+function distance3d(v1, v2) {
+    var dx = v1.x - v2.x, dy = v1.y - v2.y, dz = v1.z - v2.z
+    return Math.sqrt(dx*dx + dy*dy + dz*dz)
 }

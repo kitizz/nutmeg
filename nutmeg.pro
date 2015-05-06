@@ -33,6 +33,10 @@ DEFINES += QVECTORND_LIBRARY
 DEFINES += _WINSOCKAPI_
 DEFINES += NOMINMAX
 
+# 3D Things...
+DEFINES += SUPPORT_3D
+QT += 3dcore 3drenderer 3dinput
+
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += src/main.cpp \
     nzmqt/nzmqt.cpp \
@@ -76,7 +80,9 @@ SOURCES += src/main.cpp \
     src/pointcloud.cpp \
     src/axis2dbase.cpp \
     src/axisbase.cpp \
-    src/plot2dbase.cpp
+    src/plot2dbase.cpp \
+    src/plotbase.cpp \
+    src/defaults.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 #include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
@@ -125,7 +131,9 @@ HEADERS += \
     src/pointcloud.h \
     src/axis2dbase.h \
     src/axisbase.h \
-    src/plot2dbase.h
+    src/plot2dbase.h \
+    src/plotbase.h \
+    src/defaults.h
 
 unix:LIBS += -lzmq
 win32:CONFIG(release, debug|release): LIBS += -L"C:\zmq3.2.4\lib" -llibzmq
@@ -148,5 +156,8 @@ FORMS +=
 
 OTHER_FILES += \
     nutmeg.qdocconf
+
+DISTFILES += \
+    shaders/point.vert
 
 

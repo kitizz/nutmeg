@@ -1,3 +1,4 @@
+#ifdef SUPPORT_3D
 #ifndef AXIS3DBASE_H
 #define AXIS3DBASE_H
 
@@ -44,9 +45,6 @@ signals:
     void titleColorChanged(QColor titleColor);
 
 public slots:
-    void updateFigure();
-    void registerPlot(Plot3DBase *plot);
-    void deregisterPlot(Plot3DBase *plot);
 private:
     AxisSpec* m_xAxis;
     AxisSpec* m_yAxis;
@@ -60,3 +58,4 @@ private:
 };
 
 #endif // AXIS3DBASE_H
+#endif

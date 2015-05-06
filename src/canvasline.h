@@ -13,7 +13,7 @@ class CanvasLine : public CanvasShape
 public:
     explicit CanvasLine(QQuickItem *parent = 0);
 
-    virtual void paint(QPainter* painter, const QTransform &tran, const QRectF &limits);
+    virtual void paint(QPainter* painter, const ::QTransform &tran, const QRectF &limits);
 
     QList<qreal> xData() const;
     void setXData(QList<qreal> arg);

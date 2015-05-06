@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.4
 import Nutmeg 1.0
 
 import "Util.js" as Util
@@ -108,7 +108,7 @@ ControllerBase {
 
         } else {
             var plot = axes.plots[handle]
-            console.log("Plot!", plot)
+            debug("Plot! " + plot)
             if (!plot)
                 return getFromObj(axes, handle)
             return plot

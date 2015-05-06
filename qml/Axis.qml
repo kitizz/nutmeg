@@ -10,25 +10,26 @@ import "Util.js" as Util
     One Axis should be placed for each visual plot the user wishes to show.
     Figure should be an ancestor of Axis.
 */
-AxisBase {
+Axis2DBase {
     id: axisItem
     handle: "ax"
+    objectName: "axis2d"
     width: parent.width
     height: parent.height
 
     default property alias plotArea: plots.children
-    plotRect: Qt.rect(plotFrame.x, plotFrame.y, plotFrame.width, plotFrame.height)
-    readonly property alias plotMargins: pltMarg
+//    plotRect: Qt.rect(plotFrame.x, plotFrame.y, plotFrame.width, plotFrame.height)
+//    readonly property alias plotMargins: pltMarg
 
-    AxisMargins {
-        id: pltMarg
-        top: titleMargin + titleText.y + titleText.height
-        left: yLabelMargin + yNumbersMargin + tickNumbersMargin + yLabelContainer.x + yLabelContainer.width
-        bottom: xLabelMargin + xNumbersMargin + tickNumbersMargin + margin.bottom + xLabelText.height
-        right: axisItem.margin.right
-    }
+//    AxisMargins {
+//        id: pltMarg
+//        top: titleMargin
+//        left: yLabelMargin + yNumbersMargin + tickNumbersMargin
+//        bottom: xLabelMargin + xNumbersMargin + tickNumbersMargin + margin.bottom
+//        right: axisItem.margin.right
+//    }
 
-    onLimitsChanged: console.log("New Limits:", limits)
+//    onLimitsChanged: console.log("New Limits:", limits)
 
     property real widthFraction: -1
     property real heightFraction: -1
@@ -53,25 +54,25 @@ AxisBase {
     Set the clearance between the xLabel and the tick numbers. Default: 5
     \qmlOnly
     */
-    property real xLabelMargin: 5
+//    property real xLabelMargin: 5
 
     /*! \property yLabelMargin
     Set the clearance between the yLabel and the tick numbers. Default: 5
     \qmlOnly
     */
-    property real yLabelMargin: 5
+//    property real yLabelMargin: 5
 
     /*! \property tickNumbersMargin
     Set the clearance between the tick numbers and the axis. Default: 4
     \qmlOnly
     */
-    property real tickNumbersMargin: 4
+//    property real tickNumbersMargin: 4
 
     /*! \property titleMargin
     Set clearance between the title and the axis below. Default: 5
     \qmlOnly
     */
-    property real titleMargin: 5
+//    property real titleMargin: 5
 
     /*! \property navigationEnabled
     Set whether the user can navigate this axis, or if it is fixed.
@@ -87,8 +88,8 @@ AxisBase {
     // The numbers to display on the axes
     property var xNumbers: []
     property var yNumbers: []
-    property int xPrecision: 3
-    property int yPrecision: 3
+//    property int xPrecision: 3
+//    property int yPrecision: 3
 
     onWidthChanged: {
         updateTickNumbers(0)
@@ -112,67 +113,66 @@ AxisBase {
     }
 
     children: [
-        Text {
-            id: titleText
-            text: axisItem.title
-            anchors {
-                horizontalCenter: parent.horizontalCenter
-                top: parent.top; topMargin: margin.top
-            }
-            font: axisItem.titleFont
-            color: axisItem.titleColor
-        },
+//        Text {
+//            id: titleText
+//            text: axisItem.title
+//            anchors {
+//                horizontalCenter: parent.horizontalCenter
+//                top: parent.top; topMargin: margin.top
+//            }
+//            font: axisItem.titleFont
+//            color: axisItem.titleColor
+//        },
 
-        Text {
-            id: xLabelText
-            height: (text == "") ? 0 : implicitHeight
-            text: xAxis.label
-            font: xAxis.labelFont
-            color: xAxis.labelColor
-            anchors {
-                horizontalCenter: parent.horizontalCenter
-                bottom: parent.bottom
-                bottomMargin: margin.bottom
-            }
-        },
+//        Text {
+//            id: xLabelText
+//            height: (text == "") ? 0 : implicitHeight
+//            text: xAxis.label
+//            font: xAxis.labelFont
+//            color: xAxis.labelColor
+//            anchors {
+//                horizontalCenter: parent.horizontalCenter
+//                bottom: parent.bottom
+//                bottomMargin: margin.bottom
+//            }
+//        },
 
-        Item {
-            id: yLabelContainer
-            width: yLabelText.height
-            height: width
-            Text {
-                id: yLabelText
-                height: (text == "") ? 0 : implicitHeight
-                rotation: -90
-                text: yAxis.label
-                font: yAxis.labelFont
-                color: yAxis.labelColor
-                anchors.centerIn: parent
-            }
+//        Item {
+//            id: yLabelContainer
+//            width: yLabelText.height
+//            height: width
+//            Text {
+//                id: yLabelText
+//                height: (text == "") ? 0 : implicitHeight
+//                rotation: -90
+//                text: yAxis.label
+//                font: yAxis.labelFont
+//                color: yAxis.labelColor
+//                anchors.centerIn: parent
+//            }
 
-            anchors {
-                verticalCenter: parent.verticalCenter
-                left: parent.left
-                leftMargin: margin.left
-            }
-        },
+//            anchors {
+//                verticalCenter: parent.verticalCenter
+//                left: parent.left
+//                leftMargin: margin.left
+//            }
+//        },
 
         Rectangle {
             id: plotFrame
             z: -2
-            anchors {
-                fill: parent
-                topMargin: plotMargins.top
-                leftMargin: plotMargins.left
-                bottomMargin: plotMargins.bottom
-                rightMargin: plotMargins.right
-//                leftMargin: yLabelMargin + yNumbersMargin + tickNumbersMargin
-//                rightMargin: axisItem.margin.right
-//                topMargin: titleMargin
-//                bottomMargin: xLabelMargin + xNumbersMargin + tickNumbersMargin
-//                top: titleText.bottom; bottom: xLabelText.top
-//                left: yLabelContainer.right; right: parent.right
-            }
+            x: plotRect.x
+            y: plotRect.y
+            width: plotRect.width
+            height: plotRect.height
+
+//            anchors {
+//                fill: parent
+//                topMargin: plotMargins.top
+//                leftMargin: plotMargins.left
+//                bottomMargin: plotMargins.bottom
+//                rightMargin: plotMargins.right
+//            }
             color: "white"
             border { color: "#AAAAAA"; width: 1 }
         },
@@ -181,7 +181,7 @@ AxisBase {
             id: axisCanvas
             x: 0; y: 0; z: -1
             axis: axisItem
-            plotRect: axisItem.plotRect
+//            plotRect: axisItem.plotRect
             width: parent.width*scaling
             height: parent.height*scaling
             transform: Scale {
@@ -195,21 +195,21 @@ AxisBase {
             anchors.fill: plotFrame
         },
 
-        Text {
-            id: xAxisOffset
-            property string scale: ""
-            property string offset: ""
-            text: scale + offset
-            anchors { right: parent.right; bottom: parent.bottom; margins: 5 }
-        },
+//        Text {
+//            id: xAxisOffset
+//            property string scale: ""
+//            property string offset: ""
+//            text: scale + offset
+//            anchors { right: parent.right; bottom: parent.bottom; margins: 5 }
+//        },
 
-        Text {
-            id: yAxisOffset
-            property string scale: ""
-            property string offset: ""
-            text: scale + offset
-            anchors { left: parent.left; top: parent.top; margins: 5 }
-        },
+//        Text {
+//            id: yAxisOffset
+//            property string scale: ""
+//            property string offset: ""
+//            text: scale + offset
+//            anchors { left: parent.left; top: parent.top; margins: 5 }
+//        },
 
         MouseArea {
             id: mouseArea
@@ -315,6 +315,7 @@ AxisBase {
     }
 
     function updateTickNumbers(axis) {
+        return
 //        console.log("Updating tickNumbers:", axis)
         var t1 = new Date().getTime()
 

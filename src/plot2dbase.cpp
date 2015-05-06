@@ -8,16 +8,15 @@
 #include "../QKDTree/QVectorND/QVectorND.h"
 
 Plot2DBase::Plot2DBase(QQuickItem *parent)
-    : QQuickItem(parent)
-    , m_axis(0)
-    , m_handle(QString())
-    , m_canvas(0)
+    : PlotBase(parent)
     , m_dataLimits(QRectF())
+    , m_axis(0)
+    , m_canvas(0)
 {
-    connect(this, &QQuickItem::parentChanged, this, &Plot2DBase::updateAxis);
+
 }
 
-AxisBase *Plot2DBase::axis() const
+Axis2DBase *Plot2DBase::axis2d() const
 {
     return m_axis;
 }
@@ -29,24 +28,12 @@ void Plot2DBase::print(QPainter *painter)
     m_canvas->paint(painter);
 }
 
-QString Plot2DBase::handle() const
-{
-    return m_handle;
-}
-
-void Plot2DBase::setHandle(QString arg)
-{
-    if (m_handle == arg) return;
-    m_handle = arg;
-    emit handleChanged(arg);
-}
-
-QQuickPaintedItem *Plot2DBase::canvas() const
+PlotCanvas *Plot2DBase::canvas() const
 {
     return m_canvas;
 }
 
-void Plot2DBase::setCanvas(QQuickPaintedItem *arg)
+void Plot2DBase::setCanvas(PlotCanvas *arg)
 {
     if (m_canvas == arg) return;
     m_canvas = arg;
@@ -124,80 +111,42 @@ QRectF Plot2DBase::dataLimits() const
     return m_dataLimits;
 }
 
-void Plot2DBase::registerProperties(QMap<QString, QString> mapping)
+void Plot2DBase::triggerUpdate()
 {
-    NutmegObject::registerProperties(mapping);
+    if (m_canvas)
+        m_canvas->triggerUpdate();
+//        m_canvas->update();
 }
 
-void Plot2DBase::registerProperties(QVariantMap mapping)
+void Plot2DBase::updateAxis(AxisBase *oldAxis, AxisBase *newAxis)
 {
-    QMap<QString, QString> map;
-    foreach (QString tag, mapping.keys()) {
-        QString prop = mapping.value(tag).toString();
-        if (!prop.isEmpty())
-            map.insert(tag, prop);
-    }
-    registerProperties(map);
-}
-
-QString Plot2DBase::mapProperty(const QString &prop)
-{
-    return NutmegObject::mapProperty(prop);
-}
-
-void Plot2DBase::setAxis(AxisBase *arg)
-{
-    if (m_axis == arg) return;
-
-    if (m_axis) {
-        m_axis->disconnect(this);
-        m_axis->deregisterPlot(this);
+    if (oldAxis) {
+        oldAxis->disconnect(this);
+        oldAxis->deregisterPlot(this);
     }
 
-    m_axis = arg;
-
+    m_axis = qobject_cast<Axis2DBase*>(newAxis);
     if (m_axis) {
-        connect(m_axis, &AxisBase::minXChanged, this, &Plot2DBase::triggerUpdate);
-        connect(m_axis, &AxisBase::minYChanged, this, &Plot2DBase::triggerUpdate);
-        connect(m_axis, &AxisBase::maxXChanged, this, &Plot2DBase::triggerUpdate);
-        connect(m_axis, &AxisBase::maxYChanged, this, &Plot2DBase::triggerUpdate);
-        connect(m_axis, &AxisBase::dataLimitsChanged, this, &Plot2DBase::triggerUpdate);
-        connect(m_axis, &AxisBase::xAxisChanged, this, &Plot2DBase::triggerUpdate);
-        connect(m_axis, &AxisBase::yAxisChanged, this, &Plot2DBase::triggerUpdate);
+        connect(m_axis, &Axis2DBase::minXChanged, this, &Plot2DBase::triggerUpdate);
+        connect(m_axis, &Axis2DBase::minYChanged, this, &Plot2DBase::triggerUpdate);
+        connect(m_axis, &Axis2DBase::maxXChanged, this, &Plot2DBase::triggerUpdate);
+        connect(m_axis, &Axis2DBase::maxYChanged, this, &Plot2DBase::triggerUpdate);
+        connect(m_axis, &Axis2DBase::dataLimitsChanged, this, &Plot2DBase::triggerUpdate);
+        connect(m_axis, &Axis2DBase::xAxisChanged, this, &Plot2DBase::triggerUpdate);
+        connect(m_axis, &Axis2DBase::yAxisChanged, this, &Plot2DBase::triggerUpdate);
 
         m_axis->registerPlot(this);
 
     } else {
         qWarning() << Q_FUNC_INFO << "Plot is not a descendant of any Axis. It may not behave as expected.";
     }
-    emit axisChanged(arg);
-}
-
-void Plot2DBase::triggerUpdate()
-{
-//    update();
-    if (m_canvas)
-        m_canvas->update();
-}
-
-void Plot2DBase::updateAxis()
-{
-    // Work up the tree until the next Axis item is found.
-    QObject *newParent = parent();
-    AxisBase *axis;
-    while (newParent) {
-        axis = qobject_cast<AxisBase*>(newParent);
-        if (axis) break;
-        newParent = newParent->parent();
-    }
-
-    setAxis(axis);
 }
 
 void Plot2DBase::setDataLimits(QRectF arg)
 {
     if (m_dataLimits == arg) return;
     m_dataLimits = arg;
+    qDebug() << Q_FUNC_INFO << "emit DataLimitsChanged" << this->handle();
     emit dataLimitsChanged(arg);
     triggerUpdate();
 }

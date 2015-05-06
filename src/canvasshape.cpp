@@ -70,27 +70,6 @@ void CanvasShape::setPlot(CanvasPlot *arg)
     emit plotChanged(arg);
 }
 
-void CanvasShape::registerProperties(QMap<QString, QString> mapping)
-{
-    NutmegObject::registerProperties(mapping);
-}
-
-void CanvasShape::registerProperties(QVariantMap mapping)
-{
-    QMap<QString, QString> map;
-    foreach (QString tag, mapping.keys()) {
-        QString prop = mapping.value(tag).toString();
-        if (!prop.isEmpty())
-            map.insert(tag, prop);
-    }
-    registerProperties(map);
-}
-
-QString CanvasShape::mapProperty(const QString &prop)
-{
-    return NutmegObject::mapProperty(prop);
-}
-
 void CanvasShape::updateDataLimits()
 {
     if (m_destroying || m_settingBounds) return;

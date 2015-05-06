@@ -35,7 +35,6 @@ void Locator::setLocations(QList<qreal> arg)
 {
     if (m_locations == arg) return;
     m_locations = arg;
-    qDebug() << "Locations Ticks Changed!";
     emit locationsChanged(arg);
 }
 

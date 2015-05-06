@@ -1,8 +1,10 @@
+#ifdef SUPPORT_3D
 #include "pointcloud.h"
 
 #include <Qt3DRenderer/QSphereMesh>
 #include <Qt3DRenderer/QPhongMaterial>
 #include <Qt3DCore/QTranslateTransform>
+#include <QtMath>
 
 PointCloud::PointCloud(QQuickItem *parent)
     : Plot3DBase(parent)
@@ -10,10 +12,18 @@ PointCloud::PointCloud(QQuickItem *parent)
     , m_yData(QList<qreal>())
     , m_zData(QList<qreal>())
     , m_dataLength(0)
-    , m_entities(QList<Qt3D::QEntity*>)
-    , m_points(QList<Qt3D::QTranslateTransform*>)
+    , m_entities(QList<Qt3D::QEntity*>())
+    , m_points(QList<Qt3D::QTranslateTransform*>())
 {
+    QMap<QString,QString> props;
+    props.insert("x", "xData");
+    props.insert("y", "yData");
+    props.insert("z", "zData");
+    registerProperties(props);
 
+    connect(this, &PointCloud::xDataChanged, this, &PointCloud::updateData);
+    connect(this, &PointCloud::yDataChanged, this, &PointCloud::updateData);
+    connect(this, &PointCloud::zDataChanged, this, &PointCloud::updateData);
 }
 
 QList<qreal> PointCloud::xData() const
@@ -60,34 +70,40 @@ void PointCloud::setZData(QList<qreal> zData)
 
 void PointCloud::updateData()
 {
+    return;
     int N = m_xData.length();
     if (m_yData.length() != N || m_zData.length() != N)
         return;
 
     // Create new entities as required
     while (m_dataLength < N) {
-        Qt3D::QEntity *e = new Qt3D::QEntity();
+        Qt3D::QEntity *e = new Qt3D::QEntity(entity());
         QSphereMesh *s = new QSphereMesh();
-        s->setRadius(0.1);
-        s->setRings(3);
-        s->setSlices(3);
+        s->setRadius(3);
+        s->setRings(10);
+        s->setSlices(10);
 
         QPhongMaterial *m = new QPhongMaterial();
-        m->setDiffuse(QColor(qFabs(qCos(angle)) * 255, 204, 75));
+        m->setDiffuse(QColor(qFabs(qCos(0.8)) * 255, 204, 75));
         m->setAmbient(Qt::gray);
         m->setSpecular(Qt::white);
-        m->setShininess(50.0f);
+        m->setShininess(150.0f);
 
+        Qt3D::QTransform *trans = new Qt3D::QTransform();
         QTranslateTransform *t = new QTranslateTransform();
+        trans->addTransform(t);
 
         e->addComponent(s);
         e->addComponent(m);
-        e->addComponent(t);
+        e->addComponent(trans);
 
         m_points.append(t);
         m_entities.append(e);
 
+        e->setParent(entity());
+
         m_dataLength++;
+        qDebug() << "Adding point entity:" << e;
     }
 
     while (m_dataLength > N) {
@@ -107,7 +123,9 @@ void PointCloud::updateData()
 
     for (int i = 0; i < m_dataLength; ++i) {
         auto p = m_points[i];
-        p->setTranslation(QVector(m_xData[i], m_yData[i], m_zData[i]));
+        p->setTranslation(QVector3D(m_xData[i], m_yData[i], m_zData[i]));
     }
+    qDebug() << "Points:" << m_points;
 }
 
+#endif

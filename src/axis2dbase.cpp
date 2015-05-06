@@ -6,17 +6,11 @@
 // TODO: Remove
 #include <QTime>
 
-#define Font QFont
-
 Axis2DBase::Axis2DBase(QQuickItem *parent)
-    : QQuickPaintedItem(parent)
-    , m_figure(0)
-    , m_plots(QMap<QString,Plot2DBase*>())
-    , m_plotsVar(QVariantMap())
+    : AxisBase(parent)
     , m_grid(new AxisGrid(parent))
     , m_xAxis(new AxisSpec(parent))
     , m_yAxis(new AxisSpec(parent))
-    , m_handle(QString("axis"))
     , m_minX(-Inf)
     , m_maxX(Inf)
     , m_minY(-Inf)
@@ -25,18 +19,12 @@ Axis2DBase::Axis2DBase(QQuickItem *parent)
     , m_maxXFloat(true)
     , m_minYFloat(true)
     , m_maxYFloat(true)
-    , m_destroying(false)
     , m_settingLimits(false)
-    , m_dataLimits(QRectF())
+    , m_dataLimits(QRectF(0, 0, 1, 1))
     , m_yLimitRounding(QList<qreal>())
     , m_margin(new AxisMargins())
     , m_aspectRatio(0)
     , m_fitPlots(false)
-    , m_title("")
-    , m_titleFont(QFont())
-    , m_titleColor(QColor("black"))
-    , m_plotRect(QRectF())
-    , m_plotRectValid(false)
 {
     // Set initial axis label roundings
     m_yLimitRounding << 0 << 1 << 1.5 << 2 << 2.5 << 3 << 4 << 5 << 10;
@@ -47,9 +35,6 @@ Axis2DBase::Axis2DBase(QQuickItem *parent)
     m_limits.setBottom(Inf);
     m_limits.setRight(Inf);
 
-    // Initialise fonts
-    m_titleFont.setBold(true);
-
     // Register properties available through the API
     QMap<QString,QString> props;
     props.insert("minX", "minX");
@@ -59,7 +44,6 @@ Axis2DBase::Axis2DBase(QQuickItem *parent)
     props.insert("xAxis", "xAxis");
     props.insert("yAxis", "yAxis");
     props.insert("grid", "grid");
-    props.insert("title", "title");
     registerProperties(props);
     connect(this, &QQuickItem::parentChanged, this, &Axis2DBase::updateFigure);
 
@@ -98,15 +82,17 @@ Axis2DBase::Axis2DBase(QQuickItem *parent)
     // Connections for axis updates
 //    connect(m_xAxis, &AxisSpec::ticksChanged, this, &AxisBase::xAxisChanged);
 //    connect(m_yAxis, &AxisSpec::ticksChanged, this, &AxisBase::yAxisChanged);
-}
 
-Axis2DBase::~Axis2DBase()
-{
-    foreach (Plot2DBase* plt, m_plots.values()) {
-        deregisterPlot(plt);
-        delete plt;
-    }
-    m_destroying = true;
+    // Connections for plot updates
+    connect(this, &AxisBase::addedPlot, [=](PlotBase* plot) {
+        Plot2DBase *plot2d = qobject_cast<Plot2DBase*>(plot);
+        qDebug() << "Connect Plot2D dataLimitsChanged" << plot2d;
+        if (!plot2d) return;
+        connect(plot2d, &Plot2DBase::dataLimitsChanged, this, &Axis2DBase::updateDataLimits);
+        connect(this, &Axis2DBase::limitsChanged, plot2d, &Plot2DBase::triggerUpdate);
+        connect(this, &AxisBase::plotRectChanged, plot2d, &Plot2DBase::triggerUpdate);
+        updateDataLimits();
+    });
 }
 
 qreal Axis2DBase::log_10(qreal v)
@@ -157,7 +143,8 @@ void Axis2DBase::print(QPainter *painter)
 
     m_canvas->paint(painter);
 
-    foreach (Plot2DBase* plot, m_plots) {
+    foreach (QString key, plotNames()) {
+        PlotBase *plot = getPlotByHandle(key);
         plot->print(painter);
     }
 }
@@ -176,7 +163,8 @@ void Axis2DBase::setMinX(qreal arg, bool fix, bool updateAxis)
 {
     // "fix" is used internally so that the bounds can be set while
     // letting them continue to float...
-    qDebug() << "AxisBase::setMinX" << fix << updateAxis << arg << this;
+    if (arg != arg) // NaN
+        return;
     if (arg == -Inf) {
         arg = m_dataLimits.left();
         m_minXFloat = true;
@@ -206,7 +194,8 @@ qreal Axis2DBase::maxX() const
 
 void Axis2DBase::setMaxX(qreal arg, bool fix, bool updateAxis)
 {
-    qDebug() << "AxisBase::setMaxX" << fix << updateAxis << arg << this;
+    if (arg != arg) // NaN
+        return;
     if (arg == Inf) {
         arg = m_dataLimits.right();
         m_maxXFloat = true;
@@ -234,6 +223,8 @@ qreal Axis2DBase::minY() const
 
 void Axis2DBase::setMinY(qreal arg, bool fix, bool updateAxis)
 {
+    if (arg != arg) // NaN
+        return;
     if (arg == -Inf) {
         arg = m_dataLimits.top();
         m_minYFloat = true;
@@ -261,6 +252,8 @@ qreal Axis2DBase::maxY() const
 
 void Axis2DBase::setMaxY(qreal arg, bool fix, bool updateAxis)
 {
+    if (arg != arg) // NaN
+        return;
     if (arg == Inf) {
         arg = m_dataLimits.bottom();
         m_maxYFloat = true;
@@ -281,16 +274,6 @@ void Axis2DBase::offset(qreal x, qreal y)
     // TODO: Implement AxisBase::offset
 }
 
-QVariantMap Axis2DBase::plots()
-{
-    return m_plotsVar;
-}
-
-QVariantList Axis2DBase::getPlotList()
-{
-    return m_plotsList;
-}
-
 void Axis2DBase::updateXAxis()
 {
     qreal w = width() - m_margin->left() - m_margin->right();
@@ -301,20 +284,6 @@ void Axis2DBase::updateYAxis()
 {
     qreal h = height() - m_margin->top() - m_margin->bottom();
     m_yAxis->setPixelSize(h);
-}
-
-void Axis2DBase::updatePlots()
-{
-    QVariantMap newMap; // Map of QVariantList
-    QVariantList newList;
-    foreach (const QString &key, m_plots.keys()) {
-        QVariant plt = QVariant::fromValue(m_plots[key]);
-        newList.prepend(plt);
-        newMap.insert(key, plt);
-    }
-    m_plotsVar = newMap;
-    m_plotsList = newList;
-    emit plotsChanged(m_plotsVar);
 }
 
 void Axis2DBase::updateLimits()
@@ -328,7 +297,7 @@ void Axis2DBase::updateLimits()
 
     maintainAspectRatio(&newLimits);
 
-    qDebug() << "AxisBase::updateLimits" << minX() << maxX() << minY() << maxY();
+//    qDebug() << "AxisBase::updateLimits" << minX() << maxX() << minY() << maxY();
     setLimits(newLimits, false);
 }
 
@@ -338,8 +307,12 @@ void Axis2DBase::updateDataLimits()
     qreal minX = Inf, maxX = -Inf, minY = Inf, maxY = -Inf;
 
     bool validLimits = false;
-    foreach (Plot2DBase* plot, m_plots.values()) {
+    foreach (QString key, plotNames()) {
+        Plot2DBase* plot = qobject_cast<Plot2DBase*>(getPlotByHandle(key));
+        if (!plot) continue;
+
         QRectF rect = plot->dataLimits();
+        qDebug() << "Plot dataLimits:" << plot << rect;
         if (rect.isEmpty()) continue;
         validLimits = true;
 
@@ -349,7 +322,11 @@ void Axis2DBase::updateDataLimits()
         if (rect.bottom() > maxY) maxY = rect.bottom();
     }
 
-    if (!validLimits) return;
+    if (!validLimits) {
+        qDebug() << Q_FUNC_INFO << "Limits not valid...";
+        m_dataLimits = QRect(0, 0, 1, 1);
+        return;
+    }
 
     // Finalise the data limits
     QRectF rect;
@@ -476,32 +453,6 @@ qreal Axis2DBase::sign(qreal a)
     return (a > 0) - (a < 0);
 }
 
-Plot2DBase* Axis2DBase::getPlotByHandle(QString handle)
-{
-    return m_plots[handle];
-}
-
-QString Axis2DBase::mapProperty(const QString &prop)
-{
-    return NutmegObject::mapProperty(prop);
-}
-
-void Axis2DBase::registerProperties(QMap<QString, QString> mapping)
-{
-    NutmegObject::registerProperties(mapping);
-}
-
-void Axis2DBase::registerProperties(QVariantMap mapping)
-{
-    QMap<QString, QString> map;
-    foreach (QString tag, mapping.keys()) {
-        QString prop = mapping.value(tag).toString();
-        if (!prop.isEmpty())
-            map.insert(tag, prop);
-    }
-    registerProperties(map);
-}
-
 /*!
  * \property AxisBase::limits
  * Sets all the data limits of the Axis at once.
@@ -521,7 +472,6 @@ void Axis2DBase::setLimits(QRectF arg, bool fix)
 
     maintainAspectRatio(&arg);
     m_limits = arg;
-    qDebug() << "AxisBase::setLimits" << m_limits << this;
 
     setMinX(m_limits.left(), fix, false);
     setMaxX(m_limits.right(), fix, false);
@@ -647,36 +597,6 @@ void Axis2DBase::setCanvas(QQuickPaintedItem *arg)
 }
 
 /*!
- * \property AxisBase::plotRect
- * A rectangle that defines the actual plotting area in this axis.
- */
-QRectF Axis2DBase::plotRect() const
-{
-    if (m_plotRectValid)
-        return m_plotRect;
-    else
-        return QRectF(0, 0, width(), height());
-}
-
-void Axis2DBase::setPlotRect(QRectF arg)
-{
-    QRectF oldRect = plotRect();
-    m_plotRectValid = true;
-    if (oldRect == arg) return;
-    m_plotRect = arg;
-    emit plotRectChanged(arg);
-}
-
-void Axis2DBase::resetPlotRect()
-{
-    QRectF oldRect = plotRect();
-    m_plotRectValid = false;
-    QRectF newRect = plotRect();
-    if (newRect != oldRect)
-        emit plotRectChanged(newRect);
-}
-
-/*!
  * \property AxisBase::grid
  * Read-only property provides access to specifying the Axis grid.
  * E.g.
@@ -688,28 +608,6 @@ void Axis2DBase::resetPlotRect()
 AxisGrid *Axis2DBase::grid() const
 {
     return m_grid;
-}
-
-void Axis2DBase::registerPlot(Plot2DBase *plot)
-{
-    QString key = plot->handle();
-
-    if (m_plots.contains(key)) {
-        // TODO: Send a warning to client about this...
-        qWarning() << "Warning: Plot with this handle already exists in this Axis";
-        return; // Already in the list, move along now
-    }
-
-    m_plots.insert(key, plot);
-    connect(plot, &Plot2DBase::dataLimitsChanged, this, &Axis2DBase::updateDataLimits);
-    updatePlots();
-    updateDataLimits();
-}
-
-void Axis2DBase::deregisterPlot(Plot2DBase *plot)
-{
-    m_plots.remove(plot->handle());
-    updatePlots();
 }
 
 // ------------------------------------------------------------------

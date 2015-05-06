@@ -1,3 +1,4 @@
+#ifdef SUPPORT_3D
 #ifndef POINTCLOUD_H
 #define POINTCLOUD_H
 
@@ -37,9 +38,10 @@ private:
     QList<qreal> m_xData;
     QList<qreal> m_yData;
     QList<qreal> m_zData;
+    int m_dataLength;
     QList<Qt3D::QEntity*> m_entities;
     QList<Qt3D::QTranslateTransform*> m_points;
-    int m_dataLength;
 };
 
 #endif // POINTCLOUD_H
+#endif

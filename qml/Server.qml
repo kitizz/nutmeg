@@ -248,10 +248,11 @@ ServerBase {
             return true
         } else {
             // Check if the property is valid
-//            console.log("Setting property", prop, "for", obj)
+            console.log("Setting property", prop, "for", obj)
             if (typeof obj.mapProperty != 'function') return false
 
             var propName = obj.mapProperty(prop)
+            console.log("Propname from prop:", propName)
             if (!propName) return false
 
             obj[propName] = data
