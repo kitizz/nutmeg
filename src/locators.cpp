@@ -206,7 +206,7 @@ void AutoLocator::updateLocator()
     qreal bestA = m_density, bestMult = 0;
     foreach (qreal n, multiples()) {
         qreal m_a = log10(m_density/(scale*n));
-        qreal m = roundAt(m_a, 0.7); // Approx. log10(5).
+        qreal m = roundAt(m_a, 0.69897); // Approx. log10(5).
         qreal a = qAbs(m_a - m);
         if (a < bestA) {
             bestA = a;
@@ -219,14 +219,19 @@ void AutoLocator::updateLocator()
     // Round the start value up to the next valid value
     QList<qreal> newLocs;
     newLocs << ceil(start()/bestMult)*bestMult;
-    while (newLocs.last() + bestMult <= end())
-        newLocs << newLocs.last() + bestMult;
-
-//    qDebug() << "Best Density:" << bestMult*scale;
-//    qDebug() << "Locs:" << newLocs;
+    while (newLocs.last() + bestMult <= end()) {
+        qreal newVal = newLocs.last() + bestMult;
+        // Precision errors in bestMult cause the locations to be off
+        // by orders of ~1e-15. This causes issues when trying to desplay
+        // zero. So we round to zero if the magnitude is less than 1/10
+        // of a pixel.
+        if (qAbs(newVal)*scale < 0.1)
+            newVal = 0;
+        newLocs << newVal;
+    }
 
     // If less than 2 values remain, add the start and end values
-    if (newLocs.length() == 1) {
+    if (newLocs.length() < 2) {
         // Add a start or end tick if it isn't too close to the existing value
         qreal dStart = qAbs(newLocs[0] - start()), dEnd = qAbs(newLocs[0] - end());
         if (dStart > dEnd && dStart*scale > m_density/2)
@@ -246,9 +251,7 @@ void AutoLocator::updateLocator()
 qreal AutoLocator::roundAt(qreal n, qreal f)
 {
     qreal nInt = qFloor(n);
-    qreal nFrac = n - nInt;
-//    if (n<0) nFrac = 1 - nFrac;
-    nFrac = nFrac < f ? 0 : 1;
+    qreal nFrac = n - nInt < f ? 0 : 1;
 
     return nInt + nFrac;
 }

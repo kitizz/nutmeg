@@ -38,7 +38,6 @@ QList<qreal> XYPlot::xData() const
 
 void XYPlot::setXData(QList<qreal> arg)
 {
-    qDebug() << Q_FUNC_INFO << arg;
     if (m_xData == arg) return;
     m_xData = arg;
     m_xDataSet = m_xData.length() > 0;

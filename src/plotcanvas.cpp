@@ -35,6 +35,7 @@ void PlotCanvas::resetTrigger()
 
 void PlotCanvas::triggerUpdate()
 {
+    polish();
     update();
     m_updateTriggered = true;
 }

@@ -114,6 +114,11 @@ void LinePlotCanvas::paint(QPainter *painter)
     }
 }
 
+void LinePlotCanvas::updatePolish()
+{
+
+}
+
 QPointF LinePlotCanvas::transformPoint(const QPointF &p, qreal tx, qreal ty, qreal sx, qreal sy, qreal limx, qreal limy)
 {
     return QPointF((p.x() + tx)*sx - limx, (p.y() + ty)*sy - limy);

@@ -21,8 +21,8 @@ LinePlotBase {
     onAxisChanged: {
         if (!axis) return
 
-        xDataChanged.connect(axis.updateTicks)
-        yDataChanged.connect(axis.updateTicks)
+//        xDataChanged.connect(axis.updateTicks)
+//        yDataChanged.connect(axis.updateTicks)
     }
 
     onUpdateTip: {

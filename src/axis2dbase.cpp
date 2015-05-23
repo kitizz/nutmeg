@@ -3,6 +3,8 @@
 #include <math.h>
 #include <QtCore/qmath.h>
 
+#include "figurebase.h"
+
 // TODO: Remove
 #include <QTime>
 
@@ -44,6 +46,8 @@ Axis2DBase::Axis2DBase(QQuickItem *parent)
     props.insert("xAxis", "xAxis");
     props.insert("yAxis", "yAxis");
     props.insert("grid", "grid");
+    props.insert("shareX", "shareX");
+    props.insert("shareY", "shareY");
     registerProperties(props);
     connect(this, &QQuickItem::parentChanged, this, &Axis2DBase::updateFigure);
 
@@ -147,6 +151,12 @@ void Axis2DBase::print(QPainter *painter)
         PlotBase *plot = getPlotByHandle(key);
         plot->print(painter);
     }
+}
+
+void Axis2DBase::triggerRedraw()
+{
+    if (m_canvas)
+        m_canvas->update();
 }
 
 /*!
@@ -463,7 +473,7 @@ QRectF Axis2DBase::limits() const
     return m_limits;
 }
 
-void Axis2DBase::setLimits(QRectF arg, bool fix)
+void Axis2DBase::setLimits(QRectF arg, bool fix, bool shareUpdate)
 {
     if (m_limits == arg || m_settingLimits) return;
     m_settingLimits = true;
@@ -480,6 +490,10 @@ void Axis2DBase::setLimits(QRectF arg, bool fix)
     setMinY(m_limits.top(), fix, false);
     setMaxY(m_limits.bottom(), fix, false);
     m_yAxis->setLimits(m_minY, m_maxY);
+
+    // If this wasn't called by figure->updateShareX, then call an update
+    if (!shareUpdate && !m_shareX.isEmpty())
+        figure()->updateShareX(this);
 
     emit limitsChanged(arg);
     m_settingLimits = false;
@@ -594,6 +608,34 @@ void Axis2DBase::setCanvas(QQuickPaintedItem *arg)
     if (m_canvas == arg) return;
     m_canvas = arg;
     emit canvasChanged(arg);
+}
+
+QString Axis2DBase::shareX() const
+{
+    return m_shareX;
+}
+
+void Axis2DBase::setShareX(QString arg)
+{
+    if (m_shareX == arg)
+        return;
+    m_shareX = arg;
+
+    emit shareXChanged(arg);
+}
+
+QString Axis2DBase::shareY() const
+{
+    return m_shareY;
+}
+
+void Axis2DBase::setShareY(QString arg)
+{
+    if (m_shareY == arg)
+        return;
+
+    m_shareY = arg;
+    emit shareYChanged(arg);
 }
 
 /*!

@@ -4,13 +4,12 @@
 #include <QQuickPaintedItem>
 #include <QMultiMap>
 
-#include "figurebase.h"
+#include "axisbase.h"
 #include "linespec.h"
 #include "locators.h"
 #include "plot2dbase.h"
 #include "nutmegobject.h"
 #include "axisspec.h"
-#include "axisbase.h"
 
 #include "util.h"
 
@@ -19,6 +18,7 @@ class AxisMargins;
 class AxisSpec;
 class FigureBase;
 class Plot2DBase;
+class AxisBase;
 class Axis2DBase : public AxisBase
 {
     Q_OBJECT
@@ -41,6 +41,8 @@ class Axis2DBase : public AxisBase
 
     Q_PROPERTY(qreal aspectRatio READ aspectRatio WRITE setAspectRatio NOTIFY aspectRatioChanged)
     Q_PROPERTY(bool fitPlots READ fitPlots WRITE setFitPlots NOTIFY fitPlotsChanged)
+    Q_PROPERTY(QString shareX READ shareX WRITE setShareX NOTIFY shareXChanged)
+    Q_PROPERTY(QString shareY READ shareY WRITE setShareY NOTIFY shareYChanged)
 
 public:
     explicit Axis2DBase(QQuickItem *parent = 0);
@@ -61,7 +63,7 @@ public:
     Q_INVOKABLE void offset(qreal x, qreal y);
 
     QRectF limits() const;
-    void setLimits(QRectF arg, bool fix=true);
+    void setLimits(QRectF arg, bool fix=true, bool shareUpdate=false);
     void resetLimits();
 
     QRectF dataLimits() const;
@@ -82,6 +84,12 @@ public:
     QQuickPaintedItem* canvas() const;
     void setCanvas(QQuickPaintedItem* arg);
 
+    QString shareX() const;
+    void setShareX(QString arg);
+
+    QString shareY() const;
+    void setShareY(QString arg);
+
 signals:
     void minXChanged(qreal arg);
     void maxXChanged(qreal arg);
@@ -98,13 +106,15 @@ signals:
     void yAxisChanged(AxisSpec* arg);
 
     void aspectRatioChanged(qreal arg);
-
     void fitPlotsChanged(bool arg);
+    void shareXChanged(QString arg);
+    void shareYChanged(QString arg);
 
     void canvasChanged(QQuickPaintedItem* arg);
 
 public slots:
     virtual void print(QPainter *painter);
+    virtual void triggerRedraw();
 
 protected slots:
     void updateXAxis();
@@ -140,6 +150,8 @@ private:
     qreal m_aspectRatio;
     bool m_fitPlots;
     QQuickPaintedItem* m_canvas;
+    QString m_shareX;
+    QString m_shareY;
 };
 
 class AxisGrid : public QObject, public NutmegObject
