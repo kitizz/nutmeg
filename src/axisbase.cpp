@@ -1,5 +1,6 @@
 #include "axisbase.h"
 
+#include "figurebase.h"
 #include "defaults.h"
 
 AxisBase::AxisBase(QQuickItem *parent)
@@ -14,6 +15,9 @@ AxisBase::AxisBase(QQuickItem *parent)
     , m_plots(QMap<QString,PlotBase*>())
     , m_plotsVar(QVariantMap())
     , m_destroying(false)
+    , m_axisGroup(0)
+    , m_groupRow(-1)
+    , m_groupColumn(-1)
 {
     // Register properties available through the API
     QMap<QString,QString> props;
@@ -105,10 +109,11 @@ QRectF AxisBase::plotRect() const
         return QRectF(0, 0, width(), height());
 }
 
-void AxisBase::setPlotRect(QRectF arg)
+void AxisBase::setPlotRect(const QRectF &arg)
 {
     QRectF oldRect = plotRect();
     m_plotRectValid = true;
+
     if (oldRect == arg) return;
     m_plotRect = arg;
     emit plotRectChanged(arg);
@@ -121,6 +126,21 @@ void AxisBase::resetPlotRect()
     QRectF newRect = plotRect();
     if (newRect != oldRect)
         emit plotRectChanged(newRect);
+}
+
+QRectF AxisBase::preferredPlotRect() const
+{
+    return m_preferredPlotRect;
+}
+
+void AxisBase::setPreferredPlotRect(const QRectF &arg)
+{
+    if (arg == m_preferredPlotRect)
+        return;
+
+    m_preferredPlotRect = arg;
+    if (m_axisGroup)
+        m_figure->updateGroupAt(m_axisGroup->name, m_groupRow, m_groupColumn);
 }
 
 /*!
@@ -177,6 +197,28 @@ void AxisBase::setTitleColor(QColor arg)
     emit titleColorChanged(arg);
 }
 
+void AxisBase::setAxisGroup(AxisGroup *group)
+{
+    m_axisGroup = group;
+}
+
+AxisGroup *AxisBase::axisGroup() const
+{
+    return m_axisGroup;
+}
+
+void AxisBase::setAxisGroupIndex(int row, int column)
+{
+    m_groupRow = row;
+    m_groupColumn = column;
+}
+
+void AxisBase::getAxisGroupIndex(int &row, int &column)
+{
+    row = m_groupRow;
+    column = m_groupColumn;
+}
+
 FigureBase *AxisBase::figure() const
 {
     return m_figure;
@@ -204,6 +246,12 @@ void AxisBase::updateFigure()
     }
 
     setFigure(figure);
+}
+
+QRectF AxisBase::updatePlotRect()
+{
+    setPlotRect(m_figure->getPlotRectFor(this));
+    return plotRect();
 }
 
 void AxisBase::registerPlot(PlotBase *plot)

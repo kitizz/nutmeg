@@ -4,9 +4,9 @@
 #include <QQuickItem>
 #include <QString>
 #include "nutmegobject.h"
-#include "figurebase.h"
 #include "plotbase.h"
 
+class AxisGroup;
 class FigureBase;
 class PlotBase;
 class AxisBase : public QQuickItem, public NutmegObject
@@ -21,6 +21,7 @@ class AxisBase : public QQuickItem, public NutmegObject
     Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
     Q_PROPERTY(QFont titleFont READ titleFont WRITE setTitleFont NOTIFY titleFontChanged)
     Q_PROPERTY(QColor titleColor READ titleColor WRITE setTitleColor NOTIFY titleColorChanged)
+
 public:
     explicit AxisBase(QQuickItem *parent = 0);
     ~AxisBase();
@@ -42,8 +43,10 @@ public:
     void setFigure(FigureBase* arg);
 
     QRectF plotRect() const;
-    void setPlotRect(QRectF arg);
+    void setPlotRect(const QRectF &arg);
     void resetPlotRect();
+    QRectF preferredPlotRect() const;
+    void setPreferredPlotRect(const QRectF &arg);
 
     QString title() const;
     void setTitle(QString arg);
@@ -53,6 +56,11 @@ public:
 
     QColor titleColor() const;
     void setTitleColor(QColor arg);
+
+    void setAxisGroup(AxisGroup *group);
+    AxisGroup *axisGroup() const;
+    void setAxisGroupIndex(int row, int column);
+    void getAxisGroupIndex(int &row, int &column);
 
 signals:
     void addedPlot(PlotBase* plot);
@@ -69,6 +77,8 @@ signals:
 
 public slots:
     void updateFigure();
+    QRectF updatePlotRect();
+    virtual void triggerRedraw() {}
     void registerPlot(PlotBase *plot);
     void deregisterPlot(PlotBase *plot);
     virtual void print(QPainter *painter) { Q_UNUSED(painter); }
@@ -98,6 +108,7 @@ private:
     QString m_handle;
     FigureBase* m_figure;
     QRectF m_plotRect;
+    QRectF m_preferredPlotRect;
     bool m_plotRectValid;
     QString m_title;
     QFont m_titleFont;
@@ -107,6 +118,9 @@ private:
     QVariantMap m_plotsVar;
 
     bool m_destroying;
+
+    AxisGroup *m_axisGroup;
+    int m_groupRow, m_groupColumn;
 };
 
 #endif // AXISBASE_H

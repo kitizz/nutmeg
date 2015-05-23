@@ -10,7 +10,6 @@ class AxisCanvas2D : public QQuickPaintedItem
 {
     Q_OBJECT
     Q_PROPERTY(Axis2DBase* axis READ axis WRITE setAxis NOTIFY axisChanged)
-//    Q_PROPERTY(QRectF plotRect READ plotRect NOTIFY plotRectChanged)
     Q_PROPERTY(qreal scaling READ scaling WRITE setScaling NOTIFY scalingChanged)
 
     Q_PROPERTY(qreal titleMargin READ titleMargin WRITE setTitleMargin NOTIFY titleMarginChanged)
@@ -23,6 +22,7 @@ public:
     explicit AxisCanvas2D(QQuickItem *parent = 0);
 
     void paint(QPainter *painter);
+    void updatePolish();
 
     Axis2DBase* axis() const;
     void setAxis(Axis2DBase* arg);
@@ -47,7 +47,6 @@ public:
 
 signals:
     void axisChanged(Axis2DBase* arg);
-//    void plotRectChanged(QRectF arg);
     void scalingChanged(qreal arg);
 
     void titleMarginChanged(qreal arg);
@@ -61,23 +60,23 @@ public slots:
     void updatePlotRect();
 
 private:
-//    void setPlotRect(QRectF arg);
     QList<qreal> plot2canvasX(QList<qreal> x);
     QList<qreal> plot2canvasY(QList<qreal> y);
-    void drawXTicks(QList<qreal> major, QPainter *painter);
-    void drawYTicks(QList<qreal> major, QPainter *painter);
-    void drawGrid(QList<qreal> xMajor, QList<qreal> yMajor, QPainter *painter);
 
     void prepareTexts();
     qreal prepareScale(AxisSpec *spec, qreal range, QStaticText *st);
     QSizeF prepareTickLabels(AxisSpec *spec, QHash<QString, QStaticText *> &labelTexts,
                             QList<QString> &tickStrings, qreal scale);
-    void drawTitle(QPainter *painter);
-    void drawXLabel(QPainter *painter);
-    void drawYLabel(QPainter *painter);
+
+    void drawTitle(QPainter *painter, const QRectF &plotRect);
+    void drawXLabel(QPainter *painter, const QRectF &plotRect);
+    void drawYLabel(QPainter *painter, const QRectF &plotRect);
     QStaticText *getStaticText(const QString &text);
-    void drawXTickLabels(QList<qreal> xFrames, QPainter *painter);
-    void drawYTickLabels(QList<qreal> yFrames, QPainter *painter);
+    void drawXTickLabels(QList<qreal> xFrames, QPainter *painter, const QRectF &plotRect);
+    void drawYTickLabels(QList<qreal> yFrames, QPainter *painter, const QRectF &plotRect);
+    void drawXTicks(QList<qreal> major, QPainter *painter, const QRectF &plotRect);
+    void drawYTicks(QList<qreal> major, QPainter *painter, const QRectF &plotRect);
+    void drawGrid(QList<qreal> xMajor, QList<qreal> yMajor, QPainter *painter, const QRectF &plotRect);
 
     Axis2DBase* m_axis;
 

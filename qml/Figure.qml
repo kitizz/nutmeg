@@ -221,7 +221,7 @@ FigureBase {
                 newLimits.height = dh
             }
             currentAxis.limits = newLimits
-            currentAxis.updateTickLocations()
+//            currentAxis.updateTickLocations()
         }
 
         function pinch3d() {

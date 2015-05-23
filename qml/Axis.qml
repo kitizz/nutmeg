@@ -91,18 +91,18 @@ Axis2DBase {
 //    property int xPrecision: 3
 //    property int yPrecision: 3
 
-    onWidthChanged: {
-        updateTickNumbers(0)
-        updateTickLocations()
-    }
-    onHeightChanged: {
-        updateTickNumbers(1)
-        updateTickLocations()
-    }
-    xAxis.onMajorTicksChanged: updateTickNumbers(0)
-    yAxis.onMajorTicksChanged: updateTickNumbers(1)
-//    onLimitsChanged: updateTicks()
-    Component.onCompleted: updateTicks()
+//    onWidthChanged: {
+//        updateTickNumbers(0)
+//        updateTickLocations()
+//    }
+//    onHeightChanged: {
+//        updateTickNumbers(1)
+//        updateTickLocations()
+//    }
+//    xAxis.onMajorTicksChanged: updateTickNumbers(0)
+//    yAxis.onMajorTicksChanged: updateTickNumbers(1)
+////    onLimitsChanged: updateTicks()
+//    Component.onCompleted: updateTicks()
 
 
 
@@ -194,22 +194,6 @@ Axis2DBase {
             id: plots
             anchors.fill: plotFrame
         },
-
-//        Text {
-//            id: xAxisOffset
-//            property string scale: ""
-//            property string offset: ""
-//            text: scale + offset
-//            anchors { right: parent.right; bottom: parent.bottom; margins: 5 }
-//        },
-
-//        Text {
-//            id: yAxisOffset
-//            property string scale: ""
-//            property string offset: ""
-//            text: scale + offset
-//            anchors { left: parent.left; top: parent.top; margins: 5 }
-//        },
 
         MouseArea {
             id: mouseArea
@@ -303,149 +287,6 @@ Axis2DBase {
     // ------------------
     //      Functions
     // ------------------
-    function precisionOf(n) {
-        if (n==0) return 0
-        return Math.abs( Math.floor(axisItem.log_10(Math.abs(n))))
-    }
-
-    function updateTicks() {
-        updateTickNumbers(0)
-        updateTickNumbers(1)
-        updateTickLocations()
-    }
-
-    function updateTickNumbers(axis) {
-        return
-//        console.log("Updating tickNumbers:", axis)
-        var t1 = new Date().getTime()
-
-        var ticks, labels, numbers, precision, i
-        if (axis === 0) {
-            ticks = xAxis.majorTicks
-            labels = xAxis.majorTickLabels
-            numbers = xNumbers
-            precision = xPrecision
-
-        } else if (axis === 1) {
-            ticks = yAxis.majorTicks
-            labels = yAxis.majorTickLabels
-            numbers = yNumbers
-            precision = yPrecision
-
-        } else {
-            return false;
-        }
-        if (!numbers) return false
-
-        // Let's do some optimization: align the new set of ticks with the old set
-        // Note: Assumes ticks are in ascending order.
-        var newNumbers = []
-        var ind = 0
-        var kept = []
-
-        for (i=0; i<ticks.length; ++i) {
-            while (ind < numbers.length && ticks[i] > numbers[ind].value) {
-                numbers.splice(ind, 1)[0].destroy()
-            }
-
-            if (ind >= numbers.length || ticks[i] < numbers[ind].value) {
-                numbers.splice(ind, 0, (numberCmp.createObject(plotFrame, {'axis': axis})))
-                ind++
-            } else if (ticks[i] === numbers[ind].value) {
-                kept.push(ticks[i])
-                ind++
-            }
-        }
-        while (numbers.length > ticks.length) {
-            numbers.pop().destroy()
-        }
-
-        var N = numbers.length
-
-        // Define the display precision
-        var mean = Util.mean(ticks)
-        var std = Util.std(ticks)
-        var ratio = Math.abs(std/mean)
-        var offset = 0
-        var offsetPrec = 0
-        var offsetText = ""
-        if (ratio < 0.01) {
-            offset = axisItem.offsetFromStd(Util.min(ticks), std)
-            offsetPrec = precisionOf(ratio)
-            var sign = offset >= 0 ? "+ " : "- "
-            offsetText = sign + axisItem.formatReal(Math.abs(offset), offsetPrec, -15, precision)
-        }
-
-        // Update .value for all.
-        var deltaPrec = precisionOf((ticks[N-1] - ticks[0])/5)
-        var minPrec = precisionOf(Math.min(Math.abs(ticks[0]), Math.abs(ticks[N-1])))
-        var maxPrec = Math.max(deltaPrec, minPrec)
-
-        var forceNoExp = maxPrec < precision
-
-        // Work out whether the entire axis should be scaled
-        var axisScale = 1
-        var scaleText = ""
-        if (!forceNoExp && deltaPrec >= precision) {
-            var prec = Math.floor(axisItem.log_10(Math.abs(ticks[N-1] - ticks[0])))
-            axisScale = Math.pow(10, prec)
-            scaleText = "1e" + prec + " "
-        }
-
-//        var t2 = new Date().getTime()
-        var maxSize = 0
-        var num
-        var useLabels = labels.length === ticks.length
-        for (i=0; i<N; ++i) {
-            // TODO: Error: TypeError: Cannot set property 'value' of undefined
-            num = numbers[i]
-            num.value = ticks[i]
-            num.label = useLabels ? labels[i] : ""
-            num.offset = offset
-            num.scale = axisScale
-            num.precision = (forceNoExp) ? precision + 1 : precision
-
-            num.updateTheText()
-
-            var size = (axis === 0) ? num.implicitHeight : num.implicitWidth
-
-            if (size > maxSize)
-                maxSize = size;
-        }
-//        var t3 = new Date().getTime()
-
-        // The following statements ensure that this function is run.
-        // It appears that the engine optimizes functions out if they
-        // have not obvious external effect...
-        if (axis === 0) {
-//            xNumbers = numbers
-            xNumbersMargin = maxSize
-            xAxisOffset.scale = scaleText
-            xAxisOffset.offset = offsetText
-        } else if (axis === 1) {
-//            yNumbers = numbers
-            yNumbersMargin = maxSize
-            yAxisOffset.scale = scaleText
-            yAxisOffset.offset = offsetText
-        }
-
-//        var t4 = new Date().getTime()
-//        console.log("UpdateTicks:", t2-t1, t3-t2, t4-t3)
-        return true
-    }
-
-    function updateTickLocations() {
-        var i
-        if (typeof xNumbers !== 'undefined') {
-            for (i=0; i<xNumbers.length; ++i)
-                xNumbers[i].update()
-        }
-
-        if (typeof yNumbers !== 'undefined') {
-            for (i=0; i<yNumbers.length; ++i)
-                yNumbers[i].update()
-        }
-    }
 
     function clearPlotTips() {
         mouseArea.closestPlot = null
@@ -457,49 +298,4 @@ Axis2DBase {
         }
     }
 
-    Component {
-        id: numberCmp
-        Text {
-            id: textItem
-            property int axis: -1
-            property real value: 0
-            property string label: ""
-            property real offset: 0
-            property real scale: 1
-            property int precision: 3
-
-//            text: axisItem.formatReal((value - offset)/scale, precision, -3)
-            font: axis == 0 ? xAxis.tickFont : yAxis.tickFont
-            color: axis == 0 ? xAxis.tickTextColor : yAxis.tickTextColor
-
-            function updateTheText() {
-                if (label)
-                    text = label
-                else
-                    text = axisItem.formatReal((value - offset)/scale, precision, -3)
-            }
-
-            function update() {
-                // Update position
-                var newX, newY
-                if (axis == 0) { // X axis
-                    newX = (value - minX)/(maxX - minX)
-                    if (xAxis.inverted) newX = 1 - newX
-                    newX = plotFrame.width*newX - 0.5*implicitWidth
-
-                    newY = plotFrame.height + tickNumbersMargin
-
-                } else { // Y axis
-                    newX = -implicitWidth - 5
-
-                    newY = (value - minY)/(maxY - minY)
-                    if (!yAxis.inverted) newY = 1 - newY
-                    newY = plotFrame.height*newY - 0.5*implicitHeight
-                }
-
-                x = newX
-                y = newY
-            }
-        }
-    }
 }

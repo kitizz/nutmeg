@@ -13,21 +13,25 @@ ColumnLayout {
     height: parent.height
 
     property int rows: 0
+    property string groupName: ""
+    property var axes: []
 
     onChildrenChanged: updateLayout()
     onHeightChanged: updateLayout()
 
     function updateLayout() {
-        rows = children.length
+        var N = children.length
 
         var i
+        var newAxes = []
         var fixedItems = []
         var fixedRatioItems = []
         var variableItems = []
-        for (i=0; i<rows; ++i) {
+        for (i=0; i<N; ++i) {
             var item = children[i]
             if (item.objectName == "repeater")
                 continue // Repeaters get in the way..
+            newAxes.push(item)
 
             if (typeof item.heightFraction === 'undefined') {
                 fixedItems.push(item)
@@ -42,6 +46,13 @@ ColumnLayout {
                 variableItems.push(item)
             else
                 fixedRatioItems.push(item)
+        }
+        if (!listEqual(axes, newAxes)) {
+            if (newAxes[0].figure != null) {
+                axes = newAxes
+                rows = newAxes.length
+                groupName = axes[0].figure.registerAxisGroup(axes, 2, groupName)
+            }
         }
 
         var totalHeight = height - spacing*(rows - 1)
@@ -62,5 +73,15 @@ ColumnLayout {
         for (i=0; i<variableItems.length; ++i)
             variableItems[i].Layout.preferredHeight = variableHeights
 
+    }
+
+    function listEqual(l1, l2) {
+        if (l1.length !== l2.length)
+            return false
+        for (var i=0; i<l1.length; ++i) {
+            if (l1[i] !== l2[i])
+                return false
+        }
+        return true
     }
 }
