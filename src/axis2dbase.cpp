@@ -494,6 +494,8 @@ void Axis2DBase::setLimits(QRectF arg, bool fix, bool shareUpdate)
     // If this wasn't called by figure->updateShareX, then call an update
     if (!shareUpdate && !m_shareX.isEmpty())
         figure()->updateShareX(this);
+    if (!shareUpdate && !m_shareY.isEmpty())
+        figure()->updateShareY(this);
 
     emit limitsChanged(arg);
     m_settingLimits = false;

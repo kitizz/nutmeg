@@ -144,6 +144,23 @@ void FigureBase::updateShareX(Axis2DBase *axis)
     }
 }
 
+void FigureBase::updateShareY(Axis2DBase *axis)
+{
+    QString tag = axis->shareX();
+
+    qreal minY = axis->minY(), maxY = axis->maxY();
+    foreach (AxisBase *axB, m_axes.values()) {
+        Axis2DBase *ax = qobject_cast<Axis2DBase*>(axB);
+        if (!ax || ax == axis || ax->shareY() != tag)
+            continue; // Skip the calling Axis and non-shared axes
+        // We set the new limits like this so that only 1 update is made
+        QRectF lim = ax->limits();
+        lim.setTop(minY);
+        lim.setBottom(maxY);
+        ax->setLimits(lim, false, true);
+    }
+}
+
 void FigureBase::savePdf(QString filepath)
 {
     qDebug() << "Writing pdf:" << filepath;

@@ -77,6 +77,7 @@ public slots:
     void updateGroupAt(const QString &name, int row, int column);
 
     void updateShareX(Axis2DBase *axis);
+    void updateShareY(Axis2DBase *axis);
 
     void savePdf(QString filepath);
 
