@@ -12,7 +12,7 @@ Notable Features:
     + Makes figure templates easy
 - Lay out GUI controls that update parameters, which update the data
 
-![image](https://cloud.githubusercontent.com/assets/1326372/7897915/2cf9311c-06bd-11e5-99a7-dd5f32683494.png =250x)
+![image1](https://cloud.githubusercontent.com/assets/1326372/7897915/2cf9311c-06bd-11e5-99a7-dd5f32683494.png =250x)
 
 Nutmeg in Action
 ----------------
@@ -59,7 +59,7 @@ fig.set("axis2.data", {'x': x, 'y': y2})
 ```
 
 Result:
-![image](https://cloud.githubusercontent.com/assets/1326372/7898085/e24b9fe6-06c2-11e5-8237-e1cf1247e070.png =250x)
+![image2](https://cloud.githubusercontent.com/assets/1326372/7898085/e24b9fe6-06c2-11e5-8237-e1cf1247e070.png =250x)
 
 The Architecture
 ----------------

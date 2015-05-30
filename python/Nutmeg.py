@@ -196,8 +196,9 @@ class Nutmeg:
 
         if reply[0] != 0:  # Error
             err = reply[1]
+            row, col = err['lineNumber'], err['columnNumber']
             msg = "At line %d, col %d: %s" % \
-                (err['lineNumber'], err['columnNumber'], err['message'])
+                (row, col, err['message'])
             raise(QMLException(msg))
             return None
 
