@@ -15,13 +15,12 @@ Requirements
 
 Unix
 ^^^^
-Before building, ensure that in `nutmeg.pro` the INCLUDEPATH and QMAKE_LIBDIR point to the include path and library path for [zmq](http://zeromq.org/intro:get-the-software). If zmq has been built with the default configuration in your favourite flavour of Unix (e.g. ```apt-get install libzmq3-dev```), the default `nutmeg.pro` values should be fine.
+Before building, ensure that in `nutmeg.pro` the INCLUDEPATH and QMAKE_LIBDIR point to the include path and library path for [zmq](http://zeromq.org/intro:get-the-software). If zmq has been built with the default configuration in your favourite flavour of Unix (e.g. :code:`apt-get install libzmq3-dev`), the default `nutmeg.pro` values should be fine.
 
-Then from the source folder run:
-```
-qmake
-make
-```
+Then from the source folder run::
+
+    qmake
+    make
 
 This should provide an executable which is the Nutmeg core.
 
