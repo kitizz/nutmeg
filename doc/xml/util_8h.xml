@@ -1,30 +1,157 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="util_8h" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="util_8h" kind="file" language="C++">
     <compoundname>util.h</compoundname>
     <includes local="no">QList</includes>
     <includes local="no">QRectF</includes>
-    <includedby refid="axisbase_8cpp" local="yes">src/axisbase.cpp</includedby>
+    <includes local="no">QPolygonF</includes>
+    <includes local="no">QLineF</includes>
+    <includes local="no">limits</includes>
+    <includedby refid="axis2dbase_8h" local="yes">src/axis2dbase.h</includedby>
+    <includedby refid="axis2dbase_8cpp" local="yes">src/axis2dbase.cpp</includedby>
+    <includedby refid="axiscanvas2d_8cpp" local="yes">src/axiscanvas2d.cpp</includedby>
+    <includedby refid="canvasline_8cpp" local="yes">src/canvasline.cpp</includedby>
+    <includedby refid="figurebase_8cpp" local="yes">src/figurebase.cpp</includedby>
     <includedby refid="lineplotcanvas_8cpp" local="yes">src/lineplotcanvas.cpp</includedby>
     <includedby refid="util_8cpp" local="yes">src/util.cpp</includedby>
     <includedby refid="xyplot_8cpp" local="yes">src/xyplot.cpp</includedby>
     <incdepgraph>
-      <node id="714">
+      <node id="1510">
+        <label>limits</label>
+      </node>
+      <node id="1507">
         <label>QRectF</label>
       </node>
-      <node id="713">
+      <node id="1506">
         <label>QList</label>
       </node>
-      <node id="712">
+      <node id="1509">
+        <label>QLineF</label>
+      </node>
+      <node id="1505">
         <label>src/util.h</label>
         <link refid="util.h"/>
-        <childnode refid="713" relation="include">
+        <childnode refid="1506" relation="include">
         </childnode>
-        <childnode refid="714" relation="include">
+        <childnode refid="1507" relation="include">
+        </childnode>
+        <childnode refid="1508" relation="include">
+        </childnode>
+        <childnode refid="1509" relation="include">
+        </childnode>
+        <childnode refid="1510" relation="include">
         </childnode>
       </node>
+      <node id="1508">
+        <label>QPolygonF</label>
+      </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1524">
+        <label>src/axiscanvas2d.h</label>
+        <link refid="axiscanvas2d_8h_source"/>
+      </node>
+      <node id="1513">
+        <label>src/plot2dbase.h</label>
+        <link refid="plot2dbase_8h_source"/>
+        <childnode refid="1512" relation="include">
+        </childnode>
+        <childnode refid="1514" relation="include">
+        </childnode>
+        <childnode refid="1521" relation="include">
+        </childnode>
+      </node>
+      <node id="1521">
+        <label>src/imageplot.h</label>
+        <link refid="imageplot_8h_source"/>
+      </node>
+      <node id="1522">
+        <label>src/figurebase.h</label>
+        <link refid="figurebase_8h_source"/>
+        <childnode refid="1523" relation="include">
+        </childnode>
+      </node>
+      <node id="1511">
+        <label>src/util.h</label>
+        <link refid="util.h"/>
+        <childnode refid="1512" relation="include">
+        </childnode>
+      </node>
+      <node id="1516">
+        <label>src/canvasshape.h</label>
+        <link refid="canvasshape_8h_source"/>
+        <childnode refid="1517" relation="include">
+        </childnode>
+        <childnode refid="1515" relation="include">
+        </childnode>
+        <childnode refid="1518" relation="include">
+        </childnode>
+        <childnode refid="1519" relation="include">
+        </childnode>
+      </node>
+      <node id="1512">
+        <label>src/axis2dbase.h</label>
+        <link refid="axis2dbase_8h_source"/>
+        <childnode refid="1513" relation="include">
+        </childnode>
+        <childnode refid="1522" relation="include">
+        </childnode>
+        <childnode refid="1524" relation="include">
+        </childnode>
+        <childnode refid="1520" relation="include">
+        </childnode>
+      </node>
+      <node id="1520">
+        <label>src/lineplot.h</label>
+        <link refid="lineplot_8h_source"/>
+      </node>
+      <node id="1514">
+        <label>src/xyplot.h</label>
+        <link refid="xyplot_8h_source"/>
+        <childnode refid="1515" relation="include">
+        </childnode>
+        <childnode refid="1520" relation="include">
+        </childnode>
+      </node>
+      <node id="1519">
+        <label>src/canvasrect.h</label>
+        <link refid="canvasrect_8h_source"/>
+      </node>
+      <node id="1518">
+        <label>src/canvastext.h</label>
+        <link refid="canvastext_8h_source"/>
+      </node>
+      <node id="1517">
+        <label>src/canvasline.h</label>
+        <link refid="canvasline_8h_source"/>
+      </node>
+      <node id="1515">
+        <label>src/canvasplot.h</label>
+        <link refid="canvasplot_8h_source"/>
+        <childnode refid="1516" relation="include">
+        </childnode>
+      </node>
+      <node id="1523">
+        <label>src/controller.h</label>
+        <link refid="controller_8h_source"/>
+        <childnode refid="1522" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innerclass refid="class_util" prot="public">Util</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="util_8h_1a311d23688bfa914e83491178976adab9" prot="public" static="no">
+        <name>Inf</name>
+        <initializer>std::numeric_limits&lt;double&gt;::infinity()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/util.h" line="10" column="10" bodyfile="/Users/kitham/projects/qt/nutmeg/src/util.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
@@ -35,24 +162,45 @@
 <codeline lineno="3"><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QList&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QRectF&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7" refid="class_util" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_util" kindref="compound">Util</ref></highlight></codeline>
-<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_util" kindref="compound">Util</ref>();</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QPolygonF&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QLineF&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;limits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>Inf<sp/>std::numeric_limits&lt;double&gt;::infinity()</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>AnchorSide<sp/>{<sp/>AnchorFit=0,<sp/>AnchorWidth=1,<sp/>AnchorHeight=2<sp/>};</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>The<sp/>following<sp/>functions<sp/>should<sp/>find<sp/>their<sp/>way<sp/>to<sp/>a<sp/>static<sp/>util<sp/>library...</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QList&lt;int&gt;*<sp/>medianArray(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>s=0,<sp/>QList&lt;int&gt;<sp/>*lst=0);</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>randInt(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>low,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>high);</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QList&lt;int&gt;<sp/>*randomArray(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N);</highlight></codeline>
+<codeline lineno="12" refid="class_util" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_util" kindref="compound">Util</ref></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_util" kindref="compound">Util</ref>();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>AnchorSide<sp/>{<sp/>AnchorFit=0,<sp/>AnchorWidth=1,<sp/>AnchorHeight=2<sp/>};</highlight></codeline>
 <codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_util_1a7d9ae06ff8b41118c30efd0f4079e109" kindref="member">resizeRelativeRatio</ref>(QRectF<sp/>*rect,<sp/>QSizeF<sp/>size,<sp/>qreal<sp/>aspectRatio,</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AnchorSide<sp/>anchor=AnchorFit,<sp/>QPointF<sp/>center=QPoint());</highlight></codeline>
-<codeline lineno="28"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>UTIL_H</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QList&lt;int&gt;*<sp/>medianArray(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>s=0,<sp/>QList&lt;int&gt;<sp/>*lst=0);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>randInt(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>low,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>high);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QList&lt;int&gt;<sp/>*randomArray(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>qreal<sp/>median(QList&lt;qreal&gt;<sp/>lst);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mode(QList&lt;int&gt;<sp/>lst);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>min(QList&lt;int&gt;<sp/>lst);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max(QList&lt;int&gt;<sp/>lst);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QList&lt;qreal&gt;<sp/>diff(QList&lt;qreal&gt;<sp/>lst);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>qreal<sp/>roundTo(qreal<sp/>value,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_util_1adfec7b5ab60246ebae8eea4c1e4b44a7" kindref="member">precision</ref>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_util_1a7d9ae06ff8b41118c30efd0f4079e109" kindref="member">resizeRelativeRatio</ref>(QRectF<sp/>*rect,<sp/>QSizeF<sp/>size,<sp/>qreal<sp/>aspectRatio,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AnchorSide<sp/>anchor=AnchorFit,<sp/>QPointF<sp/>center=QPoint());</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QList&lt;QPolygonF&gt;<sp/><ref refid="class_util_1adfe874bd1568db49faa7abbc9da05b9d" kindref="member">cullLine</ref>(QPolygonF<sp/>poly,<sp/>QRectF<sp/>rect);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QLineF<sp/>rectSlice(QPointF<sp/>p1,<sp/>QPointF<sp/>p2,<sp/>QRectF<sp/>r);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_util_1adfec7b5ab60246ebae8eea4c1e4b44a7" kindref="member">precision</ref>(qreal<sp/>value);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sign(qreal<sp/>value);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sign(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QString<sp/>formatReal(qreal<sp/>value,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>precision);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>UTIL_H</highlight></codeline>
     </programlisting>
     <location file="/Users/kitham/projects/qt/nutmeg/src/util.h"/>
   </compounddef>

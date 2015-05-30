@@ -1,96 +1,138 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="linespec_8h" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="linespec_8h" kind="file" language="C++">
     <compoundname>linespec.h</compoundname>
     <includes local="no">QObject</includes>
     <includes local="no">QColor</includes>
     <includes local="no">QMap</includes>
-    <includedby refid="axisbase_8h" local="yes">src/axisbase.h</includedby>
+    <includedby refid="axis2dbase_8h" local="yes">src/axis2dbase.h</includedby>
+    <includedby refid="axisspec_8h" local="yes">src/axisspec.h</includedby>
+    <includedby refid="canvasshape_8h" local="yes">src/canvasshape.h</includedby>
     <includedby refid="lineplot_8h" local="yes">src/lineplot.h</includedby>
     <includedby refid="linespec_8cpp" local="yes">src/linespec.cpp</includedby>
     <includedby refid="main_8cpp" local="yes">src/main.cpp</includedby>
     <incdepgraph>
-      <node id="431">
+      <node id="1089">
         <label>QMap</label>
       </node>
-      <node id="429">
+      <node id="1087">
         <label>QObject</label>
       </node>
-      <node id="428">
+      <node id="1086">
         <label>src/linespec.h</label>
         <link refid="linespec.h"/>
-        <childnode refid="429" relation="include">
+        <childnode refid="1087" relation="include">
         </childnode>
-        <childnode refid="430" relation="include">
+        <childnode refid="1088" relation="include">
         </childnode>
-        <childnode refid="431" relation="include">
+        <childnode refid="1089" relation="include">
         </childnode>
       </node>
-      <node id="430">
+      <node id="1088">
         <label>QColor</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="440">
+      <node id="1103">
         <label>src/axiscanvas2d.h</label>
         <link refid="axiscanvas2d_8h_source"/>
       </node>
-      <node id="433">
-        <label>src/axisbase.h</label>
-        <link refid="axisbase_8h_source"/>
-        <childnode refid="434" relation="include">
+      <node id="1092">
+        <label>src/plot2dbase.h</label>
+        <link refid="plot2dbase_8h_source"/>
+        <childnode refid="1091" relation="include">
         </childnode>
-        <childnode refid="436" relation="include">
+        <childnode refid="1093" relation="include">
         </childnode>
-        <childnode refid="440" relation="include">
-        </childnode>
-        <childnode refid="439" relation="include">
+        <childnode refid="1100" relation="include">
         </childnode>
       </node>
-      <node id="436">
-        <label>src/plotbase.h</label>
-        <link refid="plotbase_8h_source"/>
-        <childnode refid="433" relation="include">
-        </childnode>
-        <childnode refid="437" relation="include">
-        </childnode>
-        <childnode refid="438" relation="include">
+      <node id="1104">
+        <label>src/axisspec.h</label>
+        <link refid="axisspec_8h_source"/>
+        <childnode refid="1091" relation="include">
         </childnode>
       </node>
-      <node id="437">
+      <node id="1100">
         <label>src/imageplot.h</label>
         <link refid="imageplot_8h_source"/>
       </node>
-      <node id="434">
+      <node id="1101">
         <label>src/figurebase.h</label>
         <link refid="figurebase_8h_source"/>
-        <childnode refid="433" relation="include">
-        </childnode>
-        <childnode refid="435" relation="include">
+        <childnode refid="1102" relation="include">
         </childnode>
       </node>
-      <node id="432">
+      <node id="1090">
         <label>src/linespec.h</label>
         <link refid="linespec.h"/>
-        <childnode refid="433" relation="include">
+        <childnode refid="1091" relation="include">
         </childnode>
-        <childnode refid="439" relation="include">
+        <childnode refid="1104" relation="include">
+        </childnode>
+        <childnode refid="1095" relation="include">
+        </childnode>
+        <childnode refid="1099" relation="include">
         </childnode>
       </node>
-      <node id="439">
+      <node id="1095">
+        <label>src/canvasshape.h</label>
+        <link refid="canvasshape_8h_source"/>
+        <childnode refid="1096" relation="include">
+        </childnode>
+        <childnode refid="1094" relation="include">
+        </childnode>
+        <childnode refid="1097" relation="include">
+        </childnode>
+        <childnode refid="1098" relation="include">
+        </childnode>
+      </node>
+      <node id="1091">
+        <label>src/axis2dbase.h</label>
+        <link refid="axis2dbase_8h_source"/>
+        <childnode refid="1092" relation="include">
+        </childnode>
+        <childnode refid="1101" relation="include">
+        </childnode>
+        <childnode refid="1103" relation="include">
+        </childnode>
+        <childnode refid="1099" relation="include">
+        </childnode>
+      </node>
+      <node id="1099">
         <label>src/lineplot.h</label>
         <link refid="lineplot_8h_source"/>
       </node>
-      <node id="438">
+      <node id="1093">
         <label>src/xyplot.h</label>
         <link refid="xyplot_8h_source"/>
-        <childnode refid="439" relation="include">
+        <childnode refid="1094" relation="include">
+        </childnode>
+        <childnode refid="1099" relation="include">
         </childnode>
       </node>
-      <node id="435">
+      <node id="1098">
+        <label>src/canvasrect.h</label>
+        <link refid="canvasrect_8h_source"/>
+      </node>
+      <node id="1097">
+        <label>src/canvastext.h</label>
+        <link refid="canvastext_8h_source"/>
+      </node>
+      <node id="1096">
+        <label>src/canvasline.h</label>
+        <link refid="canvasline_8h_source"/>
+      </node>
+      <node id="1094">
+        <label>src/canvasplot.h</label>
+        <link refid="canvasplot_8h_source"/>
+        <childnode refid="1095" relation="include">
+        </childnode>
+      </node>
+      <node id="1102">
         <label>src/controller.h</label>
         <link refid="controller_8h_source"/>
-        <childnode refid="434" relation="include">
+        <childnode refid="1101" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

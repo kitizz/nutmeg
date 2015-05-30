@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="class_spaced_locator" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_spaced_locator" kind="class" language="C++" prot="public">
     <compoundname>SpacedLocator</compoundname>
     <basecompoundref refid="class_locator" prot="public" virt="non-virtual">Locator</basecompoundref>
       <sectiondef kind="property">
-      <memberdef kind="property" id="class_spaced_locator_1a4839726e8228c851a57216c2be69fded" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_spaced_locator_1a4839726e8228c851a57216c2be69fded" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>qreal</type>
         <definition>qreal SpacedLocator::spacing</definition>
         <argsstring></argsstring>
@@ -17,9 +17,9 @@
 <para>Manually specify the spacing for ticks. This is anchored to zero. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="74" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="80" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="86" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="92" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_locator_1a45d07235aa22dbc51c3b0228987455fd" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_locator_1a45d07235aa22dbc51c3b0228987455fd" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QList&lt; qreal &gt;</type>
         <definition>QList&lt; qreal &gt; Locator::locations</definition>
         <argsstring></argsstring>
@@ -32,9 +32,24 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="288" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="9" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="375" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="10" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_locator_1ae1f14daf79378c89f4c3db403a98dad7" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_locator_1ae9c8c262b5247ef1eb821c67dff80c6c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QStringList</type>
+        <definition>QStringList Locator::locationLabels</definition>
+        <argsstring></argsstring>
+        <name>locationLabels</name>
+        <read>locationLabels</read>
+        <write>setLocationLabels</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="375" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_locator_1ae1f14daf79378c89f4c3db403a98dad7" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>qreal</type>
         <definition>qreal Locator::start</definition>
         <argsstring></argsstring>
@@ -47,9 +62,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="288" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="10" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="375" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="12" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_locator_1a5425784e586d1650c12dbf064c30cdea" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_locator_1a5425784e586d1650c12dbf064c30cdea" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>qreal</type>
         <definition>qreal Locator::end</definition>
         <argsstring></argsstring>
@@ -62,9 +77,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="288" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="11" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="375" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="13" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_locator_1a84915c4107ec786d8f12cb6a8f0aec0c" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_locator_1a84915c4107ec786d8f12cb6a8f0aec0c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>qreal</type>
         <definition>qreal Locator::pixelSize</definition>
         <argsstring></argsstring>
@@ -77,9 +92,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="288" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="12" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="375" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="14" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_locator_1a856a1810762bf3c54c3e04d0e3adbd91" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_locator_1a856a1810762bf3c54c3e04d0e3adbd91" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QList&lt; qreal &gt;</type>
         <definition>QList&lt; qreal &gt; Locator::multiples</definition>
         <argsstring></argsstring>
@@ -92,7 +107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="288" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="13" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="375" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -107,7 +122,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="96" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="96" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="108" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="108" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -127,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="83" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="252" bodyend="256"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="95" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="306" bodyend="310"/>
       </memberdef>
       <memberdef kind="function" id="class_spaced_locator_1a9fb2ba2d777390065e851fa4a91221ec" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -149,7 +164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="84" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="258" bodyend="263"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="96" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="312" bodyend="317"/>
       </memberdef>
       <memberdef kind="function" id="class_spaced_locator_1a7b1a81936c539bdf2419b03bcc53a1c4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>qreal</type>
@@ -162,7 +177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="86" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="98" column="1"/>
       </memberdef>
       <memberdef kind="function" id="class_spaced_locator_1a6bf63ec5f3c6a3953e69acd8d8d16ab6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -179,7 +194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="87" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="265" bodyend="270"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="99" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="319" bodyend="324"/>
       </memberdef>
       <memberdef kind="function" id="class_locator_1af66155778af62f8cf9326fdb71649afc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>QList&lt; qreal &gt;</type>
@@ -192,7 +207,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="18" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="20" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_locator_1a170eb709a9e0e81a098025829c1a95e3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList Locator::locationLabels</definition>
+        <argsstring>() const </argsstring>
+        <name>locationLabels</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="37" column="1"/>
       </memberdef>
       <memberdef kind="function" id="class_locator_1ae0e3f3fcf66e373e74e70d52d847258f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>qreal</type>
@@ -205,7 +233,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="21" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="23" column="1"/>
       </memberdef>
       <memberdef kind="function" id="class_locator_1a40c70b9e1adee4b5993e9409aa1cd8f7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>qreal</type>
@@ -218,7 +246,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="24" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="26" column="1"/>
       </memberdef>
       <memberdef kind="function" id="class_locator_1abeda9cda8f5313edb6f471f64f909a81" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>qreal</type>
@@ -231,7 +259,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="27" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="31" column="1"/>
       </memberdef>
       <memberdef kind="function" id="class_locator_1a40adcb6e977eb42c49a2ed510345f042" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>QList&lt; qreal &gt;</type>
@@ -244,7 +272,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="30" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="34" column="1"/>
       </memberdef>
       <memberdef kind="function" id="class_locator_1af952a155e0ebee65d79891977fe66df7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -261,7 +289,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="19" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="31" bodyend="36"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="21" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="34" bodyend="39"/>
       </memberdef>
       <memberdef kind="function" id="class_locator_1a5aa331cd58fdac9669e494043281c587" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -278,7 +306,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="22" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="48" bodyend="53"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="24" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="51" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="class_locator_1aa09f17c0884d7f6b3ee6b2eda1931d2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -295,7 +323,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="25" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="65" bodyend="70"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="27" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="69" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="class_locator_1a2472c0daee5078271f9d890f2d7de425" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Locator::setLimits</definition>
+        <argsstring>(qreal start, qreal end)</argsstring>
+        <name>setLimits</name>
+        <param>
+          <type>qreal</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>qreal</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="29" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="77" bodyend="93"/>
       </memberdef>
       <memberdef kind="function" id="class_locator_1a11fccf94b6e0534da334f5a65f337b5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -312,7 +361,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="28" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="82" bodyend="87"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="32" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="105" bodyend="110"/>
       </memberdef>
       <memberdef kind="function" id="class_locator_1ae944cc7dd009194f80c79dd79a1f9c81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -329,7 +378,45 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="31" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="98" bodyend="103"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="35" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="121" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="class_locator_1aae3d08dbc13c47d978fc77d74e2e64cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Locator::setLocationLabels</definition>
+        <argsstring>(QStringList arg)</argsstring>
+        <name>setLocationLabels</name>
+        <param>
+          <type>QStringList</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="38" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="137" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="class_locator_1aa3eb73e0ed09bee1c02f93f959782267" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Locator::setLocationsAndLabels</definition>
+        <argsstring>(QList&lt; qreal &gt; locs, QStringList labels)</argsstring>
+        <name>setLocationsAndLabels</name>
+        <param>
+          <type>QList&lt; qreal &gt;</type>
+          <declname>locs</declname>
+        </param>
+        <param>
+          <type>QStringList</type>
+          <declname>labels</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="40" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="144" bodyend="153"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="signal">
@@ -348,7 +435,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="90" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="102" column="1"/>
       </memberdef>
       <memberdef kind="signal" id="class_locator_1a07bdc8707a7c0658adebb02e90d82120" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -365,7 +452,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="34" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="43" column="1"/>
       </memberdef>
       <memberdef kind="signal" id="class_locator_1a666778807d1f5a48580731f2e281b4bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -382,7 +469,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="35" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="44" column="1"/>
       </memberdef>
       <memberdef kind="signal" id="class_locator_1ae0e946e64a11f0f3ed846fd7fe5ebaa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -399,7 +486,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="36" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="45" column="1"/>
       </memberdef>
       <memberdef kind="signal" id="class_locator_1a5f0091d1ef79bc52b7710117a9992cec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -416,7 +503,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="37" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="46" column="1"/>
       </memberdef>
       <memberdef kind="signal" id="class_locator_1af56ad6693328f14b08194ebcdb7ea04c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -433,7 +520,24 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="38" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="47" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_locator_1abcc37b54971fcb7004f4fe672f3e8f91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Locator::locationLabelsChanged</definition>
+        <argsstring>(QStringList arg)</argsstring>
+        <name>locationLabelsChanged</name>
+        <param>
+          <type>QStringList</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="49" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-slot">
@@ -448,7 +552,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="93" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="272" bodyend="282"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="105" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.cpp" bodystart="326" bodyend="336"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -456,44 +560,47 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="184">
+      <node id="252">
         <label>QObject</label>
       </node>
-      <node id="183">
+      <node id="251">
         <label>Locator</label>
         <link refid="class_locator"/>
-        <childnode refid="184" relation="public-inheritance">
+        <childnode refid="252" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="182">
+      <node id="250">
         <label>SpacedLocator</label>
         <link refid="class_spaced_locator"/>
-        <childnode refid="183" relation="public-inheritance">
+        <childnode refid="251" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="187">
+      <node id="255">
         <label>QObject</label>
       </node>
-      <node id="186">
+      <node id="254">
         <label>Locator</label>
         <link refid="class_locator"/>
-        <childnode refid="187" relation="public-inheritance">
+        <childnode refid="255" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="185">
+      <node id="253">
         <label>SpacedLocator</label>
         <link refid="class_spaced_locator"/>
-        <childnode refid="186" relation="public-inheritance">
+        <childnode refid="254" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="78" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="77" bodyend="97"/>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/locators.h" line="90" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/locators.h" bodystart="89" bodyend="109"/>
     <listofallmembers>
       <member refid="class_locator_1a5425784e586d1650c12dbf064c30cdea" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>end</name></member>
       <member refid="class_locator_1a40c70b9e1adee4b5993e9409aa1cd8f7" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>end</name></member>
       <member refid="class_locator_1ae0e946e64a11f0f3ed846fd7fe5ebaa0" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>endChanged</name></member>
+      <member refid="class_locator_1ae9c8c262b5247ef1eb821c67dff80c6c" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>locationLabels</name></member>
+      <member refid="class_locator_1a170eb709a9e0e81a098025829c1a95e3" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>locationLabels</name></member>
+      <member refid="class_locator_1abcc37b54971fcb7004f4fe672f3e8f91" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>locationLabelsChanged</name></member>
       <member refid="class_locator_1a45d07235aa22dbc51c3b0228987455fd" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>locations</name></member>
       <member refid="class_locator_1af66155778af62f8cf9326fdb71649afc" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>locations</name></member>
       <member refid="class_locator_1a07bdc8707a7c0658adebb02e90d82120" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>locationsChanged</name></member>
@@ -506,7 +613,10 @@
       <member refid="class_locator_1abeda9cda8f5313edb6f471f64f909a81" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>pixelSize</name></member>
       <member refid="class_locator_1a5f0091d1ef79bc52b7710117a9992cec" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>pixelSizeChanged</name></member>
       <member refid="class_locator_1aa09f17c0884d7f6b3ee6b2eda1931d2a" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>setEnd</name></member>
+      <member refid="class_locator_1a2472c0daee5078271f9d890f2d7de425" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>setLimits</name></member>
+      <member refid="class_locator_1aae3d08dbc13c47d978fc77d74e2e64cd" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>setLocationLabels</name></member>
       <member refid="class_locator_1af952a155e0ebee65d79891977fe66df7" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>setLocations</name></member>
+      <member refid="class_locator_1aa3eb73e0ed09bee1c02f93f959782267" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>setLocationsAndLabels</name></member>
       <member refid="class_locator_1ae944cc7dd009194f80c79dd79a1f9c81" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>setMultiples</name></member>
       <member refid="class_locator_1a11fccf94b6e0534da334f5a65f337b5c" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>setPixelSize</name></member>
       <member refid="class_spaced_locator_1a6bf63ec5f3c6a3953e69acd8d8d16ab6" prot="public" virt="non-virtual"><scope>SpacedLocator</scope><name>setSpacing</name></member>

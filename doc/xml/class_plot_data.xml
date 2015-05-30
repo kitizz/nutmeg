@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="class_plot_data" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_plot_data" kind="class" language="C++" prot="public">
     <compoundname>PlotData</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QAbstractTableModel</basecompoundref>
       <sectiondef kind="public-type">
@@ -31,7 +31,7 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="property">
-      <memberdef kind="property" id="class_plot_data_1aac5cb0c78895a45573933e0e703cb959" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+      <memberdef kind="property" id="class_plot_data_1aac5cb0c78895a45573933e0e703cb959" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QList&lt; qreal &gt;</type>
         <definition>QList&lt; qreal &gt; PlotData::xData</definition>
         <argsstring></argsstring>
@@ -45,7 +45,7 @@
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/plotdata.h" line="44" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotdata.h" bodystart="9" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_plot_data_1aaef1448046c5756c7c1c803c0e869b6a" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+      <memberdef kind="property" id="class_plot_data_1aaef1448046c5756c7c1c803c0e869b6a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QList&lt; qreal &gt;</type>
         <definition>QList&lt; qreal &gt; PlotData::yData</definition>
         <argsstring></argsstring>
@@ -254,24 +254,24 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="152">
+      <node id="228">
         <label>PlotData</label>
         <link refid="class_plot_data"/>
-        <childnode refid="153" relation="public-inheritance">
+        <childnode refid="229" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="153">
+      <node id="229">
         <label>QAbstractTableModel</label>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="154">
+      <node id="230">
         <label>PlotData</label>
         <link refid="class_plot_data"/>
-        <childnode refid="155" relation="public-inheritance">
+        <childnode refid="231" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="155">
+      <node id="231">
         <label>QAbstractTableModel</label>
       </node>
     </collaborationgraph>

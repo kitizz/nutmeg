@@ -63,33 +63,42 @@ ServerBase {
         var figureHandle = args.figureHandle,
             qml = args.qml
 
-        qml = "import QtQuick 2.1\nimport Nutmeg 1.0\nimport \"Layouts\" as Layouts\n" + qml
+        qml = "import QtQuick 2.1\nimport Nutmeg 1.0\nimport \"Layouts\" as Layouts\nimport QtQuick.Layouts 1.1\n" + qml
 
         // Figure handles must be unique, overwrite existing handles
         var oldFigure = controller.get(figureHandle)
-        if (oldFigure) {
-            if (oldFigure.guiItem)
-                oldFigure.guiItem.destroy()
-            tabView.closeFigure(oldFigure)
-        }
-
-        var par = figureContainer ? figureContainer : server
         var fig
-        try {
-            fig = Qt.createQmlObject(qml, par, "Figures")
-        } catch (e) {
-            // Offset for the added lines...
-            e.qmlErrors[0].lineNumber -= 3
-            var err = e.qmlErrors[0]
-            console.warn("At line", err.lineNumber + ", col", err.columnNumber + ":", err.message, "\n")
-            return [2, err]
+        if (!oldFigure || oldFigure.qml !== qml) {
+            if (oldFigure) {
+                if (oldFigure.guiItem)
+                    oldFigure.guiItem.destroy()
+                tabView.closeFigure(oldFigure)
+            }
+
+            var par = figureContainer ? figureContainer : server
+            try {
+                fig = Qt.createQmlObject(qml, par, "Figures")
+                fig.qml = qml
+            } catch (e) {
+                // Offset for the added lines...
+                var err = e.qmlErrors[0]
+                var line = qml.split("\n")[err.lineNumber - 1]
+                err.message += "\n" + line + "\n" + Array(err.columnNumber).join(" ") + "^"
+                err.lineNumber -= 4
+                console.warn("At line", err.lineNumber + ", col", err.columnNumber + ":", err.message)
+                return [2, err]
+            }
+
+            // Update the figure handle if one was provided
+            if (figureHandle.length > 0)
+                fig.handle = figureHandle
+            tabView.addFigure(fig)
+            fig.controller = controller
+
+        } else {
+            fig = oldFigure
         }
 
-        // Update the figure handle if one was provided
-        if (figureHandle.length > 0)
-            fig.handle = figureHandle
-        tabView.addFigure(fig)
-        fig.controller = controller
         var port = getPortForFigure(figureHandle)
         console.log("Figure's port:", port)
 //        fig.installEventFilterApp(rootApp)

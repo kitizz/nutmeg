@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="class_server_1_1_thread_tools" kind="class" prot="private">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_server_1_1_thread_tools" kind="class" language="C++" prot="private">
     <compoundname>Server::ThreadTools</compoundname>
     <basecompoundref prot="private" virt="non-virtual">QThread</basecompoundref>
       <sectiondef kind="private-func">
@@ -23,22 +23,22 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="189">
+      <node id="257">
         <label>QThread</label>
       </node>
-      <node id="188">
+      <node id="256">
         <label>Server::ThreadTools</label>
-        <childnode refid="189" relation="private-inheritance">
+        <childnode refid="257" relation="private-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="191">
+      <node id="259">
         <label>QThread</label>
       </node>
-      <node id="190">
+      <node id="258">
         <label>Server::ThreadTools</label>
-        <childnode refid="191" relation="private-inheritance">
+        <childnode refid="259" relation="private-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

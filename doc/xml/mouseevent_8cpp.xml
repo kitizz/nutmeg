@@ -1,28 +1,28 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="mouseevent_8cpp" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="mouseevent_8cpp" kind="file" language="C++">
     <compoundname>mouseevent.cpp</compoundname>
     <includes refid="mouseevent_8h" local="yes">mouseevent.h</includes>
     <includes local="no">QMouseEvent</includes>
     <incdepgraph>
-      <node id="527">
+      <node id="1221">
         <label>QObject</label>
       </node>
-      <node id="526">
+      <node id="1220">
         <label>mouseevent.h</label>
         <link refid="mouseevent_8h_source"/>
-        <childnode refid="527" relation="include">
+        <childnode refid="1221" relation="include">
         </childnode>
       </node>
-      <node id="525">
+      <node id="1219">
         <label>src/mouseevent.cpp</label>
         <link refid="mouseevent.cpp"/>
-        <childnode refid="526" relation="include">
+        <childnode refid="1220" relation="include">
         </childnode>
-        <childnode refid="528" relation="include">
+        <childnode refid="1222" relation="include">
         </childnode>
       </node>
-      <node id="528">
+      <node id="1222">
         <label>QMouseEvent</label>
       </node>
     </incdepgraph>

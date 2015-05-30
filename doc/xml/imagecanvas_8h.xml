@@ -1,27 +1,27 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="imagecanvas_8h" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="imagecanvas_8h" kind="file" language="C++">
     <compoundname>imagecanvas.h</compoundname>
     <includes local="no">QQuickPaintedItem</includes>
     <includes refid="plotcanvas_8h" local="yes">plotcanvas.h</includes>
     <includedby refid="imagecanvas_8cpp" local="yes">src/imagecanvas.cpp</includedby>
     <includedby refid="main_8cpp" local="yes">src/main.cpp</includedby>
     <incdepgraph>
-      <node id="282">
+      <node id="906">
         <label>QQuickPaintedItem</label>
       </node>
-      <node id="281">
+      <node id="905">
         <label>src/imagecanvas.h</label>
         <link refid="imagecanvas.h"/>
-        <childnode refid="282" relation="include">
+        <childnode refid="906" relation="include">
         </childnode>
-        <childnode refid="283" relation="include">
+        <childnode refid="907" relation="include">
         </childnode>
       </node>
-      <node id="283">
+      <node id="907">
         <label>plotcanvas.h</label>
         <link refid="plotcanvas_8h_source"/>
-        <childnode refid="282" relation="include">
+        <childnode refid="906" relation="include">
         </childnode>
       </node>
     </incdepgraph>

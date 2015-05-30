@@ -51,23 +51,6 @@ Rectangle {
 ////        Component.onCompleted: visible = true
 //    }
 
-//    Figure {
-//        id: figure
-
-//        Axis3D {
-//            handle: "ax3d"
-
-//            width: parent.width
-//            anchors.right: parent.right
-
-//            PointCloud {
-//                handle: "pc"
-//            }
-//        }
-//    }
-
-//    TestFigure{}
-
     FileIO {
         id: testFile
         source: ":/qml/TestFigure.qml"
@@ -78,7 +61,7 @@ Rectangle {
         // Connect file dialog signals
 //        window.fileSelected.connect(selectedPdf)
 
-        var plotTest = false
+        var plotTest = true
         if (plotTest) {
             var qml = testFile.read()
 
@@ -100,6 +83,12 @@ Rectangle {
 
             server.sendData( {"handle": "testFigure.ax.yAxis", "data": {
                                     "label": "Coolest Y Label Ever"
+            }} )
+
+            server.sendData( {"handle": "testFigure.ax2.red", "data": {
+                                    "x": [0, 50, 200, 300, 450, 500, 700, 1000, 1200],
+                                    "y": [1.000045, 1.000030, 1.000025, 1.000023, 1.000022, 1.0000215,
+                                          1.0000212, 1.0000211, 1.00002]
             }} )
             console.log("Result:", res[1].message)
         }

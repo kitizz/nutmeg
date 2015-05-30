@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="class_mouse_event" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_mouse_event" kind="class" language="C++" prot="public">
     <compoundname>MouseEvent</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
       <sectiondef kind="property">
-      <memberdef kind="property" id="class_mouse_event_1acbc5bdaa7ca57ff160d0bdf6dc94253e" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+      <memberdef kind="property" id="class_mouse_event_1acbc5bdaa7ca57ff160d0bdf6dc94253e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>qreal</type>
         <definition>qreal MouseEvent::x</definition>
         <argsstring></argsstring>
@@ -18,7 +18,7 @@
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="51" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" bodystart="9" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_mouse_event_1a20f9386cb0f1a6a4513911bd1c296d93" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+      <memberdef kind="property" id="class_mouse_event_1a20f9386cb0f1a6a4513911bd1c296d93" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>qreal</type>
         <definition>qreal MouseEvent::y</definition>
         <argsstring></argsstring>
@@ -32,7 +32,7 @@
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="51" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" bodystart="10" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_mouse_event_1a3b8e724a916508b95ef5c4f36e8424d4" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+      <memberdef kind="property" id="class_mouse_event_1a3b8e724a916508b95ef5c4f36e8424d4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>int</type>
         <definition>int MouseEvent::button</definition>
         <argsstring></argsstring>
@@ -46,7 +46,7 @@
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="51" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" bodystart="11" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_mouse_event_1ab532b20d925e742593a746061779820f" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+      <memberdef kind="property" id="class_mouse_event_1ab532b20d925e742593a746061779820f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>int</type>
         <definition>int MouseEvent::buttons</definition>
         <argsstring></argsstring>
@@ -60,7 +60,7 @@
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" line="51" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/mouseevent.h" bodystart="12" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_mouse_event_1a8e6c4b0e3c1d759dec9e660aa94a8783" prot="public" static="no" readable="yes" writable="no" gettable="no" settable="no">
+      <memberdef kind="property" id="class_mouse_event_1a8e6c4b0e3c1d759dec9e660aa94a8783" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>int</type>
         <definition>int MouseEvent::modifiers</definition>
         <argsstring></argsstring>
@@ -282,24 +282,24 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="122">
+      <node id="176">
         <label>QObject</label>
       </node>
-      <node id="121">
+      <node id="175">
         <label>MouseEvent</label>
         <link refid="class_mouse_event"/>
-        <childnode refid="122" relation="public-inheritance">
+        <childnode refid="176" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="124">
+      <node id="178">
         <label>QObject</label>
       </node>
-      <node id="123">
+      <node id="177">
         <label>MouseEvent</label>
         <link refid="class_mouse_event"/>
-        <childnode refid="124" relation="public-inheritance">
+        <childnode refid="178" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

@@ -18,6 +18,7 @@ FigureBase {
 
     property int tabIndex: -1
     property var guiItem: null
+    property string qml: ""
 
     function axisAtPoint(point) {
         var axes = getAxisList()

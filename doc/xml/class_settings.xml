@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="class_settings" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_settings" kind="class" language="C++" prot="public">
     <compoundname>Settings</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
       <sectiondef kind="property">
-      <memberdef kind="property" id="class_settings_1a00918fb4e2667a771b7b356ba5dd7cfd" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_settings_1a00918fb4e2667a771b7b356ba5dd7cfd" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>int</type>
         <definition>int Settings::port</definition>
         <argsstring></argsstring>
@@ -109,24 +109,24 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="174">
+      <node id="240">
         <label>Settings</label>
         <link refid="class_settings"/>
-        <childnode refid="175" relation="public-inheritance">
+        <childnode refid="241" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="175">
+      <node id="241">
         <label>QObject</label>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="176">
+      <node id="242">
         <label>Settings</label>
         <link refid="class_settings"/>
-        <childnode refid="177" relation="public-inheritance">
+        <childnode refid="243" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="177">
+      <node id="243">
         <label>QObject</label>
       </node>
     </collaborationgraph>

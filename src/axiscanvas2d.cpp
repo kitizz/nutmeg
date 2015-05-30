@@ -26,10 +26,12 @@ AxisCanvas2D::AxisCanvas2D(QQuickItem *parent)
     , m_title(QStaticText())
     , m_xLabel(QStaticText())
     , m_yLabel(QStaticText())
-    , m_xScale(QStaticText())
-    , m_yScale(QStaticText())
-    , m_xOffset(QStaticText())
-    , m_yOffset(QStaticText())
+    , m_xScaleExp(0), m_yScaleExp(0)
+    , m_xOffset(0), m_yOffset(0)
+    , m_xScaleText(QStaticText())
+    , m_yScaleText(QStaticText())
+//    , m_xOffsetText(QStaticText())
+//    , m_yOffsetText(QStaticText())
     , m_xTicks(QList<QString>())
     , m_yTicks(QList<QString>())
 {
@@ -64,6 +66,8 @@ void AxisCanvas2D::paint(QPainter *painter)
 
     drawXTickLabels(xMajor, painter, plotRect);
     drawYTickLabels(yMajor, painter, plotRect);
+
+    drawScale(painter, plotRect);
 
     drawGrid(xMajor, yMajor, painter, plotRect);
     drawXTicks(xMajor, painter, plotRect);
@@ -104,6 +108,8 @@ void AxisCanvas2D::setAxis(Axis2DBase *arg)
         connect(m_axis->xAxis(), &AxisSpec::minorTicksChanged, this, &AxisCanvas2D::triggerUpdate);
         connect(m_axis->yAxis(), &AxisSpec::majorTicksChanged, this, &AxisCanvas2D::triggerUpdate);
         connect(m_axis->yAxis(), &AxisSpec::minorTicksChanged, this, &AxisCanvas2D::triggerUpdate);
+        connect(m_axis, &QQuickItem::heightChanged, this, &AxisCanvas2D::triggerUpdate);
+        connect(m_axis, &QQuickItem::widthChanged, this, &AxisCanvas2D::triggerUpdate);
         triggerUpdate();
     }
     emit axisChanged(arg);
@@ -123,6 +129,7 @@ void AxisCanvas2D::setScaling(qreal arg)
 
 void AxisCanvas2D::triggerUpdate()
 {
+    qDebug() << Q_FUNC_INFO;
     polish();
     update();
 }
@@ -181,32 +188,40 @@ void AxisCanvas2D::prepareTexts()
 
     AxisSpec *xSpec = m_axis->xAxis();
     AxisSpec *ySpec = m_axis->yAxis();
-    qreal xScale = prepareScale(xSpec, m_axis->maxX() - m_axis->minX(), &m_xScale);
-    qreal yScale = prepareScale(ySpec, m_axis->maxY() - m_axis->minY(), &m_yScale);
 
-    m_xTicksHeight = prepareTickLabels(xSpec, m_xTickText, m_xTicks, xScale).height();
-    m_yTicksWidth = prepareTickLabels(ySpec, m_yTickText, m_yTicks, yScale).width();
+    m_xTicksHeight = prepareTickLabels(xSpec, m_xTickText, m_xTicks, m_xScaleExp, m_xOffset).height();
+    m_yTicksWidth = prepareTickLabels(ySpec, m_yTickText, m_yTicks, m_yScaleExp, m_yOffset).width();
+
+    prepareScaleAndOffset(xSpec, m_xScaleExp, m_xOffset, &m_xScaleText);
+    prepareScaleAndOffset(ySpec, m_yScaleExp, m_yOffset, &m_yScaleText);
 }
 
-qreal AxisCanvas2D::prepareScale(AxisSpec *spec, qreal range, QStaticText *st)
+void AxisCanvas2D::prepareScaleAndOffset(AxisSpec *spec, int scaleExp, qreal offset, QStaticText *st)
 {
-    int prec = spec->tickPrecision();
-    QFont font = spec->labelFont();
+    QFont font = spec->tickFont();
     font.setPointSize( font.pointSize()*m_scaling );
 
-    int rangePrec = Util::precision(range);
+    static QString baseScale("\u00D71e%1");
+    static QString baseOffset("%1 %2");
+    static QString baseScaleOffset("\u00D71e%1 %2 %3");
 
-    qreal scale = 1;
-    if (qAbs(rangePrec) > prec) {
-        scale = pow(10, -rangePrec);
+    if (scaleExp != 0 || offset != 0) {
+        QString scale = QString::number(scaleExp),
+                sign = offset > 0 ? "+" : "-",
+                off = QString::number(qAbs(offset));
+
         QString scaleText;
-        scaleText.sprintf("1e%d", -rangePrec);
+        if (scaleExp != 0 && offset != 0)
+            scaleText = baseScaleOffset.arg(scale, sign, off);
+        else if (scaleExp != 0)
+            scaleText = baseScale.arg(scale);
+        else
+            scaleText = baseOffset.arg(sign, off);
+
         st->setText(scaleText);
     } else {
         st->setText("");
     }
-
-    return scale;
 }
 
 QStaticText *AxisCanvas2D::getStaticText(const QString &text)
@@ -221,7 +236,7 @@ QStaticText *AxisCanvas2D::getStaticText(const QString &text)
 }
 
 QSizeF AxisCanvas2D::prepareTickLabels(AxisSpec *spec, QHash<QString, QStaticText*> &staticTexts,
-                                      QList<QString> &tickStrings, qreal scale)
+                                      QList<QString> &tickStrings, int &scaleExp, qreal &offset)
 {
     int prec = spec->tickPrecision();
 
@@ -230,9 +245,56 @@ QSizeF AxisCanvas2D::prepareTickLabels(AxisSpec *spec, QHash<QString, QStaticTex
     QHash<QString, QStaticText*> newTicks;
     tickStrings.clear();
     QSizeF maxSize;
-    foreach (qreal v, spec->majorTicksReal()) {
-        QString text;
-        text.sprintf("%.*g", prec + 2, v*scale);
+
+    // Find the maximum precision required
+    // Assume: The precisions are all of the same sign, and
+    //         "Zero" values don't have precision errors (e.g. 1e-17)
+    qDebug() << "Precision.";
+
+    scaleExp = 0;
+    offset = 0;
+    auto ticks = spec->majorTicksReal();
+    if (ticks.length() == 0)
+        return QSizeF();
+
+    auto diff = Util::diff(ticks);
+    QList<int> precisions;
+
+    qreal pixelsPerUnit = spec->pixelSize()/(spec->max() - spec->min());
+    foreach (qreal d, diff) {
+        // Sometimes values that are meant to be 0.01 can be 0.00999...
+        // due to precision errors. The "precision" of this then becomes
+        // -3 when it should really be -2. This fixes that. It's a horrible
+        // hack, but I can't be a really bad reason not to do this.
+        if (d*pixelsPerUnit > 1)
+            precisions << Util::precision(d*1.01);
+    }
+    qDebug() << "Ticks:" << ticks;
+    qDebug() << "Precisions:" << precisions;
+    int scalePrec = Util::min(precisions);
+
+    qDebug() << "Best =" << scalePrec;
+
+    // 3 cases: No scale required. Scale down from large numbers. Scale up from small numbers.
+    scaleExp = 0;
+    qreal scale = 1;
+    offset = Util::roundTo(ticks[0], scalePrec + prec);
+    if (scalePrec > prec || scalePrec - 1 < -prec) {
+        // Numbers need to be scaled down || scaled up
+        scaleExp = scalePrec;
+        scale = qPow(10, -scaleExp);
+
+    } else if (scalePrec > 0) {
+        // Keep the *total* precision set to prec
+        // if there are digits to the left of the decimal
+        prec -= scalePrec;
+    }
+
+    qDebug() << "Offset:" << offset;
+    qDebug() << "ScaleExp, Prec:" << scaleExp << prec << "\n";
+
+    foreach (qreal v, ticks) {
+        QString text = Util::formatReal((v - offset)*scale, prec - 1);
         tickStrings.append(text);
         QStaticText *st = staticTexts.value(text, 0);
         if (!st)
@@ -294,7 +356,7 @@ void AxisCanvas2D::drawYLabel(QPainter *painter, const QRectF &plotRect)
 
 void AxisCanvas2D::drawXTickLabels(QList<qreal> xFrames, QPainter *painter, const QRectF &plotRect)
 {
-    QFont font = m_axis->yAxis()->labelFont();
+    QFont font = m_axis->yAxis()->tickFont();
     font.setPointSize( font.pointSize()*m_scaling );
     painter->setFont(font);
 
@@ -313,7 +375,7 @@ void AxisCanvas2D::drawXTickLabels(QList<qreal> xFrames, QPainter *painter, cons
 
 void AxisCanvas2D::drawYTickLabels(QList<qreal> yFrames, QPainter *painter, const QRectF &plotRect)
 {
-    QFont font = m_axis->yAxis()->labelFont();
+    QFont font = m_axis->yAxis()->tickFont();
     font.setPointSize( font.pointSize()*m_scaling );
     painter->setFont(font);
 
@@ -388,6 +450,21 @@ void AxisCanvas2D::drawYTicks(QList<qreal> major, QPainter *painter, const QRect
     pen.setWidth(spec->width());
     painter->setPen(pen);
     painter->drawLines(lines);
+}
+
+void AxisCanvas2D::drawScale(QPainter *painter, const QRectF &plotRect)
+{
+    QFont font = m_axis->yAxis()->tickFont();
+    font.setPointSize( font.pointSize()*m_scaling );
+    painter->setFont(font);
+
+    qreal xScale_x = m_scaling*plotRect.right() - m_xScaleText.size().width();
+    qreal xScale_y = plotRect.bottom() + m_xTicksMargin + m_xTicksHeight/m_scaling + m_xLabelMargin;
+    painter->drawStaticText(xScale_x, m_scaling*xScale_y, m_xScaleText);
+
+    qreal yScale_x = m_scaling*plotRect.left();
+    qreal yScale_y = m_scaling*plotRect.top() - m_yScaleText.size().height() - 2;
+    painter->drawStaticText(yScale_x, yScale_y, m_yScaleText);
 }
 
 void AxisCanvas2D::drawGrid(QList<qreal> xMajor, QList<qreal> yMajor, QPainter *painter, const QRectF &plotRect)

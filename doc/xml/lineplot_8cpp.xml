@@ -1,187 +1,236 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="lineplot_8cpp" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="lineplot_8cpp" kind="file" language="C++">
     <compoundname>lineplot.cpp</compoundname>
     <includes refid="lineplot_8h" local="yes">lineplot.h</includes>
     <includes local="no">QColor</includes>
     <includes local="no">QtGui/QGuiApplication</includes>
     <includes local="no">QWindow</includes>
     <incdepgraph>
-      <node id="348">
+      <node id="988">
         <label>QMap</label>
       </node>
-      <node id="356">
+      <node id="1003">
         <label>limits</label>
       </node>
-      <node id="351">
+      <node id="977">
+        <label>plot2dbase.h</label>
+        <link refid="plot2dbase_8h_source"/>
+        <childnode refid="978" relation="include">
+        </childnode>
+        <childnode refid="979" relation="include">
+        </childnode>
+        <childnode refid="980" relation="include">
+        </childnode>
+        <childnode refid="982" relation="include">
+        </childnode>
+        <childnode refid="991" relation="include">
+        </childnode>
+        <childnode refid="987" relation="include">
+        </childnode>
+        <childnode refid="1004" relation="include">
+        </childnode>
+        <childnode refid="1005" relation="include">
+        </childnode>
+      </node>
+      <node id="1000">
+        <label>QRectF</label>
+      </node>
+      <node id="990">
         <label>QObject</label>
       </node>
-      <node id="342">
+      <node id="985">
         <label>axisbase.h</label>
         <link refid="axisbase_8h_source"/>
-        <childnode refid="343" relation="include">
+        <childnode refid="978" relation="include">
         </childnode>
-        <childnode refid="344" relation="include">
+        <childnode refid="986" relation="include">
         </childnode>
-        <childnode refid="345" relation="include">
+        <childnode refid="987" relation="include">
         </childnode>
-        <childnode refid="353" relation="include">
-        </childnode>
-        <childnode refid="355" relation="include">
-        </childnode>
-        <childnode refid="337" relation="include">
-        </childnode>
-        <childnode refid="347" relation="include">
-        </childnode>
-        <childnode refid="356" relation="include">
+        <childnode refid="991" relation="include">
         </childnode>
       </node>
-      <node id="337">
+      <node id="996">
+        <label>axisspec.h</label>
+        <link refid="axisspec_8h_source"/>
+        <childnode refid="990" relation="include">
+        </childnode>
+        <childnode refid="997" relation="include">
+        </childnode>
+        <childnode refid="987" relation="include">
+        </childnode>
+        <childnode refid="992" relation="include">
+        </childnode>
+        <childnode refid="994" relation="include">
+        </childnode>
+      </node>
+      <node id="991">
         <label>plotbase.h</label>
         <link refid="plotbase_8h_source"/>
-        <childnode refid="338" relation="include">
+        <childnode refid="978" relation="include">
         </childnode>
-        <childnode refid="339" relation="include">
+        <childnode refid="987" relation="include">
         </childnode>
-        <childnode refid="340" relation="include">
-        </childnode>
-        <childnode refid="342" relation="include">
-        </childnode>
-        <childnode refid="347" relation="include">
-        </childnode>
-        <childnode refid="357" relation="include">
+        <childnode refid="985" relation="include">
         </childnode>
       </node>
-      <node id="357">
+      <node id="1005">
         <label>../QKDTree/QKDTree/QKDTree.h</label>
       </node>
-      <node id="347">
+      <node id="987">
         <label>nutmegobject.h</label>
         <link refid="nutmegobject_8h_source"/>
-        <childnode refid="348" relation="include">
+        <childnode refid="988" relation="include">
         </childnode>
-        <childnode refid="349" relation="include">
+        <childnode refid="986" relation="include">
         </childnode>
-        <childnode refid="350" relation="include">
+        <childnode refid="989" relation="include">
         </childnode>
-        <childnode refid="351" relation="include">
+        <childnode refid="990" relation="include">
         </childnode>
       </node>
-      <node id="359">
+      <node id="999">
+        <label>QList</label>
+      </node>
+      <node id="1002">
+        <label>QLineF</label>
+      </node>
+      <node id="1006">
         <label>QtGui/QGuiApplication</label>
       </node>
-      <node id="355">
+      <node id="994">
         <label>locators.h</label>
         <link refid="locators_8h_source"/>
-        <childnode refid="351" relation="include">
+        <childnode refid="990" relation="include">
+        </childnode>
+        <childnode refid="995" relation="include">
         </childnode>
       </node>
-      <node id="352">
-        <label>mouseevent.h</label>
-        <link refid="mouseevent_8h_source"/>
-        <childnode refid="351" relation="include">
-        </childnode>
+      <node id="997">
+        <label>QFont</label>
       </node>
-      <node id="345">
-        <label>figurebase.h</label>
-        <link refid="figurebase_8h_source"/>
-        <childnode refid="338" relation="include">
-        </childnode>
-        <childnode refid="344" relation="include">
-        </childnode>
-        <childnode refid="342" relation="include">
-        </childnode>
-        <childnode refid="346" relation="include">
-        </childnode>
-        <childnode refid="347" relation="include">
-        </childnode>
-        <childnode refid="352" relation="include">
-        </childnode>
-      </node>
-      <node id="334">
+      <node id="974">
         <label>src/lineplot.cpp</label>
         <link refid="lineplot.cpp"/>
-        <childnode refid="335" relation="include">
+        <childnode refid="975" relation="include">
         </childnode>
-        <childnode refid="354" relation="include">
+        <childnode refid="993" relation="include">
         </childnode>
-        <childnode refid="359" relation="include">
+        <childnode refid="1006" relation="include">
         </childnode>
-        <childnode refid="360" relation="include">
+        <childnode refid="1007" relation="include">
         </childnode>
       </node>
-      <node id="343">
+      <node id="998">
+        <label>util.h</label>
+        <link refid="util_8h_source"/>
+        <childnode refid="999" relation="include">
+        </childnode>
+        <childnode refid="1000" relation="include">
+        </childnode>
+        <childnode refid="1001" relation="include">
+        </childnode>
+        <childnode refid="1002" relation="include">
+        </childnode>
+        <childnode refid="1003" relation="include">
+        </childnode>
+      </node>
+      <node id="983">
         <label>QQuickPaintedItem</label>
       </node>
-      <node id="339">
+      <node id="979">
         <label>QPainter</label>
       </node>
-      <node id="353">
+      <node id="992">
         <label>linespec.h</label>
         <link refid="linespec_8h_source"/>
-        <childnode refid="351" relation="include">
+        <childnode refid="990" relation="include">
         </childnode>
-        <childnode refid="354" relation="include">
+        <childnode refid="993" relation="include">
         </childnode>
-        <childnode refid="348" relation="include">
+        <childnode refid="988" relation="include">
         </childnode>
       </node>
-      <node id="360">
+      <node id="1007">
         <label>QWindow</label>
       </node>
-      <node id="349">
+      <node id="982">
+        <label>axis2dbase.h</label>
+        <link refid="axis2dbase_8h_source"/>
+        <childnode refid="983" relation="include">
+        </childnode>
+        <childnode refid="984" relation="include">
+        </childnode>
+        <childnode refid="985" relation="include">
+        </childnode>
+        <childnode refid="992" relation="include">
+        </childnode>
+        <childnode refid="994" relation="include">
+        </childnode>
+        <childnode refid="977" relation="include">
+        </childnode>
+        <childnode refid="987" relation="include">
+        </childnode>
+        <childnode refid="996" relation="include">
+        </childnode>
+        <childnode refid="998" relation="include">
+        </childnode>
+      </node>
+      <node id="986">
         <label>QString</label>
       </node>
-      <node id="354">
+      <node id="993">
         <label>QColor</label>
       </node>
-      <node id="335">
+      <node id="975">
         <label>lineplot.h</label>
         <link refid="lineplot_8h_source"/>
-        <childnode refid="336" relation="include">
+        <childnode refid="976" relation="include">
         </childnode>
-        <childnode refid="342" relation="include">
+        <childnode refid="982" relation="include">
         </childnode>
-        <childnode refid="353" relation="include">
+        <childnode refid="992" relation="include">
         </childnode>
-        <childnode refid="358" relation="include">
+        <childnode refid="1001" relation="include">
         </childnode>
-        <childnode refid="348" relation="include">
+        <childnode refid="988" relation="include">
         </childnode>
       </node>
-      <node id="336">
+      <node id="976">
         <label>xyplot.h</label>
         <link refid="xyplot_8h_source"/>
-        <childnode refid="337" relation="include">
+        <childnode refid="977" relation="include">
         </childnode>
       </node>
-      <node id="338">
+      <node id="1004">
+        <label>plotcanvas.h</label>
+        <link refid="plotcanvas_8h_source"/>
+        <childnode refid="983" relation="include">
+        </childnode>
+      </node>
+      <node id="978">
         <label>QQuickItem</label>
       </node>
-      <node id="340">
+      <node id="980">
         <label>plotdata.h</label>
         <link refid="plotdata_8h_source"/>
-        <childnode refid="341" relation="include">
+        <childnode refid="981" relation="include">
         </childnode>
       </node>
-      <node id="350">
+      <node id="989">
         <label>QVariant</label>
       </node>
-      <node id="346">
-        <label>controller.h</label>
-        <link refid="controller_8h_source"/>
-        <childnode refid="338" relation="include">
-        </childnode>
-        <childnode refid="345" relation="include">
-        </childnode>
+      <node id="995">
+        <label>QStringList</label>
       </node>
-      <node id="341">
+      <node id="981">
         <label>QAbstractTableModel</label>
       </node>
-      <node id="358">
+      <node id="1001">
         <label>QPolygonF</label>
       </node>
-      <node id="344">
+      <node id="984">
         <label>QMultiMap</label>
       </node>
     </incdepgraph>
@@ -195,31 +244,24 @@
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtGui/QGuiApplication&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QWindow&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal">QMap&lt;QString,<sp/>QColor&gt;<sp/>LineSpec::colorMap<sp/>=<sp/>LineSpec::generateColorMap();</highlight></codeline>
-<codeline lineno="7"><highlight class="normal">QMap&lt;QString,<sp/>Qt::PenStyle&gt;<sp/>LineSpec::styleMap<sp/>=<sp/>LineSpec::generateStyleMap();</highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal">LinePlot::LinePlot(QQuickItem<sp/>*parent)</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="class_x_y_plot" kindref="compound">XYPlot</ref>(parent)</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_points(QList&lt;QPointF&gt;())</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_line(new<sp/><ref refid="class_line_spec" kindref="compound">LineSpec</ref>())</highlight></codeline>
-<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>QMap&lt;QString,QString&gt;<sp/>props;</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>props.insert(</highlight><highlight class="stringliteral">&quot;x&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;xData&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>props.insert(</highlight><highlight class="stringliteral">&quot;y&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yData&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>props.insert(&quot;lineColor&quot;,<sp/>&quot;lineColor&quot;);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>props.insert(&quot;lineStyle&quot;,<sp/>&quot;lineStyle&quot;);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>props.insert(&quot;lineSpec&quot;,<sp/>&quot;lineSpec&quot;);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>props.insert(&quot;markerColor&quot;,<sp/>&quot;markerColor&quot;);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>props.insert(&quot;markerStyle&quot;,<sp/>&quot;markerStyle&quot;);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>registerProperties(props);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">LinePlot::LinePlot(QQuickItem<sp/>*parent)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="class_x_y_plot" kindref="compound">XYPlot</ref>(parent)</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_points(QList&lt;QPointF&gt;())</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_line(new<sp/><ref refid="class_line_spec" kindref="compound">LineSpec</ref>())</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>QMap&lt;QString,QString&gt;<sp/>props;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>props.insert(</highlight><highlight class="stringliteral">&quot;x&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;xData&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>props.insert(</highlight><highlight class="stringliteral">&quot;y&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yData&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>props.insert(</highlight><highlight class="stringliteral">&quot;line&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;line&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>registerProperties(props);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><ref refid="class_line_spec" kindref="compound">LineSpec</ref><sp/>*LinePlot::line()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="20"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_line;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><ref refid="class_line_spec" kindref="compound">LineSpec</ref><sp/>*LinePlot::line()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
-<codeline lineno="27"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_line;</highlight></codeline>
-<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="/Users/kitham/projects/qt/nutmeg/src/lineplot.cpp"/>
   </compounddef>

@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="class_axis_margins" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_axis_margins" kind="class" language="C++" prot="public">
     <compoundname>AxisMargins</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
       <sectiondef kind="property">
-      <memberdef kind="property" id="class_axis_margins_1adbc4fb42de5c6d8783493f8d6935e707" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_axis_margins_1adbc4fb42de5c6d8783493f8d6935e707" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>qreal</type>
         <definition>qreal AxisMargins::left</definition>
         <argsstring></argsstring>
@@ -17,9 +17,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="353" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="359" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="185" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="191" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_axis_margins_1ab5e03992180170bdc5214fd7a62ab5cb" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_axis_margins_1ab5e03992180170bdc5214fd7a62ab5cb" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>qreal</type>
         <definition>qreal AxisMargins::right</definition>
         <argsstring></argsstring>
@@ -32,9 +32,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="353" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="360" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="185" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="192" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_axis_margins_1adf736b21549d69e5c210d619c4cd1d85" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_axis_margins_1adf736b21549d69e5c210d619c4cd1d85" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>qreal</type>
         <definition>qreal AxisMargins::top</definition>
         <argsstring></argsstring>
@@ -47,9 +47,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="353" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="361" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="185" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="193" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_axis_margins_1ab8129a5a5970271fe198fcec19ed44d4" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_axis_margins_1ab8129a5a5970271fe198fcec19ed44d4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>qreal</type>
         <definition>qreal AxisMargins::bottom</definition>
         <argsstring></argsstring>
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="353" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="362" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="185" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="194" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="385" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="385" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="217" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="217" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_axis_margins_1a3a23dc7942c7467b65edd29ae226a377" prot="private" static="no" mutable="no">
         <type>qreal</type>
@@ -90,7 +90,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="386" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="386" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="218" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="218" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_axis_margins_1a396fab47f12783eda6043ace412a14d6" prot="private" static="no" mutable="no">
         <type>qreal</type>
@@ -103,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="387" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="387" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="219" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="219" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_axis_margins_1a39926c4b088556973c8cb257007ad68b" prot="private" static="no" mutable="no">
         <type>qreal</type>
@@ -116,7 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="388" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="388" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="220" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="220" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -136,7 +136,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="365" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="1166" bodyend="1173"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="197" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.cpp" bodystart="732" bodyend="739"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_margins_1a155f0fa5524b427cd64ff53fcfd90b59" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>qreal</type>
@@ -149,7 +149,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="366" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="198" column="1"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_margins_1afbc9a4620f2974d6eb7b185c316e7865" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -166,7 +166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="367" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="1180" bodyend="1185"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="199" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.cpp" bodystart="746" bodyend="751"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_margins_1a1e5eb3deaaa54346aa093238bed6d1ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>qreal</type>
@@ -179,7 +179,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="369" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="201" column="1"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_margins_1af752b0e51242a60aee0654192e89051e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -196,7 +196,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="370" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="1192" bodyend="1197"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="202" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.cpp" bodystart="758" bodyend="763"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_margins_1ae03e24592e5f3f05f91f542d63c33d33" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>qreal</type>
@@ -209,7 +209,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="372" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="204" column="1"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_margins_1ab87e902f72823c4a93e01638888853c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -226,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="373" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="1204" bodyend="1209"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="205" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.cpp" bodystart="770" bodyend="775"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_margins_1acdbb7f8eb34102596f751cc1f1d1d8c9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>qreal</type>
@@ -239,7 +239,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="375" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="207" column="1"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_margins_1a5e27c3ebed63e45578fba426a7eb7fa9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -256,7 +256,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="376" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="1216" bodyend="1221"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="208" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.cpp" bodystart="782" bodyend="787"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="signal">
@@ -275,7 +275,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="379" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="211" column="1"/>
       </memberdef>
       <memberdef kind="signal" id="class_axis_margins_1ac07826d6e82c2018d57630a8bcfc01c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -292,7 +292,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="380" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="212" column="1"/>
       </memberdef>
       <memberdef kind="signal" id="class_axis_margins_1ad2f909eecf06bfd83ed054318c9a879f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -309,7 +309,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="381" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="213" column="1"/>
       </memberdef>
       <memberdef kind="signal" id="class_axis_margins_1aa3627556c07a13e532d02b6744a5ce67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -326,7 +326,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="382" column="1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="214" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -334,17 +334,6 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="32">
-        <label>QObject</label>
-      </node>
-      <node id="31">
-        <label>AxisMargins</label>
-        <link refid="class_axis_margins"/>
-        <childnode refid="32" relation="public-inheritance">
-        </childnode>
-      </node>
-    </inheritancegraph>
-    <collaborationgraph>
       <node id="34">
         <label>QObject</label>
       </node>
@@ -354,8 +343,19 @@
         <childnode refid="34" relation="public-inheritance">
         </childnode>
       </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="36">
+        <label>QObject</label>
+      </node>
+      <node id="35">
+        <label>AxisMargins</label>
+        <link refid="class_axis_margins"/>
+        <childnode refid="36" relation="public-inheritance">
+        </childnode>
+      </node>
     </collaborationgraph>
-    <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="357" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="356" bodyend="389"/>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="189" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="188" bodyend="221"/>
     <listofallmembers>
       <member refid="class_axis_margins_1a2f6ba39ebcf7961130d85f94e8b929fb" prot="public" virt="non-virtual"><scope>AxisMargins</scope><name>AxisMargins</name></member>
       <member refid="class_axis_margins_1ab8129a5a5970271fe198fcec19ed44d4" prot="public" virt="non-virtual"><scope>AxisMargins</scope><name>bottom</name></member>

@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="class_file_i_o" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_file_i_o" kind="class" language="C++" prot="public">
     <compoundname>FileIO</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
       <sectiondef kind="property">
-      <memberdef kind="property" id="class_file_i_o_1ad4467aa6c50748ac1e7076d25dcd33cc" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_file_i_o_1ad4467aa6c50748ac1e7076d25dcd33cc" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QString</type>
         <definition>QString FileIO::source</definition>
         <argsstring></argsstring>
@@ -175,24 +175,24 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="65">
+      <node id="105">
         <label>QObject</label>
       </node>
-      <node id="64">
+      <node id="104">
         <label>FileIO</label>
         <link refid="class_file_i_o"/>
-        <childnode refid="65" relation="public-inheritance">
+        <childnode refid="105" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="67">
+      <node id="107">
         <label>QObject</label>
       </node>
-      <node id="66">
+      <node id="106">
         <label>FileIO</label>
         <link refid="class_file_i_o"/>
-        <childnode refid="67" relation="public-inheritance">
+        <childnode refid="107" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

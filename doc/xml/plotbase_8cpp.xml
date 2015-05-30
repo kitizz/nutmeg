@@ -1,174 +1,63 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="plotbase_8cpp" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="plotbase_8cpp" kind="file" language="C++">
     <compoundname>plotbase.cpp</compoundname>
     <includes refid="plotbase_8h" local="yes">plotbase.h</includes>
-    <includes refid="axisbase_8h" local="yes">axisbase.h</includes>
-    <includes local="no">QPolygonF</includes>
-    <includes local="no">QPainter</includes>
-    <includes local="no">algorithm</includes>
-    <includes local="yes">../QKDTree/QVectorND/QVectorND.h</includes>
     <incdepgraph>
-      <node id="576">
+      <node id="1344">
         <label>QMap</label>
       </node>
-      <node id="584">
-        <label>limits</label>
-      </node>
-      <node id="579">
+      <node id="1347">
         <label>QObject</label>
       </node>
-      <node id="570">
+      <node id="1348">
         <label>axisbase.h</label>
         <link refid="axisbase_8h_source"/>
-        <childnode refid="571" relation="include">
+        <childnode refid="1342" relation="include">
         </childnode>
-        <childnode refid="572" relation="include">
+        <childnode refid="1345" relation="include">
         </childnode>
-        <childnode refid="573" relation="include">
+        <childnode refid="1343" relation="include">
         </childnode>
-        <childnode refid="581" relation="include">
-        </childnode>
-        <childnode refid="583" relation="include">
-        </childnode>
-        <childnode refid="565" relation="include">
-        </childnode>
-        <childnode refid="575" relation="include">
-        </childnode>
-        <childnode refid="584" relation="include">
+        <childnode refid="1341" relation="include">
         </childnode>
       </node>
-      <node id="564">
+      <node id="1340">
         <label>src/plotbase.cpp</label>
         <link refid="plotbase.cpp"/>
-        <childnode refid="565" relation="include">
-        </childnode>
-        <childnode refid="570" relation="include">
-        </childnode>
-        <childnode refid="586" relation="include">
-        </childnode>
-        <childnode refid="567" relation="include">
-        </childnode>
-        <childnode refid="587" relation="include">
-        </childnode>
-        <childnode refid="588" relation="include">
+        <childnode refid="1341" relation="include">
         </childnode>
       </node>
-      <node id="565">
+      <node id="1341">
         <label>plotbase.h</label>
         <link refid="plotbase_8h_source"/>
-        <childnode refid="566" relation="include">
+        <childnode refid="1342" relation="include">
         </childnode>
-        <childnode refid="567" relation="include">
+        <childnode refid="1343" relation="include">
         </childnode>
-        <childnode refid="568" relation="include">
-        </childnode>
-        <childnode refid="570" relation="include">
-        </childnode>
-        <childnode refid="575" relation="include">
-        </childnode>
-        <childnode refid="585" relation="include">
+        <childnode refid="1348" relation="include">
         </childnode>
       </node>
-      <node id="585">
-        <label>../QKDTree/QKDTree/QKDTree.h</label>
-      </node>
-      <node id="575">
+      <node id="1343">
         <label>nutmegobject.h</label>
         <link refid="nutmegobject_8h_source"/>
-        <childnode refid="576" relation="include">
+        <childnode refid="1344" relation="include">
         </childnode>
-        <childnode refid="577" relation="include">
+        <childnode refid="1345" relation="include">
         </childnode>
-        <childnode refid="578" relation="include">
+        <childnode refid="1346" relation="include">
         </childnode>
-        <childnode refid="579" relation="include">
-        </childnode>
-      </node>
-      <node id="588">
-        <label>../QKDTree/QVectorND/QVectorND.h</label>
-      </node>
-      <node id="583">
-        <label>locators.h</label>
-        <link refid="locators_8h_source"/>
-        <childnode refid="579" relation="include">
+        <childnode refid="1347" relation="include">
         </childnode>
       </node>
-      <node id="580">
-        <label>mouseevent.h</label>
-        <link refid="mouseevent_8h_source"/>
-        <childnode refid="579" relation="include">
-        </childnode>
-      </node>
-      <node id="573">
-        <label>figurebase.h</label>
-        <link refid="figurebase_8h_source"/>
-        <childnode refid="566" relation="include">
-        </childnode>
-        <childnode refid="572" relation="include">
-        </childnode>
-        <childnode refid="570" relation="include">
-        </childnode>
-        <childnode refid="574" relation="include">
-        </childnode>
-        <childnode refid="575" relation="include">
-        </childnode>
-        <childnode refid="580" relation="include">
-        </childnode>
-      </node>
-      <node id="571">
-        <label>QQuickPaintedItem</label>
-      </node>
-      <node id="567">
-        <label>QPainter</label>
-      </node>
-      <node id="581">
-        <label>linespec.h</label>
-        <link refid="linespec_8h_source"/>
-        <childnode refid="579" relation="include">
-        </childnode>
-        <childnode refid="582" relation="include">
-        </childnode>
-        <childnode refid="576" relation="include">
-        </childnode>
-      </node>
-      <node id="577">
+      <node id="1345">
         <label>QString</label>
       </node>
-      <node id="582">
-        <label>QColor</label>
-      </node>
-      <node id="566">
+      <node id="1342">
         <label>QQuickItem</label>
       </node>
-      <node id="568">
-        <label>plotdata.h</label>
-        <link refid="plotdata_8h_source"/>
-        <childnode refid="569" relation="include">
-        </childnode>
-      </node>
-      <node id="578">
+      <node id="1346">
         <label>QVariant</label>
-      </node>
-      <node id="587">
-        <label>algorithm</label>
-      </node>
-      <node id="574">
-        <label>controller.h</label>
-        <link refid="controller_8h_source"/>
-        <childnode refid="566" relation="include">
-        </childnode>
-        <childnode refid="573" relation="include">
-        </childnode>
-      </node>
-      <node id="569">
-        <label>QAbstractTableModel</label>
-      </node>
-      <node id="586">
-        <label>QPolygonF</label>
-      </node>
-      <node id="572">
-        <label>QMultiMap</label>
       </node>
     </incdepgraph>
     <briefdescription>
@@ -177,185 +66,54 @@
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;plotbase.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;axisbase.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QPolygonF&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QPainter&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../QKDTree/QVectorND/QVectorND.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal">PlotBase::PlotBase(QQuickItem<sp/>*parent)</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QQuickItem(parent)</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_axis(0)</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_handle(QString())</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_canvas(0)</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_dataLimits(QRectF())</highlight></codeline>
-<codeline lineno="16"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;QQuickItem::parentChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;PlotBase::updateAxis);</highlight></codeline>
-<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><ref refid="class_axis_base" kindref="compound">AxisBase</ref><sp/>*PlotBase::axis()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
-<codeline lineno="21"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_axis;</highlight></codeline>
-<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal">QString<sp/>PlotBase::handle()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
-<codeline lineno="26"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_handle;</highlight></codeline>
-<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PlotBase::setHandle(QString<sp/>arg)</highlight></codeline>
-<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_handle<sp/>==<sp/>arg)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>m_handle<sp/>=<sp/>arg;</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/>handleChanged(arg);</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal">PlotBase::PlotBase(QQuickItem*<sp/>parent)</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QQuickItem(parent)</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_handle(</highlight><highlight class="stringliteral">&quot;plot&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_axis(0)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;QQuickItem::parentChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;PlotBase::findAxis);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">QString<sp/>PlotBase::handle()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="12"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_handle;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PlotBase::setHandle(QString<sp/>arg)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_handle<sp/>==<sp/>arg)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>m_handle<sp/>=<sp/>arg;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/>handleChanged(arg);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><ref refid="class_axis_base" kindref="compound">AxisBase</ref><sp/>*PlotBase::axis()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="24"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_axis;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PlotBase::setAxis(<ref refid="class_axis_base" kindref="compound">AxisBase</ref><sp/>*arg)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis<sp/>==<sp/>arg)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_axis_base" kindref="compound">AxisBase</ref>*<sp/>oldAxis<sp/>=<sp/>m_axis;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>m_axis<sp/>=<sp/>arg;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>updateAxis(oldAxis,<sp/>m_axis);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/>axisChanged(arg);</highlight></codeline>
 <codeline lineno="35"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal">QQuickPaintedItem<sp/>*PlotBase::canvas()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
-<codeline lineno="38"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_canvas;</highlight></codeline>
-<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PlotBase::setCanvas(QQuickPaintedItem<sp/>*arg)</highlight></codeline>
-<codeline lineno="43"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_canvas<sp/>==<sp/>arg)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>m_canvas<sp/>=<sp/>arg;</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/>canvasChanged(arg);</highlight></codeline>
-<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal">QString<sp/>PlotBase::map(QString<sp/>prop)</highlight></codeline>
-<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NutmegObject::map(prop);</highlight></codeline>
-<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal">QPointF<sp/>PlotBase::itemToData(QPointF<sp/>point)</highlight></codeline>
-<codeline lineno="55"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!m_axis)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>point;</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>px<sp/>=<sp/>point.x(),<sp/>py<sp/>=<sp/>height()<sp/>-<sp/>point.y();</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>lim<sp/>=<sp/>m_axis-&gt;limits();</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>sx<sp/>=<sp/>lim.width()<sp/>/<sp/>width();</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>sy<sp/>=<sp/>lim.height()<sp/>/<sp/>height();</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(width()<sp/>==<sp/>0<sp/>||<sp/>height()<sp/>==<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Zero<sp/>width<sp/>or<sp/>height&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>width()<sp/>&lt;&lt;<sp/>height();</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QPointF(sx*px<sp/>+<sp/>lim.left(),<sp/>sy*py<sp/>+<sp/>lim.top());</highlight></codeline>
-<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal">QList&lt;QPointF&gt;<sp/>PlotBase::itemToDataList(QList&lt;QPointF&gt;<sp/>points)</highlight></codeline>
-<codeline lineno="69"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>Research<sp/>using<sp/>Armadillo<sp/>to<sp/>do<sp/>transformations...</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!m_axis)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>points;</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QPointF&gt;<sp/>newPoints;</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(QPointF<sp/>p,<sp/>points)<sp/>{</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qreal<sp/>x<sp/>=<sp/>p.x(),<sp/>y<sp/>=<sp/>height()<sp/>-<sp/>p.y();</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QRectF<sp/>lim<sp/>=<sp/>m_axis-&gt;limits();</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qreal<sp/>sx<sp/>=<sp/>lim.width()<sp/>/<sp/>width();</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qreal<sp/>sy<sp/>=<sp/>lim.height()<sp/>/<sp/>height();</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newPoints<sp/>&lt;&lt;<sp/>QPointF(sx*x<sp/>+<sp/>lim.left(),<sp/>sy*y<sp/>+<sp/>lim.top());</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>newPoints;</highlight></codeline>
-<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight></codeline>
-<codeline lineno="86"><highlight class="normal">QPointF<sp/>PlotBase::dataToItem(QPointF<sp/>point)</highlight></codeline>
-<codeline lineno="87"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!m_axis)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>point;</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>x<sp/>=<sp/>point.x(),<sp/>y<sp/>=<sp/>point.y();</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>lim<sp/>=<sp/>m_axis-&gt;limits();</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>sx<sp/>=<sp/>1;</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>sy<sp/>=<sp/>1;</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(lim.width()<sp/>!=<sp/>0)</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sx<sp/>=<sp/>width()<sp/>/<sp/>lim.width();</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(lim.height()<sp/>!=<sp/>0)</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sy<sp/>=<sp/>height()<sp/>/<sp/>lim.height();</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QPointF(<sp/>(x<sp/>-<sp/>lim.left())*sx,<sp/>height()<sp/>-<sp/>(y<sp/>-<sp/>lim.top())*sy<sp/>);</highlight></codeline>
-<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal">QList&lt;QPointF&gt;<sp/>PlotBase::dataToItemList(QList&lt;QPointF&gt;<sp/>points)</highlight></codeline>
-<codeline lineno="103"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>Research<sp/>using<sp/>Armadillo<sp/>to<sp/>do<sp/>transformations...</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!m_axis)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>points;</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"></highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QPointF&gt;<sp/>newPoints;</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(QPointF<sp/>p,<sp/>points)<sp/>{</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qreal<sp/>x<sp/>=<sp/>p.x(),<sp/>y<sp/>=<sp/>p.y();</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QRectF<sp/>lim<sp/>=<sp/>m_axis-&gt;limits();</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qreal<sp/>sx<sp/>=<sp/>width()<sp/>/<sp/>lim.width();</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qreal<sp/>sy<sp/>=<sp/>height()<sp/>/<sp/>lim.height();</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newPoints<sp/>&lt;&lt;<sp/>QPointF(<sp/>(x<sp/>-<sp/>lim.left())*sx,<sp/>height()<sp/>-<sp/>(y<sp/>-<sp/>lim.top())*sy<sp/>);</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>newPoints;</highlight></codeline>
-<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"></highlight></codeline>
-<codeline lineno="120"><highlight class="normal">QRectF<sp/>PlotBase::dataLimits()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
-<codeline lineno="121"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_dataLimits;</highlight></codeline>
-<codeline lineno="123"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PlotBase::setAxis(<ref refid="class_axis_base" kindref="compound">AxisBase</ref><sp/>*arg)</highlight></codeline>
-<codeline lineno="126"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis<sp/>==<sp/>arg)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis)<sp/>{</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_axis-&gt;disconnect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_axis-&gt;deregisterPlot(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>m_axis<sp/>=<sp/>arg;</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis)<sp/>{</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis,<sp/>&amp;AxisBase::minXChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;PlotBase::triggerUpdate);</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis,<sp/>&amp;AxisBase::minYChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;PlotBase::triggerUpdate);</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis,<sp/>&amp;AxisBase::maxXChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;PlotBase::triggerUpdate);</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis,<sp/>&amp;AxisBase::maxYChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;PlotBase::triggerUpdate);</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis,<sp/>&amp;AxisBase::dataLimitsChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;PlotBase::triggerUpdate);</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis,<sp/>&amp;AxisBase::xAxisChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;PlotBase::triggerUpdate);</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis,<sp/>&amp;AxisBase::yAxisChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;PlotBase::triggerUpdate);</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"></highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_axis-&gt;registerPlot(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>Q_FUNC_INFO<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Plot<sp/>is<sp/>not<sp/>a<sp/>descendant<sp/>of<sp/>any<sp/>Axis.<sp/>It<sp/>may<sp/>not<sp/>behave<sp/>as<sp/>expected.&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/>axisChanged(arg);</highlight></codeline>
-<codeline lineno="151"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"></highlight></codeline>
-<codeline lineno="153"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PlotBase::triggerUpdate()</highlight></codeline>
-<codeline lineno="154"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>update();</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_canvas)</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_canvas-&gt;update();</highlight></codeline>
-<codeline lineno="158"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"></highlight></codeline>
-<codeline lineno="160"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PlotBase::updateAxis()</highlight></codeline>
-<codeline lineno="161"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Work<sp/>up<sp/>the<sp/>tree<sp/>until<sp/>the<sp/>next<sp/>Axis<sp/>item<sp/>is<sp/>found.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>QObject<sp/>*newParent<sp/>=<sp/>parent();</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_axis_base" kindref="compound">AxisBase</ref><sp/>*axis;</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(newParent)<sp/>{</highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>axis<sp/>=<sp/>qobject_cast&lt;<ref refid="class_axis_base" kindref="compound">AxisBase</ref>*&gt;(newParent);</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(axis)<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newParent<sp/>=<sp/>newParent-&gt;parent();</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"></highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>setAxis(axis);</highlight></codeline>
-<codeline lineno="172"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"></highlight></codeline>
-<codeline lineno="174"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PlotBase::setDataLimits(QRectF<sp/>arg)</highlight></codeline>
-<codeline lineno="175"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_dataLimits<sp/>==<sp/>arg)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>m_dataLimits<sp/>=<sp/>arg;</highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/>dataLimitsChanged(arg);</highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>triggerUpdate();</highlight></codeline>
-<codeline lineno="180"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PlotBase::findAxis()</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Work<sp/>up<sp/>the<sp/>tree<sp/>until<sp/>the<sp/>next<sp/>Axis<sp/>item<sp/>is<sp/>found.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>QObject<sp/>*newParent<sp/>=<sp/>parent();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_axis_base" kindref="compound">AxisBase</ref><sp/>*axis;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(newParent)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>axis<sp/>=<sp/>qobject_cast&lt;<ref refid="class_axis_base" kindref="compound">AxisBase</ref>*&gt;(newParent);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(axis)<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newParent<sp/>=<sp/>newParent-&gt;parent();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>setAxis(axis);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.cpp"/>
   </compounddef>

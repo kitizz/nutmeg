@@ -1,7 +1,15 @@
-import QtQuick 2.0
+Figure {
+    id: figure
 
-Rectangle {
-    width: 100
-    height: 62
+    Axis3D {
+        handle: "ax3d"
+
+        width: parent.width
+        anchors.right: parent.right
+
+        PointCloud {
+            handle: "pc"
+        }
+    }
 }
 

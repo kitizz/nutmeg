@@ -1,29 +1,44 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="class_nutmeg_object" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_nutmeg_object" kind="class" language="C++" prot="public">
     <compoundname>NutmegObject</compoundname>
     <derivedcompoundref refid="class_axis_base" prot="public" virt="non-virtual">AxisBase</derivedcompoundref>
     <derivedcompoundref refid="class_axis_grid" prot="public" virt="non-virtual">AxisGrid</derivedcompoundref>
     <derivedcompoundref refid="class_axis_spec" prot="public" virt="non-virtual">AxisSpec</derivedcompoundref>
+    <derivedcompoundref refid="class_canvas_shape" prot="public" virt="non-virtual">CanvasShape</derivedcompoundref>
     <derivedcompoundref refid="class_figure_base" prot="public" virt="non-virtual">FigureBase</derivedcompoundref>
+    <derivedcompoundref refid="class_fill_spec" prot="public" virt="non-virtual">FillSpec</derivedcompoundref>
     <derivedcompoundref refid="class_plot_base" prot="public" virt="non-virtual">PlotBase</derivedcompoundref>
       <sectiondef kind="private-attrib">
-      <memberdef kind="variable" id="class_nutmeg_object_1af44a2b3a9f6402c32f77fa9df2d3134d" prot="private" static="no" mutable="no">
+      <memberdef kind="variable" id="class_nutmeg_object_1ae7aba40b05d89735c8b2755054ab1a29" prot="private" static="no" mutable="no">
         <type>QMap&lt; QString, QString &gt;</type>
-        <definition>QMap&lt;QString, QString&gt; NutmegObject::m_mapping</definition>
+        <definition>QMap&lt;QString, QString&gt; NutmegObject::m_propMap</definition>
         <argsstring></argsstring>
-        <name>m_mapping</name>
+        <name>m_propMap</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="16" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" bodystart="16" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="21" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_nutmeg_object_1ab4bde5c61db1608fc4c950360b769e91" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QString &gt;</type>
+        <definition>QMap&lt;QString, QString&gt; NutmegObject::m_funcMap</definition>
+        <argsstring></argsstring>
+        <name>m_funcMap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="22" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" bodystart="22" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="class_nutmeg_object_1a43005ef3b06e5d2a5e5324c38905c3ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_nutmeg_object_1a43005ef3b06e5d2a5e5324c38905c3ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>Q_INVOKABLE void</type>
         <definition>void NutmegObject::registerProperties</definition>
         <argsstring>(QMap&lt; QString, QString &gt; mapping)</argsstring>
@@ -38,13 +53,32 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="12" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.cpp" bodystart="7" bodyend="12"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="13" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.cpp" bodystart="7" bodyend="13"/>
       </memberdef>
-      <memberdef kind="function" id="class_nutmeg_object_1a72d4f689412bee204378edc690945111" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="class_nutmeg_object_1aa68d02600708e659f27e082970546993" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void NutmegObject::registerProperties</definition>
+        <argsstring>(QVariantMap mapping)</argsstring>
+        <name>registerProperties</name>
+        <param>
+          <type>QVariantMap</type>
+          <declname>mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="14" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.cpp" bodystart="15" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_nutmeg_object_1a2169171482fc79630a2ef982aa0f7943" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>Q_INVOKABLE QString</type>
-        <definition>QString NutmegObject::map</definition>
+        <definition>QString NutmegObject::mapProperty</definition>
         <argsstring>(const QString &amp;prop)</argsstring>
-        <name>map</name>
+        <name>mapProperty</name>
+        <reimplementedby refid="class_axis_spec_1aa8b2c6afae2b075a8b2dfe4bf4f4f361">mapProperty</reimplementedby>
+        <reimplementedby refid="class_axis_grid_1a96f0eada6307d1982133dfea51a8ccf7">mapProperty</reimplementedby>
         <param>
           <type>const QString &amp;</type>
           <declname>prop</declname>
@@ -55,7 +89,41 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="13" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.cpp" bodystart="14" bodyend="18"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="15" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.cpp" bodystart="26" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_nutmeg_object_1a5e32c685f6efe2baf5efc2f00814b1f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void NutmegObject::registerMethods</definition>
+        <argsstring>(QMap&lt; QString, QString &gt; mapping)</argsstring>
+        <name>registerMethods</name>
+        <param>
+          <type>QMap&lt; QString, QString &gt;</type>
+          <declname>mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="17" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.cpp" bodystart="32" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_nutmeg_object_1ad0933845444cb216443775ee14bd9e3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString NutmegObject::mapMethod</definition>
+        <argsstring>(const QString &amp;method)</argsstring>
+        <name>mapMethod</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>method</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="18" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.cpp" bodystart="40" bodyend="44"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -63,76 +131,116 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="127">
-        <label>Axis</label>
-        <link refid="class_axis"/>
-        <childnode refid="126" relation="public-inheritance">
+      <node id="184">
+        <label>CanvasShape</label>
+        <link refid="class_canvas_shape"/>
+        <childnode refid="179" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="130">
+      <node id="186">
+        <label>CanvasRect</label>
+        <link refid="class_canvas_rect"/>
+        <childnode refid="184" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="181">
+        <label>Axis2DBase</label>
+        <link refid="class_axis2_d_base"/>
+        <childnode refid="180" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="188">
         <label>FigureBase</label>
         <link refid="class_figure_base"/>
-        <childnode refid="125" relation="public-inheritance">
+        <childnode refid="179" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="128">
+      <node id="185">
+        <label>CanvasLine</label>
+        <link refid="class_canvas_line"/>
+        <childnode refid="184" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="182">
         <label>AxisGrid</label>
         <link refid="class_axis_grid"/>
-        <childnode refid="125" relation="public-inheritance">
+        <childnode refid="179" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="131">
-        <label>Figure</label>
-        <link refid="class_figure"/>
-        <childnode refid="130" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="129">
+      <node id="183">
         <label>AxisSpec</label>
         <link refid="class_axis_spec"/>
-        <childnode refid="125" relation="public-inheritance">
+        <childnode refid="179" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="134">
+      <node id="194">
         <label>XYPlot</label>
         <link refid="class_x_y_plot"/>
-        <childnode refid="132" relation="public-inheritance">
+        <childnode refid="191" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="133">
+      <node id="187">
+        <label>CanvasText</label>
+        <link refid="class_canvas_text"/>
+        <childnode refid="184" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="193">
         <label>ImagePlot</label>
         <link refid="class_image_plot"/>
-        <childnode refid="132" relation="public-inheritance">
+        <childnode refid="191" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="132">
+      <node id="191">
+        <label>Plot2DBase</label>
+        <link refid="class_plot2_d_base"/>
+        <childnode refid="190" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="190">
         <label>PlotBase</label>
         <link refid="class_plot_base"/>
-        <childnode refid="125" relation="public-inheritance">
+        <childnode refid="179" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="126">
+      <node id="180">
         <label>AxisBase</label>
         <link refid="class_axis_base"/>
-        <childnode refid="125" relation="public-inheritance">
+        <childnode refid="179" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="135">
+      <node id="192">
+        <label>CanvasPlot</label>
+        <link refid="class_canvas_plot"/>
+        <childnode refid="191" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="189">
+        <label>FillSpec</label>
+        <link refid="class_fill_spec"/>
+        <childnode refid="179" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="195">
         <label>LinePlot</label>
         <link refid="class_line_plot"/>
-        <childnode refid="134" relation="public-inheritance">
+        <childnode refid="194" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="125">
+      <node id="179">
         <label>NutmegObject</label>
         <link refid="class_nutmeg_object"/>
       </node>
     </inheritancegraph>
-    <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="10" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" bodystart="9" bodyend="17"/>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="10" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" bodystart="9" bodyend="23"/>
     <listofallmembers>
-      <member refid="class_nutmeg_object_1af44a2b3a9f6402c32f77fa9df2d3134d" prot="private" virt="non-virtual"><scope>NutmegObject</scope><name>m_mapping</name></member>
-      <member refid="class_nutmeg_object_1a72d4f689412bee204378edc690945111" prot="public" virt="non-virtual"><scope>NutmegObject</scope><name>map</name></member>
-      <member refid="class_nutmeg_object_1a43005ef3b06e5d2a5e5324c38905c3ed" prot="public" virt="non-virtual"><scope>NutmegObject</scope><name>registerProperties</name></member>
+      <member refid="class_nutmeg_object_1ab4bde5c61db1608fc4c950360b769e91" prot="private" virt="non-virtual"><scope>NutmegObject</scope><name>m_funcMap</name></member>
+      <member refid="class_nutmeg_object_1ae7aba40b05d89735c8b2755054ab1a29" prot="private" virt="non-virtual"><scope>NutmegObject</scope><name>m_propMap</name></member>
+      <member refid="class_nutmeg_object_1ad0933845444cb216443775ee14bd9e3b" prot="public" virt="virtual"><scope>NutmegObject</scope><name>mapMethod</name></member>
+      <member refid="class_nutmeg_object_1a2169171482fc79630a2ef982aa0f7943" prot="public" virt="virtual"><scope>NutmegObject</scope><name>mapProperty</name></member>
+      <member refid="class_nutmeg_object_1a5e32c685f6efe2baf5efc2f00814b1f8" prot="public" virt="virtual"><scope>NutmegObject</scope><name>registerMethods</name></member>
+      <member refid="class_nutmeg_object_1a43005ef3b06e5d2a5e5324c38905c3ed" prot="public" virt="virtual"><scope>NutmegObject</scope><name>registerProperties</name></member>
+      <member refid="class_nutmeg_object_1aa68d02600708e659f27e082970546993" prot="public" virt="virtual"><scope>NutmegObject</scope><name>registerProperties</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

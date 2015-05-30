@@ -27,6 +27,9 @@ Axis2DBase::Axis2DBase(QQuickItem *parent)
     , m_margin(new AxisMargins())
     , m_aspectRatio(0)
     , m_fitPlots(false)
+    , m_canvas(0)
+    , m_shareX("")
+    , m_shareY("")
 {
     // Set initial axis label roundings
     m_yLimitRounding << 0 << 1 << 1.5 << 2 << 2.5 << 3 << 4 << 5 << 10;
@@ -155,8 +158,9 @@ void Axis2DBase::print(QPainter *painter)
 
 void Axis2DBase::triggerRedraw()
 {
-    if (m_canvas)
+    if (m_canvas) {
         m_canvas->update();
+    }
 }
 
 /*!

@@ -64,9 +64,9 @@ private:
     QList<qreal> plot2canvasY(QList<qreal> y);
 
     void prepareTexts();
-    qreal prepareScale(AxisSpec *spec, qreal range, QStaticText *st);
+    void prepareScaleAndOffset(AxisSpec *spec, int scaleExp, qreal offset, QStaticText *st);
     QSizeF prepareTickLabels(AxisSpec *spec, QHash<QString, QStaticText *> &labelTexts,
-                            QList<QString> &tickStrings, qreal scale);
+                            QList<QString> &tickStrings, int &scaleExp, qreal &offset);
 
     void drawTitle(QPainter *painter, const QRectF &plotRect);
     void drawXLabel(QPainter *painter, const QRectF &plotRect);
@@ -76,6 +76,8 @@ private:
     void drawYTickLabels(QList<qreal> yFrames, QPainter *painter, const QRectF &plotRect);
     void drawXTicks(QList<qreal> major, QPainter *painter, const QRectF &plotRect);
     void drawYTicks(QList<qreal> major, QPainter *painter, const QRectF &plotRect);
+    void drawScale(QPainter* painter, const QRectF &plotRect);
+//    void drawYScale(QPainter* painter, const QRectF &plotRect);
     void drawGrid(QList<qreal> xMajor, QList<qreal> yMajor, QPainter *painter, const QRectF &plotRect);
 
     Axis2DBase* m_axis;
@@ -98,8 +100,10 @@ private:
     QList<QStaticText*> m_tickTextPool; // Holds unused QStaticText objects for later
     QStaticText m_title;
     QStaticText m_xLabel, m_yLabel;
-    QStaticText m_xScale, m_yScale;
-    QStaticText m_xOffset, m_yOffset;
+    int m_xScaleExp, m_yScaleExp;
+    QStaticText m_xScaleText, m_yScaleText;
+    qreal m_xOffset, m_yOffset;
+//    QStaticText m_xOffsetText, m_yOffsetText;
 
     QList<QString> m_xTicks;
     QList<QString> m_yTicks;

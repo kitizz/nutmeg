@@ -1,154 +1,212 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="axiscanvas2d_8h" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="axiscanvas2d_8h" kind="file" language="C++">
     <compoundname>axiscanvas2d.h</compoundname>
     <includes local="no">QQuickPaintedItem</includes>
-    <includes refid="axisbase_8h" local="yes">axisbase.h</includes>
+    <includes local="no">QStaticText</includes>
+    <includes refid="axis2dbase_8h" local="yes">axis2dbase.h</includes>
     <includedby refid="axiscanvas2d_8cpp" local="yes">src/axiscanvas2d.cpp</includedby>
     <includedby refid="main_8cpp" local="yes">src/main.cpp</includedby>
     <incdepgraph>
-      <node id="123">
+      <node id="225">
         <label>QMap</label>
       </node>
-      <node id="115">
+      <node id="216">
         <label>src/axiscanvas2d.h</label>
         <link refid="axiscanvas2d.h"/>
-        <childnode refid="116" relation="include">
+        <childnode refid="217" relation="include">
         </childnode>
-        <childnode refid="117" relation="include">
+        <childnode refid="218" relation="include">
+        </childnode>
+        <childnode refid="219" relation="include">
         </childnode>
       </node>
-      <node id="136">
+      <node id="246">
         <label>limits</label>
       </node>
-      <node id="126">
+      <node id="233">
+        <label>plot2dbase.h</label>
+        <link refid="plot2dbase_8h_source"/>
+        <childnode refid="222" relation="include">
+        </childnode>
+        <childnode refid="234" relation="include">
+        </childnode>
+        <childnode refid="235" relation="include">
+        </childnode>
+        <childnode refid="219" relation="include">
+        </childnode>
+        <childnode refid="228" relation="include">
+        </childnode>
+        <childnode refid="224" relation="include">
+        </childnode>
+        <childnode refid="237" relation="include">
+        </childnode>
+        <childnode refid="238" relation="include">
+        </childnode>
+      </node>
+      <node id="243">
+        <label>QRectF</label>
+      </node>
+      <node id="227">
         <label>QObject</label>
       </node>
-      <node id="117">
+      <node id="221">
         <label>axisbase.h</label>
         <link refid="axisbase_8h_source"/>
-        <childnode refid="116" relation="include">
+        <childnode refid="222" relation="include">
         </childnode>
-        <childnode refid="118" relation="include">
+        <childnode refid="223" relation="include">
         </childnode>
-        <childnode refid="119" relation="include">
+        <childnode refid="224" relation="include">
         </childnode>
-        <childnode refid="128" relation="include">
-        </childnode>
-        <childnode refid="130" relation="include">
-        </childnode>
-        <childnode refid="131" relation="include">
-        </childnode>
-        <childnode refid="122" relation="include">
-        </childnode>
-        <childnode refid="136" relation="include">
+        <childnode refid="228" relation="include">
         </childnode>
       </node>
-      <node id="131">
+      <node id="239">
+        <label>axisspec.h</label>
+        <link refid="axisspec_8h_source"/>
+        <childnode refid="227" relation="include">
+        </childnode>
+        <childnode refid="240" relation="include">
+        </childnode>
+        <childnode refid="224" relation="include">
+        </childnode>
+        <childnode refid="229" relation="include">
+        </childnode>
+        <childnode refid="231" relation="include">
+        </childnode>
+      </node>
+      <node id="228">
         <label>plotbase.h</label>
         <link refid="plotbase_8h_source"/>
-        <childnode refid="120" relation="include">
+        <childnode refid="222" relation="include">
         </childnode>
-        <childnode refid="132" relation="include">
+        <childnode refid="224" relation="include">
         </childnode>
-        <childnode refid="133" relation="include">
-        </childnode>
-        <childnode refid="117" relation="include">
-        </childnode>
-        <childnode refid="122" relation="include">
-        </childnode>
-        <childnode refid="135" relation="include">
+        <childnode refid="221" relation="include">
         </childnode>
       </node>
-      <node id="135">
+      <node id="238">
         <label>../QKDTree/QKDTree/QKDTree.h</label>
       </node>
-      <node id="122">
+      <node id="224">
         <label>nutmegobject.h</label>
         <link refid="nutmegobject_8h_source"/>
-        <childnode refid="123" relation="include">
+        <childnode refid="225" relation="include">
         </childnode>
-        <childnode refid="124" relation="include">
+        <childnode refid="223" relation="include">
         </childnode>
-        <childnode refid="125" relation="include">
+        <childnode refid="226" relation="include">
         </childnode>
-        <childnode refid="126" relation="include">
+        <childnode refid="227" relation="include">
         </childnode>
       </node>
-      <node id="130">
+      <node id="242">
+        <label>QList</label>
+      </node>
+      <node id="245">
+        <label>QLineF</label>
+      </node>
+      <node id="231">
         <label>locators.h</label>
         <link refid="locators_8h_source"/>
-        <childnode refid="126" relation="include">
+        <childnode refid="227" relation="include">
+        </childnode>
+        <childnode refid="232" relation="include">
         </childnode>
       </node>
-      <node id="127">
-        <label>mouseevent.h</label>
-        <link refid="mouseevent_8h_source"/>
-        <childnode refid="126" relation="include">
+      <node id="240">
+        <label>QFont</label>
+      </node>
+      <node id="241">
+        <label>util.h</label>
+        <link refid="util_8h_source"/>
+        <childnode refid="242" relation="include">
+        </childnode>
+        <childnode refid="243" relation="include">
+        </childnode>
+        <childnode refid="244" relation="include">
+        </childnode>
+        <childnode refid="245" relation="include">
+        </childnode>
+        <childnode refid="246" relation="include">
         </childnode>
       </node>
-      <node id="119">
-        <label>figurebase.h</label>
-        <link refid="figurebase_8h_source"/>
-        <childnode refid="120" relation="include">
-        </childnode>
-        <childnode refid="118" relation="include">
-        </childnode>
-        <childnode refid="117" relation="include">
-        </childnode>
-        <childnode refid="121" relation="include">
-        </childnode>
-        <childnode refid="122" relation="include">
-        </childnode>
-        <childnode refid="127" relation="include">
-        </childnode>
-      </node>
-      <node id="116">
+      <node id="217">
         <label>QQuickPaintedItem</label>
       </node>
-      <node id="132">
+      <node id="234">
         <label>QPainter</label>
       </node>
-      <node id="128">
+      <node id="229">
         <label>linespec.h</label>
         <link refid="linespec_8h_source"/>
-        <childnode refid="126" relation="include">
+        <childnode refid="227" relation="include">
         </childnode>
-        <childnode refid="129" relation="include">
+        <childnode refid="230" relation="include">
         </childnode>
-        <childnode refid="123" relation="include">
+        <childnode refid="225" relation="include">
         </childnode>
       </node>
-      <node id="124">
+      <node id="219">
+        <label>axis2dbase.h</label>
+        <link refid="axis2dbase_8h_source"/>
+        <childnode refid="217" relation="include">
+        </childnode>
+        <childnode refid="220" relation="include">
+        </childnode>
+        <childnode refid="221" relation="include">
+        </childnode>
+        <childnode refid="229" relation="include">
+        </childnode>
+        <childnode refid="231" relation="include">
+        </childnode>
+        <childnode refid="233" relation="include">
+        </childnode>
+        <childnode refid="224" relation="include">
+        </childnode>
+        <childnode refid="239" relation="include">
+        </childnode>
+        <childnode refid="241" relation="include">
+        </childnode>
+      </node>
+      <node id="223">
         <label>QString</label>
       </node>
-      <node id="129">
+      <node id="230">
         <label>QColor</label>
       </node>
-      <node id="120">
+      <node id="237">
+        <label>plotcanvas.h</label>
+        <link refid="plotcanvas_8h_source"/>
+        <childnode refid="217" relation="include">
+        </childnode>
+      </node>
+      <node id="218">
+        <label>QStaticText</label>
+      </node>
+      <node id="222">
         <label>QQuickItem</label>
       </node>
-      <node id="133">
+      <node id="235">
         <label>plotdata.h</label>
         <link refid="plotdata_8h_source"/>
-        <childnode refid="134" relation="include">
+        <childnode refid="236" relation="include">
         </childnode>
       </node>
-      <node id="125">
+      <node id="226">
         <label>QVariant</label>
       </node>
-      <node id="121">
-        <label>controller.h</label>
-        <link refid="controller_8h_source"/>
-        <childnode refid="120" relation="include">
-        </childnode>
-        <childnode refid="119" relation="include">
-        </childnode>
+      <node id="232">
+        <label>QStringList</label>
       </node>
-      <node id="134">
+      <node id="236">
         <label>QAbstractTableModel</label>
       </node>
-      <node id="118">
+      <node id="244">
+        <label>QPolygonF</label>
+      </node>
+      <node id="220">
         <label>QMultiMap</label>
       </node>
     </incdepgraph>
@@ -162,48 +220,115 @@
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>AXISCANVAS2D_H</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QQuickPaintedItem&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;axisbase.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QStaticText&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7" refid="class_axis_canvas2_d" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_axis_canvas2_d" kindref="compound">AxisCanvas2D</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QQuickPaintedItem</highlight></codeline>
-<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<ref refid="class_axis_base" kindref="compound">AxisBase</ref>*<sp/>axis<sp/>READ<sp/>axis<sp/>WRITE<sp/>setAxis<sp/>NOTIFY<sp/>axisChanged)</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QRectF<sp/>plotRect<sp/>READ<sp/>plotRect<sp/>WRITE<sp/>setPlotRect<sp/>NOTIFY<sp/>plotRectChanged)</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(qreal<sp/>scaling<sp/>READ<sp/>scaling<sp/>WRITE<sp/>setScaling<sp/>NOTIFY<sp/>scalingChanged)</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_axis_canvas2_d" kindref="compound">AxisCanvas2D</ref>(QQuickItem<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>paint(QPainter<sp/>*painter);</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_axis_base" kindref="compound">AxisBase</ref>*<sp/>axis()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setAxis(<ref refid="class_axis_base" kindref="compound">AxisBase</ref>*<sp/>arg);</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>plotRect()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setPlotRect(QRectF<sp/>arg);</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>scaling()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setScaling(qreal<sp/>arg);</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal">signals:</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>axisChanged(<ref refid="class_axis_base" kindref="compound">AxisBase</ref>*<sp/>arg);</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>plotRectChanged(QRectF<sp/>arg);</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>scalingChanged(qreal<sp/>arg);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;axis2dbase.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="class_axis_canvas2_d" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_axis_canvas2_d" kindref="compound">AxisCanvas2D</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QQuickPaintedItem</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<ref refid="class_axis2_d_base" kindref="compound">Axis2DBase</ref>*<sp/>axis<sp/>READ<sp/>axis<sp/>WRITE<sp/>setAxis<sp/>NOTIFY<sp/>axisChanged)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(qreal<sp/>scaling<sp/>READ<sp/>scaling<sp/>WRITE<sp/>setScaling<sp/>NOTIFY<sp/>scalingChanged)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(qreal<sp/>titleMargin<sp/>READ<sp/>titleMargin<sp/>WRITE<sp/>setTitleMargin<sp/>NOTIFY<sp/>titleMarginChanged)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(qreal<sp/>xLabelMargin<sp/>READ<sp/>xLabelMargin<sp/>WRITE<sp/>setXLabelMargin<sp/>NOTIFY<sp/>xLabelMarginChanged)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(qreal<sp/>yLabelMargin<sp/>READ<sp/>yLabelMargin<sp/>WRITE<sp/>setYLabelMargin<sp/>NOTIFY<sp/>yLabelMarginChanged)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(qreal<sp/>xTicksMargin<sp/>READ<sp/>xTicksMargin<sp/>WRITE<sp/>setXTicksMargin<sp/>NOTIFY<sp/>xTicksMarginChanged)</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(qreal<sp/>yTicksMargin<sp/>READ<sp/>yTicksMargin<sp/>WRITE<sp/>setYTicksMargin<sp/>NOTIFY<sp/>yTicksMarginChanged)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_axis_canvas2_d" kindref="compound">AxisCanvas2D</ref>(QQuickItem<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>paint(QPainter<sp/>*painter);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updatePolish();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_axis2_d_base" kindref="compound">Axis2DBase</ref>*<sp/>axis()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setAxis(<ref refid="class_axis2_d_base" kindref="compound">Axis2DBase</ref>*<sp/>arg);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>scaling()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setScaling(qreal<sp/>arg);</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>triggerUpdate();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>titleMargin()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setTitleMargin(qreal<sp/>arg);</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>drawXTicks(QList&lt;qreal&gt;<sp/>major,<sp/>QPainter<sp/>*painter);</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>drawYTicks(QList&lt;qreal&gt;<sp/>major,<sp/>QPainter<sp/>*painter);</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>drawGrid(QList&lt;qreal&gt;<sp/>xMajor,<sp/>QList&lt;qreal&gt;<sp/>yMajor,<sp/>QPainter<sp/>*painter);</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_axis_base" kindref="compound">AxisBase</ref>*<sp/>m_axis;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>xLabelMargin()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setXLabelMargin(qreal<sp/>arg);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>yLabelMargin()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setYLabelMargin(qreal<sp/>arg);</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>m_plotRect;</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>m_scaling;</highlight></codeline>
-<codeline lineno="44"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>AXISCANVAS2D_H</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>xTicksMargin()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setXTicksMargin(qreal<sp/>arg);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>yTicksMargin()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setYTicksMargin(qreal<sp/>arg);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">signals:</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>axisChanged(<ref refid="class_axis2_d_base" kindref="compound">Axis2DBase</ref>*<sp/>arg);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>scalingChanged(qreal<sp/>arg);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>titleMarginChanged(qreal<sp/>arg);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>xLabelMarginChanged(qreal<sp/>arg);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yLabelMarginChanged(qreal<sp/>arg);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>xTicksMarginChanged(qreal<sp/>arg);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yTicksMarginChanged(qreal<sp/>arg);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>triggerUpdate();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updatePlotRect();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;qreal&gt;<sp/>plot2canvasX(QList&lt;qreal&gt;<sp/>x);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;qreal&gt;<sp/>plot2canvasY(QList&lt;qreal&gt;<sp/>y);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>prepareTexts();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>prepareScaleAndOffset(<ref refid="class_axis_spec" kindref="compound">AxisSpec</ref><sp/>*spec,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>scaleExp,<sp/>qreal<sp/>offset,<sp/>QStaticText<sp/>*st);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>QSizeF<sp/>prepareTickLabels(<ref refid="class_axis_spec" kindref="compound">AxisSpec</ref><sp/>*spec,<sp/>QHash&lt;QString,<sp/>QStaticText<sp/>*&gt;<sp/>&amp;labelTexts,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>&amp;tickStrings,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;scaleExp,<sp/>qreal<sp/>&amp;offset);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>drawTitle(QPainter<sp/>*painter,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;plotRect);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>drawXLabel(QPainter<sp/>*painter,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;plotRect);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>drawYLabel(QPainter<sp/>*painter,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;plotRect);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>QStaticText<sp/>*getStaticText(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;text);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>drawXTickLabels(QList&lt;qreal&gt;<sp/>xFrames,<sp/>QPainter<sp/>*painter,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;plotRect);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>drawYTickLabels(QList&lt;qreal&gt;<sp/>yFrames,<sp/>QPainter<sp/>*painter,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;plotRect);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>drawXTicks(QList&lt;qreal&gt;<sp/>major,<sp/>QPainter<sp/>*painter,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;plotRect);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>drawYTicks(QList&lt;qreal&gt;<sp/>major,<sp/>QPainter<sp/>*painter,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;plotRect);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>drawScale(QPainter*<sp/>painter,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;plotRect);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>void<sp/>drawYScale(QPainter*<sp/>painter,<sp/>const<sp/>QRectF<sp/>&amp;plotRect);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>drawGrid(QList&lt;qreal&gt;<sp/>xMajor,<sp/>QList&lt;qreal&gt;<sp/>yMajor,<sp/>QPainter<sp/>*painter,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;plotRect);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_axis2_d_base" kindref="compound">Axis2DBase</ref>*<sp/>m_axis;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>m_scaling;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>m_titleMargin;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>m_xLabelMargin;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>m_yLabelMargin;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>m_xTicksMargin;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>m_yTicksMargin;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>qreal<sp/>m_titleHeight;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>qreal<sp/>m_xLabelHeight;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>qreal<sp/>m_yLabelWidth;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>m_xTicksHeight;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>m_yTicksWidth;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>QHash&lt;QString,<sp/>QStaticText*&gt;<sp/>m_xTickText;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>QHash&lt;QString,<sp/>QStaticText*&gt;<sp/>m_yTickText;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QStaticText*&gt;<sp/>m_tickTextPool;<sp/></highlight><highlight class="comment">//<sp/>Holds<sp/>unused<sp/>QStaticText<sp/>objects<sp/>for<sp/>later</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>QStaticText<sp/>m_title;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>QStaticText<sp/>m_xLabel,<sp/>m_yLabel;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m_xScaleExp,<sp/>m_yScaleExp;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>QStaticText<sp/>m_xScaleText,<sp/>m_yScaleText;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>m_xOffset,<sp/>m_yOffset;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>QStaticText<sp/>m_xOffsetText,<sp/>m_yOffsetText;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>m_xTicks;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>m_yTicks;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>AXISCANVAS2D_H</highlight></codeline>
     </programlisting>
     <location file="/Users/kitham/projects/qt/nutmeg/src/axiscanvas2d.h"/>
   </compounddef>

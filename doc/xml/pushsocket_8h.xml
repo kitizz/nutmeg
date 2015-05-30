@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="pushsocket_8h" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="pushsocket_8h" kind="file" language="C++">
     <compoundname>pushsocket.h</compoundname>
     <includes local="no">QObject</includes>
     <includes local="yes">../nzmqt/nzmqt.hpp</includes>
@@ -10,44 +10,44 @@
     <includedby refid="server_8h" local="yes">src/server.h</includedby>
     <includedby refid="pushsocket_8cpp" local="yes">src/pushsocket.cpp</includedby>
     <incdepgraph>
-      <node id="659">
+      <node id="1437">
         <label>QMap</label>
       </node>
-      <node id="657">
+      <node id="1435">
         <label>../nzmqt/nzmqt.hpp</label>
       </node>
-      <node id="656">
+      <node id="1434">
         <label>QObject</label>
       </node>
-      <node id="655">
+      <node id="1433">
         <label>src/pushsocket.h</label>
         <link refid="pushsocket.h"/>
-        <childnode refid="656" relation="include">
+        <childnode refid="1434" relation="include">
         </childnode>
-        <childnode refid="657" relation="include">
+        <childnode refid="1435" relation="include">
         </childnode>
-        <childnode refid="658" relation="include">
+        <childnode refid="1436" relation="include">
         </childnode>
-        <childnode refid="659" relation="include">
+        <childnode refid="1437" relation="include">
         </childnode>
-        <childnode refid="660" relation="include">
+        <childnode refid="1438" relation="include">
         </childnode>
       </node>
-      <node id="658">
+      <node id="1436">
         <label>stdexcept</label>
       </node>
-      <node id="660">
+      <node id="1438">
         <label>QTimer</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="661">
+      <node id="1439">
         <label>src/pushsocket.h</label>
         <link refid="pushsocket.h"/>
-        <childnode refid="662" relation="include">
+        <childnode refid="1440" relation="include">
         </childnode>
       </node>
-      <node id="662">
+      <node id="1440">
         <label>src/server.h</label>
         <link refid="server_8h_source"/>
       </node>
@@ -68,7 +68,7 @@
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMap&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QTimer&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">nzmqt;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenzmqt" kindref="compound">nzmqt</ref>;</highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unfortunately<sp/>ZMQSocket<sp/>doesn&apos;t<sp/>have<sp/>this<sp/>info<sp/>easily<sp/>accessible.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>And<sp/>I&apos;m<sp/>avoiding<sp/>modifying<sp/>the<sp/>ZMQSocket<sp/>code<sp/>for<sp/>the<sp/>moment...</highlight><highlight class="normal"></highlight></codeline>

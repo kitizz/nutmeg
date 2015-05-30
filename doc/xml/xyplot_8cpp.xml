@@ -1,172 +1,210 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="xyplot_8cpp" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="xyplot_8cpp" kind="file" language="C++">
     <compoundname>xyplot.cpp</compoundname>
     <includes refid="xyplot_8h" local="yes">xyplot.h</includes>
     <includes refid="util_8h" local="yes">util.h</includes>
     <incdepgraph>
-      <node id="729">
+      <node id="1538">
         <label>QMap</label>
       </node>
-      <node id="737">
+      <node id="1553">
         <label>limits</label>
       </node>
-      <node id="741">
+      <node id="1527">
+        <label>plot2dbase.h</label>
+        <link refid="plot2dbase_8h_source"/>
+        <childnode refid="1528" relation="include">
+        </childnode>
+        <childnode refid="1529" relation="include">
+        </childnode>
+        <childnode refid="1530" relation="include">
+        </childnode>
+        <childnode refid="1532" relation="include">
+        </childnode>
+        <childnode refid="1541" relation="include">
+        </childnode>
+        <childnode refid="1537" relation="include">
+        </childnode>
+        <childnode refid="1554" relation="include">
+        </childnode>
+        <childnode refid="1555" relation="include">
+        </childnode>
+      </node>
+      <node id="1550">
         <label>QRectF</label>
       </node>
-      <node id="732">
+      <node id="1540">
         <label>QObject</label>
       </node>
-      <node id="723">
+      <node id="1535">
         <label>axisbase.h</label>
         <link refid="axisbase_8h_source"/>
-        <childnode refid="724" relation="include">
+        <childnode refid="1528" relation="include">
         </childnode>
-        <childnode refid="725" relation="include">
+        <childnode refid="1536" relation="include">
         </childnode>
-        <childnode refid="726" relation="include">
+        <childnode refid="1537" relation="include">
         </childnode>
-        <childnode refid="734" relation="include">
-        </childnode>
-        <childnode refid="736" relation="include">
-        </childnode>
-        <childnode refid="718" relation="include">
-        </childnode>
-        <childnode refid="728" relation="include">
-        </childnode>
-        <childnode refid="737" relation="include">
+        <childnode refid="1541" relation="include">
         </childnode>
       </node>
-      <node id="718">
+      <node id="1546">
+        <label>axisspec.h</label>
+        <link refid="axisspec_8h_source"/>
+        <childnode refid="1540" relation="include">
+        </childnode>
+        <childnode refid="1547" relation="include">
+        </childnode>
+        <childnode refid="1537" relation="include">
+        </childnode>
+        <childnode refid="1542" relation="include">
+        </childnode>
+        <childnode refid="1544" relation="include">
+        </childnode>
+      </node>
+      <node id="1541">
         <label>plotbase.h</label>
         <link refid="plotbase_8h_source"/>
-        <childnode refid="719" relation="include">
+        <childnode refid="1528" relation="include">
         </childnode>
-        <childnode refid="720" relation="include">
+        <childnode refid="1537" relation="include">
         </childnode>
-        <childnode refid="721" relation="include">
-        </childnode>
-        <childnode refid="723" relation="include">
-        </childnode>
-        <childnode refid="728" relation="include">
-        </childnode>
-        <childnode refid="738" relation="include">
+        <childnode refid="1535" relation="include">
         </childnode>
       </node>
-      <node id="738">
+      <node id="1555">
         <label>../QKDTree/QKDTree/QKDTree.h</label>
       </node>
-      <node id="716">
+      <node id="1525">
         <label>src/xyplot.cpp</label>
         <link refid="xyplot.cpp"/>
-        <childnode refid="717" relation="include">
+        <childnode refid="1526" relation="include">
         </childnode>
-        <childnode refid="739" relation="include">
+        <childnode refid="1548" relation="include">
         </childnode>
       </node>
-      <node id="728">
+      <node id="1537">
         <label>nutmegobject.h</label>
         <link refid="nutmegobject_8h_source"/>
-        <childnode refid="729" relation="include">
+        <childnode refid="1538" relation="include">
         </childnode>
-        <childnode refid="730" relation="include">
+        <childnode refid="1536" relation="include">
         </childnode>
-        <childnode refid="731" relation="include">
+        <childnode refid="1539" relation="include">
         </childnode>
-        <childnode refid="732" relation="include">
+        <childnode refid="1540" relation="include">
         </childnode>
       </node>
-      <node id="740">
+      <node id="1549">
         <label>QList</label>
       </node>
-      <node id="736">
+      <node id="1552">
+        <label>QLineF</label>
+      </node>
+      <node id="1544">
         <label>locators.h</label>
         <link refid="locators_8h_source"/>
-        <childnode refid="732" relation="include">
+        <childnode refid="1540" relation="include">
+        </childnode>
+        <childnode refid="1545" relation="include">
         </childnode>
       </node>
-      <node id="733">
-        <label>mouseevent.h</label>
-        <link refid="mouseevent_8h_source"/>
-        <childnode refid="732" relation="include">
-        </childnode>
+      <node id="1547">
+        <label>QFont</label>
       </node>
-      <node id="726">
-        <label>figurebase.h</label>
-        <link refid="figurebase_8h_source"/>
-        <childnode refid="719" relation="include">
-        </childnode>
-        <childnode refid="725" relation="include">
-        </childnode>
-        <childnode refid="723" relation="include">
-        </childnode>
-        <childnode refid="727" relation="include">
-        </childnode>
-        <childnode refid="728" relation="include">
-        </childnode>
-        <childnode refid="733" relation="include">
-        </childnode>
-      </node>
-      <node id="739">
+      <node id="1548">
         <label>util.h</label>
         <link refid="util_8h_source"/>
-        <childnode refid="740" relation="include">
+        <childnode refid="1549" relation="include">
         </childnode>
-        <childnode refid="741" relation="include">
+        <childnode refid="1550" relation="include">
+        </childnode>
+        <childnode refid="1551" relation="include">
+        </childnode>
+        <childnode refid="1552" relation="include">
+        </childnode>
+        <childnode refid="1553" relation="include">
         </childnode>
       </node>
-      <node id="724">
+      <node id="1533">
         <label>QQuickPaintedItem</label>
       </node>
-      <node id="720">
+      <node id="1529">
         <label>QPainter</label>
       </node>
-      <node id="734">
+      <node id="1542">
         <label>linespec.h</label>
         <link refid="linespec_8h_source"/>
-        <childnode refid="732" relation="include">
+        <childnode refid="1540" relation="include">
         </childnode>
-        <childnode refid="735" relation="include">
+        <childnode refid="1543" relation="include">
         </childnode>
-        <childnode refid="729" relation="include">
+        <childnode refid="1538" relation="include">
         </childnode>
       </node>
-      <node id="730">
+      <node id="1532">
+        <label>axis2dbase.h</label>
+        <link refid="axis2dbase_8h_source"/>
+        <childnode refid="1533" relation="include">
+        </childnode>
+        <childnode refid="1534" relation="include">
+        </childnode>
+        <childnode refid="1535" relation="include">
+        </childnode>
+        <childnode refid="1542" relation="include">
+        </childnode>
+        <childnode refid="1544" relation="include">
+        </childnode>
+        <childnode refid="1527" relation="include">
+        </childnode>
+        <childnode refid="1537" relation="include">
+        </childnode>
+        <childnode refid="1546" relation="include">
+        </childnode>
+        <childnode refid="1548" relation="include">
+        </childnode>
+      </node>
+      <node id="1536">
         <label>QString</label>
       </node>
-      <node id="735">
+      <node id="1543">
         <label>QColor</label>
       </node>
-      <node id="717">
+      <node id="1526">
         <label>xyplot.h</label>
         <link refid="xyplot_8h_source"/>
-        <childnode refid="718" relation="include">
+        <childnode refid="1527" relation="include">
         </childnode>
       </node>
-      <node id="719">
+      <node id="1554">
+        <label>plotcanvas.h</label>
+        <link refid="plotcanvas_8h_source"/>
+        <childnode refid="1533" relation="include">
+        </childnode>
+      </node>
+      <node id="1528">
         <label>QQuickItem</label>
       </node>
-      <node id="721">
+      <node id="1530">
         <label>plotdata.h</label>
         <link refid="plotdata_8h_source"/>
-        <childnode refid="722" relation="include">
+        <childnode refid="1531" relation="include">
         </childnode>
       </node>
-      <node id="731">
+      <node id="1539">
         <label>QVariant</label>
       </node>
-      <node id="727">
-        <label>controller.h</label>
-        <link refid="controller_8h_source"/>
-        <childnode refid="719" relation="include">
-        </childnode>
-        <childnode refid="726" relation="include">
-        </childnode>
+      <node id="1545">
+        <label>QStringList</label>
       </node>
-      <node id="722">
+      <node id="1531">
         <label>QAbstractTableModel</label>
       </node>
-      <node id="725">
+      <node id="1551">
+        <label>QPolygonF</label>
+      </node>
+      <node id="1534">
         <label>QMultiMap</label>
       </node>
     </incdepgraph>
@@ -180,7 +218,7 @@
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;util.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal">XYPlot::XYPlot(QQuickItem<sp/>*parent)</highlight></codeline>
-<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="class_plot_base" kindref="compound">PlotBase</ref>(parent)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="class_plot2_d_base" kindref="compound">Plot2DBase</ref>(parent)</highlight></codeline>
 <codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_settingData(false)</highlight></codeline>
 <codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_xDataSet(false)</highlight></codeline>
 <codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_xData(QList&lt;qreal&gt;())</highlight></codeline>
@@ -299,70 +337,71 @@
 <codeline lineno="132"><highlight class="normal"></highlight></codeline>
 <codeline lineno="133"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>XYPlot::updateDataLimits()</highlight></codeline>
 <codeline lineno="134"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>xLen<sp/>=<sp/>m_xData.length(),<sp/>yLen<sp/>=<sp/>m_yData.length();</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((xLen<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>xLen<sp/>!=<sp/>yLen)<sp/>||<sp/>m_settingData)</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Don&apos;t<sp/>update<sp/>until<sp/>the<sp/>data<sp/>is<sp/>good</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>minX<sp/>=<sp/>Inf,<sp/>maxX<sp/>=<sp/>-Inf,<sp/>minY<sp/>=<sp/>Inf,<sp/>maxY<sp/>=<sp/>-Inf;</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;yLen;<sp/>++i)<sp/>{</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qreal<sp/>px<sp/>=<sp/>m_xData[i];</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qreal<sp/>py<sp/>=<sp/>m_yData[i];</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minX<sp/>=<sp/>qMin(minX,<sp/>px);</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxX<sp/>=<sp/>qMax(maxX,<sp/>px);</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minY<sp/>=<sp/>qMin(minY,<sp/>py);</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxY<sp/>=<sp/>qMax(maxY,<sp/>py);</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>newLim;</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>newLim.setLeft(minX);</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>newLim.setTop(minY);</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>newLim.setRight(maxX);</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>newLim.setBottom(maxY);</highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>setDataLimits(newLim);</highlight></codeline>
-<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"></highlight></codeline>
-<codeline lineno="157"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>XYPlot::updateTree()</highlight></codeline>
-<codeline lineno="158"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!m_treeDirty)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"></highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Start<sp/>from<sp/>scratch</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_tree)</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>m_tree;</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>m_tree<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QKDTree(2);</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"></highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>m_treeDirty<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"></highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N<sp/>=<sp/>m_yData.length();</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(N<sp/>==<sp/>0)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;int&gt;<sp/>*inds<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!m_xDataSet<sp/>||<sp/>dataIncreasing(m_xData))<sp/>{</highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>if<sp/>the<sp/>x<sp/>values<sp/>are<sp/>always<sp/>increasing</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inds<sp/>=<sp/>Util::medianArray(N);</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Throwing<sp/>in<sp/>random<sp/>indices<sp/>is<sp/>as<sp/>good<sp/>a<sp/>method<sp/>as<sp/>any<sp/>other...</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inds<sp/>=<sp/>Util::randomArray(N);</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="178"><highlight class="normal"></highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>*inds)<sp/>{</highlight></codeline>
-<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>for<sp/>NaN</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_xData[i]<sp/>!=<sp/>m_xData[i])<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_yData[i]<sp/>!=<sp/>m_yData[i])<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_tree-&gt;add(QPointF(m_xData[i],<sp/>m_yData[i]),<sp/>i);</highlight></codeline>
-<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="185"><highlight class="normal"></highlight></codeline>
-<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>inds;<sp/></highlight><highlight class="comment">//<sp/>Clean<sp/>up</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="187"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="188"><highlight class="normal"></highlight></codeline>
-<codeline lineno="189"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>XYPlot::dataIncreasing(QList&lt;qreal&gt;<sp/>data)</highlight></codeline>
-<codeline lineno="190"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Return<sp/>true<sp/>if<sp/>each<sp/>data<sp/>point<sp/>is<sp/>&gt;=<sp/>to<sp/>the<sp/>previous.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>If<sp/>this<sp/>is<sp/>a<sp/>performance<sp/>hit,<sp/>consider<sp/>allowing<sp/>approximation<sp/>(check<sp/>each<sp/>10th<sp/>element<sp/>or<sp/>something).</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;data.length()<sp/>-<sp/>1;<sp/>++i)<sp/>{</highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data[i+1]<sp/>&lt;<sp/>data[i])</highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="198"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;XYPlot<sp/>Update<sp/>DataLimits&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>xLen<sp/>=<sp/>m_xData.length(),<sp/>yLen<sp/>=<sp/>m_yData.length();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(xLen<sp/>==<sp/>0<sp/>||<sp/>(xLen<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>xLen<sp/>!=<sp/>yLen)<sp/>||<sp/>m_settingData)</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Don&apos;t<sp/>update<sp/>until<sp/>the<sp/>data<sp/>is<sp/>good</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>minX<sp/>=<sp/>Inf,<sp/>maxX<sp/>=<sp/>-Inf,<sp/>minY<sp/>=<sp/>Inf,<sp/>maxY<sp/>=<sp/>-Inf;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;yLen;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qreal<sp/>px<sp/>=<sp/>m_xData[i];</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qreal<sp/>py<sp/>=<sp/>m_yData[i];</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minX<sp/>=<sp/>qMin(minX,<sp/>px);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxX<sp/>=<sp/>qMax(maxX,<sp/>px);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minY<sp/>=<sp/>qMin(minY,<sp/>py);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxY<sp/>=<sp/>qMax(maxY,<sp/>py);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>newLim;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>newLim.setLeft(minX);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>newLim.setTop(minY);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>newLim.setRight(maxX);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>newLim.setBottom(maxY);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>setDataLimits(newLim);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>XYPlot::updateTree()</highlight></codeline>
+<codeline lineno="159"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!m_treeDirty)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Start<sp/>from<sp/>scratch</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_tree)</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>m_tree;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>m_tree<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QKDTree(2);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>m_treeDirty<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N<sp/>=<sp/>m_yData.length();</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(N<sp/>==<sp/>0)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;int&gt;<sp/>*inds<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!m_xDataSet<sp/>||<sp/>dataIncreasing(m_xData))<sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>if<sp/>the<sp/>x<sp/>values<sp/>are<sp/>always<sp/>increasing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inds<sp/>=<sp/>Util::medianArray(N);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Throwing<sp/>in<sp/>random<sp/>indices<sp/>is<sp/>as<sp/>good<sp/>a<sp/>method<sp/>as<sp/>any<sp/>other...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inds<sp/>=<sp/>Util::randomArray(N);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>*inds)<sp/>{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>for<sp/>NaN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_xData[i]<sp/>!=<sp/>m_xData[i])<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_yData[i]<sp/>!=<sp/>m_yData[i])<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_tree-&gt;add(QPointF(m_xData[i],<sp/>m_yData[i]),<sp/>i);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>inds;<sp/></highlight><highlight class="comment">//<sp/>Clean<sp/>up</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>XYPlot::dataIncreasing(QList&lt;qreal&gt;<sp/>data)</highlight></codeline>
+<codeline lineno="191"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Return<sp/>true<sp/>if<sp/>each<sp/>data<sp/>point<sp/>is<sp/>&gt;=<sp/>to<sp/>the<sp/>previous.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>If<sp/>this<sp/>is<sp/>a<sp/>performance<sp/>hit,<sp/>consider<sp/>allowing<sp/>approximation<sp/>(check<sp/>each<sp/>10th<sp/>element<sp/>or<sp/>something).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;data.length()<sp/>-<sp/>1;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data[i+1]<sp/>&lt;<sp/>data[i])</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/Users/kitham/projects/qt/nutmeg/src/xyplot.cpp"/>
   </compounddef>

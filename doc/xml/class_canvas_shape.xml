@@ -1,0 +1,565 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_canvas_shape" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>CanvasShape</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickItem</basecompoundref>
+    <basecompoundref refid="class_nutmeg_object" prot="public" virt="non-virtual">NutmegObject</basecompoundref>
+    <derivedcompoundref refid="class_canvas_line" prot="public" virt="non-virtual">CanvasLine</derivedcompoundref>
+    <derivedcompoundref refid="class_canvas_rect" prot="public" virt="non-virtual">CanvasRect</derivedcompoundref>
+    <derivedcompoundref refid="class_canvas_text" prot="public" virt="non-virtual">CanvasText</derivedcompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_canvas_shape_1ad60b31a52263f8f2d9a40eb49760bb6f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_line_spec" kindref="compound">LineSpec</ref></type>
+        <definition>LineSpec CanvasShape::line</definition>
+        <argsstring></argsstring>
+        <name>line</name>
+        <read>lineSpec</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="83" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_canvas_shape_1a4c09995fbb0569674c273a573369204f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_fill_spec" kindref="compound">FillSpec</ref></type>
+        <definition>FillSpec CanvasShape::fill</definition>
+        <argsstring></argsstring>
+        <name>fill</name>
+        <read>fillSpec</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="83" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_canvas_shape_1aa06d589965b776194327fbe64350f9b3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_canvas_plot" kindref="compound">CanvasPlot</ref></type>
+        <definition>CanvasPlot * CanvasShape::plot</definition>
+        <argsstring></argsstring>
+        <name>plot</name>
+        <read>plot</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="83" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_canvas_shape_1a1f88f94a696376fafe5e4af2eec5ad69" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QRectF</type>
+        <definition>QRectF CanvasShape::bounds</definition>
+        <argsstring></argsstring>
+        <name>bounds</name>
+        <read>bounds</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="83" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_canvas_shape_1ac44a512a3e0a69673970f8920fde97b4" prot="private" static="no" mutable="no">
+        <type><ref refid="class_line_spec" kindref="compound">LineSpec</ref> *</type>
+        <definition>LineSpec* CanvasShape::m_lineSpec</definition>
+        <argsstring></argsstring>
+        <name>m_lineSpec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="72" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_canvas_shape_1acc449dd52ee8edbb4f8f100b6b836a52" prot="private" static="no" mutable="no">
+        <type><ref refid="class_fill_spec" kindref="compound">FillSpec</ref> *</type>
+        <definition>FillSpec* CanvasShape::m_fillSpec</definition>
+        <argsstring></argsstring>
+        <name>m_fillSpec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="73" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_canvas_shape_1aabb2a50cc8a2d5ffda6c904aa6761515" prot="private" static="no" mutable="no">
+        <type>QRectF</type>
+        <definition>QRectF CanvasShape::m_bounds</definition>
+        <argsstring></argsstring>
+        <name>m_bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="74" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_canvas_shape_1a17d743e8b32650a80125f38f032a4110" prot="private" static="no" mutable="no">
+        <type><ref refid="class_canvas_plot" kindref="compound">CanvasPlot</ref> *</type>
+        <definition>CanvasPlot* CanvasShape::m_plot</definition>
+        <argsstring></argsstring>
+        <name>m_plot</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="75" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_canvas_shape_1ae7f5c483ca0d8d505a97554f7f4d520d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CanvasShape::m_settingBounds</definition>
+        <argsstring></argsstring>
+        <name>m_settingBounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="77" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_canvas_shape_1a532708d40eb2a699d1ee9b46485f1800" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CanvasShape::m_destroying</definition>
+        <argsstring></argsstring>
+        <name>m_destroying</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="79" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_canvas_shape_1a0b5bf07762ada24e7a47e5c20293db18" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CanvasShape::CanvasShape</definition>
+        <argsstring>(QQuickItem *parent=0)</argsstring>
+        <name>CanvasShape</name>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="24" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.cpp" bodystart="3" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_canvas_shape_1a7d9202a2fe58a06c88d4c047ca4866df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CanvasShape::~CanvasShape</definition>
+        <argsstring>()</argsstring>
+        <name>~CanvasShape</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="25" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.cpp" bodystart="25" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_canvas_shape_1aa6b33206e61979008f83c9bd0e7a044c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void CanvasShape::paint</definition>
+        <argsstring>(QPainter *painter, const QTransform &amp;tran, const QRectF &amp;limits)=0</argsstring>
+        <name>paint</name>
+        <param>
+          <type>QPainter *</type>
+          <declname>painter</declname>
+        </param>
+        <param>
+          <type>const QTransform &amp;</type>
+          <declname>tran</declname>
+        </param>
+        <param>
+          <type>const QRectF &amp;</type>
+          <declname>limits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="27" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_canvas_shape_1a47a08267d2b1ae9b9a1fa36a9c34ce87" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_line_spec" kindref="compound">LineSpec</ref> *</type>
+        <definition>LineSpec * CanvasShape::lineSpec</definition>
+        <argsstring>() const </argsstring>
+        <name>lineSpec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="29" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.cpp" bodystart="31" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_canvas_shape_1a4d262781900dbfd981e445dea9e7167f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_fill_spec" kindref="compound">FillSpec</ref> *</type>
+        <definition>FillSpec * CanvasShape::fillSpec</definition>
+        <argsstring>() const </argsstring>
+        <name>fillSpec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="30" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.cpp" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_canvas_shape_1ad61704eae0f7c39a557560fe379893bc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QRectF</type>
+        <definition>QRectF CanvasShape::bounds</definition>
+        <argsstring>() const </argsstring>
+        <name>bounds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="32" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_canvas_shape_1a738af139ed9c9540a146f88cf4cd529d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CanvasShape::setBounds</definition>
+        <argsstring>(QRectF arg)</argsstring>
+        <name>setBounds</name>
+        <param>
+          <type>QRectF</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="33" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.cpp" bodystart="46" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_canvas_shape_1a9f5b367fc242df39eefe9bc49218a042" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_canvas_plot" kindref="compound">CanvasPlot</ref> *</type>
+        <definition>CanvasPlot* CanvasShape::plot</definition>
+        <argsstring>() const </argsstring>
+        <name>plot</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="35" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_canvas_shape_1ad56bb45c01afccb96fdf0597776c5e3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void CanvasShape::setPlot</definition>
+        <argsstring>(CanvasPlot *arg)</argsstring>
+        <name>setPlot</name>
+        <param>
+          <type><ref refid="class_canvas_plot" kindref="compound">CanvasPlot</ref> *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="36" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.cpp" bodystart="66" bodyend="71"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_canvas_shape_1a2ea09a36c4514ad87889312c17acad26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CanvasShape::lineSpecChanged</definition>
+        <argsstring>(LineSpec *arg)</argsstring>
+        <name>lineSpecChanged</name>
+        <param>
+          <type><ref refid="class_line_spec" kindref="compound">LineSpec</ref> *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="42" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_canvas_shape_1aee7e9b21a95e694edef6945cca354642" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CanvasShape::fillSpecChanged</definition>
+        <argsstring>(FillSpec *arg)</argsstring>
+        <name>fillSpecChanged</name>
+        <param>
+          <type><ref refid="class_fill_spec" kindref="compound">FillSpec</ref> *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="43" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_canvas_shape_1a04b83f06d173bb25b0f499a4cde649ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CanvasShape::boundsChanged</definition>
+        <argsstring>(QRectF arg)</argsstring>
+        <name>boundsChanged</name>
+        <param>
+          <type>QRectF</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="45" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_canvas_shape_1a508c9beea189376f9b8b83dbfc8f6596" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CanvasShape::plotChanged</definition>
+        <argsstring>(CanvasPlot *arg)</argsstring>
+        <name>plotChanged</name>
+        <param>
+          <type><ref refid="class_canvas_plot" kindref="compound">CanvasPlot</ref> *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="47" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="class_canvas_shape_1aaa2527854f767467c67b78ada59af9ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CanvasShape::updateDataLimits</definition>
+        <argsstring>()</argsstring>
+        <name>updateDataLimits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="50" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.cpp" bodystart="73" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_canvas_shape_1a4660f6b3f411cdd7a271215a82637d93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CanvasShape::findPlot</definition>
+        <argsstring>()</argsstring>
+        <name>findPlot</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="51" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.cpp" bodystart="83" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_canvas_shape_1aed0ba29cab94737b32386bdae90c8d93" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CanvasShape::registerProperties</definition>
+        <argsstring>(QMap&lt; QString, QString &gt; mapping)</argsstring>
+        <name>registerProperties</name>
+        <param>
+          <type>QMap&lt; QString, QString &gt;</type>
+          <declname>mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="54" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" bodystart="54" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_canvas_shape_1a21019d3f6577a8871a65b02d8d7b2f01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CanvasShape::registerProperties</definition>
+        <argsstring>(QVariantMap mapping)</argsstring>
+        <name>registerProperties</name>
+        <param>
+          <type>QVariantMap</type>
+          <declname>mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="57" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" bodystart="57" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_canvas_shape_1ae58a4522d92112bc4f6729460326a777" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>QString</type>
+        <definition>virtual QString CanvasShape::mapProperty</definition>
+        <argsstring>(const QString &amp;prop)</argsstring>
+        <name>mapProperty</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="60" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" bodystart="60" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_canvas_shape_1ae2801fa962e11e22f7643080eecdbe30" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CanvasShape::registerMethods</definition>
+        <argsstring>(QMap&lt; QString, QString &gt; mapping)</argsstring>
+        <name>registerMethods</name>
+        <param>
+          <type>QMap&lt; QString, QString &gt;</type>
+          <declname>mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="64" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" bodystart="64" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_canvas_shape_1a7748076b69c08a356a940cd7410d6b7d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>QString</type>
+        <definition>virtual QString CanvasShape::mapMethod</definition>
+        <argsstring>(const QString &amp;method)</argsstring>
+        <name>mapMethod</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>method</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="67" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" bodystart="67" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="75">
+        <label>CanvasShape</label>
+        <link refid="class_canvas_shape"/>
+        <childnode refid="76" relation="public-inheritance">
+        </childnode>
+        <childnode refid="77" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="79">
+        <label>CanvasRect</label>
+        <link refid="class_canvas_rect"/>
+        <childnode refid="75" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="78">
+        <label>CanvasLine</label>
+        <link refid="class_canvas_line"/>
+        <childnode refid="75" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="80">
+        <label>CanvasText</label>
+        <link refid="class_canvas_text"/>
+        <childnode refid="75" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="76">
+        <label>QQuickItem</label>
+      </node>
+      <node id="77">
+        <label>NutmegObject</label>
+        <link refid="class_nutmeg_object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="81">
+        <label>CanvasShape</label>
+        <link refid="class_canvas_shape"/>
+        <childnode refid="82" relation="public-inheritance">
+        </childnode>
+        <childnode refid="83" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="82">
+        <label>QQuickItem</label>
+      </node>
+      <node id="83">
+        <label>NutmegObject</label>
+        <link refid="class_nutmeg_object"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" line="14" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasshape.h" bodystart="13" bodyend="80"/>
+    <listofallmembers>
+      <member refid="class_canvas_shape_1a1f88f94a696376fafe5e4af2eec5ad69" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>bounds</name></member>
+      <member refid="class_canvas_shape_1ad61704eae0f7c39a557560fe379893bc" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>bounds</name></member>
+      <member refid="class_canvas_shape_1a04b83f06d173bb25b0f499a4cde649ea" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>boundsChanged</name></member>
+      <member refid="class_canvas_shape_1a0b5bf07762ada24e7a47e5c20293db18" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>CanvasShape</name></member>
+      <member refid="class_canvas_shape_1a4c09995fbb0569674c273a573369204f" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>fill</name></member>
+      <member refid="class_canvas_shape_1a4d262781900dbfd981e445dea9e7167f" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>fillSpec</name></member>
+      <member refid="class_canvas_shape_1aee7e9b21a95e694edef6945cca354642" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>fillSpecChanged</name></member>
+      <member refid="class_canvas_shape_1a4660f6b3f411cdd7a271215a82637d93" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>findPlot</name></member>
+      <member refid="class_canvas_shape_1ad60b31a52263f8f2d9a40eb49760bb6f" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>line</name></member>
+      <member refid="class_canvas_shape_1a47a08267d2b1ae9b9a1fa36a9c34ce87" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>lineSpec</name></member>
+      <member refid="class_canvas_shape_1a2ea09a36c4514ad87889312c17acad26" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>lineSpecChanged</name></member>
+      <member refid="class_canvas_shape_1aabb2a50cc8a2d5ffda6c904aa6761515" prot="private" virt="non-virtual"><scope>CanvasShape</scope><name>m_bounds</name></member>
+      <member refid="class_canvas_shape_1a532708d40eb2a699d1ee9b46485f1800" prot="private" virt="non-virtual"><scope>CanvasShape</scope><name>m_destroying</name></member>
+      <member refid="class_canvas_shape_1acc449dd52ee8edbb4f8f100b6b836a52" prot="private" virt="non-virtual"><scope>CanvasShape</scope><name>m_fillSpec</name></member>
+      <member refid="class_canvas_shape_1ac44a512a3e0a69673970f8920fde97b4" prot="private" virt="non-virtual"><scope>CanvasShape</scope><name>m_lineSpec</name></member>
+      <member refid="class_canvas_shape_1a17d743e8b32650a80125f38f032a4110" prot="private" virt="non-virtual"><scope>CanvasShape</scope><name>m_plot</name></member>
+      <member refid="class_canvas_shape_1ae7f5c483ca0d8d505a97554f7f4d520d" prot="private" virt="non-virtual"><scope>CanvasShape</scope><name>m_settingBounds</name></member>
+      <member refid="class_canvas_shape_1a7748076b69c08a356a940cd7410d6b7d" prot="public" virt="virtual"><scope>CanvasShape</scope><name>mapMethod</name></member>
+      <member refid="class_canvas_shape_1ae58a4522d92112bc4f6729460326a777" prot="public" virt="virtual"><scope>CanvasShape</scope><name>mapProperty</name></member>
+      <member refid="class_canvas_shape_1aa6b33206e61979008f83c9bd0e7a044c" prot="public" virt="pure-virtual"><scope>CanvasShape</scope><name>paint</name></member>
+      <member refid="class_canvas_shape_1aa06d589965b776194327fbe64350f9b3" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>plot</name></member>
+      <member refid="class_canvas_shape_1a9f5b367fc242df39eefe9bc49218a042" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>plot</name></member>
+      <member refid="class_canvas_shape_1a508c9beea189376f9b8b83dbfc8f6596" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>plotChanged</name></member>
+      <member refid="class_canvas_shape_1ae2801fa962e11e22f7643080eecdbe30" prot="public" virt="virtual"><scope>CanvasShape</scope><name>registerMethods</name></member>
+      <member refid="class_canvas_shape_1aed0ba29cab94737b32386bdae90c8d93" prot="public" virt="virtual"><scope>CanvasShape</scope><name>registerProperties</name></member>
+      <member refid="class_canvas_shape_1a21019d3f6577a8871a65b02d8d7b2f01" prot="public" virt="virtual"><scope>CanvasShape</scope><name>registerProperties</name></member>
+      <member refid="class_canvas_shape_1a738af139ed9c9540a146f88cf4cd529d" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>setBounds</name></member>
+      <member refid="class_canvas_shape_1ad56bb45c01afccb96fdf0597776c5e3c" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>setPlot</name></member>
+      <member refid="class_canvas_shape_1aaa2527854f767467c67b78ada59af9ac" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>updateDataLimits</name></member>
+      <member refid="class_canvas_shape_1a7d9202a2fe58a06c88d4c047ca4866df" prot="public" virt="non-virtual"><scope>CanvasShape</scope><name>~CanvasShape</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

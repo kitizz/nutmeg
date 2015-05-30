@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="class_push_socket" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_push_socket" kind="class" language="C++" prot="public">
     <compoundname>PushSocket</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
       <sectiondef kind="private-attrib">
@@ -306,7 +306,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/pushsocket.h" line="33" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/pushsocket.cpp" bodystart="114" bodyend="133"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/pushsocket.h" line="33" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/pushsocket.cpp" bodystart="114" bodyend="134"/>
       </memberdef>
       <memberdef kind="slot" id="class_push_socket_1af09552d69c1939cee6dfe68bccb72e61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -323,7 +323,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/pushsocket.h" line="34" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/pushsocket.cpp" bodystart="135" bodyend="139"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/pushsocket.h" line="34" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/pushsocket.cpp" bodystart="136" bodyend="140"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-slot">
@@ -338,7 +338,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/pushsocket.h" line="37" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/pushsocket.cpp" bodystart="141" bodyend="153"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/pushsocket.h" line="37" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/pushsocket.cpp" bodystart="142" bodyend="154"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="signal">
@@ -361,24 +361,24 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="157">
+      <node id="233">
         <label>QObject</label>
       </node>
-      <node id="156">
+      <node id="232">
         <label>PushSocket</label>
         <link refid="class_push_socket"/>
-        <childnode refid="157" relation="public-inheritance">
+        <childnode refid="233" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="159">
+      <node id="235">
         <label>QObject</label>
       </node>
-      <node id="158">
+      <node id="234">
         <label>PushSocket</label>
         <link refid="class_push_socket"/>
-        <childnode refid="159" relation="public-inheritance">
+        <childnode refid="235" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

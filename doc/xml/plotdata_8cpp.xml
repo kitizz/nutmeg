@@ -1,28 +1,28 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="plotdata_8cpp" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="plotdata_8cpp" kind="file" language="C++">
     <compoundname>plotdata.cpp</compoundname>
     <includes refid="plotdata_8h" local="yes">plotdata.h</includes>
     <includes local="no">QDebug</includes>
     <incdepgraph>
-      <node id="633">
+      <node id="1402">
         <label>QDebug</label>
       </node>
-      <node id="630">
+      <node id="1399">
         <label>src/plotdata.cpp</label>
         <link refid="plotdata.cpp"/>
-        <childnode refid="631" relation="include">
+        <childnode refid="1400" relation="include">
         </childnode>
-        <childnode refid="633" relation="include">
+        <childnode refid="1402" relation="include">
         </childnode>
       </node>
-      <node id="631">
+      <node id="1400">
         <label>plotdata.h</label>
         <link refid="plotdata_8h_source"/>
-        <childnode refid="632" relation="include">
+        <childnode refid="1401" relation="include">
         </childnode>
       </node>
-      <node id="632">
+      <node id="1401">
         <label>QAbstractTableModel</label>
       </node>
     </incdepgraph>

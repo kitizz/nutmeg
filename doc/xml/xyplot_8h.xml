@@ -1,163 +1,248 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="xyplot_8h" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="xyplot_8h" kind="file" language="C++">
     <compoundname>xyplot.h</compoundname>
-    <includes refid="plotbase_8h" local="yes">plotbase.h</includes>
+    <includes refid="plot2dbase_8h" local="yes">plot2dbase.h</includes>
+    <includedby refid="canvasplot_8h" local="yes">src/canvasplot.h</includedby>
     <includedby refid="lineplot_8h" local="yes">src/lineplot.h</includedby>
     <includedby refid="xyplot_8cpp" local="yes">src/xyplot.cpp</includedby>
     <incdepgraph>
-      <node id="755">
+      <node id="1569">
         <label>QMap</label>
       </node>
-      <node id="763">
+      <node id="1584">
         <label>limits</label>
       </node>
-      <node id="758">
+      <node id="1558">
+        <label>plot2dbase.h</label>
+        <link refid="plot2dbase_8h_source"/>
+        <childnode refid="1559" relation="include">
+        </childnode>
+        <childnode refid="1560" relation="include">
+        </childnode>
+        <childnode refid="1561" relation="include">
+        </childnode>
+        <childnode refid="1563" relation="include">
+        </childnode>
+        <childnode refid="1572" relation="include">
+        </childnode>
+        <childnode refid="1568" relation="include">
+        </childnode>
+        <childnode refid="1585" relation="include">
+        </childnode>
+        <childnode refid="1586" relation="include">
+        </childnode>
+      </node>
+      <node id="1581">
+        <label>QRectF</label>
+      </node>
+      <node id="1571">
         <label>QObject</label>
       </node>
-      <node id="749">
+      <node id="1566">
         <label>axisbase.h</label>
         <link refid="axisbase_8h_source"/>
-        <childnode refid="750" relation="include">
+        <childnode refid="1559" relation="include">
         </childnode>
-        <childnode refid="751" relation="include">
+        <childnode refid="1567" relation="include">
         </childnode>
-        <childnode refid="752" relation="include">
+        <childnode refid="1568" relation="include">
         </childnode>
-        <childnode refid="760" relation="include">
-        </childnode>
-        <childnode refid="762" relation="include">
-        </childnode>
-        <childnode refid="744" relation="include">
-        </childnode>
-        <childnode refid="754" relation="include">
-        </childnode>
-        <childnode refid="763" relation="include">
+        <childnode refid="1572" relation="include">
         </childnode>
       </node>
-      <node id="744">
+      <node id="1577">
+        <label>axisspec.h</label>
+        <link refid="axisspec_8h_source"/>
+        <childnode refid="1571" relation="include">
+        </childnode>
+        <childnode refid="1578" relation="include">
+        </childnode>
+        <childnode refid="1568" relation="include">
+        </childnode>
+        <childnode refid="1573" relation="include">
+        </childnode>
+        <childnode refid="1575" relation="include">
+        </childnode>
+      </node>
+      <node id="1572">
         <label>plotbase.h</label>
         <link refid="plotbase_8h_source"/>
-        <childnode refid="745" relation="include">
+        <childnode refid="1559" relation="include">
         </childnode>
-        <childnode refid="746" relation="include">
+        <childnode refid="1568" relation="include">
         </childnode>
-        <childnode refid="747" relation="include">
-        </childnode>
-        <childnode refid="749" relation="include">
-        </childnode>
-        <childnode refid="754" relation="include">
-        </childnode>
-        <childnode refid="764" relation="include">
+        <childnode refid="1566" relation="include">
         </childnode>
       </node>
-      <node id="764">
+      <node id="1586">
         <label>../QKDTree/QKDTree/QKDTree.h</label>
       </node>
-      <node id="754">
+      <node id="1568">
         <label>nutmegobject.h</label>
         <link refid="nutmegobject_8h_source"/>
-        <childnode refid="755" relation="include">
+        <childnode refid="1569" relation="include">
         </childnode>
-        <childnode refid="756" relation="include">
+        <childnode refid="1567" relation="include">
         </childnode>
-        <childnode refid="757" relation="include">
+        <childnode refid="1570" relation="include">
         </childnode>
-        <childnode refid="758" relation="include">
+        <childnode refid="1571" relation="include">
         </childnode>
       </node>
-      <node id="762">
+      <node id="1580">
+        <label>QList</label>
+      </node>
+      <node id="1583">
+        <label>QLineF</label>
+      </node>
+      <node id="1575">
         <label>locators.h</label>
         <link refid="locators_8h_source"/>
-        <childnode refid="758" relation="include">
+        <childnode refid="1571" relation="include">
+        </childnode>
+        <childnode refid="1576" relation="include">
         </childnode>
       </node>
-      <node id="759">
-        <label>mouseevent.h</label>
-        <link refid="mouseevent_8h_source"/>
-        <childnode refid="758" relation="include">
+      <node id="1578">
+        <label>QFont</label>
+      </node>
+      <node id="1579">
+        <label>util.h</label>
+        <link refid="util_8h_source"/>
+        <childnode refid="1580" relation="include">
+        </childnode>
+        <childnode refid="1581" relation="include">
+        </childnode>
+        <childnode refid="1582" relation="include">
+        </childnode>
+        <childnode refid="1583" relation="include">
+        </childnode>
+        <childnode refid="1584" relation="include">
         </childnode>
       </node>
-      <node id="752">
-        <label>figurebase.h</label>
-        <link refid="figurebase_8h_source"/>
-        <childnode refid="745" relation="include">
-        </childnode>
-        <childnode refid="751" relation="include">
-        </childnode>
-        <childnode refid="749" relation="include">
-        </childnode>
-        <childnode refid="753" relation="include">
-        </childnode>
-        <childnode refid="754" relation="include">
-        </childnode>
-        <childnode refid="759" relation="include">
-        </childnode>
-      </node>
-      <node id="750">
+      <node id="1564">
         <label>QQuickPaintedItem</label>
       </node>
-      <node id="746">
+      <node id="1560">
         <label>QPainter</label>
       </node>
-      <node id="760">
+      <node id="1573">
         <label>linespec.h</label>
         <link refid="linespec_8h_source"/>
-        <childnode refid="758" relation="include">
+        <childnode refid="1571" relation="include">
         </childnode>
-        <childnode refid="761" relation="include">
+        <childnode refid="1574" relation="include">
         </childnode>
-        <childnode refid="755" relation="include">
+        <childnode refid="1569" relation="include">
         </childnode>
       </node>
-      <node id="756">
+      <node id="1563">
+        <label>axis2dbase.h</label>
+        <link refid="axis2dbase_8h_source"/>
+        <childnode refid="1564" relation="include">
+        </childnode>
+        <childnode refid="1565" relation="include">
+        </childnode>
+        <childnode refid="1566" relation="include">
+        </childnode>
+        <childnode refid="1573" relation="include">
+        </childnode>
+        <childnode refid="1575" relation="include">
+        </childnode>
+        <childnode refid="1558" relation="include">
+        </childnode>
+        <childnode refid="1568" relation="include">
+        </childnode>
+        <childnode refid="1577" relation="include">
+        </childnode>
+        <childnode refid="1579" relation="include">
+        </childnode>
+      </node>
+      <node id="1567">
         <label>QString</label>
       </node>
-      <node id="761">
+      <node id="1574">
         <label>QColor</label>
       </node>
-      <node id="743">
+      <node id="1557">
         <label>src/xyplot.h</label>
         <link refid="xyplot.h"/>
-        <childnode refid="744" relation="include">
+        <childnode refid="1558" relation="include">
         </childnode>
       </node>
-      <node id="745">
+      <node id="1585">
+        <label>plotcanvas.h</label>
+        <link refid="plotcanvas_8h_source"/>
+        <childnode refid="1564" relation="include">
+        </childnode>
+      </node>
+      <node id="1559">
         <label>QQuickItem</label>
       </node>
-      <node id="747">
+      <node id="1561">
         <label>plotdata.h</label>
         <link refid="plotdata_8h_source"/>
-        <childnode refid="748" relation="include">
+        <childnode refid="1562" relation="include">
         </childnode>
       </node>
-      <node id="757">
+      <node id="1570">
         <label>QVariant</label>
       </node>
-      <node id="753">
-        <label>controller.h</label>
-        <link refid="controller_8h_source"/>
-        <childnode refid="745" relation="include">
-        </childnode>
-        <childnode refid="752" relation="include">
-        </childnode>
+      <node id="1576">
+        <label>QStringList</label>
       </node>
-      <node id="748">
+      <node id="1562">
         <label>QAbstractTableModel</label>
       </node>
-      <node id="751">
+      <node id="1582">
+        <label>QPolygonF</label>
+      </node>
+      <node id="1565">
         <label>QMultiMap</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="766">
+      <node id="1589">
+        <label>src/canvasshape.h</label>
+        <link refid="canvasshape_8h_source"/>
+        <childnode refid="1590" relation="include">
+        </childnode>
+        <childnode refid="1588" relation="include">
+        </childnode>
+        <childnode refid="1591" relation="include">
+        </childnode>
+        <childnode refid="1592" relation="include">
+        </childnode>
+      </node>
+      <node id="1593">
         <label>src/lineplot.h</label>
         <link refid="lineplot_8h_source"/>
       </node>
-      <node id="765">
+      <node id="1587">
         <label>src/xyplot.h</label>
         <link refid="xyplot.h"/>
-        <childnode refid="766" relation="include">
+        <childnode refid="1588" relation="include">
+        </childnode>
+        <childnode refid="1593" relation="include">
+        </childnode>
+      </node>
+      <node id="1592">
+        <label>src/canvasrect.h</label>
+        <link refid="canvasrect_8h_source"/>
+      </node>
+      <node id="1591">
+        <label>src/canvastext.h</label>
+        <link refid="canvastext_8h_source"/>
+      </node>
+      <node id="1590">
+        <label>src/canvasline.h</label>
+        <link refid="canvasline_8h_source"/>
+      </node>
+      <node id="1588">
+        <label>src/canvasplot.h</label>
+        <link refid="canvasplot_8h_source"/>
+        <childnode refid="1589" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -170,9 +255,9 @@
 <codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>XYPLOT_H</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>XYPLOT_H</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;plotbase.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;plot2dbase.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight></codeline>
-<codeline lineno="6" refid="class_x_y_plot" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_x_y_plot" kindref="compound">XYPlot</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_plot_base" kindref="compound">PlotBase</ref></highlight></codeline>
+<codeline lineno="6" refid="class_x_y_plot" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_x_y_plot" kindref="compound">XYPlot</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_plot2_d_base" kindref="compound">Plot2DBase</ref></highlight></codeline>
 <codeline lineno="7"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
 <codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QList&lt;qreal&gt;<sp/>xData<sp/>READ<sp/>xData<sp/>WRITE<sp/>setXData<sp/>NOTIFY<sp/>xDataChanged)</highlight></codeline>

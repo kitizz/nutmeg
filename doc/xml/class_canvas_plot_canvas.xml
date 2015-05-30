@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_canvas_plot_canvas" kind="class" language="C++" prot="public">
+    <compoundname>CanvasPlotCanvas</compoundname>
+    <basecompoundref refid="class_plot_canvas" prot="public" virt="non-virtual">PlotCanvas</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_canvas_plot_canvas_1a902617743e319c837b28b2b04d4bb8b6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CanvasPlotCanvas::CanvasPlotCanvas</definition>
+        <argsstring>(QQuickItem *parent=0)</argsstring>
+        <name>CanvasPlotCanvas</name>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasplotcanvas.h" line="10" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasplotcanvas.cpp" bodystart="6" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_canvas_plot_canvas_1a912de14165b149699dc219183d9d954d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CanvasPlotCanvas::paint</definition>
+        <argsstring>(QPainter *painter)</argsstring>
+        <name>paint</name>
+        <param>
+          <type>QPainter *</type>
+          <declname>painter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/canvasplotcanvas.h" line="12" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasplotcanvas.cpp" bodystart="11" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_canvas_1ae3a8051f8eaf1252fb95dc934d063e60" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal PlotCanvas::scaling</definition>
+        <argsstring>() const </argsstring>
+        <name>scaling</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_canvas_1a36a88be39b585a3c026e2fe7b0fd274c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotCanvas::setScaling</definition>
+        <argsstring>(qreal arg)</argsstring>
+        <name>setScaling</name>
+        <param>
+          <type>qreal</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.h" line="15" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.cpp" bodystart="19" bodyend="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_plot_canvas_1af7f571213ddd7244b7644de27d5ed6ae" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qreal</type>
+        <definition>qreal PlotCanvas::scaling</definition>
+        <argsstring></argsstring>
+        <name>scaling</name>
+        <read>scaling</read>
+        <write>setScaling</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.h" line="36" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_plot_canvas_1ac5e9c730f9245b027b8aba0ce123fe33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotCanvas::scalingChanged</definition>
+        <argsstring>(qreal arg)</argsstring>
+        <name>scalingChanged</name>
+        <param>
+          <type>qreal</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.h" line="18" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_plot_canvas_1ad22cce56d76a101fa532f4cc7bd0693d" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PlotCanvas::updateTriggered</definition>
+        <argsstring>()</argsstring>
+        <name>updateTriggered</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.h" line="21" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.cpp" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_canvas_1a66fc8b8b253afc308d0f3c5274615ccb" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotCanvas::resetTrigger</definition>
+        <argsstring>()</argsstring>
+        <name>resetTrigger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.h" line="22" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.cpp" bodystart="31" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="class_plot_canvas_1ac4f59029b30adddfbd777486126b3a44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotCanvas::triggerUpdate</definition>
+        <argsstring>()</argsstring>
+        <name>triggerUpdate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.h" line="25" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotcanvas.cpp" bodystart="36" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="61">
+        <label>CanvasPlotCanvas</label>
+        <link refid="class_canvas_plot_canvas"/>
+        <childnode refid="62" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>QQuickPaintedItem</label>
+      </node>
+      <node id="62">
+        <label>PlotCanvas</label>
+        <link refid="class_plot_canvas"/>
+        <childnode refid="63" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="64">
+        <label>CanvasPlotCanvas</label>
+        <link refid="class_canvas_plot_canvas"/>
+        <childnode refid="65" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="66">
+        <label>QQuickPaintedItem</label>
+      </node>
+      <node id="65">
+        <label>PlotCanvas</label>
+        <link refid="class_plot_canvas"/>
+        <childnode refid="66" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/canvasplotcanvas.h" line="7" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/canvasplotcanvas.h" bodystart="6" bodyend="18"/>
+    <listofallmembers>
+      <member refid="class_canvas_plot_canvas_1a902617743e319c837b28b2b04d4bb8b6" prot="public" virt="non-virtual"><scope>CanvasPlotCanvas</scope><name>CanvasPlotCanvas</name></member>
+      <member refid="class_canvas_plot_canvas_1a912de14165b149699dc219183d9d954d" prot="public" virt="virtual"><scope>CanvasPlotCanvas</scope><name>paint</name></member>
+      <member refid="class_plot_canvas_1a5829e592e74fd22669779b88e1b6b439" prot="public" virt="non-virtual"><scope>CanvasPlotCanvas</scope><name>PlotCanvas</name></member>
+      <member refid="class_plot_canvas_1a66fc8b8b253afc308d0f3c5274615ccb" prot="protected" virt="non-virtual"><scope>CanvasPlotCanvas</scope><name>resetTrigger</name></member>
+      <member refid="class_plot_canvas_1af7f571213ddd7244b7644de27d5ed6ae" prot="public" virt="non-virtual"><scope>CanvasPlotCanvas</scope><name>scaling</name></member>
+      <member refid="class_plot_canvas_1ae3a8051f8eaf1252fb95dc934d063e60" prot="public" virt="non-virtual"><scope>CanvasPlotCanvas</scope><name>scaling</name></member>
+      <member refid="class_plot_canvas_1ac5e9c730f9245b027b8aba0ce123fe33" prot="public" virt="non-virtual"><scope>CanvasPlotCanvas</scope><name>scalingChanged</name></member>
+      <member refid="class_plot_canvas_1a36a88be39b585a3c026e2fe7b0fd274c" prot="public" virt="non-virtual"><scope>CanvasPlotCanvas</scope><name>setScaling</name></member>
+      <member refid="class_plot_canvas_1ac4f59029b30adddfbd777486126b3a44" prot="public" virt="non-virtual"><scope>CanvasPlotCanvas</scope><name>triggerUpdate</name></member>
+      <member refid="class_plot_canvas_1ad22cce56d76a101fa532f4cc7bd0693d" prot="protected" virt="non-virtual"><scope>CanvasPlotCanvas</scope><name>updateTriggered</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

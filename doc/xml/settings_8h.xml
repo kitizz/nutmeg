@@ -1,18 +1,18 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="settings_8h" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="settings_8h" kind="file" language="C++">
     <compoundname>settings.h</compoundname>
     <includes local="no">QObject</includes>
     <includedby refid="main_8cpp" local="yes">src/main.cpp</includedby>
     <includedby refid="settings_8cpp" local="yes">src/settings.cpp</includedby>
     <incdepgraph>
-      <node id="704">
+      <node id="1482">
         <label>QObject</label>
       </node>
-      <node id="703">
+      <node id="1481">
         <label>src/settings.h</label>
         <link refid="settings.h"/>
-        <childnode refid="704" relation="include">
+        <childnode refid="1482" relation="include">
         </childnode>
       </node>
     </incdepgraph>

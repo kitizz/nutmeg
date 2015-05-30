@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="server_8h" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="server_8h" kind="file" language="C++">
     <compoundname>server.h</compoundname>
     <includes local="yes">../nzmqt/nzmqt.hpp</includes>
     <includes local="yes">../mainwindow.h</includes>
@@ -13,68 +13,68 @@
     <includedby refid="main_8cpp" local="yes">src/main.cpp</includedby>
     <includedby refid="server_8cpp" local="yes">src/server.cpp</includedby>
     <incdepgraph>
-      <node id="692">
+      <node id="1470">
         <label>QMap</label>
       </node>
-      <node id="687">
+      <node id="1465">
         <label>../nzmqt/nzmqt.hpp</label>
       </node>
-      <node id="690">
+      <node id="1468">
         <label>QObject</label>
       </node>
-      <node id="689">
+      <node id="1467">
         <label>pushsocket.h</label>
         <link refid="pushsocket_8h_source"/>
-        <childnode refid="690" relation="include">
+        <childnode refid="1468" relation="include">
         </childnode>
-        <childnode refid="687" relation="include">
+        <childnode refid="1465" relation="include">
         </childnode>
-        <childnode refid="691" relation="include">
+        <childnode refid="1469" relation="include">
         </childnode>
-        <childnode refid="692" relation="include">
+        <childnode refid="1470" relation="include">
         </childnode>
-        <childnode refid="693" relation="include">
+        <childnode refid="1471" relation="include">
         </childnode>
       </node>
-      <node id="696">
+      <node id="1474">
         <label>QThread</label>
       </node>
-      <node id="691">
+      <node id="1469">
         <label>stdexcept</label>
       </node>
-      <node id="695">
+      <node id="1473">
         <label>QByteArray</label>
       </node>
-      <node id="693">
+      <node id="1471">
         <label>QTimer</label>
       </node>
-      <node id="697">
+      <node id="1475">
         <label>QQueue</label>
       </node>
-      <node id="694">
+      <node id="1472">
         <label>QQuickItem</label>
       </node>
-      <node id="688">
+      <node id="1466">
         <label>../mainwindow.h</label>
       </node>
-      <node id="686">
+      <node id="1464">
         <label>src/server.h</label>
         <link refid="server.h"/>
-        <childnode refid="687" relation="include">
+        <childnode refid="1465" relation="include">
         </childnode>
-        <childnode refid="688" relation="include">
+        <childnode refid="1466" relation="include">
         </childnode>
-        <childnode refid="689" relation="include">
+        <childnode refid="1467" relation="include">
         </childnode>
-        <childnode refid="694" relation="include">
+        <childnode refid="1472" relation="include">
         </childnode>
-        <childnode refid="695" relation="include">
+        <childnode refid="1473" relation="include">
         </childnode>
-        <childnode refid="696" relation="include">
+        <childnode refid="1474" relation="include">
         </childnode>
-        <childnode refid="697" relation="include">
+        <childnode refid="1475" relation="include">
         </childnode>
-        <childnode refid="691" relation="include">
+        <childnode refid="1469" relation="include">
         </childnode>
       </node>
     </incdepgraph>
@@ -99,10 +99,10 @@
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdexcept&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">nzmqt;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenzmqt" kindref="compound">nzmqt</ref>;</highlight></codeline>
 <codeline lineno="16"><highlight class="normal"></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">MainWindow;</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_server" kindref="compound">Server</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QQuickItem</highlight></codeline>
+<codeline lineno="18" refid="class_server" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_server" kindref="compound">Server</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QQuickItem</highlight></codeline>
 <codeline lineno="19"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
 <codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QString<sp/>address<sp/>READ<sp/>address<sp/>WRITE<sp/>setAddress<sp/>NOTIFY<sp/>addressChanged)</highlight></codeline>

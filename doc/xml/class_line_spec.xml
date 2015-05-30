@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="class_line_spec" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_line_spec" kind="class" language="C++" prot="public">
     <compoundname>LineSpec</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
       <sectiondef kind="property">
-      <memberdef kind="property" id="class_line_spec_1a054075fc96cc321a9aca800fbf888141" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_line_spec_1a054075fc96cc321a9aca800fbf888141" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QString</type>
         <definition>QString LineSpec::spec</definition>
         <argsstring></argsstring>
@@ -17,9 +17,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="132" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.h" bodystart="11" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="135" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.h" bodystart="11" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_line_spec_1ad66665c23cc0275e79df2f7f18c7ad1c" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_line_spec_1ad66665c23cc0275e79df2f7f18c7ad1c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QColor</type>
         <definition>QColor LineSpec::color</definition>
         <argsstring></argsstring>
@@ -32,9 +32,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="132" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.h" bodystart="12" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="135" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.h" bodystart="12" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_line_spec_1a7342d682bf1b12d1189ea3124a52f6a8" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_line_spec_1a7342d682bf1b12d1189ea3124a52f6a8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QString</type>
         <definition>QString LineSpec::style</definition>
         <argsstring></argsstring>
@@ -47,9 +47,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="132" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.h" bodystart="13" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="135" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.h" bodystart="13" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_line_spec_1a9c836b0a8bcc64039672c45a8196b01c" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_line_spec_1a9c836b0a8bcc64039672c45a8196b01c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>qreal</type>
         <definition>qreal LineSpec::width</definition>
         <argsstring></argsstring>
@@ -62,9 +62,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="132" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.h" bodystart="14" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="135" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.h" bodystart="14" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_line_spec_1a6311ab827d9659615a0c893152d1e326" prot="public" static="no" readable="yes" writable="yes" gettable="no" settable="no">
+      <memberdef kind="property" id="class_line_spec_1a6311ab827d9659615a0c893152d1e326" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QString</type>
         <definition>QString LineSpec::marker</definition>
         <argsstring></argsstring>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="132" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.h" bodystart="15" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="135" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-attrib">
@@ -194,7 +194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="18" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="3" bodyend="12"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="18" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="6" bodyend="15"/>
       </memberdef>
       <memberdef kind="function" id="class_line_spec_1a13e5ec5fa15de90a20502f12170164a5" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -216,7 +216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="19" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="14" bodyend="18"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="19" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="17" bodyend="21"/>
       </memberdef>
       <memberdef kind="function" id="class_line_spec_1ad64715ca58bf4652175e9e804aa14a50" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>QStringList</type>
@@ -229,7 +229,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="20" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="20" bodyend="23"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="20" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="23" bodyend="26"/>
       </memberdef>
       <memberdef kind="function" id="class_line_spec_1a583ce9c93b34e9715d1b55e113f5dd13" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -242,7 +242,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="21" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="25" bodyend="28"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="21" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="28" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="class_line_spec_1a787dbff9f4fdb2365aa35e0d75f1a63a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -272,7 +272,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="28" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="35" bodyend="56"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="28" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="38" bodyend="59"/>
       </memberdef>
       <memberdef kind="function" id="class_line_spec_1a55f23db7e46068aae7f86bd3545871ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>QColor</type>
@@ -302,7 +302,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="31" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="63" bodyend="78"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="31" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="66" bodyend="81"/>
       </memberdef>
       <memberdef kind="function" id="class_line_spec_1ac60cb1856cfc2572d862ae4f8522951a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -340,7 +340,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="34" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="107" bodyend="113"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="34" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="110" bodyend="116"/>
       </memberdef>
       <memberdef kind="function" id="class_line_spec_1a03e8cbba7adeb7ed2b9294fe62a243ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>qreal</type>
@@ -370,7 +370,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="37" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="120" bodyend="125"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="37" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="123" bodyend="128"/>
       </memberdef>
       <memberdef kind="function" id="class_line_spec_1a8374770e156711831ec500ecee436285" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -400,7 +400,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="40" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="132" bodyend="138"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h" line="40" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/linespec.cpp" bodystart="135" bodyend="141"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -538,24 +538,24 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="111">
+      <node id="164">
         <label>QObject</label>
       </node>
-      <node id="110">
+      <node id="163">
         <label>LineSpec</label>
         <link refid="class_line_spec"/>
-        <childnode refid="111" relation="public-inheritance">
+        <childnode refid="164" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="113">
+      <node id="166">
         <label>QObject</label>
       </node>
-      <node id="112">
+      <node id="165">
         <label>LineSpec</label>
         <link refid="class_line_spec"/>
-        <childnode refid="113" relation="public-inheritance">
+        <childnode refid="166" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

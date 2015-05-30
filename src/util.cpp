@@ -1,6 +1,9 @@
 #include "util.h"
 #include <QtCore/qmath.h>
 #include <cmath>
+#include <stdlib.h>
+
+#include <QMap>
 
 Util::Util()
 {
@@ -26,6 +29,73 @@ QList<int>* Util::randomArray(int N)
     }
 
     return lst;
+}
+
+qreal Util::median(QList<qreal> lst)
+{
+    // Assumes already sorted
+    int N = lst.length();
+    if (N % 2 == 1) {
+        return lst[N/2];
+    } else {
+        return 0.5*(lst[N/2 - 1] + lst[N/2]);
+    }
+}
+
+int Util::mode(QList<int> lst)
+{
+    QMap<int,int> map;
+    foreach (int val, lst)
+        map[val] += 1;
+
+    int maxCount = 0, maxVal = 0;
+    foreach (int val, map.keys()) {
+        int count = map[val];
+        if (count > maxCount) {
+            maxCount = count;
+            maxVal = val;
+        }
+    }
+    return maxVal;
+}
+
+int Util::min(QList<int> lst)
+{
+    if (lst.length() == 0) return 0;
+
+    int result = lst[0];
+    foreach (int v, lst) {
+        if (v < result)
+            result = v;
+    }
+    return result;
+}
+
+int Util::max(QList<int> lst)
+{
+    if (lst.length() == 0) return 0;
+
+    int result = lst[0];
+    foreach (int v, lst) {
+        if (v > result)
+            result = v;
+    }
+    return result;
+}
+
+QList<qreal> Util::diff(QList<qreal> lst)
+{
+    QList<qreal> result;
+    for (int i=1; i<lst.length(); ++i) {
+        result << (lst[i] - lst[i-1]);
+    }
+    return result;
+}
+
+qreal Util::roundTo(qreal value, int precision)
+{
+    qreal scale = qPow(10, precision);
+    return scale*(qRound(value/scale));
 }
 
 /*!
@@ -154,9 +224,37 @@ QLineF Util::rectSlice(QPointF p1, QPointF p2, QRectF r)
     return QLineF(q1, q2);
 }
 
+//!
+//! \method Util::precision
+//! Return the base-10 precision of the float value.
+//! E.g. 100 -> 3, 999-> 3, 3 -> 0, 0.1 -> -1, 0.00021 -> -4
+//!
 int Util::precision(qreal value)
 {
-    return qFloor(log10(value));
+    return qFloor(log10(qAbs(value)));
+}
+
+int Util::sign(qreal val)
+{
+    return (0 < val) - (val < 0);
+}
+
+int Util::sign(int val)
+{
+    return (0 < val) - (val < 0);
+}
+
+QString Util::formatReal(qreal value, int precision)
+{
+    // TODO: Monitor the performance of this...
+    static QRegExp regZero("0+$");
+    static QRegExp regDot("\\.$");
+    QString result = QString::number(value, 'f', precision);
+    if (precision > 0) {
+        result.remove(regZero); // Remove any number of trailing 0's
+        result.remove(regDot); // If the last character is just a '.' then remove it
+    }
+    return result;
 }
 
 QList<int>* Util::medianArray(int N, int s, QList<int>* lst)
