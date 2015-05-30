@@ -27,13 +27,19 @@ Figure {
         spacing: 0.05*fig.height
         Axis {
             handle: "axis1"
-            Layout.preferredheight: 0.65*fig.height
-            LinePlot { handle: "data" }
+            Layout.preferredHeight: 0.65*fig.height
+            LinePlot {
+                handle: "data"
+                line { color: "#7777FF"; width: 4 }
+            }
         }
         Axis {
             handle: "axis2"
             Layout.preferredHeight: 0.3*fig.height
-            LinePlot { handle: "data" }
+            LinePlot {
+                handle: "data"
+                line { color: "#FF7777"; width: 4 }
+            }
         }
     }
 }
@@ -42,7 +48,7 @@ Figure {
 From Python, data can be plotted like so:
 
 ```python
-import nutmeg
+import Nutmeg
 from numpy import sin, cos, pi
 
 # Assuming the core is on port 43686 (default)
@@ -52,10 +58,10 @@ x = [ 0.01*n for n in range(100) ]
 y1 = [ sin(10*pi*t) for t in x ]
 y2 = [ 10*pi*cos(10*pi*t) for t in x ]
 
-fig = Nutmeg.figure("myFigure", "figure.qml")
+fig = Nutmeg.figure("myFigure", "myFigure.qml")
 
-fig.set("axis1.data", {'x': x, 'y': y1})
-fig.set("axis2.data", {'x': x, 'y': y2})
+fig.set("axis1.data", x=x, y=y1)
+fig.set("axis2.data", x=x, y=y2)
 ```
 
 Result:
