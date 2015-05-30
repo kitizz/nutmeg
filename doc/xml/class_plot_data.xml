@@ -254,24 +254,24 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="228">
+      <node id="273">
         <label>PlotData</label>
         <link refid="class_plot_data"/>
-        <childnode refid="229" relation="public-inheritance">
+        <childnode refid="274" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="229">
+      <node id="274">
         <label>QAbstractTableModel</label>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="230">
+      <node id="275">
         <label>PlotData</label>
         <link refid="class_plot_data"/>
-        <childnode refid="231" relation="public-inheritance">
+        <childnode refid="276" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="231">
+      <node id="276">
         <label>QAbstractTableModel</label>
       </node>
     </collaborationgraph>

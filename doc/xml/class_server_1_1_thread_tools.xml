@@ -23,22 +23,22 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="257">
+      <node id="318">
         <label>QThread</label>
       </node>
-      <node id="256">
+      <node id="317">
         <label>Server::ThreadTools</label>
-        <childnode refid="257" relation="private-inheritance">
+        <childnode refid="318" relation="private-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="259">
+      <node id="320">
         <label>QThread</label>
       </node>
-      <node id="258">
+      <node id="319">
         <label>Server::ThreadTools</label>
-        <childnode refid="259" relation="private-inheritance">
+        <childnode refid="320" relation="private-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

@@ -1166,24 +1166,24 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="22">
+      <node id="34">
         <label>QQuickPaintedItem</label>
       </node>
-      <node id="21">
+      <node id="33">
         <label>AxisCanvas2D</label>
         <link refid="class_axis_canvas2_d"/>
-        <childnode refid="22" relation="public-inheritance">
+        <childnode refid="34" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="24">
+      <node id="36">
         <label>QQuickPaintedItem</label>
       </node>
-      <node id="23">
+      <node id="35">
         <label>AxisCanvas2D</label>
         <link refid="class_axis_canvas2_d"/>
-        <childnode refid="24" relation="public-inheritance">
+        <childnode refid="36" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

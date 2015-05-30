@@ -560,36 +560,36 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="252">
+      <node id="313">
         <label>QObject</label>
       </node>
-      <node id="251">
+      <node id="312">
         <label>Locator</label>
         <link refid="class_locator"/>
-        <childnode refid="252" relation="public-inheritance">
+        <childnode refid="313" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="250">
+      <node id="311">
         <label>SpacedLocator</label>
         <link refid="class_spaced_locator"/>
-        <childnode refid="251" relation="public-inheritance">
+        <childnode refid="312" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="255">
+      <node id="316">
         <label>QObject</label>
       </node>
-      <node id="254">
+      <node id="315">
         <label>Locator</label>
         <link refid="class_locator"/>
-        <childnode refid="255" relation="public-inheritance">
+        <childnode refid="316" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="253">
+      <node id="314">
         <label>SpacedLocator</label>
         <link refid="class_spaced_locator"/>
-        <childnode refid="254" relation="public-inheritance">
+        <childnode refid="315" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

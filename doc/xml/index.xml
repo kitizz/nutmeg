@@ -37,6 +37,138 @@
     <member refid="class_auto_locator_1aa80df48c51684890e0faf45e743ec276" kind="slot"><name>updateLocator</name></member>
     <member refid="class_auto_locator_1a3c634751ef17f6a9e54e46015bb70ce3" kind="function"><name>roundAt</name></member>
   </compound>
+  <compound refid="class_axis" kind="class"><name>Axis</name>
+    <member refid="class_axis_1af35a6085098b71be97eafcd8e5fb1855" kind="property"><name>plotArea</name></member>
+    <member refid="class_axis_1a46b4248c648f5775f778105c48bde011" kind="property"><name>widthFraction</name></member>
+    <member refid="class_axis_1a874e67632d0fef68b90e896b7da59317" kind="property"><name>heightFraction</name></member>
+    <member refid="class_axis_1acc7d68e993cda0fb72df53872f08b653" kind="property"><name>backgroundColor</name></member>
+    <member refid="class_axis_1a586f5fd65c3275baeb6818df9288f8f0" kind="property"><name>border</name></member>
+    <member refid="class_axis_1a55d3352ee03410d7ff5489073bc8e560" kind="property"><name>navigationEnabled</name></member>
+    <member refid="class_axis_1a02d72b3ad66d772b5ebee6034cb45e3b" kind="property"><name>xNumbersMargin</name></member>
+    <member refid="class_axis_1a7a6f3dc24874c81e64ddaf1f702f9bae" kind="property"><name>yNumbersMargin</name></member>
+    <member refid="class_axis_1acc1991df8366c00ccc0ed7a9300c69d1" kind="property"><name>xNumbers</name></member>
+    <member refid="class_axis_1a590c9573fb4247b5016e004c4937a0a3" kind="property"><name>yNumbers</name></member>
+    <member refid="class_axis2_d_base_1a34d1db9db3582c2ef4613a9698863de0" kind="property"><name>grid</name></member>
+    <member refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kind="property"><name>xAxis</name></member>
+    <member refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kind="property"><name>yAxis</name></member>
+    <member refid="class_axis2_d_base_1abde5ccd4d4da3c8d73bde9b54d2474aa" kind="property"><name>canvas</name></member>
+    <member refid="class_axis2_d_base_1a70b44148c337dcdcf2eb336249bf1ebf" kind="property"><name>limits</name></member>
+    <member refid="class_axis2_d_base_1aadbb7933abae115c31de16ad951d4a64" kind="property"><name>minX</name></member>
+    <member refid="class_axis2_d_base_1ad0f78c03fcde2f27eb4ec69c50cf16f2" kind="property"><name>maxX</name></member>
+    <member refid="class_axis2_d_base_1a9311432fc339db917787efe794fd178b" kind="property"><name>minY</name></member>
+    <member refid="class_axis2_d_base_1ae9859c29725ebb02972ff3a5c3a26028" kind="property"><name>maxY</name></member>
+    <member refid="class_axis2_d_base_1ae216e85dee73b46f0f774f23ac69b47f" kind="property"><name>dataLimits</name></member>
+    <member refid="class_axis2_d_base_1a47f1eae94c60bf62edfeed922ffa024a" kind="property"><name>margin</name></member>
+    <member refid="class_axis2_d_base_1a5241075db8b20640a5f4396ae527c3a2" kind="property"><name>yLimitRounding</name></member>
+    <member refid="class_axis2_d_base_1a903a01c48691da24749bf652f9840789" kind="property"><name>aspectRatio</name></member>
+    <member refid="class_axis2_d_base_1a8c66049ec707922336c0cab25af38db4" kind="property"><name>fitPlots</name></member>
+    <member refid="class_axis2_d_base_1aa44586bb243cdf310a7de3263d94f817" kind="property"><name>shareX</name></member>
+    <member refid="class_axis2_d_base_1a3ce8535e4b57e06dbfa92c443a345360" kind="property"><name>shareY</name></member>
+    <member refid="class_axis_base_1aa15d54e7c59ec20ac2f2330aa26f0e35" kind="property"><name>handle</name></member>
+    <member refid="class_axis_base_1a74a2c387de2a6b67c78a3375a6cd4bb9" kind="property"><name>figure</name></member>
+    <member refid="class_axis_base_1a7f5068c6a03dc994e12d40046d1b691c" kind="property"><name>plotRect</name></member>
+    <member refid="class_axis_base_1afb57f7d1e3861e3a4117989a70f1f9e4" kind="property"><name>plots</name></member>
+    <member refid="class_axis_base_1a3c791c13279cae1bfc0e2406abb55b93" kind="property"><name>title</name></member>
+    <member refid="class_axis_base_1a5399b421f01866caea4825266c70c22d" kind="property"><name>titleFont</name></member>
+    <member refid="class_axis_base_1ad07aa1a2ad6dd0405a58fc56d39e7cd6" kind="property"><name>titleColor</name></member>
+    <member refid="class_axis_1a0c1c0a324d14d7dd40e98f34d07d8f2a" kind="function"><name>clearPlotTips</name></member>
+    <member refid="class_axis2_d_base_1ae5bededf352fab22fdb1bae6c4e3efd7" kind="function"><name>grid</name></member>
+    <member refid="class_axis2_d_base_1ab870632d53a38ad8bf3518d6d62f0c40" kind="function"><name>xAxis</name></member>
+    <member refid="class_axis2_d_base_1ac6fc79f13d8396557df41c23574dab47" kind="function"><name>yAxis</name></member>
+    <member refid="class_axis2_d_base_1aa14f76e0954ff8c187acf894a0b40e34" kind="function"><name>canvas</name></member>
+    <member refid="class_axis2_d_base_1a9948998c21ec40209e7d757c243513c0" kind="function"><name>limits</name></member>
+    <member refid="class_axis2_d_base_1a48c111c01a904a53c5503f1ad97d0b7e" kind="function"><name>minX</name></member>
+    <member refid="class_axis2_d_base_1a199363009608d67163d41dde1e7d704d" kind="function"><name>maxX</name></member>
+    <member refid="class_axis2_d_base_1a197d2f336a61f62baa42f3e219a4a757" kind="function"><name>minY</name></member>
+    <member refid="class_axis2_d_base_1a8fb1d52ee8220fd972975cd847c18b50" kind="function"><name>maxY</name></member>
+    <member refid="class_axis2_d_base_1ae57597ac94f31eb8046f247e87f7f2fb" kind="function"><name>dataLimits</name></member>
+    <member refid="class_axis2_d_base_1aeefdc94ddea83fc15947255b7b220553" kind="function"><name>margin</name></member>
+    <member refid="class_axis2_d_base_1a88fcebc0e932f0dde48428eb729931a1" kind="function"><name>yLimitRounding</name></member>
+    <member refid="class_axis2_d_base_1aad9dd6b06ccdd44341b8caee205c20c7" kind="function"><name>aspectRatio</name></member>
+    <member refid="class_axis2_d_base_1a4dc89a8fbdf37af954e85beacc9a8312" kind="function"><name>fitPlots</name></member>
+    <member refid="class_axis2_d_base_1a57f84b2af8bb47c0c88a134f8442993e" kind="function"><name>shareX</name></member>
+    <member refid="class_axis2_d_base_1addc2350b42a2cf7bd81d208d46566fc2" kind="function"><name>shareY</name></member>
+    <member refid="class_axis2_d_base_1a0e3a56aac01c4dd54577791420b7bbd5" kind="function"><name>log_10</name></member>
+    <member refid="class_axis2_d_base_1a0d7fd725912128275e32ef22b0ec7f96" kind="function"><name>formatReal</name></member>
+    <member refid="class_axis2_d_base_1a21d62f25b540bddfecd5c9849d340168" kind="function"><name>offsetFromStd</name></member>
+    <member refid="class_axis2_d_base_1a90b812b0f22e411ae5374bed70b44216" kind="function"><name>setMinX</name></member>
+    <member refid="class_axis2_d_base_1a752ea12e858899739889680e35e2396f" kind="function"><name>setMaxX</name></member>
+    <member refid="class_axis2_d_base_1aeb2501718e49d2dfdaa7e7601af03cc9" kind="function"><name>setMinY</name></member>
+    <member refid="class_axis2_d_base_1a3836af51f935f941fb27e278fbced083" kind="function"><name>setMaxY</name></member>
+    <member refid="class_axis2_d_base_1a92bde447e8b1fb25689cf91fd364ea85" kind="function"><name>offset</name></member>
+    <member refid="class_axis2_d_base_1a2d95ae84aa474d9b9c1e6cc72b88abdd" kind="function"><name>setLimits</name></member>
+    <member refid="class_axis2_d_base_1accb95d8834d24cecd00ff9dd63843f55" kind="function"><name>resetLimits</name></member>
+    <member refid="class_axis2_d_base_1ad5cff9b0e06e2c58967d7736f6c73ad0" kind="function"><name>setYLimitRounding</name></member>
+    <member refid="class_axis2_d_base_1aba6f2209bba2a1e16971e5fcb2b191de" kind="function"><name>setAspectRatio</name></member>
+    <member refid="class_axis2_d_base_1a7c66fd41b5d53860810e145e66397dfe" kind="function"><name>setFitPlots</name></member>
+    <member refid="class_axis2_d_base_1a1c9d91a5335db9c2f20abde0577e9154" kind="function"><name>setCanvas</name></member>
+    <member refid="class_axis2_d_base_1a26f8c13a78ad637a6e99c239acbb5187" kind="function"><name>setShareX</name></member>
+    <member refid="class_axis2_d_base_1a4ecf0663f5d1f4bdb2519dea519a1811" kind="function"><name>setShareY</name></member>
+    <member refid="class_axis_base_1a552b3abf6a0c653f7d333d7da1a7d87a" kind="function"><name>handle</name></member>
+    <member refid="class_axis_base_1a59522b91979b7d3216c66fc59bd640f5" kind="function"><name>figure</name></member>
+    <member refid="class_axis_base_1a8f5e3604276037bd924de627b398835a" kind="function"><name>plotRect</name></member>
+    <member refid="class_axis_base_1a8fbe5b869f201e8ec859691797a1cb76" kind="function"><name>plots</name></member>
+    <member refid="class_axis_base_1afef7c67451b40c3e00da47f4f767dda6" kind="function"><name>title</name></member>
+    <member refid="class_axis_base_1ac368b8732275649b5807519d3ff68f14" kind="function"><name>titleFont</name></member>
+    <member refid="class_axis_base_1a20afa4d6fe65ffe378f9f6d2c0b7ec8e" kind="function"><name>titleColor</name></member>
+    <member refid="class_axis_base_1a61c8d23b23bf647fb146cff4cfda9aeb" kind="function"><name>getPlotByHandle</name></member>
+    <member refid="class_axis_base_1aa0a65b02d451c7265e983258e10b0c01" kind="function"><name>plotNames</name></member>
+    <member refid="class_axis_base_1a6b79d9708424df11b2125ae047afae7b" kind="function"><name>getPlotList</name></member>
+    <member refid="class_axis_base_1aac2430de7c28bca274f3ebd5e6f965ac" kind="function"><name>setHandle</name></member>
+    <member refid="class_axis_base_1a32a210acbf1c7520013c0a7653fa1780" kind="function"><name>setFigure</name></member>
+    <member refid="class_axis_base_1aa12912bc1c3131e940a569436c08ec5f" kind="function"><name>setPlotRect</name></member>
+    <member refid="class_axis_base_1aa2d6aaf8984e06626c95c98ebccdcbd8" kind="function"><name>resetPlotRect</name></member>
+    <member refid="class_axis_base_1af138abe9d8db6c297bda1f60e9d53276" kind="function"><name>preferredPlotRect</name></member>
+    <member refid="class_axis_base_1ac2becd82ddfe46bb9e16394de15ab53f" kind="function"><name>setPreferredPlotRect</name></member>
+    <member refid="class_axis_base_1a07d9118871a14a34168c9d95ba70cae6" kind="function"><name>setTitle</name></member>
+    <member refid="class_axis_base_1ab4c0ff31031384f402034714293525f7" kind="function"><name>setTitleFont</name></member>
+    <member refid="class_axis_base_1af480f92c1b029f55304f1674db1e38fc" kind="function"><name>setTitleColor</name></member>
+    <member refid="class_axis_base_1ae77697ce1d851ea01be1ad9fc3f6d8f7" kind="function"><name>setAxisGroup</name></member>
+    <member refid="class_axis_base_1a58c5dbf175725a4fd32622dcb6180c74" kind="function"><name>axisGroup</name></member>
+    <member refid="class_axis_base_1af721f094d1dc1aa17b3e116d8ff2b7dc" kind="function"><name>setAxisGroupIndex</name></member>
+    <member refid="class_axis_base_1ad77b60029b32e9b65fd0172ba7b74127" kind="function"><name>getAxisGroupIndex</name></member>
+    <member refid="class_axis2_d_base_1a26c56b9dadc12d79747924ea747f11be" kind="signal"><name>minXChanged</name></member>
+    <member refid="class_axis2_d_base_1a2c5e8980d0a12c8ad4ebc12b6e373cc5" kind="signal"><name>maxXChanged</name></member>
+    <member refid="class_axis2_d_base_1af549c3296a05fd1a48e4c84e02eaa784" kind="signal"><name>minYChanged</name></member>
+    <member refid="class_axis2_d_base_1a86d6f0952f3b857b030d4b480804ae98" kind="signal"><name>maxYChanged</name></member>
+    <member refid="class_axis2_d_base_1adbce4322d45e72672a8f52196ba5c211" kind="signal"><name>limitsChanged</name></member>
+    <member refid="class_axis2_d_base_1a401f3fe88a397727c7863945832bc5aa" kind="signal"><name>dataLimitsChanged</name></member>
+    <member refid="class_axis2_d_base_1a30a44e44b5005d69e6e42fca7e99e3a0" kind="signal"><name>marginChanged</name></member>
+    <member refid="class_axis2_d_base_1aeda98292c2f63f9e5869b29a4a03dab2" kind="signal"><name>yLimitRoundingChanged</name></member>
+    <member refid="class_axis2_d_base_1a83f24641b5e8cc8c7580d66bcbc202cf" kind="signal"><name>xAxisChanged</name></member>
+    <member refid="class_axis2_d_base_1a46e0391cd4a4f08f4e82f0e4e2d998d1" kind="signal"><name>yAxisChanged</name></member>
+    <member refid="class_axis2_d_base_1a28377fd4a64e9e002ca5b6c6b70673f1" kind="signal"><name>aspectRatioChanged</name></member>
+    <member refid="class_axis2_d_base_1a6051a9353de9cdf0a47c00e138908892" kind="signal"><name>fitPlotsChanged</name></member>
+    <member refid="class_axis2_d_base_1aff6cc90de582923495f5b64a336b0fda" kind="signal"><name>shareXChanged</name></member>
+    <member refid="class_axis2_d_base_1a757ba449753739f5bdaa8ff6096925c6" kind="signal"><name>shareYChanged</name></member>
+    <member refid="class_axis2_d_base_1ad79964e2d2cd42915a542de35b2cefe0" kind="signal"><name>canvasChanged</name></member>
+    <member refid="class_axis_base_1a0a361cc3a9ff13390052e1e83ee83914" kind="signal"><name>addedPlot</name></member>
+    <member refid="class_axis_base_1a5b2cb460215816415da4484db728aef8" kind="signal"><name>removedPlot</name></member>
+    <member refid="class_axis_base_1ab839c8bd0890b549d1b60027fe3ab004" kind="signal"><name>plotsChanged</name></member>
+    <member refid="class_axis_base_1a6c8e3778d45f279e51903bc4b5c6a371" kind="signal"><name>handleChanged</name></member>
+    <member refid="class_axis_base_1a54fa0623775ee609b88068562cdae932" kind="signal"><name>figureChanged</name></member>
+    <member refid="class_axis_base_1a436e7f177bedece649c1b777893eac29" kind="signal"><name>plotRectChanged</name></member>
+    <member refid="class_axis_base_1a3ab4be8cd3f886468c24b4f1ac8df7ec" kind="signal"><name>registerWithFigure</name></member>
+    <member refid="class_axis_base_1a85d94101029c4f10f33294f7b568db5a" kind="signal"><name>titleChanged</name></member>
+    <member refid="class_axis_base_1aeeda1ad201d0f81d77d40e37719adf60" kind="signal"><name>titleFontChanged</name></member>
+    <member refid="class_axis_base_1a75f4d3214f4052e4f5f8b4dfac63df33" kind="signal"><name>titleColorChanged</name></member>
+    <member refid="class_axis2_d_base_1a9a90329f7ab2acf84ce9cad51cd162e2" kind="slot"><name>print</name></member>
+    <member refid="class_axis2_d_base_1ab18f2a8245444983339d13191dfb495d" kind="slot"><name>triggerRedraw</name></member>
+    <member refid="class_axis_base_1a83933efed92b247cb937ba0caf87be2c" kind="slot"><name>updateFigure</name></member>
+    <member refid="class_axis_base_1ace3445060ef85f38ed3759106191a353" kind="slot"><name>updatePlotRect</name></member>
+    <member refid="class_axis_base_1a2469d693df31448a6618ff1d60cf3c74" kind="slot"><name>registerPlot</name></member>
+    <member refid="class_axis_base_1ac24c84657095789ae0a39097d68a3b01" kind="slot"><name>deregisterPlot</name></member>
+    <member refid="class_axis_base_1a0846a722bbb5d0815a840296a60931a7" kind="slot"><name>registerProperties</name></member>
+    <member refid="class_axis_base_1afb94054dbc950a92b81f03141cbc88a9" kind="slot"><name>registerProperties</name></member>
+    <member refid="class_axis_base_1a0c617f87809e363ee6a86820223abdac" kind="slot"><name>mapProperty</name></member>
+    <member refid="class_axis_base_1a4ca70a493e59dcd474488f17bf8610cb" kind="slot"><name>registerMethods</name></member>
+    <member refid="class_axis_base_1a885769e4d4a30ef0c6c6a665df38074e" kind="slot"><name>mapMethod</name></member>
+    <member refid="class_axis2_d_base_1a740b0d7f41a2891ff2e82cf95c8e4d5a" kind="slot"><name>updateXAxis</name></member>
+    <member refid="class_axis2_d_base_1a52bbff8ba160174421dd1bdee4764d98" kind="slot"><name>updateYAxis</name></member>
+    <member refid="class_axis2_d_base_1a5637b8a7a17e609e51e8d50e9d41ae3e" kind="slot"><name>updateLimits</name></member>
+    <member refid="class_axis2_d_base_1ad665498a7002045e0c02781338f3218f" kind="slot"><name>updateDataLimits</name></member>
+    <member refid="class_axis_base_1a77912e88d300f93e35a2c475250fd87c" kind="slot"><name>updatePlots</name></member>
+  </compound>
   <compound refid="class_axis2_d_base" kind="class"><name>Axis2DBase</name>
     <member refid="class_axis2_d_base_1a34d1db9db3582c2ef4613a9698863de0" kind="property"><name>grid</name></member>
     <member refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kind="property"><name>xAxis</name></member>
@@ -492,6 +624,13 @@
     <member refid="class_axis_spec_1a44b489a0c0c4a1fec293514dc2cb143c" kind="function"><name>setMax</name></member>
     <member refid="class_axis_spec_1aa7e1a3dbba3af866d8b16a9f84e6b75a" kind="function"><name>setLimits</name></member>
   </compound>
+  <compound refid="class_button" kind="class"><name>Button</name>
+    <member refid="class_button_1a491ffe4369d76c06af4f9e6118dd538b" kind="property"><name>text</name></member>
+    <member refid="class_control_item_1a3307fb790fdba78a8f13b67328dd8883" kind="property"><name>handle</name></member>
+    <member refid="class_control_item_1a41309ec36f78feddd4cb6a889c312498" kind="property"><name>value</name></member>
+    <member refid="class_control_item_1a6e3838d480c4f53e13b4bcc1f2958dc3" kind="property"><name>gui</name></member>
+    <member refid="class_control_item_1ac328e809b48fda404440bdd484253090" kind="function"><name>findGui</name></member>
+  </compound>
   <compound refid="class_canvas_line" kind="class"><name>CanvasLine</name>
     <member refid="class_canvas_line_1ab69deb962514054ce01e5f58588c2b9e" kind="property"><name>xData</name></member>
     <member refid="class_canvas_line_1a2a2876f51e8e881b28296b4d060a6b1d" kind="property"><name>yData</name></member>
@@ -687,6 +826,19 @@
     <member refid="class_canvas_shape_1ae2801fa962e11e22f7643080eecdbe30" kind="slot"><name>registerMethods</name></member>
     <member refid="class_canvas_shape_1a7748076b69c08a356a940cd7410d6b7d" kind="slot"><name>mapMethod</name></member>
   </compound>
+  <compound refid="class_column" kind="class"><name>Column</name>
+    <member refid="class_column_1ad1d7348965b749e154ab1a346b5e630d" kind="property"><name>rows</name></member>
+    <member refid="class_column_1aa86cbde3541fff8718fac479d6a3d417" kind="property"><name>groupName</name></member>
+    <member refid="class_column_1aa569f81df1ea50daafb455fec598e38c" kind="property"><name>axes</name></member>
+    <member refid="class_column_1a69862bb0386d288c9331a00bbff4b4b1" kind="function"><name>updateLayout</name></member>
+    <member refid="class_column_1afb4a8b214a6125170a6a8b775b2879d0" kind="function"><name>listEqual</name></member>
+  </compound>
+  <compound refid="class_control_item" kind="class"><name>ControlItem</name>
+    <member refid="class_control_item_1a3307fb790fdba78a8f13b67328dd8883" kind="property"><name>handle</name></member>
+    <member refid="class_control_item_1a41309ec36f78feddd4cb6a889c312498" kind="property"><name>value</name></member>
+    <member refid="class_control_item_1a6e3838d480c4f53e13b4bcc1f2958dc3" kind="property"><name>gui</name></member>
+    <member refid="class_control_item_1ac328e809b48fda404440bdd484253090" kind="function"><name>findGui</name></member>
+  </compound>
   <compound refid="class_controller" kind="class"><name>Controller</name>
     <member refid="class_controller_1a2fccd804f17d7cc345a05dbeca75efba" kind="property"><name>figures</name></member>
     <member refid="class_controller_1aad299a7de9991c5c3f2d2ddedb0d63c9" kind="variable"><name>m_destroying</name></member>
@@ -705,6 +857,61 @@
     <member refid="class_defaults_1a0b46f61ac910a310b2937183aa025d36" kind="function"><name>defaultFont</name></member>
     <member refid="class_defaults_1a661642567ab9c87366f1a89dbd27e8f4" kind="function"><name>Defaults</name></member>
     <member refid="class_defaults_1ad1ca2d9053bf82d1e47df7dae214105f" kind="function"><name>~Defaults</name></member>
+  </compound>
+  <compound refid="class_figure" kind="class"><name>Figure</name>
+    <member refid="class_figure_1adb8d1900e0d8fabcdfe08c4dc31d6e69" kind="property"><name>tabIndex</name></member>
+    <member refid="class_figure_1a795e2d4f604be5c0b9149ed2dda39a34" kind="property"><name>guiItem</name></member>
+    <member refid="class_figure_1a24107e76be131a01d93fb2ce118d232b" kind="property"><name>qml</name></member>
+    <member refid="class_figure_base_1aace8e3efd4c586ce21f95668d9bf54a3" kind="property"><name>handle</name></member>
+    <member refid="class_figure_base_1a3651592f7f89ec883fd2767629e5bf6e" kind="property"><name>axes</name></member>
+    <member refid="class_figure_base_1a038a32822a6354de5c98db689f6bf3c8" kind="property"><name>controller</name></member>
+    <member refid="class_figure_base_1ae330343939802655e575c38d1cd60a84" kind="property"><name>mouseButtons</name></member>
+    <member refid="class_figure_base_1a6a198a69a228d7da2ec1cb45786ed87a" kind="property"><name>mouse</name></member>
+    <member refid="class_figure_base_1ad9e46559b47845c919e548360524cbe2" kind="property"><name>mouseUnit</name></member>
+    <member refid="class_figure_1a8e1777b0afe7f0ed12c32114362fe7a1" kind="function"><name>axisAtPoint</name></member>
+    <member refid="class_figure_base_1ae743134b9c7b235d0da5a90772954437" kind="function"><name>handle</name></member>
+    <member refid="class_figure_base_1a2ce106e8c869cadaaf118f12f57ba27d" kind="function"><name>axes</name></member>
+    <member refid="class_figure_base_1a14ff3aaa1afecfbfe4e2c755f84487a7" kind="function"><name>controller</name></member>
+    <member refid="class_figure_base_1a04f793aa1bd2b845ceb290f99898560e" kind="function"><name>mouseButtons</name></member>
+    <member refid="class_figure_base_1a969d58170e6d98e18812c89fd4f23137" kind="function"><name>mouse</name></member>
+    <member refid="class_figure_base_1a6dd407c7a71438a7fc861f281ecafd62" kind="function"><name>mouseUnit</name></member>
+    <member refid="class_figure_base_1af297e04770fba862f8414a4be29fe97d" kind="function"><name>getAxesByHandle</name></member>
+    <member refid="class_figure_base_1a6d158d8605ae26f05f42cd03848878cc" kind="function"><name>getAxisList</name></member>
+    <member refid="class_figure_base_1ad82586023d6757a75940cee9fe04bb34" kind="function"><name>getPlotRectFor</name></member>
+    <member refid="class_figure_base_1ad377cecdb2431483695bfb12922d39d3" kind="function"><name>setHandle</name></member>
+    <member refid="class_figure_base_1aafc5fd670ae52874a34422a71fc71d85" kind="function"><name>setController</name></member>
+    <member refid="class_figure_base_1a68727088acbaeaaad2c5583dc73ec9b5" kind="function"><name>installEventFilterApp</name></member>
+    <member refid="class_figure_base_1a2c082750e27d46ff326a1c8b299923b2" kind="function"><name>eventFilter</name></member>
+    <member refid="class_figure_base_1a50d372d69e9a9a3b76ca6321727ea62e" kind="function"><name>setMouse</name></member>
+    <member refid="class_figure_base_1a7c0cd754758dab530bf990584d97652e" kind="function"><name>setMouseUnit</name></member>
+    <member refid="class_figure_base_1a623a812be6dfc1cb37b948f3be24d105" kind="function"><name>setMouseButtons</name></member>
+    <member refid="class_figure_base_1a395820856e1885bd2d64d125d19e1b46" kind="enum"><name>AxisGroupType</name></member>
+    <member refid="class_figure_base_1a395820856e1885bd2d64d125d19e1b46aeaefd132997a8899977f3857249fc97d" kind="enumvalue"><name>Row</name></member>
+    <member refid="class_figure_base_1a395820856e1885bd2d64d125d19e1b46a87f6f9f0ede0f48a4a5952fa37aa4829" kind="enumvalue"><name>Column</name></member>
+    <member refid="class_figure_base_1a395820856e1885bd2d64d125d19e1b46a55f2b5f9792170ad0808ccb0ac0e4ab1" kind="enumvalue"><name>Grid</name></member>
+    <member refid="class_figure_base_1a7e68bf8ebed4b1a4d19ba129c197768e" kind="signal"><name>mouseMoved</name></member>
+    <member refid="class_figure_base_1aac2a09f23f41d09f3541617a0dfe269d" kind="signal"><name>mousePressed</name></member>
+    <member refid="class_figure_base_1a9c15fe25ff994d00198a27a8b72c27de" kind="signal"><name>mouseReleased</name></member>
+    <member refid="class_figure_base_1aa9d531970f81b12eee4f17a473453cd0" kind="signal"><name>axesChanged</name></member>
+    <member refid="class_figure_base_1a893dab85fc91d57f42d2f6882a78b581" kind="signal"><name>handleChanged</name></member>
+    <member refid="class_figure_base_1a9155395a76e4e93050ab8cc39461cf06" kind="signal"><name>addedAxis</name></member>
+    <member refid="class_figure_base_1a7145aa914c0ec6e25412344df83902ff" kind="signal"><name>controllerChanged</name></member>
+    <member refid="class_figure_base_1a491c759bb24e7112d8fb03688e60a6a1" kind="signal"><name>mouseChanged</name></member>
+    <member refid="class_figure_base_1a7f86f6848b340a3ad9e95d19ee54eeae" kind="signal"><name>mouseUnitChanged</name></member>
+    <member refid="class_figure_base_1a2ca226d53a09da7286e2220f847c98b6" kind="signal"><name>mouseButtonsChanged</name></member>
+    <member refid="class_figure_base_1a5092a586452187197b20b4dedec7615a" kind="slot"><name>deregisterAxis</name></member>
+    <member refid="class_figure_base_1a1f65e5fda751deb12639d1f165fbb667" kind="slot"><name>registerAxis</name></member>
+    <member refid="class_figure_base_1a7fe3af1c72c25d94b0da745459c8de1a" kind="slot"><name>registerAxisGroup</name></member>
+    <member refid="class_figure_base_1a7378d92537e692e3f9f49a2625842bf9" kind="slot"><name>updateGroupAt</name></member>
+    <member refid="class_figure_base_1a15f09af8d95ca0188cec1514501d56d5" kind="slot"><name>updateShareX</name></member>
+    <member refid="class_figure_base_1a09d5d6b6d0fea6f4e2487f588463bec8" kind="slot"><name>updateShareY</name></member>
+    <member refid="class_figure_base_1ac1ed978830669c3613d6cc164d619958" kind="slot"><name>savePdf</name></member>
+    <member refid="class_figure_base_1aa1a9e1a319ce3f5dc3498282e7bbeba4" kind="slot"><name>registerProperties</name></member>
+    <member refid="class_figure_base_1a7fc531c3ebb54de25952e9537c5a696d" kind="slot"><name>registerProperties</name></member>
+    <member refid="class_figure_base_1ada9317557c58c3d0ab8bd84ebfa3013f" kind="slot"><name>mapProperty</name></member>
+    <member refid="class_figure_base_1a27d51ed62dbb178b3e34b848ed0abe9f" kind="slot"><name>registerMethods</name></member>
+    <member refid="class_figure_base_1aafada0f38c0e8f27f66b48637b211261" kind="slot"><name>mapMethod</name></member>
+    <member refid="class_figure_base_1a3ac342aa69cd8444f1fc17955ce9f1aa" kind="slot"><name>updateAxes</name></member>
   </compound>
   <compound refid="class_figure_base" kind="class"><name>FigureBase</name>
     <member refid="class_figure_base_1a395820856e1885bd2d64d125d19e1b46" kind="enum"><name>AxisGroupType</name></member>
@@ -797,6 +1004,8 @@
     <member refid="class_nutmeg_object_1ad0933845444cb216443775ee14bd9e3b" kind="function"><name>mapMethod</name></member>
     <member refid="class_fill_spec_1a8a082344110f53dfb44bec6263f42b6b" kind="signal"><name>colorChanged</name></member>
     <member refid="class_fill_spec_1a21f5b990013070658cb06bc1afe060c5" kind="signal"><name>alphaChanged</name></member>
+  </compound>
+  <compound refid="class_grid" kind="class"><name>Grid</name>
   </compound>
   <compound refid="class_hard_locator" kind="class"><name>HardLocator</name>
     <member refid="class_hard_locator_1a02d50c8eb7ce744d55555079d5c9d679" kind="property"><name>hardLocations</name></member>
@@ -928,6 +1137,8 @@
     <member refid="class_label_locator_1a479c7f931f9df83f4bb63e4dbf383d0e" kind="slot"><name>updateLocator</name></member>
   </compound>
   <compound refid="class_line_plot" kind="class"><name>LinePlot</name>
+    <member refid="class_line_plot_1a4745631fb8df5bcc4f8c8e54787ad20c" kind="property"><name>figure</name></member>
+    <member refid="class_line_plot_1a9cc40e0f8280291bbdbb3ab9842caae5" kind="property"><name>infos</name></member>
     <member refid="class_line_plot_1a97727e7fb73a78f24013d2df3a2d8500" kind="property"><name>line</name></member>
     <member refid="class_x_y_plot_1ae87aee8543f8752ea3a6789967d40569" kind="property"><name>xData</name></member>
     <member refid="class_x_y_plot_1ad57f9e441f9ebcabbf8cb868397a6c4e" kind="property"><name>yData</name></member>
@@ -937,6 +1148,15 @@
     <member refid="class_plot_base_1a9350ab567ab278b0053c16aa7677de05" kind="property"><name>axis</name></member>
     <member refid="class_line_plot_1aeeb530048c871b8c69b46a817ff0fcc8" kind="variable"><name>m_points</name></member>
     <member refid="class_line_plot_1a98b0b15a756d5dcc30612c1c837a0e7f" kind="variable"><name>m_line</name></member>
+    <member refid="class_line_plot_1a2cde14350652a8dafd9812722221248e" kind="signal"><name>updateTip</name></member>
+    <member refid="class_line_plot_1a57938f26cbae0873438b4f08f591f2d7" kind="signal"><name>clearTips</name></member>
+    <member refid="class_line_plot_1a098a5ef63bfc889e30b6f241f04922f1" kind="signal"><name>lineChanged</name></member>
+    <member refid="class_x_y_plot_1aab3e29ac33a13420f66ca425ede56519" kind="signal"><name>xDataChanged</name></member>
+    <member refid="class_x_y_plot_1a0f9225b391d93748a81e2d5bfae56cb4" kind="signal"><name>yDataChanged</name></member>
+    <member refid="class_plot2_d_base_1a669e4e97c24d09a0d64837e104e22c84" kind="signal"><name>canvasChanged</name></member>
+    <member refid="class_plot2_d_base_1a851487184ee2f789fe970513d80bc5f3" kind="signal"><name>dataLimitsChanged</name></member>
+    <member refid="class_plot_base_1a063043374a4e49001f17c5101bc6c3a4" kind="signal"><name>handleChanged</name></member>
+    <member refid="class_plot_base_1a2e67e4be9d01f75b1d926994c735e5d9" kind="signal"><name>axisChanged</name></member>
     <member refid="class_line_plot_1afe99db52d3b18a90f836c07ace6714cf" kind="function"><name>LinePlot</name></member>
     <member refid="class_line_plot_1affc1bb76bc69efcc6ceae2d5f562db90" kind="function"><name>line</name></member>
     <member refid="class_x_y_plot_1acf61214103f358a099a674f1584af4d4" kind="function"><name>xData</name></member>
@@ -957,13 +1177,6 @@
     <member refid="class_plot_base_1a411817d4198d723197a8ae44bb0e156e" kind="function"><name>handle</name></member>
     <member refid="class_plot_base_1a02d38ef7f43e225cb647225f070ff0ea" kind="function"><name>axis</name></member>
     <member refid="class_plot_base_1ae3a27ae0464f1b7fc5c752d1abbb8f30" kind="function"><name>setHandle</name></member>
-    <member refid="class_line_plot_1a098a5ef63bfc889e30b6f241f04922f1" kind="signal"><name>lineChanged</name></member>
-    <member refid="class_x_y_plot_1aab3e29ac33a13420f66ca425ede56519" kind="signal"><name>xDataChanged</name></member>
-    <member refid="class_x_y_plot_1a0f9225b391d93748a81e2d5bfae56cb4" kind="signal"><name>yDataChanged</name></member>
-    <member refid="class_plot2_d_base_1a669e4e97c24d09a0d64837e104e22c84" kind="signal"><name>canvasChanged</name></member>
-    <member refid="class_plot2_d_base_1a851487184ee2f789fe970513d80bc5f3" kind="signal"><name>dataLimitsChanged</name></member>
-    <member refid="class_plot_base_1a063043374a4e49001f17c5101bc6c3a4" kind="signal"><name>handleChanged</name></member>
-    <member refid="class_plot_base_1a2e67e4be9d01f75b1d926994c735e5d9" kind="signal"><name>axisChanged</name></member>
     <member refid="class_x_y_plot_1a7e34e9e7e6e9ca419aadce9d53c817bd" kind="slot"><name>setData</name></member>
     <member refid="class_plot2_d_base_1a07889f4fdf93574b04418ccf27fce41b" kind="slot"><name>triggerUpdate</name></member>
     <member refid="class_plot2_d_base_1a36057445ceb9c8ab7f5a8e3597803459" kind="slot"><name>print</name></member>
@@ -1210,7 +1423,21 @@
     <member refid="class_push_socket_1a112e567f0361367af1f9c8ef73a6a06f" kind="slot"><name>checkClient</name></member>
     <member refid="class_push_socket_1a0a47b5a4960aee45fa3d8f058eef7f7b" kind="signal"><name>close</name></member>
   </compound>
+  <compound refid="class_repeater" kind="class"><name>Repeater</name>
+    <member refid="class_repeater_1a1995534e2cb07b9c7a3e14d0a94ca61a" kind="property"><name>count</name></member>
+    <member refid="class_repeater_1a48d572d073390958bd794267c21a85ee" kind="property"><name>delegate</name></member>
+    <member refid="class_repeater_1a6dbcfea8ee5b3ee0da41befdf83423b8" kind="property"><name>items</name></member>
+    <member refid="class_repeater_1a86c0439317145e0bb52523f1a9478c6a" kind="function"><name>clearItems</name></member>
+    <member refid="class_repeater_1aa04badb7f7bdb9361730b6b02938f7fb" kind="function"><name>updateItems</name></member>
+  </compound>
+  <compound refid="class_row" kind="class"><name>Row</name>
+    <member refid="class_row_1a806c7e8e0d05be4c4f68b7f72a24f53f" kind="function"><name>updateLayout</name></member>
+  </compound>
   <compound refid="class_server" kind="class"><name>Server</name>
+    <member refid="class_server_1a5bfce2ccb4bc8726b6a36189f9f51803" kind="property"><name>figureContainer</name></member>
+    <member refid="class_server_1ad951781a39a4d0ee3814c9909d47a40a" kind="property"><name>tabView</name></member>
+    <member refid="class_server_1acf48152dd0680f0112dd138de6569788" kind="property"><name>controller</name></member>
+    <member refid="class_server_1a37c5dec5dccd4a9743211856031ea347" kind="property"><name>userArea</name></member>
     <member refid="class_server_1a77ba2c107f89dedaea1b9adfc87720dc" kind="property"><name>address</name></member>
     <member refid="class_server_1a4db32e1a16e0423cf619d7914fa9b8c2" kind="property"><name>running</name></member>
     <member refid="class_server_1a926c9dae229a62b6d33fdbb41dca6d82" kind="property"><name>port</name></member>
@@ -1225,6 +1452,13 @@
     <member refid="class_server_1ae756a18914377e2491c1b9107ade4af3" kind="variable"><name>m_currentAddress</name></member>
     <member refid="class_server_1a3918d0c26cb77c860bbfb3a1d571e4ed" kind="variable"><name>m_port</name></member>
     <member refid="class_server_1aea17391f0bc9f4ee036ee59316daaa51" kind="variable"><name>m_mainWindow</name></member>
+    <member refid="class_server_1a08289eec65d8859d90c715af7a3c48c0" kind="function"><name>processMessage</name></member>
+    <member refid="class_server_1a6e90ddfa4b7cb46f66f9933862a550c5" kind="function"><name>createFigure</name></member>
+    <member refid="class_server_1a5673c8b679b197e3064af0a55a7be60b" kind="function"><name>createGui</name></member>
+    <member refid="class_server_1a8287788315385110127a21ea7f1748a6" kind="function"><name>handleValid</name></member>
+    <member refid="class_server_1adc7ab6ff03f2df060285436222189715" kind="function"><name>findChild</name></member>
+    <member refid="class_server_1a09123be74220c99e47c220f79daa85a1" kind="function"><name>sendData</name></member>
+    <member refid="class_server_1a9a391fdf2e0f3e1c0b4fd6d38d66492f" kind="function"><name>setProperties</name></member>
     <member refid="class_server_1ae3a5ee41ee9d61e1953cb190a3e480cd" kind="function"><name>Server</name></member>
     <member refid="class_server_1a3e93dbe2e035f188e01fda709ca74273" kind="function"><name>address</name></member>
     <member refid="class_server_1a0c3de22ee8968d20289d27ca29bd2b17" kind="function"><name>setAddress</name></member>
@@ -1278,6 +1512,15 @@
     <member refid="class_plot_canvas_1ad22cce56d76a101fa532f4cc7bd0693d" kind="function"><name>updateTriggered</name></member>
     <member refid="class_plot_canvas_1a66fc8b8b253afc308d0f3c5274615ccb" kind="function"><name>resetTrigger</name></member>
     <member refid="class_plot_canvas_1ac4f59029b30adddfbd777486126b3a44" kind="slot"><name>triggerUpdate</name></member>
+  </compound>
+  <compound refid="class_slider" kind="class"><name>Slider</name>
+    <member refid="class_slider_1a1c0a6f08bf2dd23dc041d8d0a7cba801" kind="property"><name>label</name></member>
+    <member refid="class_slider_1a645ffa3b98a93478749b1c4a24cd9c08" kind="property"><name>slider</name></member>
+    <member refid="class_slider_1a72b00d56c0fd59bfc4ca30e42d87303f" kind="property"><name>decimals</name></member>
+    <member refid="class_control_item_1a3307fb790fdba78a8f13b67328dd8883" kind="property"><name>handle</name></member>
+    <member refid="class_control_item_1a41309ec36f78feddd4cb6a889c312498" kind="property"><name>value</name></member>
+    <member refid="class_control_item_1a6e3838d480c4f53e13b4bcc1f2958dc3" kind="property"><name>gui</name></member>
+    <member refid="class_control_item_1ac328e809b48fda404440bdd484253090" kind="function"><name>findGui</name></member>
   </compound>
   <compound refid="class_spaced_locator" kind="class"><name>SpacedLocator</name>
     <member refid="class_spaced_locator_1a4839726e8228c851a57216c2be69fded" kind="property"><name>spacing</name></member>

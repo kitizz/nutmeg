@@ -477,53 +477,53 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="75">
+      <node id="93">
         <label>CanvasShape</label>
         <link refid="class_canvas_shape"/>
-        <childnode refid="76" relation="public-inheritance">
+        <childnode refid="94" relation="public-inheritance">
         </childnode>
-        <childnode refid="77" relation="public-inheritance">
+        <childnode refid="95" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="79">
+      <node id="97">
         <label>CanvasRect</label>
         <link refid="class_canvas_rect"/>
-        <childnode refid="75" relation="public-inheritance">
+        <childnode refid="93" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="78">
+      <node id="96">
         <label>CanvasLine</label>
         <link refid="class_canvas_line"/>
-        <childnode refid="75" relation="public-inheritance">
+        <childnode refid="93" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="80">
+      <node id="98">
         <label>CanvasText</label>
         <link refid="class_canvas_text"/>
-        <childnode refid="75" relation="public-inheritance">
+        <childnode refid="93" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="76">
+      <node id="94">
         <label>QQuickItem</label>
       </node>
-      <node id="77">
+      <node id="95">
         <label>NutmegObject</label>
         <link refid="class_nutmeg_object"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="81">
+      <node id="99">
         <label>CanvasShape</label>
         <link refid="class_canvas_shape"/>
-        <childnode refid="82" relation="public-inheritance">
+        <childnode refid="100" relation="public-inheritance">
         </childnode>
-        <childnode refid="83" relation="public-inheritance">
+        <childnode refid="101" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="82">
+      <node id="100">
         <label>QQuickItem</label>
       </node>
-      <node id="83">
+      <node id="101">
         <label>NutmegObject</label>
         <link refid="class_nutmeg_object"/>
       </node>

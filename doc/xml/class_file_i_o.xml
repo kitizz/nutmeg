@@ -175,24 +175,24 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="105">
+      <node id="142">
         <label>QObject</label>
       </node>
-      <node id="104">
+      <node id="141">
         <label>FileIO</label>
         <link refid="class_file_i_o"/>
-        <childnode refid="105" relation="public-inheritance">
+        <childnode refid="142" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="107">
+      <node id="144">
         <label>QObject</label>
       </node>
-      <node id="106">
+      <node id="143">
         <label>FileIO</label>
         <link refid="class_file_i_o"/>
-        <childnode refid="107" relation="public-inheritance">
+        <childnode refid="144" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

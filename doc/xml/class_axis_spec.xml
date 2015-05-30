@@ -1602,35 +1602,35 @@ Read-only <ref refid="class_line_spec" kindref="compound">LineSpec</ref> propert
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="38">
+      <node id="50">
         <label>QObject</label>
       </node>
-      <node id="37">
+      <node id="49">
         <label>AxisSpec</label>
         <link refid="class_axis_spec"/>
-        <childnode refid="38" relation="public-inheritance">
+        <childnode refid="50" relation="public-inheritance">
         </childnode>
-        <childnode refid="39" relation="public-inheritance">
+        <childnode refid="51" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="39">
+      <node id="51">
         <label>NutmegObject</label>
         <link refid="class_nutmeg_object"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="41">
+      <node id="53">
         <label>QObject</label>
       </node>
-      <node id="40">
+      <node id="52">
         <label>AxisSpec</label>
         <link refid="class_axis_spec"/>
-        <childnode refid="41" relation="public-inheritance">
+        <childnode refid="53" relation="public-inheritance">
         </childnode>
-        <childnode refid="42" relation="public-inheritance">
+        <childnode refid="54" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="42">
+      <node id="54">
         <label>NutmegObject</label>
         <link refid="class_nutmeg_object"/>
       </node>

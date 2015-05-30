@@ -294,7 +294,7 @@
 <codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_figure_base" kindref="compound">FigureBase</ref>(QQuickItem<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_figure_base" kindref="compound">FigureBase</ref>();</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>AxisGroupType<sp/>{<sp/>Row=1,<sp/>Column=2,<sp/>Grid=3<sp/>};</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>AxisGroupType<sp/>{<sp/><ref refid="class_row" kindref="compound">Row</ref>=1,<sp/><ref refid="class_column" kindref="compound">Column</ref>=2,<sp/><ref refid="class_grid" kindref="compound">Grid</ref>=3<sp/>};</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"></highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>void<sp/>paint(QPainter<sp/>*painter);</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight></codeline>

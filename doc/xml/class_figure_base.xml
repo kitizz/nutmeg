@@ -4,6 +4,7 @@
     <compoundname>FigureBase</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QQuickItem</basecompoundref>
     <basecompoundref refid="class_nutmeg_object" prot="public" virt="non-virtual">NutmegObject</basecompoundref>
+    <derivedcompoundref refid="class_figure" prot="public" virt="non-virtual">Figure</derivedcompoundref>
       <sectiondef kind="public-type">
       <memberdef kind="enum" id="class_figure_base_1a395820856e1885bd2d64d125d19e1b46" prot="public" static="no">
         <name>AxisGroupType</name>
@@ -356,7 +357,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><ref refid="class_figure_base_1ad82586023d6757a75940cee9fe04bb34" kindref="member">FigureBase::getPlotRectFor</ref> If this Axis belongs to a group, this returns a QRectF whose height is bounded by the smallest height in its row, and width is bounded by the smallest width in its coloumn. </para>        </detaileddescription>
+<para><ref refid="class_figure_base_1ad82586023d6757a75940cee9fe04bb34" kindref="member">FigureBase::getPlotRectFor</ref> If this <ref refid="class_axis" kindref="compound">Axis</ref> belongs to a group, this returns a QRectF whose height is bounded by the smallest height in its row, and width is bounded by the smallest width in its coloumn. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="39" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="198" bodyend="234"/>
@@ -967,35 +968,41 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="98">
+      <node id="134">
         <label>FigureBase</label>
         <link refid="class_figure_base"/>
-        <childnode refid="99" relation="public-inheritance">
+        <childnode refid="135" relation="public-inheritance">
         </childnode>
-        <childnode refid="100" relation="public-inheritance">
+        <childnode refid="136" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="99">
+      <node id="137">
+        <label>Figure</label>
+        <link refid="class_figure"/>
+        <childnode refid="134" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="135">
         <label>QQuickItem</label>
       </node>
-      <node id="100">
+      <node id="136">
         <label>NutmegObject</label>
         <link refid="class_nutmeg_object"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="101">
+      <node id="138">
         <label>FigureBase</label>
         <link refid="class_figure_base"/>
-        <childnode refid="102" relation="public-inheritance">
+        <childnode refid="139" relation="public-inheritance">
         </childnode>
-        <childnode refid="103" relation="public-inheritance">
+        <childnode refid="140" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="102">
+      <node id="139">
         <label>QQuickItem</label>
       </node>
-      <node id="103">
+      <node id="140">
         <label>NutmegObject</label>
         <link refid="class_nutmeg_object"/>
       </node>

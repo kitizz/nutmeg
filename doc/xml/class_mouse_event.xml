@@ -282,24 +282,24 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="176">
+      <node id="219">
         <label>QObject</label>
       </node>
-      <node id="175">
+      <node id="218">
         <label>MouseEvent</label>
         <link refid="class_mouse_event"/>
-        <childnode refid="176" relation="public-inheritance">
+        <childnode refid="219" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="178">
+      <node id="221">
         <label>QObject</label>
       </node>
-      <node id="177">
+      <node id="220">
         <label>MouseEvent</label>
         <link refid="class_mouse_event"/>
-        <childnode refid="178" relation="public-inheritance">
+        <childnode refid="221" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

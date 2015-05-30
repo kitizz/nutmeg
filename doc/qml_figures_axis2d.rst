@@ -1,6 +1,6 @@
 Axis
 ====
 
-.. doxygenclass:: Axis2DBase
+.. doxygenclass:: Axis
    :project: Nutmeg
    :members:

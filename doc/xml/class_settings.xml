@@ -109,24 +109,24 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="240">
+      <node id="295">
         <label>Settings</label>
         <link refid="class_settings"/>
-        <childnode refid="241" relation="public-inheritance">
+        <childnode refid="296" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="241">
+      <node id="296">
         <label>QObject</label>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="242">
+      <node id="297">
         <label>Settings</label>
         <link refid="class_settings"/>
-        <childnode refid="243" relation="public-inheritance">
+        <childnode refid="298" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="243">
+      <node id="298">
         <label>QObject</label>
       </node>
     </collaborationgraph>

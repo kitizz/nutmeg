@@ -257,35 +257,35 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="109">
+      <node id="146">
         <label>QObject</label>
       </node>
-      <node id="108">
+      <node id="145">
         <label>FillSpec</label>
         <link refid="class_fill_spec"/>
-        <childnode refid="109" relation="public-inheritance">
+        <childnode refid="146" relation="public-inheritance">
         </childnode>
-        <childnode refid="110" relation="public-inheritance">
+        <childnode refid="147" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="110">
+      <node id="147">
         <label>NutmegObject</label>
         <link refid="class_nutmeg_object"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="112">
+      <node id="149">
         <label>QObject</label>
       </node>
-      <node id="111">
+      <node id="148">
         <label>FillSpec</label>
         <link refid="class_fill_spec"/>
-        <childnode refid="112" relation="public-inheritance">
+        <childnode refid="149" relation="public-inheritance">
         </childnode>
-        <childnode refid="113" relation="public-inheritance">
+        <childnode refid="150" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="113">
+      <node id="150">
         <label>NutmegObject</label>
         <link refid="class_nutmeg_object"/>
       </node>

@@ -154,36 +154,36 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="61">
+      <node id="79">
         <label>CanvasPlotCanvas</label>
         <link refid="class_canvas_plot_canvas"/>
-        <childnode refid="62" relation="public-inheritance">
+        <childnode refid="80" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="63">
+      <node id="81">
         <label>QQuickPaintedItem</label>
       </node>
-      <node id="62">
+      <node id="80">
         <label>PlotCanvas</label>
         <link refid="class_plot_canvas"/>
-        <childnode refid="63" relation="public-inheritance">
+        <childnode refid="81" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="64">
+      <node id="82">
         <label>CanvasPlotCanvas</label>
         <link refid="class_canvas_plot_canvas"/>
-        <childnode refid="65" relation="public-inheritance">
+        <childnode refid="83" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="66">
+      <node id="84">
         <label>QQuickPaintedItem</label>
       </node>
-      <node id="65">
+      <node id="83">
         <label>PlotCanvas</label>
         <link refid="class_plot_canvas"/>
-        <childnode refid="66" relation="public-inheritance">
+        <childnode refid="84" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

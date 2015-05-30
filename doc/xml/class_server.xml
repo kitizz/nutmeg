@@ -3,8 +3,61 @@
   <compounddef id="class_server" kind="class" language="C++" prot="public">
     <compoundname>Server</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QQuickItem</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">ServerBase</basecompoundref>
     <innerclass refid="class_server_1_1_thread_tools" prot="private">Server::ThreadTools</innerclass>
       <sectiondef kind="property">
+      <memberdef kind="property" id="class_server_1a5bfce2ccb4bc8726b6a36189f9f51803" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var Server::figureContainer</definition>
+        <argsstring></argsstring>
+        <name>figureContainer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="1" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_server_1ad951781a39a4d0ee3814c9909d47a40a" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var Server::tabView</definition>
+        <argsstring></argsstring>
+        <name>tabView</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="1" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_server_1acf48152dd0680f0112dd138de6569788" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var Server::controller</definition>
+        <argsstring></argsstring>
+        <name>controller</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="1" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_server_1a37c5dec5dccd4a9743211856031ea347" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var Server::userArea</definition>
+        <argsstring></argsstring>
+        <name>userArea</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="1" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="property" id="class_server_1a77ba2c107f89dedaea1b9adfc87720dc" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QString</type>
         <definition>QString Server::address</definition>
@@ -198,6 +251,238 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_server_1a08289eec65d8859d90c715af7a3c48c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Server::processMessage</definition>
+        <argsstring>(request)</argsstring>
+        <name>processMessage</name>
+        <param>
+          <type>request</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handles the initial request message. Selects the appropriate server command to execute based on the first argument in the message <computeroutput>[&quot;command&quot;, request={&quot;arg1&quot;: val1, &quot;arg2&quot;: val2, ...}]</computeroutput> <simplesect kind="return"><para>Success: <computeroutput>command(request)</computeroutput> </para></simplesect>
+<simplesect kind="return"><para>Unrecognized command: <computeroutput>[1, {&quot;message&quot;: m}]</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="21" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_server_1a6e90ddfa4b7cb46f66f9933862a550c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Server::createFigure</definition>
+        <argsstring>(dictionary args)</argsstring>
+        <name>createFigure</name>
+        <param>
+          <type>dictionary</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a figure based on the parameters provided in <emphasis>args</emphasis>.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>{&quot;figureHandle&quot;: f, &quot;qml&quot;: qmlString} </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>figureHandle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(String) The unique handle for the figure being created. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>qml</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(String) QML string declaring the layout of the figure. See more in (). </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Success: <computeroutput>[0, {&quot;figureHandle&quot;: f, &quot;port&quot;: parameterUpdatePort, &quot;message&quot;: m}]</computeroutput> </para></simplesect>
+<simplesect kind="return"><para>QML Failure: <computeroutput>[2, {&quot;lineNumber&quot;: l, &quot;columnNumber&quot;: c, &quot;message&quot;: m}]</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="31" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_server_1a5673c8b679b197e3064af0a55a7be60b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Server::createGui</definition>
+        <argsstring>(dictionary args)</argsstring>
+        <name>createGui</name>
+        <param>
+          <type>dictionary</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Layout parameter controls based on the parameters provided in <computeroutput>args</computeroutput>.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A dictionary of args. {&quot;figureHandle&quot;: f, &quot;qml&quot;: qml] </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>figureHandle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(String) The unique identifier of the new figure </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>qml</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(String) Should describe the layout of the controls used for adjusting parameter values related to <computeroutput>figureHandle</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Success: <computeroutput>[0, {&quot;message&quot;: m, &quot;parameters&quot;: p}]</computeroutput> <linebreak/>
+</para></simplesect>
+<simplesect kind="return"><para>Bad <computeroutput>figureHandle:</computeroutput> <computeroutput>[3, {&quot;message&quot;: m}]</computeroutput> <linebreak/>
+</para></simplesect>
+<simplesect kind="return"><para>QML Failure: <computeroutput>[4, {&quot;lineNumber&quot;: l, &quot;columnNumber&quot;: c, &quot;message&quot;: m}]</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="43" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_server_1a8287788315385110127a21ea7f1748a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Server::handleValid</definition>
+        <argsstring>(args)</argsstring>
+        <name>handleValid</name>
+        <param>
+          <type>args</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check whether the given full handle is valid.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Full handle to any Nutmeg object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Valid: <computeroutput>[0, {&quot;message&quot;: m}]</computeroutput> </para></simplesect>
+<simplesect kind="return"><para>Invalid: <computeroutput>[6, {&quot;message&quot;: m}]</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="51" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_server_1adc7ab6ff03f2df060285436222189715" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Server::findChild</definition>
+        <argsstring>(args)</argsstring>
+        <name>findChild</name>
+        <param>
+          <type>args</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Find and return the full handle of the child of <emphasis>parentHandle</emphasis>, with the handle, <emphasis>childHandle</emphasis>.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parentHandle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The full handle of a figure or axis. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>childHandle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle name of the child.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Success: <computeroutput>[0, {&quot;message&quot;: m, &quot;fullHandle&quot;: h}]</computeroutput> <linebreak/>
+</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="61" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_server_1a09123be74220c99e47c220f79daa85a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Server::sendData</definition>
+        <argsstring>(args)</argsstring>
+        <name>sendData</name>
+        <param>
+          <type>args</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the data or properties of <computeroutput>plotHandle</computeroutput> according the values stored in <computeroutput>dataDict</computeroutput>. Multiple objects can be referenced using Python-style pretty indexing (see below).</para><para>For a single set of data, <computeroutput>dataList</computeroutput> should be a 1D list. For a multiple sets of data destined for multiple axes or plots, <computeroutput>dataList</computeroutput> should be a 2D list, regardless of the number of data points. Where the first dimension contains a list for each dataset. In the following example, a figure has an axis group of 3 (so they have the same handle). Each axis contains a line plot with the handle &quot;myData&quot;:</para><para><blockquote><para>[ &quot;sendData&quot;, &quot;myFigure.axes[0:3].myData&quot;, {&quot;x&quot;: [0,1,2], &quot;y&quot;: [ [2,4,1], [9,1,0], [1,2,3] ]} ] </para></blockquote></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>req</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Request: [&quot;sendData&quot;, handle, dataDict, parameter (optional)] </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The hierarchical handle to the plot of interest (e.g. <computeroutput>myFigure.axis[0].experiment1Data</computeroutput>) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dataDict</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data dictionary should contain one or both of <computeroutput>&quot;x&quot;</computeroutput> and <computeroutput>&quot;y&quot;</computeroutput> data for a 2D plot (e.g. <computeroutput>{&quot;x&quot;: [0,1,2], &quot;y&quot;: [2,4,1]}</computeroutput>) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parameter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional argument which informs the server which changing parameter that this update is in response to. See Socket Architecture for details </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Success: <computeroutput>[0, {&quot;message&quot;: m}]</computeroutput> <linebreak/>
+</para></simplesect>
+<simplesect kind="return"><para>Bad Property: <computeroutput>[5, {&quot;message&quot;: m}]</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="85" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_server_1a9a391fdf2e0f3e1c0b4fd6d38d66492f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Server::setProperties</definition>
+        <argsstring>(obj, prop, data)</argsstring>
+        <name>setProperties</name>
+        <param>
+          <type>obj</type>
+        </param>
+        <param>
+          <type>prop</type>
+        </param>
+        <param>
+          <type>data</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="87" column="1"/>
+      </memberdef>
       <memberdef kind="function" id="class_server_1ae3a5ee41ee9d61e1953cb190a3e480cd" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
         <definition>Server::Server</definition>
@@ -788,40 +1073,56 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-    </detaileddescription>
+<para><ref refid="class_server" kindref="compound">Server</ref> handles requests from Nutmeg clients. </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="236">
+      <node id="289">
         <label>Server</label>
         <link refid="class_server"/>
-        <childnode refid="237" relation="public-inheritance">
+        <childnode refid="290" relation="public-inheritance">
+        </childnode>
+        <childnode refid="291" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="237">
+      <node id="291">
+        <label>ServerBase</label>
+      </node>
+      <node id="290">
         <label>QQuickItem</label>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="238">
+      <node id="292">
         <label>Server</label>
         <link refid="class_server"/>
-        <childnode refid="239" relation="public-inheritance">
+        <childnode refid="293" relation="public-inheritance">
+        </childnode>
+        <childnode refid="294" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="239">
+      <node id="294">
+        <label>ServerBase</label>
+      </node>
+      <node id="293">
         <label>QQuickItem</label>
       </node>
     </collaborationgraph>
-    <location file="/Users/kitham/projects/qt/nutmeg/src/server.h" line="19" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/server.h" bodystart="18" bodyend="110"/>
+    <location file="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" line="5" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Server.qml" bodystart="5" bodyend="88"/>
     <listofallmembers>
       <member refid="class_server_1a77ba2c107f89dedaea1b9adfc87720dc" prot="public" virt="non-virtual"><scope>Server</scope><name>address</name></member>
       <member refid="class_server_1a3e93dbe2e035f188e01fda709ca74273" prot="public" virt="non-virtual"><scope>Server</scope><name>address</name></member>
       <member refid="class_server_1ac57784303fc89973a4fa284b25bbaa7c" prot="public" virt="non-virtual"><scope>Server</scope><name>addressChanged</name></member>
       <member refid="class_server_1ae48de3b09e1244845599abd0feec6257" prot="public" virt="non-virtual"><scope>Server</scope><name>adjustPath</name></member>
       <member refid="class_server_1a0ea97ea5cacb0c6db3812269eaacc29b" prot="public" virt="non-virtual"><scope>Server</scope><name>binaryReceived</name></member>
+      <member refid="class_server_1acf48152dd0680f0112dd138de6569788" prot="public" virt="non-virtual"><scope>Server</scope><name>controller</name></member>
+      <member refid="class_server_1a6e90ddfa4b7cb46f66f9933862a550c5" prot="public" virt="non-virtual"><scope>Server</scope><name>createFigure</name></member>
       <member refid="class_server_1a4a5c6506015aead47a6bf0396051605f" prot="public" virt="non-virtual"><scope>Server</scope><name>createFigure</name></member>
+      <member refid="class_server_1a5673c8b679b197e3064af0a55a7be60b" prot="public" virt="non-virtual"><scope>Server</scope><name>createGui</name></member>
       <member refid="class_server_1a844673c0fdb6f5a4293e5f9fd6531ed1" prot="public" virt="non-virtual"><scope>Server</scope><name>failure</name></member>
+      <member refid="class_server_1a5bfce2ccb4bc8726b6a36189f9f51803" prot="public" virt="non-virtual"><scope>Server</scope><name>figureContainer</name></member>
+      <member refid="class_server_1adc7ab6ff03f2df060285436222189715" prot="public" virt="non-virtual"><scope>Server</scope><name>findChild</name></member>
       <member refid="class_server_1ab1627ea040dc0b7748c5b9342ccf566d" prot="public" virt="non-virtual"><scope>Server</scope><name>finished</name></member>
       <member refid="class_server_1ae692cc4dcc53d183584105304a25f029" prot="public" virt="non-virtual"><scope>Server</scope><name>getPortForFigure</name></member>
+      <member refid="class_server_1a8287788315385110127a21ea7f1748a6" prot="public" virt="non-virtual"><scope>Server</scope><name>handleValid</name></member>
       <member refid="class_server_1a3299b832f5f8e744f51dd7b4cad01b9c" prot="public" virt="non-virtual"><scope>Server</scope><name>jsonReceived</name></member>
       <member refid="class_server_1a4453bdae35e6b0271251af00c225c8c5" prot="private" virt="non-virtual"><scope>Server</scope><name>m_address</name></member>
       <member refid="class_server_1a4942a359c9bc6d165b6cdc6b55b3ae64" prot="private" virt="non-virtual"><scope>Server</scope><name>m_context</name></member>
@@ -841,11 +1142,13 @@
       <member refid="class_server_1a926c9dae229a62b6d33fdbb41dca6d82" prot="public" virt="non-virtual"><scope>Server</scope><name>port</name></member>
       <member refid="class_server_1a9d7e2ad0a48dba63f947bb2d86ddeeee" prot="public" virt="non-virtual"><scope>Server</scope><name>port</name></member>
       <member refid="class_server_1aec373c9983ba51b3aaed92fdecd9753a" prot="public" virt="non-virtual"><scope>Server</scope><name>portChanged</name></member>
+      <member refid="class_server_1a08289eec65d8859d90c715af7a3c48c0" prot="public" virt="non-virtual"><scope>Server</scope><name>processMessage</name></member>
       <member refid="class_server_1a79900e5c36c6c86433cc98254cfb47c3" prot="public" virt="non-virtual"><scope>Server</scope><name>processRequest</name></member>
       <member refid="class_server_1a218f66493515ed5a49d9ffd3dd20365d" prot="public" virt="non-virtual"><scope>Server</scope><name>replySent</name></member>
       <member refid="class_server_1a4db32e1a16e0423cf619d7914fa9b8c2" prot="public" virt="non-virtual"><scope>Server</scope><name>running</name></member>
       <member refid="class_server_1aae0447ada527c40fa76fd8af13b429c1" prot="public" virt="non-virtual"><scope>Server</scope><name>running</name></member>
       <member refid="class_server_1aa9f3e6bd35cf5a2401487c48191041fa" prot="public" virt="non-virtual"><scope>Server</scope><name>runningChanged</name></member>
+      <member refid="class_server_1a09123be74220c99e47c220f79daa85a1" prot="public" virt="non-virtual"><scope>Server</scope><name>sendData</name></member>
       <member refid="class_server_1a9ac8282e0e0e77a93c9ae83ec072a77b" prot="protected" virt="non-virtual"><scope>Server</scope><name>sendPendingUpdate</name></member>
       <member refid="class_server_1a684ffe36304e57e0fd70a4c7900bea37" prot="public" virt="non-virtual"><scope>Server</scope><name>sendReply</name></member>
       <member refid="class_server_1ac4ae3602520e458cada26ad6ee7b1065" prot="protected" virt="non-virtual"><scope>Server</scope><name>sendUpdate</name></member>
@@ -853,15 +1156,18 @@
       <member refid="class_server_1a0c3de22ee8968d20289d27ca29bd2b17" prot="public" virt="non-virtual"><scope>Server</scope><name>setAddress</name></member>
       <member refid="class_server_1a4720ed3f67fbbd267f03647dbeed79c9" prot="public" virt="non-virtual"><scope>Server</scope><name>setMainWindow</name></member>
       <member refid="class_server_1a06e0b11cedfe5126b7ba6d69e358c8b8" prot="public" virt="non-virtual"><scope>Server</scope><name>setPort</name></member>
+      <member refid="class_server_1a9a391fdf2e0f3e1c0b4fd6d38d66492f" prot="public" virt="non-virtual"><scope>Server</scope><name>setProperties</name></member>
       <member refid="class_server_1af4d2d636a8b26ebf579840bcb89970b9" prot="protected" virt="non-virtual"><scope>Server</scope><name>setRunning</name></member>
       <member refid="class_server_1aafffe9ba3fbb49487cda8c236abaed82" prot="public" virt="non-virtual"><scope>Server</scope><name>setUpdateAddress</name></member>
       <member refid="class_server_1a01c6422209cfd92a4b618f00bc32aa7b" prot="protected" virt="non-virtual"><scope>Server</scope><name>sleep</name></member>
       <member refid="class_server_1a7eac07d2582fa01c2671362efa955b31" prot="public" virt="non-virtual"><scope>Server</scope><name>start</name></member>
       <member refid="class_server_1af59bb3a96b3311ed2b87e2d6899d9f79" prot="protected" virt="non-virtual"><scope>Server</scope><name>startServer</name></member>
       <member refid="class_server_1a07c45a7e101a3926d8f9685c3c5d14e4" prot="public" virt="non-virtual"><scope>Server</scope><name>stop</name></member>
+      <member refid="class_server_1ad951781a39a4d0ee3814c9909d47a40a" prot="public" virt="non-virtual"><scope>Server</scope><name>tabView</name></member>
       <member refid="class_server_1afab16b784252118fc3a8d3e6a2303996" prot="public" virt="non-virtual"><scope>Server</scope><name>updateAddress</name></member>
       <member refid="class_server_1aa1abf1deae4663da3abc4efa57026907" prot="public" virt="non-virtual"><scope>Server</scope><name>updateAddressChanged</name></member>
       <member refid="class_server_1a62b602595afab6ab38618d414a8d655f" prot="public" virt="non-virtual"><scope>Server</scope><name>updateSent</name></member>
+      <member refid="class_server_1a37c5dec5dccd4a9743211856031ea347" prot="public" virt="non-virtual"><scope>Server</scope><name>userArea</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

@@ -559,47 +559,47 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="44">
+      <node id="62">
         <label>CanvasShape</label>
         <link refid="class_canvas_shape"/>
-        <childnode refid="45" relation="public-inheritance">
+        <childnode refid="63" relation="public-inheritance">
         </childnode>
-        <childnode refid="46" relation="public-inheritance">
+        <childnode refid="64" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="43">
+      <node id="61">
         <label>CanvasLine</label>
         <link refid="class_canvas_line"/>
-        <childnode refid="44" relation="public-inheritance">
+        <childnode refid="62" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="45">
+      <node id="63">
         <label>QQuickItem</label>
       </node>
-      <node id="46">
+      <node id="64">
         <label>NutmegObject</label>
         <link refid="class_nutmeg_object"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="48">
+      <node id="66">
         <label>CanvasShape</label>
         <link refid="class_canvas_shape"/>
-        <childnode refid="49" relation="public-inheritance">
+        <childnode refid="67" relation="public-inheritance">
         </childnode>
-        <childnode refid="50" relation="public-inheritance">
+        <childnode refid="68" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="47">
+      <node id="65">
         <label>CanvasLine</label>
         <link refid="class_canvas_line"/>
-        <childnode refid="48" relation="public-inheritance">
+        <childnode refid="66" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="49">
+      <node id="67">
         <label>QQuickItem</label>
       </node>
-      <node id="50">
+      <node id="68">
         <label>NutmegObject</label>
         <link refid="class_nutmeg_object"/>
       </node>

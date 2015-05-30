@@ -538,24 +538,24 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="164">
+      <node id="207">
         <label>QObject</label>
       </node>
-      <node id="163">
+      <node id="206">
         <label>LineSpec</label>
         <link refid="class_line_spec"/>
-        <childnode refid="164" relation="public-inheritance">
+        <childnode refid="207" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="166">
+      <node id="209">
         <label>QObject</label>
       </node>
-      <node id="165">
+      <node id="208">
         <label>LineSpec</label>
         <link refid="class_line_spec"/>
-        <childnode refid="166" relation="public-inheritance">
+        <childnode refid="209" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

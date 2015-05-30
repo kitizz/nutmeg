@@ -2,21 +2,18 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
   <compounddef id="_grid_8qml" kind="file" language="C++">
     <compoundname>Grid.qml</compoundname>
+    <innerclass refid="class_grid" prot="public">Grid</innerclass>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline><highlight class="normal">import<sp/>QtQuick<sp/>2.0</highlight></codeline>
-<codeline><highlight class="normal">import<sp/>QtQuick.Layouts<sp/>1.0</highlight></codeline>
-<codeline></codeline>
-<codeline><highlight class="normal">/*!</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>\ingroup<sp/>layouts</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Layouts.Grid<sp/>is<sp/>used<sp/>for<sp/>laying<sp/>out<sp/>multiple<sp/>Axis<sp/>items<sp/>in<sp/>a<sp/>Grid.<sp/>Currently<sp/>not<sp/>implemented....</highlight></codeline>
-<codeline><highlight class="normal">*/</highlight></codeline>
-<codeline><highlight class="normal">GridLayout<sp/>{</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>objectName:<sp/>&quot;grid&quot;</highlight></codeline>
-<codeline><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick<sp/>2.0</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>QtQuick.Layouts<sp/>1.0</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">GridLayout<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>objectName:<sp/></highlight><highlight class="stringliteral">&quot;grid&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Grid.qml"/>
   </compounddef>

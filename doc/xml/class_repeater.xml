@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="class_repeater" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_repeater" kind="class" language="C++" prot="public">
     <compoundname>Repeater</compoundname>
     <basecompoundref prot="public" virt="non-virtual">Item</basecompoundref>
       <sectiondef kind="property">
-      <memberdef kind="property" id="class_repeater_1a1995534e2cb07b9c7a3e14d0a94ca61a" prot="public" static="no" readable="no" writable="no" gettable="no" settable="no">
+      <memberdef kind="property" id="class_repeater_1a1995534e2cb07b9c7a3e14d0a94ca61a" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>int</type>
         <definition>int Repeater::count</definition>
         <argsstring></argsstring>
@@ -15,9 +15,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" line="10" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" bodystart="9" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" line="16" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" bodystart="9" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_repeater_1a48d572d073390958bd794267c21a85ee" prot="public" static="no" readable="no" writable="no" gettable="no" settable="no">
+      <memberdef kind="property" id="class_repeater_1a48d572d073390958bd794267c21a85ee" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>Component</type>
         <definition>Component Repeater::delegate</definition>
         <argsstring></argsstring>
@@ -29,9 +29,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" line="10" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" bodystart="12" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" line="16" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" bodystart="12" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="property" id="class_repeater_1a6dbcfea8ee5b3ee0da41befdf83423b8" prot="public" static="no" readable="no" writable="no" gettable="no" settable="no">
+      <memberdef kind="property" id="class_repeater_1a6dbcfea8ee5b3ee0da41befdf83423b8" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>var</type>
         <definition>var Repeater::items</definition>
         <argsstring></argsstring>
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" line="10" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" bodystart="14" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" line="16" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" bodystart="14" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -78,24 +78,24 @@
     <detaileddescription>
 <para>Layouts.Repeater is a helper item used for quickly generating multiple instances of an <ref refid="class_axis" kindref="compound">Axis</ref>. The parent of <ref refid="class_axis" kindref="compound">Axis</ref> with be the parant of Layouts.Repeater. </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="161">
+      <node id="282">
         <label>Item</label>
       </node>
-      <node id="160">
+      <node id="281">
         <label>Repeater</label>
         <link refid="class_repeater"/>
-        <childnode refid="161" relation="public-inheritance">
+        <childnode refid="282" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="163">
+      <node id="284">
         <label>Item</label>
       </node>
-      <node id="162">
+      <node id="283">
         <label>Repeater</label>
         <link refid="class_repeater"/>
-        <childnode refid="163" relation="public-inheritance">
+        <childnode refid="284" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

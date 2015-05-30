@@ -131,103 +131,115 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="184">
+      <node id="228">
         <label>CanvasShape</label>
         <link refid="class_canvas_shape"/>
-        <childnode refid="179" relation="public-inheritance">
+        <childnode refid="222" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="186">
+      <node id="230">
         <label>CanvasRect</label>
         <link refid="class_canvas_rect"/>
-        <childnode refid="184" relation="public-inheritance">
+        <childnode refid="228" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="181">
+      <node id="224">
         <label>Axis2DBase</label>
         <link refid="class_axis2_d_base"/>
-        <childnode refid="180" relation="public-inheritance">
+        <childnode refid="223" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="188">
+      <node id="225">
+        <label>Axis</label>
+        <link refid="class_axis"/>
+        <childnode refid="224" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="232">
         <label>FigureBase</label>
         <link refid="class_figure_base"/>
-        <childnode refid="179" relation="public-inheritance">
+        <childnode refid="222" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="185">
+      <node id="229">
         <label>CanvasLine</label>
         <link refid="class_canvas_line"/>
-        <childnode refid="184" relation="public-inheritance">
+        <childnode refid="228" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="182">
+      <node id="226">
         <label>AxisGrid</label>
         <link refid="class_axis_grid"/>
-        <childnode refid="179" relation="public-inheritance">
+        <childnode refid="222" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="183">
+      <node id="233">
+        <label>Figure</label>
+        <link refid="class_figure"/>
+        <childnode refid="232" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="227">
         <label>AxisSpec</label>
         <link refid="class_axis_spec"/>
-        <childnode refid="179" relation="public-inheritance">
+        <childnode refid="222" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="194">
+      <node id="239">
         <label>XYPlot</label>
         <link refid="class_x_y_plot"/>
-        <childnode refid="191" relation="public-inheritance">
+        <childnode refid="236" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="187">
+      <node id="231">
         <label>CanvasText</label>
         <link refid="class_canvas_text"/>
-        <childnode refid="184" relation="public-inheritance">
+        <childnode refid="228" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="193">
+      <node id="238">
         <label>ImagePlot</label>
         <link refid="class_image_plot"/>
-        <childnode refid="191" relation="public-inheritance">
+        <childnode refid="236" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="191">
+      <node id="236">
         <label>Plot2DBase</label>
         <link refid="class_plot2_d_base"/>
-        <childnode refid="190" relation="public-inheritance">
+        <childnode refid="235" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="190">
+      <node id="235">
         <label>PlotBase</label>
         <link refid="class_plot_base"/>
-        <childnode refid="179" relation="public-inheritance">
+        <childnode refid="222" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="180">
+      <node id="223">
         <label>AxisBase</label>
         <link refid="class_axis_base"/>
-        <childnode refid="179" relation="public-inheritance">
+        <childnode refid="222" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="192">
+      <node id="237">
         <label>CanvasPlot</label>
         <link refid="class_canvas_plot"/>
-        <childnode refid="191" relation="public-inheritance">
+        <childnode refid="236" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="189">
+      <node id="234">
         <label>FillSpec</label>
         <link refid="class_fill_spec"/>
-        <childnode refid="179" relation="public-inheritance">
+        <childnode refid="222" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="195">
+      <node id="240">
         <label>LinePlot</label>
         <link refid="class_line_plot"/>
-        <childnode refid="194" relation="public-inheritance">
+        <childnode refid="239" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="179">
+      <node id="222">
         <label>NutmegObject</label>
         <link refid="class_nutmeg_object"/>
       </node>

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.7">
-  <compounddef id="class_row" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_row" kind="class" language="C++" prot="public">
     <compoundname>Row</compoundname>
     <basecompoundref prot="public" virt="non-virtual">RowLayout</basecompoundref>
       <sectiondef kind="public-func">
@@ -23,24 +23,24 @@
     <detaileddescription>
 <para>Layouts.Row is used for laying out multiple <ref refid="class_axis" kindref="compound">Axis</ref> items in a row. (This is currently not fully implemented) </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="165">
+      <node id="286">
         <label>RowLayout</label>
       </node>
-      <node id="164">
+      <node id="285">
         <label>Row</label>
         <link refid="class_row"/>
-        <childnode refid="165" relation="public-inheritance">
+        <childnode refid="286" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="167">
+      <node id="288">
         <label>RowLayout</label>
       </node>
-      <node id="166">
+      <node id="287">
         <label>Row</label>
         <link refid="class_row"/>
-        <childnode refid="167" relation="public-inheritance">
+        <childnode refid="288" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

@@ -561,42 +561,42 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="116">
+      <node id="157">
         <label>QObject</label>
       </node>
-      <node id="117">
+      <node id="158">
         <label>LabelLocator</label>
         <link refid="class_label_locator"/>
-        <childnode refid="114" relation="public-inheritance">
+        <childnode refid="155" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="114">
+      <node id="155">
         <label>HardLocator</label>
         <link refid="class_hard_locator"/>
-        <childnode refid="115" relation="public-inheritance">
+        <childnode refid="156" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="115">
+      <node id="156">
         <label>Locator</label>
         <link refid="class_locator"/>
-        <childnode refid="116" relation="public-inheritance">
+        <childnode refid="157" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="120">
+      <node id="161">
         <label>QObject</label>
       </node>
-      <node id="118">
+      <node id="159">
         <label>HardLocator</label>
         <link refid="class_hard_locator"/>
-        <childnode refid="119" relation="public-inheritance">
+        <childnode refid="160" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="119">
+      <node id="160">
         <label>Locator</label>
         <link refid="class_locator"/>
-        <childnode refid="120" relation="public-inheritance">
+        <childnode refid="161" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

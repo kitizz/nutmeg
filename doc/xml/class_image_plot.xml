@@ -643,59 +643,59 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="127">
+      <node id="168">
         <label>ImagePlot</label>
         <link refid="class_image_plot"/>
-        <childnode refid="128" relation="public-inheritance">
+        <childnode refid="169" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="128">
+      <node id="169">
         <label>Plot2DBase</label>
         <link refid="class_plot2_d_base"/>
-        <childnode refid="129" relation="public-inheritance">
+        <childnode refid="170" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="129">
+      <node id="170">
         <label>PlotBase</label>
         <link refid="class_plot_base"/>
-        <childnode refid="130" relation="public-inheritance">
+        <childnode refid="171" relation="public-inheritance">
         </childnode>
-        <childnode refid="131" relation="public-inheritance">
+        <childnode refid="172" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="130">
+      <node id="171">
         <label>QQuickItem</label>
       </node>
-      <node id="131">
+      <node id="172">
         <label>NutmegObject</label>
         <link refid="class_nutmeg_object"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="132">
+      <node id="173">
         <label>ImagePlot</label>
         <link refid="class_image_plot"/>
-        <childnode refid="133" relation="public-inheritance">
+        <childnode refid="174" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="133">
+      <node id="174">
         <label>Plot2DBase</label>
         <link refid="class_plot2_d_base"/>
-        <childnode refid="134" relation="public-inheritance">
+        <childnode refid="175" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="134">
+      <node id="175">
         <label>PlotBase</label>
         <link refid="class_plot_base"/>
-        <childnode refid="135" relation="public-inheritance">
+        <childnode refid="176" relation="public-inheritance">
         </childnode>
-        <childnode refid="136" relation="public-inheritance">
+        <childnode refid="177" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="135">
+      <node id="176">
         <label>QQuickItem</label>
       </node>
-      <node id="136">
+      <node id="177">
         <label>NutmegObject</label>
         <link refid="class_nutmeg_object"/>
       </node>

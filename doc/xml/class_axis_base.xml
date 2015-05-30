@@ -16,7 +16,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The handle property provides Nutmeg a way of identifying this Axis. By default, this is &quot;axis&quot;. </para>        </detaileddescription>
+<para>The handle property provides Nutmeg a way of identifying this <ref refid="class_axis" kindref="compound">Axis</ref>. By default, this is &quot;axis&quot;. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="280" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="15" bodyend="-1"/>
@@ -89,7 +89,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Define the Font to be used for the title. Can be used as a group property: <programlisting><codeline><highlight class="normal">titleFont<sp/>{<sp/>bold:<sp/>true,<sp/>family:<sp/>&quot;Arial&quot;,<sp/>pointSize:<sp/>16<sp/>}</highlight></codeline>
+<para>Define the Font to be used for the title. Can be used as a group property: <programlisting><codeline><highlight class="normal"><ref refid="class_axis_base_1a5399b421f01866caea4825266c70c22d" kindref="member">titleFont</ref><sp/>{<sp/>bold:<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>family:<sp/></highlight><highlight class="stringliteral">&quot;Arial&quot;</highlight><highlight class="normal">,<sp/>pointSize:<sp/>16<sp/>}</highlight></codeline>
 </programlisting> See QML&apos;s documentation for details on its basic Font type: <ulink url="http://qt-project.org/doc/qt-5/qml-font.html">http://qt-project.org/doc/qt-5/qml-font.html</ulink> </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
@@ -1048,41 +1048,47 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="17">
+      <node id="28">
         <label>Axis2DBase</label>
         <link refid="class_axis2_d_base"/>
-        <childnode refid="14" relation="public-inheritance">
+        <childnode refid="25" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="14">
+      <node id="29">
+        <label>Axis</label>
+        <link refid="class_axis"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="25">
         <label>AxisBase</label>
         <link refid="class_axis_base"/>
-        <childnode refid="15" relation="public-inheritance">
+        <childnode refid="26" relation="public-inheritance">
         </childnode>
-        <childnode refid="16" relation="public-inheritance">
+        <childnode refid="27" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="15">
+      <node id="26">
         <label>QQuickItem</label>
       </node>
-      <node id="16">
+      <node id="27">
         <label>NutmegObject</label>
         <link refid="class_nutmeg_object"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="18">
+      <node id="30">
         <label>AxisBase</label>
         <link refid="class_axis_base"/>
-        <childnode refid="19" relation="public-inheritance">
+        <childnode refid="31" relation="public-inheritance">
         </childnode>
-        <childnode refid="20" relation="public-inheritance">
+        <childnode refid="32" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="19">
+      <node id="31">
         <label>QQuickItem</label>
       </node>
-      <node id="20">
+      <node id="32">
         <label>NutmegObject</label>
         <link refid="class_nutmeg_object"/>
       </node>
