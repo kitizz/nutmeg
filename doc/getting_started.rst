@@ -8,11 +8,13 @@ Prebuilt binaries are not available yet, but will be soon.
 Building
 --------
 
-### Requirements
+Requirements
+^^^^^^^^^^^^
 - Qt 5.3 or higher
 - [ZMQ](http://zeromq.org/intro:get-the-software) 3.2.x (4.0.x should technically work, but is untested)
 
-### Unix
+Unix
+^^^^
 Before building, ensure that in `nutmeg.pro` the INCLUDEPATH and QMAKE_LIBDIR point to the include path and library path for [zmq](http://zeromq.org/intro:get-the-software). If zmq has been built with the default configuration in your favourite flavour of Unix (e.g. ```apt-get install libzmq3-dev```), the default `nutmeg.pro` values should be fine.
 
 Then from the source folder run:
@@ -23,7 +25,8 @@ make
 
 This should provide an executable which is the Nutmeg core.
 
-### Windows
+Windows
+^^^^^^^
 Need to try that yet. Let me know!
 
 .. _nutmeg-action:
@@ -38,39 +41,39 @@ When the core is first started it will attempt to bind to the port nearest the d
 The following QML file declares a Figure which contains two axes. It uses QML style bindings to ensure they take up a certain percentage of the figure space.
 
 **figure.qml**
-```qml
-Figure {
-    id: fig
-    Layouts.Column {
-        spacing: 0.05*fig.height
-        Axis {
-            handle: "axis1"
-            Layout.preferredheight: 0.65*fig.height
-            LinePlot { handle: "data" }
-        }
-        Axis {
-            handle: "axis2"
-            Layout.preferredHeight: 0.3*fig.height
-            LinePlot { handle: "data" }
+
+.. code-block:: qml
+    Figure {
+        id: fig
+        Layouts.Column {
+            spacing: 0.05*fig.height
+            Axis {
+                handle: "axis1"
+                Layout.preferredheight: 0.65*fig.height
+                LinePlot { handle: "data" }
+            }
+            Axis {
+                handle: "axis2"
+                Layout.preferredHeight: 0.3*fig.height
+                LinePlot { handle: "data" }
+            }
         }
     }
-}
-```
 
 From Python, data can be plotted like so:
 
-```python
-import nutmeg
-from numpy import sin, cos, pi
+.. code-block:: python
+    import nutmeg
+    from numpy import sin, cos, pi
 
-# Assuming the core is on port 43686 (default)
-Nutmeg.init()
+    # Assuming the core is on port 43686 (default)
+    Nutmeg.init()
 
-x = [ 0.01*n for n in range(100) ]
-y1 = [ sin(10*pi*t) for t in x ]
-y2 = [ 10*pi*cos(10*pi*t) for t in x ]
+    x = [ 0.01*n for n in range(100) ]
+    y1 = [ sin(10*pi*t) for t in x ]
+    y2 = [ 10*pi*cos(10*pi*t) for t in x ]
 
-fig = Nutmeg.figure("myFigure", "figure.qml")
+    fig = Nutmeg.figure("myFigure", "figure.qml")
 
-fig.set("axis1.data", {'x': x, 'y': y1})
-fig.set("axis2.data", {'x': x, 'y': y2})
+    fig.set("axis1.data", {'x': x, 'y': y1})
+    fig.set("axis2.data", {'x': x, 'y': y2})
