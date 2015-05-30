@@ -59,7 +59,7 @@ fig.set("axis2.data", {'x': x, 'y': y2})
 ```
 
 Result:
-<img src="https://cloud.githubusercontent.com/assets/1326372/7898085/e24b9fe6-06c2-11e5-8237-e1cf1247e070.png" alt="Example" width:"250px"/>
+<img src="https://cloud.githubusercontent.com/assets/1326372/7898085/e24b9fe6-06c2-11e5-8237-e1cf1247e070.png" alt="Example" width:"250px" height:"100px"/>
 
 The Architecture
 ----------------
