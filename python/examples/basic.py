@@ -1,23 +1,14 @@
-import sys, os
-sys.path.append( os.path.abspath("..") )
-
-# Code starts
 import Nutmeg
-import numpy as np
+from numpy import sin, cos, pi
 
-# Initialise the Nutmeg module. This connects to the core.
+# Assuming the core is on port 43686 (default)
 Nutmeg.init()
 
-# Create the figure from a qml file
-fig = Nutmeg.figure('fig', "figure1.qml")
+x = [ 0.01*n for n in range(100) ]
+y1 = [ sin(10*pi*t) for t in x ]
+y2 = [ 10*pi*cos(10*pi*t) for t in x ]
 
-# Set the data
-randomData = np.random.standard_normal(10)
-fig.set('ax[1].red.y', randomData)
+fig = Nutmeg.figure("myFigure", "myFigure.qml")
 
-x = np._r[0:10.]
-ySin = np.sin(x/3)
-fig.set('ax[0].green.y', ySin)
-
-yTan = np.tan(x/3)
-fig.set('ax[2].blue.y', yTan)
+fig.set("axis1.data", x=x, y=y1)
+fig.set("axis2.data", x=x, y=y2)
