@@ -12,7 +12,6 @@
 # serve to show the default.
 
 import sys, os
-import sphinx_bootstrap_theme
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -21,6 +20,9 @@ import sphinx_bootstrap_theme
 
 sys.path.append( os.path.abspath("../breathe/") )
 sys.path.append( os.path.abspath("../pygments-style-github/") )
+sys.path.append( os.path.abspath("../sphinx-bootstrap-theme") )
+
+import sphinx_bootstrap_theme
 
 # Build the doxygen xml before building with Sphinx
 # import subprocess
@@ -35,7 +37,7 @@ sys.path.append( os.path.abspath("../pygments-style-github/") )
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.pngmath', 'breathe', 'pygments-style-github']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.pngmath', 'breathe', 'pygments_style_github', 'sphinx_bootstrap_theme']
 
 # Breathe (C++) projects
 breathe_projects = { "Nutmeg": os.path.abspath("./xml/") }
