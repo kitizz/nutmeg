@@ -296,21 +296,21 @@
 <codeline lineno="41"><highlight class="normal"></highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AxisCanvas2D::paint(QPainter<sp/>*painter)</highlight></codeline>
 <codeline lineno="43"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>lim<sp/>=<sp/>m_axis-&gt;limits();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>lim<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1a70b44148c337dcdcf2eb336249bf1ebf" kindref="member">limits</ref>();</highlight></codeline>
 <codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>plotRect<sp/>=<sp/>m_axis-&gt;updatePlotRect();</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;qreal&gt;<sp/>xMajor,<sp/>yMajor;</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>qreal<sp/>tick,<sp/>m_axis-&gt;xAxis()-&gt;majorTicksReal())<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>qreal<sp/>tick,<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kindref="member">xAxis</ref>()-&gt;majorTicksReal())<sp/>{</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qreal<sp/>xNorm<sp/>=<sp/>(tick<sp/>-<sp/>lim.left())<sp/>/<sp/>lim.width();</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis-&gt;xAxis()-&gt;inverted())</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis-&gt;<ref refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kindref="member">xAxis</ref>()-&gt;inverted())</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xNorm<sp/>=<sp/>1<sp/>-<sp/>xNorm;</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xMajor<sp/>&lt;&lt;<sp/>plotRect.left()<sp/>+<sp/>plotRect.width()*xNorm;</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>qreal<sp/>tick,<sp/>m_axis-&gt;yAxis()-&gt;majorTicksReal())<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>qreal<sp/>tick,<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>()-&gt;majorTicksReal())<sp/>{</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qreal<sp/>yNorm<sp/>=<sp/>(tick<sp/>-<sp/>lim.top())<sp/>/<sp/>lim.height();</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis-&gt;yAxis()-&gt;inverted())</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>()-&gt;inverted())</highlight></codeline>
 <codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>yNorm<sp/>=<sp/>1<sp/>-<sp/>yNorm;</highlight></codeline>
 <codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>yMajor<sp/>&lt;&lt;<sp/>plotRect.bottom()<sp/>-<sp/>plotRect.height()*yNorm;</highlight></codeline>
 <codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -349,8 +349,8 @@
 <codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis)<sp/>{</highlight></codeline>
 <codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_axis-&gt;setCanvas(0);</highlight></codeline>
 <codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_axis-&gt;disconnect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_axis-&gt;xAxis()-&gt;disconnect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_axis-&gt;yAxis()-&gt;disconnect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kindref="member">xAxis</ref>()-&gt;disconnect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>()-&gt;disconnect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="100"><highlight class="normal"></highlight></codeline>
 <codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>m_axis<sp/>=<sp/>arg;</highlight></codeline>
@@ -359,10 +359,10 @@
 <codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_axis-&gt;setCanvas(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis,<sp/>&amp;Axis2DBase::limitsChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AxisCanvas2D::triggerUpdate);</highlight></codeline>
 <codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis,<sp/>&amp;Axis2DBase::plotRectChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AxisCanvas2D::triggerUpdate);</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis-&gt;xAxis(),<sp/>&amp;AxisSpec::majorTicksChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AxisCanvas2D::triggerUpdate);</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis-&gt;xAxis(),<sp/>&amp;AxisSpec::minorTicksChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AxisCanvas2D::triggerUpdate);</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis-&gt;yAxis(),<sp/>&amp;AxisSpec::majorTicksChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AxisCanvas2D::triggerUpdate);</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis-&gt;yAxis(),<sp/>&amp;AxisSpec::minorTicksChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AxisCanvas2D::triggerUpdate);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis-&gt;<ref refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kindref="member">xAxis</ref>(),<sp/>&amp;AxisSpec::majorTicksChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AxisCanvas2D::triggerUpdate);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis-&gt;<ref refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kindref="member">xAxis</ref>(),<sp/>&amp;AxisSpec::minorTicksChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AxisCanvas2D::triggerUpdate);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>(),<sp/>&amp;AxisSpec::majorTicksChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AxisCanvas2D::triggerUpdate);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>(),<sp/>&amp;AxisSpec::minorTicksChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AxisCanvas2D::triggerUpdate);</highlight></codeline>
 <codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis,<sp/>&amp;QQuickItem::heightChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AxisCanvas2D::triggerUpdate);</highlight></codeline>
 <codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(m_axis,<sp/>&amp;QQuickItem::widthChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AxisCanvas2D::triggerUpdate);</highlight></codeline>
 <codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>triggerUpdate();</highlight></codeline>
@@ -405,13 +405,13 @@
 <codeline lineno="150"><highlight class="normal"></highlight></codeline>
 <codeline lineno="151"><highlight class="normal">QList&lt;qreal&gt;<sp/>AxisCanvas2D::plot2canvasX(QList&lt;qreal&gt;<sp/>xValues)</highlight></codeline>
 <codeline lineno="152"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>lim<sp/>=<sp/>m_axis-&gt;limits();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>lim<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1a70b44148c337dcdcf2eb336249bf1ebf" kindref="member">limits</ref>();</highlight></codeline>
 <codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>plotRect<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis_base_1a7f5068c6a03dc994e12d40046d1b691c" kindref="member">plotRect</ref>();</highlight></codeline>
 <codeline lineno="155"><highlight class="normal"></highlight></codeline>
 <codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;qreal&gt;<sp/>newX;</highlight></codeline>
 <codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(qreal<sp/>x,<sp/>xValues)<sp/>{</highlight></codeline>
 <codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qreal<sp/>xNorm<sp/>=<sp/>(x<sp/>-<sp/>lim.left())<sp/>/<sp/>lim.width();</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis-&gt;xAxis()-&gt;inverted())</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis-&gt;<ref refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kindref="member">xAxis</ref>()-&gt;inverted())</highlight></codeline>
 <codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xNorm<sp/>=<sp/>1<sp/>-<sp/>xNorm;</highlight></codeline>
 <codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newX<sp/>&lt;&lt;<sp/>plotRect.left()<sp/>+<sp/>plotRect.width()*xNorm;</highlight></codeline>
 <codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -421,13 +421,13 @@
 <codeline lineno="166"><highlight class="normal"></highlight></codeline>
 <codeline lineno="167"><highlight class="normal">QList&lt;qreal&gt;<sp/>AxisCanvas2D::plot2canvasY(QList&lt;qreal&gt;<sp/>yValues)</highlight></codeline>
 <codeline lineno="168"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>lim<sp/>=<sp/>m_axis-&gt;limits();</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>lim<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1a70b44148c337dcdcf2eb336249bf1ebf" kindref="member">limits</ref>();</highlight></codeline>
 <codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>plotRect<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis_base_1a7f5068c6a03dc994e12d40046d1b691c" kindref="member">plotRect</ref>();</highlight></codeline>
 <codeline lineno="171"><highlight class="normal"></highlight></codeline>
 <codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;qreal&gt;<sp/>newY;</highlight></codeline>
 <codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(qreal<sp/>y,<sp/>yValues)<sp/>{</highlight></codeline>
 <codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qreal<sp/>yNorm<sp/>=<sp/>(y<sp/>-<sp/>lim.top())<sp/>/<sp/>lim.height();</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis-&gt;yAxis()-&gt;inverted())</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>()-&gt;inverted())</highlight></codeline>
 <codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>yNorm<sp/>=<sp/>1<sp/>-<sp/>yNorm;</highlight></codeline>
 <codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newY<sp/>&lt;&lt;<sp/>plotRect.bottom()<sp/>-<sp/>plotRect.height()*yNorm;</highlight></codeline>
 <codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -438,11 +438,11 @@
 <codeline lineno="183"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AxisCanvas2D::prepareTexts()</highlight></codeline>
 <codeline lineno="184"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>m_title.setText(m_axis-&gt;<ref refid="class_axis_base_1a3c791c13279cae1bfc0e2406abb55b93" kindref="member">title</ref>());</highlight></codeline>
-<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>m_xLabel.setText(m_axis-&gt;xAxis()-&gt;<ref refid="class_axis_spec_1a4840c62d8d9562c532cef3de82e03219" kindref="member">label</ref>());</highlight></codeline>
-<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>m_yLabel.setText(m_axis-&gt;yAxis()-&gt;<ref refid="class_axis_spec_1a4840c62d8d9562c532cef3de82e03219" kindref="member">label</ref>());</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>m_xLabel.setText(m_axis-&gt;<ref refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kindref="member">xAxis</ref>()-&gt;<ref refid="class_axis_spec_1a4840c62d8d9562c532cef3de82e03219" kindref="member">label</ref>());</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>m_yLabel.setText(m_axis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>()-&gt;<ref refid="class_axis_spec_1a4840c62d8d9562c532cef3de82e03219" kindref="member">label</ref>());</highlight></codeline>
 <codeline lineno="188"><highlight class="normal"></highlight></codeline>
-<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_axis_spec" kindref="compound">AxisSpec</ref><sp/>*xSpec<sp/>=<sp/>m_axis-&gt;xAxis();</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_axis_spec" kindref="compound">AxisSpec</ref><sp/>*ySpec<sp/>=<sp/>m_axis-&gt;yAxis();</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_axis_spec" kindref="compound">AxisSpec</ref><sp/>*xSpec<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kindref="member">xAxis</ref>();</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_axis_spec" kindref="compound">AxisSpec</ref><sp/>*ySpec<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>();</highlight></codeline>
 <codeline lineno="191"><highlight class="normal"></highlight></codeline>
 <codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>m_xTicksHeight<sp/>=<sp/>prepareTickLabels(xSpec,<sp/>m_xTickText,<sp/>m_xTicks,<sp/>m_xScaleExp,<sp/>m_xOffset).height();</highlight></codeline>
 <codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>m_yTicksWidth<sp/>=<sp/>prepareTickLabels(ySpec,<sp/>m_yTickText,<sp/>m_yTicks,<sp/>m_yScaleExp,<sp/>m_yOffset).width();</highlight></codeline>
@@ -582,7 +582,7 @@
 <codeline lineno="327"><highlight class="normal"></highlight></codeline>
 <codeline lineno="328"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AxisCanvas2D::drawXLabel(QPainter<sp/>*painter,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;plotRect)</highlight></codeline>
 <codeline lineno="329"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/>QFont<sp/>font<sp/>=<sp/>m_axis-&gt;xAxis()-&gt;<ref refid="class_axis_spec_1ac3e138b8eafa08eb9825d3d4f5a9ed4c" kindref="member">labelFont</ref>();</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/>QFont<sp/>font<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kindref="member">xAxis</ref>()-&gt;<ref refid="class_axis_spec_1ac3e138b8eafa08eb9825d3d4f5a9ed4c" kindref="member">labelFont</ref>();</highlight></codeline>
 <codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/>font.setPointSize(<sp/>font.pointSize()*m_scaling<sp/>);</highlight></codeline>
 <codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/>painter-&gt;setFont(font);</highlight></codeline>
 <codeline lineno="333"><highlight class="normal"></highlight></codeline>
@@ -593,7 +593,7 @@
 <codeline lineno="338"><highlight class="normal"></highlight></codeline>
 <codeline lineno="339"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AxisCanvas2D::drawYLabel(QPainter<sp/>*painter,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;plotRect)</highlight></codeline>
 <codeline lineno="340"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/>QFont<sp/>font<sp/>=<sp/>m_axis-&gt;yAxis()-&gt;<ref refid="class_axis_spec_1ac3e138b8eafa08eb9825d3d4f5a9ed4c" kindref="member">labelFont</ref>();</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/>QFont<sp/>font<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>()-&gt;<ref refid="class_axis_spec_1ac3e138b8eafa08eb9825d3d4f5a9ed4c" kindref="member">labelFont</ref>();</highlight></codeline>
 <codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/>font.setPointSize(<sp/>font.pointSize()*m_scaling<sp/>);</highlight></codeline>
 <codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/>painter-&gt;setFont(font);</highlight></codeline>
 <codeline lineno="344"><highlight class="normal"></highlight></codeline>
@@ -611,7 +611,7 @@
 <codeline lineno="356"><highlight class="normal"></highlight></codeline>
 <codeline lineno="357"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AxisCanvas2D::drawXTickLabels(QList&lt;qreal&gt;<sp/>xFrames,<sp/>QPainter<sp/>*painter,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;plotRect)</highlight></codeline>
 <codeline lineno="358"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/>QFont<sp/>font<sp/>=<sp/>m_axis-&gt;yAxis()-&gt;<ref refid="class_axis_spec_1a8bdb27cf8682a11e12a32ee11b82bc94" kindref="member">tickFont</ref>();</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/>QFont<sp/>font<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>()-&gt;<ref refid="class_axis_spec_1a8bdb27cf8682a11e12a32ee11b82bc94" kindref="member">tickFont</ref>();</highlight></codeline>
 <codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/>font.setPointSize(<sp/>font.pointSize()*m_scaling<sp/>);</highlight></codeline>
 <codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/>painter-&gt;setFont(font);</highlight></codeline>
 <codeline lineno="362"><highlight class="normal"></highlight></codeline>
@@ -630,7 +630,7 @@
 <codeline lineno="375"><highlight class="normal"></highlight></codeline>
 <codeline lineno="376"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AxisCanvas2D::drawYTickLabels(QList&lt;qreal&gt;<sp/>yFrames,<sp/>QPainter<sp/>*painter,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;plotRect)</highlight></codeline>
 <codeline lineno="377"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="378"><highlight class="normal"><sp/><sp/><sp/><sp/>QFont<sp/>font<sp/>=<sp/>m_axis-&gt;yAxis()-&gt;<ref refid="class_axis_spec_1a8bdb27cf8682a11e12a32ee11b82bc94" kindref="member">tickFont</ref>();</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/><sp/><sp/>QFont<sp/>font<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>()-&gt;<ref refid="class_axis_spec_1a8bdb27cf8682a11e12a32ee11b82bc94" kindref="member">tickFont</ref>();</highlight></codeline>
 <codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/>font.setPointSize(<sp/>font.pointSize()*m_scaling<sp/>);</highlight></codeline>
 <codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/>painter-&gt;setFont(font);</highlight></codeline>
 <codeline lineno="381"><highlight class="normal"></highlight></codeline>
@@ -650,11 +650,11 @@
 <codeline lineno="395"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/>QVector&lt;QPointF&gt;<sp/>lines;</highlight></codeline>
 <codeline lineno="397"><highlight class="normal"></highlight></codeline>
-<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>majorSize<sp/>=<sp/>m_axis-&gt;xAxis()-&gt;<ref refid="class_axis_spec_1a9d137035523ec042537ea600cf978877" kindref="member">majorTickSize</ref>();</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>majorSize<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kindref="member">xAxis</ref>()-&gt;<ref refid="class_axis_spec_1a9d137035523ec042537ea600cf978877" kindref="member">majorTickSize</ref>();</highlight></codeline>
 <codeline lineno="399"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>qreal<sp/>minorSize<sp/>=<sp/>m_axis-&gt;xAxis()-&gt;minorTickSize();</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="400"><highlight class="normal"></highlight></codeline>
 <codeline lineno="401"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>how<sp/>to<sp/>draw<sp/>the<sp/>tick<sp/>directions<sp/>along<sp/>the<sp/>x-axis</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="402"><highlight class="normal"><sp/><sp/><sp/><sp/>AxisSpec::TickDirection<sp/>xDir<sp/>=<sp/>m_axis-&gt;xAxis()-&gt;<ref refid="class_axis_spec_1a1131af690baaaec124ffb7c7933357a6" kindref="member">tickDir</ref>();</highlight></codeline>
+<codeline lineno="402"><highlight class="normal"><sp/><sp/><sp/><sp/>AxisSpec::TickDirection<sp/>xDir<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kindref="member">xAxis</ref>()-&gt;<ref refid="class_axis_spec_1a1131af690baaaec124ffb7c7933357a6" kindref="member">tickDir</ref>();</highlight></codeline>
 <codeline lineno="403"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>y1<sp/>=<sp/>plotRect.bottom(),<sp/>y2<sp/>=<sp/>plotRect.bottom();</highlight></codeline>
 <codeline lineno="404"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(xDir<sp/>==<sp/>AxisSpec::In<sp/>||<sp/>xDir<sp/>==<sp/>AxisSpec::InOut)</highlight></codeline>
 <codeline lineno="405"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y1<sp/>-=<sp/>majorSize;</highlight></codeline>
@@ -668,7 +668,7 @@
 <codeline lineno="413"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lines<sp/>&lt;&lt;<sp/>m_scaling*QPointF(x,<sp/>y2);</highlight></codeline>
 <codeline lineno="414"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="415"><highlight class="normal"></highlight></codeline>
-<codeline lineno="416"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_line_spec" kindref="compound">LineSpec</ref><sp/>*spec<sp/>=<sp/>m_axis-&gt;xAxis()-&gt;<ref refid="class_axis_spec_1ad6471208a092544d15801319b1597eb7" kindref="member">majorLine</ref>();</highlight></codeline>
+<codeline lineno="416"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_line_spec" kindref="compound">LineSpec</ref><sp/>*spec<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kindref="member">xAxis</ref>()-&gt;<ref refid="class_axis_spec_1ad6471208a092544d15801319b1597eb7" kindref="member">majorLine</ref>();</highlight></codeline>
 <codeline lineno="417"><highlight class="normal"><sp/><sp/><sp/><sp/>QPen<sp/>pen;</highlight></codeline>
 <codeline lineno="418"><highlight class="normal"><sp/><sp/><sp/><sp/>pen.setColor(spec-&gt;color());</highlight></codeline>
 <codeline lineno="419"><highlight class="normal"><sp/><sp/><sp/><sp/>pen.setWidth(spec-&gt;width());</highlight></codeline>
@@ -681,11 +681,11 @@
 <codeline lineno="426"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>QRectF<sp/>lim<sp/>=<sp/>m_axis-&gt;limits();</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="427"><highlight class="normal"><sp/><sp/><sp/><sp/>QVector&lt;QPointF&gt;<sp/>lines;</highlight></codeline>
 <codeline lineno="428"><highlight class="normal"></highlight></codeline>
-<codeline lineno="429"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>majorSize<sp/>=<sp/>m_axis-&gt;yAxis()-&gt;<ref refid="class_axis_spec_1a9d137035523ec042537ea600cf978877" kindref="member">majorTickSize</ref>();</highlight></codeline>
+<codeline lineno="429"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>majorSize<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>()-&gt;<ref refid="class_axis_spec_1a9d137035523ec042537ea600cf978877" kindref="member">majorTickSize</ref>();</highlight></codeline>
 <codeline lineno="430"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>qreal<sp/>minorSize<sp/>=<sp/>m_axis-&gt;yAxis()-&gt;minorTickSize();</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="431"><highlight class="normal"></highlight></codeline>
 <codeline lineno="432"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>how<sp/>to<sp/>draw<sp/>the<sp/>tick<sp/>directions<sp/>along<sp/>the<sp/>y-axis</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="433"><highlight class="normal"><sp/><sp/><sp/><sp/>AxisSpec::TickDirection<sp/>yDir<sp/>=<sp/>m_axis-&gt;yAxis()-&gt;<ref refid="class_axis_spec_1a1131af690baaaec124ffb7c7933357a6" kindref="member">tickDir</ref>();</highlight></codeline>
+<codeline lineno="433"><highlight class="normal"><sp/><sp/><sp/><sp/>AxisSpec::TickDirection<sp/>yDir<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>()-&gt;<ref refid="class_axis_spec_1a1131af690baaaec124ffb7c7933357a6" kindref="member">tickDir</ref>();</highlight></codeline>
 <codeline lineno="434"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>x1<sp/>=<sp/>plotRect.left(),<sp/>x2<sp/>=<sp/>plotRect.left();</highlight></codeline>
 <codeline lineno="435"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(yDir<sp/>==<sp/>AxisSpec::In<sp/>||<sp/>yDir<sp/>==<sp/>AxisSpec::InOut)</highlight></codeline>
 <codeline lineno="436"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x1<sp/>+=<sp/>majorSize;</highlight></codeline>
@@ -699,7 +699,7 @@
 <codeline lineno="444"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lines<sp/>&lt;&lt;<sp/>m_scaling*QPointF(x2,<sp/>y);</highlight></codeline>
 <codeline lineno="445"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="446"><highlight class="normal"></highlight></codeline>
-<codeline lineno="447"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_line_spec" kindref="compound">LineSpec</ref><sp/>*spec<sp/>=<sp/>m_axis-&gt;yAxis()-&gt;<ref refid="class_axis_spec_1ad6471208a092544d15801319b1597eb7" kindref="member">majorLine</ref>();</highlight></codeline>
+<codeline lineno="447"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_line_spec" kindref="compound">LineSpec</ref><sp/>*spec<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>()-&gt;<ref refid="class_axis_spec_1ad6471208a092544d15801319b1597eb7" kindref="member">majorLine</ref>();</highlight></codeline>
 <codeline lineno="448"><highlight class="normal"><sp/><sp/><sp/><sp/>QPen<sp/>pen;</highlight></codeline>
 <codeline lineno="449"><highlight class="normal"><sp/><sp/><sp/><sp/>pen.setColor(spec-&gt;color());</highlight></codeline>
 <codeline lineno="450"><highlight class="normal"><sp/><sp/><sp/><sp/>pen.setWidth(spec-&gt;width());</highlight></codeline>
@@ -709,7 +709,7 @@
 <codeline lineno="454"><highlight class="normal"></highlight></codeline>
 <codeline lineno="455"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AxisCanvas2D::drawScale(QPainter<sp/>*painter,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;plotRect)</highlight></codeline>
 <codeline lineno="456"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="457"><highlight class="normal"><sp/><sp/><sp/><sp/>QFont<sp/>font<sp/>=<sp/>m_axis-&gt;yAxis()-&gt;<ref refid="class_axis_spec_1a8bdb27cf8682a11e12a32ee11b82bc94" kindref="member">tickFont</ref>();</highlight></codeline>
+<codeline lineno="457"><highlight class="normal"><sp/><sp/><sp/><sp/>QFont<sp/>font<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>()-&gt;<ref refid="class_axis_spec_1a8bdb27cf8682a11e12a32ee11b82bc94" kindref="member">tickFont</ref>();</highlight></codeline>
 <codeline lineno="458"><highlight class="normal"><sp/><sp/><sp/><sp/>font.setPointSize(<sp/>font.pointSize()*m_scaling<sp/>);</highlight></codeline>
 <codeline lineno="459"><highlight class="normal"><sp/><sp/><sp/><sp/>painter-&gt;setFont(font);</highlight></codeline>
 <codeline lineno="460"><highlight class="normal"></highlight></codeline>
@@ -726,20 +726,20 @@
 <codeline lineno="471"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="472"><highlight class="normal"><sp/><sp/><sp/><sp/>QVector&lt;QPointF&gt;<sp/>lines;</highlight></codeline>
 <codeline lineno="473"><highlight class="normal"></highlight></codeline>
-<codeline lineno="474"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis-&gt;grid()-&gt;<ref refid="class_axis_grid_1a10cac7d5c467b0ebaed6e8181d5f1721" kindref="member">axes</ref>()<sp/>&amp;<sp/>AxisGrid::X)<sp/>{</highlight></codeline>
+<codeline lineno="474"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis-&gt;<ref refid="class_axis2_d_base_1a34d1db9db3582c2ef4613a9698863de0" kindref="member">grid</ref>()-&gt;<ref refid="class_axis_grid_1a10cac7d5c467b0ebaed6e8181d5f1721" kindref="member">axes</ref>()<sp/>&amp;<sp/>AxisGrid::X)<sp/>{</highlight></codeline>
 <codeline lineno="475"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(qreal<sp/>x,<sp/>xMajor)<sp/>{</highlight></codeline>
 <codeline lineno="476"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lines<sp/>&lt;&lt;<sp/>m_scaling*QPointF(x,<sp/>plotRect.top());</highlight></codeline>
 <codeline lineno="477"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lines<sp/>&lt;&lt;<sp/>m_scaling*QPointF(x,<sp/>plotRect.bottom());</highlight></codeline>
 <codeline lineno="478"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="479"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="480"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis-&gt;grid()-&gt;<ref refid="class_axis_grid_1a10cac7d5c467b0ebaed6e8181d5f1721" kindref="member">axes</ref>()<sp/>&amp;<sp/>AxisGrid::Y)<sp/>{</highlight></codeline>
+<codeline lineno="480"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_axis-&gt;<ref refid="class_axis2_d_base_1a34d1db9db3582c2ef4613a9698863de0" kindref="member">grid</ref>()-&gt;<ref refid="class_axis_grid_1a10cac7d5c467b0ebaed6e8181d5f1721" kindref="member">axes</ref>()<sp/>&amp;<sp/>AxisGrid::Y)<sp/>{</highlight></codeline>
 <codeline lineno="481"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(qreal<sp/>y,<sp/>yMajor)<sp/>{</highlight></codeline>
 <codeline lineno="482"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lines<sp/>&lt;&lt;<sp/>m_scaling*QPointF(plotRect.left(),<sp/>y);</highlight></codeline>
 <codeline lineno="483"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lines<sp/>&lt;&lt;<sp/>m_scaling*QPointF(plotRect.right(),<sp/>y);</highlight></codeline>
 <codeline lineno="484"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="485"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="486"><highlight class="normal"></highlight></codeline>
-<codeline lineno="487"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_line_spec" kindref="compound">LineSpec</ref><sp/>*spec<sp/>=<sp/>m_axis-&gt;grid()-&gt;majorLine();</highlight></codeline>
+<codeline lineno="487"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_line_spec" kindref="compound">LineSpec</ref><sp/>*spec<sp/>=<sp/>m_axis-&gt;<ref refid="class_axis2_d_base_1a34d1db9db3582c2ef4613a9698863de0" kindref="member">grid</ref>()-&gt;majorLine();</highlight></codeline>
 <codeline lineno="488"><highlight class="normal"><sp/><sp/><sp/><sp/>QPen<sp/>pen;</highlight></codeline>
 <codeline lineno="489"><highlight class="normal"><sp/><sp/><sp/><sp/>pen.setColor(spec-&gt;color());</highlight></codeline>
 <codeline lineno="490"><highlight class="normal"><sp/><sp/><sp/><sp/>pen.setWidth(spec-&gt;width());</highlight></codeline>

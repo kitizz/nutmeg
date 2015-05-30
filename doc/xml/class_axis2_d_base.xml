@@ -14,7 +14,9 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Read-only property provides access to specifying the <ref refid="class_axis" kindref="compound">Axis</ref> grid. E.g. <programlisting><codeline><highlight class="normal">grid.axis:<sp/>&quot;XY&quot;</highlight></codeline>
+</programlisting> <simplesect kind="see"><para><ref refid="class_axis_grid" kindref="compound">AxisGrid</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="782" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="25" bodyend="-1"/>
@@ -28,7 +30,8 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The x-axis <ref refid="class_axis_spec" kindref="compound">AxisSpec</ref> object for this <ref refid="class_axis" kindref="compound">Axis</ref>. This provides access to the axis label, the major and minor ticks, etc. <simplesect kind="see"><para><ref refid="class_axis_spec" kindref="compound">AxisSpec</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="782" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="26" bodyend="-1"/>
@@ -42,7 +45,8 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The y-axis <ref refid="class_axis_spec" kindref="compound">AxisSpec</ref> object for this <ref refid="class_axis" kindref="compound">Axis</ref>. This provides access to the axis label, the major and minor ticks, etc. <simplesect kind="see"><para><ref refid="class_axis_spec" kindref="compound">AxisSpec</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="782" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="27" bodyend="-1"/>
@@ -72,7 +76,8 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Sets all the data limits of the <ref refid="class_axis" kindref="compound">Axis</ref> at once. <simplesect kind="see"><para><ref refid="class_axis2_d_base_1aadbb7933abae115c31de16ad951d4a64" kindref="member">minX</ref>, <ref refid="class_axis2_d_base_1ad0f78c03fcde2f27eb4ec69c50cf16f2" kindref="member">maxX</ref>, <ref refid="class_axis2_d_base_1a9311432fc339db917787efe794fd178b" kindref="member">minY</ref>, <ref refid="class_axis2_d_base_1ae9859c29725ebb02972ff3a5c3a26028" kindref="member">maxY</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="782" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="31" bodyend="-1"/>
@@ -87,7 +92,8 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Set the minimim X data limit. <simplesect kind="see"><para>AxisBase::limits </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="782" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="33" bodyend="-1"/>
@@ -102,7 +108,8 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Set the maximum X data limit. <simplesect kind="see"><para><ref refid="class_axis2_d_base_1a70b44148c337dcdcf2eb336249bf1ebf" kindref="member">Axis2DBase::limits</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="782" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="34" bodyend="-1"/>
@@ -117,7 +124,8 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Set the minimim Y data limit. <simplesect kind="see"><para><ref refid="class_axis2_d_base_1a70b44148c337dcdcf2eb336249bf1ebf" kindref="member">Axis2DBase::limits</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="782" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="35" bodyend="-1"/>
@@ -132,7 +140,8 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Set the maximum Y data limit. <simplesect kind="see"><para><ref refid="class_axis2_d_base_1a70b44148c337dcdcf2eb336249bf1ebf" kindref="member">Axis2DBase::limits</ref> </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="782" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="36" bodyend="-1"/>
@@ -190,7 +199,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>If <emphasis>aspectRatio</emphasis> is larger than 0, the axis will enforce this ratio at all times. Note: aspectRatio = x/y </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="782" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="42" bodyend="-1"/>
@@ -205,7 +214,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>If true, the automatic axis limits will fit the plots in the axis as tightly as possible. If false, the axis will round the y-axis up to whole numbers (dependent on the scale of the axis). E.g. 894 -&gt; 900, 8894 -&gt; 9000 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" line="782" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axis2dbase.h" bodystart="43" bodyend="-1"/>

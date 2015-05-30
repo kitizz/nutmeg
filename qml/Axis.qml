@@ -18,18 +18,6 @@ Axis2DBase {
     height: parent.height
 
     default property alias plotArea: plots.children
-//    plotRect: Qt.rect(plotFrame.x, plotFrame.y, plotFrame.width, plotFrame.height)
-//    readonly property alias plotMargins: pltMarg
-
-//    AxisMargins {
-//        id: pltMarg
-//        top: titleMargin
-//        left: yLabelMargin + yNumbersMargin + tickNumbersMargin
-//        bottom: xLabelMargin + xNumbersMargin + tickNumbersMargin + margin.bottom
-//        right: axisItem.margin.right
-//    }
-
-//    onLimitsChanged: console.log("New Limits:", limits)
 
     property real widthFraction: -1
     property real heightFraction: -1

@@ -244,22 +244,22 @@
 <codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Transform<sp/>the<sp/>plot<sp/>coords<sp/>to<sp/>view<sp/>coords</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>scaleX<sp/>=<sp/>1,<sp/>scaleY<sp/>=<sp/>1;</highlight></codeline>
 <codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>scaleOffsetX<sp/>=<sp/>0,<sp/>scaleOffsetY<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(monAxis-&gt;xAxis()-&gt;inverted())<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(monAxis-&gt;<ref refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kindref="member">xAxis</ref>()-&gt;inverted())<sp/>{</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scaleX<sp/>=<sp/>-1;</highlight></codeline>
 <codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scaleOffsetX<sp/>=<sp/>width();</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!monAxis-&gt;yAxis()-&gt;inverted())<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!monAxis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>()-&gt;inverted())<sp/>{</highlight></codeline>
 <codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scaleY<sp/>=<sp/>1;</highlight></codeline>
 <codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scaleOffsetY<sp/>=<sp/>height();</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>painter-&gt;translate(scaleOffsetX,<sp/>scaleOffsetY);</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>painter-&gt;scale(scaleX,<sp/>scaleY);</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Image<sp/>Limits:&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>monAxis-&gt;limits();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Image<sp/>Limits:&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>monAxis-&gt;<ref refid="class_axis2_d_base_1a70b44148c337dcdcf2eb336249bf1ebf" kindref="member">limits</ref>();</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight></codeline>
 <codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Is<sp/>this<sp/>copying<sp/>the<sp/>whole<sp/>pixmap?</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>QPixmap<sp/>pix<sp/>=<sp/>plot-&gt;pixmap();</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>painter-&gt;drawPixmap(this-&gt;boundingRect(),<sp/>pix,<sp/>monAxis-&gt;limits());</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>painter-&gt;drawPixmap(this-&gt;boundingRect(),<sp/>pix,<sp/>monAxis-&gt;<ref refid="class_axis2_d_base_1a70b44148c337dcdcf2eb336249bf1ebf" kindref="member">limits</ref>());</highlight></codeline>
 <codeline lineno="35"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/Users/kitham/projects/qt/nutmeg/src/imagecanvas.cpp"/>

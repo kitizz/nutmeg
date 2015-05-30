@@ -271,10 +271,10 @@
 <codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Funky<sp/>data</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>View<sp/>limits:</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>minX<sp/>=<sp/>monAxis-&gt;minX();</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>minY<sp/>=<sp/>monAxis-&gt;minY();</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>maxX<sp/>=<sp/>monAxis-&gt;maxX();</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>maxY<sp/>=<sp/>monAxis-&gt;maxY();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>minX<sp/>=<sp/>monAxis-&gt;<ref refid="class_axis2_d_base_1aadbb7933abae115c31de16ad951d4a64" kindref="member">minX</ref>();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>minY<sp/>=<sp/>monAxis-&gt;<ref refid="class_axis2_d_base_1a9311432fc339db917787efe794fd178b" kindref="member">minY</ref>();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>maxX<sp/>=<sp/>monAxis-&gt;<ref refid="class_axis2_d_base_1ad0f78c03fcde2f27eb4ec69c50cf16f2" kindref="member">maxX</ref>();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>maxY<sp/>=<sp/>monAxis-&gt;<ref refid="class_axis2_d_base_1ae9859c29725ebb02972ff3a5c3a26028" kindref="member">maxY</ref>();</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"></highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>lim<sp/>=<sp/>QRectF(minX,<sp/>minY,<sp/>maxX<sp/>-<sp/>minX,<sp/>maxY<sp/>-<sp/>minY);</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
@@ -283,11 +283,11 @@
 <codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>scaleY<sp/>=<sp/>height()/(lim.height());</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>tx<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>ty<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(monAxis-&gt;xAxis()-&gt;inverted())<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(monAxis-&gt;<ref refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kindref="member">xAxis</ref>()-&gt;inverted())<sp/>{</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scaleX<sp/>*=<sp/>-1;</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tx<sp/>=<sp/>width();</highlight></codeline>
 <codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!monAxis-&gt;yAxis()-&gt;inverted())<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!monAxis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>()-&gt;inverted())<sp/>{</highlight></codeline>
 <codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scaleY<sp/>*=<sp/>-1;</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ty<sp/>=<sp/>height();</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>

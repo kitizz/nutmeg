@@ -164,7 +164,7 @@ void Axis2DBase::triggerRedraw()
 }
 
 /*!
- * \property AxisBase::minX
+ * \property Axis2DBase::minX
  * Set the minimim X data limit.
  * \sa AxisBase::limits
  */
@@ -197,9 +197,9 @@ void Axis2DBase::setMinX(qreal arg, bool fix, bool updateAxis)
 }
 
 /*!
- * \property AxisBase::maxX
+ * \property Axis2DBase::maxX
  * Set the maximum X data limit.
- * \sa AxisBase::limits
+ * \sa Axis2DBase::limits
  */
 qreal Axis2DBase::maxX() const
 {
@@ -226,9 +226,9 @@ void Axis2DBase::setMaxX(qreal arg, bool fix, bool updateAxis)
 }
 
 /*!
- * \property AxisBase::minY
+ * \property Axis2DBase::minY
  * Set the minimim Y data limit.
- * \sa AxisBase::limits
+ * \sa Axis2DBase::limits
  */
 qreal Axis2DBase::minY() const
 {
@@ -255,9 +255,9 @@ void Axis2DBase::setMinY(qreal arg, bool fix, bool updateAxis)
 }
 
 /*!
- * \property AxisBase::maxY
+ * \property Axis2DBase::maxY
  * Set the maximum Y data limit.
- * \sa AxisBase::limits
+ * \sa Axis2DBase::limits
  */
 qreal Axis2DBase::maxY() const
 {
@@ -285,7 +285,7 @@ void Axis2DBase::setMaxY(qreal arg, bool fix, bool updateAxis)
 
 void Axis2DBase::offset(qreal x, qreal y)
 {
-    // TODO: Implement AxisBase::offset
+    // TODO: Implement Axis2DBase::offset
 }
 
 void Axis2DBase::updateXAxis()
@@ -311,13 +311,13 @@ void Axis2DBase::updateLimits()
 
     maintainAspectRatio(&newLimits);
 
-//    qDebug() << "AxisBase::updateLimits" << minX() << maxX() << minY() << maxY();
+//    qDebug() << "Axis2DBase::updateLimits" << minX() << maxX() << minY() << maxY();
     setLimits(newLimits, false);
 }
 
 void Axis2DBase::updateDataLimits()
 {
-    qDebug() << "AxisBase::updateDataLimits";
+    qDebug() << "Axis2DBase::updateDataLimits";
     qreal minX = Inf, maxX = -Inf, minY = Inf, maxY = -Inf;
 
     bool validLimits = false;
@@ -468,7 +468,7 @@ qreal Axis2DBase::sign(qreal a)
 }
 
 /*!
- * \property AxisBase::limits
+ * \property Axis2DBase::limits
  * Sets all the data limits of the Axis at once.
  * \sa minX, maxX, minY, maxY
  */
@@ -522,7 +522,7 @@ QRectF Axis2DBase::dataLimits() const
 }
 
 /*! \internal
- * \property AxisBase::yLimitRounding
+ * \property Axis2DBase::yLimitRounding
  * A list of numbers between 1 and 10. It
  * defines the rounding used when auto-scaling the axes to fit the data. These
  * values are adapted for differing magnitudes of data. For example, the value
@@ -542,7 +542,7 @@ void Axis2DBase::setYLimitRounding(QList<qreal> arg)
 }
 
 /*!
- * \property AxisBase::xAxis
+ * \property Axis2DBase::xAxis
  * The x-axis AxisSpec object for this Axis. This provides access to the axis
  * label, the major and minor ticks, etc.
  * \sa AxisSpec
@@ -553,7 +553,7 @@ AxisSpec *Axis2DBase::xAxis() const
 }
 
 /*!
- * \property AxisBase::yAxis
+ * \property Axis2DBase::yAxis
  * The y-axis AxisSpec object for this Axis. This provides access to the axis
  * label, the major and minor ticks, etc.
  * \sa AxisSpec
@@ -569,7 +569,7 @@ AxisMargins *Axis2DBase::margin() const
 }
 
 /*!
- * \property AxisBase::aspectRatio
+ * \property Axis2DBase::aspectRatio
  * If \a aspectRatio is larger than 0, the axis will enforce this ratio at all
  * times. Note: aspectRatio = x/y
  */
@@ -586,7 +586,7 @@ void Axis2DBase::setAspectRatio(qreal arg)
 }
 
 /*!
- * \property AxisBase::fitPlots
+ * \property Axis2DBase::fitPlots
  * If true, the automatic axis limits will fit the plots in the axis as
  * tightly as possible. If false, the axis will round the y-axis up to whole
  * numbers (dependent on the scale of the axis).
@@ -645,7 +645,7 @@ void Axis2DBase::setShareY(QString arg)
 }
 
 /*!
- * \property AxisBase::grid
+ * \property Axis2DBase::grid
  * Read-only property provides access to specifying the Axis grid.
  * E.g.
  * \code
