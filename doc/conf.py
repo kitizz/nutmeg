@@ -12,6 +12,7 @@
 # serve to show the default.
 
 import sys, os
+import sphinx_bootstrap_theme
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -19,10 +20,7 @@ import sys, os
 #sys.path.insert(0, os.path.abspath('.'))
 
 sys.path.append( os.path.abspath("../breathe/") )
-sys.path.append( os.path.abspath("../pygments-style-github/") )
-sys.path.append( os.path.abspath("../sphinx-bootstrap-theme") )
 
-import sphinx_bootstrap_theme
 
 # Build the doxygen xml before building with Sphinx
 # import subprocess
