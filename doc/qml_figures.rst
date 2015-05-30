@@ -5,7 +5,7 @@ This section explains how to layout a Nutmeg figure using QML. Most of these pro
 
 For example, to set a title from python code:
 
-.. code-block:: guess
+.. code-block:: qml
 
     fig = Nutmeg.figure("myFigure", "figure.qml")
     fig.set('ax.title', "My Figure")
