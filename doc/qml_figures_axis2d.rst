@@ -3,7 +3,7 @@ Axis
 
 .. doxygenclass:: Axis
    :project: Nutmeg
-   :member:
+   :members:
    :outline:
 
 .. doxygenclass:: Axis
