@@ -43,6 +43,7 @@ The following QML file declares a Figure which contains two axes. It uses QML st
 **figure.qml**
 
 .. code-block:: qml
+
     Figure {
         id: fig
         Layouts.Column {
@@ -69,6 +70,7 @@ The following QML file declares a Figure which contains two axes. It uses QML st
 From Python, data can be plotted like so:
 
 .. code-block:: python
+
     import Nutmeg
     from numpy import sin, cos, pi, r_
 
