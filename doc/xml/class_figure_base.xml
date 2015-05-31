@@ -52,10 +52,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>The handle of the figure to be referenced from the client code. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="460" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="20" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="462" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="property" id="class_figure_base_1a3651592f7f89ec883fd2767629e5bf6e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QVariantMap</type>
@@ -66,10 +66,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>A map of <ref refid="class_axis" kindref="compound">Axis</ref> handles to the actual Axes. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="460" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="21" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="462" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="21" bodyend="-1"/>
       </memberdef>
       <memberdef kind="property" id="class_figure_base_1a038a32822a6354de5c98db689f6bf3c8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type><ref refid="class_controller" kindref="compound">Controller</ref></type>
@@ -84,7 +84,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="460" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="22" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="462" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="property" id="class_figure_base_1ae330343939802655e575c38d1cd60a84" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>int</type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="460" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="23" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="462" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       <memberdef kind="property" id="class_figure_base_1a6a198a69a228d7da2ec1cb45786ed87a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QPointF</type>
@@ -112,7 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="460" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="24" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="462" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="property" id="class_figure_base_1ad9e46559b47845c919e548360524cbe2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QPointF</type>
@@ -126,7 +126,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="460" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="25" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="462" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="25" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -316,21 +316,12 @@
           <declname>handle</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_figure_base_1af297e04770fba862f8414a4be29fe97d" kindref="member">FigureBase::getAxesByHandle</ref>. </para>        </briefdescription>
+        </briefdescription>
         <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>handle</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>The handle of the axes you wish to access. </para></parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>A list of the axes with the requested handle if handle is not empty, else all the axes belonging to the figure. </para></simplesect>
-</para>        </detaileddescription>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="37" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="54" bodyend="68"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="37" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="53" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="class_figure_base_1a6d158d8605ae26f05f42cd03848878cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Q_INVOKABLE QVariantList</type>
@@ -343,7 +334,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="38" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="187" bodyend="190"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="38" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="186" bodyend="189"/>
       </memberdef>
       <memberdef kind="function" id="class_figure_base_1ad82586023d6757a75940cee9fe04bb34" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>QRectF</type>
@@ -357,10 +348,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><ref refid="class_figure_base_1ad82586023d6757a75940cee9fe04bb34" kindref="member">FigureBase::getPlotRectFor</ref> If this <ref refid="class_axis" kindref="compound">Axis</ref> belongs to a group, this returns a QRectF whose height is bounded by the smallest height in its row, and width is bounded by the smallest width in its coloumn. </para>        </detaileddescription>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="39" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="198" bodyend="234"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="39" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="196" bodyend="232"/>
       </memberdef>
       <memberdef kind="function" id="class_figure_base_1ae743134b9c7b235d0da5a90772954437" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -390,7 +381,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="42" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="249" bodyend="254"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="42" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="251" bodyend="256"/>
       </memberdef>
       <memberdef kind="function" id="class_figure_base_1a14ff3aaa1afecfbfe4e2c755f84487a7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_controller" kindref="compound">Controller</ref> *</type>
@@ -420,7 +411,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="45" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="261" bodyend="275"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="45" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="263" bodyend="277"/>
       </memberdef>
       <memberdef kind="function" id="class_figure_base_1a68727088acbaeaaad2c5583dc73ec9b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Q_INVOKABLE void</type>
@@ -437,7 +428,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="47" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="277" bodyend="281"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="47" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="279" bodyend="283"/>
       </memberdef>
       <memberdef kind="function" id="class_figure_base_1a2c082750e27d46ff326a1c8b299923b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -458,7 +449,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="48" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="283" bodyend="318"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="48" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="285" bodyend="320"/>
       </memberdef>
       <memberdef kind="function" id="class_figure_base_1a969d58170e6d98e18812c89fd4f23137" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>QPointF</type>
@@ -488,7 +479,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="51" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="325" bodyend="330"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="51" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="327" bodyend="332"/>
       </memberdef>
       <memberdef kind="function" id="class_figure_base_1a6dd407c7a71438a7fc861f281ecafd62" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>QPointF</type>
@@ -518,7 +509,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="54" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="337" bodyend="342"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="54" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="339" bodyend="344"/>
       </memberdef>
       <memberdef kind="function" id="class_figure_base_1a04f793aa1bd2b845ceb290f99898560e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -548,7 +539,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="57" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="349" bodyend="354"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="57" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="351" bodyend="356"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="signal">
@@ -739,7 +730,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="73" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="236" bodyend="242"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="73" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="234" bodyend="240"/>
       </memberdef>
       <memberdef kind="slot" id="class_figure_base_1a1f65e5fda751deb12639d1f165fbb667" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -756,7 +747,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="74" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="70" bodyend="79"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="74" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="69" bodyend="78"/>
       </memberdef>
       <memberdef kind="slot" id="class_figure_base_1a7fe3af1c72c25d94b0da745459c8de1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -774,17 +765,15 @@
         <param>
           <type>const QString &amp;</type>
           <declname>oldGroup</declname>
-          <defname>oldGroupName</defname>
           <defval>&quot;&quot;</defval>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><ref refid="class_figure_base_1a7fe3af1c72c25d94b0da745459c8de1a" kindref="member">FigureBase::registerAxisGroup</ref> Register a 1D or 2D array of axes as a group. Must define the type of group (column, row, grid). <simplesect kind="return"><para>The name of group generated. </para></simplesect>
-</para>        </detaileddescription>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="76" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="87" bodyend="109"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="76" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="86" bodyend="108"/>
       </memberdef>
       <memberdef kind="slot" id="class_figure_base_1a7378d92537e692e3f9f49a2625842bf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -809,7 +798,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="77" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="111" bodyend="128"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="77" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="110" bodyend="127"/>
       </memberdef>
       <memberdef kind="slot" id="class_figure_base_1a15f09af8d95ca0188cec1514501d56d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -826,7 +815,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="79" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="130" bodyend="145"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="79" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="129" bodyend="144"/>
       </memberdef>
       <memberdef kind="slot" id="class_figure_base_1a09d5d6b6d0fea6f4e2487f588463bec8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -843,7 +832,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="80" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="147" bodyend="162"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="80" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="146" bodyend="161"/>
       </memberdef>
       <memberdef kind="slot" id="class_figure_base_1ac1ed978830669c3613d6cc164d619958" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -860,7 +849,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="82" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="164" bodyend="185"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="82" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="163" bodyend="184"/>
       </memberdef>
       <memberdef kind="slot" id="class_figure_base_1aa1a9e1a319ce3f5dc3498282e7bbeba4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -960,7 +949,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="103" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="356" bodyend="371"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="103" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="358" bodyend="373"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

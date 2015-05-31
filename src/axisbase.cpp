@@ -166,8 +166,9 @@ void AxisBase::setTitle(QString arg)
  * \code{.qml}
  * titleFont { bold: true, family: "Arial", pointSize: 16 }
  * \endcode
- * See QML's documentation for details on its basic Font type:
- * http://qt-project.org/doc/qt-5/qml-font.html
+ *
+ * See <a href="http://doc.qt.io/qt-5/qml-font.html">QML's documentation</a>
+ * for details on its basic Font type.
  */
 QFont AxisBase::titleFont() const
 {

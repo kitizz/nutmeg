@@ -35,20 +35,19 @@ FigureBase::~FigureBase()
     m_destroying = true;
 }
 
-//void FigureBase::paint(QPainter *painter)
-//{
-
-//}
-
+/*!
+ * \property FigureBase::axes
+ * A map of Axis handles to the actual Axes.
+ */
 QVariantMap FigureBase::axes() const
 {
     return m_axesVar;
 }
 
-/**
- * @brief FigureBase::getAxesByHandle
- * @param handle The handle of the axes you wish to access.
- * @return A list of the axes with the requested handle if handle is not empty,
+/*! \internal
+ * \fn FigureBase::getAxesByHandle
+ * \param handle The handle of the axes you wish to access.
+ * \return A list of the axes with the requested handle if handle is not empty,
  *      else all the axes belonging to the figure.
  */
 QList<AxisBase *> FigureBase::getAxesByHandle(const QString &handle) const
@@ -78,8 +77,8 @@ void FigureBase::registerAxis(AxisBase *axis)
     updateAxes();
 }
 
-/*!
- * \method FigureBase::registerAxisGroup
+/*! \internal
+ * \fn FigureBase::registerAxisGroup
  * Register a 1D or 2D array of axes as a group. Must define the type of group
  * (column, row, grid).
  * \return The name of group generated.
@@ -189,8 +188,7 @@ QVariantList FigureBase::getAxisList()
     return m_axisList;
 }
 
-/*!
- * \method FigureBase::getPlotRectFor
+/*! \internal
  * If this Axis belongs to a group, this returns a QRectF whose height is
  * bounded by the smallest height in its row, and width is bounded by the
  * smallest width in its coloumn.
@@ -241,6 +239,10 @@ void FigureBase::deregisterAxis(AxisBase *axis)
     updateAxes();
 }
 
+/*!
+ * \property FigureBase::handle
+ * The handle of the figure to be referenced from the client code.
+ */
 QString FigureBase::handle() const
 {
     return m_handle;

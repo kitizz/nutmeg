@@ -19,7 +19,7 @@
 <para>The handle property provides Nutmeg a way of identifying this <ref refid="class_axis" kindref="compound">Axis</ref>. By default, this is &quot;axis&quot;. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="280" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="15" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="281" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       <memberdef kind="property" id="class_axis_base_1a74a2c387de2a6b67c78a3375a6cd4bb9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type><ref refid="class_figure_base" kindref="compound">FigureBase</ref></type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="280" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="16" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="281" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="16" bodyend="-1"/>
       </memberdef>
       <memberdef kind="property" id="class_axis_base_1a7f5068c6a03dc994e12d40046d1b691c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QRectF</type>
@@ -48,7 +48,7 @@
 <para>A rectangle that defines the actual plotting area in this axis. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="280" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="17" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="281" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="17" bodyend="-1"/>
       </memberdef>
       <memberdef kind="property" id="class_axis_base_1afb57f7d1e3861e3a4117989a70f1f9e4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QVariantMap</type>
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="280" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="19" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="281" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="19" bodyend="-1"/>
       </memberdef>
       <memberdef kind="property" id="class_axis_base_1a3c791c13279cae1bfc0e2406abb55b93" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QString</type>
@@ -77,7 +77,7 @@
 <para>Set the title of this axis. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="280" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="21" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="281" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="21" bodyend="-1"/>
       </memberdef>
       <memberdef kind="property" id="class_axis_base_1a5399b421f01866caea4825266c70c22d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QFont</type>
@@ -90,10 +90,10 @@
         </briefdescription>
         <detaileddescription>
 <para>Define the Font to be used for the title. Can be used as a group property: <programlisting><codeline><highlight class="normal"><ref refid="class_axis_base_1a5399b421f01866caea4825266c70c22d" kindref="member">titleFont</ref><sp/>{<sp/>bold:<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>family:<sp/></highlight><highlight class="stringliteral">&quot;Arial&quot;</highlight><highlight class="normal">,<sp/>pointSize:<sp/>16<sp/>}</highlight></codeline>
-</programlisting> See QML&apos;s documentation for details on its basic Font type: <ulink url="http://qt-project.org/doc/qt-5/qml-font.html">http://qt-project.org/doc/qt-5/qml-font.html</ulink> </para>        </detaileddescription>
+</programlisting></para><para>See <ulink url="http://doc.qt.io/qt-5/qml-font.html">QML&apos;s documentation</ulink> for details on its basic Font type. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="280" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="22" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="281" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="property" id="class_axis_base_1ad07aa1a2ad6dd0405a58fc56d39e7cd6" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
         <type>QColor</type>
@@ -108,7 +108,7 @@
 <para>The color of the title text. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="280" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="23" bodyend="-1"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="281" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -574,7 +574,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="55" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="177" bodyend="182"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="55" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="178" bodyend="183"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_base_1a20afa4d6fe65ffe378f9f6d2c0b7ec8e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>QColor</type>
@@ -604,7 +604,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="58" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="193" bodyend="198"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="58" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="194" bodyend="199"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_base_1ae77697ce1d851ea01be1ad9fc3f6d8f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -621,7 +621,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="60" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="200" bodyend="203"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="60" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="201" bodyend="204"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_base_1a58c5dbf175725a4fd32622dcb6180c74" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_axis_group" kindref="compound">AxisGroup</ref> *</type>
@@ -634,7 +634,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="61" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="205" bodyend="208"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="61" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="206" bodyend="209"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_base_1af721f094d1dc1aa17b3e116d8ff2b7dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -655,7 +655,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="62" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="210" bodyend="214"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="62" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="211" bodyend="215"/>
       </memberdef>
       <memberdef kind="function" id="class_axis_base_1ad77b60029b32e9b65fd0172ba7b74127" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -676,7 +676,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="63" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="216" bodyend="220"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="63" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="217" bodyend="221"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="signal">
@@ -863,7 +863,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="79" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="227" bodyend="249"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="79" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="228" bodyend="250"/>
       </memberdef>
       <memberdef kind="slot" id="class_axis_base_1ace3445060ef85f38ed3759106191a353" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QRectF</type>
@@ -876,7 +876,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="80" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="251" bodyend="255"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="80" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="252" bodyend="256"/>
       </memberdef>
       <memberdef kind="slot" id="class_axis_base_1aae48fab88a0a5be2b7d2150ae528d09e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -906,7 +906,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="82" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="257" bodyend="271"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="82" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="258" bodyend="272"/>
       </memberdef>
       <memberdef kind="slot" id="class_axis_base_1ac24c84657095789ae0a39097d68a3b01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -923,7 +923,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="83" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="273" bodyend="278"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="83" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="274" bodyend="279"/>
       </memberdef>
       <memberdef kind="slot" id="class_axis_base_1a924c279cd333c091d5bbdf7c49f0ce2b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -1040,7 +1040,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="105" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="280" bodyend="291"/>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h" line="105" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/axisbase.cpp" bodystart="281" bodyend="292"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

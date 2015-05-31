@@ -648,7 +648,7 @@ void Axis2DBase::setShareY(QString arg)
  * \property Axis2DBase::grid
  * Read-only property provides access to specifying the Axis grid.
  * E.g.
- * \code
+ * \code{.qml}
  * grid.axis: "XY"
  * \endcode
  * \sa AxisGrid
