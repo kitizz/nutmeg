@@ -1,0 +1,954 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_figure" kind="class" language="C++" prot="public">
+    <compoundname>Figure</compoundname>
+    <basecompoundref refid="class_figure_base" prot="public" virt="non-virtual">FigureBase</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_figure_1adb8d1900e0d8fabcdfe08c4dc31d6e69" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Figure::tabIndex</definition>
+        <argsstring></argsstring>
+        <name>tabIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" line="87" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_figure_1a795e2d4f604be5c0b9149ed2dda39a34" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var Figure::guiItem</definition>
+        <argsstring></argsstring>
+        <name>guiItem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" line="87" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_figure_1a24107e76be131a01d93fb2ce118d232b" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Figure::qml</definition>
+        <argsstring></argsstring>
+        <name>qml</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" line="87" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_figure_base_1aace8e3efd4c586ce21f95668d9bf54a3" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString FigureBase::handle</definition>
+        <argsstring></argsstring>
+        <name>handle</name>
+        <read>handle</read>
+        <write>setHandle</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The handle of the figure to be referenced from the client code. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="462" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_figure_base_1a3651592f7f89ec883fd2767629e5bf6e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap FigureBase::axes</definition>
+        <argsstring></argsstring>
+        <name>axes</name>
+        <read>axes</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A map of <ref refid="class_axis" kindref="compound">Axis</ref> handles to the actual Axes. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="462" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_figure_base_1a038a32822a6354de5c98db689f6bf3c8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_controller" kindref="compound">Controller</ref></type>
+        <definition>Controller * FigureBase::controller</definition>
+        <argsstring></argsstring>
+        <name>controller</name>
+        <read>controller</read>
+        <write>setController</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="462" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_figure_base_1ae330343939802655e575c38d1cd60a84" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int FigureBase::mouseButtons</definition>
+        <argsstring></argsstring>
+        <name>mouseButtons</name>
+        <read>mouseButtons</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="462" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_figure_base_1a6a198a69a228d7da2ec1cb45786ed87a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QPointF</type>
+        <definition>QPointF FigureBase::mouse</definition>
+        <argsstring></argsstring>
+        <name>mouse</name>
+        <read>mouse</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="462" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_figure_base_1ad9e46559b47845c919e548360524cbe2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QPointF</type>
+        <definition>QPointF FigureBase::mouseUnit</definition>
+        <argsstring></argsstring>
+        <name>mouseUnit</name>
+        <read>mouseUnit</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="462" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_figure_1a8e1777b0afe7f0ed12c32114362fe7a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Figure::axisAtPoint</definition>
+        <argsstring>(point)</argsstring>
+        <name>axisAtPoint</name>
+        <param>
+          <type>point</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" line="16" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_figure_base_1ae743134b9c7b235d0da5a90772954437" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString FigureBase::handle</definition>
+        <argsstring>() const </argsstring>
+        <name>handle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="41" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_figure_base_1a2ce106e8c869cadaaf118f12f57ba27d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariantMap</type>
+        <definition>QVariantMap FigureBase::axes</definition>
+        <argsstring>() const </argsstring>
+        <name>axes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="36" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_figure_base_1a14ff3aaa1afecfbfe4e2c755f84487a7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_controller" kindref="compound">Controller</ref> *</type>
+        <definition>Controller* FigureBase::controller</definition>
+        <argsstring>() const </argsstring>
+        <name>controller</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="44" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_figure_base_1a04f793aa1bd2b845ceb290f99898560e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FigureBase::mouseButtons</definition>
+        <argsstring>() const </argsstring>
+        <name>mouseButtons</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="56" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_figure_base_1a969d58170e6d98e18812c89fd4f23137" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QPointF</type>
+        <definition>QPointF FigureBase::mouse</definition>
+        <argsstring>() const </argsstring>
+        <name>mouse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="50" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_figure_base_1a6dd407c7a71438a7fc861f281ecafd62" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QPointF</type>
+        <definition>QPointF FigureBase::mouseUnit</definition>
+        <argsstring>() const </argsstring>
+        <name>mouseUnit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="53" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_figure_base_1af297e04770fba862f8414a4be29fe97d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="class_axis_base" kindref="compound">AxisBase</ref> * &gt;</type>
+        <definition>QList&lt; AxisBase * &gt; FigureBase::getAxesByHandle</definition>
+        <argsstring>(const QString &amp;handle) const </argsstring>
+        <name>getAxesByHandle</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="37" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="53" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_figure_base_1a6d158d8605ae26f05f42cd03848878cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantList</type>
+        <definition>QVariantList FigureBase::getAxisList</definition>
+        <argsstring>()</argsstring>
+        <name>getAxisList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="38" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="186" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="class_figure_base_1ad82586023d6757a75940cee9fe04bb34" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QRectF</type>
+        <definition>QRectF FigureBase::getPlotRectFor</definition>
+        <argsstring>(AxisBase *axis) const </argsstring>
+        <name>getPlotRectFor</name>
+        <param>
+          <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref> *</type>
+          <declname>axis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="39" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="196" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="class_figure_base_1ad377cecdb2431483695bfb12922d39d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::setHandle</definition>
+        <argsstring>(QString arg)</argsstring>
+        <name>setHandle</name>
+        <param>
+          <type>QString</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="42" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="251" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="class_figure_base_1aafc5fd670ae52874a34422a71fc71d85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::setController</definition>
+        <argsstring>(Controller *arg)</argsstring>
+        <name>setController</name>
+        <param>
+          <type><ref refid="class_controller" kindref="compound">Controller</ref> *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="45" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="263" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="function" id="class_figure_base_1a68727088acbaeaaad2c5583dc73ec9b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void FigureBase::installEventFilterApp</definition>
+        <argsstring>(QObject *app)</argsstring>
+        <name>installEventFilterApp</name>
+        <param>
+          <type>QObject *</type>
+          <declname>app</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="47" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="279" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="class_figure_base_1a2c082750e27d46ff326a1c8b299923b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FigureBase::eventFilter</definition>
+        <argsstring>(QObject *watched, QEvent *event)</argsstring>
+        <name>eventFilter</name>
+        <param>
+          <type>QObject *</type>
+          <declname>watched</declname>
+        </param>
+        <param>
+          <type>QEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="48" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="285" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="class_figure_base_1a50d372d69e9a9a3b76ca6321727ea62e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::setMouse</definition>
+        <argsstring>(QPointF arg)</argsstring>
+        <name>setMouse</name>
+        <param>
+          <type>QPointF</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="51" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="327" bodyend="332"/>
+      </memberdef>
+      <memberdef kind="function" id="class_figure_base_1a7c0cd754758dab530bf990584d97652e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::setMouseUnit</definition>
+        <argsstring>(QPointF arg)</argsstring>
+        <name>setMouseUnit</name>
+        <param>
+          <type>QPointF</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="54" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="339" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="function" id="class_figure_base_1a623a812be6dfc1cb37b948f3be24d105" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::setMouseButtons</definition>
+        <argsstring>(int arg)</argsstring>
+        <name>setMouseButtons</name>
+        <param>
+          <type>int</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="57" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="351" bodyend="356"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_figure_base_1a395820856e1885bd2d64d125d19e1b46" prot="public" static="no">
+        <name>AxisGroupType</name>
+        <enumvalue id="class_figure_base_1a395820856e1885bd2d64d125d19e1b46aeaefd132997a8899977f3857249fc97d" prot="public">
+          <name>Row</name>
+          <initializer>=1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_figure_base_1a395820856e1885bd2d64d125d19e1b46a87f6f9f0ede0f48a4a5952fa37aa4829" prot="public">
+          <name>Column</name>
+          <initializer>=2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_figure_base_1a395820856e1885bd2d64d125d19e1b46a55f2b5f9792170ad0808ccb0ac0e4ab1" prot="public">
+          <name>Grid</name>
+          <initializer>=3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="32" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_figure_base_1a7e68bf8ebed4b1a4d19ba129c197768e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::mouseMoved</definition>
+        <argsstring>(MouseEvent *mouse)</argsstring>
+        <name>mouseMoved</name>
+        <param>
+          <type><ref refid="class_mouse_event" kindref="compound">MouseEvent</ref> *</type>
+          <declname>mouse</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="60" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_figure_base_1aac2a09f23f41d09f3541617a0dfe269d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::mousePressed</definition>
+        <argsstring>(MouseEvent *mouse)</argsstring>
+        <name>mousePressed</name>
+        <param>
+          <type><ref refid="class_mouse_event" kindref="compound">MouseEvent</ref> *</type>
+          <declname>mouse</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="61" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_figure_base_1a9c15fe25ff994d00198a27a8b72c27de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::mouseReleased</definition>
+        <argsstring>(MouseEvent *mouse)</argsstring>
+        <name>mouseReleased</name>
+        <param>
+          <type><ref refid="class_mouse_event" kindref="compound">MouseEvent</ref> *</type>
+          <declname>mouse</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="62" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_figure_base_1aa9d531970f81b12eee4f17a473453cd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::axesChanged</definition>
+        <argsstring>(QVariantMap arg)</argsstring>
+        <name>axesChanged</name>
+        <param>
+          <type>QVariantMap</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="63" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_figure_base_1a893dab85fc91d57f42d2f6882a78b581" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::handleChanged</definition>
+        <argsstring>(QString arg)</argsstring>
+        <name>handleChanged</name>
+        <param>
+          <type>QString</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="64" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_figure_base_1a9155395a76e4e93050ab8cc39461cf06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::addedAxis</definition>
+        <argsstring>(AxisBase *axis)</argsstring>
+        <name>addedAxis</name>
+        <param>
+          <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref> *</type>
+          <declname>axis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="65" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_figure_base_1a7145aa914c0ec6e25412344df83902ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::controllerChanged</definition>
+        <argsstring>(Controller *arg)</argsstring>
+        <name>controllerChanged</name>
+        <param>
+          <type><ref refid="class_controller" kindref="compound">Controller</ref> *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="66" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_figure_base_1a491c759bb24e7112d8fb03688e60a6a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::mouseChanged</definition>
+        <argsstring>(QPointF arg)</argsstring>
+        <name>mouseChanged</name>
+        <param>
+          <type>QPointF</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="67" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_figure_base_1a7f86f6848b340a3ad9e95d19ee54eeae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::mouseUnitChanged</definition>
+        <argsstring>(QPointF arg)</argsstring>
+        <name>mouseUnitChanged</name>
+        <param>
+          <type>QPointF</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="68" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_figure_base_1a2ca226d53a09da7286e2220f847c98b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::mouseButtonsChanged</definition>
+        <argsstring>(int arg)</argsstring>
+        <name>mouseButtonsChanged</name>
+        <param>
+          <type>int</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="70" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="class_figure_base_1a5092a586452187197b20b4dedec7615a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::deregisterAxis</definition>
+        <argsstring>(AxisBase *axis)</argsstring>
+        <name>deregisterAxis</name>
+        <param>
+          <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref> *</type>
+          <declname>axis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="73" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="234" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_figure_base_1a1f65e5fda751deb12639d1f165fbb667" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::registerAxis</definition>
+        <argsstring>(AxisBase *axis)</argsstring>
+        <name>registerAxis</name>
+        <param>
+          <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref> *</type>
+          <declname>axis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="74" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="69" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_figure_base_1a7fe3af1c72c25d94b0da745459c8de1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString FigureBase::registerAxisGroup</definition>
+        <argsstring>(QVariantList axisGroup, AxisGroupType type, const QString &amp;oldGroup=&quot;&quot;)</argsstring>
+        <name>registerAxisGroup</name>
+        <param>
+          <type>QVariantList</type>
+          <declname>axisGroup</declname>
+        </param>
+        <param>
+          <type>AxisGroupType</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>oldGroup</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="76" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="86" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_figure_base_1a7378d92537e692e3f9f49a2625842bf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::updateGroupAt</definition>
+        <argsstring>(const QString &amp;name, int row, int column)</argsstring>
+        <name>updateGroupAt</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>column</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="77" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="110" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_figure_base_1a15f09af8d95ca0188cec1514501d56d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::updateShareX</definition>
+        <argsstring>(Axis2DBase *axis)</argsstring>
+        <name>updateShareX</name>
+        <param>
+          <type><ref refid="class_axis2_d_base" kindref="compound">Axis2DBase</ref> *</type>
+          <declname>axis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="79" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="129" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_figure_base_1a09d5d6b6d0fea6f4e2487f588463bec8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::updateShareY</definition>
+        <argsstring>(Axis2DBase *axis)</argsstring>
+        <name>updateShareY</name>
+        <param>
+          <type><ref refid="class_axis2_d_base" kindref="compound">Axis2DBase</ref> *</type>
+          <declname>axis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="80" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="146" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_figure_base_1ac1ed978830669c3613d6cc164d619958" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::savePdf</definition>
+        <argsstring>(QString filepath)</argsstring>
+        <name>savePdf</name>
+        <param>
+          <type>QString</type>
+          <declname>filepath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="82" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="163" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_figure_base_1aa1a9e1a319ce3f5dc3498282e7bbeba4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void FigureBase::registerProperties</definition>
+        <argsstring>(QMap&lt; QString, QString &gt; mapping)</argsstring>
+        <name>registerProperties</name>
+        <param>
+          <type>QMap&lt; QString, QString &gt;</type>
+          <declname>mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="85" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="85" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_figure_base_1a7fc531c3ebb54de25952e9537c5a696d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void FigureBase::registerProperties</definition>
+        <argsstring>(QVariantMap mapping)</argsstring>
+        <name>registerProperties</name>
+        <param>
+          <type>QVariantMap</type>
+          <declname>mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="88" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="88" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_figure_base_1ada9317557c58c3d0ab8bd84ebfa3013f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>QString</type>
+        <definition>virtual QString FigureBase::mapProperty</definition>
+        <argsstring>(const QString &amp;prop)</argsstring>
+        <name>mapProperty</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="91" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="91" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_figure_base_1a27d51ed62dbb178b3e34b848ed0abe9f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void FigureBase::registerMethods</definition>
+        <argsstring>(QMap&lt; QString, QString &gt; mapping)</argsstring>
+        <name>registerMethods</name>
+        <param>
+          <type>QMap&lt; QString, QString &gt;</type>
+          <declname>mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="95" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="95" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_figure_base_1aafada0f38c0e8f27f66b48637b211261" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>QString</type>
+        <definition>virtual QString FigureBase::mapMethod</definition>
+        <argsstring>(const QString &amp;method)</argsstring>
+        <name>mapMethod</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>method</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="98" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="98" bodyend="100"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-slot">
+      <memberdef kind="slot" id="class_figure_base_1a3ac342aa69cd8444f1fc17955ce9f1aa" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FigureBase::updateAxes</definition>
+        <argsstring>()</argsstring>
+        <name>updateAxes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="103" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="358" bodyend="373"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="class_figure" kindref="compound">Figure</ref> should be the base item of every Nutmeg figure layout. Figures should be be nested in Figures. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="127">
+        <label>FigureBase</label>
+        <link refid="class_figure_base"/>
+        <childnode refid="128" relation="public-inheritance">
+        </childnode>
+        <childnode refid="129" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="126">
+        <label>Figure</label>
+        <link refid="class_figure"/>
+        <childnode refid="127" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="128">
+        <label>QQuickItem</label>
+      </node>
+      <node id="129">
+        <label>NutmegObject</label>
+        <link refid="class_nutmeg_object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="131">
+        <label>FigureBase</label>
+        <link refid="class_figure_base"/>
+        <childnode refid="132" relation="public-inheritance">
+        </childnode>
+        <childnode refid="133" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="130">
+        <label>Figure</label>
+        <link refid="class_figure"/>
+        <childnode refid="131" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="132">
+        <label>QQuickItem</label>
+      </node>
+      <node id="133">
+        <label>NutmegObject</label>
+        <link refid="class_nutmeg_object"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" line="7" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Figure.qml" bodystart="7" bodyend="17"/>
+    <listofallmembers>
+      <member refid="class_figure_base_1a9155395a76e4e93050ab8cc39461cf06" prot="public" virt="non-virtual"><scope>Figure</scope><name>addedAxis</name></member>
+      <member refid="class_figure_base_1a3651592f7f89ec883fd2767629e5bf6e" prot="public" virt="non-virtual"><scope>Figure</scope><name>axes</name></member>
+      <member refid="class_figure_base_1a2ce106e8c869cadaaf118f12f57ba27d" prot="public" virt="non-virtual"><scope>Figure</scope><name>axes</name></member>
+      <member refid="class_figure_base_1aa9d531970f81b12eee4f17a473453cd0" prot="public" virt="non-virtual"><scope>Figure</scope><name>axesChanged</name></member>
+      <member refid="class_figure_1a8e1777b0afe7f0ed12c32114362fe7a1" prot="public" virt="non-virtual"><scope>Figure</scope><name>axisAtPoint</name></member>
+      <member refid="class_figure_base_1a395820856e1885bd2d64d125d19e1b46" prot="public" virt="non-virtual"><scope>Figure</scope><name>AxisGroupType</name></member>
+      <member refid="class_figure_base_1a395820856e1885bd2d64d125d19e1b46a87f6f9f0ede0f48a4a5952fa37aa4829" prot="public" virt="non-virtual"><scope>Figure</scope><name>Column</name></member>
+      <member refid="class_figure_base_1a038a32822a6354de5c98db689f6bf3c8" prot="public" virt="non-virtual"><scope>Figure</scope><name>controller</name></member>
+      <member refid="class_figure_base_1a14ff3aaa1afecfbfe4e2c755f84487a7" prot="public" virt="non-virtual"><scope>Figure</scope><name>controller</name></member>
+      <member refid="class_figure_base_1a7145aa914c0ec6e25412344df83902ff" prot="public" virt="non-virtual"><scope>Figure</scope><name>controllerChanged</name></member>
+      <member refid="class_figure_base_1a5092a586452187197b20b4dedec7615a" prot="public" virt="non-virtual"><scope>Figure</scope><name>deregisterAxis</name></member>
+      <member refid="class_figure_base_1a2c082750e27d46ff326a1c8b299923b2" prot="public" virt="non-virtual"><scope>Figure</scope><name>eventFilter</name></member>
+      <member refid="class_figure_base_1a24a81a5313606e25f659ce18eabfa8e7" prot="public" virt="non-virtual"><scope>Figure</scope><name>FigureBase</name></member>
+      <member refid="class_figure_base_1af297e04770fba862f8414a4be29fe97d" prot="public" virt="non-virtual"><scope>Figure</scope><name>getAxesByHandle</name></member>
+      <member refid="class_figure_base_1a6d158d8605ae26f05f42cd03848878cc" prot="public" virt="non-virtual"><scope>Figure</scope><name>getAxisList</name></member>
+      <member refid="class_figure_base_1ad82586023d6757a75940cee9fe04bb34" prot="public" virt="non-virtual"><scope>Figure</scope><name>getPlotRectFor</name></member>
+      <member refid="class_figure_base_1a395820856e1885bd2d64d125d19e1b46a55f2b5f9792170ad0808ccb0ac0e4ab1" prot="public" virt="non-virtual"><scope>Figure</scope><name>Grid</name></member>
+      <member refid="class_figure_1a795e2d4f604be5c0b9149ed2dda39a34" prot="public" virt="non-virtual"><scope>Figure</scope><name>guiItem</name></member>
+      <member refid="class_figure_base_1aace8e3efd4c586ce21f95668d9bf54a3" prot="public" virt="non-virtual"><scope>Figure</scope><name>handle</name></member>
+      <member refid="class_figure_base_1ae743134b9c7b235d0da5a90772954437" prot="public" virt="non-virtual"><scope>Figure</scope><name>handle</name></member>
+      <member refid="class_figure_base_1a893dab85fc91d57f42d2f6882a78b581" prot="public" virt="non-virtual"><scope>Figure</scope><name>handleChanged</name></member>
+      <member refid="class_figure_base_1a68727088acbaeaaad2c5583dc73ec9b5" prot="public" virt="non-virtual"><scope>Figure</scope><name>installEventFilterApp</name></member>
+      <member refid="class_figure_base_1aafada0f38c0e8f27f66b48637b211261" prot="public" virt="virtual"><scope>Figure</scope><name>mapMethod</name></member>
+      <member refid="class_figure_base_1ada9317557c58c3d0ab8bd84ebfa3013f" prot="public" virt="virtual"><scope>Figure</scope><name>mapProperty</name></member>
+      <member refid="class_figure_base_1a6a198a69a228d7da2ec1cb45786ed87a" prot="public" virt="non-virtual"><scope>Figure</scope><name>mouse</name></member>
+      <member refid="class_figure_base_1a969d58170e6d98e18812c89fd4f23137" prot="public" virt="non-virtual"><scope>Figure</scope><name>mouse</name></member>
+      <member refid="class_figure_base_1ae330343939802655e575c38d1cd60a84" prot="public" virt="non-virtual"><scope>Figure</scope><name>mouseButtons</name></member>
+      <member refid="class_figure_base_1a04f793aa1bd2b845ceb290f99898560e" prot="public" virt="non-virtual"><scope>Figure</scope><name>mouseButtons</name></member>
+      <member refid="class_figure_base_1a2ca226d53a09da7286e2220f847c98b6" prot="public" virt="non-virtual"><scope>Figure</scope><name>mouseButtonsChanged</name></member>
+      <member refid="class_figure_base_1a491c759bb24e7112d8fb03688e60a6a1" prot="public" virt="non-virtual"><scope>Figure</scope><name>mouseChanged</name></member>
+      <member refid="class_figure_base_1a7e68bf8ebed4b1a4d19ba129c197768e" prot="public" virt="non-virtual"><scope>Figure</scope><name>mouseMoved</name></member>
+      <member refid="class_figure_base_1aac2a09f23f41d09f3541617a0dfe269d" prot="public" virt="non-virtual"><scope>Figure</scope><name>mousePressed</name></member>
+      <member refid="class_figure_base_1a9c15fe25ff994d00198a27a8b72c27de" prot="public" virt="non-virtual"><scope>Figure</scope><name>mouseReleased</name></member>
+      <member refid="class_figure_base_1ad9e46559b47845c919e548360524cbe2" prot="public" virt="non-virtual"><scope>Figure</scope><name>mouseUnit</name></member>
+      <member refid="class_figure_base_1a6dd407c7a71438a7fc861f281ecafd62" prot="public" virt="non-virtual"><scope>Figure</scope><name>mouseUnit</name></member>
+      <member refid="class_figure_base_1a7f86f6848b340a3ad9e95d19ee54eeae" prot="public" virt="non-virtual"><scope>Figure</scope><name>mouseUnitChanged</name></member>
+      <member refid="class_figure_1a24107e76be131a01d93fb2ce118d232b" prot="public" virt="non-virtual"><scope>Figure</scope><name>qml</name></member>
+      <member refid="class_figure_base_1a1f65e5fda751deb12639d1f165fbb667" prot="public" virt="non-virtual"><scope>Figure</scope><name>registerAxis</name></member>
+      <member refid="class_figure_base_1a7fe3af1c72c25d94b0da745459c8de1a" prot="public" virt="non-virtual"><scope>Figure</scope><name>registerAxisGroup</name></member>
+      <member refid="class_figure_base_1a27d51ed62dbb178b3e34b848ed0abe9f" prot="public" virt="virtual"><scope>Figure</scope><name>registerMethods</name></member>
+      <member refid="class_figure_base_1aa1a9e1a319ce3f5dc3498282e7bbeba4" prot="public" virt="virtual"><scope>Figure</scope><name>registerProperties</name></member>
+      <member refid="class_figure_base_1a7fc531c3ebb54de25952e9537c5a696d" prot="public" virt="virtual"><scope>Figure</scope><name>registerProperties</name></member>
+      <member refid="class_figure_base_1a395820856e1885bd2d64d125d19e1b46aeaefd132997a8899977f3857249fc97d" prot="public" virt="non-virtual"><scope>Figure</scope><name>Row</name></member>
+      <member refid="class_figure_base_1ac1ed978830669c3613d6cc164d619958" prot="public" virt="non-virtual"><scope>Figure</scope><name>savePdf</name></member>
+      <member refid="class_figure_base_1aafc5fd670ae52874a34422a71fc71d85" prot="public" virt="non-virtual"><scope>Figure</scope><name>setController</name></member>
+      <member refid="class_figure_base_1ad377cecdb2431483695bfb12922d39d3" prot="public" virt="non-virtual"><scope>Figure</scope><name>setHandle</name></member>
+      <member refid="class_figure_base_1a50d372d69e9a9a3b76ca6321727ea62e" prot="public" virt="non-virtual"><scope>Figure</scope><name>setMouse</name></member>
+      <member refid="class_figure_base_1a623a812be6dfc1cb37b948f3be24d105" prot="public" virt="non-virtual"><scope>Figure</scope><name>setMouseButtons</name></member>
+      <member refid="class_figure_base_1a7c0cd754758dab530bf990584d97652e" prot="public" virt="non-virtual"><scope>Figure</scope><name>setMouseUnit</name></member>
+      <member refid="class_figure_1adb8d1900e0d8fabcdfe08c4dc31d6e69" prot="public" virt="non-virtual"><scope>Figure</scope><name>tabIndex</name></member>
+      <member refid="class_figure_base_1a3ac342aa69cd8444f1fc17955ce9f1aa" prot="protected" virt="non-virtual"><scope>Figure</scope><name>updateAxes</name></member>
+      <member refid="class_figure_base_1a7378d92537e692e3f9f49a2625842bf9" prot="public" virt="non-virtual"><scope>Figure</scope><name>updateGroupAt</name></member>
+      <member refid="class_figure_base_1a15f09af8d95ca0188cec1514501d56d5" prot="public" virt="non-virtual"><scope>Figure</scope><name>updateShareX</name></member>
+      <member refid="class_figure_base_1a09d5d6b6d0fea6f4e2487f588463bec8" prot="public" virt="non-virtual"><scope>Figure</scope><name>updateShareY</name></member>
+      <member refid="class_figure_base_1a7a9980f3106fc0c967dd733fa1d3214d" prot="public" virt="non-virtual"><scope>Figure</scope><name>~FigureBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

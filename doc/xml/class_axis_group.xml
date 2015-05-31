@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_axis_group" kind="class" language="C++" prot="public">
+    <compoundname>AxisGroup</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_axis_group_1afcedde925b24c60f23216516fd813302" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString AxisGroup::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="127" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_axis_group_1af774f7248ba8f6dd0204554063b3e7be" prot="public" static="no" mutable="no">
+        <type>QVector&lt; QVector&lt; <ref refid="class_axis_base" kindref="compound">AxisBase</ref> * &gt; &gt;</type>
+        <definition>QVector&lt; QVector&lt;AxisBase*&gt; &gt; AxisGroup::axes</definition>
+        <argsstring></argsstring>
+        <name>axes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="128" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_axis_group_1a242f8ad0156e1bf2a94bbbf09c8eff00" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AxisGroup::m_rows</definition>
+        <argsstring></argsstring>
+        <name>m_rows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="132" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_axis_group_1a4c73045dc4ea0bd63bb86c40193ae53f" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AxisGroup::m_cols</definition>
+        <argsstring></argsstring>
+        <name>m_cols</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="132" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_axis_group_1a4517f86608cc99306eeef9511c043196" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AxisGroup::AxisGroup</definition>
+        <argsstring>(QVariantList axisGroup, FigureBase::AxisGroupType type)</argsstring>
+        <name>AxisGroup</name>
+        <param>
+          <type>QVariantList</type>
+          <declname>axisGroup</declname>
+        </param>
+        <param>
+          <type>FigureBase::AxisGroupType</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="122" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="376" bodyend="450"/>
+      </memberdef>
+      <memberdef kind="function" id="class_axis_group_1a9637a934a7a5c03f7dd798f8dbfafa4b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AxisGroup::isValid</definition>
+        <argsstring>()</argsstring>
+        <name>isValid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="124" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="124" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="class_axis_group_1a8a450844d16df0a460f5f5944593f5fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AxisGroup::unbindAxes</definition>
+        <argsstring>()</argsstring>
+        <name>unbindAxes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="125" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="452" bodyend="460"/>
+      </memberdef>
+      <memberdef kind="function" id="class_axis_group_1a244b4c70744d4d398d73e2b7feac3dc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AxisGroup::getSize</definition>
+        <argsstring>(int &amp;rows, int &amp;columns)</argsstring>
+        <name>getSize</name>
+        <param>
+          <type>int &amp;</type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>columns</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="129" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.cpp" bodystart="462" bodyend="466"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" line="120" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/figurebase.h" bodystart="119" bodyend="133"/>
+    <listofallmembers>
+      <member refid="class_axis_group_1af774f7248ba8f6dd0204554063b3e7be" prot="public" virt="non-virtual"><scope>AxisGroup</scope><name>axes</name></member>
+      <member refid="class_axis_group_1a4517f86608cc99306eeef9511c043196" prot="public" virt="non-virtual"><scope>AxisGroup</scope><name>AxisGroup</name></member>
+      <member refid="class_axis_group_1a244b4c70744d4d398d73e2b7feac3dc8" prot="public" virt="non-virtual"><scope>AxisGroup</scope><name>getSize</name></member>
+      <member refid="class_axis_group_1a9637a934a7a5c03f7dd798f8dbfafa4b" prot="public" virt="non-virtual"><scope>AxisGroup</scope><name>isValid</name></member>
+      <member refid="class_axis_group_1a4c73045dc4ea0bd63bb86c40193ae53f" prot="private" virt="non-virtual"><scope>AxisGroup</scope><name>m_cols</name></member>
+      <member refid="class_axis_group_1a242f8ad0156e1bf2a94bbbf09c8eff00" prot="private" virt="non-virtual"><scope>AxisGroup</scope><name>m_rows</name></member>
+      <member refid="class_axis_group_1afcedde925b24c60f23216516fd813302" prot="public" virt="non-virtual"><scope>AxisGroup</scope><name>name</name></member>
+      <member refid="class_axis_group_1a8a450844d16df0a460f5f5944593f5fd" prot="public" virt="non-virtual"><scope>AxisGroup</scope><name>unbindAxes</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

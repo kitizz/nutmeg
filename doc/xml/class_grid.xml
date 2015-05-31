@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_grid" kind="class" language="C++" prot="public">
+    <compoundname>Grid</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">GridLayout</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Layouts.Grid is used for laying out multiple <ref refid="class_axis" kindref="compound">Axis</ref> items in a <ref refid="class_grid" kindref="compound">Grid</ref>. Currently not implemented.... </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="152">
+        <label>GridLayout</label>
+      </node>
+      <node id="151">
+        <label>Grid</label>
+        <link refid="class_grid"/>
+        <childnode refid="152" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="154">
+        <label>GridLayout</label>
+      </node>
+      <node id="153">
+        <label>Grid</label>
+        <link refid="class_grid"/>
+        <childnode refid="154" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Grid.qml" line="5" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Grid.qml" bodystart="5" bodyend="7"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

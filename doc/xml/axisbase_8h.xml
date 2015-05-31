@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="axisbase_8h" kind="file" language="C++">
+    <compoundname>axisbase.h</compoundname>
+    <includes local="no">QQuickItem</includes>
+    <includes local="no">QString</includes>
+    <includes refid="nutmegobject_8h" local="yes">nutmegobject.h</includes>
+    <includes refid="plotbase_8h" local="yes">plotbase.h</includes>
+    <includedby refid="axis2dbase_8h" local="yes">src/axis2dbase.h</includedby>
+    <includedby refid="plotbase_8h" local="yes">src/plotbase.h</includedby>
+    <includedby refid="figurebase_8h" local="yes">src/figurebase.h</includedby>
+    <includedby refid="axisbase_8cpp" local="yes">src/axisbase.cpp</includedby>
+    <includedby refid="plot2dbase_8cpp" local="yes">src/plot2dbase.cpp</includedby>
+    <incdepgraph>
+      <node id="159">
+        <label>QMap</label>
+      </node>
+      <node id="161">
+        <label>QObject</label>
+      </node>
+      <node id="155">
+        <label>src/axisbase.h</label>
+        <link refid="axisbase.h"/>
+        <childnode refid="156" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
+        <childnode refid="158" relation="include">
+        </childnode>
+        <childnode refid="162" relation="include">
+        </childnode>
+      </node>
+      <node id="162">
+        <label>plotbase.h</label>
+        <link refid="plotbase_8h_source"/>
+        <childnode refid="156" relation="include">
+        </childnode>
+        <childnode refid="158" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+      </node>
+      <node id="158">
+        <label>nutmegobject.h</label>
+        <link refid="nutmegobject_8h_source"/>
+        <childnode refid="159" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
+        <childnode refid="160" relation="include">
+        </childnode>
+        <childnode refid="161" relation="include">
+        </childnode>
+      </node>
+      <node id="157">
+        <label>QString</label>
+      </node>
+      <node id="156">
+        <label>QQuickItem</label>
+      </node>
+      <node id="160">
+        <label>QVariant</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="176">
+        <label>src/axiscanvas2d.h</label>
+        <link refid="axiscanvas2d_8h_source"/>
+      </node>
+      <node id="165">
+        <label>src/plot2dbase.h</label>
+        <link refid="plot2dbase_8h_source"/>
+        <childnode refid="164" relation="include">
+        </childnode>
+        <childnode refid="166" relation="include">
+        </childnode>
+        <childnode refid="173" relation="include">
+        </childnode>
+      </node>
+      <node id="163">
+        <label>src/axisbase.h</label>
+        <link refid="axisbase.h"/>
+        <childnode refid="164" relation="include">
+        </childnode>
+        <childnode refid="177" relation="include">
+        </childnode>
+        <childnode refid="174" relation="include">
+        </childnode>
+      </node>
+      <node id="177">
+        <label>src/plotbase.h</label>
+        <link refid="plotbase_8h_source"/>
+        <childnode refid="163" relation="include">
+        </childnode>
+        <childnode refid="165" relation="include">
+        </childnode>
+      </node>
+      <node id="173">
+        <label>src/imageplot.h</label>
+        <link refid="imageplot_8h_source"/>
+      </node>
+      <node id="174">
+        <label>src/figurebase.h</label>
+        <link refid="figurebase_8h_source"/>
+        <childnode refid="175" relation="include">
+        </childnode>
+      </node>
+      <node id="168">
+        <label>src/canvasshape.h</label>
+        <link refid="canvasshape_8h_source"/>
+        <childnode refid="169" relation="include">
+        </childnode>
+        <childnode refid="167" relation="include">
+        </childnode>
+        <childnode refid="170" relation="include">
+        </childnode>
+        <childnode refid="171" relation="include">
+        </childnode>
+      </node>
+      <node id="164">
+        <label>src/axis2dbase.h</label>
+        <link refid="axis2dbase_8h_source"/>
+        <childnode refid="165" relation="include">
+        </childnode>
+        <childnode refid="174" relation="include">
+        </childnode>
+        <childnode refid="176" relation="include">
+        </childnode>
+        <childnode refid="172" relation="include">
+        </childnode>
+      </node>
+      <node id="172">
+        <label>src/lineplot.h</label>
+        <link refid="lineplot_8h_source"/>
+      </node>
+      <node id="166">
+        <label>src/xyplot.h</label>
+        <link refid="xyplot_8h_source"/>
+        <childnode refid="167" relation="include">
+        </childnode>
+        <childnode refid="172" relation="include">
+        </childnode>
+      </node>
+      <node id="171">
+        <label>src/canvasrect.h</label>
+        <link refid="canvasrect_8h_source"/>
+      </node>
+      <node id="170">
+        <label>src/canvastext.h</label>
+        <link refid="canvastext_8h_source"/>
+      </node>
+      <node id="169">
+        <label>src/canvasline.h</label>
+        <link refid="canvasline_8h_source"/>
+      </node>
+      <node id="167">
+        <label>src/canvasplot.h</label>
+        <link refid="canvasplot_8h_source"/>
+        <childnode refid="168" relation="include">
+        </childnode>
+      </node>
+      <node id="175">
+        <label>src/controller.h</label>
+        <link refid="controller_8h_source"/>
+        <childnode refid="174" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_axis_base" prot="public">AxisBase</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>AXISBASE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>AXISBASE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QQuickItem&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QString&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;nutmegobject.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;plotbase.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_axis_group" kindref="compound">AxisGroup</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_figure_base" kindref="compound">FigureBase</ref>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_plot_base" kindref="compound">PlotBase</ref>;</highlight></codeline>
+<codeline lineno="12" refid="class_axis_base" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_axis_base" kindref="compound">AxisBase</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QQuickItem,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_nutmeg_object" kindref="compound">NutmegObject</ref></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="15" refid="class_axis_base_1aa15d54e7c59ec20ac2f2330aa26f0e35" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QString<sp/>handle<sp/>READ<sp/>handle<sp/>WRITE<sp/>setHandle<sp/>NOTIFY<sp/>handleChanged)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<ref refid="class_figure_base" kindref="compound">FigureBase</ref>*<sp/>figure<sp/>READ<sp/>figure<sp/>WRITE<sp/>setFigure<sp/>NOTIFY<sp/>figureChanged)</highlight></codeline>
+<codeline lineno="17" refid="class_axis_base_1a7f5068c6a03dc994e12d40046d1b691c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QRectF<sp/>plotRect<sp/>READ<sp/>plotRect<sp/>NOTIFY<sp/>plotRectChanged)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QVariantMap<sp/>plots<sp/>READ<sp/>plots<sp/>NOTIFY<sp/>plotsChanged)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="class_axis_base_1a3c791c13279cae1bfc0e2406abb55b93" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QString<sp/>title<sp/>READ<sp/>title<sp/>WRITE<sp/>setTitle<sp/>NOTIFY<sp/>titleChanged)</highlight></codeline>
+<codeline lineno="22" refid="class_axis_base_1a5399b421f01866caea4825266c70c22d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QFont<sp/>titleFont<sp/>READ<sp/>titleFont<sp/>WRITE<sp/>setTitleFont<sp/>NOTIFY<sp/>titleFontChanged)</highlight></codeline>
+<codeline lineno="23" refid="class_axis_base_1ad07aa1a2ad6dd0405a58fc56d39e7cd6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QColor<sp/>titleColor<sp/>READ<sp/>titleColor<sp/>WRITE<sp/>setTitleColor<sp/>NOTIFY<sp/>titleColorChanged)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">public:</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>explicit<sp/><ref refid="class_axis_base" kindref="compound">AxisBase</ref>(QQuickItem<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_axis_base" kindref="compound">AxisBase</ref>();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>NutmegObject<sp/>interface</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>void<sp/>registerProperties(QMap&lt;QString,<sp/>QString&gt;<sp/>mapping);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>void<sp/>registerProperties(QVariantMap<sp/>mapping);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QString<sp/>mapProperty(const<sp/>QString<sp/>&amp;prop);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariantMap<sp/>plots()<sp/>const;<sp/></highlight><highlight class="comment">//<sp/>For<sp/>QML</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_plot_base" kindref="compound">PlotBase</ref><sp/>*getPlotByHandle(QString<sp/>handle)<sp/>const;<sp/></highlight><highlight class="comment">//<sp/>For<sp/>C++</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QList&lt;QString&gt;<sp/>plotNames()<sp/>const;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/>QVariantList<sp/>getPlotList()<sp/>const;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>handle()<sp/>const;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setHandle(QString<sp/>arg);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_figure_base" kindref="compound">FigureBase</ref>*<sp/>figure()<sp/>const;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setFigure(<ref refid="class_figure_base" kindref="compound">FigureBase</ref>*<sp/>arg);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>plotRect()<sp/>const;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setPlotRect(const<sp/>QRectF<sp/>&amp;arg);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>resetPlotRect();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>preferredPlotRect()<sp/>const;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setPreferredPlotRect(const<sp/>QRectF<sp/>&amp;arg);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>title()<sp/>const;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setTitle(QString<sp/>arg);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>QFont<sp/>titleFont()<sp/>const;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setTitleFont(QFont<sp/>arg);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>titleColor()<sp/>const;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setTitleColor(QColor<sp/>arg);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setAxisGroup(<ref refid="class_axis_group" kindref="compound">AxisGroup</ref><sp/>*group);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_axis_group" kindref="compound">AxisGroup</ref><sp/>*axisGroup()<sp/>const;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setAxisGroupIndex(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>row,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>column);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getAxisGroupIndex(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;row,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;column);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">signals:</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>addedPlot(<ref refid="class_plot_base" kindref="compound">PlotBase</ref>*<sp/>plot);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>removedPlot(<ref refid="class_plot_base" kindref="compound">PlotBase</ref>*<sp/>plot);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>plotsChanged(QVariantMap<sp/>arg);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>handleChanged(QString<sp/>arg);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>figureChanged(<ref refid="class_figure_base" kindref="compound">FigureBase</ref>*<sp/>arg);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>plotRectChanged(QRectF<sp/>arg);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>registerWithFigure(<ref refid="class_axis_base" kindref="compound">AxisBase</ref>*<sp/>axis);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>titleChanged(QString<sp/>arg);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>titleFontChanged(QFont<sp/>arg);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>titleColorChanged(QColor<sp/>arg);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal">public<sp/>slots:</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updateFigure();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>updatePlotRect();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>virtual<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>triggerRedraw()<sp/>{}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>registerPlot(<ref refid="class_plot_base" kindref="compound">PlotBase</ref><sp/>*plot);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>deregisterPlot(<ref refid="class_plot_base" kindref="compound">PlotBase</ref><sp/>*plot);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>print(QPainter<sp/>*painter)<sp/>{<sp/>Q_UNUSED(painter);<sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Nutmeg<sp/>object.<sp/>TODO:<sp/>Remove<sp/>once<sp/>Q_GADGET<sp/>working<sp/>properly...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>registerProperties(QMap&lt;QString,<sp/>QString&gt;<sp/>mapping)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NutmegObject::registerProperties(mapping);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>registerProperties(QVariantMap<sp/>mapping)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NutmegObject::registerProperties(mapping);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>QString<sp/>mapProperty(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;prop)<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NutmegObject::mapProperty(prop);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>registerMethods(QMap&lt;QString,<sp/>QString&gt;<sp/>mapping)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NutmegObject::registerMethods(mapping);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>QString<sp/>mapMethod(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;method)<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NutmegObject::mapMethod(method);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updatePlots();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>m_handle;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_figure_base" kindref="compound">FigureBase</ref>*<sp/>m_figure;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>m_plotRect;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>QRectF<sp/>m_preferredPlotRect;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>m_plotRectValid;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>m_title;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>QFont<sp/>m_titleFont;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>m_titleColor;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>QMap&lt;QString,<sp/>PlotBase*&gt;<sp/>m_plots;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariantMap<sp/>m_plotsVar;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>m_destroying;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_axis_group" kindref="compound">AxisGroup</ref><sp/>*m_axisGroup;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m_groupRow,<sp/>m_groupColumn;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>AXISBASE_H</highlight></codeline>
+    </programlisting>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/axisbase.h"/>
+  </compounddef>
+</doxygen>

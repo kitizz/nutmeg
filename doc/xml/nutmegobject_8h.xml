@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="nutmegobject_8h" kind="file" language="C++">
+    <compoundname>nutmegobject.h</compoundname>
+    <includes local="no">QMap</includes>
+    <includes local="no">QString</includes>
+    <includes local="no">QVariant</includes>
+    <includes local="no">QObject</includes>
+    <includedby refid="axisbase_8h" local="yes">src/axisbase.h</includedby>
+    <includedby refid="plotbase_8h" local="yes">src/plotbase.h</includedby>
+    <includedby refid="plot2dbase_8h" local="yes">src/plot2dbase.h</includedby>
+    <includedby refid="axis2dbase_8h" local="yes">src/axis2dbase.h</includedby>
+    <includedby refid="axisspec_8h" local="yes">src/axisspec.h</includedby>
+    <includedby refid="figurebase_8h" local="yes">src/figurebase.h</includedby>
+    <includedby refid="canvasshape_8h" local="yes">src/canvasshape.h</includedby>
+    <includedby refid="fillspec_8h" local="yes">src/fillspec.h</includedby>
+    <includedby refid="nutmegobject_8cpp" local="yes">src/nutmegobject.cpp</includedby>
+    <incdepgraph>
+      <node id="1239">
+        <label>QMap</label>
+      </node>
+      <node id="1242">
+        <label>QObject</label>
+      </node>
+      <node id="1238">
+        <label>src/nutmegobject.h</label>
+        <link refid="nutmegobject.h"/>
+        <childnode refid="1239" relation="include">
+        </childnode>
+        <childnode refid="1240" relation="include">
+        </childnode>
+        <childnode refid="1241" relation="include">
+        </childnode>
+        <childnode refid="1242" relation="include">
+        </childnode>
+      </node>
+      <node id="1240">
+        <label>QString</label>
+      </node>
+      <node id="1241">
+        <label>QVariant</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1257">
+        <label>src/axiscanvas2d.h</label>
+        <link refid="axiscanvas2d_8h_source"/>
+      </node>
+      <node id="1246">
+        <label>src/plot2dbase.h</label>
+        <link refid="plot2dbase_8h_source"/>
+        <childnode refid="1245" relation="include">
+        </childnode>
+        <childnode refid="1247" relation="include">
+        </childnode>
+        <childnode refid="1254" relation="include">
+        </childnode>
+      </node>
+      <node id="1244">
+        <label>src/axisbase.h</label>
+        <link refid="axisbase_8h_source"/>
+        <childnode refid="1245" relation="include">
+        </childnode>
+        <childnode refid="1258" relation="include">
+        </childnode>
+        <childnode refid="1255" relation="include">
+        </childnode>
+      </node>
+      <node id="1259">
+        <label>src/axisspec.h</label>
+        <link refid="axisspec_8h_source"/>
+        <childnode refid="1245" relation="include">
+        </childnode>
+      </node>
+      <node id="1258">
+        <label>src/plotbase.h</label>
+        <link refid="plotbase_8h_source"/>
+        <childnode refid="1244" relation="include">
+        </childnode>
+        <childnode refid="1246" relation="include">
+        </childnode>
+      </node>
+      <node id="1243">
+        <label>src/nutmegobject.h</label>
+        <link refid="nutmegobject.h"/>
+        <childnode refid="1244" relation="include">
+        </childnode>
+        <childnode refid="1258" relation="include">
+        </childnode>
+        <childnode refid="1246" relation="include">
+        </childnode>
+        <childnode refid="1245" relation="include">
+        </childnode>
+        <childnode refid="1259" relation="include">
+        </childnode>
+        <childnode refid="1255" relation="include">
+        </childnode>
+        <childnode refid="1249" relation="include">
+        </childnode>
+        <childnode refid="1260" relation="include">
+        </childnode>
+      </node>
+      <node id="1254">
+        <label>src/imageplot.h</label>
+        <link refid="imageplot_8h_source"/>
+      </node>
+      <node id="1260">
+        <label>src/fillspec.h</label>
+        <link refid="fillspec_8h_source"/>
+        <childnode refid="1249" relation="include">
+        </childnode>
+      </node>
+      <node id="1255">
+        <label>src/figurebase.h</label>
+        <link refid="figurebase_8h_source"/>
+        <childnode refid="1256" relation="include">
+        </childnode>
+      </node>
+      <node id="1249">
+        <label>src/canvasshape.h</label>
+        <link refid="canvasshape_8h_source"/>
+        <childnode refid="1250" relation="include">
+        </childnode>
+        <childnode refid="1248" relation="include">
+        </childnode>
+        <childnode refid="1251" relation="include">
+        </childnode>
+        <childnode refid="1252" relation="include">
+        </childnode>
+      </node>
+      <node id="1245">
+        <label>src/axis2dbase.h</label>
+        <link refid="axis2dbase_8h_source"/>
+        <childnode refid="1246" relation="include">
+        </childnode>
+        <childnode refid="1255" relation="include">
+        </childnode>
+        <childnode refid="1257" relation="include">
+        </childnode>
+        <childnode refid="1253" relation="include">
+        </childnode>
+      </node>
+      <node id="1253">
+        <label>src/lineplot.h</label>
+        <link refid="lineplot_8h_source"/>
+      </node>
+      <node id="1247">
+        <label>src/xyplot.h</label>
+        <link refid="xyplot_8h_source"/>
+        <childnode refid="1248" relation="include">
+        </childnode>
+        <childnode refid="1253" relation="include">
+        </childnode>
+      </node>
+      <node id="1252">
+        <label>src/canvasrect.h</label>
+        <link refid="canvasrect_8h_source"/>
+      </node>
+      <node id="1251">
+        <label>src/canvastext.h</label>
+        <link refid="canvastext_8h_source"/>
+      </node>
+      <node id="1250">
+        <label>src/canvasline.h</label>
+        <link refid="canvasline_8h_source"/>
+      </node>
+      <node id="1248">
+        <label>src/canvasplot.h</label>
+        <link refid="canvasplot_8h_source"/>
+        <childnode refid="1249" relation="include">
+        </childnode>
+      </node>
+      <node id="1256">
+        <label>src/controller.h</label>
+        <link refid="controller_8h_source"/>
+        <childnode refid="1255" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_nutmeg_object" prot="public">NutmegObject</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>NUTMEGOBJECT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NUTMEGOBJECT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMap&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QString&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QVariant&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="class_nutmeg_object" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_nutmeg_object" kindref="compound">NutmegObject</ref></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_GADGET</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>registerProperties(QMap&lt;QString,<sp/>QString&gt;<sp/>mapping);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>registerProperties(QVariantMap<sp/>mapping);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>QString<sp/>mapProperty(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;prop);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>registerMethods(QMap&lt;QString,<sp/>QString&gt;<sp/>mapping);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>QString<sp/>mapMethod(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;method);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>QMap&lt;QString,<sp/>QString&gt;<sp/>m_propMap;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>QMap&lt;QString,<sp/>QString&gt;<sp/>m_funcMap;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>NUTMEGOBJECT_H</highlight></codeline>
+    </programlisting>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h"/>
+  </compounddef>
+</doxygen>

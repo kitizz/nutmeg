@@ -1,0 +1,267 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="imagecanvas_8cpp" kind="file" language="C++">
+    <compoundname>imagecanvas.cpp</compoundname>
+    <includes refid="imagecanvas_8h" local="yes">imagecanvas.h</includes>
+    <includes refid="imageplot_8h" local="yes">imageplot.h</includes>
+    <incdepgraph>
+      <node id="886">
+        <label>QMap</label>
+      </node>
+      <node id="901">
+        <label>limits</label>
+      </node>
+      <node id="876">
+        <label>plot2dbase.h</label>
+        <link refid="plot2dbase_8h_source"/>
+        <childnode refid="877" relation="include">
+        </childnode>
+        <childnode refid="878" relation="include">
+        </childnode>
+        <childnode refid="879" relation="include">
+        </childnode>
+        <childnode refid="881" relation="include">
+        </childnode>
+        <childnode refid="889" relation="include">
+        </childnode>
+        <childnode refid="885" relation="include">
+        </childnode>
+        <childnode refid="874" relation="include">
+        </childnode>
+        <childnode refid="902" relation="include">
+        </childnode>
+      </node>
+      <node id="898">
+        <label>QRectF</label>
+      </node>
+      <node id="888">
+        <label>QObject</label>
+      </node>
+      <node id="883">
+        <label>axisbase.h</label>
+        <link refid="axisbase_8h_source"/>
+        <childnode refid="877" relation="include">
+        </childnode>
+        <childnode refid="884" relation="include">
+        </childnode>
+        <childnode refid="885" relation="include">
+        </childnode>
+        <childnode refid="889" relation="include">
+        </childnode>
+      </node>
+      <node id="894">
+        <label>axisspec.h</label>
+        <link refid="axisspec_8h_source"/>
+        <childnode refid="888" relation="include">
+        </childnode>
+        <childnode refid="895" relation="include">
+        </childnode>
+        <childnode refid="885" relation="include">
+        </childnode>
+        <childnode refid="890" relation="include">
+        </childnode>
+        <childnode refid="892" relation="include">
+        </childnode>
+      </node>
+      <node id="889">
+        <label>plotbase.h</label>
+        <link refid="plotbase_8h_source"/>
+        <childnode refid="877" relation="include">
+        </childnode>
+        <childnode refid="885" relation="include">
+        </childnode>
+        <childnode refid="883" relation="include">
+        </childnode>
+      </node>
+      <node id="902">
+        <label>../QKDTree/QKDTree/QKDTree.h</label>
+      </node>
+      <node id="885">
+        <label>nutmegobject.h</label>
+        <link refid="nutmegobject_8h_source"/>
+        <childnode refid="886" relation="include">
+        </childnode>
+        <childnode refid="884" relation="include">
+        </childnode>
+        <childnode refid="887" relation="include">
+        </childnode>
+        <childnode refid="888" relation="include">
+        </childnode>
+      </node>
+      <node id="897">
+        <label>QList</label>
+      </node>
+      <node id="875">
+        <label>imageplot.h</label>
+        <link refid="imageplot_8h_source"/>
+        <childnode refid="876" relation="include">
+        </childnode>
+        <childnode refid="903" relation="include">
+        </childnode>
+      </node>
+      <node id="900">
+        <label>QLineF</label>
+      </node>
+      <node id="892">
+        <label>locators.h</label>
+        <link refid="locators_8h_source"/>
+        <childnode refid="888" relation="include">
+        </childnode>
+        <childnode refid="893" relation="include">
+        </childnode>
+      </node>
+      <node id="895">
+        <label>QFont</label>
+      </node>
+      <node id="896">
+        <label>util.h</label>
+        <link refid="util_8h_source"/>
+        <childnode refid="897" relation="include">
+        </childnode>
+        <childnode refid="898" relation="include">
+        </childnode>
+        <childnode refid="899" relation="include">
+        </childnode>
+        <childnode refid="900" relation="include">
+        </childnode>
+        <childnode refid="901" relation="include">
+        </childnode>
+      </node>
+      <node id="873">
+        <label>QQuickPaintedItem</label>
+      </node>
+      <node id="871">
+        <label>src/imagecanvas.cpp</label>
+        <link refid="imagecanvas.cpp"/>
+        <childnode refid="872" relation="include">
+        </childnode>
+        <childnode refid="875" relation="include">
+        </childnode>
+      </node>
+      <node id="878">
+        <label>QPainter</label>
+      </node>
+      <node id="890">
+        <label>linespec.h</label>
+        <link refid="linespec_8h_source"/>
+        <childnode refid="888" relation="include">
+        </childnode>
+        <childnode refid="891" relation="include">
+        </childnode>
+        <childnode refid="886" relation="include">
+        </childnode>
+      </node>
+      <node id="872">
+        <label>imagecanvas.h</label>
+        <link refid="imagecanvas_8h_source"/>
+        <childnode refid="873" relation="include">
+        </childnode>
+        <childnode refid="874" relation="include">
+        </childnode>
+      </node>
+      <node id="881">
+        <label>axis2dbase.h</label>
+        <link refid="axis2dbase_8h_source"/>
+        <childnode refid="873" relation="include">
+        </childnode>
+        <childnode refid="882" relation="include">
+        </childnode>
+        <childnode refid="883" relation="include">
+        </childnode>
+        <childnode refid="890" relation="include">
+        </childnode>
+        <childnode refid="892" relation="include">
+        </childnode>
+        <childnode refid="876" relation="include">
+        </childnode>
+        <childnode refid="885" relation="include">
+        </childnode>
+        <childnode refid="894" relation="include">
+        </childnode>
+        <childnode refid="896" relation="include">
+        </childnode>
+      </node>
+      <node id="884">
+        <label>QString</label>
+      </node>
+      <node id="891">
+        <label>QColor</label>
+      </node>
+      <node id="903">
+        <label>QPixmap</label>
+      </node>
+      <node id="874">
+        <label>plotcanvas.h</label>
+        <link refid="plotcanvas_8h_source"/>
+        <childnode refid="873" relation="include">
+        </childnode>
+      </node>
+      <node id="877">
+        <label>QQuickItem</label>
+      </node>
+      <node id="879">
+        <label>plotdata.h</label>
+        <link refid="plotdata_8h_source"/>
+        <childnode refid="880" relation="include">
+        </childnode>
+      </node>
+      <node id="887">
+        <label>QVariant</label>
+      </node>
+      <node id="893">
+        <label>QStringList</label>
+      </node>
+      <node id="880">
+        <label>QAbstractTableModel</label>
+      </node>
+      <node id="899">
+        <label>QPolygonF</label>
+      </node>
+      <node id="882">
+        <label>QMultiMap</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;imagecanvas.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;imageplot.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">ImageCanvas::ImageCanvas(QQuickItem<sp/>*parent)<sp/>:</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_plot_canvas" kindref="compound">PlotCanvas</ref>(parent)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ImageCanvas::paint(QPainter<sp/>*painter)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_image_plot" kindref="compound">ImagePlot</ref><sp/>*plot<sp/>=<sp/>qobject_cast&lt;<ref refid="class_image_plot" kindref="compound">ImagePlot</ref>*&gt;(parent());</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!plot)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_axis2_d_base" kindref="compound">Axis2DBase</ref><sp/>*monAxis<sp/>=<sp/>plot-&gt;axis2d();</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Transform<sp/>the<sp/>plot<sp/>coords<sp/>to<sp/>view<sp/>coords</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>scaleX<sp/>=<sp/>1,<sp/>scaleY<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>scaleOffsetX<sp/>=<sp/>0,<sp/>scaleOffsetY<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(monAxis-&gt;<ref refid="class_axis2_d_base_1aa8fac59e237ba6948c1c4c8a19afcd62" kindref="member">xAxis</ref>()-&gt;inverted())<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scaleX<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scaleOffsetX<sp/>=<sp/>width();</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!monAxis-&gt;<ref refid="class_axis2_d_base_1abb316067d977c0d3f092b339aa731f32" kindref="member">yAxis</ref>()-&gt;inverted())<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scaleY<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scaleOffsetY<sp/>=<sp/>height();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>painter-&gt;translate(scaleOffsetX,<sp/>scaleOffsetY);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>painter-&gt;scale(scaleX,<sp/>scaleY);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Image<sp/>Limits:&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>monAxis-&gt;<ref refid="class_axis2_d_base_1a70b44148c337dcdcf2eb336249bf1ebf" kindref="member">limits</ref>();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Is<sp/>this<sp/>copying<sp/>the<sp/>whole<sp/>pixmap?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>QPixmap<sp/>pix<sp/>=<sp/>plot-&gt;pixmap();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>painter-&gt;drawPixmap(this-&gt;boundingRect(),<sp/>pix,<sp/>monAxis-&gt;<ref refid="class_axis2_d_base_1a70b44148c337dcdcf2eb336249bf1ebf" kindref="member">limits</ref>());</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/imagecanvas.cpp"/>
+  </compounddef>
+</doxygen>

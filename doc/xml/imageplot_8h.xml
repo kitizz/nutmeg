@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="imageplot_8h" kind="file" language="C++">
+    <compoundname>imageplot.h</compoundname>
+    <includes refid="plot2dbase_8h" local="yes">plot2dbase.h</includes>
+    <includes local="no">QPixmap</includes>
+    <includedby refid="imagecanvas_8cpp" local="yes">src/imagecanvas.cpp</includedby>
+    <includedby refid="imageplot_8cpp" local="yes">src/imageplot.cpp</includedby>
+    <includedby refid="main_8cpp" local="yes">src/main.cpp</includedby>
+    <incdepgraph>
+      <node id="954">
+        <label>QMap</label>
+      </node>
+      <node id="969">
+        <label>limits</label>
+      </node>
+      <node id="943">
+        <label>plot2dbase.h</label>
+        <link refid="plot2dbase_8h_source"/>
+        <childnode refid="944" relation="include">
+        </childnode>
+        <childnode refid="945" relation="include">
+        </childnode>
+        <childnode refid="946" relation="include">
+        </childnode>
+        <childnode refid="948" relation="include">
+        </childnode>
+        <childnode refid="957" relation="include">
+        </childnode>
+        <childnode refid="953" relation="include">
+        </childnode>
+        <childnode refid="970" relation="include">
+        </childnode>
+        <childnode refid="971" relation="include">
+        </childnode>
+      </node>
+      <node id="966">
+        <label>QRectF</label>
+      </node>
+      <node id="956">
+        <label>QObject</label>
+      </node>
+      <node id="951">
+        <label>axisbase.h</label>
+        <link refid="axisbase_8h_source"/>
+        <childnode refid="944" relation="include">
+        </childnode>
+        <childnode refid="952" relation="include">
+        </childnode>
+        <childnode refid="953" relation="include">
+        </childnode>
+        <childnode refid="957" relation="include">
+        </childnode>
+      </node>
+      <node id="962">
+        <label>axisspec.h</label>
+        <link refid="axisspec_8h_source"/>
+        <childnode refid="956" relation="include">
+        </childnode>
+        <childnode refid="963" relation="include">
+        </childnode>
+        <childnode refid="953" relation="include">
+        </childnode>
+        <childnode refid="958" relation="include">
+        </childnode>
+        <childnode refid="960" relation="include">
+        </childnode>
+      </node>
+      <node id="957">
+        <label>plotbase.h</label>
+        <link refid="plotbase_8h_source"/>
+        <childnode refid="944" relation="include">
+        </childnode>
+        <childnode refid="953" relation="include">
+        </childnode>
+        <childnode refid="951" relation="include">
+        </childnode>
+      </node>
+      <node id="971">
+        <label>../QKDTree/QKDTree/QKDTree.h</label>
+      </node>
+      <node id="953">
+        <label>nutmegobject.h</label>
+        <link refid="nutmegobject_8h_source"/>
+        <childnode refid="954" relation="include">
+        </childnode>
+        <childnode refid="952" relation="include">
+        </childnode>
+        <childnode refid="955" relation="include">
+        </childnode>
+        <childnode refid="956" relation="include">
+        </childnode>
+      </node>
+      <node id="965">
+        <label>QList</label>
+      </node>
+      <node id="942">
+        <label>src/imageplot.h</label>
+        <link refid="imageplot.h"/>
+        <childnode refid="943" relation="include">
+        </childnode>
+        <childnode refid="972" relation="include">
+        </childnode>
+      </node>
+      <node id="968">
+        <label>QLineF</label>
+      </node>
+      <node id="960">
+        <label>locators.h</label>
+        <link refid="locators_8h_source"/>
+        <childnode refid="956" relation="include">
+        </childnode>
+        <childnode refid="961" relation="include">
+        </childnode>
+      </node>
+      <node id="963">
+        <label>QFont</label>
+      </node>
+      <node id="964">
+        <label>util.h</label>
+        <link refid="util_8h_source"/>
+        <childnode refid="965" relation="include">
+        </childnode>
+        <childnode refid="966" relation="include">
+        </childnode>
+        <childnode refid="967" relation="include">
+        </childnode>
+        <childnode refid="968" relation="include">
+        </childnode>
+        <childnode refid="969" relation="include">
+        </childnode>
+      </node>
+      <node id="949">
+        <label>QQuickPaintedItem</label>
+      </node>
+      <node id="945">
+        <label>QPainter</label>
+      </node>
+      <node id="958">
+        <label>linespec.h</label>
+        <link refid="linespec_8h_source"/>
+        <childnode refid="956" relation="include">
+        </childnode>
+        <childnode refid="959" relation="include">
+        </childnode>
+        <childnode refid="954" relation="include">
+        </childnode>
+      </node>
+      <node id="948">
+        <label>axis2dbase.h</label>
+        <link refid="axis2dbase_8h_source"/>
+        <childnode refid="949" relation="include">
+        </childnode>
+        <childnode refid="950" relation="include">
+        </childnode>
+        <childnode refid="951" relation="include">
+        </childnode>
+        <childnode refid="958" relation="include">
+        </childnode>
+        <childnode refid="960" relation="include">
+        </childnode>
+        <childnode refid="943" relation="include">
+        </childnode>
+        <childnode refid="953" relation="include">
+        </childnode>
+        <childnode refid="962" relation="include">
+        </childnode>
+        <childnode refid="964" relation="include">
+        </childnode>
+      </node>
+      <node id="952">
+        <label>QString</label>
+      </node>
+      <node id="959">
+        <label>QColor</label>
+      </node>
+      <node id="972">
+        <label>QPixmap</label>
+      </node>
+      <node id="970">
+        <label>plotcanvas.h</label>
+        <link refid="plotcanvas_8h_source"/>
+        <childnode refid="949" relation="include">
+        </childnode>
+      </node>
+      <node id="944">
+        <label>QQuickItem</label>
+      </node>
+      <node id="946">
+        <label>plotdata.h</label>
+        <link refid="plotdata_8h_source"/>
+        <childnode refid="947" relation="include">
+        </childnode>
+      </node>
+      <node id="955">
+        <label>QVariant</label>
+      </node>
+      <node id="961">
+        <label>QStringList</label>
+      </node>
+      <node id="947">
+        <label>QAbstractTableModel</label>
+      </node>
+      <node id="967">
+        <label>QPolygonF</label>
+      </node>
+      <node id="950">
+        <label>QMultiMap</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_image_plot" prot="public">ImagePlot</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>IMAGEPLOTBASE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IMAGEPLOTBASE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;plot2dbase.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QPixmap&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="class_image_plot" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_image_plot" kindref="compound">ImagePlot</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_plot2_d_base" kindref="compound">Plot2DBase</ref></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QByteArray<sp/>binary<sp/>READ<sp/>binary<sp/>WRITE<sp/>setBinary<sp/>NOTIFY<sp/>binaryChanged)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_image_plot" kindref="compound">ImagePlot</ref>(QQuickItem<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>QPixmap<sp/>pixmap()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>QByteArray<sp/>binary()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setBinary(QByteArray<sp/>arg);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">signals:</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>binaryChanged(QByteArray<sp/>arg);<sp/></highlight><highlight class="comment">//<sp/>Change<sp/>to<sp/>(const<sp/>&amp;)<sp/>?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updateDataLimits();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updateImage();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>QPixmap<sp/>m_pixmap;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>QByteArray<sp/>m_binary;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>IMAGEPLOTBASE_H</highlight></codeline>
+    </programlisting>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/imageplot.h"/>
+  </compounddef>
+</doxygen>

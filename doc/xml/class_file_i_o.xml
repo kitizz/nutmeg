@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_file_i_o" kind="class" language="C++" prot="public">
+    <compoundname>FileIO</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_file_i_o_1ad4467aa6c50748ac1e7076d25dcd33cc" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString FileIO::source</definition>
+        <argsstring></argsstring>
+        <name>source</name>
+        <read>source</read>
+        <write>setSource</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fileio.h" line="57" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fileio.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_file_i_o_1ac5d2180a268066f472f9ff9cad1175ca" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString FileIO::mSource</definition>
+        <argsstring></argsstring>
+        <name>mSource</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fileio.h" line="31" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fileio.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_file_i_o_1a6e4f7122f89b633e3522c2e1d31e1fdd" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FileIO::FileIO</definition>
+        <argsstring>(QObject *parent=0)</argsstring>
+        <name>FileIO</name>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fileio.h" line="15" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fileio.cpp" bodystart="8" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_file_i_o_1a48c90efc3bf8dda4d612f2dff5409834" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString FileIO::read</definition>
+        <argsstring>()</argsstring>
+        <name>read</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fileio.h" line="17" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fileio.cpp" bodystart="14" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_file_i_o_1a73bc6cac958f024325e795a690740a85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool FileIO::write</definition>
+        <argsstring>(const QString &amp;data)</argsstring>
+        <name>write</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fileio.h" line="18" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fileio.cpp" bodystart="40" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_file_i_o_1a8da2b4c6cd72af512e4556203c1c66e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString FileIO::source</definition>
+        <argsstring>()</argsstring>
+        <name>source</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fileio.h" line="20" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fileio.h" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_file_i_o_1ae6fae26a10b7e26922a95c184403cee9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString FileIO::adjustPath</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>adjustPath</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fileio.h" line="21" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fileio.cpp" bodystart="57" bodyend="83"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="class_file_i_o_1a985a2cce4d400bca160c5f42bf697adb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FileIO::setSource</definition>
+        <argsstring>(const QString &amp;source)</argsstring>
+        <name>setSource</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fileio.h" line="24" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fileio.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_file_i_o_1a31a6e00e907268e4473a0a826d2e6a1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FileIO::sourceChanged</definition>
+        <argsstring>(const QString &amp;source)</argsstring>
+        <name>sourceChanged</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fileio.h" line="27" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_file_i_o_1a4136bb085d530f9dd54eb849f14d58da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FileIO::error</definition>
+        <argsstring>(const QString &amp;msg)</argsstring>
+        <name>error</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fileio.h" line="28" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="142">
+        <label>QObject</label>
+      </node>
+      <node id="141">
+        <label>FileIO</label>
+        <link refid="class_file_i_o"/>
+        <childnode refid="142" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="144">
+        <label>QObject</label>
+      </node>
+      <node id="143">
+        <label>FileIO</label>
+        <link refid="class_file_i_o"/>
+        <childnode refid="144" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/fileio.h" line="7" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fileio.h" bodystart="6" bodyend="32"/>
+    <listofallmembers>
+      <member refid="class_file_i_o_1ae6fae26a10b7e26922a95c184403cee9" prot="public" virt="non-virtual"><scope>FileIO</scope><name>adjustPath</name></member>
+      <member refid="class_file_i_o_1a4136bb085d530f9dd54eb849f14d58da" prot="public" virt="non-virtual"><scope>FileIO</scope><name>error</name></member>
+      <member refid="class_file_i_o_1a6e4f7122f89b633e3522c2e1d31e1fdd" prot="public" virt="non-virtual"><scope>FileIO</scope><name>FileIO</name></member>
+      <member refid="class_file_i_o_1ac5d2180a268066f472f9ff9cad1175ca" prot="private" virt="non-virtual"><scope>FileIO</scope><name>mSource</name></member>
+      <member refid="class_file_i_o_1a48c90efc3bf8dda4d612f2dff5409834" prot="public" virt="non-virtual"><scope>FileIO</scope><name>read</name></member>
+      <member refid="class_file_i_o_1a985a2cce4d400bca160c5f42bf697adb" prot="public" virt="non-virtual"><scope>FileIO</scope><name>setSource</name></member>
+      <member refid="class_file_i_o_1ad4467aa6c50748ac1e7076d25dcd33cc" prot="public" virt="non-virtual"><scope>FileIO</scope><name>source</name></member>
+      <member refid="class_file_i_o_1a8da2b4c6cd72af512e4556203c1c66e7" prot="public" virt="non-virtual"><scope>FileIO</scope><name>source</name></member>
+      <member refid="class_file_i_o_1a31a6e00e907268e4473a0a826d2e6a1e" prot="public" virt="non-virtual"><scope>FileIO</scope><name>sourceChanged</name></member>
+      <member refid="class_file_i_o_1a73bc6cac958f024325e795a690740a85" prot="public" virt="non-virtual"><scope>FileIO</scope><name>write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

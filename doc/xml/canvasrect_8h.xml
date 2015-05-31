@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="canvasrect_8h" kind="file" language="C++">
+    <compoundname>canvasrect.h</compoundname>
+    <includes refid="canvasshape_8h" local="yes">canvasshape.h</includes>
+    <includes local="no">QPainter</includes>
+    <includedby refid="canvasrect_8cpp" local="yes">src/canvasrect.cpp</includedby>
+    <includedby refid="main_8cpp" local="yes">src/main.cpp</includedby>
+    <incdepgraph>
+      <node id="515">
+        <label>QMap</label>
+      </node>
+      <node id="541">
+        <label>limits</label>
+      </node>
+      <node id="524">
+        <label>plot2dbase.h</label>
+        <link refid="plot2dbase_8h_source"/>
+        <childnode refid="512" relation="include">
+        </childnode>
+        <childnode refid="513" relation="include">
+        </childnode>
+        <childnode refid="525" relation="include">
+        </childnode>
+        <childnode refid="527" relation="include">
+        </childnode>
+        <childnode refid="531" relation="include">
+        </childnode>
+        <childnode refid="514" relation="include">
+        </childnode>
+        <childnode refid="542" relation="include">
+        </childnode>
+        <childnode refid="543" relation="include">
+        </childnode>
+      </node>
+      <node id="538">
+        <label>QRectF</label>
+      </node>
+      <node id="518">
+        <label>QObject</label>
+      </node>
+      <node id="530">
+        <label>axisbase.h</label>
+        <link refid="axisbase_8h_source"/>
+        <childnode refid="512" relation="include">
+        </childnode>
+        <childnode refid="516" relation="include">
+        </childnode>
+        <childnode refid="514" relation="include">
+        </childnode>
+        <childnode refid="531" relation="include">
+        </childnode>
+      </node>
+      <node id="534">
+        <label>axisspec.h</label>
+        <link refid="axisspec_8h_source"/>
+        <childnode refid="518" relation="include">
+        </childnode>
+        <childnode refid="535" relation="include">
+        </childnode>
+        <childnode refid="514" relation="include">
+        </childnode>
+        <childnode refid="519" relation="include">
+        </childnode>
+        <childnode refid="532" relation="include">
+        </childnode>
+      </node>
+      <node id="531">
+        <label>plotbase.h</label>
+        <link refid="plotbase_8h_source"/>
+        <childnode refid="512" relation="include">
+        </childnode>
+        <childnode refid="514" relation="include">
+        </childnode>
+        <childnode refid="530" relation="include">
+        </childnode>
+      </node>
+      <node id="543">
+        <label>../QKDTree/QKDTree/QKDTree.h</label>
+      </node>
+      <node id="514">
+        <label>nutmegobject.h</label>
+        <link refid="nutmegobject_8h_source"/>
+        <childnode refid="515" relation="include">
+        </childnode>
+        <childnode refid="516" relation="include">
+        </childnode>
+        <childnode refid="517" relation="include">
+        </childnode>
+        <childnode refid="518" relation="include">
+        </childnode>
+      </node>
+      <node id="537">
+        <label>QList</label>
+      </node>
+      <node id="540">
+        <label>QLineF</label>
+      </node>
+      <node id="532">
+        <label>locators.h</label>
+        <link refid="locators_8h_source"/>
+        <childnode refid="518" relation="include">
+        </childnode>
+        <childnode refid="533" relation="include">
+        </childnode>
+      </node>
+      <node id="521">
+        <label>fillspec.h</label>
+        <link refid="fillspec_8h_source"/>
+        <childnode refid="518" relation="include">
+        </childnode>
+        <childnode refid="520" relation="include">
+        </childnode>
+        <childnode refid="514" relation="include">
+        </childnode>
+      </node>
+      <node id="535">
+        <label>QFont</label>
+      </node>
+      <node id="536">
+        <label>util.h</label>
+        <link refid="util_8h_source"/>
+        <childnode refid="537" relation="include">
+        </childnode>
+        <childnode refid="538" relation="include">
+        </childnode>
+        <childnode refid="539" relation="include">
+        </childnode>
+        <childnode refid="540" relation="include">
+        </childnode>
+        <childnode refid="541" relation="include">
+        </childnode>
+      </node>
+      <node id="528">
+        <label>QQuickPaintedItem</label>
+      </node>
+      <node id="513">
+        <label>QPainter</label>
+      </node>
+      <node id="519">
+        <label>linespec.h</label>
+        <link refid="linespec_8h_source"/>
+        <childnode refid="518" relation="include">
+        </childnode>
+        <childnode refid="520" relation="include">
+        </childnode>
+        <childnode refid="515" relation="include">
+        </childnode>
+      </node>
+      <node id="511">
+        <label>canvasshape.h</label>
+        <link refid="canvasshape_8h_source"/>
+        <childnode refid="512" relation="include">
+        </childnode>
+        <childnode refid="513" relation="include">
+        </childnode>
+        <childnode refid="514" relation="include">
+        </childnode>
+        <childnode refid="519" relation="include">
+        </childnode>
+        <childnode refid="521" relation="include">
+        </childnode>
+        <childnode refid="522" relation="include">
+        </childnode>
+      </node>
+      <node id="527">
+        <label>axis2dbase.h</label>
+        <link refid="axis2dbase_8h_source"/>
+        <childnode refid="528" relation="include">
+        </childnode>
+        <childnode refid="529" relation="include">
+        </childnode>
+        <childnode refid="530" relation="include">
+        </childnode>
+        <childnode refid="519" relation="include">
+        </childnode>
+        <childnode refid="532" relation="include">
+        </childnode>
+        <childnode refid="524" relation="include">
+        </childnode>
+        <childnode refid="514" relation="include">
+        </childnode>
+        <childnode refid="534" relation="include">
+        </childnode>
+        <childnode refid="536" relation="include">
+        </childnode>
+      </node>
+      <node id="516">
+        <label>QString</label>
+      </node>
+      <node id="520">
+        <label>QColor</label>
+      </node>
+      <node id="523">
+        <label>xyplot.h</label>
+        <link refid="xyplot_8h_source"/>
+        <childnode refid="524" relation="include">
+        </childnode>
+      </node>
+      <node id="510">
+        <label>src/canvasrect.h</label>
+        <link refid="canvasrect.h"/>
+        <childnode refid="511" relation="include">
+        </childnode>
+        <childnode refid="513" relation="include">
+        </childnode>
+      </node>
+      <node id="542">
+        <label>plotcanvas.h</label>
+        <link refid="plotcanvas_8h_source"/>
+        <childnode refid="528" relation="include">
+        </childnode>
+      </node>
+      <node id="512">
+        <label>QQuickItem</label>
+      </node>
+      <node id="525">
+        <label>plotdata.h</label>
+        <link refid="plotdata_8h_source"/>
+        <childnode refid="526" relation="include">
+        </childnode>
+      </node>
+      <node id="517">
+        <label>QVariant</label>
+      </node>
+      <node id="533">
+        <label>QStringList</label>
+      </node>
+      <node id="522">
+        <label>canvasplot.h</label>
+        <link refid="canvasplot_8h_source"/>
+        <childnode refid="512" relation="include">
+        </childnode>
+        <childnode refid="523" relation="include">
+        </childnode>
+        <childnode refid="511" relation="include">
+        </childnode>
+      </node>
+      <node id="526">
+        <label>QAbstractTableModel</label>
+      </node>
+      <node id="539">
+        <label>QPolygonF</label>
+      </node>
+      <node id="529">
+        <label>QMultiMap</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_canvas_rect" prot="public">CanvasRect</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>CANVASRECT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CANVASRECT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;canvasshape.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QPainter&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="class_canvas_rect" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_canvas_rect" kindref="compound">CanvasRect</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_canvas_shape" kindref="compound">CanvasShape</ref></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>Q_PROPERTY(QRectF<sp/>rect<sp/>READ<sp/>rect<sp/>WRITE<sp/>setRect<sp/>NOTIFY<sp/>rectChanged)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_canvas_rect" kindref="compound">CanvasRect</ref>(QQuickItem<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>paint(QPainter<sp/>*painter,<sp/>const<sp/>::QTransform<sp/>&amp;tran,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QRectF<sp/>&amp;limits);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>QRectF<sp/>rect()<sp/>const;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>void<sp/>setRect(QRectF<sp/>arg);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">signals:</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>void<sp/>rectChanged(QRectF<sp/>arg);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>void<sp/>updateDataLimits();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>CANVASRECT_H</highlight></codeline>
+    </programlisting>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/canvasrect.h"/>
+  </compounddef>
+</doxygen>

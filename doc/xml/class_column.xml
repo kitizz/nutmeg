@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_column" kind="class" language="C++" prot="public">
+    <compoundname>Column</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ColumnLayout</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_column_1ad1d7348965b749e154ab1a346b5e630d" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Column::rows</definition>
+        <argsstring></argsstring>
+        <name>rows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Column.qml" line="10" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Column.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_column_1aa86cbde3541fff8718fac479d6a3d417" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string Column::groupName</definition>
+        <argsstring></argsstring>
+        <name>groupName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Column.qml" line="10" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Column.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_column_1aa569f81df1ea50daafb455fec598e38c" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var Column::axes</definition>
+        <argsstring></argsstring>
+        <name>axes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Column.qml" line="10" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Column.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_column_1a69862bb0386d288c9331a00bbff4b4b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Column::updateLayout</definition>
+        <argsstring>()</argsstring>
+        <name>updateLayout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Column.qml" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_column_1afb4a8b214a6125170a6a8b775b2879d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Column::listEqual</definition>
+        <argsstring>(l1, l2)</argsstring>
+        <name>listEqual</name>
+        <param>
+          <type>l1</type>
+        </param>
+        <param>
+          <type>l2</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Column.qml" line="16" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Layouts.Column is used for laying out multiple <ref refid="class_axis" kindref="compound">Axis</ref> items in a column. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="110">
+        <label>Column</label>
+        <link refid="class_column"/>
+        <childnode refid="111" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="111">
+        <label>ColumnLayout</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="112">
+        <label>Column</label>
+        <link refid="class_column"/>
+        <childnode refid="113" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="113">
+        <label>ColumnLayout</label>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Column.qml" line="5" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Column.qml" bodystart="5" bodyend="17"/>
+    <listofallmembers>
+      <member refid="class_column_1aa569f81df1ea50daafb455fec598e38c" prot="public" virt="non-virtual"><scope>Column</scope><name>axes</name></member>
+      <member refid="class_column_1aa86cbde3541fff8718fac479d6a3d417" prot="public" virt="non-virtual"><scope>Column</scope><name>groupName</name></member>
+      <member refid="class_column_1afb4a8b214a6125170a6a8b775b2879d0" prot="public" virt="non-virtual"><scope>Column</scope><name>listEqual</name></member>
+      <member refid="class_column_1ad1d7348965b749e154ab1a346b5e630d" prot="public" virt="non-virtual"><scope>Column</scope><name>rows</name></member>
+      <member refid="class_column_1a69862bb0386d288c9331a00bbff4b4b1" prot="public" virt="non-virtual"><scope>Column</scope><name>updateLayout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

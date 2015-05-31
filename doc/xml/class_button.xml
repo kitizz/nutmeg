@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_button" kind="class" language="C++" prot="public">
+    <compoundname>Button</compoundname>
+    <basecompoundref refid="class_control_item" prot="public" virt="non-virtual">ControlItem</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_button_1a491ffe4369d76c06af4f9e6118dd538b" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Button::text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Controls/Button.qml" line="13" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Controls/Button.qml" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_control_item_1a3307fb790fdba78a8f13b67328dd8883" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string ControlItem::handle</definition>
+        <argsstring></argsstring>
+        <name>handle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Controls/ControlItem.qml" line="13" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Controls/ControlItem.qml" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_control_item_1a41309ec36f78feddd4cb6a889c312498" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var ControlItem::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Controls/ControlItem.qml" line="13" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Controls/ControlItem.qml" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_control_item_1a6e3838d480c4f53e13b4bcc1f2958dc3" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var ControlItem::gui</definition>
+        <argsstring></argsstring>
+        <name>gui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Controls/ControlItem.qml" line="13" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Controls/ControlItem.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_control_item_1ac328e809b48fda404440bdd484253090" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlItem::findGui</definition>
+        <argsstring>()</argsstring>
+        <name>findGui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Controls/ControlItem.qml" line="10" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="56">
+        <label>ControlItem</label>
+        <link refid="class_control_item"/>
+        <childnode refid="57" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>Button</label>
+        <link refid="class_button"/>
+        <childnode refid="56" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="57">
+        <label>Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="59">
+        <label>ControlItem</label>
+        <link refid="class_control_item"/>
+        <childnode refid="60" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>Button</label>
+        <link refid="class_button"/>
+        <childnode refid="59" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/qml/Controls/Button.qml" line="1" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Controls/Button.qml" bodystart="1" bodyend="5"/>
+    <listofallmembers>
+      <member refid="class_control_item_1ac328e809b48fda404440bdd484253090" prot="public" virt="non-virtual"><scope>Button</scope><name>findGui</name></member>
+      <member refid="class_control_item_1a6e3838d480c4f53e13b4bcc1f2958dc3" prot="public" virt="non-virtual"><scope>Button</scope><name>gui</name></member>
+      <member refid="class_control_item_1a3307fb790fdba78a8f13b67328dd8883" prot="public" virt="non-virtual"><scope>Button</scope><name>handle</name></member>
+      <member refid="class_button_1a491ffe4369d76c06af4f9e6118dd538b" prot="public" virt="non-virtual"><scope>Button</scope><name>text</name></member>
+      <member refid="class_control_item_1a41309ec36f78feddd4cb6a889c312498" prot="public" virt="non-virtual"><scope>Button</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

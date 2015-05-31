@@ -1,0 +1,416 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_plot_base" kind="class" language="C++" prot="public">
+    <compoundname>PlotBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickItem</basecompoundref>
+    <basecompoundref refid="class_nutmeg_object" prot="public" virt="non-virtual">NutmegObject</basecompoundref>
+    <derivedcompoundref refid="class_plot2_d_base" prot="public" virt="non-virtual">Plot2DBase</derivedcompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_plot_base_1ae6509625f4d59bbc5c9b70eddf99e6f6" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString PlotBase::handle</definition>
+        <argsstring></argsstring>
+        <name>handle</name>
+        <read>handle</read>
+        <write>setHandle</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="37" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_plot_base_1a9350ab567ab278b0053c16aa7677de05" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref></type>
+        <definition>AxisBase * PlotBase::axis</definition>
+        <argsstring></argsstring>
+        <name>axis</name>
+        <read>axis</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="37" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_plot_base_1a7ca32b93268f55403e8d3708b996d634" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString PlotBase::m_handle</definition>
+        <argsstring></argsstring>
+        <name>m_handle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="54" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plot_base_1a94b34bdf171442d49da792b3a6645e7a" prot="private" static="no" mutable="no">
+        <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref> *</type>
+        <definition>AxisBase* PlotBase::m_axis</definition>
+        <argsstring></argsstring>
+        <name>m_axis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="55" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_plot_base_1a0d858a18acc588875837a0bb5c64d462" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PlotBase::PlotBase</definition>
+        <argsstring>(QQuickItem *parent=0)</argsstring>
+        <name>PlotBase</name>
+        <param>
+          <type>QQuickItem *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="16" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.cpp" bodystart="3" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_base_1a411817d4198d723197a8ae44bb0e156e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString PlotBase::handle</definition>
+        <argsstring>() const </argsstring>
+        <name>handle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="18" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_base_1ae3a27ae0464f1b7fc5c752d1abbb8f30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotBase::setHandle</definition>
+        <argsstring>(QString arg)</argsstring>
+        <name>setHandle</name>
+        <param>
+          <type>QString</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="19" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.cpp" bodystart="16" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plot_base_1a02d38ef7f43e225cb647225f070ff0ea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref> *</type>
+        <definition>AxisBase* PlotBase::axis</definition>
+        <argsstring>() const </argsstring>
+        <name>axis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="21" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_plot_base_1a063043374a4e49001f17c5101bc6c3a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotBase::handleChanged</definition>
+        <argsstring>(QString arg)</argsstring>
+        <name>handleChanged</name>
+        <param>
+          <type>QString</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_plot_base_1a2e67e4be9d01f75b1d926994c735e5d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotBase::axisChanged</definition>
+        <argsstring>(AxisBase *arg)</argsstring>
+        <name>axisChanged</name>
+        <param>
+          <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref> *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="25" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="class_plot_base_1ab3eaaa45cae25a15955cdb839dd28631" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotBase::findAxis</definition>
+        <argsstring>()</argsstring>
+        <name>findAxis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="28" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.cpp" bodystart="37" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_plot_base_1a0252441bd28ff73bd0db0f79cbea3c86" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void PlotBase::print</definition>
+        <argsstring>(QPainter *painter)</argsstring>
+        <name>print</name>
+        <param>
+          <type>QPainter *</type>
+          <declname>painter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="29" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_plot_base_1ae7e15ed017717c24440786ba7064938f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void PlotBase::registerProperties</definition>
+        <argsstring>(QMap&lt; QString, QString &gt; mapping)</argsstring>
+        <name>registerProperties</name>
+        <param>
+          <type>QMap&lt; QString, QString &gt;</type>
+          <declname>mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="32" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="32" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_plot_base_1a8065f1901e1d210452abde394f2508b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void PlotBase::registerProperties</definition>
+        <argsstring>(QVariantMap mapping)</argsstring>
+        <name>registerProperties</name>
+        <param>
+          <type>QVariantMap</type>
+          <declname>mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="35" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="35" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_plot_base_1a1810afca0bdb4c47712e987a8e5cae6b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>QString</type>
+        <definition>virtual QString PlotBase::mapProperty</definition>
+        <argsstring>(const QString &amp;prop)</argsstring>
+        <name>mapProperty</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="38" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="38" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_plot_base_1ab2364e7ebe2c0d46996b0265e9ded244" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void PlotBase::registerMethods</definition>
+        <argsstring>(QMap&lt; QString, QString &gt; mapping)</argsstring>
+        <name>registerMethods</name>
+        <param>
+          <type>QMap&lt; QString, QString &gt;</type>
+          <declname>mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="42" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="42" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_plot_base_1a0e1c5785e80731c087981eebda1a14e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>QString</type>
+        <definition>virtual QString PlotBase::mapMethod</definition>
+        <argsstring>(const QString &amp;method)</argsstring>
+        <name>mapMethod</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>method</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="45" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="45" bodyend="47"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-slot">
+      <memberdef kind="slot" id="class_plot_base_1a635586046256db76cb37a3cb313e0d88" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void PlotBase::updateAxis</definition>
+        <argsstring>(AxisBase *oldAxis, AxisBase *newAxis)</argsstring>
+        <name>updateAxis</name>
+        <param>
+          <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref> *</type>
+          <declname>oldAxis</declname>
+        </param>
+        <param>
+          <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref> *</type>
+          <declname>newAxis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="50" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_plot_base_1a63198d5f1a6898cd2208abd91a999cfe" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlotBase::setAxis</definition>
+        <argsstring>(AxisBase *arg)</argsstring>
+        <name>setAxis</name>
+        <param>
+          <type><ref refid="class_axis_base" kindref="compound">AxisBase</ref> *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="53" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.cpp" bodystart="28" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="260">
+        <label>XYPlot</label>
+        <link refid="class_x_y_plot"/>
+        <childnode refid="257" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="259">
+        <label>ImagePlot</label>
+        <link refid="class_image_plot"/>
+        <childnode refid="257" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="257">
+        <label>Plot2DBase</label>
+        <link refid="class_plot2_d_base"/>
+        <childnode refid="254" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="254">
+        <label>PlotBase</label>
+        <link refid="class_plot_base"/>
+        <childnode refid="255" relation="public-inheritance">
+        </childnode>
+        <childnode refid="256" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="258">
+        <label>CanvasPlot</label>
+        <link refid="class_canvas_plot"/>
+        <childnode refid="257" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="255">
+        <label>QQuickItem</label>
+      </node>
+      <node id="261">
+        <label>LinePlot</label>
+        <link refid="class_line_plot"/>
+        <childnode refid="260" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="256">
+        <label>NutmegObject</label>
+        <link refid="class_nutmeg_object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="262">
+        <label>PlotBase</label>
+        <link refid="class_plot_base"/>
+        <childnode refid="263" relation="public-inheritance">
+        </childnode>
+        <childnode refid="264" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="263">
+        <label>QQuickItem</label>
+      </node>
+      <node id="264">
+        <label>NutmegObject</label>
+        <link refid="class_nutmeg_object"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" line="10" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/plotbase.h" bodystart="9" bodyend="56"/>
+    <listofallmembers>
+      <member refid="class_plot_base_1a9350ab567ab278b0053c16aa7677de05" prot="public" virt="non-virtual"><scope>PlotBase</scope><name>axis</name></member>
+      <member refid="class_plot_base_1a02d38ef7f43e225cb647225f070ff0ea" prot="public" virt="non-virtual"><scope>PlotBase</scope><name>axis</name></member>
+      <member refid="class_plot_base_1a2e67e4be9d01f75b1d926994c735e5d9" prot="public" virt="non-virtual"><scope>PlotBase</scope><name>axisChanged</name></member>
+      <member refid="class_plot_base_1ab3eaaa45cae25a15955cdb839dd28631" prot="public" virt="non-virtual"><scope>PlotBase</scope><name>findAxis</name></member>
+      <member refid="class_plot_base_1ae6509625f4d59bbc5c9b70eddf99e6f6" prot="public" virt="non-virtual"><scope>PlotBase</scope><name>handle</name></member>
+      <member refid="class_plot_base_1a411817d4198d723197a8ae44bb0e156e" prot="public" virt="non-virtual"><scope>PlotBase</scope><name>handle</name></member>
+      <member refid="class_plot_base_1a063043374a4e49001f17c5101bc6c3a4" prot="public" virt="non-virtual"><scope>PlotBase</scope><name>handleChanged</name></member>
+      <member refid="class_plot_base_1a94b34bdf171442d49da792b3a6645e7a" prot="private" virt="non-virtual"><scope>PlotBase</scope><name>m_axis</name></member>
+      <member refid="class_plot_base_1a7ca32b93268f55403e8d3708b996d634" prot="private" virt="non-virtual"><scope>PlotBase</scope><name>m_handle</name></member>
+      <member refid="class_plot_base_1a0e1c5785e80731c087981eebda1a14e6" prot="public" virt="virtual"><scope>PlotBase</scope><name>mapMethod</name></member>
+      <member refid="class_plot_base_1a1810afca0bdb4c47712e987a8e5cae6b" prot="public" virt="virtual"><scope>PlotBase</scope><name>mapProperty</name></member>
+      <member refid="class_plot_base_1a0d858a18acc588875837a0bb5c64d462" prot="public" virt="non-virtual"><scope>PlotBase</scope><name>PlotBase</name></member>
+      <member refid="class_plot_base_1a0252441bd28ff73bd0db0f79cbea3c86" prot="public" virt="virtual"><scope>PlotBase</scope><name>print</name></member>
+      <member refid="class_plot_base_1ab2364e7ebe2c0d46996b0265e9ded244" prot="public" virt="virtual"><scope>PlotBase</scope><name>registerMethods</name></member>
+      <member refid="class_plot_base_1ae7e15ed017717c24440786ba7064938f" prot="public" virt="virtual"><scope>PlotBase</scope><name>registerProperties</name></member>
+      <member refid="class_plot_base_1a8065f1901e1d210452abde394f2508b9" prot="public" virt="virtual"><scope>PlotBase</scope><name>registerProperties</name></member>
+      <member refid="class_plot_base_1a63198d5f1a6898cd2208abd91a999cfe" prot="private" virt="non-virtual"><scope>PlotBase</scope><name>setAxis</name></member>
+      <member refid="class_plot_base_1ae3a27ae0464f1b7fc5c752d1abbb8f30" prot="public" virt="non-virtual"><scope>PlotBase</scope><name>setHandle</name></member>
+      <member refid="class_plot_base_1a635586046256db76cb37a3cb313e0d88" prot="protected" virt="virtual"><scope>PlotBase</scope><name>updateAxis</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

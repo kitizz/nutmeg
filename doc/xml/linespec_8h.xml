@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="linespec_8h" kind="file" language="C++">
+    <compoundname>linespec.h</compoundname>
+    <includes local="no">QObject</includes>
+    <includes local="no">QColor</includes>
+    <includes local="no">QMap</includes>
+    <includedby refid="axis2dbase_8h" local="yes">src/axis2dbase.h</includedby>
+    <includedby refid="axisspec_8h" local="yes">src/axisspec.h</includedby>
+    <includedby refid="canvasshape_8h" local="yes">src/canvasshape.h</includedby>
+    <includedby refid="lineplot_8h" local="yes">src/lineplot.h</includedby>
+    <includedby refid="linespec_8cpp" local="yes">src/linespec.cpp</includedby>
+    <includedby refid="main_8cpp" local="yes">src/main.cpp</includedby>
+    <incdepgraph>
+      <node id="1089">
+        <label>QMap</label>
+      </node>
+      <node id="1087">
+        <label>QObject</label>
+      </node>
+      <node id="1086">
+        <label>src/linespec.h</label>
+        <link refid="linespec.h"/>
+        <childnode refid="1087" relation="include">
+        </childnode>
+        <childnode refid="1088" relation="include">
+        </childnode>
+        <childnode refid="1089" relation="include">
+        </childnode>
+      </node>
+      <node id="1088">
+        <label>QColor</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1103">
+        <label>src/axiscanvas2d.h</label>
+        <link refid="axiscanvas2d_8h_source"/>
+      </node>
+      <node id="1092">
+        <label>src/plot2dbase.h</label>
+        <link refid="plot2dbase_8h_source"/>
+        <childnode refid="1091" relation="include">
+        </childnode>
+        <childnode refid="1093" relation="include">
+        </childnode>
+        <childnode refid="1100" relation="include">
+        </childnode>
+      </node>
+      <node id="1104">
+        <label>src/axisspec.h</label>
+        <link refid="axisspec_8h_source"/>
+        <childnode refid="1091" relation="include">
+        </childnode>
+      </node>
+      <node id="1100">
+        <label>src/imageplot.h</label>
+        <link refid="imageplot_8h_source"/>
+      </node>
+      <node id="1101">
+        <label>src/figurebase.h</label>
+        <link refid="figurebase_8h_source"/>
+        <childnode refid="1102" relation="include">
+        </childnode>
+      </node>
+      <node id="1090">
+        <label>src/linespec.h</label>
+        <link refid="linespec.h"/>
+        <childnode refid="1091" relation="include">
+        </childnode>
+        <childnode refid="1104" relation="include">
+        </childnode>
+        <childnode refid="1095" relation="include">
+        </childnode>
+        <childnode refid="1099" relation="include">
+        </childnode>
+      </node>
+      <node id="1095">
+        <label>src/canvasshape.h</label>
+        <link refid="canvasshape_8h_source"/>
+        <childnode refid="1096" relation="include">
+        </childnode>
+        <childnode refid="1094" relation="include">
+        </childnode>
+        <childnode refid="1097" relation="include">
+        </childnode>
+        <childnode refid="1098" relation="include">
+        </childnode>
+      </node>
+      <node id="1091">
+        <label>src/axis2dbase.h</label>
+        <link refid="axis2dbase_8h_source"/>
+        <childnode refid="1092" relation="include">
+        </childnode>
+        <childnode refid="1101" relation="include">
+        </childnode>
+        <childnode refid="1103" relation="include">
+        </childnode>
+        <childnode refid="1099" relation="include">
+        </childnode>
+      </node>
+      <node id="1099">
+        <label>src/lineplot.h</label>
+        <link refid="lineplot_8h_source"/>
+      </node>
+      <node id="1093">
+        <label>src/xyplot.h</label>
+        <link refid="xyplot_8h_source"/>
+        <childnode refid="1094" relation="include">
+        </childnode>
+        <childnode refid="1099" relation="include">
+        </childnode>
+      </node>
+      <node id="1098">
+        <label>src/canvasrect.h</label>
+        <link refid="canvasrect_8h_source"/>
+      </node>
+      <node id="1097">
+        <label>src/canvastext.h</label>
+        <link refid="canvastext_8h_source"/>
+      </node>
+      <node id="1096">
+        <label>src/canvasline.h</label>
+        <link refid="canvasline_8h_source"/>
+      </node>
+      <node id="1094">
+        <label>src/canvasplot.h</label>
+        <link refid="canvasplot_8h_source"/>
+        <childnode refid="1095" relation="include">
+        </childnode>
+      </node>
+      <node id="1102">
+        <label>src/controller.h</label>
+        <link refid="controller_8h_source"/>
+        <childnode refid="1101" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_line_spec" prot="public">LineSpec</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>LINESPEC_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LINESPEC_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QColor&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMap&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="class_line_spec" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_line_spec" kindref="compound">LineSpec</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QString<sp/>spec<sp/>READ<sp/>spec<sp/>WRITE<sp/>setSpec<sp/>NOTIFY<sp/>specChanged)</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QColor<sp/>color<sp/>READ<sp/>color<sp/>WRITE<sp/>setColor<sp/>NOTIFY<sp/>colorChanged)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QString<sp/>style<sp/>READ<sp/>style<sp/>WRITE<sp/><ref refid="class_line_spec_1a9cb17f2e5e61e031db6e6718954796aa" kindref="member">setStyle</ref><sp/>NOTIFY<sp/>styleChanged)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(qreal<sp/>width<sp/>READ<sp/>width<sp/>WRITE<sp/>setWidth<sp/>NOTIFY<sp/>widthChanged)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(QString<sp/>marker<sp/>READ<sp/>marker<sp/>WRITE<sp/>setMarker<sp/>NOTIFY<sp/>markerChanged)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_line_spec" kindref="compound">LineSpec</ref>(QObject*<sp/>parent=0);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_line_spec" kindref="compound">LineSpec</ref>(QString<sp/>spec,<sp/>QObject<sp/>*parent=0);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>QStringList<sp/>toList()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>toString()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QString<sp/>markers()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;+o*.xsd^v&gt;&lt;ph&quot;</highlight><highlight class="normal">;<sp/>}<sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>Put<sp/>in<sp/>MarkerSpec</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QMap&lt;QString,<sp/>QColor&gt;<sp/>colorMap;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QMap&lt;QString,<sp/>Qt::PenStyle&gt;<sp/>styleMap;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>spec()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setSpec(QString<sp/>arg);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>color()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setColor(QColor<sp/>arg);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>style()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_line_spec_1a9cb17f2e5e61e031db6e6718954796aa" kindref="member">setStyle</ref>(QString<sp/>arg);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>width()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setWidth(qreal<sp/>arg);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>marker()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setMarker(QString<sp/>arg);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">signals:</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>specChanged(QString<sp/>arg);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>colorChanged(QColor<sp/>arg);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>styleChanged(QString<sp/>arg);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>widthChanged(qreal<sp/>arg);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>markerChanged(QString<sp/>arg);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>QString<sp/>m_spec;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>QColor<sp/>m_color;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>m_colorStr;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>m_style;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>m_width;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>m_marker;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QMap&lt;QString,<sp/>QColor&gt;<sp/>generateColorMap()<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMap&lt;QString,<sp/>QColor&gt;<sp/>mapp<sp/>=<sp/>QMap&lt;QString,<sp/>QColor&gt;();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mapp.insert(</highlight><highlight class="stringliteral">&quot;r&quot;</highlight><highlight class="normal">,<sp/>Qt::red);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mapp.insert(</highlight><highlight class="stringliteral">&quot;g&quot;</highlight><highlight class="normal">,<sp/>Qt::green);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mapp.insert(</highlight><highlight class="stringliteral">&quot;b&quot;</highlight><highlight class="normal">,<sp/>Qt::blue);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mapp.insert(</highlight><highlight class="stringliteral">&quot;c&quot;</highlight><highlight class="normal">,<sp/>Qt::cyan);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mapp.insert(</highlight><highlight class="stringliteral">&quot;m&quot;</highlight><highlight class="normal">,<sp/>Qt::magenta);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mapp.insert(</highlight><highlight class="stringliteral">&quot;y&quot;</highlight><highlight class="normal">,<sp/>Qt::yellow);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mapp.insert(</highlight><highlight class="stringliteral">&quot;k&quot;</highlight><highlight class="normal">,<sp/>Qt::black);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mapp.insert(</highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal">,<sp/>Qt::white);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mapp;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>QMap&lt;QString,<sp/>Qt::PenStyle&gt;<sp/>generateStyleMap()<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMap&lt;QString,<sp/>Qt::PenStyle&gt;<sp/>mapp<sp/>=<sp/>QMap&lt;QString,<sp/>Qt::PenStyle&gt;();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mapp.insert(</highlight><highlight class="stringliteral">&quot;-&quot;</highlight><highlight class="normal">,<sp/>Qt::SolidLine);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mapp.insert(</highlight><highlight class="stringliteral">&quot;--&quot;</highlight><highlight class="normal">,<sp/>Qt::DashLine);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mapp.insert(</highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal">,<sp/>Qt::DotLine);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mapp.insert(</highlight><highlight class="stringliteral">&quot;-.&quot;</highlight><highlight class="normal">,<sp/>Qt::DashDotLine);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mapp;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>LINESPEC_H</highlight></codeline>
+    </programlisting>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/linespec.h"/>
+  </compounddef>
+</doxygen>

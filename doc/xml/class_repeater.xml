@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_repeater" kind="class" language="C++" prot="public">
+    <compoundname>Repeater</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Item</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_repeater_1a1995534e2cb07b9c7a3e14d0a94ca61a" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Repeater::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" line="16" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_repeater_1a48d572d073390958bd794267c21a85ee" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Component</type>
+        <definition>Component Repeater::delegate</definition>
+        <argsstring></argsstring>
+        <name>delegate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This is the default property </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" line="16" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_repeater_1a6dbcfea8ee5b3ee0da41befdf83423b8" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var Repeater::items</definition>
+        <argsstring></argsstring>
+        <name>items</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" line="16" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_repeater_1a86c0439317145e0bb52523f1a9478c6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Repeater::clearItems</definition>
+        <argsstring>()</argsstring>
+        <name>clearItems</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" line="16" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_repeater_1aa04badb7f7bdb9361730b6b02938f7fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Repeater::updateItems</definition>
+        <argsstring>()</argsstring>
+        <name>updateItems</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" line="22" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Layouts.Repeater is a helper item used for quickly generating multiple instances of an <ref refid="class_axis" kindref="compound">Axis</ref>. The parent of <ref refid="class_axis" kindref="compound">Axis</ref> with be the parant of Layouts.Repeater. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="282">
+        <label>Item</label>
+      </node>
+      <node id="281">
+        <label>Repeater</label>
+        <link refid="class_repeater"/>
+        <childnode refid="282" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="284">
+        <label>Item</label>
+      </node>
+      <node id="283">
+        <label>Repeater</label>
+        <link refid="class_repeater"/>
+        <childnode refid="284" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" line="6" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Layouts/Repeater.qml" bodystart="6" bodyend="23"/>
+    <listofallmembers>
+      <member refid="class_repeater_1a86c0439317145e0bb52523f1a9478c6a" prot="public" virt="non-virtual"><scope>Repeater</scope><name>clearItems</name></member>
+      <member refid="class_repeater_1a1995534e2cb07b9c7a3e14d0a94ca61a" prot="public" virt="non-virtual"><scope>Repeater</scope><name>count</name></member>
+      <member refid="class_repeater_1a48d572d073390958bd794267c21a85ee" prot="public" virt="non-virtual"><scope>Repeater</scope><name>delegate</name></member>
+      <member refid="class_repeater_1a6dbcfea8ee5b3ee0da41befdf83423b8" prot="public" virt="non-virtual"><scope>Repeater</scope><name>items</name></member>
+      <member refid="class_repeater_1aa04badb7f7bdb9361730b6b02938f7fb" prot="public" virt="non-virtual"><scope>Repeater</scope><name>updateItems</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

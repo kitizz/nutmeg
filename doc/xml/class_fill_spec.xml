@@ -1,0 +1,312 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_fill_spec" kind="class" language="C++" prot="public">
+    <compoundname>FillSpec</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <basecompoundref refid="class_nutmeg_object" prot="public" virt="non-virtual">NutmegObject</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_fill_spec_1a0c3bd89ab5c84a3167668480de15708f" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor FillSpec::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <read>color</read>
+        <write>setColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fillspec.h" line="30" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fillspec.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_fill_spec_1a0687da271007bd05b364c8bcc878d697" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor FillSpec::m_color</definition>
+        <argsstring></argsstring>
+        <name>m_color</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fillspec.h" line="30" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fillspec.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_fill_spec_1ae930048ef6e75f532888004cfdf8496c" prot="private" static="no" mutable="no">
+        <type>qreal</type>
+        <definition>qreal FillSpec::m_alpha</definition>
+        <argsstring></argsstring>
+        <name>m_alpha</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fillspec.h" line="31" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fillspec.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_fill_spec_1acdbe56a610623a6daafc4f8a47ee1402" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FillSpec::FillSpec</definition>
+        <argsstring>(QObject *parent=0)</argsstring>
+        <name>FillSpec</name>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fillspec.h" line="15" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fillspec.cpp" bodystart="3" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_fill_spec_1a26406c1a3b164101c5f6ac709a93c389" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor FillSpec::color</definition>
+        <argsstring>() const </argsstring>
+        <name>color</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fillspec.h" line="17" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_fill_spec_1a4d271c9b5400968f339895eb6df79a15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillSpec::setColor</definition>
+        <argsstring>(QColor arg)</argsstring>
+        <name>setColor</name>
+        <param>
+          <type>QColor</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fillspec.h" line="18" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fillspec.cpp" bodystart="18" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_fill_spec_1aed0d31a2ad2997a16a92e6899063d85b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal FillSpec::alpha</definition>
+        <argsstring>() const </argsstring>
+        <name>alpha</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fillspec.h" line="20" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fillspec.cpp" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_fill_spec_1a88e6029a4b9efb159c6b75837cd6c0b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillSpec::setAlpha</definition>
+        <argsstring>(qreal arg)</argsstring>
+        <name>setAlpha</name>
+        <param>
+          <type>qreal</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fillspec.h" line="21" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fillspec.cpp" bodystart="30" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_nutmeg_object_1a43005ef3b06e5d2a5e5324c38905c3ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void NutmegObject::registerProperties</definition>
+        <argsstring>(QMap&lt; QString, QString &gt; mapping)</argsstring>
+        <name>registerProperties</name>
+        <param>
+          <type>QMap&lt; QString, QString &gt;</type>
+          <declname>mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="13" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.cpp" bodystart="7" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_nutmeg_object_1aa68d02600708e659f27e082970546993" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void NutmegObject::registerProperties</definition>
+        <argsstring>(QVariantMap mapping)</argsstring>
+        <name>registerProperties</name>
+        <param>
+          <type>QVariantMap</type>
+          <declname>mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="14" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.cpp" bodystart="15" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_nutmeg_object_1a2169171482fc79630a2ef982aa0f7943" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString NutmegObject::mapProperty</definition>
+        <argsstring>(const QString &amp;prop)</argsstring>
+        <name>mapProperty</name>
+        <reimplementedby refid="class_axis_spec_1aa8b2c6afae2b075a8b2dfe4bf4f4f361">mapProperty</reimplementedby>
+        <reimplementedby refid="class_axis_grid_1a96f0eada6307d1982133dfea51a8ccf7">mapProperty</reimplementedby>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="15" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.cpp" bodystart="26" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_nutmeg_object_1a5e32c685f6efe2baf5efc2f00814b1f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void NutmegObject::registerMethods</definition>
+        <argsstring>(QMap&lt; QString, QString &gt; mapping)</argsstring>
+        <name>registerMethods</name>
+        <param>
+          <type>QMap&lt; QString, QString &gt;</type>
+          <declname>mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="17" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.cpp" bodystart="32" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_nutmeg_object_1ad0933845444cb216443775ee14bd9e3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString NutmegObject::mapMethod</definition>
+        <argsstring>(const QString &amp;method)</argsstring>
+        <name>mapMethod</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>method</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.h" line="18" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/nutmegobject.cpp" bodystart="40" bodyend="44"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_fill_spec_1a8a082344110f53dfb44bec6263f42b6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillSpec::colorChanged</definition>
+        <argsstring>(QColor arg)</argsstring>
+        <name>colorChanged</name>
+        <param>
+          <type>QColor</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fillspec.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_fill_spec_1a21f5b990013070658cb06bc1afe060c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FillSpec::alphaChanged</definition>
+        <argsstring>(qreal arg)</argsstring>
+        <name>alphaChanged</name>
+        <param>
+          <type>qreal</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/src/fillspec.h" line="25" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="146">
+        <label>QObject</label>
+      </node>
+      <node id="145">
+        <label>FillSpec</label>
+        <link refid="class_fill_spec"/>
+        <childnode refid="146" relation="public-inheritance">
+        </childnode>
+        <childnode refid="147" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="147">
+        <label>NutmegObject</label>
+        <link refid="class_nutmeg_object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="149">
+        <label>QObject</label>
+      </node>
+      <node id="148">
+        <label>FillSpec</label>
+        <link refid="class_fill_spec"/>
+        <childnode refid="149" relation="public-inheritance">
+        </childnode>
+        <childnode refid="150" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="150">
+        <label>NutmegObject</label>
+        <link refid="class_nutmeg_object"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/fillspec.h" line="9" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/src/fillspec.h" bodystart="8" bodyend="33"/>
+    <listofallmembers>
+      <member refid="class_fill_spec_1aed0d31a2ad2997a16a92e6899063d85b" prot="public" virt="non-virtual"><scope>FillSpec</scope><name>alpha</name></member>
+      <member refid="class_fill_spec_1a21f5b990013070658cb06bc1afe060c5" prot="public" virt="non-virtual"><scope>FillSpec</scope><name>alphaChanged</name></member>
+      <member refid="class_fill_spec_1a0c3bd89ab5c84a3167668480de15708f" prot="public" virt="non-virtual"><scope>FillSpec</scope><name>color</name></member>
+      <member refid="class_fill_spec_1a26406c1a3b164101c5f6ac709a93c389" prot="public" virt="non-virtual"><scope>FillSpec</scope><name>color</name></member>
+      <member refid="class_fill_spec_1a8a082344110f53dfb44bec6263f42b6b" prot="public" virt="non-virtual"><scope>FillSpec</scope><name>colorChanged</name></member>
+      <member refid="class_fill_spec_1acdbe56a610623a6daafc4f8a47ee1402" prot="public" virt="non-virtual"><scope>FillSpec</scope><name>FillSpec</name></member>
+      <member refid="class_fill_spec_1ae930048ef6e75f532888004cfdf8496c" prot="private" virt="non-virtual"><scope>FillSpec</scope><name>m_alpha</name></member>
+      <member refid="class_fill_spec_1a0687da271007bd05b364c8bcc878d697" prot="private" virt="non-virtual"><scope>FillSpec</scope><name>m_color</name></member>
+      <member refid="class_nutmeg_object_1ad0933845444cb216443775ee14bd9e3b" prot="public" virt="virtual"><scope>FillSpec</scope><name>mapMethod</name></member>
+      <member refid="class_nutmeg_object_1a2169171482fc79630a2ef982aa0f7943" prot="public" virt="virtual"><scope>FillSpec</scope><name>mapProperty</name></member>
+      <member refid="class_nutmeg_object_1a5e32c685f6efe2baf5efc2f00814b1f8" prot="public" virt="virtual"><scope>FillSpec</scope><name>registerMethods</name></member>
+      <member refid="class_nutmeg_object_1a43005ef3b06e5d2a5e5324c38905c3ed" prot="public" virt="virtual"><scope>FillSpec</scope><name>registerProperties</name></member>
+      <member refid="class_nutmeg_object_1aa68d02600708e659f27e082970546993" prot="public" virt="virtual"><scope>FillSpec</scope><name>registerProperties</name></member>
+      <member refid="class_fill_spec_1a88e6029a4b9efb159c6b75837cd6c0b8" prot="public" virt="non-virtual"><scope>FillSpec</scope><name>setAlpha</name></member>
+      <member refid="class_fill_spec_1a4d271c9b5400968f339895eb6df79a15" prot="public" virt="non-virtual"><scope>FillSpec</scope><name>setColor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

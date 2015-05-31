@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="imageplot_8cpp" kind="file" language="C++">
+    <compoundname>imageplot.cpp</compoundname>
+    <includes refid="imageplot_8h" local="yes">imageplot.h</includes>
+    <incdepgraph>
+      <node id="922">
+        <label>QMap</label>
+      </node>
+      <node id="937">
+        <label>limits</label>
+      </node>
+      <node id="911">
+        <label>plot2dbase.h</label>
+        <link refid="plot2dbase_8h_source"/>
+        <childnode refid="912" relation="include">
+        </childnode>
+        <childnode refid="913" relation="include">
+        </childnode>
+        <childnode refid="914" relation="include">
+        </childnode>
+        <childnode refid="916" relation="include">
+        </childnode>
+        <childnode refid="925" relation="include">
+        </childnode>
+        <childnode refid="921" relation="include">
+        </childnode>
+        <childnode refid="938" relation="include">
+        </childnode>
+        <childnode refid="939" relation="include">
+        </childnode>
+      </node>
+      <node id="934">
+        <label>QRectF</label>
+      </node>
+      <node id="924">
+        <label>QObject</label>
+      </node>
+      <node id="919">
+        <label>axisbase.h</label>
+        <link refid="axisbase_8h_source"/>
+        <childnode refid="912" relation="include">
+        </childnode>
+        <childnode refid="920" relation="include">
+        </childnode>
+        <childnode refid="921" relation="include">
+        </childnode>
+        <childnode refid="925" relation="include">
+        </childnode>
+      </node>
+      <node id="930">
+        <label>axisspec.h</label>
+        <link refid="axisspec_8h_source"/>
+        <childnode refid="924" relation="include">
+        </childnode>
+        <childnode refid="931" relation="include">
+        </childnode>
+        <childnode refid="921" relation="include">
+        </childnode>
+        <childnode refid="926" relation="include">
+        </childnode>
+        <childnode refid="928" relation="include">
+        </childnode>
+      </node>
+      <node id="925">
+        <label>plotbase.h</label>
+        <link refid="plotbase_8h_source"/>
+        <childnode refid="912" relation="include">
+        </childnode>
+        <childnode refid="921" relation="include">
+        </childnode>
+        <childnode refid="919" relation="include">
+        </childnode>
+      </node>
+      <node id="939">
+        <label>../QKDTree/QKDTree/QKDTree.h</label>
+      </node>
+      <node id="921">
+        <label>nutmegobject.h</label>
+        <link refid="nutmegobject_8h_source"/>
+        <childnode refid="922" relation="include">
+        </childnode>
+        <childnode refid="920" relation="include">
+        </childnode>
+        <childnode refid="923" relation="include">
+        </childnode>
+        <childnode refid="924" relation="include">
+        </childnode>
+      </node>
+      <node id="933">
+        <label>QList</label>
+      </node>
+      <node id="910">
+        <label>imageplot.h</label>
+        <link refid="imageplot_8h_source"/>
+        <childnode refid="911" relation="include">
+        </childnode>
+        <childnode refid="940" relation="include">
+        </childnode>
+      </node>
+      <node id="936">
+        <label>QLineF</label>
+      </node>
+      <node id="928">
+        <label>locators.h</label>
+        <link refid="locators_8h_source"/>
+        <childnode refid="924" relation="include">
+        </childnode>
+        <childnode refid="929" relation="include">
+        </childnode>
+      </node>
+      <node id="931">
+        <label>QFont</label>
+      </node>
+      <node id="909">
+        <label>src/imageplot.cpp</label>
+        <link refid="imageplot.cpp"/>
+        <childnode refid="910" relation="include">
+        </childnode>
+      </node>
+      <node id="932">
+        <label>util.h</label>
+        <link refid="util_8h_source"/>
+        <childnode refid="933" relation="include">
+        </childnode>
+        <childnode refid="934" relation="include">
+        </childnode>
+        <childnode refid="935" relation="include">
+        </childnode>
+        <childnode refid="936" relation="include">
+        </childnode>
+        <childnode refid="937" relation="include">
+        </childnode>
+      </node>
+      <node id="917">
+        <label>QQuickPaintedItem</label>
+      </node>
+      <node id="913">
+        <label>QPainter</label>
+      </node>
+      <node id="926">
+        <label>linespec.h</label>
+        <link refid="linespec_8h_source"/>
+        <childnode refid="924" relation="include">
+        </childnode>
+        <childnode refid="927" relation="include">
+        </childnode>
+        <childnode refid="922" relation="include">
+        </childnode>
+      </node>
+      <node id="916">
+        <label>axis2dbase.h</label>
+        <link refid="axis2dbase_8h_source"/>
+        <childnode refid="917" relation="include">
+        </childnode>
+        <childnode refid="918" relation="include">
+        </childnode>
+        <childnode refid="919" relation="include">
+        </childnode>
+        <childnode refid="926" relation="include">
+        </childnode>
+        <childnode refid="928" relation="include">
+        </childnode>
+        <childnode refid="911" relation="include">
+        </childnode>
+        <childnode refid="921" relation="include">
+        </childnode>
+        <childnode refid="930" relation="include">
+        </childnode>
+        <childnode refid="932" relation="include">
+        </childnode>
+      </node>
+      <node id="920">
+        <label>QString</label>
+      </node>
+      <node id="927">
+        <label>QColor</label>
+      </node>
+      <node id="940">
+        <label>QPixmap</label>
+      </node>
+      <node id="938">
+        <label>plotcanvas.h</label>
+        <link refid="plotcanvas_8h_source"/>
+        <childnode refid="917" relation="include">
+        </childnode>
+      </node>
+      <node id="912">
+        <label>QQuickItem</label>
+      </node>
+      <node id="914">
+        <label>plotdata.h</label>
+        <link refid="plotdata_8h_source"/>
+        <childnode refid="915" relation="include">
+        </childnode>
+      </node>
+      <node id="923">
+        <label>QVariant</label>
+      </node>
+      <node id="929">
+        <label>QStringList</label>
+      </node>
+      <node id="915">
+        <label>QAbstractTableModel</label>
+      </node>
+      <node id="935">
+        <label>QPolygonF</label>
+      </node>
+      <node id="918">
+        <label>QMultiMap</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;imageplot.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal">ImagePlot::ImagePlot(QQuickItem<sp/>*parent)</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="class_plot2_d_base" kindref="compound">Plot2DBase</ref>(parent)</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_pixmap(QPixmap())</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_binary(QByteArray())</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>QMap&lt;QString,QString&gt;<sp/>props;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>props.insert(</highlight><highlight class="stringliteral">&quot;binary&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;binary&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>registerProperties(props);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">QPixmap<sp/>ImagePlot::pixmap()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="14"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pixmap;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">QByteArray<sp/>ImagePlot::binary()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="19"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_binary;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ImagePlot::setBinary(QByteArray<sp/>arg)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_binary<sp/>==<sp/>arg)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\tBinary<sp/>set&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>arg.length();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>m_binary<sp/>=<sp/>arg;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>updateImage();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/>binaryChanged(arg);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ImagePlot::updateDataLimits()</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\tSetting<sp/>imageplot<sp/>limits&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>m_pixmap.size();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>setDataLimits(QRectF(QPoint(),<sp/>m_pixmap.size()));</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ImagePlot::updateImage()</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>success<sp/>=<sp/>m_pixmap.loadFromData(m_binary);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(success)<sp/>updateDataLimits();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/kitham/projects/qt/nutmeg/src/imageplot.cpp"/>
+  </compounddef>
+</doxygen>

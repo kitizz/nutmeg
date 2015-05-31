@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="class_slider" kind="class" language="C++" prot="public">
+    <compoundname>Slider</compoundname>
+    <basecompoundref refid="class_control_item" prot="public" virt="non-virtual">ControlItem</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_slider_1a1c0a6f08bf2dd23dc041d8d0a7cba801" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Slider::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Controls/Slider.qml" line="10" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Controls/Slider.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_slider_1a645ffa3b98a93478749b1c4a24cd9c08" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias Slider::slider</definition>
+        <argsstring></argsstring>
+        <name>slider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Controls/Slider.qml" line="10" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Controls/Slider.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_slider_1a72b00d56c0fd59bfc4ca30e42d87303f" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Slider::decimals</definition>
+        <argsstring></argsstring>
+        <name>decimals</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Controls/Slider.qml" line="10" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Controls/Slider.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_control_item_1a3307fb790fdba78a8f13b67328dd8883" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string ControlItem::handle</definition>
+        <argsstring></argsstring>
+        <name>handle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Controls/ControlItem.qml" line="13" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Controls/ControlItem.qml" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_control_item_1a41309ec36f78feddd4cb6a889c312498" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var ControlItem::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Controls/ControlItem.qml" line="13" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Controls/ControlItem.qml" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_control_item_1a6e3838d480c4f53e13b4bcc1f2958dc3" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var ControlItem::gui</definition>
+        <argsstring></argsstring>
+        <name>gui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Controls/ControlItem.qml" line="13" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Controls/ControlItem.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_control_item_1ac328e809b48fda404440bdd484253090" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlItem::findGui</definition>
+        <argsstring>()</argsstring>
+        <name>findGui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/kitham/projects/qt/nutmeg/qml/Controls/ControlItem.qml" line="10" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="class_slider" kindref="compound">Slider</ref> is a typical sliding control. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="306">
+        <label>ControlItem</label>
+        <link refid="class_control_item"/>
+        <childnode refid="307" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="307">
+        <label>Item</label>
+      </node>
+      <node id="305">
+        <label>Slider</label>
+        <link refid="class_slider"/>
+        <childnode refid="306" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="309">
+        <label>ControlItem</label>
+        <link refid="class_control_item"/>
+        <childnode refid="310" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="310">
+        <label>Item</label>
+      </node>
+      <node id="308">
+        <label>Slider</label>
+        <link refid="class_slider"/>
+        <childnode refid="309" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/kitham/projects/qt/nutmeg/qml/Controls/Slider.qml" line="5" column="1" bodyfile="/Users/kitham/projects/qt/nutmeg/qml/Controls/Slider.qml" bodystart="5" bodyend="13"/>
+    <listofallmembers>
+      <member refid="class_slider_1a72b00d56c0fd59bfc4ca30e42d87303f" prot="public" virt="non-virtual"><scope>Slider</scope><name>decimals</name></member>
+      <member refid="class_control_item_1ac328e809b48fda404440bdd484253090" prot="public" virt="non-virtual"><scope>Slider</scope><name>findGui</name></member>
+      <member refid="class_control_item_1a6e3838d480c4f53e13b4bcc1f2958dc3" prot="public" virt="non-virtual"><scope>Slider</scope><name>gui</name></member>
+      <member refid="class_control_item_1a3307fb790fdba78a8f13b67328dd8883" prot="public" virt="non-virtual"><scope>Slider</scope><name>handle</name></member>
+      <member refid="class_slider_1a1c0a6f08bf2dd23dc041d8d0a7cba801" prot="public" virt="non-virtual"><scope>Slider</scope><name>label</name></member>
+      <member refid="class_slider_1a645ffa3b98a93478749b1c4a24cd9c08" prot="public" virt="non-virtual"><scope>Slider</scope><name>slider</name></member>
+      <member refid="class_control_item_1a41309ec36f78feddd4cb6a889c312498" prot="public" virt="non-virtual"><scope>Slider</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

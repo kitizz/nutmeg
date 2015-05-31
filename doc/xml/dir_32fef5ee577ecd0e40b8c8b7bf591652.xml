@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="dir_32fef5ee577ecd0e40b8c8b7bf591652" kind="dir">
+    <compoundname>qml/Layouts</compoundname>
+    <innerfile refid="_column_8qml">Column.qml</innerfile>
+    <innerfile refid="_grid_8qml">Grid.qml</innerfile>
+    <innerfile refid="_repeater_8qml">Repeater.qml</innerfile>
+    <innerfile refid="_row_8qml">Row.qml</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/kitham/projects/qt/nutmeg/qml/Layouts/"/>
+  </compounddef>
+</doxygen>

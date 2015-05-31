@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="dir_fcf7993eee5bbc2ed690871c2369bd6f" kind="dir">
+    <compoundname>qml</compoundname>
+    <innerdir refid="dir_94e0a5e752f456407c9c7cfc82e2761b">qml/Controls</innerdir>
+    <innerdir refid="dir_32fef5ee577ecd0e40b8c8b7bf591652">qml/Layouts</innerdir>
+    <innerfile refid="_axis_8qml">Axis.qml</innerfile>
+    <innerfile refid="_figure_8qml">Figure.qml</innerfile>
+    <innerfile refid="_line_plot_8qml">LinePlot.qml</innerfile>
+    <innerfile refid="_server_8qml">Server.qml</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/kitham/projects/qt/nutmeg/qml/"/>
+  </compounddef>
+</doxygen>
