@@ -15,9 +15,9 @@ AxisBase::AxisBase(QQuickItem *parent)
     , m_plots(QMap<QString,PlotBase*>())
     , m_plotsVar(QVariantMap())
     , m_destroying(false)
-    , m_axisGroup(0)
-    , m_groupRow(-1)
-    , m_groupColumn(-1)
+    , m_layoutGroup(0)
+//    , m_groupRow(-1)
+//    , m_groupColumn(-1)
 {
     // Register properties available through the API
     QMap<QString,QString> props;
@@ -139,8 +139,10 @@ void AxisBase::setPreferredPlotRect(const QRectF &arg)
         return;
 
     m_preferredPlotRect = arg;
-    if (m_axisGroup)
-        m_figure->updateGroupAt(m_axisGroup->name, m_groupRow, m_groupColumn);
+    emit preferredPlotRectChanged(arg);
+    if (m_layoutGroup)
+        m_layoutGroup->setPlotRectsDirty();
+//        m_figure->updateGroupAt(m_axisGroup->name, m_groupRow, m_groupColumn);
 }
 
 /*!
@@ -161,6 +163,7 @@ void AxisBase::setTitle(QString arg)
 
 /*!
  * \property AxisBase::titleFont
+ * \type Font
  * Define the Font to be used for the title.
  * Can be used as a group property:
  * \code{.qml}
@@ -198,27 +201,27 @@ void AxisBase::setTitleColor(QColor arg)
     emit titleColorChanged(arg);
 }
 
-void AxisBase::setAxisGroup(AxisGroup *group)
+void AxisBase::setLayoutGroup(LayoutGrid *layout)
 {
-    m_axisGroup = group;
+    m_layoutGroup = layout;
 }
 
-AxisGroup *AxisBase::axisGroup() const
+LayoutGrid *AxisBase::layoutGroup() const
 {
-    return m_axisGroup;
+    return m_layoutGroup;
 }
 
-void AxisBase::setAxisGroupIndex(int row, int column)
-{
-    m_groupRow = row;
-    m_groupColumn = column;
-}
+//void AxisBase::setAxisGroupIndex(int row, int column)
+//{
+//    m_groupRow = row;
+//    m_groupColumn = column;
+//}
 
-void AxisBase::getAxisGroupIndex(int &row, int &column)
-{
-    row = m_groupRow;
-    column = m_groupColumn;
-}
+//void AxisBase::getAxisGroupIndex(int &row, int &column)
+//{
+//    row = m_groupRow;
+//    column = m_groupColumn;
+//}
 
 FigureBase *AxisBase::figure() const
 {
@@ -251,7 +254,11 @@ void AxisBase::updateFigure()
 
 QRectF AxisBase::updatePlotRect()
 {
-    setPlotRect(m_figure->getPlotRectFor(this));
+    if (m_layoutGroup)
+        m_layoutGroup->updatePlotRects();
+    else
+        setPlotRect(preferredPlotRect());
+
     return plotRect();
 }
 

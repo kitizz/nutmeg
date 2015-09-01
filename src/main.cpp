@@ -6,10 +6,12 @@
 #include "../qmlwindow.h"
 
 #include "lineplot.h"
+#include "linesegmentplot.h"
 #include "imageplot.h"
 #include "canvasplot.h"
 
 #include "lineplotcanvas.h"
+#include "linesegmentplotcanvas.h"
 #include "imagecanvas.h"
 #include "canvasplotcanvas.h"
 
@@ -23,6 +25,10 @@
 #include "fillspec.h"
 #include "axiscanvas2d.h"
 #include "figurebase.h"
+#include "layoutgrid.h"
+#include "layoutcolumn.h"
+#include "layoutrow.h"
+
 #include "server.h"
 #include "controller.h"
 #include "settings.h"
@@ -44,6 +50,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<PointCloud>("Nutmeg", 1,0, "PointCloudBase");
 #endif
 
+    // ---------- Layout Stuff --------------
     qmlRegisterType<Axis2DBase>("Nutmeg", 1,0, "Axis2DBase");
     qmlRegisterType<AxisCanvas2D>("Nutmeg", 1,0, "AxisCanvas2D");
     qmlRegisterType<AxisSpec>("Nutmeg", 1,0, "AxisSpec");
@@ -53,16 +60,21 @@ int main(int argc, char *argv[])
     qmlRegisterType<HardLocator>("Nutmeg", 1,0, "HardLocator");
     qmlRegisterType<SpacedLocator>("Nutmeg", 1,0, "SpacedLocator");
 
+    qmlRegisterType<LayoutGrid>("Nutmeg", 1,0, "Grid");
+    qmlRegisterType<LayoutColumn>("Nutmeg", 1,0, "Column");
+    qmlRegisterType<LayoutRow>("Nutmeg", 1,0, "Row");
+
     // ---------- Plotting stuff ------------
     qmlRegisterType<LineSpec>("Nutmeg", 1,0, "LineSpec");
     qmlRegisterType<FillSpec>("Nutmeg", 1,0, "FillSpec");
 
     qmlRegisterType<LinePlot>("Nutmeg", 1,0, "LinePlotBase");
+    qmlRegisterType<LineSegmentPlot>("Nutmeg", 1,0, "LineSegmentPlotBase");
     qmlRegisterType<ImagePlot>("Nutmeg", 1,0, "ImagePlotBase");
     qmlRegisterType<CanvasPlot>("Nutmeg", 1,0, "CanvasPlotBase");
 
-
     qmlRegisterType<LinePlotCanvas>("Nutmeg", 1,0, "LinePlotCanvas");
+    qmlRegisterType<LineSegmentPlotCanvas>("Nutmeg", 1,0, "LineSegmentPlotCanvas");
     qmlRegisterType<ImageCanvas>("Nutmeg", 1,0, "ImageCanvas");
     qmlRegisterType<CanvasPlotCanvas>("Nutmeg", 1,0, "CanvasPlotCanvas");
 

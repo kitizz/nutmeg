@@ -11,7 +11,6 @@ FigureBase::FigureBase(QQuickItem *parent)
     , m_axesVar(QVariantMap())
     , m_axisList(QVariantList())
     , m_axes(QMultiMap<QString,AxisBase*>())
-    , m_axisGroups(QMap<QString, AxisGroup*>())
     , m_destroying(false)
     , m_handle(QString())
     , m_controller(0)
@@ -83,48 +82,48 @@ void FigureBase::registerAxis(AxisBase *axis)
  * (column, row, grid).
  * \return The name of group generated.
  */
-QString FigureBase::registerAxisGroup(QVariantList axisGroup, AxisGroupType type, const QString &oldGroupName)
-{
-    AxisGroup *newGroup = new AxisGroup(axisGroup, type);
-    // TODO: This is risk of name collisions here. Unlikely but possible
+//QString FigureBase::registerAxisGroup(QVariantList axisGroup, AxisGroupType type, const QString &oldGroupName)
+//{
+//    AxisGroup *newGroup = new AxisGroup(axisGroup, type);
+//    // TODO: This is risk of name collisions here. Unlikely but possible
 
-    if (newGroup->isValid()) {
-        if (m_axisGroups.contains(oldGroupName))
-            delete m_axisGroups.take(oldGroupName);
+//    if (newGroup->isValid()) {
+//        if (m_axisGroups.contains(oldGroupName))
+//            delete m_axisGroups.take(oldGroupName);
 
-        m_axisGroups.insert(newGroup->name, newGroup);
-        return newGroup->name;
+//        m_axisGroups.insert(newGroup->name, newGroup);
+//        return newGroup->name;
 
-    } else {
-        if (m_axisGroups.contains(oldGroupName)) {
-            AxisGroup *oldGroup = m_axisGroups.take(oldGroupName);
-            oldGroup->unbindAxes();
-            delete oldGroup;
-        }
-        delete newGroup;
-        return "";
-    }
+//    } else {
+//        if (m_axisGroups.contains(oldGroupName)) {
+//            AxisGroup *oldGroup = m_axisGroups.take(oldGroupName);
+//            oldGroup->unbindAxes();
+//            delete oldGroup;
+//        }
+//        delete newGroup;
+//        return "";
+//    }
 
-}
+//}
 
-void FigureBase::updateGroupAt(const QString &name, int row, int column)
-{
-    AxisGroup *group = m_axisGroups[name];
-    if (!group) return;
-    int rows, columns;
-    group->getSize(rows, columns);
+//void FigureBase::updateGroupAt(const QString &name, int row, int column)
+//{
+//    AxisGroup *group = m_axisGroups[name];
+//    if (!group) return;
+//    int rows, columns;
+//    group->getSize(rows, columns);
 
-    // Column first
-    for (int i=0; i<rows; ++i) {
-        if (i == row) continue; // Skip self
-        group->axes[i][column]->triggerRedraw();
-    }
-    // Then row
-    for (int j=0; j<columns; ++j) {
-        if (j == column) continue; // Skip self
-        group->axes[row][j]->triggerRedraw();
-    }
-}
+//    // Column first
+//    for (int i=0; i<rows; ++i) {
+//        if (i == row) continue; // Skip self
+//        group->axes[i][column]->triggerRedraw();
+//    }
+//    // Then row
+//    for (int j=0; j<columns; ++j) {
+//        if (j == column) continue; // Skip self
+//        group->axes[row][j]->triggerRedraw();
+//    }
+//}
 
 void FigureBase::updateShareX(Axis2DBase *axis)
 {
@@ -193,43 +192,43 @@ QVariantList FigureBase::getAxisList()
  * bounded by the smallest height in its row, and width is bounded by the
  * smallest width in its coloumn.
  */
-QRectF FigureBase::getPlotRectFor(AxisBase *axis) const
-{
-    AxisGroup *group = axis->axisGroup();
-    QRectF axisRect = axis->preferredPlotRect();
-    if (!group)
-        return axisRect;
+//QRectF FigureBase::getPlotRectFor(AxisBase *axis) const
+//{
+//    AxisGroup *group = axis->layoutGroup();
+//    QRectF axisRect = axis->preferredPlotRect();
+//    if (!group)
+//        return axisRect;
 
-    int rows, cols;
-    group->getSize(rows, cols);
+//    int rows, cols;
+//    group->getSize(rows, cols);
 
-    int row, col;
-    axis->getAxisGroupIndex(row, col);
+//    int row, col;
+//    axis->getAxisGroupIndex(row, col);
 
-    // In these loops, we could check for i==col, j==row, and skip.
-    // However, it's good to reduce branching and this is
-    // unlikely to have a significant impact on performance.
+//    // In these loops, we could check for i==col, j==row, and skip.
+//    // However, it's good to reduce branching and this is
+//    // unlikely to have a significant impact on performance.
 
-    // First check the column
-    qreal minX = axisRect.left(), maxX = axisRect.right();
-    for (int i=0; i<rows; ++i) {
-        AxisBase *other = group->axes[i][col];
-        QRectF r = other->preferredPlotRect();
-        minX = qMax(minX, r.left());
-        maxX = qMin(maxX, r.right());
-    }
+//    // First check the column
+//    qreal minX = axisRect.left(), maxX = axisRect.right();
+//    for (int i=0; i<rows; ++i) {
+//        AxisBase *other = group->axes[i][col];
+//        QRectF r = other->preferredPlotRect();
+//        minX = qMax(minX, r.left());
+//        maxX = qMin(maxX, r.right());
+//    }
 
-    // Now check the row
-    qreal minY = axisRect.top(), maxY = axisRect.bottom();
-    for (int j=0; j<cols; ++j) {
-        AxisBase *other = group->axes[row][j];
-        QRectF r = other->preferredPlotRect();
-        minY = qMax(minY, r.top());
-        maxY = qMin(maxY, r.bottom());
-    }
+//    // Now check the row
+//    qreal minY = axisRect.top(), maxY = axisRect.bottom();
+//    for (int j=0; j<cols; ++j) {
+//        AxisBase *other = group->axes[row][j];
+//        QRectF r = other->preferredPlotRect();
+//        minY = qMax(minY, r.top());
+//        maxY = qMin(maxY, r.bottom());
+//    }
 
-    return QRectF(minX, minY, maxX - minX, maxY - minY);
-}
+//    return QRectF(minX, minY, maxX - minX, maxY - minY);
+//}
 
 void FigureBase::deregisterAxis(AxisBase *axis)
 {
@@ -373,94 +372,94 @@ void FigureBase::updateAxes()
 }
 
 
-AxisGroup::AxisGroup(QVariantList axisGroup, FigureBase::AxisGroupType type)
-    : name(QString())
-    , axes(QVector< QVector<AxisBase*> >())
-    , m_rows(0)
-    , m_cols(0)
-{
-    // Whether this is a row, coloumn or grid group, the input must be 2D
-    int nRows = type == FigureBase::Row ? 1 : axisGroup.length();
-    int nCols = 1;  // 1 for type == Column
-    if (type == FigureBase::Row)
-        nCols = axisGroup.length();
+//AxisGroup::AxisGroup(QVariantList axisGroup, FigureBase::AxisGroupType type)
+//    : name(QString())
+//    , axes(QVector< QVector<AxisBase*> >())
+//    , m_rows(0)
+//    , m_cols(0)
+//{
+//    // Whether this is a row, coloumn or grid group, the input must be 2D
+//    int nRows = type == FigureBase::Row ? 1 : axisGroup.length();
+//    int nCols = 1;  // 1 for type == Column
+//    if (type == FigureBase::Row)
+//        nCols = axisGroup.length();
 
-    QStringList axisNames;
+//    QStringList axisNames;
 
-    // This could be condensed into one for loop with embedded if-statements
-    // but this makes it much easier to read the separate cases.
-    // Also, it's probably faster to have the ifs on the outside.
-    if (type == FigureBase::Column) {
-        for (int i=0; i<nRows; ++i) {
-            QVector<AxisBase*> row;
-            AxisBase *ax = qvariant_cast<AxisBase*>(axisGroup[i]);
-            if (!ax)
-                qWarning() << "Warning: Cannot register Axis Column. Found non-AxisBase entry.";
-            axisNames.append(ax->handle());
-            ax->setAxisGroup(this);
-            ax->setAxisGroupIndex(i, 0);
-            row.append(ax);
-            axes.append(row);
-        }
+//    // This could be condensed into one for loop with embedded if-statements
+//    // but this makes it much easier to read the separate cases.
+//    // Also, it's probably faster to have the ifs on the outside.
+//    if (type == FigureBase::Column) {
+//        for (int i=0; i<nRows; ++i) {
+//            QVector<AxisBase*> row;
+//            AxisBase *ax = qvariant_cast<AxisBase*>(axisGroup[i]);
+//            if (!ax)
+//                qWarning() << "Warning: Cannot register Axis Column. Found non-AxisBase entry.";
+//            axisNames.append(ax->handle());
+//            ax->setLayoutGroup(this);
+//            ax->setAxisGroupIndex(i, 0);
+//            row.append(ax);
+//            axes.append(row);
+//        }
 
-    } else if (type == FigureBase::Grid) {
-        // Double loop through the axisGroup, making the right conversions
-        for (int i=0; i<nRows; ++i) {
-            QVector<AxisBase*> row;
+//    } else if (type == FigureBase::Grid) {
+//        // Double loop through the axisGroup, making the right conversions
+//        for (int i=0; i<nRows; ++i) {
+//            QVector<AxisBase*> row;
 
-            QVariantList row_var = axisGroup[i].toList();
-            int len = row_var.length();
-            if (i == 0)
-                nCols = len;
-            if (len == 0 || len != nCols) {
-                qWarning() << "Warning: Cannot register Axis Grid. Each row in grid"
-                           << "must be of the same size.";
-                return;
-            }
-            for (int j=0; j<len; ++j) {
-                AxisBase *ax = qvariant_cast<AxisBase*>(row_var[j]);
-                if (!ax)
-                    qWarning() << "Warning: Cannot register Axis Grid. Found non-AxisBase entry.";
-                axisNames.append(ax->handle());
-                ax->setAxisGroup(this);
-                ax->setAxisGroupIndex(i, j);
-                row.append(ax);
-            }
-            axes.append(row);
-        }
+//            QVariantList row_var = axisGroup[i].toList();
+//            int len = row_var.length();
+//            if (i == 0)
+//                nCols = len;
+//            if (len == 0 || len != nCols) {
+//                qWarning() << "Warning: Cannot register Axis Grid. Each row in grid"
+//                           << "must be of the same size.";
+//                return;
+//            }
+//            for (int j=0; j<len; ++j) {
+//                AxisBase *ax = qvariant_cast<AxisBase*>(row_var[j]);
+//                if (!ax)
+//                    qWarning() << "Warning: Cannot register Axis Grid. Found non-AxisBase entry.";
+//                axisNames.append(ax->handle());
+//                ax->setLayoutGroup(this);
+//                ax->setAxisGroupIndex(i, j);
+//                row.append(ax);
+//            }
+//            axes.append(row);
+//        }
 
-    } else if (type == FigureBase::Row) {
-        QVector<AxisBase*> row;
-        for (int i=0; i<nRows; ++i) {
-            AxisBase *ax = qvariant_cast<AxisBase*>(axisGroup[i]);
-            if (!ax)
-                qWarning() << "Warning: Cannot register Axis Row. Found non-AxisBase entry.";
-            axisNames.append(ax->handle());
-            ax->setAxisGroup(this);
-            ax->setAxisGroupIndex(0, i);
-            row.append(ax);
-        }
-        axes.append(row);
-    }
+//    } else if (type == FigureBase::Row) {
+//        QVector<AxisBase*> row;
+//        for (int i=0; i<nRows; ++i) {
+//            AxisBase *ax = qvariant_cast<AxisBase*>(axisGroup[i]);
+//            if (!ax)
+//                qWarning() << "Warning: Cannot register Axis Row. Found non-AxisBase entry.";
+//            axisNames.append(ax->handle());
+//            ax->setLayoutGroup(this);
+//            ax->setAxisGroupIndex(0, i);
+//            row.append(ax);
+//        }
+//        axes.append(row);
+//    }
 
-    name = QStringList(axisNames.toSet().toList()).join('-');
+//    name = QStringList(axisNames.toSet().toList()).join('-');
 
-    m_rows = nRows;
-    m_cols = nCols;
-}
+//    m_rows = nRows;
+//    m_cols = nCols;
+//}
 
-void AxisGroup::unbindAxes()
-{
-    foreach (QVector<AxisBase*> lst, axes) {
-        foreach (AxisBase* ax, lst) {
-            ax->setAxisGroup(0);
-            ax->setAxisGroupIndex(-1,-1);
-        }
-    }
-}
+//void AxisGroup::unbindAxes()
+//{
+//    foreach (QVector<AxisBase*> lst, axes) {
+//        foreach (AxisBase* ax, lst) {
+//            ax->setLayoutGroup(0);
+//            ax->setAxisGroupIndex(-1,-1);
+//        }
+//    }
+//}
 
-void AxisGroup::getSize(int &rows, int &columns)
-{
-    rows = m_rows;
-    columns = m_cols;
-}
+//void AxisGroup::getSize(int &rows, int &columns)
+//{
+//    rows = m_rows;
+//    columns = m_cols;
+//}

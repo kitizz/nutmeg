@@ -29,7 +29,7 @@ ColumnLayout {
         var variableItems = []
         for (i=0; i<N; ++i) {
             var item = children[i]
-            if (item.objectName == "repeater")
+            if (item.objectName === "repeater")
                 continue // Repeaters get in the way..
             newAxes.push(item)
 

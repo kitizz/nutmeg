@@ -129,7 +129,6 @@ void AxisCanvas2D::setScaling(qreal arg)
 
 void AxisCanvas2D::triggerUpdate()
 {
-    qDebug() << Q_FUNC_INFO;
     polish();
     update();
 }
@@ -249,7 +248,6 @@ QSizeF AxisCanvas2D::prepareTickLabels(AxisSpec *spec, QHash<QString, QStaticTex
     // Find the maximum precision required
     // Assume: The precisions are all of the same sign, and
     //         "Zero" values don't have precision errors (e.g. 1e-17)
-    qDebug() << "Precision.";
 
     scaleExp = 0;
     offset = 0;
@@ -269,11 +267,7 @@ QSizeF AxisCanvas2D::prepareTickLabels(AxisSpec *spec, QHash<QString, QStaticTex
         if (d*pixelsPerUnit > 1)
             precisions << Util::precision(d*1.01);
     }
-    qDebug() << "Ticks:" << ticks;
-    qDebug() << "Precisions:" << precisions;
     int scalePrec = Util::min(precisions);
-
-    qDebug() << "Best =" << scalePrec;
 
     // 3 cases: No scale required. Scale down from large numbers. Scale up from small numbers.
     scaleExp = 0;
@@ -289,9 +283,6 @@ QSizeF AxisCanvas2D::prepareTickLabels(AxisSpec *spec, QHash<QString, QStaticTex
         // if there are digits to the left of the decimal
         prec -= scalePrec;
     }
-
-    qDebug() << "Offset:" << offset;
-    qDebug() << "ScaleExp, Prec:" << scaleExp << prec << "\n";
 
     foreach (qreal v, ticks) {
         QString text = Util::formatReal((v - offset)*scale, prec - 1);

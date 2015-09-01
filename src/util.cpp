@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 #include <QMap>
+#include <QTransform>
 
 Util::Util()
 {
@@ -244,6 +245,11 @@ int Util::sign(int val)
     return (0 < val) - (val < 0);
 }
 
+qreal Util::clamp(qreal d, qreal min, qreal max) {
+    const qreal t = d < min ? min : d;
+    return t > max ? max : t;
+}
+
 QString Util::formatReal(qreal value, int precision)
 {
     // TODO: Monitor the performance of this...
@@ -255,6 +261,27 @@ QString Util::formatReal(qreal value, int precision)
         result.remove(regDot); // If the last character is just a '.' then remove it
     }
     return result;
+}
+
+QTransform Util::plotToView(QSizeF viewSize, QRectF lim, bool invertX, bool invertY)
+{
+    // Transform the plot coords to view coords
+    qreal scaleX = viewSize.width()/(lim.width());
+    qreal scaleY = viewSize.height()/(lim.height());
+    qreal tx = 0;
+    qreal ty = 0;
+    if (invertX) {
+        scaleX *= -1;
+        tx = viewSize.width();
+    }
+    if (!invertY) {
+        scaleY *= -1;
+        ty = viewSize.height();
+    }
+
+    QTransform tran;
+    tran.translate(tx, ty).scale(scaleX, scaleY).translate(-lim.x(), -lim.y());
+    return tran;
 }
 
 QList<int>* Util::medianArray(int N, int s, QList<int>* lst)

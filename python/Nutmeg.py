@@ -113,12 +113,13 @@ class Nutmeg:
 
         self.figures = {}
 
-        # Overwrite the signal interupt
-        global _original_sigint
-        _original_sigint = signal.getsignal(signal.SIGINT)
-        signal.signal(signal.SIGINT, exit_gracefully)
+        self.initialized = self.ping()
 
-        self.initialized = True
+        # if self.initialized:
+        #     # Overwrite the signal interupt
+        #     global _original_sigint
+        #     _original_sigint = signal.getsignal(signal.SIGINT)
+        #     signal.signal(signal.SIGINT, exit_gracefully)
 
     def setValues(self, handle, *value, **properties):
         '''
@@ -156,10 +157,7 @@ class Nutmeg:
 
         if len(properties) > 0:
             msg = {"handle": handle, "data": properties, "parameter": param }
-            self.socketLock.acquire()
-            self.send_json(["sendData", msg])
-            reply = self.recv_json()
-            self.socketLock.release()
+            reply = self.send_recv_json(["sendData", msg])
             # Error
             if reply[0] != 0:
                 raise(NutmegException(reply[1]['message']))
@@ -167,10 +165,7 @@ class Nutmeg:
         if len(binaryProps) > 0:
             for key in binaryProps:
                 msg = {"handle": handle, "property": key, "parameter": param }
-                self.socketLock.acquire()
-                self.send_binary(msg, binaryProps[key])
-                reply = self.recv_json()
-                self.socketLock.release()
+                self.send_recv_binary(msg, binaryProps[key])
                 # Error
                 if reply[0] != 0:
                     raise(NutmegException(reply[1]['message']))
@@ -189,10 +184,7 @@ class Nutmeg:
         else:
             qml = figureDef
 
-        self.socketLock.acquire()
-        self.send_json(["createFigure", {"figureHandle": handle, "qml": qml}])
-        reply = self.recv_json()
-        self.socketLock.release()
+        reply = self.send_recv_json(["createFigure", {"figureHandle": handle, "qml": qml}])
 
         if reply[0] != 0:  # Error
             err = reply[1]
@@ -232,11 +224,54 @@ class Nutmeg:
         if timeout is None:
             timeout = self.timeout
 
-        if self.poller.poll(self.timeout):
+        if self.poller.poll(timeout):
             return self.socket.recv_json()
         else:
             raise IOError("Timeout receiving response from Nutmeg. Check that %s and \
 %d are the correct host and port." % (self.host, self.port))
+
+    def send_recv_json(self, msg, timeout=None):
+        self.socketLock.acquire()
+        self.send_json(msg)
+        try:
+            reply = self.recv_json(timeout)
+        except IOError:
+            self.socketLock.release()
+            raise
+        finally:
+            self.socketLock.release()
+
+        return reply
+
+    def send_recv_binary(self, msg, data, timeout):
+        self.socketLock.acquire()
+        self.send_binary(msg, data)
+        try:
+            reply = self.recv_json(timeout)
+        except IOError:
+            self.socketLock.release()
+            raise
+        finally:
+            self.socketLock.release()
+
+        return reply
+
+    def ping(self, timeout=None):
+        if timeout is None:
+            timeout = self.timeout
+
+        msg = ["ping", {}]
+        self.socketLock.acquire()
+        self.send_json(msg)
+        try:
+            self.recv_json(timeout)
+            result = True
+        except IOError:
+            result = False
+        finally:
+            self.socketLock.release()
+
+        return result
 
 
 class NutmegObject(object):

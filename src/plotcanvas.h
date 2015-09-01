@@ -11,6 +11,8 @@ class PlotCanvas : public QQuickPaintedItem
 public:
     explicit PlotCanvas(QQuickItem *parent = 0);
 
+    virtual void paint(QPainter *painter) = 0;
+
     qreal scaling() const;
     void setScaling(qreal arg);
 

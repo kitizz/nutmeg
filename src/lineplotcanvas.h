@@ -4,17 +4,19 @@
 #include <QQuickPaintedItem>
 #include "plotcanvas.h"
 
+class LinePlot;
 class LinePlotCanvas : public PlotCanvas
 {
     Q_OBJECT
 public:
     explicit LinePlotCanvas(QQuickItem *parent = 0);
 
-    void paint(QPainter *painter);
+    virtual void paint(QPainter *painter);
     void updatePolish();
 
-    QLineF rectSlice(QPointF p1, QPointF p2, QRectF r);
+    QLineF rectSlice(const QPointF &p1, const QPointF &p2, const QRectF &r, bool &valid);
     qreal pointOnLine(QPointF point, QPointF l1, QPointF l2);
+    QPen preparePainter(QPainter *painter, LinePlot *plot);
 signals:
 
 public slots:

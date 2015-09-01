@@ -5,6 +5,7 @@
 #include <QRectF>
 #include <QPolygonF>
 #include <QLineF>
+#include <QTransform>
 
 #include <limits>
 #define Inf std::numeric_limits<double>::infinity()
@@ -44,7 +45,11 @@ public:
     static int sign(qreal value);
     static int sign(int value);
 
+    static qreal clamp(qreal d, qreal min, qreal max);
+
     static QString formatReal(qreal value, int precision);
+
+    static QTransform plotToView(QSizeF viewSize, QRectF dataLimits, bool invertX=false, bool invertY=true);
 
 };
 

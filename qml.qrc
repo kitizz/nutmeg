@@ -36,6 +36,7 @@
         <file>shaders/point.frag</file>
         <file>shaders/point.vert</file>
         <file>qml/Test3D.qml</file>
+        <file>qml/LineSegmentPlot.qml</file>
     </qresource>
     <qresource prefix="/licenses">
         <file alias="LICENSE_nzmqt">nzmqt/LICENSE_nzmqt.md</file>

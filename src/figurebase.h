@@ -13,7 +13,7 @@
 class AxisBase;
 class Axis2DBase;
 class Controller;
-class AxisGroup;
+class LayoutGrid;
 class FigureBase : public QQuickItem, public NutmegObject
 {
     Q_OBJECT
@@ -36,7 +36,7 @@ public:
     QVariantMap axes() const; // Use this for QML
     QList<AxisBase*> getAxesByHandle(const QString &handle) const; // Use this for c++
     Q_INVOKABLE QVariantList getAxisList();
-    QRectF getPlotRectFor(AxisBase* axis) const;
+//    QRectF getPlotRectFor(AxisBase* axis) const;
 
     QString handle() const;
     void setHandle(QString arg);
@@ -73,8 +73,8 @@ public slots:
     void deregisterAxis(AxisBase *axis);
     void registerAxis(AxisBase *axis);
 
-    QString registerAxisGroup(QVariantList axisGroup, AxisGroupType type, const QString &oldGroup="");
-    void updateGroupAt(const QString &name, int row, int column);
+//    QString registerAxisGroup(QVariantList axisGroup, AxisGroupType type, const QString &oldGroup="");
+//    void updateGroupAt(const QString &name, int row, int column);
 
     void updateShareX(Axis2DBase *axis);
     void updateShareY(Axis2DBase *axis);
@@ -106,7 +106,7 @@ private:
     QVariantMap m_axesVar;
     QVariantList m_axisList;
     QMultiMap<QString,AxisBase*> m_axes;
-    QMap<QString, AxisGroup*> m_axisGroups;
+//    QMap<QString, AxisGroup*> m_axisGroups;
     bool m_destroying;
 
     QString m_handle;
@@ -116,20 +116,20 @@ private:
     int m_mouseButtons;
 };
 
-class AxisGroup
-{
-public:
-    AxisGroup(QVariantList axisGroup, FigureBase::AxisGroupType type);
+//class AxisGroup
+//{
+//public:
+//    AxisGroup(QVariantList axisGroup, FigureBase::AxisGroupType type);
 
-    bool isValid() { return m_rows > 0 && m_cols > 0; }
-    void unbindAxes();
+//    bool isValid() { return m_rows > 0 && m_cols > 0; }
+//    void unbindAxes();
 
-    QString name;
-    QVector< QVector<AxisBase*> > axes;
-    void getSize(int &rows, int &columns);
+//    QString name;
+//    QVector< QVector<AxisBase*> > axes;
+//    void getSize(int &rows, int &columns);
 
-private:
-    int m_rows, m_cols;
-};
+//private:
+//    int m_rows, m_cols;
+//};
 
 #endif // FIGURE_H

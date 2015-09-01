@@ -51,6 +51,15 @@ ServerBase {
     }
 
     /*!
+      Ping Nutmeg core to see if it's around.
+
+      \return: `[0, {"pong": 1}]`
+    */
+    function ping(args) {
+        return [0, {"pong": 1}]
+    }
+
+    /*!
         Create a figure based on the parameters provided in \a args.
 
         \param type:dictionary args: {"figureHandle": f, "qml": qmlString}
@@ -63,7 +72,8 @@ ServerBase {
         var figureHandle = args.figureHandle,
             qml = args.qml
 
-        qml = "import QtQuick 2.1\nimport Nutmeg 1.0\nimport \"Layouts\" as Layouts\nimport QtQuick.Layouts 1.1\n" + qml
+        qml = "import QtQuick 2.1 as QtQuick\nimport Nutmeg 1.0\n" + qml
+        var headerSize = 2;
 
         // Figure handles must be unique, overwrite existing handles
         var oldFigure = controller.get(figureHandle)
@@ -79,12 +89,14 @@ ServerBase {
             try {
                 fig = Qt.createQmlObject(qml, par, "Figures")
                 fig.qml = qml
+                // TODO: A more rigorous check if the root object is an actual Figure...
+
             } catch (e) {
                 // Offset for the added lines...
                 var err = e.qmlErrors[0]
                 var line = qml.split("\n")[err.lineNumber - 1]
                 err.message += "\n" + line + "\n" + Array(err.columnNumber).join(" ") + "^"
-                err.lineNumber -= 4
+                err.lineNumber -= headerSize + 1
                 console.warn("At line", err.lineNumber + ", col", err.columnNumber + ":", err.message)
                 return [2, err]
             }

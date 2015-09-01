@@ -13,6 +13,7 @@ class CanvasPlot;
 class CanvasShape : public QQuickItem, public NutmegObject
 {
     Q_OBJECT
+
     Q_PROPERTY(LineSpec* line READ lineSpec NOTIFY lineSpecChanged)
     Q_PROPERTY(FillSpec* fill READ fillSpec NOTIFY fillSpecChanged)
 

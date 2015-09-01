@@ -6,9 +6,12 @@
 #include "nutmegobject.h"
 #include "plotbase.h"
 
+#include "layoutgrid.h"
+
 class AxisGroup;
 class FigureBase;
 class PlotBase;
+class LayoutGrid;
 class AxisBase : public QQuickItem, public NutmegObject
 {
     Q_OBJECT
@@ -57,10 +60,10 @@ public:
     QColor titleColor() const;
     void setTitleColor(QColor arg);
 
-    void setAxisGroup(AxisGroup *group);
-    AxisGroup *axisGroup() const;
-    void setAxisGroupIndex(int row, int column);
-    void getAxisGroupIndex(int &row, int &column);
+    void setLayoutGroup(LayoutGrid *layout);
+    LayoutGrid *layoutGroup() const;
+//    void setAxisGroupIndex(int row, int column);
+//    void getAxisGroupIndex(int &row, int &column);
 
 signals:
     void addedPlot(PlotBase* plot);
@@ -70,6 +73,7 @@ signals:
     void handleChanged(QString arg);
     void figureChanged(FigureBase* arg);
     void plotRectChanged(QRectF arg);
+    void preferredPlotRectChanged(QRectF arg);
     void registerWithFigure(AxisBase* axis);
     void titleChanged(QString arg);
     void titleFontChanged(QFont arg);
@@ -119,8 +123,8 @@ private:
 
     bool m_destroying;
 
-    AxisGroup *m_axisGroup;
-    int m_groupRow, m_groupColumn;
+    LayoutGrid *m_layoutGroup;
+//    int m_groupRow, m_groupColumn;
 };
 
 #endif // AXISBASE_H

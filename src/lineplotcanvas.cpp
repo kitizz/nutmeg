@@ -24,30 +24,10 @@ void LinePlotCanvas::paint(QPainter *painter)
     if (!monAxis || xData.length() != yData.length() || xData.length() == 0)
         return; // Funky data
 
-    // View limits:
-    qreal minX = monAxis->minX();
-    qreal minY = monAxis->minY();
-    qreal maxX = monAxis->maxX();
-    qreal maxY = monAxis->maxY();
+    QRectF lim = monAxis->limits(); //QRectF(minX, minY, maxX - minX, maxY - minY);
 
-    QRectF lim = QRectF(minX, minY, maxX - minX, maxY - minY);
-
-    // Transform the plot coords to view coords
-    qreal scaleX = width()/(lim.width());
-    qreal scaleY = height()/(lim.height());
-    qreal tx = 0;
-    qreal ty = 0;
-    if (monAxis->xAxis()->inverted()) {
-        scaleX *= -1;
-        tx = width();
-    }
-    if (!monAxis->yAxis()->inverted()) {
-        scaleY *= -1;
-        ty = height();
-    }
-
-    QTransform tran;
-    tran.translate(tx, ty).scale(scaleX, scaleY).translate(-lim.x(), -lim.y());
+    QTransform tran = Util::plotToView(QSizeF(width(), height()), lim, monAxis->xAxis()->inverted(), monAxis->yAxis()->inverted());
+//    tran.translate(tx, ty).scale(scaleX, scaleY).translate(-lim.x(), -lim.y());
 
     QPolygonF line;
     // Get the segments into screen coords
@@ -66,9 +46,10 @@ void LinePlotCanvas::paint(QPainter *painter)
     if (line.size() == 1)
         latestPoly << line[0];
 
+    bool valid;
     for (int i=0; i<line.size() - 1; ++i) {
         QPointF p1 = line[i], p2 = line[i+1];
-        QLineF l = rectSlice(p1, p2, lim);
+        QLineF l = rectSlice(p1, p2, lim, valid);
         if (l.isNull()) continue;
 
         // Check if the line has been broken, or is starting
@@ -85,22 +66,8 @@ void LinePlotCanvas::paint(QPainter *painter)
     // Need the final whole section
     lines << latestPoly;
 
-    painter->setRenderHint(QPainter::Antialiasing);
-
-    // Get the style right
-    QPen pen = QPen();
-    pen.setCosmetic(true);
-    pen.setColor( plot->line()->color() );
-
+    QPen pen = preparePainter(painter, plot);
     QString style = plot->line()->style();
-    if (style == ".") {
-        pen.setStyle(Qt::SolidLine);
-    } else {
-        pen.setStyle( LineSpec::styleMap[style] );
-    }
-
-    pen.setWidthF( plot->line()->width() );
-    painter->setPen(pen);
 
     foreach (QPolygonF poly, lines) {
         poly = tran.map(poly);
@@ -132,13 +99,14 @@ QPointF LinePlotCanvas::transformPoint(const QPointF &p, qreal tx, qreal ty, qre
  * \param r
  * \return
  */
-QLineF LinePlotCanvas::rectSlice(QPointF p1, QPointF p2, QRectF r)
+QLineF LinePlotCanvas::rectSlice(const QPointF &p1, const QPointF &p2, const QRectF &r, bool &valid)
 {
+    valid = true;
     // https://gist.github.com/ChickenProp/3194723
-    qreal minX = r.x();
-    qreal minY = r.y();
-    qreal maxX = minX + r.width();
-    qreal maxY = minY + r.height();
+    qreal minX = r.left();
+    qreal minY = r.top();
+    qreal maxX = r.right();
+    qreal maxY = r.bottom();
 
     qreal dx = p2.x() - p1.x();
     qreal dy = p2.y() - p1.y();
@@ -160,12 +128,15 @@ QLineF LinePlotCanvas::rectSlice(QPointF p1, QPointF p2, QRectF r)
         } else if (u[i] >= 0) {
             return QLineF(p1, p2); // Inside rect
         } else {
+            valid = false;
             return QLineF(); // Outside rect
         }
     }
 
-    if (tMin >= tMax)
+    if (tMin >= tMax || tMax < 0 || tMin > 1) {
+        valid = false;
         return QLineF();
+    }
 
     if (tMax > 1) tMax = 1;
     if (tMax < 0) tMax = 0;
@@ -191,4 +162,26 @@ qreal LinePlotCanvas::pointOnLine(QPointF point, QPointF l1, QPointF l2)
 {
     return (l2.y() - l1.y())*point.x() + (l1.x() - l2.x())*point.y()
             + (l2.x()*l1.y() - l1.x()*l2.y());
+}
+
+QPen LinePlotCanvas::preparePainter(QPainter *painter, LinePlot* plot)
+{
+    painter->setRenderHint(QPainter::Antialiasing);
+
+    // Get the style right
+    QPen pen = QPen();
+    pen.setCosmetic(true);
+    pen.setColor( plot->line()->color() );
+
+    QString style = plot->line()->style();
+    if (style == ".") {
+        pen.setStyle(Qt::SolidLine);
+    } else {
+        pen.setStyle( LineSpec::styleMap[style] );
+    }
+
+    pen.setWidthF( plot->line()->width() );
+    painter->setPen(pen);
+
+    return pen;
 }

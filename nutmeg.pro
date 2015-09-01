@@ -82,7 +82,12 @@ SOURCES += src/main.cpp \
     src/axisbase.cpp \
     src/plot2dbase.cpp \
     src/plotbase.cpp \
-    src/defaults.cpp
+    src/defaults.cpp \
+    src/layoutgrid.cpp \
+    src/layoutcolumn.cpp \
+    src/layoutrow.cpp \
+    src/linesegmentplot.cpp \
+    src/linesegmentplotcanvas.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 #include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
@@ -133,18 +138,23 @@ HEADERS += \
     src/axisbase.h \
     src/plot2dbase.h \
     src/plotbase.h \
-    src/defaults.h
+    src/defaults.h \
+    src/layoutgrid.h \
+    src/layoutcolumn.h \
+    src/layoutrow.h \
+    src/linesegmentplot.h \
+    src/linesegmentplotcanvas.h
 
 unix:LIBS += -lzmq
 win32:CONFIG(release, debug|release): LIBS += -L"C:\zmq3.2.4\lib" -llibzmq
 else:win32:CONFIG(debug, debug|release): LIBS += -L"C:\zmq3.2.4\lib" -llibzmq_d
 
 # Location of zmq include
-unix:INCLUDEPATH += /usr/local/include
+unix:INCLUDEPATH += /usr/local/Cellar/zeromq/4.1.2/include
 win32:INCLUDEPATH += "C:\zmq3.2.4\include"
 
 # Location of zmq library
-unix:QMAKE_LIBDIR += /usr/local/lib
+unix:QMAKE_LIBDIR += /usr/local/Cellar/zeromq/4.1.2/lib
 win32:QMAKE_LIBDIR += "C:\zmq3.2.4\lib"
 
 RESOURCES += qml.qrc
