@@ -1,3 +1,4 @@
+from __future__ import print_function, division
 import multiprocessing
 import signal
 import sys
@@ -91,10 +92,10 @@ def _quickTest():
 
     def waitTime(x):
         import time
-        print 'Sleeping:', x
+        print('Sleeping:', x)
         time.sleep(x/2)
         return x
-    print parallelize(waitTime, x, maxProcesses=8)
+    print(parallelize(waitTime, x, maxProcesses=8))
 
 if __name__ == '__main__':
     _quickTest()

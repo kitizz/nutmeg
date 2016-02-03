@@ -1,4 +1,4 @@
-import QtQuick 2.1
+import QtQuick 2.5
 
 import "Vector.js" as Vector
 import "Util.js" as Util
@@ -7,10 +7,10 @@ MultiPointTouchArea {
     id: area
     property alias pinch: pinchItem
     property alias mode: modeItem
-    readonly property bool touchActive: p1.pressed || p2.pressed
+    readonly property bool touchActive: (p1.pressed || p2.pressed) && (!p3.pressed)
     property bool areaEnabled: true
     property bool debugEnabled: true
-    maximumTouchPoints: areaEnabled ? 3 : 0
+    maximumTouchPoints: areaEnabled ? 2 : 0
 
     property double minDisp: 10 // Minimum displacement of pixels before panning begins
     property double minZoomDelta: 0.1 // Minimum zoom delta before zoom-pan begins
@@ -22,14 +22,21 @@ MultiPointTouchArea {
     property alias p1: p1
     property alias p2: p2
 
+    mouseEnabled: false
+
     touchPoints: [
         TouchPoint { id: p1 },
-        TouchPoint { id: p2 }
-//        TouchPoint { id: p3 }
+        TouchPoint { id: p2 },
+        TouchPoint { id: p3 }
     ]
 
     onPressed: {
         if (!areaEnabled) {// Maybe it only has to go here =)
+            return
+        }
+
+        if (p3.pressed) {
+            pinchFinished()
             return
         }
 
@@ -39,7 +46,7 @@ MultiPointTouchArea {
             pinch.startDx = Math.abs(p2.x - p1.x)
             pinch.startDy = Math.abs(p2.y - p1.y)
             pinch.startDistance = Vector.distance(p1, p2)
-        }/* else if (p3.pressed) {
+        } /*else if (p3.pressed) {
             pinchFinished()
         }*/
     }
@@ -53,7 +60,7 @@ MultiPointTouchArea {
         if (!areaEnabled )//|| p3.pressed)
             return
 
-        if (p1.pressed && p2.pressed) {
+        if (p1.pressed && p2.pressed && !p3.pressed) {
             //console.log("Internal Pinch Update")
             pinch.previousCenter.x = pinch.center.x
             pinch.previousCenter.y = pinch.center.y
@@ -129,6 +136,7 @@ MultiPointTouchArea {
 //        console.log("Internal pinch finished")
         pinch.active = false
         pinch.pinchMode = mode.none
+        print("Pinch done!!")
     }
 
     Timer {
@@ -187,13 +195,13 @@ MultiPointTouchArea {
         x: p2.x; y: p2.y; z: 100
     }
 
-//    Rectangle {
-//        width: 8; height: width
-//        visible: debugEnabled
-//        color: "green"
-//        opacity: p3.pressed ? 1 : 0.1
-//        x: p3.x; y: p3.y; z: 100
-//    }
+    Rectangle {
+        width: 8; height: width
+        visible: debugEnabled
+        color: "green"
+        opacity: p3.pressed ? 1 : 0.1
+        x: p3.x; y: p3.y; z: 100
+    }
 
     // Dynamic/Temporary variables (Changing these does not affect behaviour)
     property real lastT: 0

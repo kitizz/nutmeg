@@ -2,6 +2,7 @@
 #include <math.h>
 #include <QtCore/qmath.h>
 #include <QDebug>
+#include "util.h"
 
 // TODO: Remove
 #include <QTime>
@@ -76,6 +77,7 @@ void Locator::setEnd(qreal arg)
 
 void Locator::setLimits(qreal start, qreal end)
 {
+    if (start == -Inf || end == Inf) return;
     bool updateStart = m_start != start;
     bool updateEnd = m_end != end;
 

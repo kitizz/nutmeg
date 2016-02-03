@@ -178,8 +178,12 @@ void MainWindow::createMenus()
 
     QMenu *fileMenu = menuBar()->addMenu("Figure");
 
+    QAction *testAction = new QAction("Test Figure", fileMenu);
+    connect( testAction, SIGNAL(triggered()), root, SIGNAL(testFig()));
+
     QAction *pdfAction = new QAction("Save PDF...", fileMenu);
     connect( pdfAction, SIGNAL(triggered()), root, SIGNAL(savePdf()));
 
     fileMenu->addAction(pdfAction);
+    fileMenu->addAction(testAction);
 }

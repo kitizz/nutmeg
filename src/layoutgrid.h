@@ -14,6 +14,8 @@ class LayoutGrid : public QQuickItem
     Q_PROPERTY(int columns READ columns WRITE setColumns NOTIFY columnsChanged)
     Q_PROPERTY(LayoutDirection layoutDirection READ layoutDirection WRITE setLayoutDirection NOTIFY layoutDirectionChanged)
     Q_PROPERTY(bool reversed READ reversed WRITE setReversed NOTIFY reversedChanged)
+    Q_PROPERTY(qreal vspace READ vspace WRITE setVspace NOTIFY vspaceChanged)
+    Q_PROPERTY(qreal hspace READ hspace WRITE setHspace NOTIFY hspaceChanged)
 
     Q_PROPERTY(QList<qreal> rowWeights READ rowWeights WRITE setRowWeights NOTIFY rowWeightsChanged)
 //    Q_PROPERTY(QList<qreal> rowMinimums READ rowMinimums WRITE setRowMinimums NOTIFY rowMinimumsChanged)
@@ -77,6 +79,11 @@ public:
     void setPlotRectsDirty();
     QRectF getPlotRectFor(const int row, const int col);
 
+    qreal vspace() const;
+    void setVspace(qreal vspace);
+    qreal hspace() const;
+    void setHspace(qreal hspace);
+
 signals:
     void handleChanged(QString arg);
     void rowsChanged(int arg);
@@ -93,6 +100,9 @@ signals:
     void columnWeightsChanged(QList<qreal> arg);
 //    void columnMinimumsChanged(QList<qreal> arg);
 //    void columnMaximumsChanged(QList<qreal> arg);
+
+    void vspaceChanged(qreal vspace);
+    void hspaceChanged(qreal hspace);
 
 public slots:
     void updateAxes();
@@ -119,6 +129,8 @@ private:
     int m_columns;
     LayoutDirection m_layoutDirection;
     bool m_reversed;
+    qreal m_vspace;
+    qreal m_hspace;
     QList<qreal> m_rowWeights, m_columnWeights;
 //    QList<qreal> m_rowMinimums;
 //    QList<qreal> m_rowMaximums;

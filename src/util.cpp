@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 #include <QMap>
-#include <QTransform>
 
 Util::Util()
 {

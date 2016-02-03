@@ -20,7 +20,7 @@ Axis3DBase {
     property real altitude: Math.PI/4
     property real zoom: 30.0
 
-    plotRect: Qt.rect(plotFrame.x, plotFrame.y, plotFrame.width, plotFrame.height)
+//    preferredPlotRect: Qt.rect(plotFrame.x, plotFrame.y, plotFrame.width, plotFrame.height)
 
 //    AxisMargins {
 //        id: pltMarg
@@ -68,7 +68,6 @@ Axis3DBase {
     */
     property bool navigationEnabled: true
 
-
     children: [
         Rectangle {
             id: plotFrame
@@ -86,13 +85,16 @@ Axis3DBase {
 
         Scene3D {
             id: axisCanvas
-            x: 0; y: 0; z: -1
-//            anchors.fill: plotFrame
-            width: plotFrame.width
-            height: plotFrame.width*(9/16)
+//            x: 0; y: 0
+            z: -1
+            anchors.fill: plotFrame
+//            width: plotFrame.width
+//            height: plotFrame.height
+//            height: plotFrame.width*(9/16)
             aspects: "input"
             Axis3DScene {
                 id: rootEntity
+                aspectRatio: axisCanvas.width/axisCanvas.height
                 cameraPosition: {
                     var dx, dy, dz, az = azimuth, al = altitude
                     var maxAl = Math.PI/2 - Math.PI/180

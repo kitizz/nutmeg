@@ -25,7 +25,7 @@ ServerBase {
         // Duck punch the msg and pass it to sendData
         // We do it this way because JSON isn't so happy with converting binary data
         msg.data = {}
-        msg.data[msg.property] = data
+        msg.data[msg.property] = [msg.shape, data]
         var result = sendData(msg)
 
         sendReply(JSON.stringify(result))
@@ -89,6 +89,7 @@ ServerBase {
             try {
                 fig = Qt.createQmlObject(qml, par, "Figures")
                 fig.qml = qml
+                fig.installEventFilterApp(server.app)
                 // TODO: A more rigorous check if the root object is an actual Figure...
 
             } catch (e) {
@@ -136,20 +137,23 @@ ServerBase {
 
         var figure = controller.get(figureHandle)
         if (!figure || figure.objectName !== "figure") {
-            reply.message = "Unable to find figure, " + handle + ". GUI requires a valid figure to attach to."
+            reply.message = "Unable to find figure, " + figureHandle + ". GUI requires a valid figure to attach to."
             return [3, reply]
         }
 
-        qml = "import QtQuick 2.1\nimport Nutmeg 1.0\nimport \"Controls\"\n" + qml
+        qml = "import QtQuick 2.1\nimport \"Controls\"\n" + qml
 
         var gui
         try {
             gui = Qt.createQmlObject(qml, userArea, "GUIs")
         } catch (e) {
             // Offset for the added lines...
-            e.qmlErrors[0].lineNumber -= 3
+            e.qmlErrors[0].lineNumber -= 2
             return [4, e.qmlErrors[0]]
         }
+
+        if (figure.guiItem)
+            figure.guiItem.destroy()
 
         figure.guiItem = gui
         gui.visible = Qt.binding(function() { return figure.visible })
@@ -233,7 +237,6 @@ ServerBase {
         //  Match: (foo.bar.)extra
         var match = handle.match(/(.*?)\./)
         var figureHandle = match ? match[1] : ""
-//        console.log("SendData", match, figureHandle, parameter)
         if (figureHandle && parameter)
             server.parameterUpdated(figureHandle, parameter)
 
@@ -251,7 +254,6 @@ ServerBase {
             if (!result)
                 return [5, {"message": "Property, " + prop + ", of " + handle + " cannot be set."}]
         }
-
         return [0, {"message": "Data updated successfully."}]
     }
 
@@ -269,14 +271,22 @@ ServerBase {
             return true
         } else {
             // Check if the property is valid
-            console.log("Setting property", prop, "for", obj)
+//            console.log("Setting property", prop, "for", obj)
             if (typeof obj.mapProperty != 'function') return false
 
             var propName = obj.mapProperty(prop)
-            console.log("Propname from prop:", propName)
+//            console.log("Propname from prop:", propName)
             if (!propName) return false
 
-            obj[propName] = data
+            try {
+                obj[propName] = data
+            } catch (e) {
+                // TODO: Return full error message. Maybe about incompatible data types.
+                console.log("Unable to set", propName)
+                print(e)
+                return false
+            }
+
             console.log("Done")
             return true
         }

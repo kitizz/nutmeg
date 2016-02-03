@@ -22,10 +22,15 @@ CONFIG += c++11
 # Icon setup
 macx:ICON = images/logo.icns
 
+# Mac Stuff
+QMAKE_INFO_PLIST = Info.plist # qmake will copy this file to MyApp.app/Contents/Info.plist
+
 # Additional import path used to resolve QML modules in Creator's code model
 QML_IMPORT_PATH =
 
 QT += qml quick widgets core gui printsupport
+
+QMAKE_CXXFLAGS += -O3
 
 #DEFINES += NZMQT_LIB
 DEFINES += QKDTREE_LIBRARY
@@ -35,7 +40,7 @@ DEFINES += NOMINMAX
 
 # 3D Things. Must have Qt 5.5 or higher with Qt3D module.
 DEFINES += SUPPORT_3D
-QT += 3dcore 3drenderer 3dinput
+QT += 3dcore 3drenderer 3dinput 3dquick
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += src/main.cpp \
@@ -168,6 +173,7 @@ OTHER_FILES += \
     nutmeg.qdocconf
 
 DISTFILES += \
-    shaders/point.vert
+    shaders/point.vert \
+    src/Info.plist
 
 

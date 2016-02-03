@@ -4,6 +4,10 @@ CanvasPlot::CanvasPlot(QQuickItem *parent)
     : Plot2DBase(parent)
     , m_shapes(QSet<CanvasShape*>())
 {
+    m_tim.setSingleShot(true);
+    m_tim.setInterval(40);
+
+    connect(&m_tim, &QTimer::timeout, [=](){ updateDataLimits(); });
 }
 
 CanvasPlot::~CanvasPlot()
@@ -23,18 +27,26 @@ void CanvasPlot::registerShape(CanvasShape *shape) {
     qDebug() << "Registering shape with CanvasPlot" << shape;
 //    qDebug() << "Shapes:" << m_shapes;
     shape->setPlot(this);
-    connect(shape, &CanvasShape::boundsChanged, this, &CanvasPlot::updateDataLimits);
+    connect(shape, &CanvasShape::boundsChanged, this, &CanvasPlot::queueUpdateDataLimits);
     m_shapes.insert(shape);
 
-    updateDataLimits();
+//    updateDataLimits();
+    m_tim.start();
     emit shapesChanged(m_shapes.toList());
 }
 
 void CanvasPlot::deregisterShape(CanvasShape *shape) {
     m_shapes.remove(shape);
 
-    updateDataLimits();
+//    updateDataLimits();
+    m_tim.start();
     emit shapesChanged(m_shapes.toList());
+}
+
+void CanvasPlot::queueUpdateDataLimits()
+{
+    if (!m_tim.isActive())
+        m_tim.start();
 }
 
 void CanvasPlot::updateDataLimits()

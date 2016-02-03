@@ -17,19 +17,28 @@ void ImageCanvas::paint(QPainter *painter)
     qreal scaleX = 1, scaleY = 1;
     qreal scaleOffsetX = 0, scaleOffsetY = 0;
     if (monAxis->xAxis()->inverted()) {
-        scaleX = -1;
+        scaleX *= -1;
         scaleOffsetX = width();
     }
     if (!monAxis->yAxis()->inverted()) {
-        scaleY = 1;
+        scaleY *= -1;
         scaleOffsetY = height();
     }
+    // The following should still be fine for PDF output...
     painter->translate(scaleOffsetX, scaleOffsetY);
     painter->scale(scaleX, scaleY);
 
-    qDebug() << "Image Limits:" << monAxis->limits();
+    // Now let's work out all the image clipping stuff...
+    qreal offsetX = plot->xOffset(), offsetY = plot->yOffset();
+    QRectF axlim = monAxis->limits();  // Source "view" of image without transformation
+    qreal w = axlim.width()/plot->xScale();
+    qreal h = axlim.height()/plot->yScale();
+    qreal x = (axlim.x() - offsetX)/plot->xScale();
+    qreal y = (axlim.y() - offsetY)/plot->yScale();
+    QRectF src(x, y, w, h);
 
     // Is this copying the whole pixmap?
     QPixmap pix = plot->pixmap();
-    painter->drawPixmap(this->boundingRect(), pix, monAxis->limits());
+    // Does this automatically clip pixels outside src image for performance?
+    painter->drawPixmap(this->boundingRect(), pix, src);
 }

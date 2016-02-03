@@ -8,6 +8,9 @@ Figure {
 
         ImagePlot {
             handle: "im"
+            yOffset: 200
+            xOffset: 200
+            xScale: 0.5
         }
 
         LinePlot {

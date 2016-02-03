@@ -6,6 +6,8 @@
 #include <QQmlContext>
 #include <QQmlProperty>
 #include <QCoreApplication>
+#include <QElapsedTimer>
+#include <QList>
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -21,6 +23,7 @@ Server::Server(QQuickItem *parent)
     , m_address(QString("tcp://0.0.0.0"))
     , m_running(false)
     , m_port(43686) // gemt'N <-> N'tmeg
+    , m_app(0)
 {
     m_context = createDefaultContext(this);
     m_context->start();
@@ -83,6 +86,20 @@ void Server::setMainWindow(MainWindow *arg)
     emit mainWindowChanged(arg);
 }
 
+QObject *Server::app() const
+{
+    return m_app;
+}
+
+void Server::setApp(QObject *app)
+{
+    if (m_app == app)
+        return;
+
+    m_app = app;
+    emit appChanged(app);
+}
+
 void Server::setRunning(bool arg)
 {
     if (m_running == arg) return;
@@ -95,6 +112,11 @@ void Server::processRequest(const QList<QByteArray> &request)
     static quint64 counter = 0;
     counter++;
     qDebug() << "Replier::requestReceived> " << counter;
+
+    if (request.count() < 2) {
+        qWarning() << "WARNING: Request must be at least length 2! Received:" << request;
+        return;
+    }
 
     QString msgType = QString(request[0]);
     QJsonDocument doc = QJsonDocument::fromJson(request[1]);

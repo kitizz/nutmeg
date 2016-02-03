@@ -5,7 +5,7 @@ import "Util.js" as Util
 
 ControllerBase {
 
-    property bool enableDebugging: true
+    property bool enableDebugging: false
     /// Fetch a plot component based on its location, relative to top
     /// Example: figure[0].ax[1].data
     function debug(s) {
@@ -107,6 +107,10 @@ ControllerBase {
             return plots
 
         } else {
+            if (!axes) {
+                return null
+            }
+
             var plot = axes.plots[handle]
             debug("Plot! " + plot)
             if (!plot)

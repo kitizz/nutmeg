@@ -25,6 +25,7 @@ CanvasShape::CanvasShape(QQuickItem *parent)
 CanvasShape::~CanvasShape()
 {
     qDebug() << "Destroying:" << this;
+    m_plot->deregisterShape(this);
     m_destroying = true;
 }
 
@@ -92,6 +93,7 @@ void CanvasShape::findPlot()
 
         // We found a CanvasPlot!
         plt->registerShape(this);
+        setPlot(plt);
         break;
     }
 }

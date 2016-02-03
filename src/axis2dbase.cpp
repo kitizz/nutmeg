@@ -451,10 +451,10 @@ void Axis2DBase::maintainAspectRatio(QRectF *lim)
             anchor = Util::AnchorHeight;
         }
     }
-    // TODO: Remove
-    qDebug() << "Maintain aspect" << *lim << size << m_aspectRatio << anchor << center;
+    // TODO: Remove debug
+//    qDebug() << "Maintain aspect" << *lim << size << m_aspectRatio << anchor << center;
     Util::resizeRelativeRatio(lim, size, m_aspectRatio, anchor, center);
-    qDebug() << "result" << *lim;
+//    qDebug() << "result" << *lim;
 }
 
 bool Axis2DBase::floatingLimits()

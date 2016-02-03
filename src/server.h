@@ -23,6 +23,8 @@ class Server : public QQuickItem
     Q_PROPERTY(int port READ port WRITE setPort NOTIFY portChanged)
     Q_PROPERTY(MainWindow* mainWindow READ mainWindow WRITE setMainWindow NOTIFY mainWindowChanged)
 
+    Q_PROPERTY(QObject* app READ app WRITE setApp NOTIFY appChanged)
+
 public:
     explicit Server(QQuickItem* parent = 0);
 
@@ -33,7 +35,6 @@ public:
     void setAddress(QString arg);
     bool running() const;
 
-
     QString updateAddress() const;
     void setUpdateAddress(QString arg);
 
@@ -43,10 +44,13 @@ public:
     MainWindow* mainWindow() const;
     void setMainWindow(MainWindow* arg);
 
+    QObject* app() const;
+    void setApp(QObject* app);
+
 signals:
 //    void requestReceived(const QString &request);
-    void jsonReceived(QVariant request);
-    void binaryReceived(QVariant msg, QVariant data);
+    void jsonReceived(const QVariant &request);
+    void binaryReceived(const QVariant &msg, const QVariant &data);
     void replySent(const QList<QByteArray>& reply);
     void updateSent(const QList<QByteArray>& update);
     void failure(const QString& tag);
@@ -62,6 +66,8 @@ signals:
     void portChanged(int arg);
 
     void mainWindowChanged(MainWindow* arg);
+
+    void appChanged(QObject* app);
 
 public slots:
     void processRequest(const QList<QByteArray>& request);
@@ -107,6 +113,7 @@ private:
     QString m_currentAddress;
     int m_port;
     MainWindow* m_mainWindow;
+    QObject* m_app;
 };
 
 #endif // SERVER_H

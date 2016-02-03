@@ -10,6 +10,8 @@ LayoutGrid::LayoutGrid(QQuickItem *parent)
     , m_columns(1)
     , m_layoutDirection(Horizontal)
     , m_reversed(false)
+    , m_vspace(0)
+    , m_hspace(0)
     , m_rowWeights(QList<qreal>())
 //    , m_rowMinimums(QList<qreal>())
 //    , m_rowMaximums(QList<qreal>())
@@ -29,6 +31,8 @@ LayoutGrid::LayoutGrid(QQuickItem *parent)
     connect(this, &LayoutGrid::reversedChanged, [=]{ updateLayout(); });
     connect(this, &LayoutGrid::rowsChanged, [=]{ updateLayout(); });
     connect(this, &LayoutGrid::columnsChanged, [=]{ updateLayout(); });
+    connect(this, &LayoutGrid::vspaceChanged, [=]{ updateLayout(); });
+    connect(this, &LayoutGrid::hspaceChanged, [=]{ updateLayout(); });
 
     connect(this, &LayoutGrid::rowWeightsChanged, [=]{ updateLayout(); });
     connect(this, &LayoutGrid::columnWeightsChanged, [=]{ updateLayout(); });
@@ -287,6 +291,9 @@ void LayoutGrid::updateLayout()
 {
     // Calculate the new row or column size
     const int N = m_axes.count();
+    if (N == 0)
+        return;
+
     if (m_layoutDirection == Horizontal) {
         int newRow = (N - 1)/m_columns + 1;
         if (newRow != m_rows) {
@@ -311,8 +318,8 @@ void LayoutGrid::updateLayout()
         for (int r=0; r<m_rows; ++r) {
             AxisBase *ax = axisAt(r, c);
             if (!ax) continue;
-            ax->setX(xs[c]);
-            ax->setY(ys[r]);
+            ax->setX(xs[c] + c*m_hspace);
+            ax->setY(ys[r] + r*m_vspace);
             ax->setWidth(widths[c]);
             ax->setHeight(heights[r]);
         }
@@ -360,6 +367,34 @@ QRectF LayoutGrid::getPlotRectFor(const int row, const int col)
     const qreal minX = m_minXs[col], maxX = m_maxXs[col];
     const qreal minY = m_minYs[row], maxY = m_maxYs[row];
     return QRectF(minX, minY, maxX - minX, maxY - minY);
+}
+
+qreal LayoutGrid::vspace() const
+{
+    return m_vspace;
+}
+
+void LayoutGrid::setVspace(qreal vspace)
+{
+    if (m_vspace == vspace)
+        return;
+
+    m_vspace = vspace;
+    emit vspaceChanged(vspace);
+}
+
+qreal LayoutGrid::hspace() const
+{
+    return m_hspace;
+}
+
+void LayoutGrid::setHspace(qreal hspace)
+{
+    if (m_hspace == hspace)
+        return;
+
+    m_hspace = hspace;
+    emit hspaceChanged(hspace);
 }
 
 // Not quite technically a normal cumSum. First value is zero and excludes final sum.

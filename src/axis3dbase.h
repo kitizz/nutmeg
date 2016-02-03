@@ -14,7 +14,6 @@ class Plot3DBase;
 class Axis3DBase : public AxisBase
 {
     Q_OBJECT
-
     Q_PROPERTY(AxisSpec* xAxis READ xAxis NOTIFY xAxisChanged)
     Q_PROPERTY(AxisSpec* yAxis READ yAxis NOTIFY yAxisChanged)
     Q_PROPERTY(AxisSpec* zAxis READ zAxis NOTIFY zAxisChanged)

@@ -18,6 +18,7 @@ class AxisBase : public QQuickItem, public NutmegObject
     Q_PROPERTY(QString handle READ handle WRITE setHandle NOTIFY handleChanged)
     Q_PROPERTY(FigureBase* figure READ figure WRITE setFigure NOTIFY figureChanged)
     Q_PROPERTY(QRectF plotRect READ plotRect NOTIFY plotRectChanged)
+    Q_PROPERTY(QRectF preferredPlotRect READ preferredPlotRect WRITE setPreferredPlotRect NOTIFY preferredPlotRectChanged)
 
     Q_PROPERTY(QVariantMap plots READ plots NOTIFY plotsChanged)
 

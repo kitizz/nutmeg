@@ -18,6 +18,8 @@ Rectangle {
     signal savePdf
     signal selectedPdf(string file)
 
+    signal testFig
+
     onSavePdf: {
         var fig = tabView.currentFigure()
         console.log("Save PDF")
@@ -57,7 +59,13 @@ Rectangle {
         onError: console.log("FileIO Error:", msg)
     }
 
-    Component.onCompleted: {
+    FileIO {
+        id: test3dFile
+        source: ":/qml/Test3D.qml"
+        onError: console.log("FileIO Error:", msg)
+    }
+
+    function testfig() {
         // Connect file dialog signals
 //        window.fileSelected.connect(selectedPdf)
 
@@ -93,6 +101,23 @@ Rectangle {
             console.log("Result:", res[1].message)
         }
     }
+
+    function test3dfig() {
+        var qml = test3dFile.read()
+        server.createFigure( {"figureHandle": "test3D", "qml": qml} )
+
+        server.sendData( {"handle": "test3D.ax3d.pc", "data": {
+                                "x": [0,7,2,5,6,3,2,6,7,3],
+                                "y": [0,1,2,3,2,1,3,5,2,10],
+                                "z": [0,5,2,1,7,9,1,2,3,4]
+        }} )
+    }
+
+    onTestFig: {
+        test3dfig()
+    }
+
+//    Test3D {}
 
     Server {
         id: server

@@ -8,7 +8,7 @@ import QtQuick.Controls 1.0
 ControlItem {
     id: sliderRoot
 
-    property alias label: label.text
+    property alias text: label.text
     property alias slider: slider
     property int decimals: 2
 
@@ -47,18 +47,19 @@ ControlItem {
             width: slider.width
             Label {
                 anchors.left: parent.left
-                text: slider.minimumValue
+                text: Number(slider.minimumValue).toFixed(decimals)
             }
 
             Label {
                 anchors.right: parent.right
-                text: slider.maximumValue
+                text: Number(slider.maximumValue).toFixed(decimals)
             }
         }
     }
 
     onValueChanged: {
-        gui.parameterChanged(handle, value)
+        if (gui)
+            gui.parameterChanged(handle, value)
     }
 
     Component.onCompleted: {

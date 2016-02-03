@@ -1,11 +1,11 @@
 #ifndef UTIL_H
 #define UTIL_H
 
+#include <QtGui/QTransform>
 #include <QList>
 #include <QRectF>
 #include <QPolygonF>
 #include <QLineF>
-#include <QTransform>
 
 #include <limits>
 #define Inf std::numeric_limits<double>::infinity()

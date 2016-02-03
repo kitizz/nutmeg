@@ -142,6 +142,7 @@ FigureBase {
         property real scaleLimit: 0.1
         property real startWidth
         property real startHeight
+        property real startZoom: 1
         property real minVel: 1/1000 // pxl/ms
         property real minInitVel: 100.0/1000 // pxl/ms
         property real maxVel: 1000.0/1000 // pxl/ms
@@ -167,6 +168,10 @@ FigureBase {
 
             startWidth = currentAxis.maxX - currentAxis.minX
             startHeight = currentAxis.maxY - currentAxis.minY
+
+            if (currentAxis.objectName == "axis3d") {
+                startZoom = currentAxis.zoom
+            }
         }
 
 //        property var lastTimeUpdate: new Date().getTime()
@@ -226,6 +231,8 @@ FigureBase {
         }
 
         function pinch3d() {
+            print("Pinch3d mode:", pinch.pinchMode)
+
             var dx = pinch.center.x - pinch.previousCenter.x
             var dy = pinch.center.y - pinch.previousCenter.y
             if (pinch.pinchMode == mode.pan) {
@@ -237,6 +244,12 @@ FigureBase {
                     currentAxis.altitude = Math.PI/2
                 else if (currentAxis.altitude < -Math.PI/2)
                     currentAxis.altitude = -Math.PI/2
+            } else if (pinch.pinchMode == mode.pinchXpan || pinch.pinchMode == mode.pinchYpan || pinch.pinchMode == mode.pinchPan) {
+//                var sx = pinch.scaleX
+//                var sy = pinch.scaleY
+                var scale = 1/pinch.scale
+                currentAxis.zoom = startZoom * scale
+                print("New zoom:", currentAxis.zoom, "(", scale, ")")
             }
         }
 

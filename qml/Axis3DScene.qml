@@ -1,5 +1,5 @@
 import Qt3D 2.0
-import Qt3D.Render 2.0
+import Qt3D.Renderer 2.0
 
 import QtQuick 2.0 as QtQuick2
 
@@ -8,6 +8,7 @@ Entity {
     id: sceneRoot
 
     property alias cameraPosition: camera.position
+    property alias aspectRatio: camera.aspectRatio
 
     Camera {
         id: camera

@@ -167,7 +167,7 @@ Axis2DBase {
 
         AxisCanvas2D {
             id: axisCanvas
-            x: 0; y: 0; z: -1
+            x: 0; y: 0; z: 100
             axis: axisItem
 //            plotRect: axisItem.plotRect
             width: parent.width*scaling

@@ -2,6 +2,7 @@
 #define CANVASPLOT_H
 
 #include <QQuickItem>
+#include <QTimer>
 #include "xyplot.h"
 #include "canvasshape.h"
 
@@ -26,9 +27,11 @@ protected:
     virtual void updateDataLimits();
 
 public slots:
+    void queueUpdateDataLimits();
 
 private:
     QSet<CanvasShape*> m_shapes;
+    QTimer m_tim;
 
 };
 

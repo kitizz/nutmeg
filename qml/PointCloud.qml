@@ -1,7 +1,7 @@
 import QtQuick 2.2
 
 import Qt3D 2.0 as Qt3D
-import Qt3D.Render 2.0
+import Qt3D.Renderer 2.0
 
 import Nutmeg 1.0
 
@@ -43,7 +43,7 @@ PointCloudBase {
             var p = Qt.vector3d(xData[i], yData[i], zData[i])
             newDot = dot.createObject(rootEntity, { "dx": p.x, "dy": p.y, "dz": p.z,
                                           "scaling": Qt.binding(function() {
-                                                return pointSize*Util.distance3d(p, axis.cameraPosition)/width
+                                                return pointSize/Util.distance3d(p, axis.cameraPosition)*width
                                           })
                                         })
         }

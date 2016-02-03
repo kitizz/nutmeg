@@ -89,6 +89,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<FileIO>("FileIO", 1,0, "FileIO");
 
     QApplication app(argc, argv);
+    app.setAttribute(Qt::AA_SynthesizeMouseForUnhandledTouchEvents, false);
 
     MainWindow *w = new MainWindow(QUrl("qrc:/qml/main.qml"));
     w->connect(&app, &QApplication::aboutToQuit, w, &QmlWindow::exit);
@@ -107,6 +108,7 @@ int main(int argc, char *argv[])
     settingsWindow->view()->rootObject()->setProperty("settings", QVariant::fromValue(settings));
 
     Server* server = w->view()->rootObject()->findChild<Server*>("server");
+    server->setApp(&app);
     if (server) {
         w->setServer(server);
         server->start();
