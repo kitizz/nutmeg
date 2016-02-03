@@ -5,6 +5,7 @@
 #include "../mainwindow.h"
 #include "../qmlwindow.h"
 
+#include "guiitem.h"
 #include "lineplot.h"
 #include "linesegmentplot.h"
 #include "imageplot.h"
@@ -44,6 +45,7 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<QmlWindow>("Nutmeg", 1,0, "QmlWindow", "Cannot create QmlWindow");
     qmlRegisterUncreatableType<MainWindow>("Nutmeg", 1,0, "MainWindow", "Cannot create MainWindow");
     qmlRegisterType<FigureBase>("Nutmeg", 1,0, "FigureBase");
+    qmlRegisterType<GUIItem>("Nutmeg", 1,0, "GUIItem");
 
 #ifdef SUPPORT_3D
     qmlRegisterType<Axis3DBase>("Nutmeg", 1,0, "Axis3DBase");

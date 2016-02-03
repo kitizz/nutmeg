@@ -238,7 +238,18 @@ class Nutmeg:
 
         return Figure(_core(), handle, address=self.host, port=self.port, qml=qml, assync=assync)
 
-    def isValidHandle(self, handle):
+    def set_parameters(self, handle, **params):
+        # handle: Figure handle
+        if len(params) == 0:
+            return
+
+        msg = { "handle": handle, "params": params }
+        reply = self.send_recv_json(["setGui", msg])
+
+        if reply[0] != 0:
+            raise(NutmegException(reply[1]['message']))
+
+    def is_valid_handle(self, handle):
         self.socketLock.acquire()
         self.send_json(["handleValid", {"handle": handle}])
         reply = self.recv_json()
@@ -429,7 +440,7 @@ class Figure(NutmegObject):
             # Init any updates that suit the new params.
             msg = reply[1]
             for p in msg["parameters"]:
-                self.parameters[p] = Parameter(p, msg["parameters"][p], False)
+                self.parameters[p] = Parameter(p, value=msg["parameters"][p], changed=False, figure=self)
             updatesToCall = set()
             # Just in case updates have already been registered, add them to the
             # list for initialisation.
@@ -503,6 +514,9 @@ class Figure(NutmegObject):
 
         return
 
+    def set_parameters(self, **params):
+        self.nutmeg.set_parameters(self.handle, **params)
+
     def getParameterValues(self):
         '''
         :return: A dictionary of the parameters and their values.
@@ -533,13 +547,14 @@ class Parameter():
     Keep track of a parameter's value and state. Currently, the parameter
     cannot be modified from Python.
     '''
-    def __init__(self, name, value=0, changed=0):
+    def __init__(self, name, value=0, changed=0, figure=None):
         self.name = name
         self.value = value
         self._changed = changed
         self.callbacks = []
         self.valueLock = threading.Lock()
         self.changedLock = threading.Lock()
+        self.figure = figure
 
     @property
     def changed(self):
@@ -566,6 +581,14 @@ class Parameter():
         '''
         self.changed = 0
         return self.value
+
+    def set(self, value):
+        if self.figure is None:
+            print("WARNING: Figure of parameter is None")
+            return
+
+        kwargs = { self.name: value }
+        self.figure.set_parameters(**kwargs)
 
     def registerCallback(self, callback):
         '''

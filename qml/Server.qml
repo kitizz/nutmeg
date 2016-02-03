@@ -173,6 +173,41 @@ ServerBase {
     }
 
     /*!
+        Set the value of parameters in a figure.
+
+        \param type:dictionary params: A dictionary of args. {"handle": f, "params": {"p1": v1, "p2": v2}}
+    */
+    function setGui(args) {
+        var handle = args.handle
+        var params = args.params
+
+        var fig = controller.get(handle)
+
+        var gui = fig.guiItem
+        var success = true
+        var failedList = ""
+        print("SetGUI:", args)
+        for (var param in params) {
+            var controlObj = gui.parameters[param]
+            if (!controlObj) {
+                print("WARNING: No such parameter, " + param + ", in figure '" + handle + "'")
+                // TODO: Return Error after other values updated..
+                success = false
+                failedList += param + ", "
+                continue
+            }
+            print("Setting:", param, controlObj, params[param])
+            controlObj.setValue(params[param])
+        }
+
+        if (success) {
+            return [0, {"message": "Parameter set successfully"}]
+        } else {
+            return [6, {"message": "Parameters (" + failedList.slice(0,-2) + ") do not exist."}]
+        }
+    }
+
+    /*!
         Check whether the given full handle is valid.
 
         \param type:string handle: Full handle to any Nutmeg object.
@@ -217,7 +252,6 @@ ServerBase {
         of 3 (so they have the same handle). Each axis contains a line plot with the handle "myData":
 
         >    [ "sendData", "myFigure.axes[0:3].myData", {"x": [0,1,2], "y": [ [2,4,1], [9,1,0], [1,2,3] ]} ]
-
 
         \param type:List req Request: ["sendData", handle, dataDict, parameter (optional)]
         \param type:string handle The hierarchical handle to the plot of interest

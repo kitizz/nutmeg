@@ -92,7 +92,8 @@ SOURCES += src/main.cpp \
     src/layoutcolumn.cpp \
     src/layoutrow.cpp \
     src/linesegmentplot.cpp \
-    src/linesegmentplotcanvas.cpp
+    src/linesegmentplotcanvas.cpp \
+    src/guiitem.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 #include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
@@ -148,7 +149,8 @@ HEADERS += \
     src/layoutcolumn.h \
     src/layoutrow.h \
     src/linesegmentplot.h \
-    src/linesegmentplotcanvas.h
+    src/linesegmentplotcanvas.h \
+    src/guiitem.h
 
 unix:LIBS += -lzmq
 win32:CONFIG(release, debug|release): LIBS += -L"C:\zmq3.2.4\lib" -llibzmq

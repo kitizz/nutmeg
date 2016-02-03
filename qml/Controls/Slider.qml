@@ -17,6 +17,10 @@ ControlItem {
     implicitHeight: col.implicitHeight
     implicitWidth: parent.width
 
+    onSetValue: {
+        slider.value = newvalue
+    }
+
     Column {
         id: col
         width: parent.width

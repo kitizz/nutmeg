@@ -1,10 +1,18 @@
+import Nutmeg 1.0
 import QtQuick 2.0
 
-Item {
+GUIItem {
     id: controlItem
     property string handle: "guiItem"
     property var value: 0
     property var gui: null
+
+    signal setValue(real newvalue)
+
+    Component.onCompleted: {
+        findGui()
+        registerProperties({"value":"value"})
+    }
 
     function findGui() {
         if (gui) return // Already found it...
@@ -25,10 +33,6 @@ Item {
             print("WARNING: GUI parent not found for ControlItem!")
             print("Names:", names)
         }
-    }
-
-    Component.onCompleted: {
-        findGui()
     }
 
     onParentChanged: findGui()
