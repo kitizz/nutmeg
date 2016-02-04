@@ -144,13 +144,13 @@ ServerBase {
         qml = "import QtQuick 2.1\nimport \"Controls\"\n" + qml
 
         var gui
-        try {
+//        try {
             gui = Qt.createQmlObject(qml, userArea, "GUIs")
-        } catch (e) {
-            // Offset for the added lines...
-            e.qmlErrors[0].lineNumber -= 2
-            return [4, e.qmlErrors[0]]
-        }
+//        } catch (e) {
+//            // Offset for the added lines...
+//            e.qmlErrors[0].lineNumber -= 2
+//            return [4, e.qmlErrors[0]]
+//        }
 
         if (figure.guiItem)
             figure.guiItem.destroy()
@@ -175,35 +175,76 @@ ServerBase {
     /*!
         Set the value of parameters in a figure.
 
-        \param type:dictionary params: A dictionary of args. {"handle": f, "params": {"p1": v1, "p2": v2}}
+        \param type:dictionary args: A dictionary of args. {"handle": f, "params": {"p1": v1, "p2": v2}}
+        \param type:string handle: Figure handle
+        \param type:dictionary params: Parameter names and values (e.g. {"p1": v1, "p2": v2})
     */
     function setGui(args) {
         var handle = args.handle
         var params = args.params
 
-        var fig = controller.get(handle)
+        var handles = handle.split(".")
+        if (handles.length === 0)
+            return [6, {"message": "No figure defined"}]
 
+        var figureHandle = handles[0]
+
+        var fig = controller.get(figureHandle)
         var gui = fig.guiItem
-        var success = true
-        var failedList = ""
-        print("SetGUI:", args)
-        for (var param in params) {
-            var controlObj = gui.parameters[param]
-            if (!controlObj) {
-                print("WARNING: No such parameter, " + param + ", in figure '" + handle + "'")
-                // TODO: Return Error after other values updated..
-                success = false
-                failedList += param + ", "
-                continue
-            }
-            print("Setting:", param, controlObj, params[param])
-            controlObj.setValue(params[param])
-        }
 
-        if (success) {
-            return [0, {"message": "Parameter set successfully"}]
+        if (handles.length === 1) {
+            // Here, we're just setting the values of a set of parameters
+            var success = true
+            var failedList = ""
+            print("SetGUI:", args)
+            for (var param in params) {
+                var controlObj = gui.parameters[param]
+                if (!controlObj) {
+                    print("WARNING: No such parameter, " + param + ", in figure '" + figureHandle + "'")
+                    // TODO: Return Error after other values updated..
+                    success = false
+                    failedList += param + ", "
+                    continue
+                }
+                print("Setting:", param, controlObj, params[param])
+                controlObj.setValue(params[param])
+            }
+
+            if (success) {
+                return [0, {"message": "Parameter set successfully"}]
+            } else {
+                return [6, {"message": "Parameters (" + failedList.slice(0,-2) + ") do not exist."}]
+            }
+
+        } else if (handles.length === 2) {
+            // Here, we're setting the properties of a parameter
+            var controlObj = gui.parameters[handles[1]]
+            if (!controlObj)
+                return [6, {"message": "Parameter, " + handles[1] + ", does not exist."}]
+
+            var success = true
+            var failedList = ""
+            for (var prop in params) {
+                if (prop === "value") {
+                    controlObj.setValue(params[prop])
+                } else {
+                    try {
+                        controlObj[prop] = params[prop]
+                    } catch (e) {
+                        failedList += prop + ", "
+                        success = false
+                    }
+                }
+            }
+
+            if (success) {
+                return [0, {"message": "Parameter properties set successfully"}]
+            } else {
+                return [6, {"message": "Parameter, "+ handles[1] +" has no properties, [" + failedList.slice(0,-2) + "]"}]
+            }
+
         } else {
-            return [6, {"message": "Parameters (" + failedList.slice(0,-2) + ") do not exist."}]
+            print("WARNING: GUI properties don't go this deep... (" + handle + ")")
         }
     }
 

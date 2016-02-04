@@ -12,7 +12,15 @@ ControlItem {
     property alias slider: slider
     property int decimals: 2
 
-    value: slider.value
+    property alias minimumValue: slider.minimumValue
+    property alias maximumValue: slider.maximumValue
+    property alias stepSize: slider.stepSize
+//    value: slider.value
+    onValueChanged: {
+        slider.value = value
+        if (gui)
+            gui.parameterChanged(handle, value)
+    }
 
     implicitHeight: col.implicitHeight
     implicitWidth: parent.width
@@ -44,6 +52,7 @@ ControlItem {
             id: slider
             width: parent.width
             tickmarksEnabled: true
+            onValueChanged: sliderRoot.value = value
         }
 
         Item {
@@ -59,11 +68,6 @@ ControlItem {
                 text: Number(slider.maximumValue).toFixed(decimals)
             }
         }
-    }
-
-    onValueChanged: {
-        if (gui)
-            gui.parameterChanged(handle, value)
     }
 
     Component.onCompleted: {

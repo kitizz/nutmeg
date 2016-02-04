@@ -517,6 +517,10 @@ class Figure(NutmegObject):
     def set_parameters(self, **params):
         self.nutmeg.set_parameters(self.handle, **params)
 
+    def set_parameter_properties(self, param, **properties):
+        handle = self.handle + '.' + param
+        self.nutmeg.set_parameters(handle, **properties)
+
     def getParameterValues(self):
         '''
         :return: A dictionary of the parameters and their values.
@@ -582,13 +586,23 @@ class Parameter():
         self.changed = 0
         return self.value
 
-    def set(self, value):
+    def set(self, *value, **properties):
         if self.figure is None:
             print("WARNING: Figure of parameter is None")
             return
 
-        kwargs = { self.name: value }
-        self.figure.set_parameters(**kwargs)
+        if len(value) == 0 and len(properties) == 0:
+            return
+
+        if len(value) > 0 and len(properties) > 0:
+            print("WARNING: Keyword properties of parameter.set() override ordered args.")
+
+        if len(properties) > 0:
+            self.figure.set_parameter_properties(self.name, **properties)
+
+        elif len(value) > 0:
+            kwargs = { self.name: value[0] }
+            self.figure.set_parameters(**kwargs)
 
     def registerCallback(self, callback):
         '''

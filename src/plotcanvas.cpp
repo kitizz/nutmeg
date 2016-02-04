@@ -9,6 +9,7 @@ PlotCanvas::PlotCanvas(QQuickItem *parent)
 {
 //    m_scaling = QGuiApplication::primaryScreen()->devicePixelRatio();
     setRenderTarget(QQuickPaintedItem::FramebufferObject);
+//    setRenderTarget(QQuickPaintedItem::Image);
 }
 
 qreal PlotCanvas::scaling() const

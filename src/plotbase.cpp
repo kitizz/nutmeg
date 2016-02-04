@@ -4,6 +4,7 @@ PlotBase::PlotBase(QQuickItem* parent)
     : QQuickItem(parent)
     , m_handle("plot")
     , m_axis(0)
+    , m_antialias(false)
 {
     connect(this, &QQuickItem::parentChanged, this, &PlotBase::findAxis);
 }
@@ -23,6 +24,11 @@ void PlotBase::setHandle(QString arg)
 AxisBase *PlotBase::axis() const
 {
     return m_axis;
+}
+
+bool PlotBase::antialias() const
+{
+    return m_antialias;
 }
 
 void PlotBase::setAxis(AxisBase *arg)
@@ -46,4 +52,13 @@ void PlotBase::findAxis()
     }
 
     setAxis(axis);
+}
+
+void PlotBase::setAntialias(bool antialias)
+{
+    if (m_antialias == antialias)
+        return;
+
+    m_antialias = antialias;
+    emit antialiasChanged(antialias);
 }

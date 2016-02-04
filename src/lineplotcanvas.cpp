@@ -19,66 +19,95 @@ void LinePlotCanvas::paint(QPainter *painter)
     LinePlot *plot = qobject_cast<LinePlot*>(parent());
     if (!plot) return;
 
+    // Save the painter state here..
+    painter->save();
+
+    bool aa = plot->antialias();
+    if (aa) {
+//        setRenderTarget(QQuickPaintedItem::Image);
+        painter->setRenderHint(QPainter::Antialiasing, true);
+    } else {
+//        setRenderTarget(QQuickPaintedItem::FramebufferObject);
+        painter->setRenderHint(QPainter::Antialiasing, false);
+    }
+
     Axis2DBase *monAxis = plot->axis2d();
     QList<qreal> xData = plot->xData(), yData = plot->yData();
-    if (!monAxis || xData.length() != yData.length() || xData.length() == 0)
+
+    const int N = qMin( xData.length(), yData.length() );
+
+    if (!monAxis || N == 0) {
+        painter->restore();
         return; // Funky data
+    }
 
     QRectF lim = monAxis->limits(); //QRectF(minX, minY, maxX - minX, maxY - minY);
 
     QTransform tran = Util::plotToView(QSizeF(width(), height()), lim, monAxis->xAxis()->inverted(), monAxis->yAxis()->inverted());
 //    tran.translate(tx, ty).scale(scaleX, scaleY).translate(-lim.x(), -lim.y());
 
-    QPolygonF line;
-    // Get the segments into screen coords
-    for (int i=0; i<yData.length(); ++i)
-        line << QPointF(xData[i], yData[i]);
-
-    // When the plot is zoomed closer, drawing the line as a single poly
-    // gets slower - weird and annoying. Therefore, here, the lines are "cut"
-    // by the view frame so that excess segment aren't drawn.
-    QList<QPolygonF> lines;
-    QPointF latestPoint;
-    QPolygonF latestPoly;
-    bool starting = true;
-
-    // If there's only 1 point, the forloop will not run
-    if (line.size() == 1)
-        latestPoly << line[0];
-
-    bool valid;
-    for (int i=0; i<line.size() - 1; ++i) {
-        QPointF p1 = line[i], p2 = line[i+1];
-        QLineF l = rectSlice(p1, p2, lim, valid);
-        if (l.isNull()) continue;
-
-        // Check if the line has been broken, or is starting
-        if (l.p1() != latestPoint || starting) {
-            // Throw the current poly in and start a new one
-            starting = false;
-            lines << latestPoly;
-            latestPoly = QPolygonF();
-            latestPoly << l.p1();
-        }
-        latestPoly << l.p2();
-        latestPoint = l.p2();
-    }
-    // Need the final whole section
-    lines << latestPoly;
-
     QPen pen = preparePainter(painter, plot);
     QString style = plot->line()->style();
+    bool is_lines = (style != ".");
 
-    foreach (QPolygonF poly, lines) {
-        poly = tran.map(poly);
-        if (style == ".") {
-            foreach (QPointF p, poly) {
-                painter->drawEllipse(p, pen.widthF()*0.5, pen.widthF()*0.5);
+    if (is_lines) {
+        QPolygonF line;
+        // Get the segments into screen coords
+        for (int i=0; i<N; ++i)
+            line << QPointF(xData[i], yData[i]);
+
+        // When the plot is zoomed closer, drawing the line as a single poly
+        // gets slower - weird and annoying. Therefore, here, the lines are "cut"
+        // by the view frame so that excess segment aren't drawn.
+        QList<QPolygonF> lines;
+        QPointF latestPoint;
+        QPolygonF latestPoly;
+        bool starting = true;
+
+        // If there's only 1 point, the forloop will not run
+        if (line.size() == 1)
+            latestPoly << line[0];
+
+        bool valid;
+        for (int i=0; i<line.size() - 1; ++i) {
+            QPointF p1 = line[i], p2 = line[i+1];
+            QLineF l = rectSlice(p1, p2, lim, valid);
+            if (l.isNull()) continue;
+
+            // Check if the line has been broken, or is starting
+            if (l.p1() != latestPoint || starting) {
+                // Throw the current poly in and start a new one
+                starting = false;
+                lines << latestPoly;
+                latestPoly = QPolygonF();
+                latestPoly << l.p1();
             }
-        } else {
+            latestPoly << l.p2();
+            latestPoint = l.p2();
+        }
+        // Need the final whole section
+        lines << latestPoly;
+
+        foreach (QPolygonF poly, lines) {
+            poly = tran.map(poly);
             painter->drawPolyline(poly);
         }
+
+    } else {
+        // Just drawing markers, therefore no need to "cut" lines, etc
+        for (int i = 0; i < N; ++i) {
+            const qreal x = xData[i], y = yData[i];
+            if (x < lim.left() || x > lim.right() || y < lim.top() || y > lim.bottom())
+                continue;
+
+            qreal tx, ty;
+            tran.map(x, y, &tx, &ty);
+            painter->drawEllipse(tx, ty, pen.widthF()*0.5, pen.widthF()*0.5);
+        }
     }
+
+    // Restore the painter to its former glory
+    painter->restore();
 }
 
 void LinePlotCanvas::updatePolish()

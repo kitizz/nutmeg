@@ -11,6 +11,7 @@ class PlotBase : public QQuickItem, public NutmegObject
     Q_OBJECT
     Q_PROPERTY(QString handle READ handle WRITE setHandle NOTIFY handleChanged)
     Q_PROPERTY(AxisBase* axis READ axis NOTIFY axisChanged)
+    Q_PROPERTY(bool antialias READ antialias WRITE setAntialias NOTIFY antialiasChanged)
 
 public:
     explicit PlotBase(QQuickItem *parent = 0);
@@ -20,9 +21,14 @@ public:
 
     AxisBase *axis() const;
 
+    bool antialias() const;
+    void setAntialias(bool antialias);
+
 signals:
     void handleChanged(QString arg);
     void axisChanged(AxisBase* arg);
+
+    void antialiasChanged(bool antialias);
 
 public slots:
     void findAxis();
@@ -53,6 +59,7 @@ private:
     void setAxis(AxisBase *arg);
     QString m_handle;
     AxisBase* m_axis;
+    bool m_antialias;
 };
 
 #endif // PLOTBASE_H
