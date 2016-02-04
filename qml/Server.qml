@@ -144,13 +144,13 @@ ServerBase {
         qml = "import QtQuick 2.1\nimport \"Controls\"\n" + qml
 
         var gui
-//        try {
+        try {
             gui = Qt.createQmlObject(qml, userArea, "GUIs")
-//        } catch (e) {
-//            // Offset for the added lines...
-//            e.qmlErrors[0].lineNumber -= 2
-//            return [4, e.qmlErrors[0]]
-//        }
+        } catch (e) {
+            // Offset for the added lines...
+            e.qmlErrors[0].lineNumber -= 2
+            return [4, e.qmlErrors[0]]
+        }
 
         if (figure.guiItem)
             figure.guiItem.destroy()

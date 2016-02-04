@@ -11,6 +11,7 @@ ControlItem {
     Button {
         id: btn
 
+        anchors.fill: parent
         enabled: parent.enabled
         onClicked: {
             gui.parameterChanged(handle, 1)

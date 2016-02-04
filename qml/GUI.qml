@@ -10,7 +10,14 @@ Item {
     property var parameters: ({})
 
     function registerParameter(controlObj) {
-        parameters[controlObj.handle] = controlObj
+        // This is a horrible hack for a Qt5.6 bug. Hopefully temporary..
+        // The parameter's object doesn't seem to get updated when read by Server.qml after this..
+        var new_param = ({})
+        for (var p in parameters)
+            new_param[p] = parameters[p]
+        new_param[controlObj.handle] = controlObj
+        parameters = new_param
+//        parameters[controlObj.handle] = controlObj
     }
 
     function parameterChanged(handle, value) {

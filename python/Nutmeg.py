@@ -440,7 +440,7 @@ class Figure(NutmegObject):
             # Init any updates that suit the new params.
             msg = reply[1]
             for p in msg["parameters"]:
-                self.parameters[p] = Parameter(p, value=msg["parameters"][p], changed=False, figure=self)
+                self.parameters[p] = Parameter(p, value=msg["parameters"][p], changed=0, figure=self)
             updatesToCall = set()
             # Just in case updates have already been registered, add them to the
             # list for initialisation.
