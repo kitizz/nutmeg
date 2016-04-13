@@ -36,6 +36,7 @@ void LinePlotCanvas::paint(QPainter *painter)
 
     // Allow the printer state to be restored
     painter->save();
+    preparePainter(painter, plot);
 
     QRectF lim = monAxis->limits();
 

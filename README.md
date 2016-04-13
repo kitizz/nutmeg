@@ -12,7 +12,7 @@ Notable Features:
     + Makes figure templates easy
 - Lay out GUI controls that update parameters, which update the data
 
-<img src="https://cloud.githubusercontent.com/assets/1326372/7897915/2cf9311c-06bd-11e5-99a7-dd5f32683494.png" alt="Preview" width="60%">
+<img src="https://raw.githubusercontent.com/kitizz/nutmeg/master/images/readme-screenshot.png" alt="Preview" width="60%">
 
 Nutmeg in Action
 ----------------
