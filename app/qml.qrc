@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/About.qml</file>
+        <file>qml/CloseButton.qml</file>
+        <file>qml/Controller.qml</file>
+        <file>qml/FigureContainer.qml</file>
+        <file>qml/Group.qml</file>
+        <file>qml/main.qml</file>
+        <file>qml/Server.qml</file>
+        <file>qml/Settings.qml</file>
+        <file>qml/Test3D.qml</file>
+        <file>qml/TestFigure.qml</file>
+        <file>qml/TextEntry.qml</file>
+    </qresource>
+</RCC>

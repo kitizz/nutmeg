@@ -1,9 +1,12 @@
-[submodule "breathe"]
-	path = breathe
+[submodule "3rdparty/breathe"]
+	path = 3rdparty/breathe
 	url = https://github.com/michaeljones/breathe.git
-[submodule "sphinx-bootstrap-theme"]
-	path = sphinx-bootstrap-theme
-	url = https://github.com/ryan-roemer/sphinx-bootstrap-theme.git
-[submodule "pygments-style-github"]
-	path = pygments-style-github
+[submodule "3rdparty/GoogleTest/googletest"]
+	path = 3rdparty/GoogleTest/googletest
+	url = https://github.com/google/googletest.git
+[submodule "3rdparty/pygments-style-github"]
+	path = 3rdparty/pygments-style-github
 	url = https://github.com/hugomaiavieira/pygments-style-github.git
+[submodule "3rdparty/sphinx-bootstrap-theme"]
+	path = 3rdparty/sphinx-bootstrap-theme
+	url = https://github.com/ryan-roemer/sphinx-bootstrap-theme.git

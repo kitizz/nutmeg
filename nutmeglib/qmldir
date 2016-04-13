@@ -1,0 +1,8 @@
+module Nutmeg
+Figure 1.0 Figure.qml
+Axis 1.0 Axis.qml
+LinePlot 1.0 LinePlot.qml
+Column 1.0 Column.qml
+Row 1.0 Row.qml
+Grid 1.0 Grid.qml
+plugin nutmeglib

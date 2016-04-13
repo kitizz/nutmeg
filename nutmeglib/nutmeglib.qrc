@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/fonts">
+        <file alias="latinmodern.otf">fonts/latinmodern-math.otf</file>
+        <file alias="cmunbmr.ttf">fonts/cmunbmr.ttf</file>
+    </qresource>
+</RCC>
