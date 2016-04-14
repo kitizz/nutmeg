@@ -24,6 +24,13 @@ void PlotCanvas::setScaling(qreal arg)
     emit scalingChanged(arg);
 }
 
+void PlotCanvas::triggerOnMain()
+{
+    polish();
+    update();
+    m_updateTriggered = true;
+}
+
 bool PlotCanvas::updateTriggered()
 {
     return m_updateTriggered;
@@ -36,7 +43,5 @@ void PlotCanvas::resetTrigger()
 
 void PlotCanvas::triggerUpdate()
 {
-    polish();
-    update();
-    m_updateTriggered = true;
+    metaObject()->invokeMethod(this, "triggerOnMain", Qt::QueuedConnection);
 }

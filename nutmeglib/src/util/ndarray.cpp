@@ -24,11 +24,11 @@ ArrayData::~ArrayData()
         delete data;
 }
 
-template <typename T> const NDArray::Type NDArray::TypeMap<T>::type = Unknown;
-template <> const NDArray::Type NDArray::TypeMap<int>::type = Int;
-template <> const NDArray::Type NDArray::TypeMap<uint8_t>::type = Uint8;
-template <> const NDArray::Type NDArray::TypeMap<double>::type = Double;
-template <> const NDArray::Type NDArray::TypeMap<float>::type = Float;
+template <typename T> const NDArray::Type NDArray::TypeMap<T>::type = NDArray::Unknown;
+template <> const NDArray::Type NDArray::TypeMap<int>::type = NDArray::Int64;
+template <> const NDArray::Type NDArray::TypeMap<uint8_t>::type = NDArray::Uint8;
+template <> const NDArray::Type NDArray::TypeMap<double>::type = NDArray::Float64;
+template <> const NDArray::Type NDArray::TypeMap<float>::type = NDArray::Float32;
 
 NDArray::NDArray()
     : NDArray(Unknown, QList<int>())
@@ -50,13 +50,30 @@ NDArray::NDArray(const QVariantList &values)
 {
     qreal* dptr = (qreal*)data();
     // Copy in data from list
-    for (int i=0; i<m_size; ++i)
+    qDebug() << "Creating NDArray from list:";
+    for (int i=0; i<m_size; ++i) {
+        qDebug() << QString("%1: %2").arg(i).arg(values[i].toReal());
         (*dptr++) = values[i].toReal();
+    }
+    qDebug() << "Type:" << m_type;
 }
 
 NDArray::NDArray(Type type, std::initializer_list<int> shape, char *dptr)
     : NDArray(type, QList<int>(shape), dptr)
 {
+}
+
+NDArray::NDArray(NDArray::Type type, const QList<int> &shape, const QByteArray &bytes)
+    : NDArray(type, shape, 0)
+{
+    qDebug() << "New Array. Shape:" << shape;
+    if (m_type == Unknown)
+        return;
+    // Make a copy of the ByteArray. It seems for now that nzmqt takes ownership of it
+    // TODO: See if we can modify nzmqt to not delete bytearray data
+    char *data = (char*)bytes.data();
+    int size = m_size * m_typesize;
+    std::copy(data, data + size, m_data_ch);
 }
 
 NDArray::NDArray(Type type, const QList<int> &shape, char *dptr)
@@ -101,9 +118,8 @@ NDArray::NDArray(Type type, const QList<int> &shape, char *dptr)
 
 NDArray::NDArray(const NDArray &other)
     : m_ndim(other.m_ndim)
-//    , m_shape(other.m_shape)
-//    , m_strides(other.m_strides)
     , m_type(other.m_type)
+    , m_shapelst(other.m_shapelst)
     , m_size(other.m_size)
     , m_typesize(other.m_typesize)
     , m_data_ptr(other.m_data_ptr)
@@ -111,8 +127,8 @@ NDArray::NDArray(const NDArray &other)
 {
     m_shape = QSharedPointer<int>::create(m_ndim);
     m_strides = QSharedPointer<int>::create(m_ndim);
-    std::memcpy(other.m_shape.data(), m_shape.data(), m_ndim);
-    std::memcpy(other.m_strides.data(), m_strides.data(), m_ndim);
+    std::memcpy(m_shape.data(), other.m_shape.data(), m_ndim);
+    std::memcpy(m_strides.data(), other.m_strides.data(), m_ndim);
 }
 
 NDArray::~NDArray()

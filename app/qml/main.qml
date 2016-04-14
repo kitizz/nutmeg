@@ -74,7 +74,7 @@ Rectangle {
             controller.queueTask("SetFigure", "testFigure", [qml], 1)
 //            return
 
-            var xData = [0, 100, 200, 300, 400, 500, 700, 800, 1000, 1200]
+            var xData = [0, 1, 2, 3, 4, 5, 7, 8, 10, 12]
             var yData = [0, 1, 2, 3, 2, 1, 3, 5, 2, 10]
             controller.queueTask("SetProperty", "testFigure.ax.blue.x", [xData], 2)
             controller.queueTask("SetProperty", "testFigure.ax.blue.y", [yData], 3)
@@ -85,10 +85,8 @@ Rectangle {
             controller.queueTask("SetProperty", "testFigure.ax.xAxis.label", ["X Label"], 6)
             controller.queueTask("SetProperty", "testFigure.ax.yAxis.label", ["Coolest Y Label Ever"], 7)
 
-            var xData2 = [0, 50, 200, 300, 450, 500, 700, 1000, 1200]
             var yData2 = [1.000045, 1.000030, 1.000025, 1.000023, 1.000022, 1.0000215,
                                                                     1.0000212, 1.0000211, 1.00002]
-            controller.queueTask("SetProperty", "testFigure.ax2.red.x", [xData2], 8)
             controller.queueTask("SetProperty", "testFigure.ax2.red.y", [yData2], 9)
 
         }
@@ -127,6 +125,10 @@ Rectangle {
         guiContainer: userArea
 
         onFigureCreated: tabView.addFigure(figure)
+        onFigureDestroyed: {
+            console.log("\t\t FIGURE DESTROYED", figure)
+            tabView.closeFigure(figure)
+        }
     }
 
     TabView {
@@ -141,9 +143,9 @@ Rectangle {
             var figureIndex = figure.tabIndex
             var listInd = figures.indexOf(figure)
             figures.splice(listInd, 1)
-            figure.destroy()
             removeTab(figureIndex)
             console.log("Figures after destroy", figures)
+            figure.destroy()
         }
 
         function addFigure(figure) {
@@ -155,6 +157,7 @@ Rectangle {
             tabView.currentIndex = count - 1
             figure.tabIndex = count - 1
             figure.visible = Qt.binding(function() { return figure.tabIndex == tabView.currentIndex })
+
             return true
         }
 

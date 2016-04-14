@@ -4,6 +4,7 @@
 #include <QQuickPaintedItem>
 #include "plotcanvas.h"
 
+// TODO: Rename to ImagePlotCanvas
 class NUTMEGLIB_EXPORT ImageCanvas : public PlotCanvas
 {
     Q_OBJECT

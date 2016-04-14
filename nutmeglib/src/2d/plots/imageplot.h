@@ -2,12 +2,13 @@
 #define IMAGEPLOTBASE_H
 
 #include "plot2dbase.h"
+#include "../../util/ndarray.h"
 #include <QPixmap>
 
 class NUTMEGLIB_EXPORT ImagePlot : public Plot2DBase
 {
     Q_OBJECT
-    Q_PROPERTY(QVariantList binary READ binary WRITE setBinary NOTIFY binaryChanged)
+    Q_PROPERTY(NDArray binary READ binary WRITE setBinary NOTIFY binaryChanged)
     Q_PROPERTY(qreal xScale READ xScale WRITE setXScale NOTIFY xScaleChanged)
     Q_PROPERTY(qreal yScale READ yScale WRITE setYScale NOTIFY yScaleChanged)
     Q_PROPERTY(qreal xOffset READ xOffset WRITE setXOffset NOTIFY xOffsetChanged)
@@ -19,8 +20,8 @@ public:
 
     QPixmap pixmap() const;
 
-    QVariantList binary() const;
-    void setBinary(const QVariantList &data);
+    NDArray binary() const;
+    void setBinary(const NDArray &data);
 
     qreal xScale() const;
     void setXScale(qreal xScale);
@@ -32,7 +33,7 @@ public:
     void setYOffset(qreal yOffset);
 
 signals:
-    void binaryChanged(const QVariantList &arg); // Change to (const &) ?
+    void binaryChanged(const NDArray &arg); // Change to (const &) ?
     void xScaleChanged(qreal xScale);
     void yScaleChanged(qreal yScale);
     void xOffsetChanged(qreal xOffset);
@@ -45,7 +46,7 @@ protected slots:
 
 private:
     void updateImage();
-    QVariantList m_data;
+    NDArray m_data;
     QList<int> m_shape;
     QImage m_im;
     QPixmap m_pixmap;

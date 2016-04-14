@@ -3,9 +3,11 @@
 #include <QQueue>
 #include <QQmlContext>
 #include <QQmlEngine>
+#include <QVariant>
 
 #include "server_util.h"
 #include "../common/guiitem.h"
+#include "../util/ndarray.h"
 
 /*!
  * \brief ControllerWorker::run
@@ -134,6 +136,8 @@ void ControllerWorker::setProperty(Task *task, bool inGui)
         throw InvalidNutmegObject(*task, "Property is not attached to a valid object (this is likely a bug in Nutmeg).");
 
     QVariant value = task->args[0];
+    NDArray arr = qvariant_cast<NDArray>(value);
+    qDebug() << "QVariant:" << arr.shape();
     bool succ = prop.write(obj, value);
     qDebug() << "Writing property success:" << succ << "-" << prop.typeName() << prop.name();
     qDebug() << "Value type:" << value.typeName();
@@ -405,6 +409,7 @@ void Controller::registerFigure(FigureBase *fig)
 void Controller::deregisterFigure(FigureBase *fig)
 {
     if (m_destroying) return; // Stops segfaults on close.
+    emit figureDestroyed(fig);
     QString key = fig->handle();
     m_figures.remove(key, fig);
     updateFigures();

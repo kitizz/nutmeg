@@ -43,8 +43,8 @@ namespace ServerUtil {
                     continue;
 
                 BinarySpec spec = bin_specs[index];
-                char *dptr = data[index].data();
-                NDArray array(spec.type, spec.shape, dptr);
+                NDArray array(spec.type, spec.shape, data[index]);
+                qDebug() << "Created array shape:" << array.shape();
                 args[i] = QVariant::fromValue(array);
             }
         }

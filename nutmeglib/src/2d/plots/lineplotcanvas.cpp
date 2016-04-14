@@ -31,8 +31,7 @@ void LinePlotCanvas::paint(QPainter *painter)
     if (!monAxis || N == 0 || yArray.type() == NDArray::Unknown)
         return; // Nothing to do
 
-    NDArrayTyped<qreal> xData = xArray.convert<qreal>(),
-                        yData = yArray.convert<qreal>();
+    NDArrayTyped<qreal> yData = yArray.convert<qreal>();
 
     // Allow the printer state to be restored
     painter->save();
@@ -46,7 +45,15 @@ void LinePlotCanvas::paint(QPainter *painter)
 
     if (is_lines) {
         QPolygonF line;
-        {
+        if (emptyX) {
+            // Get the segments into screen coords
+            int x = 0;
+            auto y = yData.begin();
+            for (int i=N; i; --i, ++x, ++y)
+                line << QPointF(x, *y);
+
+        } else {
+            auto xData = xArray.convert<qreal>();
             // Get the segments into screen coords
             auto x = xData.begin(), y = yData.begin();
             for (int i=N; i; --i, ++x, ++y)
@@ -93,14 +100,29 @@ void LinePlotCanvas::paint(QPainter *painter)
     } else {
         // Just drawing markers, therefore no need to "cut" lines, etc
         qreal radius = painter->pen().widthF() * 0.5;
-        auto x = xData.begin(), y = yData.begin();
-        for (int i = N; i; --i, ++x, ++y) {
-            if (*x < lim.left() || *x > lim.right() || *y < lim.top() || *y > lim.bottom())
-                continue;
+        qreal tx, ty;
 
-            qreal tx, ty;
-            tran.map(*x, *y, &tx, &ty);
-            painter->drawEllipse(tx, ty, radius, radius);
+        if (emptyX) {
+            int x = 0;
+            auto y = yData.begin();
+            for (int i = N; i; --i, ++x, ++y) {
+                if (x < lim.left() || x > lim.right() || *y < lim.top() || *y > lim.bottom())
+                    continue;
+
+                tran.map(x, *y, &tx, &ty);
+                painter->drawEllipse(tx, ty, radius, radius);
+            }
+
+        } else {
+            auto xData = xArray.convert<qreal>();
+            auto x = xData.begin(), y = yData.begin();
+            for (int i = N; i; --i, ++x, ++y) {
+                if (*x < lim.left() || *x > lim.right() || *y < lim.top() || *y > lim.bottom())
+                    continue;
+
+                tran.map(*x, *y, &tx, &ty);
+                painter->drawEllipse(tx, ty, radius, radius);
+            }
         }
     }
 

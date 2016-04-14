@@ -26,6 +26,7 @@ protected:
 
 public slots:
     void triggerUpdate();
+    void triggerOnMain();
 
 private:
     qreal m_scaling;

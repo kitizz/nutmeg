@@ -7,11 +7,11 @@
 #define EXPAND_METHOD(FNAME, T, DEFAULT)\
 static T FNAME (const NDArray &array) {\
     switch (array.type()) {\
-    case NDArray::Int:\
+    case NDArray::Int64:\
         return FNAME (array.convert<int>());\
-    case NDArray::Float:\
+    case NDArray::Float32:\
         return FNAME (array.convert<float>());\
-    case NDArray::Double:\
+    case NDArray::Float64:\
         return FNAME (array.convert<double>());\
     case NDArray::Uint8:\
         return FNAME (array.convert<uint8_t>());\

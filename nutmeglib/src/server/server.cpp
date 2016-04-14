@@ -12,6 +12,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
+#include <QByteArrayList>
 
 #include "binaryspec.h"
 #include "task.h"
@@ -48,6 +49,7 @@ Server::Server(QQuickItem *parent)
     m_sub->setObjectName("Subscriber.Socket.socket(Sub)");
     connect(m_sub,   SIGNAL(messageReceived(const QList<QByteArray>&)),
                         SLOT(processMessage(const QList<QByteArray>&)));
+    m_sub->subscribeTo("Nutmeg");
 
     m_pub = m_context->createSocket(ZMQSocket::TYP_PUB, this);
     m_pub->setObjectName("Subscriber.Socket.socket(Pub)");
@@ -197,20 +199,24 @@ void Server::setRunning(bool arg)
 void Server::processMessage(const QByteArrayList &message)
 {
     static quint64 counter = 0;
-    qDebug() << "Replier::requestReceived> " << counter;
+    qDebug() << "Subscriber::messageReceived> " << counter;
     ++counter;
 
-    if (message.count() < 2) {
+    // message[0] == "Nutmeg"
+    if (message.count() < 3) {
         qWarning() << "WARNING: Request must be at least length 2! Received:" << message;
         return;
     }
 
     m_tim.restart();
-    QJsonDocument doc = QJsonDocument::fromJson(message[0]);
-    if (!doc.isObject())
+    qDebug() << message[1];
+    QJsonDocument doc = QJsonDocument::fromJson(message[1]);
+    if (!doc.isObject()) {
+        qWarning() << "Message[0] is not a JSON object...";
         return;
+    }
 
-    QByteArrayList data = message.mid(1);
+    QByteArrayList data = message.mid(2);
 
     QJsonObject msg = doc.object();
     QString command = msg["command"].toString();

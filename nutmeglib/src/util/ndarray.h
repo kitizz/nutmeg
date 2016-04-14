@@ -51,7 +51,7 @@ public:
      * This enum defines integer values for the possible data types sent as binary to Nutmeg
      * Ensure that this is synchronized with the sender implementation
      */
-    enum Type { Unknown=-1, Int=0, Uint8=1, Double=2, Float=3 };
+    enum Type { Unknown=-1, Int64=0, Uint8=1, Float32=2, Float64=3 };
 
     template <typename T> struct TypeMap { static const Type type; };
 
@@ -59,6 +59,7 @@ public:
     NDArray(const QList<qreal> &values);
     NDArray(const QVariantList &values);
     NDArray(Type type, std::initializer_list<int> shape, char *dptr=0);
+    NDArray(Type type, const QList<int> &shape, const QByteArray &bytes);
     NDArray(Type type, const QList<int> &shape, char *dptr=0);
     NDArray(const NDArray &other);
     ~NDArray();
@@ -113,7 +114,7 @@ public:
             // Need to copy and do full conversion of underlying data
             T* dst = new T[m_size];
             switch (m_type) {
-            case Int: {
+            case Int64: {
                 int *src = (int*)m_data_ch;
                 std::copy(src, src + m_size, dst);
                 break;
@@ -123,12 +124,12 @@ public:
                 std::copy(src, src + m_size, dst);
                 break;
             }
-            case Float: {
+            case Float32: {
                 float *src = (float*)m_data_ch;
                 std::copy(src, src + m_size, dst);
                 break;
             }
-            case Double: {
+            case Float64: {
                 double *src = (double*)m_data_ch;
                 std::copy(src, src + m_size, dst);
                 break;
@@ -158,10 +159,10 @@ protected:
 
     static std::size_t typesize(Type type) {
         switch (type) {
-        case Int: return sizeof(int);
+        case Int64: return sizeof(int);
         case Uint8: return sizeof(uint8_t);
-        case Double: return sizeof(double);
-        case Float: return sizeof(float);
+        case Float64: return sizeof(double);
+        case Float32: return sizeof(float);
         default: return 0;  // Unknown type
         }
     }

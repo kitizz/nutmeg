@@ -80,8 +80,8 @@ Building
 --------
 
 ### Requirements
-- Qt 5.3 or higher
-- [ZMQ](http://zeromq.org/intro:get-the-software) 3.2.x (4.0.x should technically work, but is untested)
+- Qt 5.6 or higher
+- [ZMQ](http://zeromq.org/intro:get-the-software) 4.0.x (3.2.x should also be fine)
 
 ### Unix
 Before building, ensure that in `nutmeg.pro` the INCLUDEPATH and QMAKE_LIBDIR point to the include path and

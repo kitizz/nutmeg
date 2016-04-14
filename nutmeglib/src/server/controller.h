@@ -66,6 +66,7 @@ signals:
     void parameterUpdated(QString figureHandle, QString parameter, qreal value);
 
     void figureCreated(FigureBase* figure);
+    void figureDestroyed(FigureBase* figure);
 
     void figuresChanged(QVariantMap arg);
     void figureContainerChanged(QQuickItem *figureContainer);
