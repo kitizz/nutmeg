@@ -272,7 +272,6 @@ Controller *FigureBase::controller() const
 
 void FigureBase::setController(Controller *arg)
 {
-    qDebug() << "setController";
     if (m_controller == arg) return;
 
     if (m_controller)

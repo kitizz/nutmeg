@@ -55,6 +55,7 @@ public:
             str2type["uint8"] = NDArray::Uint8;
             str2type["float32"] = NDArray::Float32;
             str2type["float64"] = NDArray::Float64;
+            str2type["bool"] = NDArray::Bool;
         }
         return str2type.value(typeName, NDArray::Unknown);
     }

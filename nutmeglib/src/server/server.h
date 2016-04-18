@@ -7,7 +7,8 @@
 #include <QByteArray>
 #include <QThread>
 #include <QQueue>
-#include <QElapsedTimer>
+#include <QTime>
+#include <QTimer>
 
 #include <stdexcept>
 
@@ -48,9 +49,8 @@ public:
     Controller *controller() const;
     void setController(Controller *c);
 
-    QObject* app() const;
-    void setApp(QObject* app);
-
+    QObject *app() const;
+    void setApp(QObject *app);
 
 signals:
     void serverStarted(int subPort, int pubPort);
@@ -74,12 +74,16 @@ public slots:
 
     // Server functionality
     void processMessage(const QByteArrayList& message);
-    void parameterUpdated(const QString &figurehandle, const QString &parameter, qreal value);
-    void error(NutmegError err);
+
     void publish(const QString &session, const QVariantMap &msg);
+    void pong(const QString &session, int taskId);
+    void parameterUpdated(const QString &figurehandle, const QString &parameter, qreal value);
+    void success(Task task);
+    void error(NutmegError err);
+    void requestState(QString session);
+
     void start();
     void stop();
-
 
 protected:
     void setRunning(bool arg);
@@ -87,6 +91,8 @@ protected:
     void stopSocket(nzmqt::ZMQSocket *socket, const QString &address, int port);
     void sendUpdate(QVariant update);
     bool sendPendingUpdate();
+
+    void updateSession(const QString &session, qint64 timestamp);
 
     bool findBinding(nzmqt::ZMQSocket *socket, QString &address, int &portSubscribe);
 
@@ -100,7 +106,7 @@ private:
     bool m_updateReady;
     int m_latestUpdatePort;
 
-    QQueue<Task> m_taskqueue;
+    QMap<QString, int> m_connectedSessions;
 
     // Properties
     QString m_address;
@@ -112,7 +118,8 @@ private:
     int m_pubPort;
     Controller* m_controller;
     QObject* m_app;
-    QElapsedTimer m_tim;
+    QTime m_tim;
+    QTimer *m_startTimer;
 };
 
 #endif // SERVER_H

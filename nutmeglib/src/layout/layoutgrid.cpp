@@ -355,7 +355,7 @@ void LayoutGrid::updatePlotRects()
     for (int c=0; c<m_columns; ++c) {
         for (int r=0; r<m_rows; ++r) {
             QRectF rect = getPlotRectFor(r, c);
-            qDebug() << "PlotRect(" << r << c << "):" << rect;
+//            qDebug() << "PlotRect(" << r << c << "):" << rect;
             axisAt(r, c)->setPlotRect(rect);
         }
     }

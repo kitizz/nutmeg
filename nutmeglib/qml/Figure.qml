@@ -1,5 +1,5 @@
 import QtQuick 2.2
-import Nutmeg 1.0
+import Nutmeg 0.1
 import "Util.js" as Util
 
 /*!
@@ -13,15 +13,9 @@ FigureBase {
     width: parent.width
     height: parent.height
 
-    onParentChanged: {
-        print("Figure parent changed:", parent)
-    }
-
     handle: "fig"
 
     property int tabIndex: -1
-//    property var guiItem: null
-//    property string qml: ""
 
     Component.onDestruction: {
         if (gui)
@@ -157,7 +151,7 @@ FigureBase {
         property real damping: 5
 
         property var currentAxis: null
-        property var pinchCenter: Qt.point(0,0)
+        property point pinchCenter: Qt.point(0,0)
 
         onPressed: {
             mrTimer.stopTimer()
@@ -187,10 +181,10 @@ FigureBase {
             if (!currentAxis || !currentAxis.navigationEnabled)
                 return
 
-            if (currentAxis.objectName == "axis2d") {
+            if (currentAxis.objectName === "axis2d") {
                 pinch2d()
             }
-            if (currentAxis.objectName == "axis3d") {
+            if (currentAxis.objectName === "axis3d") {
                 pinch3d()
             }
         }
@@ -257,7 +251,7 @@ FigureBase {
 //                var sy = pinch.scaleY
                 var scale = 1/pinch.scale
                 currentAxis.zoom = startZoom * scale
-                print("New zoom:", currentAxis.zoom, "(", scale, ")")
+//                print("New zoom:", currentAxis.zoom, "(", scale, ")")
             }
         }
 

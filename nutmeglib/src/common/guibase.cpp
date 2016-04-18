@@ -3,6 +3,7 @@
 
 GuiBase::GuiBase(QQuickItem *parent)
     : QQuickItem(parent)
+    , NutmegObject(this)
 {
     registerChildMethod("parameter");
 }
@@ -30,6 +31,11 @@ void GuiBase::setFigureHandle(QString figureHandle)
 
     m_figureHandle = figureHandle;
     emit figureHandleChanged(figureHandle);
+}
+
+NutmegObject *GuiBase::nutmegChild(const QString &name)
+{
+    return parameter(name);
 }
 
 void GuiBase::registerGuiItem(GuiItem *item)

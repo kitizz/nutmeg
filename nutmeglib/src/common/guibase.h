@@ -20,6 +20,8 @@ public:
     QString figureHandle() const;
     void setFigureHandle(QString figureHandle);
 
+    Q_INVOKABLE virtual NutmegObject *nutmegChild(const QString &name);
+
 signals:
     void parameterChanged(QString figureHandle, QString parameter, qreal value);
     void figureHandleChanged(QString figureHandle);
@@ -27,6 +29,10 @@ signals:
 public slots:
     void registerGuiItem(GuiItem *item);
     void deregisterGuiItem(GuiItem *item);
+
+    void notifyParameterChanged(QString parameter, qreal value) {
+        emit parameterChanged(figureHandle(), parameter, value);
+    }
 
 private:
     QString m_figureHandle;

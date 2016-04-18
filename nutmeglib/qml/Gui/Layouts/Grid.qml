@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Layouts 1.0
+import Nutmeg 1.0
 
 /*!
     \ingroup layouts
@@ -7,4 +7,6 @@ import QtQuick.Layouts 1.0
 */
 GridLayout {
     objectName: "grid"
+    width: parent.width
+    height: parent.height
 }

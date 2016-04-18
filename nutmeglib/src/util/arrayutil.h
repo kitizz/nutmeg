@@ -15,6 +15,8 @@ static T FNAME (const NDArray &array) {\
         return FNAME (array.convert<double>());\
     case NDArray::Uint8:\
         return FNAME (array.convert<uint8_t>());\
+    case NDArray::Bool:\
+        return FNAME (array.convert<bool>());\
     default:\
         return DEFAULT;\
     }\

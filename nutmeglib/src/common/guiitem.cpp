@@ -4,16 +4,18 @@
 
 GuiItem::GuiItem(QQuickItem *parent)
     : QQuickItem(parent)
-    , m_figureHandle(QString())
+    , NutmegObject(this)
     , m_handle(QString())
     , m_value(0)
     , m_gui(0)
 {
+    connect(this, &QQuickItem::parentChanged, this, &GuiItem::findGui);
+    findGui();
+
     registerProperty("value");
     connect(this, &GuiItem::valueChanged, [=](qreal value){
-        if (!m_gui)
-            return;
-        emit m_gui->parameterChanged(figureHandle(), handle(), value);
+        if (m_gui)
+            m_gui->notifyParameterChanged(handle(), value);
     });
 }
 
@@ -21,20 +23,6 @@ GuiItem::~GuiItem()
 {
     if (m_gui)
         m_gui->deregisterGuiItem(this);
-}
-
-QString GuiItem::figureHandle() const
-{
-    return m_figureHandle;
-}
-
-void GuiItem::setFigureHandle(const QString &figureHandle)
-{
-    if (m_figureHandle == figureHandle)
-        return;
-
-    m_figureHandle = figureHandle;
-    emit figureHandleChanged(figureHandle);
 }
 
 QString GuiItem::handle() const
@@ -79,11 +67,12 @@ void GuiItem::setGui(GuiBase *gui)
         m_gui->deregisterGuiItem(this);
 
     m_gui = gui;
+
     emit guiChanged(gui);
 
     if (m_gui) {
         m_gui->registerGuiItem(this);
-        emit m_gui->parameterChanged(m_figureHandle, m_handle, m_value);
+        m_gui->notifyParameterChanged(m_handle, m_value);
     }
 }
 
@@ -92,10 +81,10 @@ void GuiItem::findGui()
     if (m_gui)
         return;
 
-    // Disconnect from an external sender
-    QObject *sender = QObject::sender();
-    if (sender && this != sender)
-        sender->disconnect(this);
+//    // Disconnect from an external sender
+//    QObject *sender = QObject::sender();
+//    if (sender && this != sender)
+//        sender->disconnect(this);
 
     // Work up the tree until the next Figure item is found.
     QQuickItem *newParent = parentItem();
@@ -112,6 +101,9 @@ void GuiItem::findGui()
         newParent = newParent->parentItem();
     }
 
-    setGui(guiObj);
+    if (guiObj) {
+        disconnect(this, &QQuickItem::parentChanged, this, &GuiItem::findGui);
+        setGui(guiObj);
+    }
 }
 

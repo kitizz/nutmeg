@@ -2,7 +2,7 @@ import QtQuick 2.4
 //import QtQuick.Dialogs 1.2
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.0
-import Nutmeg 1.0
+import Nutmeg 0.1
 import FileIO 1.0
 
 
@@ -111,12 +111,7 @@ Rectangle {
 
     Server {
         id: server
-//        portSubscribe: settings ? settings.port : 43686
-//        portPublish: settings ? settings.port : 43686
-//        figureContainer: figureContainer
-//        tabView: tabView
         controller: controller
-//        userArea: userArea
     }
 
     Controller {
@@ -126,7 +121,6 @@ Rectangle {
 
         onFigureCreated: tabView.addFigure(figure)
         onFigureDestroyed: {
-            console.log("\t\t FIGURE DESTROYED", figure)
             tabView.closeFigure(figure)
         }
     }
@@ -138,25 +132,25 @@ Rectangle {
 
         property var figures: []
 
+        function closePressed(figure) {
+            controller.deregisterFigure(figure)
+        }
+
         function closeFigure(figure) {
-            console.log("Figures before destroy", figures)
+            console.log("Closing figure:", figure)
             var figureIndex = figure.tabIndex
             var listInd = figures.indexOf(figure)
             figures.splice(listInd, 1)
             removeTab(figureIndex)
-            console.log("Figures after destroy", figures)
-            figure.destroy()
         }
 
         function addFigure(figure) {
-            console.log("Figures before push", figures)
             figures.push(figure)
-            console.log("Figures after push", figures)
             var newTab = addTab(figure.handle, tabDelegate)
 
             tabView.currentIndex = count - 1
             figure.tabIndex = count - 1
-            figure.visible = Qt.binding(function() { return figure.tabIndex == tabView.currentIndex })
+            figure.visible = Qt.binding(function() { return figure.tabIndex === tabView.currentIndex })
 
             return true
         }
@@ -208,7 +202,7 @@ Rectangle {
                         rightMargin: 0.15*parent.height
                     }
                     onClicked: {
-                        tabView.closeFigure(tab.figure)
+                        tabView.closePressed(tab.figure)
                     }
                 }
             }

@@ -1,5 +1,5 @@
 import QtQuick 2.1
-import QtQuick.Controls 1.0
+import QtQuick.Controls 1.4
 
 /*!
     \ingroup controls
@@ -17,7 +17,7 @@ ControlItem {
     property alias stepSize: slider.stepSize
 
     Component.onCompleted: {
-        registerProperties({
+        sliderRoot.registerProperties({
             "text": "text",
             "decimals": "decimals",
             "minimumValue": "minimumValue",

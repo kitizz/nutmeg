@@ -51,7 +51,16 @@ public:
      * This enum defines integer values for the possible data types sent as binary to Nutmeg
      * Ensure that this is synchronized with the sender implementation
      */
-    enum Type { Unknown=-1, Int64=0, Uint8=1, Float32=2, Float64=3 };
+    enum Type { Unknown=-1, Int64=0, Uint8=1, Float32=2, Float64=3, Bool=4 };
+    // Note: When adding types, currently need to additonally modify the following:
+    // NDArray::convert
+    // NDArray::typesize
+    // type->enum template definitions at top of NDArray source
+    // Prefined NDArrayTyped type definitions at the bottom of NDArray source
+    // BinarySpec::fromString
+    // ArrayUtil::EXPAND_METHOD macro
+
+    // TODO: Yes, this is horrible, this could probably be done with macros and loops...
 
     template <typename T> struct TypeMap { static const Type type; };
 
@@ -134,6 +143,11 @@ public:
                 std::copy(src, src + m_size, dst);
                 break;
             }
+            case Bool: {
+                bool *src = (bool*)m_data_ch;
+                std::copy(src, src + m_size, dst);
+                break;
+            }
             default:
                 delete dst;
                 dst = 0;
@@ -163,6 +177,7 @@ protected:
         case Uint8: return sizeof(uint8_t);
         case Float64: return sizeof(double);
         case Float32: return sizeof(float);
+        case Bool: return sizeof(bool);
         default: return 0;  // Unknown type
         }
     }

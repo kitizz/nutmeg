@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQml 2.1
-import Nutmeg 1.0
+import Nutmeg 0.1
 
 /*!
     \ingroup figures

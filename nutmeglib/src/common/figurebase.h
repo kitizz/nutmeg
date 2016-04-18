@@ -34,7 +34,7 @@ public:
     ~FigureBase();
 
     enum AxisGroupType { Row=1, Column=2, Grid=3 };
-    Q_ENUM(AxisGroupType)
+    Q_ENUM(AxisGroupType);
 
 //    void paint(QPainter *painter);
 

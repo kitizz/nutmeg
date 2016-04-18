@@ -62,6 +62,7 @@ public:
     void setGuiContainer(QQuickItem *guiContainer);
 
 signals:
+    void successProcessing(Task task);
     void errorProcessing(NutmegError error);
     void parameterUpdated(QString figureHandle, QString parameter, qreal value);
 

@@ -1,4 +1,4 @@
-import Nutmeg 1.0
+import Nutmeg 0.1
 
 Figure {
     id: figure

@@ -1,6 +1,6 @@
 import QtQuick 2.0
-import Nutmeg 1.0
 import QtQuick.Layouts 1.0
+import Nutmeg 0.1
 
 /*!
     \ingroup figures
@@ -34,31 +34,6 @@ Axis2DBase {
     */
     property alias border: plotFrame.border
 
-    // -------- Layout stuff  -------- //
-    /*! \property xLabelMargin
-    Set the clearance between the xLabel and the tick numbers. Default: 5
-    \qmlOnly
-    */
-//    property real xLabelMargin: 5
-
-    /*! \property yLabelMargin
-    Set the clearance between the yLabel and the tick numbers. Default: 5
-    \qmlOnly
-    */
-//    property real yLabelMargin: 5
-
-    /*! \property tickNumbersMargin
-    Set the clearance between the tick numbers and the axis. Default: 4
-    \qmlOnly
-    */
-//    property real tickNumbersMargin: 4
-
-    /*! \property titleMargin
-    Set clearance between the title and the axis below. Default: 5
-    \qmlOnly
-    */
-//    property real titleMargin: 5
-
     /*! \property navigationEnabled
     Set whether the user can navigate this axis, or if it is fixed.
     \qmlOnly
@@ -73,23 +48,6 @@ Axis2DBase {
     // The numbers to display on the axes
     property var xNumbers: []
     property var yNumbers: []
-//    property int xPrecision: 3
-//    property int yPrecision: 3
-
-//    onWidthChanged: {
-//        updateTickNumbers(0)
-//        updateTickLocations()
-//    }
-//    onHeightChanged: {
-//        updateTickNumbers(1)
-//        updateTickLocations()
-//    }
-//    xAxis.onMajorTicksChanged: updateTickNumbers(0)
-//    yAxis.onMajorTicksChanged: updateTickNumbers(1)
-////    onLimitsChanged: updateTicks()
-//    Component.onCompleted: updateTicks()
-
-
 
     margin {
         top: 5; right: 25;
@@ -98,51 +56,6 @@ Axis2DBase {
     }
 
     children: [
-//        Text {
-//            id: titleText
-//            text: axisItem.title
-//            anchors {
-//                horizontalCenter: parent.horizontalCenter
-//                top: parent.top; topMargin: margin.top
-//            }
-//            font: axisItem.titleFont
-//            color: axisItem.titleColor
-//        },
-
-//        Text {
-//            id: xLabelText
-//            height: (text == "") ? 0 : implicitHeight
-//            text: xAxis.label
-//            font: xAxis.labelFont
-//            color: xAxis.labelColor
-//            anchors {
-//                horizontalCenter: parent.horizontalCenter
-//                bottom: parent.bottom
-//                bottomMargin: margin.bottom
-//            }
-//        },
-
-//        Item {
-//            id: yLabelContainer
-//            width: yLabelText.height
-//            height: width
-//            Text {
-//                id: yLabelText
-//                height: (text == "") ? 0 : implicitHeight
-//                rotation: -90
-//                text: yAxis.label
-//                font: yAxis.labelFont
-//                color: yAxis.labelColor
-//                anchors.centerIn: parent
-//            }
-
-//            anchors {
-//                verticalCenter: parent.verticalCenter
-//                left: parent.left
-//                leftMargin: margin.left
-//            }
-//        },
-
         Rectangle {
             id: plotFrame
             z: -2
@@ -151,13 +64,6 @@ Axis2DBase {
             width: plotRect.width
             height: plotRect.height
 
-//            anchors {
-//                fill: parent
-//                topMargin: plotMargins.top
-//                leftMargin: plotMargins.left
-//                bottomMargin: plotMargins.bottom
-//                rightMargin: plotMargins.right
-//            }
             color: "white"
             border { color: "#AAAAAA"; width: 1 }
         },
@@ -166,15 +72,11 @@ Axis2DBase {
             id: axisCanvas
             x: 0; y: 0; z: 100
             axis: axisItem
-//            plotRect: axisItem.plotRect
             width: parent.width * 2
             height: parent.height * 2
             transform: Scale {
                 xScale: 1.0/(2)
                 yScale: 1.0/(2)
-            }
-            Component.onCompleted: {
-                console.log("\t\tAxisCanvas scale:", scaling, 1.0/(axisCanvas.scaling))
             }
         },
 

@@ -44,52 +44,55 @@ void NutmegPlugin::registerTypes(const char *uri)
     qDebug() << "RegisterTypes. Uri:" << uri;
     Q_ASSERT(uri == QLatin1String("Nutmeg"));
 
-    qmlRegisterType<FigureBase>(uri, 1,0, "FigureBase");
-    qmlRegisterType<GuiBase>(uri, 1,0, "GuiBase");
-    qmlRegisterType<GuiItem>(uri, 1,0, "GuiItem");
+    int maj = 0, min = 1;
+
+    qmlRegisterType<FigureBase>(uri, maj,min, "FigureBase");
+    qmlRegisterType<GuiBase>(uri, maj,min, "GuiBase");
+    qmlRegisterType<GuiItem>(uri, maj,min, "GuiItem");
 
 #ifdef SUPPORT_3D
-    qmlRegisterType<Axis3DBase>(uri, 1,0, "Axis3DBase");
-    qmlRegisterType<PointCloud>(uri, 1,0, "PointCloudBase");
+    qmlRegisterType<Axis3DBase>(uri, maj,min, "Axis3DBase");
+    qmlRegisterType<PointCloud>(uri, maj,min, "PointCloudBase");
 #endif
 
     // ---------- Layout Stuff --------------
-    qmlRegisterType<Axis2DBase>(uri, 1,0, "Axis2DBase");
-    qmlRegisterType<AxisCanvas2D>(uri, 1,0, "AxisCanvas2D");
-    qmlRegisterType<AxisSpec>(uri, 1,0, "AxisSpec");
-    qmlRegisterType<AxisGrid>(uri, 1,0, "AxisGrid");
-    qmlRegisterType<AxisMargins>(uri, 1,0, "AxisMargins");
-    qmlRegisterType<AutoLocator>(uri, 1,0, "AutoLocator");
-    qmlRegisterType<HardLocator>(uri, 1,0, "HardLocator");
-    qmlRegisterType<SpacedLocator>(uri, 1,0, "SpacedLocator");
+    qmlRegisterType<Axis2DBase>(uri, maj,min, "Axis2DBase");
+    qmlRegisterType<AxisCanvas2D>(uri, maj,min, "AxisCanvas2D");
+    qmlRegisterType<AxisSpec>(uri, maj,min, "AxisSpec");
+    qmlRegisterType<AxisGrid>(uri, maj,min, "AxisGrid");
+    qmlRegisterType<AxisMargins>(uri, maj,min, "AxisMargins");
+    qmlRegisterType<AutoLocator>(uri, maj,min, "AutoLocator");
+    qmlRegisterType<HardLocator>(uri, maj,min, "HardLocator");
+    qmlRegisterType<SpacedLocator>(uri, maj,min, "SpacedLocator");
 
-    qmlRegisterType<LayoutGrid>(uri, 1,0, "Grid");
-    qmlRegisterType<LayoutColumn>(uri, 1,0, "Column");
-    qmlRegisterType<LayoutRow>(uri, 1,0, "Row");
+    qmlRegisterType<LayoutGrid>(uri, maj,min, "Grid");
+    qmlRegisterType<LayoutColumn>(uri, maj,min, "Column");
+    qmlRegisterType<LayoutRow>(uri, maj,min, "Row");
 
     // ---------- Plotting stuff ------------
-    qmlRegisterType<LineSpec>(uri, 1,0, "LineSpec");
-    qmlRegisterType<FillSpec>(uri, 1,0, "FillSpec");
+    qmlRegisterType<LineSpec>(uri, maj,min, "LineSpec");
+    qmlRegisterType<FillSpec>(uri, maj,min, "FillSpec");
 
-    qmlRegisterType<LinePlot>(uri, 1,0, "LinePlotBase");
-    qmlRegisterType<LineSegmentPlot>(uri, 1,0, "LineSegmentPlotBase");
-    qmlRegisterType<ImagePlot>(uri, 1,0, "ImagePlotBase");
-    qmlRegisterType<CanvasPlot>(uri, 1,0, "CanvasPlotBase");
+    qmlRegisterType<LinePlot>(uri, maj,min, "LinePlotBase");
+    qmlRegisterType<LineSegmentPlot>(uri, maj,min, "LineSegmentPlotBase");
+    qmlRegisterType<ImagePlot>(uri, maj,min, "ImagePlotBase");
+    qmlRegisterType<CanvasPlot>(uri, maj,min, "CanvasPlotBase");
 
-    qmlRegisterType<LinePlotCanvas>(uri, 1,0, "LinePlotCanvas");
-    qmlRegisterType<LineSegmentPlotCanvas>(uri, 1,0, "LineSegmentPlotCanvas");
-    qmlRegisterType<ImageCanvas>(uri, 1,0, "ImageCanvas");
-    qmlRegisterType<CanvasPlotCanvas>(uri, 1,0, "CanvasPlotCanvas");
+    qmlRegisterType<LinePlotCanvas>(uri, maj,min, "LinePlotCanvas");
+    qmlRegisterType<LineSegmentPlotCanvas>(uri, maj,min, "LineSegmentPlotCanvas");
+    qmlRegisterType<ImageCanvas>(uri, maj,min, "ImageCanvas");
+    qmlRegisterType<CanvasPlotCanvas>(uri, maj,min, "CanvasPlotCanvas");
 
-    qmlRegisterType<CanvasLine>(uri, 1,0, "CanvasLine");
-    qmlRegisterType<CanvasRect>(uri, 1,0, "CanvasRect");
-    qmlRegisterType<CanvasText>(uri, 1,0, "CanvasText");
+    qmlRegisterType<CanvasLine>(uri, maj,min, "CanvasLine");
+    qmlRegisterType<CanvasRect>(uri, maj,min, "CanvasRect");
+    qmlRegisterType<CanvasText>(uri, maj,min, "CanvasText");
 
     // ----------- Infrastructure ------------
-    qmlRegisterType<Server>(uri, 1,0, "ServerBase");
-    qmlRegisterType<Controller>(uri, 1,0, "ControllerBase");
+    qmlRegisterType<Server>(uri, maj,min, "ServerBase");
+    qmlRegisterType<Controller>(uri, maj,min, "ControllerBase");
 
     qRegisterMetaType<NutmegError>("NutmegError");
+    qRegisterMetaType<Task>("Task");
     qRegisterMetaType<NutmegObject*>("NutmegObject*");
 
     QMetaType::registerConverter< QList<qreal>, NDArray >();

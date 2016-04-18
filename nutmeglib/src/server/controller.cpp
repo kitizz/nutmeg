@@ -48,6 +48,9 @@ void ControllerWorker::run()
                 break;
             }
 
+            // If we're here, success. Inform controller.
+            emit m_controller->successProcessing(task);
+
         } catch (NutmegError &err) {
             emit m_controller->errorProcessing(err);
         }
@@ -397,21 +400,25 @@ void Controller::setGuiContainer(QQuickItem *guiContainer)
 void Controller::registerFigure(FigureBase *fig)
 {
     QString key = fig->handle();
-    qDebug() << "Controller::RegisterFigure" << key;
     if (m_figures.contains(key, fig))
         return; // Already in the list, move along now
 
     m_figures.insert(key, fig);
     updateFigures();
-    qDebug() << m_figures;
 }
 
 void Controller::deregisterFigure(FigureBase *fig)
 {
     if (m_destroying) return; // Stops segfaults on close.
-    emit figureDestroyed(fig);
+
     QString key = fig->handle();
+    if (!m_figures.contains(key))
+        return;
+
+    emit figureDestroyed(fig);
     m_figures.remove(key, fig);
+    fig->deleteLater();
+
     updateFigures();
 }
 
@@ -469,6 +476,7 @@ void Controller::createGui(FigureBase *fig, Task task)
             throw GuiError(task, "Root item for GUI QML must be GUI{}.");
         }
 
+        fig->setGui(gui);
         gui->setFigureHandle(fig->handle());
         connect(fig, &QQuickItem::visibleChanged, [=](){ gui->setVisible(fig->isVisible()); } );
         connect(gui, &GuiBase::parameterChanged, this, &Controller::parameterUpdated);

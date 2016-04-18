@@ -3,6 +3,14 @@
 
 #include <QDebug>
 
+// These template definitions allow a type to be converted to its associated enum
+template <typename T> const NDArray::Type NDArray::TypeMap<T>::type = NDArray::Unknown;
+template <> const NDArray::Type NDArray::TypeMap<int>::type = NDArray::Int64;
+template <> const NDArray::Type NDArray::TypeMap<uint8_t>::type = NDArray::Uint8;
+template <> const NDArray::Type NDArray::TypeMap<double>::type = NDArray::Float64;
+template <> const NDArray::Type NDArray::TypeMap<float>::type = NDArray::Float32;
+template <> const NDArray::Type NDArray::TypeMap<bool>::type = NDArray::Bool;
+
 ArrayData::ArrayData(int length)
     : data(new char[length]), length(length)
 {
@@ -24,12 +32,6 @@ ArrayData::~ArrayData()
         delete data;
 }
 
-template <typename T> const NDArray::Type NDArray::TypeMap<T>::type = NDArray::Unknown;
-template <> const NDArray::Type NDArray::TypeMap<int>::type = NDArray::Int64;
-template <> const NDArray::Type NDArray::TypeMap<uint8_t>::type = NDArray::Uint8;
-template <> const NDArray::Type NDArray::TypeMap<double>::type = NDArray::Float64;
-template <> const NDArray::Type NDArray::TypeMap<float>::type = NDArray::Float32;
-
 NDArray::NDArray()
     : NDArray(Unknown, QList<int>())
 {
@@ -38,7 +40,6 @@ NDArray::NDArray()
 NDArray::NDArray(const QList<qreal> &values)
     : NDArray(TypeMap<qreal>::type, {values.length()}, 0)
 {
-    qDebug() << "Making NDArray from List:" << values;
     qreal* dptr = (qreal*)data();
     // Copy in data from list
     for (int i=0; i<m_size; ++i)
@@ -50,12 +51,10 @@ NDArray::NDArray(const QVariantList &values)
 {
     qreal* dptr = (qreal*)data();
     // Copy in data from list
-    qDebug() << "Creating NDArray from list:";
     for (int i=0; i<m_size; ++i) {
         qDebug() << QString("%1: %2").arg(i).arg(values[i].toReal());
         (*dptr++) = values[i].toReal();
     }
-    qDebug() << "Type:" << m_type;
 }
 
 NDArray::NDArray(Type type, std::initializer_list<int> shape, char *dptr)
@@ -268,7 +267,9 @@ T &NDArrayTyped<T>::at(const QVector<int> &inds)
     return *(m_data + get_ind(inds));
 }
 
+// Predefine NDArrayTyped template types
 template class NDArrayTyped<int>;
 template class NDArrayTyped<double>;
 template class NDArrayTyped<float>;
 template class NDArrayTyped<uint8_t>;
+template class NDArrayTyped<bool>;

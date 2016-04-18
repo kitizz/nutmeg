@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQml 2.1
-import Nutmeg 1.0
+import Nutmeg 0.1
 
 /*!
     \ingroup figures
@@ -20,9 +20,6 @@ LinePlotBase {
 
     onAxisChanged: {
         if (!axis) return
-
-//        xDataChanged.connect(axis.updateTicks)
-//        yDataChanged.connect(axis.updateTicks)
     }
 
     onUpdateTip: {
@@ -43,7 +40,6 @@ LinePlotBase {
     }
 
     onClearTips: {
-        console.log("Deleting:", infos)
         for (var i=0; i<infos.length; ++i) {
             infos[i].destroy()
         }
@@ -58,10 +54,6 @@ LinePlotBase {
         transform: Scale {
             xScale: 1/lineCanvas.scaling
             yScale: 1/lineCanvas.scaling
-        }
-
-        Component.onCompleted: {
-            console.log("\t\tLineCanvas scale:", scaling)
         }
     }
 
