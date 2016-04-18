@@ -12,20 +12,15 @@ Rectangle {
     width: size; height: size
     radius: size/2
 
-    color: "#AAFFFFFF"
+    color: "#AAFF7070"
 
-    border.width: 1
-    border.color: {
-        if (mouseArea.pressed)
-            return "#BBB"
-        if (mouseArea.containsMouse)
-            return "#333"
-        return "#888"
-    }
+    border.width: 0.5
+    border.color: !mouseArea.containsMouse ? "#666" : "white"
 
     MouseArea {
         id: mouseArea
         anchors.fill: parent
+        preventStealing: true
         hoverEnabled: true
         onClicked: button.clicked(mouse)
     }

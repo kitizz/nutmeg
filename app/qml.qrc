@@ -11,5 +11,6 @@
         <file>qml/Test3D.qml</file>
         <file>qml/TestFigure.qml</file>
         <file>qml/TextEntry.qml</file>
+        <file>qml/TabStyle.qml</file>
     </qresource>
 </RCC>

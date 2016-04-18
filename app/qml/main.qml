@@ -19,7 +19,7 @@ Rectangle {
     signal testFig
 
     onSavePdf: {
-        var fig = tabView.currentFigure()
+        var fig = tabViewItem.currentFigure()
         console.log("Save PDF")
 
 //        window.savePdfDialog(fig.handle)
@@ -27,7 +27,7 @@ Rectangle {
 
     onSelectedPdf: {
         console.log("Pdf Selected:", file)
-        tabView.currentFigure().savePdf(file)
+        tabViewItem.currentFigure().savePdf(file)
     }
 
     // TODO: Reenable FileDialog when it is possible to set the filename...
@@ -119,14 +119,14 @@ Rectangle {
         figureContainer: figureContainer
         guiContainer: userArea
 
-        onFigureCreated: tabView.addFigure(figure)
+        onFigureCreated: tabViewItem.addFigure(figure)
         onFigureDestroyed: {
-            tabView.closeFigure(figure)
+            tabViewItem.closeFigure(figure)
         }
     }
 
     TabView {
-        id: tabView
+        id: tabViewItem
         anchors.fill: parent
         anchors.rightMargin: userOutline.width
 
@@ -148,15 +148,15 @@ Rectangle {
             figures.push(figure)
             var newTab = addTab(figure.handle, tabDelegate)
 
-            tabView.currentIndex = count - 1
+            tabViewItem.currentIndex = count - 1
             figure.tabIndex = count - 1
-            figure.visible = Qt.binding(function() { return figure.tabIndex === tabView.currentIndex })
+            figure.visible = Qt.binding(function() { return figure.tabIndex === tabViewItem.currentIndex })
 
             return true
         }
 
         function currentFigure() {
-            return figures[tabView.currentIndex]
+            return figures[tabViewItem.currentIndex]
         }
 
         Component {
@@ -167,49 +167,24 @@ Rectangle {
         style: TabViewStyle {
             frameOverlap: 1
 
-            tab: Rectangle {
-                id: tab
-                property int index: styleData.index
-                property var figure: null
-                // TODO: This is horrible and brittle, but QtQuickControls 1.1 left me no other option...
-                onIndexChanged: if (figure) figure.tabIndex = index
-                Component.onCompleted: {
-                    console.log("Figures:", tabView.figures)
-                    figure = tabView.figures[styleData.index]
-                    figure.tabIndex = index
-                }
-
-                z: -10
-                color: styleData.selected ? "white" :"lightsteelblue"
-                border.color:  "#777777"
-                implicitWidth: Math.max(text.width + closeButton.size + 8, 80)
-                implicitHeight: 20
-                radius: 2
-                Text {
-                    id: text
-                    x: 2
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: styleData.title
-                    color: styleData.selected ? "black" : "black"
-                }
-
-                CloseButton {
-                    id: closeButton
-                    size: parent.height*0.7
-                    anchors {
-                        verticalCenter: parent.verticalCenter
-                        right: parent.right
-                        rightMargin: 0.15*parent.height
-                    }
-                    onClicked: {
-                        tabView.closePressed(tab.figure)
-                    }
-                }
+            tab: TabStyle {
+//                tabViewItem: tabViewItem
             }
+
+            tabOverlap: -1
+
+            tabBar: Rectangle {
+                anchors.fill: parent
+                color: "#F6F6F6"
+            }
+
+//            leftCorner: Rectangle {
+//                implicitWidth: 10
+//                implicitHeight: 10
+//            }
 
             frame: Rectangle {
                 color: "white"
-                border { color: "#777777"; width: 1 }
             }
         }
 
@@ -221,8 +196,8 @@ Rectangle {
 
     FigureContainer {
         id: figureContainer
-        tabView: tabView
-        anchors.fill: tabView
+        tabView: tabViewItem
+        anchors.fill: tabViewItem
         anchors.topMargin: 30
     }
 

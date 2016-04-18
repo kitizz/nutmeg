@@ -17,11 +17,6 @@ FigureBase {
 
     property int tabIndex: -1
 
-    Component.onDestruction: {
-        if (gui)
-            gui.destroy()
-    }
-
     function axisAtPoint(point) {
         var axes = getAxisList()
         for (var i=0; i<axes.length; ++i) {
@@ -171,7 +166,7 @@ FigureBase {
             startWidth = currentAxis.maxX - currentAxis.minX
             startHeight = currentAxis.maxY - currentAxis.minY
 
-            if (currentAxis.objectName == "axis3d") {
+            if (currentAxis.objectName === "axis3d") {
                 startZoom = currentAxis.zoom
             }
         }

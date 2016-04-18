@@ -36,6 +36,9 @@ FigureBase::~FigureBase()
         delete ax;
     }
 
+    if (m_gui)
+        m_gui->deleteLater();
+
     m_destroying = true;
 }
 
@@ -287,8 +290,8 @@ void FigureBase::setController(Controller *arg)
 
 void FigureBase::installEventFilterApp(QObject *app)
 {
-    qDebug() << "Installed event filter into app:" << app;
     if (!app) return;
+    qDebug() << "Installed event filter into app:" << app;
     app->installEventFilter(this);
 }
 
