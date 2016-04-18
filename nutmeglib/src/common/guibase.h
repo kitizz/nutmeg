@@ -16,6 +16,7 @@ public:
     ~GuiBase();
 
     GuiItem *parameter(const QString &handle);
+    QList<QString> parameterList();
 
     QString figureHandle() const;
     void setFigureHandle(QString figureHandle);

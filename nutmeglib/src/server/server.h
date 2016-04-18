@@ -107,6 +107,7 @@ private:
     int m_latestUpdatePort;
 
     QMap<QString, int> m_connectedSessions;
+    QMap< QString, QMap<QString, qreal> > m_parameters;
 
     // Properties
     QString m_address;

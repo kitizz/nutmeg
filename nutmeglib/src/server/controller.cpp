@@ -476,10 +476,15 @@ void Controller::createGui(FigureBase *fig, Task task)
             throw GuiError(task, "Root item for GUI QML must be GUI{}.");
         }
 
+        QString handle = fig->handle();
         fig->setGui(gui);
-        gui->setFigureHandle(fig->handle());
+        gui->setFigureHandle(handle);
         connect(fig, &QQuickItem::visibleChanged, [=](){ gui->setVisible(fig->isVisible()); } );
         connect(gui, &GuiBase::parameterChanged, this, &Controller::parameterUpdated);
+
+        foreach (QString param, gui->parameterList()) {
+            parameterUpdated(handle, param, gui->parameter(param)->value());
+        }
     }
     catch (NutmegError &err) {
         emit errorProcessing(err);

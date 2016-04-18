@@ -19,6 +19,11 @@ GuiItem *GuiBase::parameter(const QString &handle)
     return m_parameters.value(handle, 0);
 }
 
+QList<QString> GuiBase::parameterList()
+{
+    return m_parameters.keys();
+}
+
 QString GuiBase::figureHandle() const
 {
     return m_figureHandle;

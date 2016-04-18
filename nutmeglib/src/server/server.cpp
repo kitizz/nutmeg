@@ -293,6 +293,11 @@ void Server::pong(const QString &session, int taskId)
 
 void Server::parameterUpdated(const QString &figureHandle, const QString &parameter, qreal value)
 {
+    if (!m_parameters.contains(figureHandle))
+        m_parameters[figureHandle] = QMap<QString, qreal>();
+    auto figParams = m_parameters[figureHandle];
+    figParams[parameter] = value;
+
     QVariantMap msg;
 
     msg["messageType"] = QString("parameterUpdated");
@@ -332,7 +337,6 @@ void Server::error(NutmegError err)
     msg["message"] = err.message;
     msg["details"] = err.details;
 
-//    qWarning() << "\nError in Nutmeg!";
     QByteArray details = QJsonDocument(QJsonObject::fromVariantMap(err.details)).toJson();
     qWarning("\n%s: %s", qPrintable(err.name), qPrintable(err.message));
     qWarning() << "Details:" << qPrintable(details);
@@ -374,6 +378,12 @@ void Server::updateSession(const QString &session, qint64 timestamp)
     if (!m_connectedSessions.contains(session)) {
         // If this is a previously unknown session, request its state
         requestState(session);
+//        foreach (QString fig, m_parameters.keys()) {
+//            auto params = m_parameters[fig];
+//            foreach (QString name, params.keys()) {
+//                parameterUpdated(fig, name, params[name]);
+//            }
+//        }
     }
     m_connectedSessions[session] = timestamp;
 }
