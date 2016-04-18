@@ -15,9 +15,9 @@ Rectangle {
     }
 
     z: -10
-    color: "white" //styleData.selected ? "white" : "#EEEEEE"
-    implicitWidth: Math.max(text.width + closeButton.size + 8, 80)
-    implicitHeight: 20
+    color: "white"
+    implicitWidth: Math.max(text.width + closeButton.size + 16, 80)
+    implicitHeight: 22
 
     LinearGradient {
         cached: true
@@ -39,11 +39,11 @@ Rectangle {
 
     CloseButton {
         id: closeButton
-        size: parent.height*0.7
+        size: parent.height*0.6
         anchors {
             verticalCenter: parent.verticalCenter
             right: parent.right
-            rightMargin: 0.15*parent.height
+            rightMargin: 0.2*parent.height
         }
         onClicked: {
             tabViewItem.closePressed(tab.figure)
@@ -71,15 +71,14 @@ Rectangle {
 
     Rectangle {
         id: spacer
-        anchors.leftMargin: -1
-        anchors.left: parent.left
+        anchors.rightMargin: 0
+        anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
 
         width: 1
-        height: 0.8 * parent.height
+        height: 0.6 * parent.height
         color: "black"
         opacity: 0.2
 
-        visible: (index == 0) ? false : true
     }
 }

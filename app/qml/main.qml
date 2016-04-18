@@ -167,21 +167,18 @@ Rectangle {
         style: TabViewStyle {
             frameOverlap: 1
 
-            tab: TabStyle {
-//                tabViewItem: tabViewItem
-            }
+            tab: TabStyle {}
 
             tabOverlap: -1
 
             tabBar: Rectangle {
                 anchors.fill: parent
-                color: "#F6F6F6"
+                Rectangle {
+                    anchors { bottom: parent.bottom; right: parent.right }
+                    width: parent.width; height: 1
+                    color: "black"; opacity: 0.2
+                }
             }
-
-//            leftCorner: Rectangle {
-//                implicitWidth: 10
-//                implicitHeight: 10
-//            }
 
             frame: Rectangle {
                 color: "white"

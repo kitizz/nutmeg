@@ -12,10 +12,11 @@ Rectangle {
     width: size; height: size
     radius: size/2
 
-    color: "#AAFF7070"
+//    color: "#AAFF7070"
+    color: "#CCFF6259"
 
-    border.width: 0.5
-    border.color: !mouseArea.containsMouse ? "#666" : "white"
+    border.width: mouseArea.containsMouse ? 1 : 0
+    border.color: "white"
 
     MouseArea {
         id: mouseArea

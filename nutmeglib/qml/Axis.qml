@@ -64,8 +64,20 @@ Axis2DBase {
             width: plotRect.width
             height: plotRect.height
 
+            property color borderColor: "#AAAAAA"
             color: "white"
-            border { color: "#AAAAAA"; width: 1 }
+//            border { color: "#AAAAAA"; width: 1 }
+            Rectangle {
+                anchors.left: parent.left
+                height: parent.height; width: 1
+                color: plotFrame.borderColor
+            }
+            Rectangle {
+                anchors.bottom: parent.bottom
+                height: 1
+                width: parent.width
+                color: plotFrame.borderColor
+            }
         },
 
         AxisCanvas2D {
