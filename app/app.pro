@@ -43,12 +43,14 @@ macx {
 win32 {
     CONFIG(release, debug|release): zmq.files = $$zmq_lib/libzmq.dll
     else:CONFIG(debug, debug|release): zmq.files = $$zmq_lib/libzmq_d.dll
+    nutmeg.files = ../Nutmeg
+    nutmeg.path = $$DESTDIR
+    INSTALLS += nutmeg
 }
 unix {
     macx:zmq.files = $$zmq_lib/libzmq.dylib
     !macx:zmq.files = $$zmq_lib/libzmq.so
 }
-
 zmq.path = $$DESTDIR
 
 INSTALLS += zmq
