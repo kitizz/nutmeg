@@ -122,13 +122,13 @@ void XYPlot::updateDataLimits()
 
     qreal minX = Inf, maxX = -Inf, minY = Inf, maxY = -Inf;
     // Calculate the y limits
-    Range yrng = ArrayUtil::limits(m_yData);
+    RangeValues yrng = ArrayUtil::limits(m_yData);
     minY = yrng.min;
     maxY = yrng.max;
 
     // Calculate the X bounds (special case)
     if (xLen > 0) {
-        Range xrng = ArrayUtil::limits(m_xData);
+        RangeValues xrng = ArrayUtil::limits(m_xData);
         minX = xrng.min;
         maxX = xrng.max;
     } else {

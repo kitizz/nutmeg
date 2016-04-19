@@ -22,9 +22,9 @@ static T FNAME (const NDArray &array) {\
     }\
 }
 
-class Range {
+class NUTMEGLIB_EXPORT RangeValues {
 public:
-    Range(qreal min, qreal max) : min(min), max(max) {}
+    RangeValues(qreal min, qreal max) : min(min), max(max) {}
     qreal min;
     qreal max;
 };
@@ -66,11 +66,11 @@ protected:
     }
 
     template <typename T>
-    static Range limits(const NDArrayTyped<T> &array)
+    static RangeValues limits(const NDArrayTyped<T> &array)
     {
         if (array.size() == 0) {
             qWarning() << "WARNING: Finding limits of empty array!";
-            return Range(0,0);
+            return RangeValues(0,0);
         }
         auto it = array.cbegin();
         auto end = array.cend();
@@ -81,7 +81,7 @@ protected:
             max_val = qMax(max_val, *it);
         }
 
-        return Range(min_val, max_val);
+        return RangeValues(min_val, max_val);
     }
 
 public:
@@ -89,7 +89,7 @@ public:
 
     EXPAND_METHOD(min, qreal, 0)
     EXPAND_METHOD(max, qreal, 0)
-    EXPAND_METHOD(limits, Range, Range(0,0))
+    EXPAND_METHOD(limits, RangeValues, RangeValues(0,0))
 
 signals:
 

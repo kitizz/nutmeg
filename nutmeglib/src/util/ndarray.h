@@ -10,7 +10,7 @@
 #include <QDebug>
 #include <QSharedPointer>
 
-class ArrayData : public QSharedData
+class NUTMEGLIB_EXPORT ArrayData : public QSharedData
 {
 public:
     ArrayData(int length);
@@ -193,7 +193,7 @@ protected:
 };
 
 template <class T>
-class NDArrayTyped : public NDArray
+class NUTMEGLIB_EXPORT NDArrayTyped : public NDArray
 {
 public:
     explicit NDArrayTyped(const NDArrayTyped<T> &other);
