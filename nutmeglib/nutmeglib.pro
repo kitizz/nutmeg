@@ -75,16 +75,16 @@ DEFINES += NOMINMAX
 
 # ZMQ Library stuff
 unix:LIBS += -lzmq
-win32:CONFIG(release, debug|release): LIBS += -L"$$zmq_dir\lib" -llibzmq
-else:win32:CONFIG(debug, debug|release): LIBS += -L"$$zmq_dir\lib" -llibzmq_d
+win32:CONFIG(release, debug|release): LIBS += -L"$$zmq_lib" -llibzmq
+else:win32:CONFIG(debug, debug|release): LIBS += -L"$$zmq_lib" -llibzmq_d
 
 # Location of zmq include
-unix:INCLUDEPATH += $$zmq_dir/include
-win32:INCLUDEPATH += "$$zmq_dir\include"
+unix:INCLUDEPATH += $$zmq_include
+win32:INCLUDEPATH += "$$zmq_include"
 
 ## Location of zmq library
-unix:QMAKE_LIBDIR += $$zmq_dir/lib
-win32:QMAKE_LIBDIR += "$$zmq_dir\lib"
+unix:QMAKE_LIBDIR += $$zmq_lib
+win32:QMAKE_LIBDIR += "$$zmq_lib"
 
 DISTFILES += \
     qml/Gui/qmldir
