@@ -76,7 +76,7 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
 
         width: 1
-        height: 0.6 * parent.height
+        height: parent.height
         color: "black"
         opacity: 0.2
 
