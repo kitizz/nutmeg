@@ -27,6 +27,9 @@ Rectangle {
             GradientStop { position: 1; color: "white" }
         }
         opacity: styleData.selected ? 0 : 1
+        Behavior on opacity {
+            SmoothedAnimation { velocity: -1; duration: 100 }
+        }
     }
 
     Text {
@@ -53,19 +56,16 @@ Rectangle {
     Rectangle {
         property bool selected: styleData.selected
         anchors.bottom: parent.bottom
-        anchors.horizontalCenter: text.horizontalCenter
 
-        color: "#46E831"
-        width: text.width
+        anchors.horizontalCenter: parent.horizontalCenter
+//        color: "#46E831"
+        color: "black"
+        opacity: 0.2
 
-        height: selected ? 2 : 0
-//        width: selected ? 0.8*parent.width : parent.width
-//        color: selected ? "#46E831" : "#777777"
-        Behavior on height {
-            SmoothedAnimation {
-                velocity: -1
-                duration: 100
-            }
+        width: selected ? 0 : parent.width
+        height: 1 //selected ? 0 : 1
+        Behavior on width {
+            SmoothedAnimation { velocity: -1; duration: 50 }
         }
     }
 
