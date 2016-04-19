@@ -11,8 +11,6 @@
 #include "../../common/nutmegobject.h"
 #include "../../common/axisspec.h"
 
-#include "util.h"
-
 class AxisGrid;
 class AxisMargins;
 class AxisSpec;

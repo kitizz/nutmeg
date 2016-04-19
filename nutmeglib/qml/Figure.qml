@@ -108,7 +108,6 @@ FigureBase {
             }
 
             currentAxis.limits = limits
-            currentAxis.updateTickLocations()
 
         }
 
@@ -307,7 +306,6 @@ FigureBase {
                 newLimits.y += vy
 
                 currentAxis.limits = newLimits
-                currentAxis.updateTickLocations()
 
                 lastT = ct
             }

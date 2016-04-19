@@ -1,8 +1,4 @@
 # C++11 !!
-win32 {
-    QMAKE_CXXFLAGS += -std=c++11
-}
-
 unix:!macx {
     QMAKE_CXXFLAGS += -std=c++11
 }

@@ -36,6 +36,10 @@ protected:
     template <typename T>
     static qreal min(const NDArrayTyped<T> &array)
     {
+        if (array.size() == 0) {
+            qWarning() << "WARNING: Finding min of empty array!";
+            return 0;
+        }
         auto it = array.cbegin();
         auto end = array.cend();
         T val = *it;
@@ -48,6 +52,10 @@ protected:
     template <typename T>
     static qreal max(const NDArrayTyped<T> &array)
     {
+        if (array.size() == 0) {
+            qWarning() << "WARNING: Finding max of empty array!";
+            return 0;
+        }
         auto it = array.cbegin();
         auto end = array.cend();
         T val = *it;
@@ -60,6 +68,10 @@ protected:
     template <typename T>
     static Range limits(const NDArrayTyped<T> &array)
     {
+        if (array.size() == 0) {
+            qWarning() << "WARNING: Finding limits of empty array!";
+            return Range(0,0);
+        }
         auto it = array.cbegin();
         auto end = array.cend();
         T min_val = *it;

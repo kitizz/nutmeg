@@ -21,6 +21,8 @@ void ControllerWorker::run()
     while (true) {
         Task task = m_taskqueue->dequeue();
 
+        // Note on success reporting: SetFigure and SetGui invoke methods on the main thread to
+        // complete the task. So allow them to report their own success
         try {
             switch (task.command) {
             case Task::SetFigure:
@@ -29,10 +31,12 @@ void ControllerWorker::run()
 
             case Task::SetProperty:
                 setProperty(&task, false);
+                emit m_controller->successProcessing(task);
                 break;
 
             case Task::Invoke:
                 invoke(&task);
+                emit m_controller->successProcessing(task);
                 break;
 
             case Task::SetGui:
@@ -41,15 +45,13 @@ void ControllerWorker::run()
 
             case Task::SetGuiProperty:
                 setProperty(&task, true);
+                emit m_controller->successProcessing(task);
                 break;
 
             default:
                 throw UnknownCommand(task);
                 break;
             }
-
-            // If we're here, success. Inform controller.
-            emit m_controller->successProcessing(task);
 
         } catch (NutmegError &err) {
             emit m_controller->errorProcessing(err);
@@ -457,6 +459,7 @@ void Controller::createFigure(Task task)
         registerFigure(fig);
 
         emit figureCreated(fig);
+        emit successProcessing(task);
     }
     catch (NutmegError &err) {
         emit errorProcessing(err);
@@ -485,6 +488,8 @@ void Controller::createGui(FigureBase *fig, Task task)
         foreach (QString param, gui->parameterList()) {
             parameterUpdated(handle, param, gui->parameter(param)->value());
         }
+
+        emit successProcessing(task);
     }
     catch (NutmegError &err) {
         emit errorProcessing(err);

@@ -4,8 +4,8 @@
 //TODO: Remove
 #include <QTime>
 
-#include <src/util/util.h>
-#include <src/util/ndarray.h>
+#include "../../util/util.h"
+#include "../../util/ndarray.h"
 
 LinePlotCanvas::LinePlotCanvas(QQuickItem *parent) :
     PlotCanvas(parent)

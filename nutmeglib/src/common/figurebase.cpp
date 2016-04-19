@@ -4,7 +4,7 @@
 #include <QPrinter>
 #include <QPainter>
 
-#include "util.h"
+#include <src/util/util.h>
 #include <src/server/controller.h>
 #include <src/common/axisbase.h>
 #include <src/2d/axes/axis2dbase.h>

@@ -12,7 +12,7 @@
 AxisCanvas2D::AxisCanvas2D(QQuickItem *parent)
     : QQuickPaintedItem(parent)
     , m_axis(0)
-    , m_scaling(QGuiApplication::primaryScreen()->devicePixelRatio())
+    , m_scaling(2) //QGuiApplication::primaryScreen()->devicePixelRatio())
     , m_textscaling(m_scaling)
     , m_titleMargin(5)
     , m_xLabelMargin(5)

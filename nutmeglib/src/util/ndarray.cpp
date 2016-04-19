@@ -1,5 +1,5 @@
 #include "ndarray.h"
-#include "util.h"
+#include <src/util/util.h>
 
 #include <QDebug>
 

@@ -1,6 +1,6 @@
 #include "qmlwindow.h"
 
-#include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <QQmlEngine>
 #include <QQmlContext>
 #include <QQuickItem>
@@ -43,8 +43,11 @@ void QmlWindow::finalizeView()
     m_view->setSource(m_source);
     m_view->setResizeMode(QQuickView::SizeRootObjectToView);
 
-    QHBoxLayout *layout = new QHBoxLayout(this);
+    QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setContentsMargins(0,0,0,0);
+#ifdef Q_OS_WIN
+    layout->addWidget(m_menuBar);
+#endif
     layout->addWidget(container);
 }
 

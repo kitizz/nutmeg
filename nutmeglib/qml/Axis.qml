@@ -84,11 +84,11 @@ Axis2DBase {
             id: axisCanvas
             x: 0; y: 0; z: 100
             axis: axisItem
-            width: parent.width * 2
-            height: parent.height * 2
+            width: parent.width * scaling
+            height: parent.height * scaling
             transform: Scale {
-                xScale: 1.0/(2)
-                yScale: 1.0/(2)
+                xScale: 1.0/axisCanvas.scaling
+                yScale: 1.0/axisCanvas.scaling
             }
         },
 

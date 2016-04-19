@@ -1,4 +1,6 @@
-reated by http://www.gitignore.io
+# Created by http://www.gitignore.io
+
+config.pri
 
 ### Qt ###
 # C++ objects and libs

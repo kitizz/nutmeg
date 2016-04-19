@@ -2,8 +2,8 @@
 
 #include "../../util/util.h"
 
-#include <src/util/ndarray.h>
-#include <src/util/arrayutil.h>
+#include "../../util/ndarray.h"
+#include "../../util/arrayutil.h"
 
 XYPlot::XYPlot(QQuickItem *parent)
     : Plot2DBase(parent)

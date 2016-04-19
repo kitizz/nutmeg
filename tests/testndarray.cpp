@@ -1,4 +1,5 @@
 #include "util/ndarray.h"
+#include "util/arrayutil.h"
 #include "qttypeprinters.h"
 #include "util.h"
 
@@ -34,6 +35,15 @@ TEST(NDArrayTest, CreateDestroy) {
     EXPECT_EQ(dptr[0], values[0]);
     EXPECT_EQ(dptr[1], values[1]);
     EXPECT_EQ(dptr[2], values[2]);
+}
+
+TEST(NDArrayTest, Empty) {
+    QList<qreal> values;
+    QList<qreal> shape1d;
+    shape1d << 0;
+
+    NDArray arr1(values);
+    ArrayUtil::min(arr1);
 }
 
 TEST(NDArrayTest, OneDim) {
