@@ -14,7 +14,7 @@ CONFIG += console
 #CONFIG   -= app_bundle
 
 unix:QMAKE_CXXFLAGS += -O3
-win32:QMAKE_CXXFLAGS += /O3
+win32:QMAKE_CXXFLAGS += /O2
 
 # Default rules for deployment.
 include(../deployment.pri)
