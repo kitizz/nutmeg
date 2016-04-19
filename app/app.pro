@@ -14,7 +14,8 @@ DESTDIR = $$OUT_PWD
 
 QTPLUGIN += nutmeglib
 INCLUDEPATH += ../nutmeglib/src
-LIBS += -L../nutmeglib -lnutmeglib
+unix:LIBS += -L../nutmeglib -lnutmeglib
+win32:LIBS += -L"../nutmeglib" -lnutmeglib
 
 # Additional import path used to resolve QML modules in Creator's code model
 QML_IMPORT_PATH =

@@ -62,7 +62,7 @@ public:
 
     // TODO: Yes, this is horrible, this could probably be done with macros and loops...
 
-    template <typename T> struct TypeMap { static const Type type; };
+    template <typename T> struct NUTMEGLIB_EXPORT TypeMap { static const Type type; };
 
     NDArray();
     NDArray(const QList<qreal> &values);
