@@ -39,6 +39,19 @@ macx {
     QMAKE_POST_LINK += $$quote(install_name_tool -change libnutmeglib.dylib @executable_path/../Resources/Nutmeg/libnutmeglib.dylib $$OUT_PWD/app.app/Contents/MacOS/app)
 }
 
+win32 {
+    CONFIG(release, debug|release): zmq.files = $$zmq_lib/libzmq.dll
+    else:CONFIG(debug, debug|release): zmq.files = $$zmq_lib/libzmq_d.dll
+}
+unix {
+    macx:zmq.files = $$zmq_lib/libzmq.dylib
+    !macx:zmq.files = $$zmq_lib/libzmq.so
+}
+
+zmq.path = $$DESTDIR
+
+INSTALLS += zmq
+
 # Headers and sources
 SOURCES += \
     main.cpp \
