@@ -13,7 +13,8 @@ CONFIG -= debug_and_release
 CONFIG += console
 #CONFIG   -= app_bundle
 
-QMAKE_CXXFLAGS += -O3
+unix:QMAKE_CXXFLAGS += -O3
+win32:QMAKE_CXXFLAGS += /O3
 
 # Default rules for deployment.
 include(../deployment.pri)
