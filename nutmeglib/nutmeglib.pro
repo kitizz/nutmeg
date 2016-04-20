@@ -37,7 +37,6 @@ guifiles.files = \
     qml/Gui/Controls/Slider.qml \
 
 unix: {
-    qmlfiles.commands =
     for (f, qmlfiles.files): qmlfiles.commands += $(COPY) $$PWD/$$f $$DESTDIR;
     qmlfiles.commands += $(MKDIR) $$DESTDIR/Gui;
     for (f, guifiles.files): qmlfiles.commands += $(COPY) $$PWD/$$f $$DESTDIR/Gui;
@@ -45,15 +44,17 @@ unix: {
 }
 win32: {
     dest = $$replace(DESTDIR, /, $$QMAKE_DIR_SEP)
-    Fpaths =
+    pwd = $$replace(PWD, /, $$QMAKE_DIR_SEP)
+
     for (f, qmlfiles.files): Fpaths += $$replace(f, /, $$QMAKE_DIR_SEP)
-    for (f, Fpaths): QMAKE_POST_LINK += $$quote(copy /y $$PWD/$$f $$dest;)
+    message($$Fpaths)
+    for (f, Fpaths): qmlfiles.commands += $(COPY) $$pwd\\$$f $$dest &
 
-    QMAKE_POST_LINK += $$quote(if not exist $$dest\Gui mkdir $$dest\Gui; )
+    qmlfiles.commands += $(MKDIR) $$DESTDIR\\Gui &
 
-    Gpaths =
     for (f, guifiles.files): Gpaths += $$replace(f, /, $$QMAKE_DIR_SEP)
-    for (f, Gpaths): QMAKE_POST_LINK += $$quote(copy /y $$PWD\$$f $$dest\Gui;)
+    message($$Gpaths)
+    for (f, Gpaths): qmlfiles.commands += $(COPY) $$pwd\\$$f $$dest\\Gui &
 }
 
 first.depends = $(first) qmlfiles
