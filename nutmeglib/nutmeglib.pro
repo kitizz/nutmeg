@@ -37,9 +37,9 @@ guifiles.files = \
     qml/Gui/Controls/Slider.qml \
 
 unix: {
-    for (f, qmlfiles.files): qmlfiles.commands += $(COPY) $$PWD/$$f $$DESTDIR;
+    for (f, qmlfiles.files): qmlfiles.commands += $(COPY) \"$$PWD/$$f\" \"$$DESTDIR\";
     qmlfiles.commands += $(MKDIR) $$DESTDIR/Gui;
-    for (f, guifiles.files): qmlfiles.commands += $(COPY) $$PWD/$$f $$DESTDIR/Gui;
+    for (f, guifiles.files): qmlfiles.commands += $(COPY) \"$$PWD/$$f\" \"$$DESTDIR/Gui\";
 #    message($$qmlfiles.command)
 }
 win32: {
@@ -48,13 +48,13 @@ win32: {
 
     for (f, qmlfiles.files): Fpaths += $$replace(f, /, $$QMAKE_DIR_SEP)
     message($$Fpaths)
-    for (f, Fpaths): qmlfiles.commands += $(COPY) $$pwd\\$$f $$dest &
+    for (f, Fpaths): qmlfiles.commands += $(COPY) \"$$pwd\\$$f\" \"$$dest\" &
 
-    qmlfiles.commands += $(MKDIR) $$DESTDIR\\Gui &
+    qmlfiles.commands += $(MKDIR) \"$$dest\\Gui\" &
 
     for (f, guifiles.files): Gpaths += $$replace(f, /, $$QMAKE_DIR_SEP)
     message($$Gpaths)
-    for (f, Gpaths): qmlfiles.commands += $(COPY) $$pwd\\$$f $$dest\\Gui &
+    for (f, Gpaths): qmlfiles.commands += $(COPY) \"$$pwd\\$$f\" \"$$dest\\Gui\" &
 }
 
 first.depends = $(first) qmlfiles
@@ -71,7 +71,7 @@ DEFINES += NOMINMAX
 # ZMQ Library stuff
 unix:LIBS += -lzmq
 win32:CONFIG(release, debug|release): LIBS += -L"$$zmq_lib" -llibzmq
-else:win32:CONFIG(debug, debug|release): LIBS += -L"$$zmq_lib" -llibzmq_d
+else:win32:CONFIG(debug, debug|release): LIBS += -L"$$zmq_lib" -llibzmq
 
 # Location of zmq include
 unix:INCLUDEPATH += $$zmq_include

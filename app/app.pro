@@ -31,17 +31,17 @@ macx {
     QMAKE_POST_LINK += $$quote(install_name_tool -change libnutmeglib.dylib @executable_path/../Resources/Nutmeg/libnutmeglib.dylib $$OUT_PWD/app.app/Contents/MacOS/app)
 
     nutlib.path = $$OUT_PWD/app.app/Contents/Resources
-    zmq.files = $$zmq_lib/libzmq.dylib
+    zmq.files = libzmq.dylib
 }
 
 
 win32 {
-    nutlib.path = $$dest
-    zmq.files = $$zmq_lib\libzmq.dll $$zmq_lib\libzmq_d.dll
+    nutlib.path = $$dest\Nutmeg
+    zmq.files = libzmq.dll libzmq.dll
 }
 unix:!macx {
     nutlib.path = $$dest
-    zmq.files = $$zmq_lib/libzmq.so
+    zmq.files = libzmq.so
 }
 
 win32:endcmd = &
@@ -49,13 +49,13 @@ unix:endcmd = ;
 # Copy Nutmeg lib in
 nutmeg_dir = $$OUT_PWD/../Nutmeg
 nutlib.files = $$replace(nutmeg_dir, /, $$QMAKE_DIR_SEP)
-nutlib.commands = $(COPY_DIR) $$nutlib.files $$nutlib.path
+nutlib.commands = $(COPY_DIR) \"$$nutlib.files\" \"$$nutlib.path\"
 export(nutlib.commands)
 QMAKE_EXTRA_TARGETS += nutlib
 POST_TARGETDEPS += nutlib
 
 # Copy ZMQ in
-for (f, zmq.files): zmq.commands += $(COPY) $$f $$dest $$endcmd
+for (f, zmq.files): zmq.commands += $(COPY) \"$$zmq_lib$$QMAKE_DIR_SEP$$f\" \"$$dest\" $$endcmd
 export(zmq.commands)
 QMAKE_EXTRA_TARGETS += zmq
 POST_TARGETDEPS += zmq

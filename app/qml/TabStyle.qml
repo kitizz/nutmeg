@@ -5,6 +5,8 @@ Rectangle {
     id: tab
     property int index: styleData.index
     property var figure: null
+    property color linecolor: "#BBBBBB"
+
 //    property var tabViewItem: tabView
     // TODO: This is horrible and brittle, but QtQuickControls 1.1 left me no other option...
     onIndexChanged: if (figure) figure.tabIndex = index
@@ -23,8 +25,8 @@ Rectangle {
         cached: true
         anchors.fill: parent
         gradient: Gradient {
-            GradientStop { position: 0; color: "#F6F6F6" }
-            GradientStop { position: 1; color: "white" }
+            GradientStop { position: 0; color: "#eeeeee" }
+            GradientStop { position: 1; color: "#f6f6f6" }
         }
         opacity: styleData.selected ? 0 : 1
         Behavior on opacity {
@@ -43,6 +45,8 @@ Rectangle {
     CloseButton {
         id: closeButton
         size: parent.height*0.6
+//        linecolor: tab.color
+
         anchors {
             verticalCenter: parent.verticalCenter
             right: parent.right
@@ -58,9 +62,7 @@ Rectangle {
         anchors.bottom: parent.bottom
 
         anchors.horizontalCenter: parent.horizontalCenter
-//        color: "#46E831"
-        color: "black"
-        opacity: 0.2
+        color: tab.linecolor
 
         width: selected ? 0 : parent.width
         height: 1 //selected ? 0 : 1
@@ -77,8 +79,6 @@ Rectangle {
 
         width: 1
         height: parent.height
-        color: "black"
-        opacity: 0.2
-
+        color: tab.linecolor
     }
 }

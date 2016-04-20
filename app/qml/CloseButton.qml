@@ -13,9 +13,6 @@ Rectangle {
     width: size; height: size
     radius: size/2
 
-//    color: "#AAFF7070"
-//    color: "#CCFF6259"
-
     Rectangle {
         anchors.centerIn: parent
         width: 0.6*parent.width
@@ -31,11 +28,19 @@ Rectangle {
         color: linecolor
     }
 
-//    border.width: mouseArea.containsMouse ? 1 : 0
-//    border.color: "white"
+    color: mouseArea.containsMouse ? "white" : "transparent"
     border {
         width: 1
-        color: mouseArea.containsMouse ? linecolor : Qt.lighter(linecolor)
+        color: {
+            if (mouseArea.containsMouse) {
+                if (mouseArea.pressed)
+                    return linecolor
+                else
+                    return Qt.lighter(linecolor)
+            } else {
+                return "transparent"
+            }
+        }
     }
 
     MouseArea {
