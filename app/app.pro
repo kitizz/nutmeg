@@ -32,7 +32,6 @@ macx {
 
     resource = Contents/Resources/Nutmeg
 
-#    libfiles.target = libfiles_target
     libfiles.files = $$files($$OUT_PWD/../Nutmeg/*)
     libfiles.path = $$resource
     QMAKE_BUNDLE_DATA += libfiles
@@ -41,8 +40,7 @@ macx {
 }
 
 win32 {
-    CONFIG(release, debug|release): zmq.files = $$zmq_lib/libzmq.dll
-    else:CONFIG(debug, debug|release): zmq.files = $$zmq_lib/libzmq_d.dll
+    zmq.files = $$zmq_lib/libzmq.dll $$zmq_lib/libzmq_d.dll
     nutmeg.files = ../Nutmeg
     nutmeg.path = $$DESTDIR
     INSTALLS += nutmeg
