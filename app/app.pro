@@ -17,6 +17,9 @@ QML_IMPORT_PATH =
 
 QT += core gui widgets qml quick
 
+# Platform dependent form of DESTDIR
+dest = $$replace(DESTDIR, /, $$QMAKE_DIR_SEP)
+
 # Including Pugin with app
 # TODO: Work out this process for Windows, Linux, Android, iOS?
 macx {
@@ -33,11 +36,11 @@ macx {
 
 
 win32 {
-    nutlib.path = $$DESTDIR
+    nutlib.path = $$dest
     zmq.files = $$zmq_lib\libzmq.dll $$zmq_lib\libzmq_d.dll
 }
 unix:!macx {
-    nutlib.path = $$DESTDIR
+    nutlib.path = $$dest
     zmq.files = $$zmq_lib/libzmq.so
 }
 
@@ -50,7 +53,7 @@ QMAKE_EXTRA_TARGETS += nutlib
 POST_TARGETDEPS += nutlib
 
 # Copy ZMQ in
-for (f, zmq.files): zmq.commands += $(COPY) $$f $$DESTDIR;
+for (f, zmq.files): zmq.commands += $(COPY) $$f $$dest;
 export(zmq.commands)
 QMAKE_EXTRA_TARGETS += zmq
 POST_TARGETDEPS += zmq
