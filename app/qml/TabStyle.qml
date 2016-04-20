@@ -17,22 +17,9 @@ Rectangle {
     }
 
     z: -10
-    color: "white"
+    color: styleData.selected ? "white" : "transparent"
     implicitWidth: Math.max(text.width + closeButton.size + 16, 80)
     implicitHeight: 22
-
-    LinearGradient {
-        cached: true
-        anchors.fill: parent
-        gradient: Gradient {
-            GradientStop { position: 0; color: "#eeeeee" }
-            GradientStop { position: 1; color: "#f6f6f6" }
-        }
-        opacity: styleData.selected ? 0 : 1
-        Behavior on opacity {
-            SmoothedAnimation { velocity: -1; duration: 100 }
-        }
-    }
 
     Text {
         id: text
@@ -45,7 +32,6 @@ Rectangle {
     CloseButton {
         id: closeButton
         size: parent.height*0.6
-//        linecolor: tab.color
 
         anchors {
             verticalCenter: parent.verticalCenter
@@ -58,16 +44,29 @@ Rectangle {
     }
 
     Rectangle {
-        property bool selected: styleData.selected
         anchors.bottom: parent.bottom
-
         anchors.horizontalCenter: parent.horizontalCenter
+
+        visible: !styleData.selected
+        color: "#f6f6f6"
+
+        width: parent.width
+        height: 1
+        Behavior on width {
+            SmoothedAnimation { velocity: -1; duration: 70 }
+        }
+    }
+
+    Rectangle {
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+
         color: tab.linecolor
 
-        width: selected ? 0 : parent.width
-        height: 1 //selected ? 0 : 1
+        width: styleData.selected ? 0 : parent.width
+        height: 1
         Behavior on width {
-            SmoothedAnimation { velocity: -1; duration: 50 }
+            SmoothedAnimation { velocity: -1; duration: 70 }
         }
     }
 

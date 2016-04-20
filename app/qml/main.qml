@@ -2,6 +2,7 @@ import QtQuick 2.4
 //import QtQuick.Dialogs 1.2
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.0
+import QtGraphicalEffects 1.0
 import Nutmeg 0.1
 import FileIO 1.0
 
@@ -180,6 +181,17 @@ Rectangle {
 
             tabBar: Rectangle {
                 anchors.fill: parent
+                LinearGradient {
+                    cached: true
+                    anchors.fill: parent
+                    gradient: Gradient {
+                        GradientStop { position: 0; color: "#eeeeee" }
+                        GradientStop { position: 1; color: "#f6f6f6" }
+                    }
+                    Behavior on opacity {
+                        SmoothedAnimation { velocity: -1; duration: 100 }
+                    }
+                }
                 Rectangle {
                     anchors { bottom: parent.bottom; right: parent.right }
                     width: parent.width; height: 1
@@ -214,7 +226,11 @@ Rectangle {
 
         Rectangle {
             anchors.fill: parent
-            border { color: "#AAAAAA"; width: 1 }
+            Rectangle {
+                width: 1
+                height: parent.height
+                color: tabViewItem.linecolor
+            }
         }
         Item {
             id: userArea

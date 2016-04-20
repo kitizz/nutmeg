@@ -7,7 +7,6 @@ DESTDIR = $$OUT_PWD/../Nutmeg
 uri = com.kitizz.Nutmeg
 DEFINES += NUTMEG_LIBRARY
 
-
 include(../defaults.pri)
 include(../config.pri)
 include(nutmegsrc.pri)

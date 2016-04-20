@@ -45,7 +45,8 @@ void QmlWindow::finalizeView()
 
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setContentsMargins(0,0,0,0);
-#ifdef Q_OS_WIN
+    layout->setSpacing(0);
+#ifndef Q_OS_MACX
     layout->addWidget(m_menuBar);
 #endif
     layout->addWidget(container);

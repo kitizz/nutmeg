@@ -300,7 +300,7 @@ bool FigureBase::eventFilter(QObject *watched, QEvent *event)
     if (event->type() == QEvent::TouchBegin ||
             event->type() == QEvent::TouchEnd ||
             event->type() == QEvent::TouchUpdate) {
-//        qDebug() << "Event occured!" << event << "\n";
+        qDebug() << "Event occured!" << event << "\n";
         QList<QTouchEvent::TouchPoint> touchPoints = static_cast<QTouchEvent*>(event)->touchPoints();
     }
 //    if (event->type() == QEvent::MouseMove) {
