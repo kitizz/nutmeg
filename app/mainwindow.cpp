@@ -3,12 +3,11 @@
 
 #include <QQmlEngine>
 #include <QQmlContext>
+#include <QQuickItem>
 #include <QMenu>
 #include <QAction>
 #include <QSystemTrayIcon>
 #include <QTimer>
-
-#include "server/server.h"
 
 #ifdef Q_OS_MACX
     void qt_mac_set_dock_menu(QMenu *menu);
@@ -18,35 +17,17 @@ QFileDialog *MainWindow::m_dialog = 0;
 
 MainWindow::MainWindow(QUrl qmlSource, QWidget *parent)
     : QmlWindow(qmlSource, true, parent, true)
-    , m_server(0)
+    , m_trayIcon(0)
     , m_settingsWindow(0)
 {
     view()->rootContext()->setContextProperty("window", this);
 
-    finalizeView();
-
     setWindowIcon(QIcon(":/images/icon.png"));
     createSystemTray();
+
+    finalizeView();
     createMenus();
     this->resize(700, 500);
-}
-
-Server *MainWindow::server() const
-{
-    return m_server;
-}
-
-void MainWindow::setServer(Server *arg)
-{
-    if (m_server == arg) return;
-    if (m_server)
-        m_server->disconnect(this);
-
-    m_server = arg;
-    if (m_server)
-        QObject::connect(m_server, &Server::serverStarted, this, &MainWindow::serverStarted);
-
-    emit serverChanged(arg);
 }
 
 QmlWindow *MainWindow::settingsWindow() const
@@ -76,12 +57,6 @@ void MainWindow::setAboutWindow(QmlWindow *arg)
 void MainWindow::notify(const QString &title, const QString &msg)
 {
     m_trayIcon->showMessage(title, msg);
-}
-
-void MainWindow::serverStarted(int subPort, int pubPort)
-{
-    QString msg = QString("Publish to port: %1\nSubscribe to port: %2").arg(subPort).arg(pubPort);
-    notify("Server Started", msg);
 }
 
 void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason)

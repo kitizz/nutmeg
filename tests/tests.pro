@@ -23,7 +23,7 @@ include(../defaults.pri)
 include(../3rdparty/GoogleTest/GoogleTest.pri)
 
 INCLUDEPATH += ../nutmeglib/src
-LIBS += -L../nutmeglib -lnutmeglib
+LIBS += -L../Nutmeg -lnutmeglib
 
 #INCLUDEPATH += /Users/kitham/projects/packages/armadillo-6.700.3/include
 #LIBS += -L/Users/kitham/projects/packages/armadillo-6.700.3 -larmadillo

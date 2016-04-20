@@ -2,7 +2,7 @@ TEMPLATE = lib
 CONFIG += plugin
 
 TARGET = nutmeglib
-win32:DESTDIR = $$OUT_PWD
+DESTDIR = $$OUT_PWD/../Nutmeg
 
 uri = com.kitizz.Nutmeg
 DEFINES += NUTMEG_LIBRARY
@@ -32,40 +32,34 @@ qmlfiles.files = \
 guifiles.files = \
     qml/Gui/qmldir \
     qml/Gui/Gui.qml \
-    qml/Gui/Layouts/Grid.qml \
-    qml/Gui/Layouts/Column.qml \
-    qml/Gui/Layouts/Row.qml \
     qml/Gui/Controls/ControlItem.qml \
     qml/Gui/Controls/Button.qml \
     qml/Gui/Controls/Slider.qml \
 
-# Copy Plugin into its own directory (dynamic lib, QML, qmldir, etc)
-installPath = $$OUT_PWD/../Nutmeg
-#mkdirNutmeg.target = $$installPath
-#mkdirNutmeg.commands = $(MKDIR) \"$$replace(installPath, /, $$QMAKE_DIR_SEP)\"
-#QMAKE_EXTRA_TARGETS += mkdirNutmeg
-#PRE_TARGETDEPS += $$mkdirNutmeg.target
+unix: {
+    qmlfiles.commands =
+    for (f, qmlfiles.files): qmlfiles.commands += $(COPY) $$PWD/$$f $$DESTDIR;
+    qmlfiles.commands += $(MKDIR) $$DESTDIR/Gui;
+    for (f, guifiles.files): qmlfiles.commands += $(COPY) $$PWD/$$f $$DESTDIR/Gui;
+#    message($$qmlfiles.command)
+}
+win32: {
+    dest = $$replace(DESTDIR, /, $$QMAKE_DIR_SEP)
+    Fpaths =
+    for (f, qmlfiles.files): Fpaths += $$replace(f, /, $$QMAKE_DIR_SEP)
+    for (f, Fpaths): QMAKE_POST_LINK += $$quote(copy /y $$PWD/$$f $$dest;)
 
-qmlfiles.path = $$installPath
-#qmlfile.depends = mkdirNutmeg
-target.path = $$installPath
-#target.depends = mkdirNutmeg
+    QMAKE_POST_LINK += $$quote(if not exist $$dest\Gui mkdir $$dest\Gui; )
 
-INSTALLS += target qmlfiles
+    Gpaths =
+    for (f, guifiles.files): Gpaths += $$replace(f, /, $$QMAKE_DIR_SEP)
+    for (f, Gpaths): QMAKE_POST_LINK += $$quote(copy /y $$PWD\$$f $$dest\Gui;)
+}
 
-# Copy Nutmeg.Gui stuff in /Gui directory
-guiPath = $$installPath/Gui
-#mkdirGui.target = $$guiPath
-#mkdirGui.commands = $(MKDIR) \"$$replace(guiPath, /, $$QMAKE_DIR_SEP)\"
-#mkdirGui.depends = mkdirNutmeg
-#QMAKE_EXTRA_TARGETS += mkdirGui
-#PRE_TARGETDEPS += $$mkdirGui.target
-
-guifiles.path = $$guiPath
-#guifiles.depends = mkdirGui
-INSTALLS += guifiles
-
-#qmlfiles.command = $(COPY_FILE) qmlfiles.files
+first.depends = $(first) qmlfiles
+export(first.depends)
+export(qmlfiles.commands)
+QMAKE_EXTRA_TARGETS += first qmlfiles
 
 unix:QMAKE_CXXFLAGS += -O3
 win32:QMAKE_CXXFLAGS += /O2

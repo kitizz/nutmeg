@@ -15,7 +15,6 @@ SOURCES += \
     src/common/plotbase.cpp \
     src/common/defaults.cpp \
     src/common/guiitem.cpp \
-    src/util/settings.cpp \
     src/util/mouseevent.cpp \
     src/util/util.cpp \
     src/util/ndarray.cpp \
@@ -64,7 +63,6 @@ HEADERS += \
     src/common/plotbase.h \
     src/common/defaults.h \
     src/common/guiitem.h \
-    src/util/settings.h \
     src/util/mouseevent.h \
     src/util/util.h \
     src/util/ndarray.h \

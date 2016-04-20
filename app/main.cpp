@@ -1,17 +1,15 @@
 #include <QApplication>
 #include <QQuickView>
+#include <QQuickItem>
 #include <QQmlProperty>
 #include <QQmlContext>
 #include <QQmlEngine>
 #include <QDebug>
 
-#include "util/settings.h"
-#include "server/server.h"
-#include "server/server_util.h"
-
 #include "mainwindow.h"
 #include "qmlwindow.h"
 
+#include "settings.h"
 #include "fileio.h"
 
 int main(int argc, char *argv[])
@@ -39,22 +37,6 @@ int main(int argc, char *argv[])
     QVariant settings_var = QVariant::fromValue(settings);
     w->view()->rootObject()->setProperty("settings", settings_var);
     settingsWindow->view()->rootObject()->setProperty("settings", settings_var);
-
-    Server* server = w->view()->rootObject()->findChild<Server*>("server");
-    if (!server) {
-        qFatal("Server object not instantiated! Exiting...");
-        return 1;
-    }
-
-    // Two-way bind settings and server port numbers
-    QObject::connect(server, &Server::portSubscribeChanged, settings, &Settings::setPortSubscribe);
-    QObject::connect(server, &Server::portPublishChanged, settings, &Settings::setPortPublish);
-    QObject::connect(settings, &Settings::portSubscribeChanged, server, &Server::setPortSubscribe);
-    QObject::connect(settings, &Settings::portPublishChanged, server, &Server::setPortPublish);
-
-    server->setApp(&app);
-    w->setServer(server);
-    server->start();
 
     w->show();
     return app.exec();

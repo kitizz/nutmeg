@@ -17,6 +17,8 @@ public:
 
     virtual bool event(QEvent *event);
 
+    static QString adjustPath(const QString &path);
+
 signals:
 
     void menuBarChanged(QMenuBar * arg);

@@ -107,11 +107,14 @@ Rectangle {
         testfig()
     }
 
-//    Test3D {}
-
     Server {
         id: server
         controller: controller
+        onServerStarted: {
+            var msg = "Publish to port: " + subPort + "\nSubscribe to port: " + pubPort
+            window.notify("Server started", msg)
+        }
+        Component.onCompleted: start()
     }
 
     Controller {

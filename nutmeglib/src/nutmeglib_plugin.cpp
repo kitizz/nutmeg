@@ -33,7 +33,6 @@
 #include "server/controller.h"
 #include "server/nutmegerror.h"
 #include "util/ndarray.h"
-#include "util/settings.h"
 
 // 3D Stuff at the end
 #include "3d/axes/axis3dbase.h"

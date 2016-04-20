@@ -5,8 +5,8 @@
 #include <QQmlContext>
 #include <QQuickItem>
 #include <QDebug>
-
-#include "server/server_util.h"
+#include <QFileInfo>
+#include <QDir>
 
 QmlWindow::QmlWindow(QUrl qmlSource, bool persistent, QWidget *parent, bool delayViewInit)
     : QWidget(parent)
@@ -24,7 +24,7 @@ QmlWindow::QmlWindow(QUrl qmlSource, bool persistent, QWidget *parent, bool dela
     // TODO: Remove this hack. Look at this post:
     // http://www.qtcentre.org/threads/43236-Loading-a-qmldir-from-a-qrc-file?p=198993#post198993
 
-    QString libpath = ServerUtil::adjustPath("");
+    QString libpath = adjustPath("");
     qDebug() << "Lib path:" << libpath;
     m_view->engine()->addImportPath(libpath);
 
@@ -65,6 +65,34 @@ bool QmlWindow::event(QEvent *event)
         return false;
     }
     return QWidget::event(event);
+}
+
+QString QmlWindow::adjustPath(const QString &path)
+{
+#if defined(Q_OS_IOS)
+    if (!QDir::isAbsolutePath(path))
+        return QString::fromLatin1("%1/%2")
+                .arg(QCoreApplication::applicationDirPath(), path);
+#elif defined(Q_OS_MAC)
+    if (!QDir::isAbsolutePath(path))
+        return QString::fromLatin1("%1/../Resources/%2")
+                .arg(QCoreApplication::applicationDirPath(), path);
+#elif defined(Q_OS_BLACKBERRY)
+    if (!QDir::isAbsolutePath(path))
+        return QString::fromLatin1("app/native/%1").arg(path);
+#elif !defined(Q_OS_ANDROID)
+    QString pathInInstallDir =
+            QString::fromLatin1("%1/../%2").arg(QCoreApplication::applicationDirPath(), path);
+    if (QFileInfo(pathInInstallDir).exists())
+        return pathInInstallDir;
+    pathInInstallDir =
+            QString::fromLatin1("%1/%2").arg(QCoreApplication::applicationDirPath(), path);
+    if (QFileInfo(pathInInstallDir).exists())
+        return pathInInstallDir;
+#elif defined(Q_OS_ANDROID_NO_SDK)
+    return QLatin1String("/data/user/qt/") + path;
+#endif
+    return path;
 }
 
 

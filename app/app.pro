@@ -12,11 +12,6 @@ include(../config.pri)
 
 DESTDIR = $$OUT_PWD
 
-QTPLUGIN += nutmeglib
-INCLUDEPATH += ../nutmeglib/src
-unix:LIBS += -L../nutmeglib -lnutmeglib
-win32:LIBS += -L"../nutmeglib" -lnutmeglib
-
 # Additional import path used to resolve QML modules in Creator's code model
 QML_IMPORT_PATH =
 
@@ -30,28 +25,35 @@ macx {
     # Mac Stuff
     QMAKE_INFO_PLIST = Info.plist # qmake will copy this file to MyApp.app/Contents/Info.plist
 
-    resource = Contents/Resources/Nutmeg
-
-    libfiles.files = $$files($$OUT_PWD/../Nutmeg/*)
-    libfiles.path = $$resource
-    QMAKE_BUNDLE_DATA += libfiles
-
     QMAKE_POST_LINK += $$quote(install_name_tool -change libnutmeglib.dylib @executable_path/../Resources/Nutmeg/libnutmeglib.dylib $$OUT_PWD/app.app/Contents/MacOS/app)
+
+    nutlib.path = $$OUT_PWD/app.app/Contents/Resources
+    zmq.files = $$zmq_lib/libzmq.dylib
 }
+
 
 win32 {
-    zmq.files = $$zmq_lib/libzmq.dll $$zmq_lib/libzmq_d.dll
-    nutmeg.files = ../Nutmeg
-    nutmeg.path = $$DESTDIR
-    INSTALLS += nutmeg
+    nutlib.path = $$DESTDIR
+    zmq.files = $$zmq_lib\libzmq.dll $$zmq_lib\libzmq_d.dll
 }
-unix {
-    macx:zmq.files = $$zmq_lib/libzmq.dylib
-    !macx:zmq.files = $$zmq_lib/libzmq.so
+unix:!macx {
+    nutlib.path = $$DESTDIR
+    zmq.files = $$zmq_lib/libzmq.so
 }
-zmq.path = $$DESTDIR
 
-INSTALLS += zmq
+# Copy Nutmeg lib in
+nutmeg_dir = $$OUT_PWD/../Nutmeg
+nutlib.files = $$replace(nutmeg_dir, /, $$QMAKE_DIR_SEP)
+nutlib.commands += $(COPY_DIR) $$nutlib.files $$nutlib.path
+export(nutlib.commands)
+QMAKE_EXTRA_TARGETS += nutlib
+POST_TARGETDEPS += nutlib
+
+# Copy ZMQ in
+for (f, zmq.files): zmq.commands += $(COPY) $$f $$DESTDIR;
+export(zmq.commands)
+QMAKE_EXTRA_TARGETS += zmq
+POST_TARGETDEPS += zmq
 
 # Headers and sources
 SOURCES += \
@@ -59,11 +61,13 @@ SOURCES += \
     mainwindow.cpp \
     qmlwindow.cpp \
     fileio.cpp \
+    settings.cpp \
 
 HEADERS += \
     mainwindow.h \
     qmlwindow.h \
     fileio.h \
+    settings.h \
 
 RESOURCES += \
     qml.qrc
