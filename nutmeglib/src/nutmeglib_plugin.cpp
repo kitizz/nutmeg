@@ -6,6 +6,7 @@
 #include "common/guibase.h"
 #include "common/guiitem.h"
 #include "2d/plots/lineplot.h"
+#include "2d/plots/streamingplot.h"
 #include "2d/plots/linesegmentplot.h"
 #include "2d/plots/imageplot.h"
 #include "2d/plots/canvasplot.h"
@@ -73,6 +74,7 @@ void NutmegPlugin::registerTypes(const char *uri)
     qmlRegisterType<FillSpec>(uri, maj,min, "FillSpec");
 
     qmlRegisterType<LinePlot>(uri, maj,min, "LinePlotBase");
+    qmlRegisterType<StreamingPlot>(uri, maj,min, "StreamingPlotBase");
     qmlRegisterType<LineSegmentPlot>(uri, maj,min, "LineSegmentPlotBase");
     qmlRegisterType<ImagePlot>(uri, maj,min, "ImagePlotBase");
     qmlRegisterType<CanvasPlot>(uri, maj,min, "CanvasPlotBase");

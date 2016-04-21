@@ -14,10 +14,15 @@ class NUTMEGLIB_EXPORT XYPlot : public Plot2DBase
 public:
     explicit XYPlot(QQuickItem *parent = 0);
 
-    NDArray &xData();
-    NDArray &yData();
-    void setXData(const NDArray &arg);
-    void setYData(const NDArray &arg);
+    virtual NDArray &xData();
+    virtual NDArray &yData();
+    virtual void setXData(const NDArray &arg);
+    virtual void setYData(const NDArray &arg);
+    virtual int xSize() const;
+    virtual int ySize() const;
+
+    virtual int startIndexX() const;
+    virtual int startIndexY() const;
 
     Q_INVOKABLE QPointF dataLocationAt(int index);
     Q_INVOKABLE QPointF frameLocationAt(int index);
@@ -35,8 +40,10 @@ protected slots:
     virtual void updateDataLimits();
     void updateTree();
 
-private:
+protected:
     bool m_settingData;
+
+private:
     bool m_xDataSet;
     NDArray m_xData;
     NDArray m_yData;

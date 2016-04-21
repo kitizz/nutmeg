@@ -31,10 +31,15 @@ public:
 
     QObject *object() { return m_obj; }
 
+public slots:
+    void updateMethods();
+
 private:
     QObject *m_obj;
+    const QMetaObject *m_metaParent;
     QMetaMethod m_childMethod;
     QMap<QString, QMetaProperty> m_props;
+    QMap<QString, QMetaMethod> m_allmethods;
     QMap<QString, QMetaMethod> m_funcs;
     QMap<QString, QString> m_propMap;
     QMap<QString, QString> m_funcMap;

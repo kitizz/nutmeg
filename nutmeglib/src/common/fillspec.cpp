@@ -2,6 +2,7 @@
 
 FillSpec::FillSpec(QObject *parent)
     : QObject(parent)
+    , NutmegObject(this)
     , m_color(Qt::white)
     , m_alpha(1.0)
 {

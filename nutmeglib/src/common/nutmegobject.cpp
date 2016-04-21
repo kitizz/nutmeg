@@ -6,19 +6,24 @@
 
 NutmegObject::NutmegObject(QObject *obj)
     : m_obj(obj)
+    , m_metaParent(obj ? obj->metaObject() : 0)
     , m_childMethod(QMetaMethod())
     , m_props(QMap<QString, QMetaProperty>())
+    , m_allmethods(QMap<QString, QMetaMethod>())
     , m_funcs(QMap<QString, QMetaMethod>())
     , m_propMap(QMap<QString, QString>())
     , m_funcMap(QMap<QString, QString>())
 {
-
+    if (!obj) {
+        qWarning() << "WARNING: No QObject associated with NutmegObject...";
+        return;
+    }
 }
 
 void NutmegObject::registerChildMethod(const QString &name)
 {
-    auto meta = m_obj->metaObject();
-    m_childMethod = meta->method( meta->indexOfMethod(name.toLatin1()) );
+//    auto meta = m_obj->metaObject();
+    m_childMethod = m_allmethods[name];
 }
 
 // TODO: Reimplement this method in FigureBase, AxisBase and GuiBase...
@@ -88,23 +93,25 @@ void NutmegObject::registerMethod(const QString &handle)
     if (m_funcMap.contains(handle))
         return;
 
+    if (m_allmethods.isEmpty())
+        updateMethods();
+
     m_funcMap.insert(handle, handle);
 
-    auto meta = m_obj->metaObject();
-    QMetaMethod func = meta->method( meta->indexOfMethod(handle.toLatin1()) );
+    QMetaMethod func = m_allmethods.value(handle);
     m_funcs.insert(handle, func);
 }
 
 void NutmegObject::registerMethods(QMap<QString, QString> mapping)
 {
-    qDebug() << "RegisterMethods" << mapping;
-    auto meta = m_obj->metaObject();
+    if (m_allmethods.isEmpty())
+        updateMethods();
 
     foreach (const QString key, mapping.keys()) {
         QString realname = mapping[key];
         m_funcMap.insert(key, realname);
 
-        QMetaMethod func = meta->method( meta->indexOfMethod(realname.toLatin1()) );
+        QMetaMethod func = m_allmethods[realname];
         m_funcs.insert(key, func);
     }
 }
@@ -118,4 +125,18 @@ QString NutmegObject::mapMethod(const QString &func) {
 QMetaMethod NutmegObject::method(const QString &handle)
 {
     return m_funcs[handle];
+}
+
+void NutmegObject::updateMethods()
+{
+    if (!m_obj)
+        return;
+    auto meta = m_obj->metaObject();
+    while (meta && meta != m_metaParent) {
+        for(int i = meta->methodOffset(); i < meta->methodCount(); ++i) {
+            QMetaMethod method = meta->method(i);
+            m_allmethods[method.name()] = method;
+        }
+        meta = meta->superClass();
+    }
 }

@@ -23,6 +23,7 @@ qmlfiles.files = \
     qml/Figure.qml \
     qml/Axis.qml \
     qml/LinePlot.qml \
+    qml/StreamingPlot.qml \
     qml/ImagePlot.qml \
     qml/CanvasPlot.qml \
     qml/Util.js \
@@ -34,6 +35,9 @@ guifiles.files = \
     qml/Gui/Controls/ControlItem.qml \
     qml/Gui/Controls/Button.qml \
     qml/Gui/Controls/Slider.qml \
+
+DISTFILES += $$qmlfiles.files \
+DISTFILES += $$guifiles.files
 
 unix: {
     for (f, qmlfiles.files): qmlfiles.commands += $(COPY) \"$$PWD/$$f\" \"$$DESTDIR\";
@@ -82,4 +86,5 @@ win32:QMAKE_LIBDIR += "$$zmq_lib"
 
 DISTFILES += \
     qml/Gui/qmldir
+
 

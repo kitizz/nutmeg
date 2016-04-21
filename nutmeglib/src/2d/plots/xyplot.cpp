@@ -76,6 +76,26 @@ void XYPlot::setYData(const NDArray &arg)
     }
 }
 
+int XYPlot::xSize() const
+{
+    return m_xData.size();
+}
+
+int XYPlot::ySize() const
+{
+    return m_yData.size();
+}
+
+int XYPlot::startIndexX() const
+{
+    return 0;
+}
+
+int XYPlot::startIndexY() const
+{
+    return 0;
+}
+
 /*!
  * \brief XYPlot::dataLocationAt
  * \param index Index of data point
@@ -115,7 +135,7 @@ void XYPlot::setData(const NDArray &xVals, const NDArray &yVals)
 void XYPlot::updateDataLimits()
 {
     qDebug() << Q_FUNC_INFO;
-    int xLen = m_xData.size(), yLen = m_yData.size();
+    int xLen = xSize(), yLen = ySize();
     int N = qMin(xLen, yLen);
     if (m_settingData)
         return; // Don't update until the data is good

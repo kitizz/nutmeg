@@ -5,6 +5,7 @@
 #include <QSemaphore>
 #include <QQueue>
 #include <QDebug>
+#include <QAtomicInt>
 
 template <class T>
 class AsyncQueue : public QQueue<T>
@@ -15,7 +16,6 @@ public:
         , m_count(0)
     {
         m_sema = new QSemaphore(1);
-//        m_sema.release(1);
         m_sema->acquire(1);
     }
 
@@ -35,9 +35,8 @@ public:
             // It's about to be empty, acquire the resource
             m_sema->acquire(1);
         }
-
-        T value = QQueue<T>::dequeue();
         --m_count;
+        T value = QQueue<T>::dequeue();
         return value;
     }
 
@@ -60,7 +59,7 @@ public:
 
 private:
     QSemaphore *m_sema;
-    int m_count;
+    QAtomicInt m_count;
 };
 
 #endif // ASYNCQUEUE_H

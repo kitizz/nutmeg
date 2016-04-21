@@ -3,6 +3,7 @@ module Nutmeg
 Figure 0.1 Figure.qml
 Axis 0.1 Axis.qml
 LinePlot 0.1 LinePlot.qml
+StreamingPlot 0.1 StreamingPlot.qml
 ImagePlot 0.1 ImagePlot.qml
 
 plugin nutmeglib

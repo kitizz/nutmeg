@@ -4,6 +4,7 @@
 #include <QQmlContext>
 #include <QQmlEngine>
 #include <QVariant>
+#include <QMetaMethod>
 
 #include "server_util.h"
 #include "../common/guiitem.h"
@@ -157,8 +158,56 @@ void ControllerWorker::setProperty(Task *task, bool inGui)
 
 void ControllerWorker::invoke(Task *task)
 {
-    // TODO: ControllerWorker::Invoke
     QMetaMethod func = m_controller->findMethod(task);
+
+    int nargs = task->args.length();
+    if (nargs != func.parameterCount())
+        throw InvokeError(*task, QString("Error invoking method %1. Expected %2 args, got %3")
+                          .arg(func.methodSignature().constData())
+                          .arg(func.parameterCount()).arg(nargs));
+
+    if (nargs > 10)
+        throw InvokeError(*task, QString("Error invoking method %1. Maximum of 10 args allowed.")
+                          .arg(func.methodSignature().constData()));
+
+    QObject *obj = task->targetObject->object();
+    if (!obj)
+        throw InvalidNutmegObject(*task, "Method is not attached to a valid object (this is likely a bug in Nutmeg).");
+
+    // Reference: https://gist.github.com/andref/2838534
+    QGenericArgument args[10];
+    int i;
+    for (i=0; i<nargs; ++i) {
+        QVariant arg = task->args[i];
+        // A const_cast is needed because calling data() would detach the QVariant.
+        args[i] = QGenericArgument(arg.typeName(), const_cast<void*>(arg.constData()));
+    }
+
+    bool ok = func.invoke(
+        obj,
+        Qt::DirectConnection,
+        args[0],
+        args[1],
+        args[2],
+        args[3],
+        args[4],
+        args[5],
+        args[6],
+        args[7],
+        args[8],
+        args[9]
+    );
+
+    if (!ok) {
+        QStringList types;
+        foreach (auto arg, task->args)
+            types << arg.typeName();
+        QString typeprint = QString("[%1]").arg( types.join(", ") );
+        throw InvokeError(*task,
+                          QString("Call to %1 failed (with arg types %2).")
+                          .arg(QString(func.methodSignature()))
+                          .arg(typeprint));
+    }
 }
 
 Controller::Controller(QQuickItem *parent)
@@ -172,6 +221,7 @@ Controller::Controller(QQuickItem *parent)
     , m_guiContainer(0)
 {
     m_worker = new ControllerWorker(this, &m_taskqueue);
+    connect(m_worker, &ControllerWorker::finished, [=]() { qWarning() << "WARNING! Controller's worker stopped."; });
 //    connect(&m_worker, &ControllerWorker::createFigure, this, )
     m_worker->start();
 }

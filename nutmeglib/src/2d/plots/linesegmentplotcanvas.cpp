@@ -38,11 +38,13 @@ void LineSegmentPlotCanvas::paint(QPainter *painter)
     QList<QLineF> lines;
     bool valid;
     // Get the segments into screen coords
+    qreal x1, y1, x2, y2;
     for (int i=0; i<sx.length(); ++i) {
-        const QPointF p1(sx[i], sy[i]), p2(ex[i], ey[i]);
-        const QLineF sliced = rectSlice(p1, p2, lim, valid);
-        if (valid)
-            lines << tran.map( sliced );
+        x1 = sx[i]; y1 = sy[i];
+        x2 = ex[i]; y2 = ey[i];
+//        rectSlice(x1, y1, x2, y2, lim, valid);
+//        if (valid)
+//            lines << tran.map( QLineF(x1, y1, x2, y2) );
     }
 
     preparePainter(painter, plot);

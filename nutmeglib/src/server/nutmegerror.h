@@ -197,6 +197,24 @@ public:
         details["propertyType"] = propType;
         details["propertyName"] = propName;
     }
+
+    /*!
+     * \property PropertyError::name
+     * \brief "PropertyError"
+     */
+};
+
+class InvokeError : public NutmegError {
+public:
+    InvokeError(const Task &task, const QString &message)
+        : NutmegError(task, "InvokeError", message)
+    {
+    }
+
+    /*!
+     * \property MethodError::name
+     * \brief "MethodError"
+     */
 };
 
 Q_DECLARE_METATYPE(NutmegError)

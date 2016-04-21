@@ -24,6 +24,7 @@ SOURCES += \
     src/server/server.cpp \
     src/server/controller.cpp \
     src/server/pushsocket.cpp \
+    src/server/asyncqueue.cpp \
     src/2d/axes/axiscanvas2d.cpp \
     src/2d/plots/lineplot.cpp \
     src/2d/plots/lineplotcanvas.cpp \
@@ -42,16 +43,17 @@ SOURCES += \
     src/2d/plots/plot2dbase.cpp \
     src/2d/plots/linesegmentplot.cpp \
     src/2d/plots/linesegmentplotcanvas.cpp \
+    src/2d/plots/streamingplot.cpp \
     src/3d/axes/axis3dbase.cpp \
     src/3d/plots/plot3dbase.cpp \
     src/3d/plots/pointcloud.cpp \
-    $$PWD/src/server/asyncqueue.cpp \
-    $$PWD/src/common/guibase.cpp \
-    $$PWD/src/util/arrayutil.cpp \
-    $$PWD/src/nutmeglib_plugin.cpp
+    src/common/guibase.cpp \
+    src/util/arrayutil.cpp \
+    src/nutmeglib_plugin.cpp
 
 HEADERS += \
     src/nutmeglibdecl.h \
+    src/nutmeglib_plugin.h \
     ../3rdparty/nzmqt/nzmqt.hpp \
     src/common/figurebase.h \
     src/common/nutmegobject.h \
@@ -66,12 +68,17 @@ HEADERS += \
     src/util/mouseevent.h \
     src/util/util.h \
     src/util/ndarray.h \
+    src/util/arrayutil.h \
     src/layout/layoutgrid.h \
     src/layout/layoutcolumn.h \
     src/layout/layoutrow.h \
     src/server/server.h \
     src/server/controller.h \
     src/server/pushsocket.h \
+    src/server/task.h \
+    src/server/server_util.h \
+    src/server/asyncqueue.h \
+    src/server/nutmegerror.h \
     src/2d/axes/axiscanvas2d.h \
     src/2d/plots/lineplot.h \
     src/2d/plots/lineplotcanvas.h \
@@ -90,17 +97,12 @@ HEADERS += \
     src/2d/plots/plot2dbase.h \
     src/2d/plots/linesegmentplot.h \
     src/2d/plots/linesegmentplotcanvas.h \
+    src/2d/plots/streamingplot.h \
     src/3d/axes/axis3dbase.h \
     src/3d/plots/plot3dbase.h \
     src/3d/plots/pointcloud.h \
-    $$PWD/src/server/binaryspec.h \
-    $$PWD/src/server/task.h \
-    $$PWD/src/server/server_util.h \
-    $$PWD/src/server/asyncqueue.h \
-    $$PWD/src/server/nutmegerror.h \
-    $$PWD/src/common/guibase.h \
-    $$PWD/src/util/arrayutil.h \
-    $$PWD/src/nutmeglib_plugin.h
+    src/server/binaryspec.h \
+    src/common/guibase.h \
 
 RESOURCES += \
     $$PWD/nutmeglib.qrc

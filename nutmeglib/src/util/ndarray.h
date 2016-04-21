@@ -162,15 +162,6 @@ public:
 
     QExplicitlySharedDataPointer<ArrayData> sharedData() { return m_data_ptr; }
 
-protected:
-    int m_ndim;
-    Type m_type;
-    QList<int> m_shapelst;
-    QSharedPointer<int> m_shape;
-    QSharedPointer<int> m_strides;
-    int m_size;
-    int m_typesize;
-
     static std::size_t typesize(Type type) {
         switch (type) {
         case Int64: return sizeof(int);
@@ -181,6 +172,17 @@ protected:
         default: return 0;  // Unknown type
         }
     }
+
+protected:
+    int m_ndim;
+    Type m_type;
+    QList<int> m_shapelst;
+    QSharedPointer<int> m_shape;
+    QSharedPointer<int> m_strides;
+
+    int m_size;
+    int m_typesize;
+
 
     void update_size();
 

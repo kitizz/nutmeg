@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 #include <QMap>
+#include <QDebug>
 
 int Util::randInt(int low, int high) {
     // From: http://goo.gl/KdHeUg
@@ -277,6 +278,26 @@ QTransform Util::plotToView(QSizeF viewSize, QRectF lim, bool invertX, bool inve
     QTransform tran;
     tran.translate(tx, ty).scale(scaleX, scaleY).translate(-lim.x(), -lim.y());
     return tran;
+}
+
+void Util::plotToView(
+        qreal viewWidth, qreal viewHeight, const QRectF &lim, bool invertX, bool invertY,
+        qreal &tx, qreal &ty, qreal &sx, qreal &sy)
+{
+    sx = viewWidth/lim.width();
+    sy = viewHeight/lim.height();
+    if (invertX) {
+        sx *= -1;
+        tx = viewWidth;
+    } else {
+        tx = 0;
+    }
+    if (!invertY) {
+        sy *= -1;
+        ty = viewHeight;
+    } else {
+        ty = 0;
+    }
 }
 
 QList<int>* Util::medianArray(int N, int s, QList<int>* lst)
