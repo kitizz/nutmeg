@@ -46,7 +46,7 @@ Figure {
 }
 ```
 
-Using the [Python bindings](, data can be plotted like so:
+Using the [Python bindings](https://github.com/kitizz/pynutmeg), data can be plotted like so:
 
 ```python
 import pynutmeg
@@ -81,18 +81,26 @@ Building
 - Qt 5.6 or higher
 - [ZMQ](http://zeromq.org/intro:get-the-software) 4.x.x (3.2.x should also be fine)
 
+### Checkout
+```bash
+>> git clone https://github.com/kitizz/nutmeg.git
+>> cd nutmeg
+>> git submodule init
+>> git submodule update
+```
+
 ### Config
 Before building, ensure that in `config.pri` the include path and library path for
 [zmq](http://zeromq.org/intro:get-the-software) is properly configured. If zmq has
 been built with the default configuration in your favourite flavour of Unix, the default
-`nutmeg.pro` values should be fine.
+should be fine.
 
 ### Windows
 It is recommended to use the MSVC builds of Qt. It is likely you'll need to build ZMQ
 yourself. ZMQ 4.1.x is fairly straight forward to build on Windows these days with MSVC.
 Modify `config.pri` accordingly and proceed.
 
-### Building
+### Build
 ```bash
 >> cd path/to/nutmeg
 >> qmake -r nutmeg.pro
