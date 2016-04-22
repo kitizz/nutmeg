@@ -21,13 +21,15 @@ The following QML file declares a Figure which contains two axes. It uses QML st
 
 **figure.qml**
 ```qml
+import Nutmeg 0.1
+
 Figure {
     id: fig
-    Layouts.Column {
-        spacing: 0.05*fig.height
+    Column {
+        columnWeights: [0.65, 0.35]
+
         Axis {
             handle: "axis1"
-            Layout.preferredHeight: 0.65*fig.height
             LinePlot {
                 handle: "data"
                 line { color: "#7777FF"; width: 4 }
@@ -35,7 +37,6 @@ Figure {
         }
         Axis {
             handle: "axis2"
-            Layout.preferredHeight: 0.3*fig.height
             LinePlot {
                 handle: "data"
                 line { color: "#FF7777"; width: 4 }
@@ -45,20 +46,17 @@ Figure {
 }
 ```
 
-From Python, data can be plotted like so:
+Using the [Python bindings](, data can be plotted like so:
 
 ```python
-import Nutmeg
+import pynutmeg
 from numpy import sin, cos, pi, r_
-
-# Assuming the core is on port 43686 (default)
-Nutmeg.init()
 
 x = r_[0:1:0.01]
 y1 = sin(10*pi*x)
 y2 = 10*pi*cos(10*pi*x)
 
-fig = Nutmeg.figure("myFigure", "myFigure.qml")
+fig = pynutmeg.figure("myFigure", "myFigure.qml")
 
 fig.set("axis1.data", x=x, y=y1)
 fig.set("axis2.data", x=x, y=y2)
@@ -81,15 +79,25 @@ Building
 
 ### Requirements
 - Qt 5.6 or higher
-- [ZMQ](http://zeromq.org/intro:get-the-software) 4.0.x (3.2.x should also be fine)
+- [ZMQ](http://zeromq.org/intro:get-the-software) 4.x.x (3.2.x should also be fine)
 
-### Unix
-Before building, ensure that in `nutmeg.pro` the INCLUDEPATH and QMAKE_LIBDIR point to the include path and
-library path for [zmq](http://zeromq.org/intro:get-the-software). If zmq has been built with the default
-configuration in your favourite flavour of Unix, the default `nutmeg.pro` values should be fine.
+### Config
+Before building, ensure that in `config.pri` the include path and library path for
+[zmq](http://zeromq.org/intro:get-the-software) is properly configured. If zmq has
+been built with the default configuration in your favourite flavour of Unix, the default
+`nutmeg.pro` values should be fine.
 
 ### Windows
-Need to try that yet. Let me know!
+It is recommended to use the MSVC builds of Qt. It is likely you'll need to build ZMQ
+yourself. ZMQ 4.1.x is fairly straight forward to build on Windows these days with MSVC.
+Modify `config.pri` accordingly and proceed.
+
+### Building
+```bash
+>> cd path/to/nutmeg
+>> qmake -r nutmeg.pro
+>> make / jom.exe
+```
 
 Goals
 -----
