@@ -110,7 +110,7 @@ public:
     QVariantList args;
 
     QUuid sessionId;
-    uint64_t taskId;
+    uint32_t taskId;
 
 };
 
