@@ -24,6 +24,7 @@ signals:
 
 private:
     void run() Q_DECL_OVERRIDE;
+    void addComponent(Task *task);
     void setFigure(Task *task);
     void setGui(Task *task);
     void setProperty(Task *task, bool inGui=false);
@@ -53,6 +54,7 @@ public:
     QMetaProperty findProperty(Task *task, bool inGui=false);
     QMetaMethod findMethod(Task *task, bool inGui=false);
 
+    QQmlComponent *createQmlComponent(const QByteArray &qml, const QString &name, QQuickItem *parent, const Task &task);
     QQuickItem *createQmlObject(const QByteArray &qml, const QString &name, QQuickItem *parent, const Task &task);
 
     QQuickItem *figureContainer() const;
@@ -80,6 +82,7 @@ public slots:
     void queueTask(const QString &command, const QString &target, const QVariantList &args, int id);
     void queueTask(const Task &task);
 
+    void createComponent(Task task);
     void createFigure(Task task);
     void createGui(FigureBase *fig, Task task);
 
@@ -89,11 +92,12 @@ protected slots:
 
 private:
     bool m_destroying;
+    QMap<QString, QQmlComponent*> m_components;
     QMultiMap<QString,FigureBase*> m_figures;
     QVariantMap m_figuresVar;
 
     ControllerWorker *m_worker;
-    AsyncQueue<Task> m_taskqueue;
+    AsyncQueue<Task> *m_taskqueue;
 
     QQuickItem *m_figureContainer;
     QQuickItem *m_guiContainer;

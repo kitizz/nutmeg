@@ -49,6 +49,10 @@ void ControllerWorker::run()
                 emit m_controller->successProcessing(task);
                 break;
 
+            case Task::AddComponent:
+                addComponent(&task);
+                break;
+
             default:
                 throw UnknownCommand(task);
                 break;
@@ -61,9 +65,43 @@ void ControllerWorker::run()
 }
 
 /*!
- * \brief ControllerWorker::setFigure
+ * \brief ControllerWorker::addComponent
  * \param task
  * \throws QmlParserError
+ */
+void ControllerWorker::addComponent(Task *task)
+{
+    QStringList parts = task->target.split('.');
+    if (parts.length() != 1) {
+        throw InvalidTarget(*task, QString("Invalid Component handle, \"%1\". Avoid dot representation").arg(task->target));
+    }
+
+    if (task->args.length() != 1)
+        throw BadArgumentCount(*task, 1, task->args.length());
+
+    QByteArray qml = task->args[0].toByteArray();
+
+    // TODO: Check if Component is already exists
+
+    // Call controller queued
+    QMetaObject::invokeMethod(m_controller, "createComponent", Qt::BlockingQueuedConnection,
+                              Q_ARG(Task, *task));
+}
+
+/*!
+ * \brief ControllerWorker::setFigure
+ *
+ * Set a Figure defined by a QML. An example message spec:
+ * Part 1:
+ * ```
+ * {
+ *     "command": "SetFigure",
+ *     "target": "figureHandle",
+ *     "args": [ <qml definition> ]
+ * }
+ * ```
+ *
+ * \throws QmlParserError, FigureError
  */
 void ControllerWorker::setFigure(Task *task)
 {
@@ -82,7 +120,6 @@ void ControllerWorker::setFigure(Task *task)
         if (fig->qml() == qml)
             return; // We redefine it?
 
-        // TODO: Close figure in the TabView...
         m_controller->deregisterFigure(fig);
         fig->deleteLater();
     }
@@ -95,6 +132,7 @@ void ControllerWorker::setFigure(Task *task)
 /*!
  * \brief ControllerWorker::setGui
  * \param task - Task#
+ * \throws InvalidTarget, BadArgumentCount, QmlParserError
  */
 void ControllerWorker::setGui(Task *task)
 {
@@ -213,14 +251,15 @@ void ControllerWorker::invoke(Task *task)
 Controller::Controller(QQuickItem *parent)
     : QQuickItem(parent)
     , m_destroying(false)
+    , m_components(QMap<QString, QQmlComponent*>())
     , m_figures(QMultiMap<QString,FigureBase*>())
     , m_figuresVar(QVariantMap())
     , m_worker(0)
-    , m_taskqueue(AsyncQueue<Task>())
+    , m_taskqueue(new AsyncQueue<Task>())
     , m_figureContainer(0)
     , m_guiContainer(0)
 {
-    m_worker = new ControllerWorker(this, &m_taskqueue);
+    m_worker = new ControllerWorker(this, m_taskqueue);
     connect(m_worker, &ControllerWorker::finished, [=]() { qWarning() << "WARNING! Controller's worker stopped."; });
 //    connect(&m_worker, &ControllerWorker::createFigure, this, )
     m_worker->start();
@@ -228,6 +267,7 @@ Controller::Controller(QQuickItem *parent)
 
 Controller::~Controller()
 {
+    delete m_taskqueue;
     m_destroying = true;
     m_worker->deleteLater();
 }
@@ -353,22 +393,25 @@ QMetaMethod Controller::findMethod(Task *task, bool inGui)
     return task->targetObject->method(task->targetName);
 }
 
-QQuickItem *Controller::createQmlObject(const QByteArray &qml, const QString &name, QQuickItem *parent, const Task &task)
+QQmlComponent *Controller::createQmlComponent(const QByteArray &qml, const QString &name, QQuickItem *parent, const Task &task)
 {
     auto ctx = QQmlEngine::contextForObject(parent);
     auto engine = ctx->engine();
 
-    QQmlComponent comp(engine, parent);
-    comp.setData(qml, name);
+    QQmlComponent *comp = new QQmlComponent(engine, parent);
+    qDebug() << "Creating component:" << name;
+    comp->setData(qml, name);
 
-    while (comp.isLoading())
-        ServerUtil::sleep(1);
+    int max_t = 200;
+    while (comp->isLoading() && --max_t > 0) {
+        ServerUtil::sleep(5);
+    }
 
-    if (comp.isError()) {
+    if (comp->isError()) {
         int line = -1, column = -1;
         QStringList msglist;
 
-        auto errors = comp.errors();
+        auto errors = comp->errors();
         auto lines = qml.split('\n');
 
         for (int i=0; i < errors.length(); ++i) {
@@ -404,11 +447,30 @@ QQuickItem *Controller::createQmlObject(const QByteArray &qml, const QString &na
             msg = "Unable to parse QML. No helpful error message was provided...";
         }
 
+        comp->deleteLater();
         throw QmlParserError(task, msg, line, column);
+
+    } else if (!comp->isReady()) {
+        comp->deleteLater();
+        throw QmlParserError(task, "Unable to parse QML. No helpful error message was provided...", -1, -1);
     }
 
+    // Keep the component around
+    if (m_components.contains(name))
+        m_components.take(name)->deleteLater();
+
+    m_components[name] = comp;
+    return comp;
+}
+
+QQuickItem *Controller::createQmlObject(const QByteArray &qml, const QString &name, QQuickItem *parent, const Task &task)
+{
+    auto comp = createQmlComponent(qml, name, parent, task);
+    qDebug() << "Component created";
+
     // Begin create and set parent before complete create
-    QObject *obj = comp.beginCreate(ctx);
+    auto ctx = QQmlEngine::contextForObject(parent);
+    QObject *obj = comp->beginCreate(ctx);
     QQuickItem *item = qobject_cast<QQuickItem*>(obj);
     if (!item) {
         if (obj)
@@ -416,7 +478,7 @@ QQuickItem *Controller::createQmlObject(const QByteArray &qml, const QString &na
         throw QmlParserError(task, "Unable to create component (likely a bug in Nutmeg).", -1, -1);
     }
     item->setParentItem(parent);
-    comp.completeCreate();
+    comp->completeCreate();
 
     return item;
 }
@@ -488,14 +550,31 @@ void Controller::queueTask(const QString &command, const QString &target, const 
 
 void Controller::queueTask(const Task &task)
 {
-    m_taskqueue.enqueue(task);
+    m_taskqueue->enqueue(task);
+}
+
+void Controller::createComponent(Task task)
+{
+    QByteArray qml = task.args[0].toByteArray();
+    try {
+        qDebug() << Q_FUNC_INFO;
+        QString url = QString("custom/%1.qml").arg(task.target);
+        createQmlComponent(qml, url, figureContainer(), task);
+        emit successProcessing(task);
+        qDebug() << "Done";
+    }
+    catch (NutmegError &err) {
+        emit errorProcessing(err);
+    }
 }
 
 void Controller::createFigure(Task task)
 {
     QByteArray qml = task.args[0].toByteArray();
     try {
+        qDebug() << "Creating figure";
         QQuickItem *item = createQmlObject(qml, "Figure_" + task.target, figureContainer(), task);
+        qDebug() << "Done";
         FigureBase *fig = qobject_cast<FigureBase*>(item);
         if (!fig) {
             item->deleteLater();

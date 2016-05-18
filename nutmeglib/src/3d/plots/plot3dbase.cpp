@@ -1,6 +1,8 @@
 #ifdef SUPPORT_3D
 #include "plot3dbase.h"
 
+#include <QGeometryRenderer>
+
 Plot3DBase::Plot3DBase(QQuickItem *parent)
     : PlotBase(parent)
     , m_axis(0)

@@ -19,7 +19,9 @@ public:
         Invoke=3,
 
         SetGui=10,
-        SetGuiProperty=11
+        SetGuiProperty=11,
+
+        AddComponent=20
     };
 
     // ---------------- Constructors ----------------- //
@@ -74,6 +76,8 @@ public:
 
             str2cmd["SetGui"] = SetGui;
             str2cmd["SetParam"] = SetGuiProperty;
+
+            str2cmd["AddComponent"] = AddComponent;
         }
 
         return str2cmd.value(cmd, Undefined);
@@ -91,6 +95,8 @@ public:
 
             cmd2str[SetGui] = "SetGui";
             cmd2str[SetGuiProperty] = "SetParam";
+
+            cmd2str[AddComponent] = "AddComponent";
         }
         return cmd2str.value(cmd, "Unknown");
     }

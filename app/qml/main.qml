@@ -53,7 +53,13 @@ Rectangle {
 //    }
 
     FileIO {
-        id: testFile
+        id: testAxisFile
+        source: ":/qml/TestAxis.qml"
+        onError: console.log("FileIO Error:", msg)
+    }
+
+    FileIO {
+        id: testFigFile
         source: ":/qml/TestFigure.qml"
         onError: console.log("FileIO Error:", msg)
     }
@@ -70,10 +76,13 @@ Rectangle {
 
         var plotTest = true
         if (plotTest) {
-            var qml = testFile.read()
+            var qmlAxis = testAxisFile.read()
+            var qml = testFigFile.read()
+
+            controller.queueTask("AddComponent", "TripleAxis", [qmlAxis], 0)
 
             controller.queueTask("SetFigure", "testFigure", [qml], 1)
-//            return
+            return
 
             var xData = [0, 1, 2, 3, 4, 5, 7, 8, 10, 12]
             var yData = [0, 1, 2, 3, 2, 1, 3, 5, 2, 10]

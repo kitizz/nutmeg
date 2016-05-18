@@ -1,4 +1,5 @@
 import Nutmeg 0.1
+import "custom" as Custom
 
 Figure {
     id: figure
@@ -9,13 +10,22 @@ Figure {
         layoutDirection: "Vertical"
         rowWeights: [0.5, 0.5]
 
-        Axis {
-            id: ax
-            handle: "ax"
-            shareX: "shareAxis"
-    //        shareY: "shareAxis"
-            height: parent.height/2
+//        Custom.TripleAxis {
+//            id: ax
+//            handle: "ax"
+//            shareX: "shareAxis"
+//            height: parent.height/2
+//        }
 
+//        Custom.TripleAxis {
+//            id: ax2
+//            handle: "ax2"
+//            shareX: "shareAxis"
+//            height: parent.height - y
+//            y: ax.height
+//        }
+
+        Axis {
             LinePlot {
                 handle: "blue"
                 line { color: "#7777FF"; style: "--"; width: 4 }
@@ -31,17 +41,20 @@ Figure {
         }
 
         Axis {
-            id: ax2
-            handle: "ax2"
-            shareX: "shareAxis"
-            height: parent.height - y
-            y: ax.height
-
+            LinePlot {
+                handle: "blue"
+                line { color: "#7777FF"; style: "--"; width: 4 }
+            }
             LinePlot {
                 handle: "red"
                 line { color: "#FF7777"; style: "-"; width: 4 }
             }
+            LinePlot {
+                handle: "green"
+                line { color: "#77FF77"; style: ":"; width: 4 }
+            }
         }
+
     }
 }
 
