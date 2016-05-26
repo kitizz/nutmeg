@@ -49,14 +49,14 @@ void AxisCanvas2D::paint(QPainter *painter)
 
     QList<qreal> xMajor, yMajor;
 
-    foreach (const qreal tick, m_axis->xAxis()->majorTicksReal()) {
+    foreach (const qreal tick, m_xCache) {
         qreal xNorm = (tick - lim.left()) / lim.width();
         if (m_axis->xAxis()->inverted())
             xNorm = 1 - xNorm;
         xMajor << plotRect.left() + plotRect.width()*xNorm;
     }
 
-    foreach (const qreal tick, m_axis->yAxis()->majorTicksReal()) {
+    foreach (const qreal tick, m_yCache) {
         qreal yNorm = (tick - lim.top()) / lim.height();
         if (m_axis->yAxis()->inverted())
             yNorm = 1 - yNorm;
@@ -192,8 +192,8 @@ void AxisCanvas2D::prepareTexts()
     AxisSpec *xSpec = m_axis->xAxis();
     AxisSpec *ySpec = m_axis->yAxis();
 
-    m_xTicksHeight = prepareTickLabels(xSpec, m_xTickText, m_xTicks, m_xScaleExp, m_xOffset).height();
-    m_yTicksWidth = prepareTickLabels(ySpec, m_yTickText, m_yTicks, m_yScaleExp, m_yOffset).width();
+    m_xTicksHeight = prepareTickLabels(xSpec, m_xTickText, m_xTicks, m_xCache, m_xScaleExp, m_xOffset).height();
+    m_yTicksWidth = prepareTickLabels(ySpec, m_yTickText, m_yTicks, m_yCache, m_yScaleExp, m_yOffset).width();
 
     prepareScaleAndOffset(xSpec, m_xScaleExp, m_xOffset, &m_xScaleText);
     prepareScaleAndOffset(ySpec, m_yScaleExp, m_yOffset, &m_yScaleText);
@@ -240,7 +240,7 @@ QStaticText *AxisCanvas2D::getStaticText(const QString &text)
 }
 
 QSizeF AxisCanvas2D::prepareTickLabels(AxisSpec *spec, QHash<QString, QStaticText*> &staticTexts,
-                                      QList<QString> &tickStrings, int &scaleExp, qreal &offset)
+                                      QList<QString> &tickStrings, QList<qreal> &cache, int &scaleExp, qreal &offset)
 {
     int prec = spec->tickPrecision();
 
@@ -256,11 +256,11 @@ QSizeF AxisCanvas2D::prepareTickLabels(AxisSpec *spec, QHash<QString, QStaticTex
 
     scaleExp = 0;
     offset = 0;
-    auto ticks = spec->majorTicksReal();
-    if (ticks.length() == 0)
+    cache = spec->majorTicksReal();
+    if (cache.length() == 0)
         return QSizeF();
 
-    auto diff = Util::diff(ticks);
+    auto diff = Util::diff(cache);
     QList<int> precisions;
 
     qreal pixelsPerUnit = spec->pixelSize()/(spec->max() - spec->min());
@@ -277,7 +277,7 @@ QSizeF AxisCanvas2D::prepareTickLabels(AxisSpec *spec, QHash<QString, QStaticTex
     // 3 cases: No scale required. Scale down from large numbers. Scale up from small numbers.
     scaleExp = 0;
     qreal scale = 1;
-    offset = Util::roundTo(ticks[0], scalePrec + prec);
+    offset = Util::roundTo(cache[0], scalePrec + prec);
     if (scalePrec > prec || scalePrec - 1 < -prec) {
         // Numbers need to be scaled down || scaled up
         scaleExp = scalePrec;
@@ -289,7 +289,7 @@ QSizeF AxisCanvas2D::prepareTickLabels(AxisSpec *spec, QHash<QString, QStaticTex
         prec -= scalePrec;
     }
 
-    foreach (qreal v, ticks) {
+    foreach (qreal v, cache) {
         QString text = Util::formatReal((v - offset)*scale, prec - 1);
         tickStrings.append(text);
         QStaticText *st = staticTexts.value(text, 0);

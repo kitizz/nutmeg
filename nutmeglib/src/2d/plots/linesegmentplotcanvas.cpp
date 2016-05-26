@@ -23,31 +23,49 @@ void LineSegmentPlotCanvas::paint(QPainter *painter)
     if (!plot) return;
 
     Axis2DBase *monAxis = plot->axis2d();
-    QList<qreal> sx = plot->startX(), sy = plot->startY();
-    QList<qreal> ex = plot->endX(), ey = plot->endY();
-    if (!monAxis ||
-            sx.length() != sy.length() ||
-            sx.length() != ex.length() ||
-            sx.length() != ey.length() ||
-            sx.length() == 0)
-        return; // Funky data
+    NDArray &sxA = plot->xData(),
+            &syA = plot->yData(),
+            &exA = plot->endX(),
+            &eyA = plot->endY();
+
+    int N = plot->dataSize();
+
+    if (!monAxis || N == 0 ||
+            sxA.type() == NDArray::Unknown || syA.type() == NDArray::Unknown ||
+            exA.type() == NDArray::Unknown || eyA.type() == NDArray::Unknown)
+        return; // Nothing to do
+
+    NDArrayTyped<qreal> sx = sxA.convert<qreal>(),
+                        sy = syA.convert<qreal>(),
+                        ex = exA.convert<qreal>(),
+                        ey = eyA.convert<qreal>();
 
     QRectF lim = monAxis->limits();
-    QTransform tran = Util::plotToView(QSizeF(width(), height()), lim, monAxis->xAxis()->inverted(), monAxis->yAxis()->inverted());
 
-    QList<QLineF> lines;
-    bool valid;
-    // Get the segments into screen coords
-    qreal x1, y1, x2, y2;
-    for (int i=0; i<sx.length(); ++i) {
-        x1 = sx[i]; y1 = sy[i];
-        x2 = ex[i]; y2 = ey[i];
-//        rectSlice(x1, y1, x2, y2, lim, valid);
-//        if (valid)
-//            lines << tran.map( QLineF(x1, y1, x2, y2) );
-    }
+    // Get the transform params
+    qreal tx, ty, scalex, scaley;//, limx, limy;
+    Util::plotToView(plot->width(), plot->height(), lim, monAxis->xAxis()->inverted(), monAxis->yAxis()->inverted(),
+                    tx, ty, scalex, scaley);
+//    limx = lim.x();
+//    limy = lim.y();
 
+    // Allow the printer state to be restored
+    painter->save();
     preparePainter(painter, plot);
-    painter->drawLines(QVector<QLineF>::fromList(lines));
+
+    auto x1 = sx.begin();
+    auto y1 = sy.begin();
+    auto x2 = ex.begin();
+    auto y2 = ey.begin();
+    QPainterPath path;
+    bool sliceEnd = true;
+
+    for (int i = N - 1; i; --i, ++x1, ++y1, ++x2, ++y2) {
+        sliceEnd = true;
+        Util::drawLineSlice(&path, *x1, *y1, *x2, *y2, tx, ty, scalex, scaley, lim, sliceEnd);
+    }
+    painter->drawPath(path);
+
+    painter->restore();
 }
 

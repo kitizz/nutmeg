@@ -1,19 +1,23 @@
 #include "linesegmentplot.h"
 
+#include "../../util/ndarray.h"
+#include "../../util/arrayutil.h"
+
 LineSegmentPlot::LineSegmentPlot(QQuickItem *parent)
     : LinePlot(parent)
+    , m_dataSize(0)
 {
     QMap<QString, QString> props;
-    props["startX"] = "startX";
-    props["startY"] = "startY";
+    props["startX"] = "xData";
+    props["startY"] = "yData";
     props["endX"] = "endX";
     props["endY"] = "endY";
     registerProperties(props);
 
-    connect(this, &LineSegmentPlot::startXChanged, this, &LineSegmentPlot::updateData);
-    connect(this, &LineSegmentPlot::startYChanged, this, &LineSegmentPlot::updateData);
-    connect(this, &LineSegmentPlot::endXChanged, this, &LineSegmentPlot::updateData);
-    connect(this, &LineSegmentPlot::endYChanged, this, &LineSegmentPlot::updateData);
+//    connect(this, &LineSegmentPlot::startXChanged, this, &LineSegmentPlot::updateData);
+//    connect(this, &LineSegmentPlot::startYChanged, this, &LineSegmentPlot::updateData);
+//    connect(this, &LineSegmentPlot::endXChanged, this, &LineSegmentPlot::updateData);
+//    connect(this, &LineSegmentPlot::endYChanged, this, &LineSegmentPlot::updateData);
 }
 
 LineSegmentPlot::~LineSegmentPlot()
@@ -21,72 +25,77 @@ LineSegmentPlot::~LineSegmentPlot()
 
 }
 
-QList<qreal> LineSegmentPlot::startX() const
-{
-    return m_startX;
-}
-
-void LineSegmentPlot::setStartX(QList<qreal> arg)
-{
-    if (m_startX == arg)
-        return;
-
-    m_startX = arg;
-    emit startXChanged(arg);
-}
-
-QList<qreal> LineSegmentPlot::endX() const
+NDArray &LineSegmentPlot::endX()
 {
     return m_endX;
 }
 
-void LineSegmentPlot::setEndX(QList<qreal> arg)
+void LineSegmentPlot::setEndX(const NDArray &arg)
 {
-    if (m_endX == arg)
-        return;
-
     m_endX = arg;
     emit endXChanged(arg);
+
+    QRectF lim = dataLimits();
+    updateDataLimits();
+    if (lim == dataLimits()) {
+        // Data limits not changed, trigger update manually
+        triggerUpdate();
+    }
 }
 
-QList<qreal> LineSegmentPlot::startY() const
-{
-    return m_startY;
-}
-
-void LineSegmentPlot::setStartY(QList<qreal> arg)
-{
-    if (m_startY == arg)
-        return;
-
-    m_startY = arg;
-    emit startYChanged(arg);
-}
-
-QList<qreal> LineSegmentPlot::endY() const
+NDArray &LineSegmentPlot::endY()
 {
     return m_endY;
 }
 
-void LineSegmentPlot::setEndY(QList<qreal> arg)
+void LineSegmentPlot::setEndY(const NDArray &arg)
 {
-    if (m_endY == arg)
-        return;
-
     m_endY = arg;
     emit endYChanged(arg);
+
+    QRectF lim = dataLimits();
+    updateDataLimits();
+    if (lim == dataLimits()) {
+        // Data limits not changed, trigger update manually
+        triggerUpdate();
+    }
 }
 
-void LineSegmentPlot::updateData()
+int LineSegmentPlot::dataSize() const
 {
-//    QList<qreal> xD, yD;
-//    xD.append(m_startX);
-//    xD.append(m_endX);
+    return m_dataSize;
+}
 
-//    yD.append(m_startY);
-//    yD.append(m_endY);
+void LineSegmentPlot::updateDataLimits()
+{
+    qDebug() << Q_FUNC_INFO;
+    int xLen = xSize(), yLen = ySize(), endXLen = m_endX.size(), endYLen = m_endY.size();
+    int N = qMin( qMin(xLen, yLen), qMin(endXLen, endYLen) );
+    m_dataSize = N;
 
-//    setXData(xD);
-//    setYData(yD);
+    qreal minX = Inf, maxX = -Inf, minY = Inf, maxY = -Inf;
+    // Calculate the y limits
+    RangeValues yrng = ArrayUtil::limits(yData());
+    minY = yrng.min;
+    maxY = yrng.max;
+
+    yrng = ArrayUtil::limits(m_endY);
+    minY = qMin(minY, yrng.min);
+    maxY = qMax(maxY, yrng.max);
+
+    RangeValues xrng = ArrayUtil::limits(xData());
+    minX = xrng.min;
+    maxX = xrng.max;
+
+    xrng = ArrayUtil::limits(m_endX);
+    minX = qMin(minX, xrng.min);
+    maxX = qMax(maxX, xrng.max);
+
+    QRectF newLim;
+    newLim.setLeft(minX);
+    newLim.setTop(minY);
+    newLim.setRight(maxX);
+    newLim.setBottom(maxY);
+    setDataLimits(newLim);
 }
 

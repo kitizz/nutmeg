@@ -121,7 +121,7 @@ void ControllerWorker::setFigure(Task *task)
             return; // We redefine it?
 
         m_controller->deregisterFigure(fig);
-        fig->deleteLater();
+//        fig->deleteLater();
     }
 
     // Call controller queued
@@ -153,8 +153,10 @@ void ControllerWorker::setGui(Task *task)
         return;  // No GUI defined, but no need to throw an error
 
     GuiBase *gui = fig->gui();
-    if (gui)
+    if (gui) {
+        connect(gui, &GuiBase::parameterChanged, m_controller, &Controller::parameterUpdated);
         gui->deleteLater();
+    }
 
     QMetaObject::invokeMethod(m_controller, "createGui", Qt::BlockingQueuedConnection,
                               Q_ARG(FigureBase*, fig),
@@ -302,8 +304,19 @@ NutmegObject *Controller::findObject(const QStringList &parts, Task *task, bool 
 
     // First find the root object
     FigureBase *fig = m_figures.value(parts[0], 0);
-    if (!fig)
-        throw InvalidNutmegObject(*task, QString("Figure not found with handle, \"%1\"").arg(parts[0]));
+    if (!fig) {
+        QString name = "Figure_" + parts[0];
+        if (m_components.contains(name)) {
+            Task t = *task;
+            t.target = parts[0];
+            QMetaObject::invokeMethod(this, "createFigure", Qt::BlockingQueuedConnection,
+                                      Q_ARG(Task, t),
+                                      Q_ARG(QQmlComponent*, m_components[name]));
+            fig = m_figures.value(parts[0], 0);
+        }
+        if (!fig)
+            throw FigureNotFoundError(*task, QString("Figure not found with handle, \"%1\"").arg(parts[0]), parts[0]);
+    }
 
     NutmegObject *obj = fig;
     if (inGui) {
@@ -463,11 +476,14 @@ QQmlComponent *Controller::createQmlComponent(const QByteArray &qml, const QStri
     return comp;
 }
 
-QQuickItem *Controller::createQmlObject(const QByteArray &qml, const QString &name, QQuickItem *parent, const Task &task)
-{
+QQuickItem *Controller::createQmlObject(const QByteArray &qml, const QString &name, QQuickItem *parent, const Task &task) {
     auto comp = createQmlComponent(qml, name, parent, task);
     qDebug() << "Component created";
+    return createQmlObject(comp, parent, task);
+}
 
+QQuickItem *Controller::createQmlObject(QQmlComponent *comp, QQuickItem *parent, const Task &task)
+{
     // Begin create and set parent before complete create
     auto ctx = QQmlEngine::contextForObject(parent);
     QObject *obj = comp->beginCreate(ctx);
@@ -568,16 +584,24 @@ void Controller::createComponent(Task task)
     }
 }
 
-void Controller::createFigure(Task task)
+void Controller::createFigure(Task task, QQmlComponent *comp)
 {
     QByteArray qml = task.args[0].toByteArray();
     try {
         qDebug() << "Creating figure";
-        QQuickItem *item = createQmlObject(qml, "Figure_" + task.target, figureContainer(), task);
+        QString figname = "Figure_" + task.target;
+
+        bool tryGui = (comp != 0);
+        if (!comp) {
+            comp = createQmlComponent(qml, figname, figureContainer(), task);
+        }
+//        QQuickItem *item = createQmlObject(qml, "Figure_" + task.target, figureContainer(), task);
+        QQuickItem *item = createQmlObject(comp, figureContainer(), task);
         qDebug() << "Done";
         FigureBase *fig = qobject_cast<FigureBase*>(item);
         if (!fig) {
-            item->deleteLater();
+            if (item)
+                item->deleteLater();
             throw FigureError(task, "Root item for figure must be Figure{}.");
         }
 
@@ -587,6 +611,13 @@ void Controller::createFigure(Task task)
 
         registerFigure(fig);
 
+        if (tryGui) {
+            QString guiname = "Gui_" + task.target;
+            if (m_components.contains(guiname)) {
+                createGui(fig, task, m_components[guiname]);
+            }
+        }
+
         emit figureCreated(fig);
         emit successProcessing(task);
     }
@@ -595,11 +626,15 @@ void Controller::createFigure(Task task)
     }
 }
 
-void Controller::createGui(FigureBase *fig, Task task)
+void Controller::createGui(FigureBase *fig, Task task, QQmlComponent *comp)
 {
     QByteArray qml = task.args[0].toByteArray();
     try {
-        QQuickItem *item = createQmlObject(qml, "Gui_" + task.target, guiContainer(), task);
+        if (!comp) {
+            comp = createQmlComponent(qml, "Gui_" + task.target, figureContainer(), task);
+        }
+        QQuickItem *item = createQmlObject(comp, guiContainer(), task);
+//        QQuickItem *item = createQmlObject(qml, "Gui_" + task.target, guiContainer(), task);
         GuiBase *gui = qobject_cast<GuiBase*>(item);
 
         if (!gui) {
@@ -611,7 +646,8 @@ void Controller::createGui(FigureBase *fig, Task task)
         QString handle = fig->handle();
         fig->setGui(gui);
         gui->setFigureHandle(handle);
-        connect(fig, &QQuickItem::visibleChanged, [=](){ gui->setVisible(fig->isVisible()); } );
+        connect(fig, &FigureBase::figureVisibleChanged, gui, &QQuickItem::setVisible );
+//        connect(fig, &QQuickItem::visibleChanged, [=](){ gui->setVisible(fig->isVisible()); } );
         connect(gui, &GuiBase::parameterChanged, this, &Controller::parameterUpdated);
 
         foreach (QString param, gui->parameterList()) {

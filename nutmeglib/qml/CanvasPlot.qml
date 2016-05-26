@@ -1,5 +1,5 @@
-import QtQuick 2.0
-import Nutmeg 1.0
+import QtQuick 2.5
+import Nutmeg 0.1
 
 CanvasPlotBase {
     id: canvasPlot

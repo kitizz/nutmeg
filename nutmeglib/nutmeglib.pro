@@ -23,6 +23,7 @@ qmlfiles.files = \
     qml/Figure.qml \
     qml/Axis.qml \
     qml/LinePlot.qml \
+    qml/LineSegmentPlot.qml \
     qml/StreamingPlot.qml \
     qml/ImagePlot.qml \
     qml/CanvasPlot.qml \

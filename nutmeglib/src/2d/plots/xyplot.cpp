@@ -42,7 +42,7 @@ NDArray &XYPlot::xData()
 
 void XYPlot::setXData(const NDArray &arg)
 {
-    qDebug() << Q_FUNC_INFO << arg.shape();
+//    qDebug() << Q_FUNC_INFO << arg.shape();
     m_xData = arg;
     m_xDataSet = m_xData.size() > 0;
     m_treeDirty = true;

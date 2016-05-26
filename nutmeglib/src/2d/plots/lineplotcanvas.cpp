@@ -26,14 +26,14 @@
     if (startx == 0 && starty == 0) {\
         for (int i = N - 1; i; --i, ++x, ++y) {\
             x2 = xacc; y2 = yacc;\
-            drawLineSlice(&path, x1, y1, x2, y2, tx, ty, sx, sy, lim, sliceEnd);\
+            Util::drawLineSlice(&path, x1, y1, x2, y2, tx, ty, sx, sy, lim, sliceEnd);\
             x1 = x2; y1 = y2;\
         }\
     } else {\
         int sxm1 = startx - 1, sym1 = starty - 1;\
         for (int i = N - 1; i; --i, x=(x+1) - (i==sxm1)*N, y=(y+1) - (i==sym1)*N) {\
             x2 = xacc; y2 = yacc;\
-            drawLineSlice(&path, x1, y1, x2, y2, tx, ty, sx, sy, lim, sliceEnd);\
+            Util::drawLineSlice(&path, x1, y1, x2, y2, tx, ty, sx, sy, lim, sliceEnd);\
             x1 = x2; y1 = y2;\
         }\
     }\
@@ -74,8 +74,6 @@ void LinePlotCanvas::paint(QPainter *painter)
 
     bool emptyX = (plot->xSize() == 0);
     int N = (emptyX) ? plot->ySize() : qMin( plot->xSize(), plot->ySize() );
-
-    qDebug() << "Drawing LinePlot. N =" << N;
 
     if (!monAxis || N == 0 || yArray.type() == NDArray::Unknown)
         return; // Nothing to do
@@ -215,63 +213,63 @@ void LinePlotCanvas::rectSlice(qreal &x1, qreal &y1, qreal &x2, qreal &y2, const
     y1 += tMin*dy;
 }
 
-void LinePlotCanvas::drawLineSlice(QPainterPath *path, qreal x1, qreal y1, qreal x2, qreal y2, qreal tx, qreal ty, qreal sx, qreal sy, const QRectF &lim, bool &sliceEnd)
-{
-    // https://gist.github.com/ChickenProp/3194723
+//void LinePlotCanvas::drawLineSlice(QPainterPath *path, qreal x1, qreal y1, qreal x2, qreal y2, qreal tx, qreal ty, qreal sx, qreal sy, const QRectF &lim, bool &sliceEnd)
+//{
+//    // https://gist.github.com/ChickenProp/3194723
 
-    qreal dx = x2 - x1;
-    qreal dy = y2 - y1;
+//    qreal dx = x2 - x1;
+//    qreal dy = y2 - y1;
 
-    qreal limx = lim.x(), limy = lim.y();
-    qreal v[4] = { -dx, dx, -dy, dy };
-    qreal u[4] = { x1 - limx, lim.right() - x1, y1 - limy, lim.bottom() - y1 };
-    qreal t[4];
+//    qreal limx = lim.x(), limy = lim.y();
+//    qreal v[4] = { -dx, dx, -dy, dy };
+//    qreal u[4] = { x1 - limx, lim.right() - x1, y1 - limy, lim.bottom() - y1 };
+//    qreal t[4];
 
-    qreal tMax = Inf, tMin = -Inf;
-    bool slice = true;
-    for (int i=0; i<4; ++i) {
-        if (v[i] != 0) {
-            t[i] = u[i]/v[i];
-            if (v[i] < 0 && tMin < t[i])
-                tMin = t[i];
-            if (v[i] > 0 && tMax > t[i])
-                tMax = t[i];
+//    qreal tMax = Inf, tMin = -Inf;
+//    bool slice = true;
+//    for (int i=0; i<4; ++i) {
+//        if (v[i] != 0) {
+//            t[i] = u[i]/v[i];
+//            if (v[i] < 0 && tMin < t[i])
+//                tMin = t[i];
+//            if (v[i] > 0 && tMax > t[i])
+//                tMax = t[i];
 
-        } else if (u[i] >= 0) {
-            // Line is fully inside rect
-            slice = false;
-            break;
-        } else {
-            return; // Outside rect
-        }
-    }
+//        } else if (u[i] >= 0) {
+//            // Line is fully inside rect
+//            slice = false;
+//            break;
+//        } else {
+//            return; // Outside rect
+//        }
+//    }
 
-    if (slice) {
-        // Check if valid line
-        if (tMin >= tMax || tMax < 0 || tMin > 1){
-            return;
-        }
+//    if (slice) {
+//        // Check if valid line
+//        if (tMin >= tMax || tMax < 0 || tMin > 1){
+//            return;
+//        }
 
-        tMax = qMax(0.0, qMin(tMax, 1.0));
-        tMin = qMax(0.0, qMin(tMin, 1.0));
+//        tMax = qMax(0.0, qMin(tMax, 1.0));
+//        tMin = qMax(0.0, qMin(tMin, 1.0));
 
-        x2 = x1 + tMax*dx;
-        x1 += tMin*dx;
-        y2 = y1 + tMax*dy;
-        y1 += tMin*dy;
-    }
+//        x2 = x1 + tMax*dx;
+//        x1 += tMin*dx;
+//        y2 = y1 + tMax*dy;
+//        y1 += tMin*dy;
+//    }
 
-    // Transform into screen coords
-    x1 = (x1 - limx)*sx + tx;
-    x2 = (x2 - limx)*sx + tx;
-    y1 = (y1 - limy)*sy + ty;
-    y2 = (y2 - limy)*sy + ty;
-    if (sliceEnd)
-        path->moveTo(x1, y1);
-    path->lineTo(x2, y2);
-    sliceEnd = tMax < 1;
-//    painter->drawLine(x1, y1, x2, y2);
-}
+//    // Transform into screen coords
+//    x1 = (x1 - limx)*sx + tx;
+//    x2 = (x2 - limx)*sx + tx;
+//    y1 = (y1 - limy)*sy + ty;
+//    y2 = (y2 - limy)*sy + ty;
+//    if (sliceEnd)
+//        path->moveTo(x1, y1);
+//    path->lineTo(x2, y2);
+//    sliceEnd = tMax < 1;
+////    painter->drawLine(x1, y1, x2, y2);
+//}
 
 /**
  * @brief UtilEda::pointOnLine

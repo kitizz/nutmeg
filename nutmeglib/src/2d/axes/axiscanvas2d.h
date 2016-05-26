@@ -66,7 +66,7 @@ private:
     void prepareTexts();
     void prepareScaleAndOffset(AxisSpec *spec, int scaleExp, qreal offset, QStaticText *st);
     QSizeF prepareTickLabels(AxisSpec *spec, QHash<QString, QStaticText *> &labelTexts,
-                            QList<QString> &tickStrings, int &scaleExp, qreal &offset);
+                            QList<QString> &tickStrings, QList<qreal> &cache, int &scaleExp, qreal &offset);
 
     void drawTitle(QPainter *painter, const QRectF &plotRect);
     void drawXLabel(QPainter *painter, const QRectF &plotRect);
@@ -110,6 +110,8 @@ private:
 
     QList<QString> m_xTicks;
     QList<QString> m_yTicks;
+    QList<qreal> m_xCache;
+    QList<qreal> m_yCache;
 
 };
 

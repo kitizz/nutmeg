@@ -56,6 +56,7 @@ public:
 
     QQmlComponent *createQmlComponent(const QByteArray &qml, const QString &name, QQuickItem *parent, const Task &task);
     QQuickItem *createQmlObject(const QByteArray &qml, const QString &name, QQuickItem *parent, const Task &task);
+    QQuickItem *createQmlObject(QQmlComponent *comp, QQuickItem *parent, const Task &task);
 
     QQuickItem *figureContainer() const;
     void setFigureContainer(QQuickItem *figureContainer);
@@ -83,8 +84,8 @@ public slots:
     void queueTask(const Task &task);
 
     void createComponent(Task task);
-    void createFigure(Task task);
-    void createGui(FigureBase *fig, Task task);
+    void createFigure(Task task, QQmlComponent *comp=0);
+    void createGui(FigureBase *fig, Task task, QQmlComponent *comp=0);
 
 protected slots:
 //    void createFigure(const Task& task);

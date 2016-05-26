@@ -35,22 +35,22 @@ public slots:
     virtual void print(QPainter *painter) { Q_UNUSED(painter); }
 
 //    // Nutmeg object. TODO: Remove once Q_GADGET working properly...
-//    virtual void registerProperties(QMap<QString, QString> mapping) {
-//        NutmegObject::registerProperties(mapping);
-//    }
-//    virtual void registerProperties(QVariantMap mapping) {
-//        NutmegObject::registerProperties(mapping);
-//    }
-//    virtual QString mapProperty(const QString &prop) {
-//        return NutmegObject::mapProperty(prop);
-//    }
+    virtual void registerProperties(QMap<QString, QString> mapping) {
+        NutmegObject::registerProperties(mapping);
+    }
+    virtual void registerProperties(QVariantMap mapping) {
+        NutmegObject::registerProperties(mapping);
+    }
+    virtual QString mapProperty(const QString &prop) {
+        return NutmegObject::mapProperty(prop);
+    }
 
-//    virtual void registerMethods(QMap<QString, QString> mapping) {
-//        NutmegObject::registerMethods(mapping);
-//    }
-//    virtual QString mapMethod(const QString &method) {
-//        return NutmegObject::mapMethod(method);
-//    }
+    virtual void registerMethods(QMap<QString, QString> mapping) {
+        NutmegObject::registerMethods(mapping);
+    }
+    virtual QString mapMethod(const QString &method) {
+        return NutmegObject::mapMethod(method);
+    }
 
 protected slots:
     virtual void updateAxis(AxisBase* oldAxis, AxisBase* newAxis) { Q_UNUSED(oldAxis); Q_UNUSED(newAxis); }

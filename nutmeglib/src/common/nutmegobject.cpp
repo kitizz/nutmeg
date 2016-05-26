@@ -15,7 +15,7 @@ NutmegObject::NutmegObject(QObject *obj)
     , m_funcMap(QMap<QString, QString>())
 {
     if (!obj) {
-        qWarning() << "WARNING: No QObject associated with NutmegObject...";
+        qWarning("WARNING: No QObject associated with NutmegObject...");
         return;
     }
 }

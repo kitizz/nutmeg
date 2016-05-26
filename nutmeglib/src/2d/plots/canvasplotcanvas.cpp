@@ -21,22 +21,8 @@ void CanvasPlotCanvas::paint(QPainter *painter)
     if (lim.width() == 0 || lim.height() == 0)
         return;
 
-    // Transform the plot coords to view coords
-    qreal scaleX = width()/(lim.width());
-    qreal scaleY = height()/(lim.height());
-    qreal tx = 0;
-    qreal ty = 0;
-    if (monAxis->xAxis()->inverted()) {
-        scaleX *= -1;
-        tx = width();
-    }
-    if (!monAxis->yAxis()->inverted()) {
-        scaleY *= -1;
-        ty = height();
-    }
-
-    QTransform tran;
-    tran.translate(tx, ty).scale(scaleX, scaleY).translate(-lim.x(), -lim.y());
+    QTransform tran = Util::plotToView(QSizeF(plot->width(), plot->height()), lim, monAxis->xAxis()->inverted(), monAxis->yAxis()->inverted());
+//    tran.translate(tx, ty).scale(scaleX, scaleY).translate(-lim.x(), -lim.y());
 
     foreach (CanvasShape *shape, plot->shapes()) {
         shape->paint(painter, tran, lim);

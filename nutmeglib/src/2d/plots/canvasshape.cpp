@@ -2,6 +2,7 @@
 
 CanvasShape::CanvasShape(QQuickItem *parent)
     : QQuickItem(parent)
+    , NutmegObject(this)
     , m_lineSpec(new LineSpec())
     , m_fillSpec(new FillSpec())
     , m_bounds(QRectF())

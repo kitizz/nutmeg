@@ -52,6 +52,7 @@ public:
     static QTransform plotToView(QSizeF viewSize, QRectF dataLimits, bool invertX=false, bool invertY=true);
 
     static void plotToView(qreal viewWidth, qreal viewHeight, const QRectF &lim, bool invertX, bool invertY, qreal &tx, qreal &ty, qreal &sx, qreal &sy);
+    static void drawLineSlice(QPainterPath *path, qreal x1, qreal y1, qreal x2, qreal y2, qreal tx, qreal ty, qreal sx, qreal sy, const QRectF &lim, bool &sliceEnd);
 };
 
 #endif // UTIL_H

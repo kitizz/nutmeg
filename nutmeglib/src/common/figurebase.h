@@ -71,6 +71,7 @@ public:
     virtual NutmegObject *nutmegChild(const QString &name);
 
 signals:
+    void figureVisibleChanged(bool vis);
     void mouseMoved(MouseEvent* mouse);
     void mousePressed(MouseEvent* mouse);
     void mouseReleased(MouseEvent* mouse);

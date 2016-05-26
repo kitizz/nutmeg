@@ -8,3 +8,5 @@ macx {
 }
 
 CONFIG += c++11
+
+CONFIG(release, debug|release): QMAKE_CXXFLAGS += -DQT_NO_DEBUG_OUTPUT

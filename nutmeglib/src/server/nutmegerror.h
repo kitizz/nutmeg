@@ -176,6 +176,20 @@ public:
      */
 };
 
+class FigureNotFoundError : public NutmegError {
+public:
+    FigureNotFoundError(const Task &task, const QString &message, const QString &name)
+        : NutmegError(task, "FigureNotFoundError", message)
+    {
+        details["figureName"] = name;
+    }
+
+    /*!
+     * \property FigureNotFoundError::name
+     * \brief "FigureNotFoundError"
+     */
+};
+
 class GuiError : public NutmegError {
 public:
     GuiError(const Task &task, const QString &message)

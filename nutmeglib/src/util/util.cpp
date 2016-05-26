@@ -221,6 +221,64 @@ QLineF Util::rectSlice(QPointF p1, QPointF p2, QRectF r)
     return QLineF(q1, q2);
 }
 
+void Util::drawLineSlice(QPainterPath *path, qreal x1, qreal y1, qreal x2, qreal y2, qreal tx, qreal ty, qreal sx, qreal sy, const QRectF &lim, bool &sliceEnd)
+{
+    // https://gist.github.com/ChickenProp/3194723
+
+    qreal dx = x2 - x1;
+    qreal dy = y2 - y1;
+
+    qreal limx = lim.x(), limy = lim.y();
+    qreal v[4] = { -dx, dx, -dy, dy };
+    qreal u[4] = { x1 - limx, lim.right() - x1, y1 - limy, lim.bottom() - y1 };
+    qreal t[4];
+
+    qreal tMax = Inf, tMin = -Inf;
+    bool slice = true;
+    for (int i=0; i<4; ++i) {
+        if (v[i] != 0) {
+            t[i] = u[i]/v[i];
+            if (v[i] < 0 && tMin < t[i])
+                tMin = t[i];
+            if (v[i] > 0 && tMax > t[i])
+                tMax = t[i];
+
+        } else if (u[i] >= 0) {
+            // Line is fully inside rect
+            slice = false;
+            break;
+        } else {
+            return; // Outside rect
+        }
+    }
+
+    if (slice) {
+        // Check if valid line
+        if (tMin >= tMax || tMax < 0 || tMin > 1){
+            return;
+        }
+
+        tMax = qMax(0.0, qMin(tMax, 1.0));
+        tMin = qMax(0.0, qMin(tMin, 1.0));
+
+        x2 = x1 + tMax*dx;
+        x1 += tMin*dx;
+        y2 = y1 + tMax*dy;
+        y1 += tMin*dy;
+    }
+
+    // Transform into screen coords
+    x1 = (x1 - limx)*sx + tx;
+    x2 = (x2 - limx)*sx + tx;
+    y1 = (y1 - limy)*sy + ty;
+    y2 = (y2 - limy)*sy + ty;
+    if (sliceEnd)
+        path->moveTo(x1, y1);
+    path->lineTo(x2, y2);
+    sliceEnd = tMax < 1;
+//    painter->drawLine(x1, y1, x2, y2);
+}
+
 //!
 //! \method precision
 //! Return the base-10 precision of the float value.

@@ -102,7 +102,13 @@ void ImagePlot::setYOffset(qreal yOffset)
 void ImagePlot::updateDataLimits()
 {
 //    qDebug() << "\tSetting imageplot limits" << m_pixmap.size();
-    setDataLimits(QRectF(QPoint(), m_pixmap.size()));
+    QSize sz = m_pixmap.size();
+    qreal w = sz.width() * m_xScale;
+    qreal h = sz.height() * m_yScale;
+    qreal x = m_xOffset;
+    qreal y = m_yOffset;
+    qDebug() << "Image data lim:" << QRectF(x, y, w, h);
+    setDataLimits(QRectF(x, y, w, h));
 }
 
 void ImagePlot::updateImage()

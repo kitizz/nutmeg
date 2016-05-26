@@ -25,6 +25,8 @@ FigureBase::FigureBase(QQuickItem *parent)
     , m_gui(0)
 {
     registerChildMethod("axis");
+
+    connect(this, &QQuickItem::visibleChanged, [=]{ emit figureVisibleChanged(isVisible()); });
 }
 
 FigureBase::~FigureBase()
