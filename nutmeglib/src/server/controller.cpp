@@ -182,15 +182,16 @@ void ControllerWorker::setProperty(Task *task, bool inGui)
         throw InvalidNutmegObject(*task, "Property is not attached to a valid object (this is likely a bug in Nutmeg).");
 
     QVariant value = task->args[0];
-    NDArray arr = qvariant_cast<NDArray>(value);
-    qDebug() << "QVariant:" << arr.shape();
+    // TODO: Delete commented lines
+//    NDArray arr = qvariant_cast<NDArray>(value);
+//    qDebug() << "QVariant:" << arr.shape();
     bool succ = prop.write(obj, value);
-    qDebug() << "Writing property success:" << succ << "-" << prop.typeName() << prop.name();
-    qDebug() << "Value type:" << value.typeName();
+//    qDebug() << "Writing property success:" << succ << "-" << prop.typeName() << prop.name();
+//    qDebug() << "Value type:" << value.typeName();
     if (!succ) {
         // Try construction task type from arg
-        QMetaType propType(prop.type());
-        QMetaType valueType(value.type());
+//        QMetaType propType(prop.type());
+//        QMetaType valueType(value.type());
 
         throw PropertyError(*task, "Unable to write to property, check values are good.", prop.typeName(), prop.name());
     }

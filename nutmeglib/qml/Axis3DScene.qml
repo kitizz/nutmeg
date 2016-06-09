@@ -1,14 +1,42 @@
-import Qt3D 2.0
-import Qt3D.Renderer 2.0
+import Qt3D.Core 2.0
+import Qt3D.Render 2.0
 
 import QtQuick 2.0 as QtQuick2
+
+import Nutmeg 0.1
 
 
 Entity {
     id: sceneRoot
 
+    property var axis: null
+
     property alias cameraPosition: camera.position
     property alias aspectRatio: camera.aspectRatio
+
+    property real zoom: 30.0
+    property vector3d center: Qt.vector3d(0.0, 0.0, 0.0)
+    property real azimuth: Math.PI/4
+    property real altitude: Math.PI/4
+
+    onZoomChanged: updateCamera()
+    onCenterChanged: updateCamera()
+    onAzimuthChanged: updateCamera()
+    onAltitudeChanged: updateCamera()
+
+    function updateCamera() {
+        var dx, dy, dz, az = azimuth, al = altitude
+        var maxAl = Math.PI/2 - Math.PI/180
+        if (al > maxAl) al = maxAl
+        if (al < -maxAl) al = -maxAl
+        dx = zoom*Math.cos(az)*Math.cos(al)
+        dy = zoom*Math.sin(az)*Math.cos(al)
+        dz = zoom*Math.sin(al)
+
+        camera.viewCenter = center
+        camera.position = Qt.vector3d(center.x + dx, center.y + dy, center.z + dz)
+        camera.upVector = Qt.vector3d(0,0,1)
+    }
 
     Camera {
         id: camera
@@ -21,12 +49,19 @@ Entity {
         viewCenter: Qt.vector3d( 0.0, 0.0, 0.0 )
         left: -9; right: 9
         top: 16; bottom: -16
-
-        onUpVectorChanged: upVector = Qt.vector3d(0,0,1) // A terrible hack...
     }
 
     Configuration  {
         controlledCamera: camera
+    }
+
+    Grid3D {
+        minX: axis ? axis.minX : 0
+        maxX: axis ? axis.maxX : 0
+        minY: axis ? axis.minY : 0
+        maxY: axis ? axis.maxY : 0
+        minZ: axis ? axis.minZ : 0
+        maxZ: axis ? axis.maxZ : 0
     }
 
     components: [
@@ -55,47 +90,4 @@ Entity {
             }
         }
     ]
-
-    CylinderMesh {
-        id: mesh
-        radius: 2
-        length: 4
-        rings: 20
-        slices: 20
-    }
-
-    CuboidMesh {
-        id: mesh2
-        xExtent: 1
-        yExtent: 1
-        zExtent: 2
-    }
-
-    Transform {
-        id: transform
-        Rotate {
-            angle: 0
-            axis: Qt.vector3d(1, 0, 0)
-        }
-    }
-
-    Material {
-        id: myMaterial
-        effect : PointEffect{}
-    }
-
-    QtQuick2.Component {
-        id: sphere
-        Entity {
-            id: mainEntity
-            objectName: "mainEntity"
-            components: [ mesh, myMaterial, transform ]
-        }
-    }
-
-    Entity {
-        id: otherEntity
-        objectName: "otherEntity"
-        components: [ mesh2, myMaterial, transform ]
-    }
 }

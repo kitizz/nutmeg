@@ -1,7 +1,8 @@
-import QtQuick 2.0
-import Nutmeg 1.0
+import QtQuick 2.4
+import Nutmeg 0.1
 
 import QtQuick.Scene3D 2.0
+import Qt3D.Render 2.0
 
 import "Util.js" as Util
 
@@ -15,10 +16,13 @@ Axis3DBase {
     default property alias plotArea: plots.children
     readonly property alias plotMargins: pltMarg
 
-    readonly property alias cameraPosition: rootEntity.cameraPosition
+//    readonly property var cameraPosition: rootEntity.cameraPosition
     property real azimuth: Math.PI/4
     property real altitude: Math.PI/4
     property real zoom: 30.0
+    property vector3d center: Qt.vector3d(0,0,0)
+
+    rootEntity: sceneEntity
 
 //    preferredPlotRect: Qt.rect(plotFrame.x, plotFrame.y, plotFrame.width, plotFrame.height)
 
@@ -38,9 +42,9 @@ Axis3DBase {
     }
 
     onAddedPlot: {
-//        console.log(plot.entity, "added to", rootEntity)
+        console.log(plot.entity, "added to", rootEntity)
 //        console.log(Util.dir(plot.entity))
-        plot.rootEntity = rootEntity
+//        plot.rootEntity = rootEntity
     }
 
     onRemovedPlot: {
@@ -88,25 +92,16 @@ Axis3DBase {
 //            x: 0; y: 0
             z: -1
             anchors.fill: plotFrame
-//            width: plotFrame.width
-//            height: plotFrame.height
-//            height: plotFrame.width*(9/16)
+            anchors.margins: 1
             aspects: "input"
             Axis3DScene {
-                id: rootEntity
+                id: sceneEntity
+                axis: axisItem
                 aspectRatio: axisCanvas.width/axisCanvas.height
-                cameraPosition: {
-                    var dx, dy, dz, az = azimuth, al = altitude
-                    var maxAl = Math.PI/2 - Math.PI/180
-                    if (al > maxAl) al = maxAl
-                    if (al < -maxAl) al = -maxAl
-                    dx = zoom*Math.cos(az)*Math.cos(al)
-                    dy = zoom*Math.sin(az)*Math.cos(al)
-                    dz = zoom*Math.sin(al)
-//                    console.log("Calculating camPos:", dx, dy, dz)
-//                    console.log(zoom, az, al)
-                    return Qt.vector3d(dx, dy, dz)
-                }
+                azimuth: axisItem.azimuth
+                altitude: axisItem.altitude
+                zoom: axisItem.zoom
+                center: axisItem.center
             }
         },
 

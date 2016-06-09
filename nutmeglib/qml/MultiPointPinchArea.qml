@@ -13,7 +13,7 @@ MultiPointTouchArea {
     maximumTouchPoints: areaEnabled ? 2 : 0
 
     property double minDisp: 10 // Minimum displacement of pixels before panning begins
-    property double minZoomDelta: 0.1 // Minimum zoom delta before zoom-pan begins
+    property double minZoomDelta: 0.2 // Minimum zoom delta before zoom-pan begins
 
     signal pinchStarted(int pinchMode)
     signal pinchUpdated
@@ -60,12 +60,24 @@ MultiPointTouchArea {
         if (!areaEnabled )//|| p3.pressed)
             return
 
+        updateTimer.start()
+    }
+
+    function updatePinch() {
         if (p1.pressed && p2.pressed && !p3.pressed) {
             //console.log("Internal Pinch Update")
             pinch.previousCenter.x = pinch.center.x
             pinch.previousCenter.y = pinch.center.y
             pinch.center.x = (p1.x + p2.x)/2
             pinch.center.y = (p1.y + p2.y)/2
+
+            var dx = p1.x - p2.x
+            var dy = p1.y - p2.y
+            pinch.dx = dx
+            pinch.dy = dy
+            pinch.distance = Math.sqrt(dx*dx + dy*dy)
+            pinch.previousScale = pinch.scale
+            pinch.scale = pinch.distance / pinch.startDistance
 
             pinch.lastTime = pinch.time
             pinch.time = new Date().getTime()
@@ -115,6 +127,14 @@ MultiPointTouchArea {
         pinch.pinchMode = pinchMode
         pinch.startCenter.x = (p1.x + p2.x)/2
         pinch.startCenter.y = (p1.y + p2.y)/2
+        var dx = p1.x - p2.x
+        var dy = p1.y - p2.y
+        pinch.startDx = dx
+        pinch.startDy = dy
+        pinch.startDistance = Math.sqrt(dx*dx + dy*dy)
+        pinch.previousScale = 1
+        pinch.scale = 1
+
         console.log("Internal pinch started", pinch.pinchMode)
         if (pinchMode == mode.pinchPan ||
                 pinchMode == mode.pinchYpan || pinchMode == mode.pinchXpan) {
@@ -150,6 +170,13 @@ MultiPointTouchArea {
         }
     }
 
+    Timer {
+        id: updateTimer
+        repeat: false
+        interval: 1
+        onTriggered: updatePinch()
+    }
+
     Item {
         id: pinchItem
 
@@ -169,14 +196,15 @@ MultiPointTouchArea {
 
         // Get the pinch size
         property real startDx: 1
-        property real dx: p1.x - p2.x
+        property real dx: 1
         property real scaleX: Math.abs(dx/startDx)
-        property real startDy: 0
-        property real dy: p1.y - p2.y
+        property real startDy: 1
+        property real dy: 1
         property real scaleY: Math.abs(dy/startDy)
-        property real startDistance: 10
-        property real distance: Math.sqrt(dx*dx + dy*dy) // Should I use the Util function?
-        property real scale: distance/startDistance
+        property real startDistance: 1
+        property real distance: 1 // Should I use the Util function?
+        property real scale: 1
+        property real previousScale: 1
     }
 
     Rectangle {

@@ -8,4 +8,12 @@ StreamingPlot 0.1 StreamingPlot.qml
 ImagePlot 0.1 ImagePlot.qml
 CanvasPlot 0.1 CanvasPlot.qml
 
+Axis3D 0.1 Axis3D.qml
+Axis3DScene 0.1 Axis3DScene.qml
+PointCloud 0.1 PointCloud.qml
+RayCloud 0.1 RayCloud.qml
+GridMaterial 0.1 GridMaterial.qml
+Grid3D 0.1 Grid3D.qml
+GridPlane 0.1 GridPlane.qml
+
 plugin nutmeglib

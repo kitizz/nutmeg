@@ -138,6 +138,8 @@ FigureBase {
         property real scaleLimit: 0.1
         property real startWidth
         property real startHeight
+        property real startX
+        property real startY
         property real startZoom: 1
         property real minVel: 1/1000 // pxl/ms
         property real minInitVel: 100.0/1000 // pxl/ms
@@ -162,6 +164,8 @@ FigureBase {
             axisP.y -= currentAxis.plotRect.y
             pinchCenter = axisP
 
+            startX = currentAxis.minX
+            startY = currentAxis.minY
             startWidth = currentAxis.maxX - currentAxis.minX
             startHeight = currentAxis.maxY - currentAxis.minY
 
@@ -201,45 +205,77 @@ FigureBase {
             if (pinch.pinchMode == mode.pan) {
                 newLimits.x -= dx
                 newLimits.y += dy
+
+            } else if (pinch.pinchMode == mode.pinchPan || pinch.pinchMode == mode.pinchXpan || pinch.pinchMode == mode.pinchYpan) {
+                // If there is ZOOMING happening
+                // Relative scale center:
+                var tx = pinchCenter.x/currentAxis.plotRect.width
+                var ty = 1 - pinchCenter.y/currentAxis.plotRect.height
+
+                var useX
+                if (currentAxis.aspectRatio > 0) {
+                    // We need to zoom both XY at once...
+                    useX = pinch.scaleX > pinch.scaleY
+                } else if (pinch.pinchMode == mode.pinchXpan) {
+                    useX = true
+                } else if (pinch.pinchMode == mode.pinchYpan) {
+                    useX = false
+                }
+
+                if (useX) {
+                    var scaleX = Math.max( Math.min(1/pinch.scaleX, 1/scaleLimit), scaleLimit )
+                    var w = currentAxis.maxX - currentAxis.minX
+                    var nw = scaleX * startWidth
+                    newLimits.x -= (nw - w)*tx
+                    newLimits.width = nw
+
+                } else {
+                    var scaleY = Math.max( Math.min(1/pinch.scaleY, 1/scaleLimit), scaleLimit )
+                    var h = currentAxis.maxY - currentAxis.minY
+                    var nh = scaleY * startHeight
+                    newLimits.y -= (nh - h)*ty
+                    newLimits.height = nh
+                }
+
+                var center = Qt.point(tx, ty)
+                newLimits = currentAxis.maintainAspectRatio(newLimits, center)
             }
 
-            // If there is ZOOMING happening
-            if (pinch.pinchMode == mode.pinchPan || pinch.pinchMode == mode.pinchXpan) {
-                var scale = Math.max( Math.min(1/pinch.scaleX, 1/scaleLimit), scaleLimit )
-                var dw = scale * startWidth
-                var w = currentAxis.maxX - currentAxis.minX
-                var t = pinchCenter.x/currentAxis.plotRect.width
-
-                newLimits.x -= (dw - w)*t
-                newLimits.width = dw
-            }
-            if (pinch.pinchMode == mode.pinchPan || pinch.pinchMode == mode.pinchYpan) {
-                var scale = Math.max( Math.min(1/pinch.scaleY, 1/scaleLimit), scaleLimit )
-                var dh = scale * startHeight
-                var h = currentAxis.maxY - currentAxis.minY
-                var t = 1 - pinchCenter.y/currentAxis.plotRect.height
-
-                newLimits.y -= (dh - h)*t
-                newLimits.height = dh
-            }
             currentAxis.limits = newLimits
 //            currentAxis.updateTickLocations()
         }
 
         function pinch3d() {
-            print("Pinch3d mode:", pinch.pinchMode)
+//            print("Pinch3d mode:", pinch.pinchMode)
 
             var dx = pinch.center.x - pinch.previousCenter.x
             var dy = pinch.center.y - pinch.previousCenter.y
             if (pinch.pinchMode == mode.pan) {
-                // 400 px / 90 deg
-                var rate = (Math.PI*0.25)/50
-                currentAxis.azimuth -= dx*rate
-                currentAxis.altitude += dy*rate
-                if (currentAxis.altitude > Math.PI/2)
-                    currentAxis.altitude = Math.PI/2
-                else if (currentAxis.altitude < -Math.PI/2)
-                    currentAxis.altitude = -Math.PI/2
+                if (figureBase.keyModifiers & Qt.ShiftModifier) {
+                    // Translate
+                    var center = currentAxis.center
+                    var az = currentAxis.azimuth
+                    var al = currentAxis.altitude
+                    var dxaxis = Qt.vector3d(Math.sin(az), -Math.cos(az), 0)
+                    var dyaxis = Qt.vector3d(-Math.cos(az)*Math.sin(al), -Math.sin(az)*Math.sin(al), Math.cos(al))
+
+                    var ddx = dx*currentAxis.zoom/500
+                    var ddy = dy*currentAxis.zoom/500
+                    currentAxis.center = Qt.vector3d(center.x + ddx*dxaxis.x + ddy*dyaxis.x,
+                                                     center.y + ddx*dxaxis.y + ddy*dyaxis.y,
+                                                     center.z + ddx*dxaxis.z + ddy*dyaxis.z)
+
+                } else {
+                    // Orbit
+                    // 400 px / 90 deg
+                    var rate = (Math.PI*0.25)/50
+                    currentAxis.azimuth -= dx*rate
+                    currentAxis.altitude += 0.5*dy*rate
+                    if (currentAxis.altitude > Math.PI/2)
+                        currentAxis.altitude = Math.PI/2
+                    else if (currentAxis.altitude < -Math.PI/2)
+                        currentAxis.altitude = -Math.PI/2
+                }
             } else if (pinch.pinchMode == mode.pinchXpan || pinch.pinchMode == mode.pinchYpan || pinch.pinchMode == mode.pinchPan) {
 //                var sx = pinch.scaleX
 //                var sy = pinch.scaleY

@@ -9,6 +9,8 @@
 #include <src/common/axisbase.h>
 #include <src/2d/axes/axis2dbase.h>
 
+#include <QCoreApplication>
+
 FigureBase::FigureBase(QQuickItem *parent)
     : QQuickItem(parent)
     , NutmegObject(this)
@@ -23,8 +25,11 @@ FigureBase::FigureBase(QQuickItem *parent)
     , m_mouseButtons(0)
     , m_qml(QByteArray())
     , m_gui(0)
+    , m_keyModifiers(0)
 {
     registerChildMethod("axis");
+
+    qApp->installEventFilter(this);
 
     connect(this, &QQuickItem::visibleChanged, [=]{ emit figureVisibleChanged(isVisible()); });
 }
@@ -160,7 +165,7 @@ void FigureBase::updateShareX(Axis2DBase *axis)
 
 void FigureBase::updateShareY(Axis2DBase *axis)
 {
-    QString tag = axis->shareX();
+    QString tag = axis->shareY();
 
     qreal minY = axis->minY(), maxY = axis->maxY();
     foreach (AxisBase *axB, m_axes.values()) {
@@ -196,6 +201,15 @@ void FigureBase::savePdf(QString filepath)
         axis->print(&p);
     }
     p.end();
+}
+
+void FigureBase::setKeyModifiers(Qt::KeyboardModifiers keyModifier)
+{
+    if (m_keyModifiers == keyModifier)
+        return;
+
+    m_keyModifiers = keyModifier;
+    emit keyModifiersChanged(keyModifier);
 }
 
 QVariantList FigureBase::getAxisList()
@@ -299,12 +313,29 @@ void FigureBase::installEventFilterApp(QObject *app)
 
 bool FigureBase::eventFilter(QObject *watched, QEvent *event)
 {
-    if (event->type() == QEvent::TouchBegin ||
-            event->type() == QEvent::TouchEnd ||
-            event->type() == QEvent::TouchUpdate) {
-        qDebug() << "Event occured!" << event << "\n";
-        QList<QTouchEvent::TouchPoint> touchPoints = static_cast<QTouchEvent*>(event)->touchPoints();
+    if (event->type() == QEvent::KeyPress) {
+        auto keyevent = static_cast<QKeyEvent*>(event);
+        if (keyevent->key() == Qt::Key_Shift)
+            setKeyModifiers(m_keyModifiers | Qt::ShiftModifier);
+        if (keyevent->key() == Qt::MetaModifier)
+            setKeyModifiers(m_keyModifiers | Qt::MetaModifier);
+
+        qDebug() << m_keyModifiers;
     }
+    if (event->type() == QEvent::KeyRelease) {
+        auto keyevent = static_cast<QKeyEvent*>(event);
+        if (keyevent->key() == Qt::Key_Shift)
+            setKeyModifiers(m_keyModifiers & ~Qt::ShiftModifier);
+        if (keyevent->key() == Qt::MetaModifier)
+            setKeyModifiers(m_keyModifiers & ~Qt::MetaModifier);
+    }
+
+//    if (event->type() == QEvent::TouchBegin ||
+//            event->type() == QEvent::TouchEnd ||
+//            event->type() == QEvent::TouchUpdate) {
+//        qDebug() << "Event occured!" << event << "\n";
+//        QList<QTouchEvent::TouchPoint> touchPoints = static_cast<QTouchEvent*>(event)->touchPoints();
+//    }
 //    if (event->type() == QEvent::MouseMove) {
 //        // Record the mouse info
 //        MouseEvent *mouseEvent = new MouseEvent(event);
@@ -407,6 +438,11 @@ void FigureBase::setGui(GuiBase *gui)
 NutmegObject *FigureBase::nutmegChild(const QString &name)
 {
     return axis(name);
+}
+
+Qt::KeyboardModifiers FigureBase::keyModifiers() const
+{
+    return m_keyModifiers;
 }
 
 void FigureBase::updateAxes()

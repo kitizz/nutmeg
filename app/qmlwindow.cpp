@@ -21,6 +21,13 @@ QmlWindow::QmlWindow(QUrl qmlSource, bool persistent, QWidget *parent, bool dela
     m_view = new QQuickView();
     m_view->connect(m_view->engine(), &QQmlEngine::quit, m_view, &QWindow::close);
 
+    // Set the OpenGL version
+//    QSurfaceFormat format;
+//    format.setMajorVersion(3);
+//    format.setMinorVersion(3);
+//    format.setProfile(QSurfaceFormat::CoreProfile);
+//    m_view->setFormat(format);
+
     // TODO: Remove this hack. Look at this post:
     // http://www.qtcentre.org/threads/43236-Loading-a-qmldir-from-a-qrc-file?p=198993#post198993
 

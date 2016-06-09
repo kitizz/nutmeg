@@ -104,17 +104,34 @@ Rectangle {
 
     function test3dfig() {
         var qml = test3dFile.read()
-        server.createFigure( {"figureHandle": "test3D", "qml": qml} )
+        controller.queueTask("SetFigure", "test3D", [qml], 1)
+//        server.createFigure( {"figureHandle": "test3D", "qml": qml} )
 
-        server.sendData( {"handle": "test3D.ax3d.pc", "data": {
-                                "x": [0,7,2,5,6,3,2,6,7,3],
-                                "y": [0,1,2,3,2,1,3,5,2,10],
-                                "z": [0,5,2,1,7,9,1,2,3,4]
-        }} )
+        var data = [0, 0, 0,
+                    7, 1, 5,
+                    2, 2, 2,
+                    5, 3, 1,
+                    6, 2, 7,
+                    3, 1, 9,
+                    2, 3, 1,
+                    6, 5, 2,
+                    7, 2, 3]
+        var data2 = [0, 1, 0,
+                    7, 5, 5,
+                    9, 2, 2,
+                    6, 3, 1,
+                    3, 2, 7,
+                    3, 3, 3,
+                    2, 3, 0,
+                    6, 5, 2,
+                    7, 2, 3]
+        controller.queueTask("SetProperty", "test3D.ax3d.pc.vertices", [data], 2)
+        controller.queueTask("SetProperty", "test3D.ax3d.rc.start", [data], 3)
+        controller.queueTask("SetProperty", "test3D.ax3d.rc.end", [data2], 4)
     }
 
     onTestFig: {
-        testfig()
+        test3dfig()
     }
 
     Server {
@@ -190,17 +207,17 @@ Rectangle {
 
             tabBar: Rectangle {
                 anchors.fill: parent
-                LinearGradient {
-                    cached: true
-                    anchors.fill: parent
-                    gradient: Gradient {
-                        GradientStop { position: 0; color: "#eeeeee" }
-                        GradientStop { position: 1; color: "#f6f6f6" }
-                    }
-                    Behavior on opacity {
-                        SmoothedAnimation { velocity: -1; duration: 100 }
-                    }
-                }
+//                LinearGradient {
+//                    cached: true
+//                    anchors.fill: parent
+//                    gradient: Gradient {
+//                        GradientStop { position: 0; color: "#eeeeee" }
+//                        GradientStop { position: 1; color: "#f6f6f6" }
+//                    }
+//                    Behavior on opacity {
+//                        SmoothedAnimation { velocity: -1; duration: 100 }
+//                    }
+//                }
                 Rectangle {
                     anchors { bottom: parent.bottom; right: parent.right }
                     width: parent.width; height: 1

@@ -197,3 +197,12 @@ TEST(NDArrayTest, OneDimLimWrap) {
     EXPECT_EQ(range.min, -10.0);
     EXPECT_EQ(range.max, 20.0);
 }
+
+TEST(NDArrayTest, TwoDimLimits) {
+    QList<qreal> values;
+    values << 0 << 1 << 0 <<
+              10 << -10 << 4 <<
+              100 << 2 << 4 <<
+              3 << -3 << 0;
+    NDArray array(values);
+}

@@ -61,7 +61,6 @@ public:
     Q_INVOKABLE void offset(qreal x, qreal y);
 
     QRectF limits() const;
-    void setLimits(QRectF arg, bool fix=true, bool shareUpdate=false);
     void resetLimits();
 
     QRectF dataLimits() const;
@@ -111,8 +110,10 @@ signals:
     void canvasChanged(QQuickPaintedItem* arg);
 
 public slots:
+    void setLimits(QRectF arg, bool fix=true, bool shareUpdate=false);
     virtual void print(QPainter *painter);
     virtual void triggerRedraw();
+    Q_INVOKABLE QRectF maintainAspectRatio(QRectF lim, QPointF center=QPointF(0.5, 0.5));
 
 protected slots:
     void updateXAxis();
@@ -121,7 +122,6 @@ protected slots:
     void updateDataLimits();
 
 private:
-    void maintainAspectRatio(QRectF *lim);
     bool floatingLimits();
 
     AxisGrid* m_grid;

@@ -6,3 +6,4 @@ Gui 0.1 Gui.qml
 ControlItem 0.1 ControlItem.qml
 Slider 0.1 Slider.qml
 Button 0.1 Button.qml
+Label 0.1 Label.qml

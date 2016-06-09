@@ -78,6 +78,8 @@ public:
     int ndim() const;
     Type type() const;
     const QList<int> shape() const;
+    int shape(int axis) const;
+    bool setShape(QList<int> shp);
     int size() const;
 
     int get_ind(const std::initializer_list<int> &inds);
@@ -121,40 +123,59 @@ public:
 
         } else {
             // Need to copy and do full conversion of underlying data
-            T* dst = new T[m_size];
+//            qDebug() << "Doing full conversion" << m_type << "to" << type;
+            T* out = new T[m_size];
+            T* dst = out;
+            int N = m_size;
             switch (m_type) {
             case Int64: {
                 int *src = (int*)m_data_ch;
-                std::copy(src, src + m_size, dst);
+                while (N--) {
+                    *dst = T(*src);
+                    ++src; ++dst;
+                }
                 break;
             }
             case Uint8: {
                 uint8_t *src = (uint8_t*)m_data_ch;
-                std::copy(src, src + m_size, dst);
+                while (N--) {
+                    *dst = T(*src);
+                    ++src; ++dst;
+                }
                 break;
             }
             case Float32: {
                 float *src = (float*)m_data_ch;
-                std::copy(src, src + m_size, dst);
+                while (N--) {
+                    *dst = T(*src);
+                    ++src; ++dst;
+                }
                 break;
             }
             case Float64: {
                 double *src = (double*)m_data_ch;
-                std::copy(src, src + m_size, dst);
+                while (N--) {
+                    *dst = T(*src);
+                    ++src; ++dst;
+                }
                 break;
             }
             case Bool: {
                 bool *src = (bool*)m_data_ch;
-                std::copy(src, src + m_size, dst);
+                while (N--) {
+                    *dst = T(*src);
+                    ++src; ++dst;
+                }
                 break;
             }
             default:
-                delete dst;
-                dst = 0;
+                delete[] out;
+                out = 0;
                 break;
             }
 
-            return NDArrayTyped<T>(*this, dst);
+            NDArrayTyped<T> result(*this, out);
+            return result;
         }
     }
 

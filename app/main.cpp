@@ -18,8 +18,17 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<MainWindow>("NutmegApp", 1,0, "MainWindow", "Cannot create MainWindow");
     qmlRegisterType<FileIO>("FileIO", 1,0, "FileIO");
 
+    // Set up global app settings
+//    QSurfaceFormat format = QSurfaceFormat::defaultFormat();
+//    format.setMajorVersion(3);
+//    format.setMinorVersion(3);
+//    format.setProfile(QSurfaceFormat::CoreProfile);
+//    QSurfaceFormat::setDefaultFormat(format);
+
+    QApplication::setAttribute(Qt::AA_SynthesizeMouseForUnhandledTouchEvents, false);
+
+    // Make the app
     QApplication app(argc, argv);
-    app.setAttribute(Qt::AA_SynthesizeMouseForUnhandledTouchEvents, false);
 
     MainWindow *w = new MainWindow(QUrl("qrc:/qml/main.qml"));
     w->connect(&app, &QApplication::aboutToQuit, w, &QmlWindow::exit);

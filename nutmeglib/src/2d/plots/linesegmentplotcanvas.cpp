@@ -62,9 +62,9 @@ void LineSegmentPlotCanvas::paint(QPainter *painter)
 
     for (int i = N - 1; i; --i, ++x1, ++y1, ++x2, ++y2) {
         sliceEnd = true;
-        Util::drawLineSlice(&path, *x1, *y1, *x2, *y2, tx, ty, scalex, scaley, lim, sliceEnd);
+        Util::drawLineSlice(0, *x1, *y1, *x2, *y2, tx, ty, scalex, scaley, lim, sliceEnd, painter);
     }
-    painter->drawPath(path);
+//    painter->drawPath(path);
 
     painter->restore();
 }

@@ -307,7 +307,7 @@ void Axis2DBase::updateLimits()
     newLimits.setRight(maxX());
     newLimits.setBottom(maxY());
 
-    maintainAspectRatio(&newLimits);
+    newLimits = maintainAspectRatio(newLimits);
 
 //    qDebug() << "Axis2DBase::updateLimits" << minX() << maxX() << minY() << maxY();
     setLimits(newLimits, false);
@@ -397,23 +397,24 @@ void Axis2DBase::updateDataLimits()
     updateLimits();
 }
 
-void Axis2DBase::maintainAspectRatio(QRectF *lim)
+QRectF Axis2DBase::maintainAspectRatio(QRectF guess, QPointF center)
 {
-    if (m_aspectRatio <= 0) return;
-    if (lim->width() == 0 || lim->height() == 0) return;
+    QRectF lim = guess;
+    if (m_aspectRatio <= 0) return lim;
+    if (lim.width() == 0 || lim.height() == 0) return lim;
     // Allow for machine precision errors...
-    qreal eps = lim->width() * qPow(10, -10);
+    qreal eps = lim.width() * qPow(10, -10);
     QSizeF size = plotRect().size();
-    if (size.width() == 0 || size.height() == 0) return;
+    if (size.width() == 0 || size.height() == 0) return lim;
 
     Util::AnchorSide anchor;
-    QPointF center = QPointF(0.5, 0.5);
+//    QPointF center = QPointF(0.5, 0.5);
     if (floatingLimits()) {
         // Refer back to the actual data limits
-        if (m_minXFloat) lim->setLeft(m_dataLimits.left());
-        if (m_maxXFloat) lim->setRight(m_dataLimits.right());
-        if (m_minYFloat) lim->setTop(m_dataLimits.top());
-        if (m_maxYFloat) lim->setBottom(m_dataLimits.bottom());
+        if (m_minXFloat) lim.setLeft(m_dataLimits.left());
+        if (m_maxXFloat) lim.setRight(m_dataLimits.right());
+        if (m_minYFloat) lim.setTop(m_dataLimits.top());
+        if (m_maxYFloat) lim.setBottom(m_dataLimits.bottom());
 
         if (!m_minXFloat && !m_maxXFloat) {
             // Here we give preference to anchoring the width
@@ -433,8 +434,8 @@ void Axis2DBase::maintainAspectRatio(QRectF *lim)
         }
 
     } else {
-        qreal dx = qAbs(lim->width() - limits().width());
-        qreal dy = qAbs(lim->height() - limits().height());
+        qreal dx = qAbs(lim.width() - limits().width());
+        qreal dy = qAbs(lim.height() - limits().height());
         if (dx < eps && dy < eps) {
             anchor = Util::AnchorFit; // Or return
         } else if (dx < eps) {
@@ -451,8 +452,9 @@ void Axis2DBase::maintainAspectRatio(QRectF *lim)
     }
     // TODO: Remove debug
 //    qDebug() << "Maintain aspect" << *lim << size << m_aspectRatio << anchor << center;
-    Util::resizeRelativeRatio(lim, size, m_aspectRatio, anchor, center);
+    Util::resizeRelativeRatio(&lim, size, m_aspectRatio, anchor, center);
 //    qDebug() << "result" << *lim;
+    return lim;
 }
 
 bool Axis2DBase::floatingLimits()
@@ -482,8 +484,7 @@ void Axis2DBase::setLimits(QRectF arg, bool fix, bool shareUpdate)
     if (fix)
         m_minXFloat = m_maxXFloat = m_minYFloat = m_maxYFloat = false;
 
-    maintainAspectRatio(&arg);
-    m_limits = arg;
+    m_limits = maintainAspectRatio(arg);
 
     setMinX(m_limits.left(), fix, false);
     setMaxX(m_limits.right(), fix, false);

@@ -46,10 +46,13 @@ SOURCES += \
     src/2d/plots/streamingplot.cpp \
     src/3d/axes/axis3dbase.cpp \
     src/3d/plots/plot3dbase.cpp \
-    src/3d/plots/pointcloud.cpp \
     src/common/guibase.cpp \
     src/util/arrayutil.cpp \
-    src/nutmeglib_plugin.cpp
+    src/nutmeglib_plugin.cpp \
+    $$PWD/src/3d/plots/pointcloudgeometry.cpp \
+    $$PWD/src/3d/plots/pointcloudplot.cpp \
+    $$PWD/src/3d/plots/raycloudplot.cpp \
+    $$PWD/src/3d/plots/raycloudgeometry.cpp
 
 HEADERS += \
     src/nutmeglibdecl.h \
@@ -100,9 +103,12 @@ HEADERS += \
     src/2d/plots/streamingplot.h \
     src/3d/axes/axis3dbase.h \
     src/3d/plots/plot3dbase.h \
-    src/3d/plots/pointcloud.h \
     src/server/binaryspec.h \
     src/common/guibase.h \
+    $$PWD/src/3d/plots/pointcloudgeometry.h \
+    $$PWD/src/3d/plots/pointcloudplot.h \
+    $$PWD/src/3d/plots/raycloudplot.h \
+    $$PWD/src/3d/plots/raycloudgeometry.h
 
 RESOURCES += \
     $$PWD/nutmeglib.qrc

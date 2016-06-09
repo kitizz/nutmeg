@@ -1,12 +1,14 @@
-in vec4 vertexPosition;
-in vec2 vertexTexCoord;
+//#version 150 core
 
-out vec2 texCoord;
+attribute vec4 vertexPosition;
+uniform float pointSize;
 
 uniform mat4 modelMatrix;
+uniform mat4 modelViewProjection;
 
 void main(void)
 {
-    gl_Position = modelMatrix * vertexPosition;
-    texCoord = vertexTexCoord;
+    gl_PointSize = pointSize;
+    gl_Position = modelViewProjection*vertexPosition;
+//    texCoord = vertexTexCoord;
 }

@@ -1,3 +1,5 @@
+import Nutmeg 0.1
+
 Figure {
     id: figure
 
@@ -9,6 +11,12 @@ Figure {
 
         PointCloud {
             handle: "pc"
+        }
+
+        RayCloud {
+            handle: "rc"
+            color: "#CC4444FF"
+            linewidth: 2
         }
     }
 }

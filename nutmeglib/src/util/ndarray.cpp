@@ -52,7 +52,7 @@ NDArray::NDArray(const QVariantList &values)
     qreal* dptr = (qreal*)data();
     // Copy in data from list
     for (int i=0; i<m_size; ++i) {
-        qDebug() << QString("%1: %2").arg(i).arg(values[i].toReal());
+//        qDebug() << QString("%1: %2").arg(i).arg(values[i].toReal());
         (*dptr++) = values[i].toReal();
     }
 }
@@ -154,6 +154,33 @@ const QList<int> NDArray::shape() const
     return m_shapelst;
 }
 
+int NDArray::shape(int axis) const
+{
+    return m_shapelst[axis];
+}
+
+bool NDArray::setShape(QList<int> shp)
+{
+    int M = shp.size();
+    int tot = 1;
+    for (int i=0; i<M; ++i)
+        tot *= shp[i];
+    if (tot != m_size) {
+        qErrnoWarning("NDArray::setShape() - new shape must be same number of elements.");
+        return false;
+    }
+
+    // Update shape
+    m_shapelst = shp;
+    m_ndim = M;
+
+    int *shpd = m_shape.data();
+    for (int i=0; i<M; ++i)
+        shpd[i] = shp[i];
+
+    return true;
+}
+
 int NDArray::size() const
 {
     return m_size;
@@ -229,6 +256,7 @@ NDArrayTyped<T>::NDArrayTyped(const NDArrayTyped<T> &other)
     : NDArray(other)
     , m_data(other.m_data)
 {
+    qDebug() << "Copying NDArrayTyped";
 }
 
 template <class T>
@@ -236,10 +264,15 @@ NDArrayTyped<T>::NDArrayTyped(const NDArray &other, T* dptr)
     : NDArray(other)
 //    , m_data((T*)other.m_data_ch)
 {
-    if (!dptr)
+    if (!dptr) {
         m_data = (T*)other.data();
-    else
+    } else {
         m_data = dptr;
+        m_data_ch = (char*)m_data;
+        m_data_ptr = new ArrayData(m_data_ch, other.size()*sizeof(T));
+        m_type = TypeMap<T>::type;
+        m_typesize = typesize(m_type);
+    }
 }
 
 template <class T>

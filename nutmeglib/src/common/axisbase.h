@@ -86,7 +86,7 @@ public slots:
     void updateFigure();
     QRectF updatePlotRect();
     virtual void triggerRedraw() {}
-    void registerPlot(PlotBase *plot);
+    virtual void registerPlot(PlotBase *plot);
     void deregisterPlot(PlotBase *plot);
     virtual void print(QPainter *painter) { Q_UNUSED(painter); }
 

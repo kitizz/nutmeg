@@ -27,7 +27,7 @@ class NUTMEGLIB_EXPORT FigureBase : public QQuickItem, public NutmegObject
     Q_PROPERTY(QPointF mouseUnit READ mouseUnit NOTIFY mouseUnitChanged)
     Q_PROPERTY(QByteArray qml READ qml WRITE setQml NOTIFY qmlChanged)
     Q_PROPERTY(GuiBase* gui READ gui WRITE setGui NOTIFY guiChanged)
-
+    Q_PROPERTY(Qt::KeyboardModifiers keyModifiers READ keyModifiers WRITE setKeyModifiers NOTIFY keyModifiersChanged)
 
 public:
     explicit FigureBase(QQuickItem *parent = 0);
@@ -70,6 +70,9 @@ public:
 
     virtual NutmegObject *nutmegChild(const QString &name);
 
+    Qt::KeyboardModifiers keyModifiers() const;
+    void setKeyModifiers(Qt::KeyboardModifiers keyModifiers);
+
 signals:
     void figureVisibleChanged(bool vis);
     void mouseMoved(MouseEvent* mouse);
@@ -85,6 +88,8 @@ signals:
 
     void qmlChanged(QString qml);
     void guiChanged(QQuickItem* gui);
+
+    void keyModifiersChanged(Qt::KeyboardModifiers keyModifiers);
 
 public slots:
     void deregisterAxis(AxisBase *axis);
@@ -118,6 +123,7 @@ public slots:
 
 
 
+
 protected slots:
     void updateAxes();
 
@@ -135,6 +141,7 @@ private:
     int m_mouseButtons;
     QByteArray m_qml;
     GuiBase* m_gui;
+    Qt::KeyboardModifiers m_keyModifiers;
 };
 
 //class AxisGroup

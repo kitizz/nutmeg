@@ -27,6 +27,13 @@ qmlfiles.files = \
     qml/StreamingPlot.qml \
     qml/ImagePlot.qml \
     qml/CanvasPlot.qml \
+    qml/Axis3D.qml \
+    qml/Axis3DScene.qml \
+    qml/PointCloud.qml \
+    qml/RayCloud.qml \
+    qml/GridMaterial.qml \
+    qml/Grid3D.qml \
+    qml/GridPlane.qml \
     qml/Util.js \
     qml/Vector.js \
 
@@ -36,9 +43,15 @@ guifiles.files = \
     qml/Gui/Controls/ControlItem.qml \
     qml/Gui/Controls/Button.qml \
     qml/Gui/Controls/Slider.qml \
+    qml/Gui/Controls/Label.qml \
 
 DISTFILES += $$qmlfiles.files \
-DISTFILES += $$guifiles.files
+DISTFILES += $$guifiles.files \
+    qml/GridMaterial.qml \
+    qml/Grid3D.qml \
+    qml/GridPlane.qml \
+    qml/RayCloud.qml \
+    qml/Gui/Controls/Label.qml
 
 unix: {
     for (f, qmlfiles.files): qmlfiles.commands += $(COPY) \"$$PWD/$$f\" \"$$DESTDIR\";

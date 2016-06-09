@@ -96,6 +96,7 @@ void LinePlotCanvas::paint(QPainter *painter)
 
     // Allow the printer state to be restored
     painter->save();
+//    painter->setTransform(QTransform());
     preparePainter(painter, plot);
 
     if (is_lines) {

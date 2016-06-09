@@ -4,7 +4,7 @@
 
 PlotCanvas::PlotCanvas(QQuickItem *parent)
     : QQuickPaintedItem(parent)
-    , m_scaling(QGuiApplication::primaryScreen()->devicePixelRatio())
+    , m_scaling(qApp->devicePixelRatio())
     , m_updateTriggered(true)
 {
 //    m_scaling = QGuiApplication::primaryScreen()->devicePixelRatio();
@@ -29,6 +29,12 @@ void PlotCanvas::triggerOnMain()
     polish();
     update();
     m_updateTriggered = true;
+}
+
+void PlotCanvas::updateScale()
+{
+    qDebug() << "Scale updated" << QGuiApplication::primaryScreen()->devicePixelRatio();
+    setScaling(QGuiApplication::primaryScreen()->devicePixelRatio());
 }
 
 bool PlotCanvas::updateTriggered()

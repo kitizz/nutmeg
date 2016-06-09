@@ -5,6 +5,7 @@
 
 #include <QMap>
 #include <QDebug>
+#include <QPainter>
 
 int Util::randInt(int low, int high) {
     // From: http://goo.gl/KdHeUg
@@ -221,7 +222,7 @@ QLineF Util::rectSlice(QPointF p1, QPointF p2, QRectF r)
     return QLineF(q1, q2);
 }
 
-void Util::drawLineSlice(QPainterPath *path, qreal x1, qreal y1, qreal x2, qreal y2, qreal tx, qreal ty, qreal sx, qreal sy, const QRectF &lim, bool &sliceEnd)
+void Util::drawLineSlice(QPainterPath *path, qreal x1, qreal y1, qreal x2, qreal y2, qreal tx, qreal ty, qreal sx, qreal sy, const QRectF &lim, bool &sliceEnd, QPainter *painter)
 {
     // https://gist.github.com/ChickenProp/3194723
 
@@ -272,11 +273,14 @@ void Util::drawLineSlice(QPainterPath *path, qreal x1, qreal y1, qreal x2, qreal
     x2 = (x2 - limx)*sx + tx;
     y1 = (y1 - limy)*sy + ty;
     y2 = (y2 - limy)*sy + ty;
-    if (sliceEnd)
-        path->moveTo(x1, y1);
-    path->lineTo(x2, y2);
+    if (painter != 0) {
+        painter->drawLine(x1, y1, x2, y2);
+    } else if (path != 0) {
+        if (sliceEnd)
+            path->moveTo(x1, y1);
+        path->lineTo(x2, y2);
+    }
     sliceEnd = tMax < 1;
-//    painter->drawLine(x1, y1, x2, y2);
 }
 
 //!

@@ -5,10 +5,9 @@ import Qt3D.Render 2.0
 
 import Nutmeg 0.1
 
-PointCloudBase {
+RayCloudBase {
     handle: "pointCloud"
 
     width: parent.width
     height: parent.width
 }
-

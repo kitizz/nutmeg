@@ -3,4 +3,12 @@
         <file alias="latinmodern.otf">fonts/latinmodern-math.otf</file>
         <file alias="cmunbmr.ttf">fonts/cmunbmr.ttf</file>
     </qresource>
+    <qresource prefix="/shaders">
+        <file alias="point.frag">shaders/point.frag</file>
+        <file alias="point.vert">shaders/point.vert</file>
+        <file alias="grid.vert">shaders/grid.vert</file>
+        <file alias="grid.frag">shaders/grid.frag</file>
+        <file alias="ray.frag">shaders/ray.frag</file>
+        <file alias="ray.vert">shaders/ray.vert</file>
+    </qresource>
 </RCC>

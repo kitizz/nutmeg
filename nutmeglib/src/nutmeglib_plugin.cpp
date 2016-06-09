@@ -37,7 +37,8 @@
 
 // 3D Stuff at the end
 #include "3d/axes/axis3dbase.h"
-#include "3d/plots/pointcloud.h"
+#include "3d/plots/pointcloudplot.h"
+#include "3d/plots/raycloudplot.h"
 
 void NutmegPlugin::registerTypes(const char *uri)
 {
@@ -52,7 +53,8 @@ void NutmegPlugin::registerTypes(const char *uri)
 
 #ifdef SUPPORT_3D
     qmlRegisterType<Axis3DBase>(uri, maj,min, "Axis3DBase");
-    qmlRegisterType<PointCloud>(uri, maj,min, "PointCloudBase");
+    qmlRegisterType<PointCloudPlot>(uri, maj,min, "PointCloudBase");
+    qmlRegisterType<RayCloudPlot>(uri, maj,min, "RayCloudBase");
 #endif
 
     // ---------- Layout Stuff --------------
