@@ -23,6 +23,7 @@ PointCloudPlot::PointCloudPlot(QQuickItem *parent)
     , m_pointcloud(new PointCloud())
     , m_dataLength(0)
     , m_pointsizeParam(new QParameter("pointSize", 5.0f))
+    , m_size(0)
 {
     QMap<QString,QString> props;
     props.insert("vertices", "vertices");
@@ -79,11 +80,11 @@ QMaterial *PointCloudPlot::makeMaterial()
 
     auto gl3pass = new QRenderPass();
     gl3pass->setShaderProgram(gl3program);
-    auto size = new QPointSize();
-    size->setSpecification(QPointSize::StaticValue);
-    size->setValue(pointsize());
-    size->setEnabled(true);
-    gl3pass->addRenderState(size);
+    m_size = new QPointSize();
+    m_size->setSpecification(QPointSize::StaticValue);
+    m_size->setValue(pointsize());
+    m_size->setEnabled(true);
+    gl3pass->addRenderState(m_size);
 
     gl3tech->addAnnotation(ann);
     gl3tech->addPass(gl3pass);
@@ -120,6 +121,9 @@ void PointCloudPlot::setPointSize(float pointSize)
     if (val == pointSize)
         return;
 
+    if (m_size) {
+        m_size->setValue(pointSize);
+    }
     m_pointsizeParam->setValue(pointSize);
     emit pointSizeChanged(pointSize);
 }

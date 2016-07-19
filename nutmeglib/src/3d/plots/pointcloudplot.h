@@ -6,6 +6,7 @@
 #include <Qt3DCore/QEntity>
 #include <Qt3DCore/QTransform>
 #include <Qt3DRender/QAttribute>
+#include <Qt3DRender/QPointSize>
 
 #include "pointcloudgeometry.h"
 #include "../../util/ndarray.h"
@@ -46,6 +47,7 @@ private:
 
     int m_dataLength;
     QParameter *m_pointsizeParam;
+    QPointSize *m_size;
 };
 
 #endif // POINTCLOUD_H
