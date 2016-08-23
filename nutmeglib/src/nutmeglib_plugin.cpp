@@ -11,7 +11,7 @@
 #include "2d/plots/imageplot.h"
 #include "2d/plots/canvasplot.h"
 
-#include "2d/plots/lineplotcanvas.h"
+#include "2d/plots/lineplotrenderer.h"
 #include "2d/plots/linesegmentplotcanvas.h"
 #include "2d/plots/imagecanvas.h"
 #include "2d/plots/canvasplotcanvas.h"
@@ -21,7 +21,6 @@
 #include "2d/plots/canvastext.h"
 
 #include "2d/axes/axis2dbase.h"
-#include "2d/axes/axiscanvas2d.h"
 #include "common/locators.h"
 #include "common/linespec.h"
 #include "common/fillspec.h"
@@ -53,13 +52,13 @@ void NutmegPlugin::registerTypes(const char *uri)
 
 #ifdef SUPPORT_3D
     qmlRegisterType<Axis3DBase>(uri, maj,min, "Axis3DBase");
-    qmlRegisterType<PointCloudPlot>(uri, maj,min, "PointCloudBase");
-    qmlRegisterType<RayCloudPlot>(uri, maj,min, "RayCloudBase");
+//    qmlRegisterType<PointCloudPlot>(uri, maj,min, "PointCloudBase");
+//    qmlRegisterType<RayCloudPlot>(uri, maj,min, "RayCloudBase");
 #endif
 
     // ---------- Layout Stuff --------------
     qmlRegisterType<Axis2DBase>(uri, maj,min, "Axis2DBase");
-    qmlRegisterType<AxisCanvas2D>(uri, maj,min, "AxisCanvas2D");
+//    qmlRegisterType<AxisCanvas2D>(uri, maj,min, "AxisCanvas2D");
     qmlRegisterType<AxisSpec>(uri, maj,min, "AxisSpec");
     qmlRegisterType<AxisGrid>(uri, maj,min, "AxisGrid");
     qmlRegisterType<AxisMargins>(uri, maj,min, "AxisMargins");
@@ -76,15 +75,15 @@ void NutmegPlugin::registerTypes(const char *uri)
     qmlRegisterType<FillSpec>(uri, maj,min, "FillSpec");
 
     qmlRegisterType<LinePlot>(uri, maj,min, "LinePlotBase");
-    qmlRegisterType<StreamingPlot>(uri, maj,min, "StreamingPlotBase");
-    qmlRegisterType<LineSegmentPlot>(uri, maj,min, "LineSegmentPlotBase");
-    qmlRegisterType<ImagePlot>(uri, maj,min, "ImagePlotBase");
-    qmlRegisterType<CanvasPlot>(uri, maj,min, "CanvasPlotBase");
+//    qmlRegisterType<StreamingPlot>(uri, maj,min, "StreamingPlotBase");
+//    qmlRegisterType<LineSegmentPlot>(uri, maj,min, "LineSegmentPlotBase");
+//    qmlRegisterType<ImagePlot>(uri, maj,min, "ImagePlotBase");
+//    qmlRegisterType<CanvasPlot>(uri, maj,min, "CanvasPlotBase");
 
-    qmlRegisterType<LinePlotCanvas>(uri, maj,min, "LinePlotCanvas");
-    qmlRegisterType<LineSegmentPlotCanvas>(uri, maj,min, "LineSegmentPlotCanvas");
-    qmlRegisterType<ImageCanvas>(uri, maj,min, "ImageCanvas");
-    qmlRegisterType<CanvasPlotCanvas>(uri, maj,min, "CanvasPlotCanvas");
+//    qmlRegisterType<LinePlotCanvas>(uri, maj,min, "LinePlotCanvas");
+//    qmlRegisterType<LineSegmentPlotCanvas>(uri, maj,min, "LineSegmentPlotCanvas");
+//    qmlRegisterType<ImageCanvas>(uri, maj,min, "ImageCanvas");
+//    qmlRegisterType<CanvasPlotCanvas>(uri, maj,min, "CanvasPlotCanvas");
 
     qmlRegisterType<CanvasLine>(uri, maj,min, "CanvasLine");
     qmlRegisterType<CanvasRect>(uri, maj,min, "CanvasRect");

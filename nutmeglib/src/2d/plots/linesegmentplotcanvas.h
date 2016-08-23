@@ -1,17 +1,15 @@
 #ifndef LINESEGMENTPLOTCANVAS_H
 #define LINESEGMENTPLOTCANVAS_H
 
-#include "lineplotcanvas.h"
+#include "lineplotrenderer.h"
 
-class NUTMEGLIB_EXPORT LineSegmentPlotCanvas : public LinePlotCanvas
+class NUTMEGLIB_EXPORT LineSegmentPlotCanvas : public LinePlotRenderer
 {
-    Q_OBJECT
-
 public:
-    LineSegmentPlotCanvas(QQuickItem *parent=0);
+    LineSegmentPlotCanvas(LinePlot *parent=0);
     ~LineSegmentPlotCanvas();
 
-    virtual void paint(QPainter *painter);
+//    virtual void paint(QPainter *painter);
 };
 
 #endif // LINESEGMENTPLOTCANVAS_H

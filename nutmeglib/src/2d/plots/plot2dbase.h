@@ -12,15 +12,15 @@ class Axis2DBase;
 class NUTMEGLIB_EXPORT Plot2DBase : public PlotBase
 {
     Q_OBJECT
-    Q_PROPERTY(PlotCanvas* canvas READ canvas WRITE setCanvas NOTIFY canvasChanged)
+//    Q_PROPERTY(PlotCanvas* canvas READ canvas WRITE setCanvas NOTIFY canvasChanged)
     Q_PROPERTY(QRectF dataLimits READ dataLimits NOTIFY dataLimitsChanged)
 
 public:
     explicit Plot2DBase(QQuickItem *parent = 0);
     Axis2DBase *axis2d() const;
 
-    PlotCanvas* canvas() const;
-    void setCanvas(PlotCanvas* arg);
+//    PlotCanvas* canvas() const;
+//    void setCanvas(PlotCanvas* arg);
 
     Q_INVOKABLE QPointF itemToData(QPointF point);
     Q_INVOKABLE QPointF dataToItem(QPointF point);
@@ -31,7 +31,7 @@ public:
     QRectF dataLimits() const;
 
 signals:
-    void canvasChanged(QQuickPaintedItem* arg);
+//    void canvasChanged(PlotCanvas* arg);
     void dataLimitsChanged(QRectF arg);
 
 public slots:

@@ -10,7 +10,6 @@ Plot2DBase::Plot2DBase(QQuickItem *parent)
     , m_axis(0)
     , m_canvas(0)
 {
-
 }
 
 Axis2DBase *Plot2DBase::axis2d() const
@@ -22,20 +21,20 @@ void Plot2DBase::print(QPainter *painter)
 {
     if (!m_canvas)
         return;
-    m_canvas->paint(painter);
+//    m_canvas->paint(painter);
 }
 
-PlotCanvas *Plot2DBase::canvas() const
-{
-    return m_canvas;
-}
+//PlotCanvas *Plot2DBase::canvas() const
+//{
+//    return m_canvas;
+//}
 
-void Plot2DBase::setCanvas(PlotCanvas *arg)
-{
-    if (m_canvas == arg) return;
-    m_canvas = arg;
-    emit canvasChanged(arg);
-}
+//void Plot2DBase::setCanvas(PlotCanvas *arg)
+//{
+//    if (m_canvas == arg) return;
+//    m_canvas = arg;
+//    emit canvasChanged(arg);
+//}
 
 QPointF Plot2DBase::itemToData(QPointF point)
 {
@@ -110,8 +109,9 @@ QRectF Plot2DBase::dataLimits() const
 
 void Plot2DBase::triggerUpdate()
 {
-    if (m_canvas)
-        m_canvas->triggerUpdate();
+    update();
+//    if (m_canvas)
+//        m_canvas->triggerUpdate();
 //        m_canvas->update();
 }
 

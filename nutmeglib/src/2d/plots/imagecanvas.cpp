@@ -1,7 +1,7 @@
 #include "imagecanvas.h"
 #include "imageplot.h"
 
-ImageCanvas::ImageCanvas(QQuickItem *parent) :
+ImageCanvas::ImageCanvas(PlotBase *parent) :
     PlotCanvas(parent)
 {
 }
@@ -21,11 +21,11 @@ void ImageCanvas::paint(QPainter *painter)
     qreal scaleOffsetX = 0, scaleOffsetY = 0;
     if (monAxis->xAxis()->inverted()) {
         scaleX *= -1;
-        scaleOffsetX = width();
+        scaleOffsetX = plot->width();
     }
     if (!monAxis->yAxis()->inverted()) {
         scaleY *= -1;
-        scaleOffsetY = height();
+        scaleOffsetY = plot->height();
     }
     // The following should still be fine for PDF output...
     painter->translate(scaleOffsetX, scaleOffsetY);
@@ -43,6 +43,6 @@ void ImageCanvas::paint(QPainter *painter)
     // Is this copying the whole pixmap?
     QPixmap pix = plot->pixmap();
     // Does this automatically clip pixels outside src image for performance?
-    painter->drawPixmap(this->boundingRect(), pix, src);
+    painter->drawPixmap(plot->boundingRect(), pix, src);
     painter->restore();
 }

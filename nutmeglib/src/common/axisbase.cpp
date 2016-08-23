@@ -4,7 +4,7 @@
 #include "defaults.h"
 
 AxisBase::AxisBase(QQuickItem *parent)
-    : QQuickItem(parent)
+    : QQuickFramebufferObject(parent)
     , NutmegObject(this)
     , m_handle("axis")
     , m_figure(0)
@@ -63,9 +63,9 @@ QList<QString> AxisBase::plotNames() const
     return m_plots.keys();
 }
 
-QVariantList AxisBase::getPlotList() const
+QList<PlotBase*> AxisBase::getPlotList() const
 {
-    return m_plotsVar.values();
+    return m_plots.values();
 }
 
 NutmegObject *AxisBase::nutmegChild(const QString &name)

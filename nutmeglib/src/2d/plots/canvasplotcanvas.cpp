@@ -3,7 +3,7 @@
 #include "canvasplot.h"
 #include "canvastext.h"
 
-CanvasPlotCanvas::CanvasPlotCanvas(QQuickItem *parent) :
+CanvasPlotCanvas::CanvasPlotCanvas(PlotBase *parent) :
     PlotCanvas(parent)
 {
 }

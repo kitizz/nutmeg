@@ -26,13 +26,13 @@ Axis2DBase {
     Set the color of the background.
     \qmlOnly
     */
-    property alias backgroundColor: plotFrame.color
+//    property alias backgroundColor: plotFrame.color
 
     /*! \property type:border border
     Set the border of the axis plotting frame.
     \qmlOnly
     */
-    property alias border: plotFrame.border
+//    property alias border: plotFrame.border
 
     /*! \property navigationEnabled
     Set whether the user can navigate this axis, or if it is fixed.
@@ -56,45 +56,25 @@ Axis2DBase {
     }
 
     children: [
+//        AxisCanvas2D {
+//            id: axisCanvas
+//            x: 0; y: 0; z: 100
+//            axis: axisItem
+//            width: parent.width * scaling
+//            height: parent.height * scaling
+//            transform: Scale {
+//                xScale: 1.0/axisCanvas.scaling
+//                yScale: 1.0/axisCanvas.scaling
+//            }
+//        },
         Rectangle {
-            id: plotFrame
-            z: -2
-            x: plotRect.x
-            y: plotRect.y
-            width: plotRect.width
-            height: plotRect.height
-
-            property color borderColor: "#AAAAAA"
-            color: "white"
-//            border { color: "#AAAAAA"; width: 1 }
-            Rectangle {
-                anchors.left: parent.left
-                height: parent.height; width: 1
-                color: plotFrame.borderColor
-            }
-            Rectangle {
-                anchors.bottom: parent.bottom
-                height: 1
-                width: parent.width
-                color: plotFrame.borderColor
-            }
-        },
-
-        AxisCanvas2D {
-            id: axisCanvas
-            x: 0; y: 0; z: 100
-            axis: axisItem
-            width: parent.width * scaling
-            height: parent.height * scaling
-            transform: Scale {
-                xScale: 1.0/axisCanvas.scaling
-                yScale: 1.0/axisCanvas.scaling
-            }
+            color: "transparent"
+            border { width: 1; color: "#88FF3333" }
+            anchors.fill: parent
         },
 
         Item {
             id: plots
-            anchors.fill: plotFrame
         },
 
         MouseArea {

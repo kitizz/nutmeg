@@ -25,9 +25,7 @@ SOURCES += \
     src/server/controller.cpp \
     src/server/pushsocket.cpp \
     src/server/asyncqueue.cpp \
-    src/2d/axes/axiscanvas2d.cpp \
     src/2d/plots/lineplot.cpp \
-    src/2d/plots/lineplotcanvas.cpp \
     src/2d/plots/plotcanvas.cpp \
     src/2d/plots/xyplot.cpp \
     src/2d/plots/imagecanvas.cpp \
@@ -52,7 +50,11 @@ SOURCES += \
     $$PWD/src/3d/plots/pointcloudgeometry.cpp \
     $$PWD/src/3d/plots/pointcloudplot.cpp \
     $$PWD/src/3d/plots/raycloudplot.cpp \
-    $$PWD/src/3d/plots/raycloudgeometry.cpp
+    $$PWD/src/3d/plots/raycloudgeometry.cpp \
+    $$PWD/src/2d/axes/axiscanvas2d.cpp \
+    $$PWD/src/common/nutmegrenderer.cpp \
+    $$PWD/src/2d/plots/lineplotrenderer.cpp \
+    $$PWD/src/2d/axes/axis2drenderer.cpp
 
 HEADERS += \
     src/nutmeglibdecl.h \
@@ -82,9 +84,7 @@ HEADERS += \
     src/server/server_util.h \
     src/server/asyncqueue.h \
     src/server/nutmegerror.h \
-    src/2d/axes/axiscanvas2d.h \
     src/2d/plots/lineplot.h \
-    src/2d/plots/lineplotcanvas.h \
     src/2d/plots/plotcanvas.h \
     src/2d/plots/xyplot.h \
     src/2d/plots/imagecanvas.h \
@@ -108,7 +108,11 @@ HEADERS += \
     $$PWD/src/3d/plots/pointcloudgeometry.h \
     $$PWD/src/3d/plots/pointcloudplot.h \
     $$PWD/src/3d/plots/raycloudplot.h \
-    $$PWD/src/3d/plots/raycloudgeometry.h
+    $$PWD/src/3d/plots/raycloudgeometry.h \
+    $$PWD/src/2d/axes/axiscanvas2d.h \
+    $$PWD/src/common/nutmegrenderer.h \
+    $$PWD/src/2d/plots/lineplotrenderer.h \
+    $$PWD/src/2d/axes/axis2drenderer.h
 
 RESOURCES += \
     $$PWD/nutmeglib.qrc

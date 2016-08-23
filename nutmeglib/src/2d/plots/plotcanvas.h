@@ -2,32 +2,24 @@
 #define PLOTCANVAS_H
 
 #include "../../nutmeglibdecl.h"
-#include <QQuickPaintedItem>
+//#include <QQuickPaintedItem>
+#include <QQuickFramebufferObject>
+#include "../../common/plotbase.h"
 
-class NUTMEGLIB_EXPORT PlotCanvas : public QQuickPaintedItem
+class NUTMEGLIB_EXPORT PlotCanvas : public QQuickFramebufferObject::Renderer
 {
-    Q_OBJECT
-    Q_PROPERTY(qreal scaling READ scaling WRITE setScaling NOTIFY scalingChanged)
-
 public:
-    explicit PlotCanvas(QQuickItem *parent = 0);
-
-    virtual void paint(QPainter *painter) = 0;
+    PlotCanvas(PlotBase *parent = 0);
 
     qreal scaling() const;
     void setScaling(qreal arg);
 
-signals:
-    void scalingChanged(qreal arg);
+    PlotBase *parent() const;
+    void dataChanged();
 
 protected:
-    bool updateTriggered();
-    void resetTrigger();
-
-public slots:
-    void triggerUpdate();
-    void triggerOnMain();
-    void updateScale();
+    PlotBase *m_parent;
+    bool m_dirtyData;
 
 private:
     qreal m_scaling;

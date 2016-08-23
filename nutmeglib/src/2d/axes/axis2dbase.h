@@ -17,14 +17,13 @@ class AxisSpec;
 class FigureBase;
 class Plot2DBase;
 class AxisBase;
+class AxisCanvas2D;
 class NUTMEGLIB_EXPORT Axis2DBase : public AxisBase
 {
     Q_OBJECT
     Q_PROPERTY(AxisGrid* grid READ grid)
     Q_PROPERTY(AxisSpec* xAxis READ xAxis NOTIFY xAxisChanged)
-    Q_PROPERTY(AxisSpec* yAxis READ yAxis NOTIFY yAxisChanged)
-
-    Q_PROPERTY(QQuickPaintedItem* canvas READ canvas WRITE setCanvas NOTIFY canvasChanged)    
+    Q_PROPERTY(AxisSpec* yAxis READ yAxis NOTIFY yAxisChanged)  
 
     Q_PROPERTY(QRectF limits READ limits WRITE setLimits NOTIFY limitsChanged RESET resetLimits)
 
@@ -44,6 +43,8 @@ class NUTMEGLIB_EXPORT Axis2DBase : public AxisBase
 
 public:
     explicit Axis2DBase(QQuickItem *parent = 0);
+
+    virtual Renderer *createRenderer() const;
 
     Q_INVOKABLE qreal log_10(qreal v);
     Q_INVOKABLE QString formatReal(qreal num, int precision=3, int minMag=-11, int maxMag=-1);
@@ -78,9 +79,6 @@ public:
     bool fitPlots() const;
     void setFitPlots(bool arg);
 
-    QQuickPaintedItem* canvas() const;
-    void setCanvas(QQuickPaintedItem* arg);
-
     QString shareX() const;
     void setShareX(QString arg);
 
@@ -106,8 +104,6 @@ signals:
     void fitPlotsChanged(bool arg);
     void shareXChanged(QString arg);
     void shareYChanged(QString arg);
-
-    void canvasChanged(QQuickPaintedItem* arg);
 
 public slots:
     void setLimits(QRectF arg, bool fix=true, bool shareUpdate=false);
@@ -147,7 +143,6 @@ private:
     AxisMargins* m_margin;
     qreal m_aspectRatio;
     bool m_fitPlots;
-    QQuickPaintedItem* m_canvas;
     QString m_shareX;
     QString m_shareY;
 };

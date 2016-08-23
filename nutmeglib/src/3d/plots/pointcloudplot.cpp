@@ -1,10 +1,10 @@
-//#ifdef SUPPORT_3D
+#ifdef SUPPORT_3D
 #include "pointcloudplot.h"
 
 #include <Qt3DRender/QEffect>
 #include <Qt3DRender/QTechnique>
 #include <Qt3DRender/QGraphicsApiFilter>
-#include <Qt3DRender/QAnnotation>
+//#include <Qt3DRender/QAnnotation>
 #include <Qt3DRender/QRenderPass>
 #include <Qt3DRender/QShaderProgram>
 #include <Qt3DRender/QPointSize>
@@ -128,4 +128,4 @@ void PointCloudPlot::setPointSize(float pointSize)
     emit pointSizeChanged(pointSize);
 }
 
-//#endif
+#endif

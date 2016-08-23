@@ -1,3 +1,4 @@
+#ifdef SUPPORT_3D
 #include "raycloudgeometry.h"
 
 #include <QtMath>
@@ -187,3 +188,5 @@ bool RayCloud::updateData(const NDArrayTyped<float> &start, const NDArrayTyped<f
 {
     return m_geom->updateData(start, end);
 }
+
+#endif

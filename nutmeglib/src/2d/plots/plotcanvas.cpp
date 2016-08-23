@@ -2,52 +2,23 @@
 #include <QGuiApplication>
 #include <QScreen>
 
-PlotCanvas::PlotCanvas(QQuickItem *parent)
-    : QQuickPaintedItem(parent)
+PlotCanvas::PlotCanvas(PlotBase *parent)
+    : QQuickFramebufferObject::Renderer()
+    , m_parent(parent)
+    , m_dirtyData(true)
     , m_scaling(qApp->devicePixelRatio())
     , m_updateTriggered(true)
 {
-//    m_scaling = QGuiApplication::primaryScreen()->devicePixelRatio();
-    setRenderTarget(QQuickPaintedItem::FramebufferObject);
-//    setRenderTarget(QQuickPaintedItem::Image);
+    if (parent)
+        parent->connect(parent, &PlotBase::dataChanged, [=](){ this->dataChanged(); } );
 }
 
-qreal PlotCanvas::scaling() const
+PlotBase *PlotCanvas::parent() const
 {
-    return m_scaling;
+    return m_parent;
 }
 
-void PlotCanvas::setScaling(qreal arg)
+void PlotCanvas::dataChanged()
 {
-    if (m_scaling == arg) return;
-    m_scaling = arg;
-    emit scalingChanged(arg);
-}
-
-void PlotCanvas::triggerOnMain()
-{
-    polish();
-    update();
-    m_updateTriggered = true;
-}
-
-void PlotCanvas::updateScale()
-{
-    qDebug() << "Scale updated" << QGuiApplication::primaryScreen()->devicePixelRatio();
-    setScaling(QGuiApplication::primaryScreen()->devicePixelRatio());
-}
-
-bool PlotCanvas::updateTriggered()
-{
-    return m_updateTriggered;
-}
-
-void PlotCanvas::resetTrigger()
-{
-    m_updateTriggered = false;
-}
-
-void PlotCanvas::triggerUpdate()
-{
-    metaObject()->invokeMethod(this, "triggerOnMain", Qt::QueuedConnection);
+    m_dirtyData = true;
 }

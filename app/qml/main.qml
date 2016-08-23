@@ -2,7 +2,7 @@ import QtQuick 2.4
 //import QtQuick.Dialogs 1.2
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.0
-import QtGraphicalEffects 1.0
+//import QtGraphicalEffects 1.0
 import Nutmeg 0.1
 import FileIO 1.0
 
@@ -82,10 +82,10 @@ Rectangle {
             controller.queueTask("AddComponent", "TripleAxis", [qmlAxis], 0)
 
             controller.queueTask("SetFigure", "testFigure", [qml], 1)
-            return
+//            return
 
-            var xData = [0, 1, 2, 3, 4, 5, 7, 8, 10, 12]
-            var yData = [0, 1, 2, 3, 2, 1, 3, 5, 2, 10]
+            var xData = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 0.8, 1.0, 1.2]
+            var yData = [0, 0.5, 1, 3, 2, 1, 3, 5, 2, 10]
             controller.queueTask("SetProperty", "testFigure.ax.blue.x", [xData], 2)
             controller.queueTask("SetProperty", "testFigure.ax.blue.y", [yData], 3)
 
@@ -95,8 +95,9 @@ Rectangle {
             controller.queueTask("SetProperty", "testFigure.ax.xAxis.label", ["X Label"], 6)
             controller.queueTask("SetProperty", "testFigure.ax.yAxis.label", ["Coolest Y Label Ever"], 7)
 
-            var yData2 = [1.000045, 1.000030, 1.000025, 1.000023, 1.000022, 1.0000215,
-                                                                    1.0000212, 1.0000211, 1.00002]
+//            var yData2 = [1.000045, 1.000030, 1.000025, 1.000023, 1.000022, 1.0000215,
+//                                                                    1.0000212, 1.0000211, 1.00002]
+            var yData2 = [-0.1, 0, 0.5, 1, 0.9, 0.8, 0.7, 0.3, 0.0, -0.2]
             controller.queueTask("SetProperty", "testFigure.ax2.red.y", [yData2], 9)
 
         }
@@ -131,7 +132,7 @@ Rectangle {
     }
 
     onTestFig: {
-        test3dfig()
+        testfig()
     }
 
     Server {

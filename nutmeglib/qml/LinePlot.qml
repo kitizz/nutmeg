@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQml 2.1
+//import QtQml 2.1
 import Nutmeg 0.1
 
 /*!
@@ -15,14 +15,20 @@ LinePlotBase {
 
     property var figure: axis ? axis.figure : null
 
-    canvas: lineCanvas
-    LinePlotCanvas {
-        id: lineCanvas
-        width: parent.width*scaling
-        height: parent.height*scaling
-        transform: Scale {
-            xScale: 1/lineCanvas.scaling
-            yScale: 1/lineCanvas.scaling
-        }
-    }
+//    Rectangle {
+//        anchors.fill: parent
+//        color: "transparent"
+//        border { width: 1; color: "red" }
+//    }
+
+//    canvas: lineCanvas
+//    LinePlotCanvas {
+//        id: lineCanvas
+//        width: parent.width*scaling
+//        height: parent.height*scaling
+//        transform: Scale {
+//            xScale: 1/lineCanvas.scaling
+//            yScale: 1/lineCanvas.scaling
+//        }
+//    }
 }

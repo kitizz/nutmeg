@@ -1,10 +1,11 @@
+#ifdef SUPPORT_3D
 #include "raycloudplot.h"
 
 #include "../../util/arrayutil.h"
 #include <Qt3DRender/QEffect>
 #include <Qt3DRender/QTechnique>
 #include <Qt3DRender/QGraphicsApiFilter>
-#include <Qt3DRender/QAnnotation>
+//#include <Qt3DRender/QAnnotation>
 #include <Qt3DRender/QRenderPass>
 #include <Qt3DRender/QShaderProgram>
 #include <Qt3DRender/QParameter>
@@ -168,3 +169,4 @@ void RayCloudPlot::updatePixelSize()
     m_pixelSize->setValue(QVector2D(1/width(), 1/height()));
 }
 
+#endif

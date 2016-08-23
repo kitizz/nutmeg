@@ -8,6 +8,7 @@ PlotBase::PlotBase(QQuickItem* parent)
     , m_antialias(false)
 {
     connect(this, &QQuickItem::parentChanged, this, &PlotBase::findAxis);
+    connect(this, &PlotBase::dataChanged, this, &QQuickItem::update);
 }
 
 QString PlotBase::handle() const

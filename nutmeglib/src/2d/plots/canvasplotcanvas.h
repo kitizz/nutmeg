@@ -5,15 +5,10 @@
 
 class NUTMEGLIB_EXPORT CanvasPlotCanvas : public PlotCanvas
 {
-    Q_OBJECT
 public:
-    explicit CanvasPlotCanvas(QQuickItem *parent = 0);
+    explicit CanvasPlotCanvas(PlotBase *parent = 0);
 
     virtual void paint(QPainter* painter);
-
-signals:
-
-public slots:
 
 };
 

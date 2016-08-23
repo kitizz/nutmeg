@@ -2,8 +2,10 @@
 #define PLOTBASE_H
 
 #include <QQuickItem>
+#include <QQuickFramebufferObject>
 #include "nutmegobject.h"
 #include "axisbase.h"
+#include "nutmegrenderer.h"
 
 class AxisBase;
 class NUTMEGLIB_EXPORT PlotBase : public QQuickItem, public NutmegObject
@@ -24,7 +26,10 @@ public:
     bool antialias() const;
     void setAntialias(bool antialias);
 
+    virtual NutmegRenderer *renderer() { return 0; }
+
 signals:
+    void dataChanged();
     void handleChanged(QString arg);
     void axisChanged(AxisBase* arg);
 

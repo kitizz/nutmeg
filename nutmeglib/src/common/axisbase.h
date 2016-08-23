@@ -12,7 +12,7 @@ class AxisGroup;
 class FigureBase;
 class PlotBase;
 class LayoutGrid;
-class NUTMEGLIB_EXPORT AxisBase : public QQuickItem, public NutmegObject
+class NUTMEGLIB_EXPORT AxisBase : public QQuickFramebufferObject, public NutmegObject
 {
     Q_OBJECT
     Q_PROPERTY(QString handle READ handle WRITE setHandle NOTIFY handleChanged)
@@ -39,7 +39,7 @@ public:
     QVariantMap plots() const; // For QML
 //    PlotBase *getPlotByHandle(QString handle) const; // For C++
     Q_INVOKABLE QList<QString> plotNames() const;
-    Q_INVOKABLE QVariantList getPlotList() const;
+    QList<PlotBase *> getPlotList() const;
     virtual NutmegObject *nutmegChild(const QString &name);
 
     QString handle() const;

@@ -168,6 +168,6 @@ void ImagePlot::updateImage()
 
     if (success) {
         updateDataLimits();
-        canvas()->triggerUpdate();
+//        canvas()->triggerUpdate();
     }
 }

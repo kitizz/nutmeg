@@ -14,6 +14,8 @@ XYPlot::XYPlot(QQuickItem *parent)
 //    , m_tree(0)
     , m_treeDirty(false)
 {
+    connect(this, &XYPlot::xDataChanged, this, &PlotBase::dataChanged);
+    connect(this, &XYPlot::yDataChanged, this, &PlotBase::dataChanged);
 }
 
 int XYPlot::nearestDataTo(const QPointF &dataLocation)

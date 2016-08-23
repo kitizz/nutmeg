@@ -1,3 +1,4 @@
+#ifdef SUPPORT_3D
 #include "pointcloudgeometry.h"
 
 PointCloudGeometry::PointCloudGeometry(Qt3DCore::QNode *parent)
@@ -77,10 +78,12 @@ PointCloud::PointCloud(Qt3DCore::QNode *parent)
 
 PointCloud::~PointCloud()
 {
-    QNode::cleanup();
+//    QNode::cleanup();
 }
 
 void PointCloud::updateData(const NDArrayTyped<float> &vertices)
 {
     m_geom->updateData(vertices);
 }
+
+#endif

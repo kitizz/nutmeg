@@ -204,7 +204,7 @@ FigureBase {
 
             if (pinch.pinchMode == mode.pan) {
                 newLimits.x -= dx
-                newLimits.y += dy
+                newLimits.y -= dy
 
             } else if (pinch.pinchMode == mode.pinchPan || pinch.pinchMode == mode.pinchXpan || pinch.pinchMode == mode.pinchYpan) {
                 // If there is ZOOMING happening

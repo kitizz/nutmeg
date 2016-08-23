@@ -212,7 +212,7 @@ void Axis3DBase::dumpInfo()
 void Axis3DBase::dumpTree(QNode* e, int level)
 {
     qDebug() << QString("-").repeated(level).toLocal8Bit().constData() << e;
-    foreach(QNode *n, e->childrenNodes()) {
+    foreach(QNode *n, e->childNodes()) {
         dumpTree(n, level + 1);
     }
 }

@@ -1,6 +1,6 @@
 #include "shapecanvas.h"
 
-ShapeCanvas::ShapeCanvas(QQuickItem *parent) :
+ShapeCanvas::ShapeCanvas(PlotBase *parent) :
     PlotCanvas(parent)
 {
 }

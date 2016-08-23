@@ -1,3 +1,5 @@
+#ifdef SUPPORT_3D
+
 #ifndef RAYCLOUDPLOT_H
 #define RAYCLOUDPLOT_H
 
@@ -48,3 +50,4 @@ private:
 };
 
 #endif // RAYCLOUDPLOT_H
+#endif // SUPPORT_3D

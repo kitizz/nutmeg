@@ -1,6 +1,6 @@
 TEMPLATE = subdirs
 
-DEFINES += SUPPORT_3D
+#DEFINES += SUPPORT_3D
 
 SUBDIRS = \
     app \

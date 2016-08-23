@@ -4,7 +4,7 @@
 #include "../../util/util.h"
 
 #include <QGeometryRenderer>
-#include <Qt3DRender/QPhongMaterial>
+//#include <Qt3DRender/QM>
 
 Plot3DBase::Plot3DBase(QQuickItem *parent)
     : PlotBase(parent)

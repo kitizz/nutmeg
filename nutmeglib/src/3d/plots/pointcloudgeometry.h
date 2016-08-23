@@ -1,3 +1,4 @@
+#ifdef SUPPORT_3D
 #ifndef POINTCLOUDGEOMETRY_H
 #define POINTCLOUDGEOMETRY_H
 
@@ -42,3 +43,4 @@ private:
 };
 
 #endif // POINTCLOUDGEOMETRY_H
+#endif

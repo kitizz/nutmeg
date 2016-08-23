@@ -19,11 +19,11 @@ int main(int argc, char *argv[])
     qmlRegisterType<FileIO>("FileIO", 1,0, "FileIO");
 
     // Set up global app settings
-//    QSurfaceFormat format = QSurfaceFormat::defaultFormat();
-//    format.setMajorVersion(3);
-//    format.setMinorVersion(3);
-//    format.setProfile(QSurfaceFormat::CoreProfile);
-//    QSurfaceFormat::setDefaultFormat(format);
+    QSurfaceFormat format = QSurfaceFormat::defaultFormat();
+    format.setMajorVersion(3);
+    format.setMinorVersion(3);
+    format.setProfile(QSurfaceFormat::CoreProfile);
+    QSurfaceFormat::setDefaultFormat(format);
 
     QApplication::setAttribute(Qt::AA_SynthesizeMouseForUnhandledTouchEvents, false);
 

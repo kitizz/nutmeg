@@ -10,5 +10,8 @@
         <file alias="grid.frag">shaders/grid.frag</file>
         <file alias="ray.frag">shaders/ray.frag</file>
         <file alias="ray.vert">shaders/ray.vert</file>
+        <file alias="lineshader.frag">shaders/lineshader.frag</file>
+        <file alias="lineshader.geom">shaders/lineshader.geom</file>
+        <file alias="lineshader.vert">shaders/lineshader.vert</file>
     </qresource>
 </RCC>

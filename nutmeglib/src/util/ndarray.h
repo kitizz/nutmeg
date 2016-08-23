@@ -105,6 +105,60 @@ public:
     }
 
     template <typename T>
+    bool convertTo(T *out, int offset, int stride) const
+    {
+        // Need to copy and do full conversion of underlying data
+        T* dst = out + offset;
+        int N = m_size;
+        switch (m_type) {
+        case Int64: {
+            int *src = (int*)m_data_ch;
+            while (N--) {
+                *dst = T(*src);
+                ++src; dst += stride;
+            }
+            break;
+        }
+        case Uint8: {
+            uint8_t *src = (uint8_t*)m_data_ch;
+            while (N--) {
+                *dst = T(*src);
+                ++src; dst += stride;
+            }
+            break;
+        }
+        case Float32: {
+            float *src = (float*)m_data_ch;
+            while (N--) {
+                *dst = T(*src);
+                ++src; dst += stride;
+            }
+            break;
+        }
+        case Float64: {
+            double *src = (double*)m_data_ch;
+            while (N--) {
+                *dst = T(*src);
+                ++src; dst += stride;
+            }
+            break;
+        }
+        case Bool: {
+            bool *src = (bool*)m_data_ch;
+            while (N--) {
+                *dst = T(*src);
+                ++src; dst += stride;
+            }
+            break;
+        }
+        default:
+            return false;
+        }
+
+        return true;
+    }
+
+    template <typename T>
     NDArrayTyped<T> convert() const
     {
         if (m_type == Unknown) {
@@ -122,61 +176,14 @@ public:
             return NDArrayTyped<T>(*this);
 
         } else {
-            // Need to copy and do full conversion of underlying data
-//            qDebug() << "Doing full conversion" << m_type << "to" << type;
             T* out = new T[m_size];
-            T* dst = out;
-            int N = m_size;
-            switch (m_type) {
-            case Int64: {
-                int *src = (int*)m_data_ch;
-                while (N--) {
-                    *dst = T(*src);
-                    ++src; ++dst;
-                }
-                break;
-            }
-            case Uint8: {
-                uint8_t *src = (uint8_t*)m_data_ch;
-                while (N--) {
-                    *dst = T(*src);
-                    ++src; ++dst;
-                }
-                break;
-            }
-            case Float32: {
-                float *src = (float*)m_data_ch;
-                while (N--) {
-                    *dst = T(*src);
-                    ++src; ++dst;
-                }
-                break;
-            }
-            case Float64: {
-                double *src = (double*)m_data_ch;
-                while (N--) {
-                    *dst = T(*src);
-                    ++src; ++dst;
-                }
-                break;
-            }
-            case Bool: {
-                bool *src = (bool*)m_data_ch;
-                while (N--) {
-                    *dst = T(*src);
-                    ++src; ++dst;
-                }
-                break;
-            }
-            default:
+            if (convertTo<T>(out, 0, 1)) {
+                NDArrayTyped<T> result(*this, out);
+                return result;
+            } else {
                 delete[] out;
-                out = 0;
-                dst = 0;
-                break;
+                return NDArrayTyped<T>(*this, 0);
             }
-
-            NDArrayTyped<T> result(*this, out);
-            return result;
         }
     }
 

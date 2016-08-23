@@ -4,6 +4,7 @@
 #include <QtCore/qmath.h>
 
 #include "../../common/figurebase.h"
+#include "axiscanvas2d.h"
 
 // TODO: Remove
 #include <QTime>
@@ -27,7 +28,6 @@ Axis2DBase::Axis2DBase(QQuickItem *parent)
     , m_margin(new AxisMargins())
     , m_aspectRatio(0)
     , m_fitPlots(false)
-    , m_canvas(0)
     , m_shareX("")
     , m_shareY("")
 {
@@ -99,6 +99,13 @@ Axis2DBase::Axis2DBase(QQuickItem *parent)
         connect(this, &AxisBase::plotRectChanged, plot2d, &Plot2DBase::triggerUpdate);
         updateDataLimits();
     });
+
+    connect(this, &Axis2DBase::limitsChanged, this, &QQuickFramebufferObject::update);
+}
+
+QQuickFramebufferObject::Renderer *Axis2DBase::createRenderer() const
+{
+    return new AxisCanvas2D((Axis2DBase*)this);
 }
 
 qreal Axis2DBase::log_10(qreal v)
@@ -143,22 +150,22 @@ qreal Axis2DBase::offsetFromStd(qreal val, qreal std)
 
 void Axis2DBase::print(QPainter *painter)
 {
-    if (!m_canvas)
-        return;
+//    if (!m_canvas)
+//        return;
 
-    m_canvas->paint(painter);
+//    m_canvas->paint(painter);
 
-    foreach (QString key, plotNames()) {
-        PlotBase *plt = plot(key);
-        plt->print(painter);
-    }
+//    foreach (QString key, plotNames()) {
+//        PlotBase *plt = plot(key);
+//        plt->print(painter);
+//    }
 }
 
 void Axis2DBase::triggerRedraw()
 {
-    if (m_canvas) {
-        m_canvas->update();
-    }
+//    if (m_canvas) {
+//        m_canvas->update();
+//    }
 }
 
 /*!
@@ -601,18 +608,6 @@ void Axis2DBase::setFitPlots(bool arg)
     if (m_fitPlots == arg) return;
     m_fitPlots = arg;
     emit fitPlotsChanged(arg);
-}
-
-QQuickPaintedItem *Axis2DBase::canvas() const
-{
-    return m_canvas;
-}
-
-void Axis2DBase::setCanvas(QQuickPaintedItem *arg)
-{
-    if (m_canvas == arg) return;
-    m_canvas = arg;
-    emit canvasChanged(arg);
 }
 
 QString Axis2DBase::shareX() const
