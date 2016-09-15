@@ -15,7 +15,7 @@ public:
     explicit GuiBase(QQuickItem *parent=0);
     ~GuiBase();
 
-    GuiItem *parameter(const QString &handle);
+    Q_INVOKABLE GuiItem *parameter(const QString &handle);
     QList<QString> parameterList();
 
     QString figureHandle() const;

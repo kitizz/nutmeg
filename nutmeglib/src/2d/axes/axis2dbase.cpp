@@ -286,6 +286,44 @@ void Axis2DBase::offset(qreal x, qreal y)
     // TODO: Implement Axis2DBase::offset
 }
 
+QPointF Axis2DBase::itemToPlot(qreal x, qreal y)
+{
+    QRectF frame = plotRect();
+    qreal frameX = x - frame.x();
+    qreal frameY = y - frame.y();
+
+    if (xAxis()->inverted())
+        frameX = frame.width() - frameX;
+    if (!yAxis()->inverted())  // Flip for screen -> cartesian
+        frameY = frame.height() - frameY;
+
+    qreal sx = (maxX() - minX()) / frame.width();
+    qreal sy = (maxY() - minY()) / frame.height();
+
+    return QPointF(frameX*sx + minX(), frameY*sy + minY());
+}
+
+QPointF Axis2DBase::plotToItem(qreal x, qreal y)
+{
+//    qDebug() << "Plot to Item" << x << y;
+    qreal localX = x - minX();
+    qreal localY = y - minY();
+//    qDebug() << localX << localY;
+
+    QRectF frame = plotRect();
+    qreal sx = frame.width() / (maxX() - minX());
+    qreal sy = frame.height() / (maxY() - minY());
+
+    qreal frameX = sx*localX;
+    qreal frameY = sy*localY;
+    if (xAxis()->inverted())
+        frameX = frame.width() - frameX;
+    if (!yAxis()->inverted())  // Flip for screen -> cartesian
+        frameY = frame.height() - frameY;
+
+    return QPointF(frame.x() + frameX, frame.y() + frameY);
+}
+
 void Axis2DBase::updateXAxis()
 {
     qreal w = width() - m_margin->left() - m_margin->right();

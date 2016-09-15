@@ -132,6 +132,27 @@ void XYPlot::setData(const NDArray &xVals, const NDArray &yVals)
     updateDataLimits();
 }
 
+void XYPlot::setXDataFromList(QList<qreal> arg)
+{
+    setXData(arg);
+}
+
+void XYPlot::setYDataFromList(QList<qreal> arg)
+{
+    setYData(arg);
+}
+
+QList<qreal> XYPlot::xDataList()
+{
+    QList<qreal> out = m_xData.toList<qreal>();
+    return out;
+}
+
+QList<qreal> XYPlot::yDataList()
+{
+    return m_yData.toList<qreal>();
+}
+
 void XYPlot::updateDataLimits()
 {
     qDebug() << Q_FUNC_INFO;

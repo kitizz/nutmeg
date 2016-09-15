@@ -18,6 +18,8 @@ public:
     virtual NDArray &yData();
     virtual void setXData(const NDArray &arg);
     virtual void setYData(const NDArray &arg);
+//    QVariant xDataVar();
+//    QVariant yDataVar();
     virtual int xSize() const;
     virtual int ySize() const;
 
@@ -35,6 +37,10 @@ signals:
 
 public slots:
     void setData(const NDArray &xVals, const NDArray &yVals);
+    void setXDataFromList(QList<qreal> arg);
+    void setYDataFromList(QList<qreal> arg);
+    virtual QList<qreal> xDataList();
+    virtual QList<qreal> yDataList();
 
 protected slots:
     virtual void updateDataLimits();

@@ -59,6 +59,8 @@ public:
     void setMaxY(qreal arg, bool fix=true, bool updateAxis=true);
 
     Q_INVOKABLE void offset(qreal x, qreal y);
+    Q_INVOKABLE QPointF itemToPlot(qreal x, qreal y);
+    Q_INVOKABLE QPointF plotToItem(qreal x, qreal y);
 
     QRectF limits() const;
     void resetLimits();

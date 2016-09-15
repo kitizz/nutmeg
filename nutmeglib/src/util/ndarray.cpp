@@ -42,8 +42,11 @@ NDArray::NDArray(const QList<qreal> &values)
 {
     qreal* dptr = (qreal*)data();
     // Copy in data from list
-    for (int i=0; i<m_size; ++i)
+//    qDebug() << "List -> array:";
+    for (int i=0; i<m_size; ++i) {
+//        qDebug() << "\t" << values[i];
         (*dptr++) = values[i];
+    }
 }
 
 NDArray::NDArray(const QVariantList &values)
@@ -56,6 +59,7 @@ NDArray::NDArray(const QVariantList &values)
         (*dptr++) = values[i].toReal();
     }
 }
+
 
 NDArray::NDArray(Type type, std::initializer_list<int> shape, char *dptr)
     : NDArray(type, QList<int>(shape), dptr)
@@ -77,14 +81,38 @@ NDArray::NDArray(NDArray::Type type, const QList<int> &shape, const QByteArray &
 
 NDArray::NDArray(Type type, const QList<int> &shape, char *dptr)
     : m_type(type)
-    , m_shapelst(shape)
     , m_shape(QSharedPointer<int>())
     , m_strides(QSharedPointer<int>())
     , m_size(0)
     , m_typesize(typesize(type))
     , m_data_ch(0)
 {
+    init(type, shape, dptr);
+}
+
+NDArray::NDArray(const NDArray &other)
+    : m_ndim(other.m_ndim)
+    , m_type(other.m_type)
+    , m_shapelst(other.m_shapelst)
+    , m_size(other.m_size)
+    , m_typesize(other.m_typesize)
+    , m_data_ptr(other.m_data_ptr)
+    , m_data_ch(other.m_data_ch)
+{
+    m_shape = QSharedPointer<int>::create(m_ndim);
+    m_strides = QSharedPointer<int>::create(m_ndim);
+    std::memcpy(m_shape.data(), other.m_shape.data(), m_ndim);
+    std::memcpy(m_strides.data(), other.m_strides.data(), m_ndim);
+}
+
+NDArray::~NDArray()
+{
+}
+
+void NDArray::init(NDArray::Type type, const QList<int> &shape, char *dptr)
+{
     m_ndim = shape.count();
+    m_shapelst = shape;
 
     if (m_type == Unknown)
         return;
@@ -113,25 +141,6 @@ NDArray::NDArray(Type type, const QList<int> &shape, char *dptr)
     }
 
     update_size();
-}
-
-NDArray::NDArray(const NDArray &other)
-    : m_ndim(other.m_ndim)
-    , m_type(other.m_type)
-    , m_shapelst(other.m_shapelst)
-    , m_size(other.m_size)
-    , m_typesize(other.m_typesize)
-    , m_data_ptr(other.m_data_ptr)
-    , m_data_ch(other.m_data_ch)
-{
-    m_shape = QSharedPointer<int>::create(m_ndim);
-    m_strides = QSharedPointer<int>::create(m_ndim);
-    std::memcpy(m_shape.data(), other.m_shape.data(), m_ndim);
-    std::memcpy(m_strides.data(), other.m_strides.data(), m_ndim);
-}
-
-NDArray::~NDArray()
-{
 }
 
 char *NDArray::data() const
@@ -298,6 +307,19 @@ template <class T>
 T &NDArrayTyped<T>::at(const QVector<int> &inds)
 {
     return *(m_data + get_ind(inds));
+}
+
+template <class T>
+QList<T> NDArrayTyped<T>::toList() const
+{
+    QList<T> out;
+    auto it = cbegin();
+    auto end = cend();
+    out << *it;
+    while (++it != end)
+        out << *it;
+
+    return out;
 }
 
 // Predefine NDArrayTyped template types

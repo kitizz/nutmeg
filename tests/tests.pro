@@ -5,7 +5,7 @@
 #-------------------------------------------------
 TEMPLATE = app
 
-QT += core testlib
+QT += qml core testlib
 
 TARGET = tests
 CONFIG += testcase

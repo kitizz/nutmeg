@@ -9,6 +9,7 @@
 #include <iterator>
 #include <QDebug>
 #include <QSharedPointer>
+#include <QJSValue>
 
 class NUTMEGLIB_EXPORT ArrayData : public QSharedData
 {
@@ -67,13 +68,25 @@ public:
     NDArray();
     NDArray(const QList<qreal> &values);
     NDArray(const QVariantList &values);
+//    NDArray(const QVariant &variant);
     NDArray(Type type, std::initializer_list<int> shape, char *dptr=0);
     NDArray(Type type, const QList<int> &shape, const QByteArray &bytes);
     NDArray(Type type, const QList<int> &shape, char *dptr=0);
     NDArray(const NDArray &other);
     ~NDArray();
 
+    void init(Type type, const QList<int> &shape, char *dptr=0);
+
     char *data() const;
+
+    template <typename T>
+    QList<T> toList() {
+        if (m_type == Unknown) {
+            return QList<T>();
+        } else {
+            return convert<T>().toList();
+        }
+    }
 
     int ndim() const;
     Type type() const;
@@ -241,6 +254,8 @@ public:
             throw AccessException();
         return at(ind);
     }
+
+    QList<T> toList() const;
 
     typedef T* iterator;
     typedef const T* const_iterator;
