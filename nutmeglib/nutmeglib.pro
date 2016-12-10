@@ -44,6 +44,7 @@ guifiles.files = \
     qml/Gui/Controls/Button.qml \
     qml/Gui/Controls/Slider.qml \
     qml/Gui/Controls/Label.qml \
+    qml/Gui/Controls/CheckBox.qml \
 
 DISTFILES += $$qmlfiles.files \
 DISTFILES += $$guifiles.files \
@@ -51,7 +52,8 @@ DISTFILES += $$guifiles.files \
     qml/Grid3D.qml \
     qml/GridPlane.qml \
     qml/RayCloud.qml \
-    qml/Gui/Controls/Label.qml
+    qml/Gui/Controls/Label.qml \
+    qml/Gui/Controls/CheckBox.qml
 
 unix: {
     for (f, qmlfiles.files): qmlfiles.commands += $(COPY) \"$$PWD/$$f\" \"$$DESTDIR\";

@@ -186,14 +186,15 @@ void ControllerWorker::setProperty(Task *task, bool inGui)
 //    NDArray arr = qvariant_cast<NDArray>(value);
 //    qDebug() << "QVariant:" << arr.shape();
     bool succ = prop.write(obj, value);
-//    qDebug() << "Writing property success:" << succ << "-" << prop.typeName() << prop.name();
-//    qDebug() << "Value type:" << value.typeName();
     if (!succ) {
         // Try construction task type from arg
 //        QMetaType propType(prop.type());
 //        QMetaType valueType(value.type());
+        qDebug() << "Writing property failed:" << prop.typeName() << prop.name();
+        qDebug() << "Value:" << value << value.typeName();
 
-        throw PropertyError(*task, "Unable to write to property, check values are good.", prop.typeName(), prop.name());
+        QString msg = QString("Unable to write to property, %1, check values are good.").arg(task->target);
+        throw PropertyError(*task, msg, prop.typeName(), prop.name());
     }
 }
 
