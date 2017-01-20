@@ -20,6 +20,11 @@ NutmegObject::NutmegObject(QObject *obj)
     }
 }
 
+NutmegObject::~NutmegObject()
+{
+
+}
+
 void NutmegObject::registerChildMethod(const QString &name)
 {
 //    auto meta = m_obj->metaObject();

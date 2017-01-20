@@ -15,6 +15,8 @@ class NUTMEGLIB_EXPORT NutmegObject
 public:
     NutmegObject(QObject *obj=0);
 
+    virtual ~NutmegObject();
+
     virtual void registerChildMethod(const QString &name);
     Q_INVOKABLE virtual NutmegObject *nutmegChild(const QString &name);
 
