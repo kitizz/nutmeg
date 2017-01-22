@@ -1,5 +1,5 @@
 import Nutmeg 0.1
-import "custom" as Custom
+//import "custom" as Custom
 
 Figure {
     id: figure

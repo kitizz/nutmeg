@@ -60,3 +60,10 @@ void AxisCanvas2D::render()
     // Gotta reset the OpenGL state for QML
     m_axis->window()->resetOpenGLState();
 }
+
+void AxisCanvas2D::doLayout()
+{
+    // TODO: This is where the layout and plotRect should be estimated
+    // axis.setPreferredPlotRect(...)
+    // Refer to axisCanvas2D in master
+}

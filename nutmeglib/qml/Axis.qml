@@ -75,95 +75,99 @@ Axis2DBase {
 
         Item {
             id: plots
-        },
-
-        MouseArea {
-            id: mouseArea
-            anchors.fill: parent
-            hoverEnabled: true
-            acceptedButtons: Qt.LeftButton | Qt.RightButton
-            property var closestPlot: null
-            property point plotPoint: Qt.point(0,0)
-            property int pointIndex: -1
-            property real maxDistance: Infinity
-
-            Timer {
-                id: tipTimer
-                repeat: false
-                interval: 300
-                property point pos
-
-                onTriggered: {
-                    mouseArea.updatePoint(pos)
-                    console.log("Pressed:", pos)
-
-                    if (mouseArea.closestPlot) {
-                        var local = Vector.point(mapToItem(mouseArea.closestPlot, pos.x, pos.y))
-                        mouseArea.closestPlot.updateTip(local)
-                    }
-                }
-            }
-
-            onDoubleClicked: {
-                tipTimer.stop()
-                axisItem.limits = undefined
-            }
-
-            onPressed: {
-                if (mouse.buttons & Qt.RightButton) {
-                    console.log("Right Pressed")
-                    clearPlotTips()
-                    return
-                }
-
-                // Disable this for now...
-//                tipTimer.pos = Vector.point(mouse)
-//                tipTimer.start()
-            }
-
-            onPositionChanged: {
-                if (!(mouse.buttons & Qt.LeftButton)) return
-                if (closestPlot) {
-                    var local = Vector.point(mapToItem(closestPlot, mouse.x, mouse.y))
-                    closestPlot.updateTip(local)
-                }
-            }
-
-            function updatePoint(mouseP) {
-                // Look through the plots in this axis, and find the one with the
-                // closest data point to the click.
-                var bestPlot = null
-                var bestPoint = Qt.point(0,0)
-                var bestDist = Infinity
-                var bestIndex = -1
-
-                var plotList = getPlotList()
-                for (var i=0; i<plotList.length; ++i) {
-                    var plot = plotList[i]
-
-                    var localMouse = Vector.point(mapToItem(plot, mouseP.x, mouseP.y))
-                    var p = plot.itemToData(localMouse)
-                    var ind = plot.nearestDataTo(p)
-                    var closest = plot.frameLocationAt(ind)
-
-                    var dist = Vector.distance2(closest, localMouse)
-                    if (dist < bestDist) {
-                        bestDist = dist
-                        bestPlot = plot
-                        bestPoint = closest
-                        bestIndex = ind
-                    }
-                }
-                if (bestPlot && bestDist < maxDistance*maxDistance) {
-                    closestPlot = bestPlot
-                    plotPoint = bestPoint
-                    pointIndex = bestIndex
-                } else {
-                    closestPlot = null
-                    pointIndex = -1
-                }
-            }
+            x: plotRect.x
+            y: plotRect.y
+            width: plotRect.width
+            height: plotRect.height
         }
+
+//        MouseArea {
+//            id: mouseArea
+//            anchors.fill: parent
+//            hoverEnabled: true
+//            acceptedButtons: Qt.LeftButton | Qt.RightButton
+//            property var closestPlot: null
+//            property point plotPoint: Qt.point(0,0)
+//            property int pointIndex: -1
+//            property real maxDistance: Infinity
+
+//            Timer {
+//                id: tipTimer
+//                repeat: false
+//                interval: 300
+//                property point pos
+
+//                onTriggered: {
+//                    mouseArea.updatePoint(pos)
+//                    console.log("Pressed:", pos)
+
+//                    if (mouseArea.closestPlot) {
+//                        var local = Vector.point(mapToItem(mouseArea.closestPlot, pos.x, pos.y))
+//                        mouseArea.closestPlot.updateTip(local)
+//                    }
+//                }
+//            }
+
+//            onDoubleClicked: {
+//                tipTimer.stop()
+//                axisItem.limits = undefined
+//            }
+
+//            onPressed: {
+//                if (mouse.buttons & Qt.RightButton) {
+//                    console.log("Right Pressed")
+//                    clearPlotTips()
+//                    return
+//                }
+
+//                // Disable this for now...
+////                tipTimer.pos = Vector.point(mouse)
+////                tipTimer.start()
+//            }
+
+//            onPositionChanged: {
+//                if (!(mouse.buttons & Qt.LeftButton)) return
+//                if (closestPlot) {
+//                    var local = Vector.point(mapToItem(closestPlot, mouse.x, mouse.y))
+//                    closestPlot.updateTip(local)
+//                }
+//            }
+
+//            function updatePoint(mouseP) {
+//                // Look through the plots in this axis, and find the one with the
+//                // closest data point to the click.
+//                var bestPlot = null
+//                var bestPoint = Qt.point(0,0)
+//                var bestDist = Infinity
+//                var bestIndex = -1
+
+//                var plotList = getPlotList()
+//                for (var i=0; i<plotList.length; ++i) {
+//                    var plot = plotList[i]
+
+//                    var localMouse = Vector.point(mapToItem(plot, mouseP.x, mouseP.y))
+//                    var p = plot.itemToData(localMouse)
+//                    var ind = plot.nearestDataTo(p)
+//                    var closest = plot.frameLocationAt(ind)
+
+//                    var dist = Vector.distance2(closest, localMouse)
+//                    if (dist < bestDist) {
+//                        bestDist = dist
+//                        bestPlot = plot
+//                        bestPoint = closest
+//                        bestIndex = ind
+//                    }
+//                }
+//                if (bestPlot && bestDist < maxDistance*maxDistance) {
+//                    closestPlot = bestPlot
+//                    plotPoint = bestPoint
+//                    pointIndex = bestIndex
+//                } else {
+//                    closestPlot = null
+//                    pointIndex = -1
+//                }
+//            }
+//        }
     ]
 
     // ------------------

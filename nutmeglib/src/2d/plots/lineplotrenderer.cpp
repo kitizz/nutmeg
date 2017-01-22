@@ -61,9 +61,10 @@ void LinePlotRenderer::initialize()
 
 void LinePlotRenderer::render(QRectF view, QSize surfaceSize)
 {
+    QVector2D pixelSize(1.0/qreal(surfaceSize.width()), 1.0/qreal(surfaceSize.height()));
+
     updateGeometry();
     updateView();
-    QVector2D pixel(1.0/qreal(surfaceSize.width()), 1.0/qreal(surfaceSize.height()));
 //    qDebug() << "Rendering Line" << surfaceSize << m_vertexCount;
 
     QColor col = m_plot->line()->color();
@@ -74,7 +75,7 @@ void LinePlotRenderer::render(QRectF view, QSize surfaceSize)
     glEnable(GL_BLEND);
 
     program.bind();
-    program.setUniformValue(m_pixelUnif, pixel);
+    program.setUniformValue(m_pixelUnif, pixelSize);
     program.setUniformValue("thickness", float(linewidth*qApp->devicePixelRatio()));
     program.setUniformValue("lineColor", lineColor);
     program.setUniformValue("modelView", m_view);
@@ -151,6 +152,7 @@ void LinePlotRenderer::updateView()
     Axis2DBase *axis = m_plot->axis2d();
     if (!axis) return;
 
+    // Scaled by 2 because surface bounds are [-1, 1]
     qreal sx = 2 / (axis->maxX() - axis->minX());
     qreal sy = 2 / (axis->maxY() - axis->minY());
     m_view(0, 0) = sx;

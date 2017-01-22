@@ -17,6 +17,7 @@ public:
     QOpenGLFramebufferObject *createFramebufferObject(const QSize &size);
     void render();
 
+    void doLayout();
 private:
     QSize m_size;
     Axis2DBase *m_axis;

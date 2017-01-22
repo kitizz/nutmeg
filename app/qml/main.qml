@@ -76,10 +76,10 @@ Rectangle {
 
         var plotTest = true
         if (plotTest) {
-            var qmlAxis = testAxisFile.read()
+//            var qmlAxis = testAxisFile.read()
             var qml = testFigFile.read()
 
-            controller.queueTask("AddComponent", "TripleAxis", [qmlAxis], 0)
+//            controller.queueTask("AddComponent", "TripleAxis", [qmlAxis], 0)
 
             controller.queueTask("SetFigure", "testFigure", [qml], 1)
 //            return
