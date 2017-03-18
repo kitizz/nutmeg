@@ -14,7 +14,7 @@ void ImageCanvas::paint(QPainter *painter)
     Axis2DBase *monAxis = plot->axis2d();
 
     painter->save();
-    painter->setTransform(QTransform()); // Required sinced Qt 5.6
+//    painter->setTransform(QTransform()); // Required sinced Qt 5.6
 
     // Transform the plot coords to view coords
     qreal scaleX = 1, scaleY = 1;

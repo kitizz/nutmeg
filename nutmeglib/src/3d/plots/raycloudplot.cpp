@@ -1,3 +1,4 @@
+#ifdef SUPPORT_3D
 #include "raycloudplot.h"
 
 #include "../../util/arrayutil.h"
@@ -168,3 +169,4 @@ void RayCloudPlot::updatePixelSize()
     m_pixelSize->setValue(QVector2D(1/width(), 1/height()));
 }
 
+#endif

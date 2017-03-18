@@ -18,11 +18,11 @@ ImagePlotBase {
     canvas: imageCanvas
     ImageCanvas {
         id: imageCanvas
-        width: parent.width*scaling
-        height: parent.height*scaling
-        transform: Scale {
-            xScale: 1/imageCanvas.scaling
-            yScale: 1/imageCanvas.scaling
-        }
+        width: parent.width //*scaling
+        height: parent.height //*scaling
+//        transform: Scale {
+//            xScale: 1/imageCanvas.scaling
+//            yScale: 1/imageCanvas.scaling
+//        }
     }
 }

@@ -14,8 +14,8 @@ include(nutmegsrc.pri)
 QT += qml quick widgets core gui printsupport
 
 # 3D Things. Must have Qt 5.6 or higher with Qt3D module.
-DEFINES += SUPPORT_3D
-QT += 3dcore 3drender 3dinput 3dquick
+#DEFINES += SUPPORT_3D
+#QT += 3dcore 3drender 3dinput 3dquick
 
 qmlfiles.files = \
     qml/qmldir \

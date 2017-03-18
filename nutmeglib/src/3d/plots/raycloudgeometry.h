@@ -1,3 +1,4 @@
+#ifdef SUPPORT_3D
 #ifndef RAYCLOUDGEOMETRY_H
 #define RAYCLOUDGEOMETRY_H
 
@@ -45,3 +46,4 @@ private:
 };
 
 #endif // RAYCLOUDGEOMETRY_H
+#endif

@@ -19,11 +19,11 @@ CanvasPlotBase {
     canvas: canvasCanvas // Teehee
     CanvasPlotCanvas {
         id: canvasCanvas
-        width: parent.width*scaling
-        height: parent.height*scaling
-        transform: Scale {
-            xScale: 1/canvasCanvas.scaling
-            yScale: 1/canvasCanvas.scaling
-        }
+        width: parent.width //*scaling
+        height: parent.height //*scaling
+//        transform: Scale {
+//            xScale: 1/canvasCanvas.scaling
+//            yScale: 1/canvasCanvas.scaling
+//        }
     }
 }

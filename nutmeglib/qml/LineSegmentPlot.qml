@@ -17,11 +17,11 @@ LineSegmentPlotBase {
     canvas: lineCanvas
     LineSegmentPlotCanvas {
         id: lineCanvas
-        width: parent.width*scaling
-        height: parent.height*scaling
-        transform: Scale {
-            xScale: 1/lineCanvas.scaling
-            yScale: 1/lineCanvas.scaling
-        }
+        width: parent.width //*scaling
+        height: parent.height //*scaling
+//        transform: Scale {
+//            xScale: 1/lineCanvas.scaling
+//            yScale: 1/lineCanvas.scaling
+//        }
     }
 }

@@ -131,7 +131,7 @@ Rectangle {
     }
 
     onTestFig: {
-        test3dfig()
+        testfig()
     }
 
     Server {

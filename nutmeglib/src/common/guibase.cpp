@@ -47,7 +47,7 @@ void GuiBase::registerGuiItem(GuiItem *item)
 {
     QString key = item->handle();
 
-    if (m_parameters.contains(key))
+    if (key.length() == 0 || m_parameters.contains(key))
         return;
 
     m_parameters.insert(key, item);
@@ -55,5 +55,6 @@ void GuiBase::registerGuiItem(GuiItem *item)
 
 void GuiBase::deregisterGuiItem(GuiItem *item)
 {
-    m_parameters.remove(item->handle());
+    if (item->handle().length() > 0)
+        m_parameters.remove(item->handle());
 }
