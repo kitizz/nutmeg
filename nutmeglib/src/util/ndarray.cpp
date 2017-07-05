@@ -29,7 +29,7 @@ ArrayData::ArrayData(const ArrayData &other)
 ArrayData::~ArrayData()
 {
     if (data)
-        delete data;
+        delete[] data;
 }
 
 NDArray::NDArray()
