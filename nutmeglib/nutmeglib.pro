@@ -2,7 +2,13 @@ TEMPLATE = lib
 CONFIG += plugin
 
 TARGET = nutmeglib
-DESTDIR = $$OUT_PWD/../Nutmeg
+
+ios {
+    DESTDIR = $$OUT_PWD/../qml
+}
+!ios {
+    DESTDIR = $$OUT_PWD/../Nutmeg
+}
 
 uri = com.kitizz.Nutmeg
 DEFINES += NUTMEG_LIBRARY
@@ -76,6 +82,11 @@ win32: {
     for (f, Gpaths): qmlfiles.commands += $(COPY) \"$$pwd\\$$f\" \"$$dest\\Gui\" &
 }
 
+ios {
+    CONFIG += qt c++11 static
+    QMAKE_MOC_OPTIONS += -Muri=$$uri # static plugin must use this
+}
+
 first.depends = $(first) qmlfiles
 export(first.depends)
 export(qmlfiles.commands)
@@ -100,7 +111,6 @@ win32:INCLUDEPATH += "$$zmq_include"
 unix:QMAKE_LIBDIR += $$zmq_lib
 win32:QMAKE_LIBDIR += "$$zmq_lib"
 
-DISTFILES += \
-    qml/Gui/qmldir
+DISTFILES +=
 
 

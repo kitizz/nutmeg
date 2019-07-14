@@ -62,7 +62,7 @@ Item {
             }
 
             Button {
-                anchors.right: parent.right
+                Layout.alignment: Qt.AlignRight
                 text: "Close"
                 onClicked: {
                     if (window)

@@ -1,9 +1,10 @@
 #include <QApplication>
 #include <QQuickView>
 #include <QQuickItem>
-#include <QQmlProperty>
+#include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQmlEngine>
+#include <QQmlProperty>
 #include <QDebug>
 
 #include "mainwindow.h"
@@ -30,6 +31,17 @@ int main(int argc, char *argv[])
     // Make the app
     QApplication app(argc, argv);
 
+#ifdef Q_OS_IOS
+    QQmlApplicationEngine engine;
+    engine.addImportPath("qrc:/modules/");
+    const QUrl url(QStringLiteral("qrc:/qml/main.qml"));
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
+                     &app, [url](QObject *obj, const QUrl &objUrl) {
+        if (!obj && url == objUrl)
+            QCoreApplication::exit(-1);
+    }, Qt::QueuedConnection);
+    engine.load(url);
+#else
     MainWindow *w = new MainWindow(QUrl("qrc:/qml/main.qml"));
     w->connect(&app, &QApplication::aboutToQuit, w, &QmlWindow::exit);
 
@@ -46,7 +58,7 @@ int main(int argc, char *argv[])
     QVariant settings_var = QVariant::fromValue(settings);
     w->view()->rootObject()->setProperty("settings", settings_var);
     settingsWindow->view()->rootObject()->setProperty("settings", settings_var);
-
     w->show();
+#endif
     return app.exec();
 }

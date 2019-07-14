@@ -1,4 +1,4 @@
-import QtQuick 2.5
+import QtQuick 2.12
 
 import "Vector.js" as Vector
 import "Util.js" as Util

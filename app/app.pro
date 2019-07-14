@@ -34,7 +34,6 @@ macx {
     zmq.files = libzmq.dylib
 }
 
-
 win32 {
     nutlib.path = $$dest\Nutmeg
     zmq.files = libzmq.dll libzmq.dll
@@ -46,6 +45,13 @@ unix:!macx {
 
 win32:endcmd = &
 unix:endcmd = ;
+
+ios {
+    ICON = ../images/logo.icns
+    QMAKE_IOS_DEPLOYMENT_TARGET = 11.0
+    QMAKE_TARGET_BUNDLE_PREFIX = com.kitizz.nutmeg
+}
+
 # Copy Nutmeg lib in
 nutmeg_dir = $$OUT_PWD/../Nutmeg
 nutlib.files = $$replace(nutmeg_dir, /, $$QMAKE_DIR_SEP)
@@ -76,3 +82,6 @@ HEADERS += \
 
 RESOURCES += \
     qml.qrc
+
+DISTFILES += \
+    Info_ios.plist

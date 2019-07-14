@@ -58,6 +58,7 @@ void NutmegPlugin::registerTypes(const char *uri)
 #endif
 
     // ---------- Layout Stuff --------------
+    qmlRegisterType<AxisBase>(uri, maj,min, "AxisBase");
     qmlRegisterType<Axis2DBase>(uri, maj,min, "Axis2DBase");
     qmlRegisterType<AxisCanvas2D>(uri, maj,min, "AxisCanvas2D");
     qmlRegisterType<AxisSpec>(uri, maj,min, "AxisSpec");

@@ -1,7 +1,7 @@
 #include "figurebase.h"
 
 #include <QVariant>
-#include <QPrinter>
+//#include <QPrinter>
 #include <QPainter>
 
 #include <src/util/util.h>
@@ -19,13 +19,13 @@ FigureBase::FigureBase(QQuickItem *parent)
     , m_axes(QMultiMap<QString,AxisBase*>())
     , m_destroying(false)
     , m_handle(QString())
-    , m_controller(0)
+    , m_controller(nullptr)
     , m_mouse(QPointF())
     , m_mouseUnit(QPointF())
     , m_mouseButtons(0)
     , m_qml(QByteArray())
-    , m_gui(0)
-    , m_keyModifiers(0)
+    , m_gui(nullptr)
+    , m_keyModifiers(nullptr)
 {
     registerChildMethod("axis");
 
@@ -180,6 +180,7 @@ void FigureBase::updateShareY(Axis2DBase *axis)
     }
 }
 
+/* Disabled while QPrinter not available.
 void FigureBase::savePdf(QString filepath)
 {
     qDebug() << "Writing pdf:" << filepath;
@@ -202,6 +203,7 @@ void FigureBase::savePdf(QString filepath)
     }
     p.end();
 }
+*/
 
 void FigureBase::setKeyModifiers(Qt::KeyboardModifiers keyModifier)
 {

@@ -8,6 +8,8 @@ StreamingPlot 0.1 StreamingPlot.qml
 ImagePlot 0.1 ImagePlot.qml
 CanvasPlot 0.1 CanvasPlot.qml
 
+MultiPointPinchArea 0.1 MultiPointPinchArea.qml
+
 Axis3D 0.1 Axis3D.qml
 Axis3DScene 0.1 Axis3DScene.qml
 PointCloud 0.1 PointCloud.qml
@@ -17,3 +19,6 @@ Grid3D 0.1 Grid3D.qml
 GridPlane 0.1 GridPlane.qml
 
 plugin nutmeglib
+
+#typeinfo plugins.qmltypes #static plugin required
+#classname NutmegPlugin # static plugin must set classname for plugin c++ class

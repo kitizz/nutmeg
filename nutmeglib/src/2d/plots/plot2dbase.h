@@ -1,5 +1,4 @@
-#ifndef PLOT_H
-#define PLOT_H
+#pragma once
 
 #include <QQuickItem>
 #include <QPainter>
@@ -50,5 +49,3 @@ private:
     Axis2DBase* m_axis;
     PlotCanvas* m_canvas;
 };
-
-#endif // PLOT_H

@@ -1,4 +1,4 @@
-macx:zmq_dir = /usr/local/Cellar/zeromq/4.1.2
+macx:zmq_dir = /usr/local/Cellar/zeromq/4.2.5
 unix:!macx:zmq_dir = /usr/local
 win32:zmq_dir = C:\libzmq
 

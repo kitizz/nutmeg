@@ -101,7 +101,7 @@ public slots:
     void updateShareX(Axis2DBase *axis);
     void updateShareY(Axis2DBase *axis);
 
-    void savePdf(QString filepath);
+//    void savePdf(QString filepath);
 
 // TODO: Remove once Q_GADGET working properly...
 //    virtual void registerProperties(QMap<QString, QString> mapping) {

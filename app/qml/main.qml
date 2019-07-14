@@ -82,7 +82,6 @@ Rectangle {
             controller.queueTask("AddComponent", "TripleAxis", [qmlAxis], 0)
 
             controller.queueTask("SetFigure", "testFigure", [qml], 1)
-            return
 
             var xData = [0, 1, 2, 3, 4, 5, 7, 8, 10, 12]
             var yData = [0, 1, 2, 3, 2, 1, 3, 5, 2, 10]

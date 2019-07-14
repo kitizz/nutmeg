@@ -1,5 +1,4 @@
-#ifndef PLOTBASE_H
-#define PLOTBASE_H
+#pragma once
 
 #include <QQuickItem>
 #include "nutmegobject.h"
@@ -61,5 +60,3 @@ private:
     AxisBase* m_axis;
     bool m_antialias;
 };
-
-#endif // PLOTBASE_H

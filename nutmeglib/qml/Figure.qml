@@ -1,4 +1,4 @@
-import QtQuick 2.2
+import QtQuick 2.7
 import Nutmeg 0.1
 import "Util.js" as Util
 

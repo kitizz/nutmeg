@@ -14,4 +14,8 @@
         <file>qml/TabStyle.qml</file>
         <file>qml/TestAxis.qml</file>
     </qresource>
+    <qresource prefix="/modules">
+        <file>Info.plist</file>
+        <file alias="qmldir">../nutmeglib/qml/qmldir</file>
+    </qresource>
 </RCC>
